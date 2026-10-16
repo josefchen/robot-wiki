@@ -216919,7 +216919,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -216942,7 +216942,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217103,7 +217103,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217287,7 +217287,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217310,7 +217310,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217425,7 +217425,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217586,7 +217586,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217678,7 +217678,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217724,7 +217724,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217793,7 +217793,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217816,7 +217816,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217862,7 +217862,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -217977,7 +217977,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -294945,7 +294945,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -294968,7 +294968,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295129,7 +295129,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295313,7 +295313,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295336,7 +295336,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295451,7 +295451,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295612,7 +295612,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295704,7 +295704,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295750,7 +295750,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295819,7 +295819,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295842,7 +295842,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -295888,7 +295888,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296003,7 +296003,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296270,7 +296270,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/classical/ros2-for-ml-engineers.png decodes to 1200x630 (1.9047619:1) at 33601 bytes, and out/og/classical/ros2-for-ml-engineers.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/classical/ros2-for-ml-engineers.png decodes to 1200x630 (1.9047619:1) at 33600 bytes, and out/og/classical/ros2-for-ml-engineers.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296279,7 +296279,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296293,7 +296293,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/classical/scene-representation.png decodes to 1200x630 (1.9047619:1) at 34740 bytes, and out/og/classical/scene-representation.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/classical/scene-representation.png decodes to 1200x630 (1.9047619:1) at 34843 bytes, and out/og/classical/scene-representation.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296302,7 +296302,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296454,7 +296454,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/data-hardware/robot-learning-stack.png decodes to 1200x630 (1.9047619:1) at 33444 bytes, and out/og/data-hardware/robot-learning-stack.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/data-hardware/robot-learning-stack.png decodes to 1200x630 (1.9047619:1) at 33487 bytes, and out/og/data-hardware/robot-learning-stack.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296463,7 +296463,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296638,7 +296638,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/manipulation/action-chunking.png decodes to 1200x630 (1.9047619:1) at 36706 bytes, and out/og/manipulation/action-chunking.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/manipulation/action-chunking.png decodes to 1200x630 (1.9047619:1) at 36620 bytes, and out/og/manipulation/action-chunking.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296647,7 +296647,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296661,7 +296661,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/manipulation/action-spaces.png decodes to 1200x630 (1.9047619:1) at 34968 bytes, and out/og/manipulation/action-spaces.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/manipulation/action-spaces.png decodes to 1200x630 (1.9047619:1) at 35182 bytes, and out/og/manipulation/action-spaces.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296670,7 +296670,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296776,7 +296776,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/manipulation/foundation-models.png decodes to 1200x630 (1.9047619:1) at 33929 bytes, and out/og/manipulation/foundation-models.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/manipulation/foundation-models.png decodes to 1200x630 (1.9047619:1) at 33776 bytes, and out/og/manipulation/foundation-models.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296785,7 +296785,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296937,7 +296937,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/manipulation/robot-learning-roadmap.png decodes to 1200x630 (1.9047619:1) at 33806 bytes, and out/og/manipulation/robot-learning-roadmap.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/manipulation/robot-learning-roadmap.png decodes to 1200x630 (1.9047619:1) at 33903 bytes, and out/og/manipulation/robot-learning-roadmap.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296946,7 +296946,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297029,7 +297029,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/rl-sim2real/offline-rl.png decodes to 1200x630 (1.9047619:1) at 33792 bytes, and out/og/rl-sim2real/offline-rl.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/rl-sim2real/offline-rl.png decodes to 1200x630 (1.9047619:1) at 33842 bytes, and out/og/rl-sim2real/offline-rl.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297038,7 +297038,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297075,7 +297075,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/rl-sim2real/reward-design-mpc.png decodes to 1200x630 (1.9047619:1) at 35759 bytes, and out/og/rl-sim2real/reward-design-mpc.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/rl-sim2real/reward-design-mpc.png decodes to 1200x630 (1.9047619:1) at 35815 bytes, and out/og/rl-sim2real/reward-design-mpc.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297084,7 +297084,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297144,7 +297144,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/rl-sim2real/why-rl-locomotion.png decodes to 1200x630 (1.9047619:1) at 36003 bytes, and out/og/rl-sim2real/why-rl-locomotion.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/rl-sim2real/why-rl-locomotion.png decodes to 1200x630 (1.9047619:1) at 36267 bytes, and out/og/rl-sim2real/why-rl-locomotion.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297153,7 +297153,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297167,7 +297167,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/world-models/evaluation.png decodes to 1200x630 (1.9047619:1) at 33873 bytes, and out/og/world-models/evaluation.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/world-models/evaluation.png decodes to 1200x630 (1.9047619:1) at 34006 bytes, and out/og/world-models/evaluation.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297176,7 +297176,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297213,7 +297213,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/world-models/generative-video.png decodes to 1200x630 (1.9047619:1) at 34871 bytes, and out/og/world-models/generative-video.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/world-models/generative-video.png decodes to 1200x630 (1.9047619:1) at 35296 bytes, and out/og/world-models/generative-video.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297222,7 +297222,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297328,7 +297328,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/world-models/world-models-vs-simulators.png decodes to 1200x630 (1.9047619:1) at 35939 bytes, and out/og/world-models/world-models-vs-simulators.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/world-models/world-models-vs-simulators.png decodes to 1200x630 (1.9047619:1) at 36179 bytes, and out/og/world-models/world-models-vs-simulators.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297337,7 +297337,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297613,7 +297613,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297636,7 +297636,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297797,7 +297797,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297981,7 +297981,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298004,7 +298004,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298119,7 +298119,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298280,7 +298280,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298372,7 +298372,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298418,7 +298418,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298487,7 +298487,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298510,7 +298510,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298556,7 +298556,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298671,7 +298671,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298924,7 +298924,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298947,7 +298947,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299108,7 +299108,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299292,7 +299292,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299315,7 +299315,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299430,7 +299430,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299591,7 +299591,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299683,7 +299683,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299729,7 +299729,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299798,7 +299798,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299821,7 +299821,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299867,7 +299867,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -299982,7 +299982,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -300798,7 +300798,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -300821,7 +300821,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -300982,7 +300982,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301166,7 +301166,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301189,7 +301189,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301304,7 +301304,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301465,7 +301465,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301557,7 +301557,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301603,7 +301603,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301672,7 +301672,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301695,7 +301695,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301741,7 +301741,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301856,7 +301856,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302132,7 +302132,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302155,7 +302155,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302316,7 +302316,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302500,7 +302500,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302523,7 +302523,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302638,7 +302638,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302799,7 +302799,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302891,7 +302891,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302937,7 +302937,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -303006,7 +303006,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -303029,7 +303029,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -303075,7 +303075,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -303190,7 +303190,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307207,7 +307207,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of classical/ros2-for-ml-engineers from identical inputs reproduced the staged bytes exactly (32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of classical/ros2-for-ml-engineers from identical inputs reproduced the staged bytes exactly (81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307216,7 +307216,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307230,7 +307230,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of classical/scene-representation from identical inputs reproduced the staged bytes exactly (a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of classical/scene-representation from identical inputs reproduced the staged bytes exactly (b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307239,7 +307239,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307391,7 +307391,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of data-hardware/robot-learning-stack from identical inputs reproduced the staged bytes exactly (0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of data-hardware/robot-learning-stack from identical inputs reproduced the staged bytes exactly (2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307400,7 +307400,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307575,7 +307575,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of manipulation/action-chunking from identical inputs reproduced the staged bytes exactly (d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of manipulation/action-chunking from identical inputs reproduced the staged bytes exactly (dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307584,7 +307584,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307598,7 +307598,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of manipulation/action-spaces from identical inputs reproduced the staged bytes exactly (65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of manipulation/action-spaces from identical inputs reproduced the staged bytes exactly (17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307607,7 +307607,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307713,7 +307713,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of manipulation/foundation-models from identical inputs reproduced the staged bytes exactly (efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of manipulation/foundation-models from identical inputs reproduced the staged bytes exactly (83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307722,7 +307722,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307874,7 +307874,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of manipulation/robot-learning-roadmap from identical inputs reproduced the staged bytes exactly (2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of manipulation/robot-learning-roadmap from identical inputs reproduced the staged bytes exactly (1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307883,7 +307883,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307966,7 +307966,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of rl-sim2real/offline-rl from identical inputs reproduced the staged bytes exactly (3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of rl-sim2real/offline-rl from identical inputs reproduced the staged bytes exactly (e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307975,7 +307975,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308012,7 +308012,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of rl-sim2real/reward-design-mpc from identical inputs reproduced the staged bytes exactly (fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of rl-sim2real/reward-design-mpc from identical inputs reproduced the staged bytes exactly (7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308021,7 +308021,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308081,7 +308081,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of rl-sim2real/why-rl-locomotion from identical inputs reproduced the staged bytes exactly (e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of rl-sim2real/why-rl-locomotion from identical inputs reproduced the staged bytes exactly (f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308090,7 +308090,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308104,7 +308104,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of world-models/evaluation from identical inputs reproduced the staged bytes exactly (9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of world-models/evaluation from identical inputs reproduced the staged bytes exactly (53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308113,7 +308113,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308150,7 +308150,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of world-models/generative-video from identical inputs reproduced the staged bytes exactly (5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of world-models/generative-video from identical inputs reproduced the staged bytes exactly (771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308159,7 +308159,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308265,7 +308265,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of world-models/world-models-vs-simulators from identical inputs reproduced the staged bytes exactly (b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of world-models/world-models-vs-simulators from identical inputs reproduced the staged bytes exactly (308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308274,7 +308274,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308541,7 +308541,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for classical/ros2-for-ml-engineers, each with its source (data/modules.ts#DOMAIN_META.classical.name, content/classical/ros2-for-ml-engineers.mdx#frontmatter.lastReviewed, data/modules.ts#classical/ros2-for-ml-engineers.title, lib/identity.ts#PUBLIC_IDENTITY, content/classical/ros2-for-ml-engineers.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for classical/ros2-for-ml-engineers, each with its source (data/modules.ts#DOMAIN_META.classical.name, content/classical/ros2-for-ml-engineers.mdx#frontmatter.lastReviewed, data/modules.ts#classical/ros2-for-ml-engineers.title, lib/identity.ts#PUBLIC_IDENTITY, content/classical/ros2-for-ml-engineers.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308550,7 +308550,7 @@
         "imagePath": "public/og/classical/ros2-for-ml-engineers.png",
         "width": 1200,
         "height": 630,
-        "sha256": "32cec6e3079c01d311e7a53d466017d972fbd4d9e49c9c54d61c13229c0bbe50",
+        "sha256": "81347a83203d3465917fde3e033b0dabb62de080e1da9ed34e86281bbc0d5fe1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308564,7 +308564,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for classical/scene-representation, each with its source (data/modules.ts#DOMAIN_META.classical.name, content/classical/scene-representation.mdx#frontmatter.lastReviewed, data/modules.ts#classical/scene-representation.title, lib/identity.ts#PUBLIC_IDENTITY, content/classical/scene-representation.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for classical/scene-representation, each with its source (data/modules.ts#DOMAIN_META.classical.name, content/classical/scene-representation.mdx#frontmatter.lastReviewed, data/modules.ts#classical/scene-representation.title, lib/identity.ts#PUBLIC_IDENTITY, content/classical/scene-representation.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308573,7 +308573,7 @@
         "imagePath": "public/og/classical/scene-representation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a388c825d620a041842042cc381061f1e02a0c0fd8e34b50571a289e7ab6caa6",
+        "sha256": "b1ccbbbc1e0a6efb890ca01b5b344b5c7b7e5d7b24c648f02be94a48bca75db1",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308725,7 +308725,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for data-hardware/robot-learning-stack, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/robot-learning-stack.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/robot-learning-stack.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/robot-learning-stack.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for data-hardware/robot-learning-stack, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/robot-learning-stack.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/robot-learning-stack.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/robot-learning-stack.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308734,7 +308734,7 @@
         "imagePath": "public/og/data-hardware/robot-learning-stack.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0bc4dc479d4e5a17048f0c0519b5013e347dd8c07b8e53ce0e51b5bbf1eede86",
+        "sha256": "2896439da485270a99b20568dfa7b2c0c57054ed8b58fc891c261b69342ca0f0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308909,7 +308909,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for manipulation/action-chunking, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/action-chunking.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/action-chunking.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/action-chunking.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for manipulation/action-chunking, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/action-chunking.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/action-chunking.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/action-chunking.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308918,7 +308918,7 @@
         "imagePath": "public/og/manipulation/action-chunking.png",
         "width": 1200,
         "height": 630,
-        "sha256": "d0191e187380b5157c007cc4036d54f620b69c709db322f348b861110cfcf3d8",
+        "sha256": "dd5b507c98d56966165dec7a5261d6a0b28a22a3b8093e01fc725ca18d74858f",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308932,7 +308932,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for manipulation/action-spaces, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/action-spaces.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/action-spaces.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/action-spaces.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for manipulation/action-spaces, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/action-spaces.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/action-spaces.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/action-spaces.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308941,7 +308941,7 @@
         "imagePath": "public/og/manipulation/action-spaces.png",
         "width": 1200,
         "height": 630,
-        "sha256": "65e22977b8d32b8523798bc0b37558319d20a350d6a5507877bd447eb221c902",
+        "sha256": "17eb54bef680612e2c78f4afe69ac0742dbd0905850168b3387bfb39978752b0",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309047,7 +309047,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for manipulation/foundation-models, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/foundation-models.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/foundation-models.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/foundation-models.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for manipulation/foundation-models, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/foundation-models.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/foundation-models.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/foundation-models.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309056,7 +309056,7 @@
         "imagePath": "public/og/manipulation/foundation-models.png",
         "width": 1200,
         "height": 630,
-        "sha256": "efa97a4bd5bf8d80616cc81f8b3deacd784ff6cd7f970e2e388e8c9dc2bd071f",
+        "sha256": "83b394fa4a445126e85b731b38ca5a16dc8988f3195ca88c93f487717e2657f3",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309208,7 +309208,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for manipulation/robot-learning-roadmap, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/robot-learning-roadmap.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/robot-learning-roadmap.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/robot-learning-roadmap.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for manipulation/robot-learning-roadmap, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/robot-learning-roadmap.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/robot-learning-roadmap.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/robot-learning-roadmap.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309217,7 +309217,7 @@
         "imagePath": "public/og/manipulation/robot-learning-roadmap.png",
         "width": 1200,
         "height": 630,
-        "sha256": "2e97003942071fbec0ec0573cff072b477e5ac07e07d09afeaf9f3d960ff34e7",
+        "sha256": "1bfbe4340a205b1c115337ab5842eb85a26f9f917805ef3dda81d73819620060",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309300,7 +309300,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for rl-sim2real/offline-rl, each with its source (data/modules.ts#DOMAIN_META.rl-sim2real.name, content/rl-sim2real/offline-rl.mdx#frontmatter.lastReviewed, data/modules.ts#rl-sim2real/offline-rl.title, lib/identity.ts#PUBLIC_IDENTITY, content/rl-sim2real/offline-rl.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for rl-sim2real/offline-rl, each with its source (data/modules.ts#DOMAIN_META.rl-sim2real.name, content/rl-sim2real/offline-rl.mdx#frontmatter.lastReviewed, data/modules.ts#rl-sim2real/offline-rl.title, lib/identity.ts#PUBLIC_IDENTITY, content/rl-sim2real/offline-rl.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309309,7 +309309,7 @@
         "imagePath": "public/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "sha256": "3a85f280f3b5f3aff4afa3735be2dc6d07a968a6b55a755c14a37daa3ac2c1f0",
+        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309346,7 +309346,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for rl-sim2real/reward-design-mpc, each with its source (data/modules.ts#DOMAIN_META.rl-sim2real.name, content/rl-sim2real/reward-design-mpc.mdx#frontmatter.lastReviewed, data/modules.ts#rl-sim2real/reward-design-mpc.title, lib/identity.ts#PUBLIC_IDENTITY, content/rl-sim2real/reward-design-mpc.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for rl-sim2real/reward-design-mpc, each with its source (data/modules.ts#DOMAIN_META.rl-sim2real.name, content/rl-sim2real/reward-design-mpc.mdx#frontmatter.lastReviewed, data/modules.ts#rl-sim2real/reward-design-mpc.title, lib/identity.ts#PUBLIC_IDENTITY, content/rl-sim2real/reward-design-mpc.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309355,7 +309355,7 @@
         "imagePath": "public/og/rl-sim2real/reward-design-mpc.png",
         "width": 1200,
         "height": 630,
-        "sha256": "fd2bd56700010fda7694123a747fba2272ee388cb2533bf3bc61d67223b0fcd8",
+        "sha256": "7f23259de9d988bb5c4467fd5d8fbab8e3f98c2ed77c828643ce9be89ba9ac08",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309415,7 +309415,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for rl-sim2real/why-rl-locomotion, each with its source (data/modules.ts#DOMAIN_META.rl-sim2real.name, content/rl-sim2real/why-rl-locomotion.mdx#frontmatter.lastReviewed, data/modules.ts#rl-sim2real/why-rl-locomotion.title, lib/identity.ts#PUBLIC_IDENTITY, content/rl-sim2real/why-rl-locomotion.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for rl-sim2real/why-rl-locomotion, each with its source (data/modules.ts#DOMAIN_META.rl-sim2real.name, content/rl-sim2real/why-rl-locomotion.mdx#frontmatter.lastReviewed, data/modules.ts#rl-sim2real/why-rl-locomotion.title, lib/identity.ts#PUBLIC_IDENTITY, content/rl-sim2real/why-rl-locomotion.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309424,7 +309424,7 @@
         "imagePath": "public/og/rl-sim2real/why-rl-locomotion.png",
         "width": 1200,
         "height": 630,
-        "sha256": "e6be6019ac01d8707cb5b46431c3de82499741b5738abce21b7fcdd389eecbe1",
+        "sha256": "f635aa728c71a199cee11c82000d87865097ba5d29880b0caf23361d1b1cd66b",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309438,7 +309438,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for world-models/evaluation, each with its source (data/modules.ts#DOMAIN_META.world-models.name, content/world-models/evaluation.mdx#frontmatter.lastReviewed, data/modules.ts#world-models/evaluation.title, lib/identity.ts#PUBLIC_IDENTITY, content/world-models/evaluation.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for world-models/evaluation, each with its source (data/modules.ts#DOMAIN_META.world-models.name, content/world-models/evaluation.mdx#frontmatter.lastReviewed, data/modules.ts#world-models/evaluation.title, lib/identity.ts#PUBLIC_IDENTITY, content/world-models/evaluation.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309447,7 +309447,7 @@
         "imagePath": "public/og/world-models/evaluation.png",
         "width": 1200,
         "height": 630,
-        "sha256": "9f2559113143f1eb0ca12d43b0b91027a5dab59dcbcee13fa64bed6f4e588de3",
+        "sha256": "53b7b60c6fbc60eeed89bfa8a29f2580cf90e44f7274a95f5f0b6e4127b365df",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309484,7 +309484,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for world-models/generative-video, each with its source (data/modules.ts#DOMAIN_META.world-models.name, content/world-models/generative-video.mdx#frontmatter.lastReviewed, data/modules.ts#world-models/generative-video.title, lib/identity.ts#PUBLIC_IDENTITY, content/world-models/generative-video.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for world-models/generative-video, each with its source (data/modules.ts#DOMAIN_META.world-models.name, content/world-models/generative-video.mdx#frontmatter.lastReviewed, data/modules.ts#world-models/generative-video.title, lib/identity.ts#PUBLIC_IDENTITY, content/world-models/generative-video.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309493,7 +309493,7 @@
         "imagePath": "public/og/world-models/generative-video.png",
         "width": 1200,
         "height": 630,
-        "sha256": "5d1c61d75fa7237f235b30fc3997c4f987a1c12fcd36dd72c9393730f13fd790",
+        "sha256": "771b331006a533149b6391013e7718960ea6a98f3d5852bf86a45d9f95afcb04",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309599,7 +309599,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for world-models/world-models-vs-simulators, each with its source (data/modules.ts#DOMAIN_META.world-models.name, content/world-models/world-models-vs-simulators.mdx#frontmatter.lastReviewed, data/modules.ts#world-models/world-models-vs-simulators.title, lib/identity.ts#PUBLIC_IDENTITY, content/world-models/world-models-vs-simulators.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for world-models/world-models-vs-simulators, each with its source (data/modules.ts#DOMAIN_META.world-models.name, content/world-models/world-models-vs-simulators.mdx#frontmatter.lastReviewed, data/modules.ts#world-models/world-models-vs-simulators.title, lib/identity.ts#PUBLIC_IDENTITY, content/world-models/world-models-vs-simulators.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309608,7 +309608,7 @@
         "imagePath": "public/og/world-models/world-models-vs-simulators.png",
         "width": 1200,
         "height": 630,
-        "sha256": "b5ba7103130f33df42f615db49c1215ff039c79f725f3b8af62a8bc1219716e2",
+        "sha256": "308328e39ea528ebc73faef25cd713714b84badf6878bcf00cbc24e85f441714",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -313491,7 +313491,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "public/og was validated in the clean staging tree and swapped in by the completed journal: its current digest b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "public/og was validated in the clean staging tree and swapped in by the completed journal: its current digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313504,8 +313504,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
-          "currentDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313522,7 +313522,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "public/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "public/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313535,8 +313535,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
-          "currentDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313553,7 +313553,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "out/og was validated in the clean staging tree and swapped in by the completed journal: its current digest b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "out/og was validated in the clean staging tree and swapped in by the completed journal: its current digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313566,8 +313566,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
-          "currentDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313584,7 +313584,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "out/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "out/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313597,8 +313597,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
-          "currentDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313615,7 +313615,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "evidence/brand-v2/og-cards was validated in the clean staging tree and swapped in by the completed journal: its current digest 58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "evidence/brand-v2/og-cards was validated in the clean staging tree and swapped in by the completed journal: its current digest f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313628,8 +313628,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
-          "currentDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
+          "stagedDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
+          "currentDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false
@@ -313646,7 +313646,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "public/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "public/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313659,8 +313659,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
-          "currentDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313678,7 +313678,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "public/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "public/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313691,8 +313691,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
-          "currentDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313710,7 +313710,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "out/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "out/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313723,8 +313723,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
-          "currentDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313742,7 +313742,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "out/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "out/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313755,8 +313755,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
-          "currentDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313774,7 +313774,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "evidence/brand-v2/og-cards/manifest.json is the manifest the journal validated (digest 58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53), and it records the hash of every published file",
+      "actual": "evidence/brand-v2/og-cards/manifest.json is the manifest the journal validated (digest f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212), and it records the hash of every published file",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313787,8 +313787,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
-          "currentDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
+          "stagedDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
+          "currentDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313806,7 +313806,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "public/og is the complete tree the journal swapped in (digest b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "public/og is the complete tree the journal swapped in (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313819,8 +313819,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
-          "currentDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313837,7 +313837,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "public/structured-images is the complete tree the journal swapped in (digest cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "public/structured-images is the complete tree the journal swapped in (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313850,8 +313850,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
-          "currentDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313868,7 +313868,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "out/og is the complete tree the journal swapped in (digest b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "out/og is the complete tree the journal swapped in (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313881,8 +313881,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
-          "currentDigest": "b690a0b2f2d840080b1956460e8dbfb40767b30758b836e3a7b739f8e7fa6579",
+          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313899,7 +313899,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "out/structured-images is the complete tree the journal swapped in (digest cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "out/structured-images is the complete tree the journal swapped in (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313912,8 +313912,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
-          "currentDigest": "cdfd7332eee5125ebed65199c93d5c15bda4168d75a7396a5826c903d4a54952",
+          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313930,7 +313930,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "evidence/brand-v2/og-cards is the complete tree the journal swapped in (digest 58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "evidence/brand-v2/og-cards is the complete tree the journal swapped in (digest f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313943,8 +313943,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
-          "currentDigest": "58192609fc1e845f69a3eafbc5ba9dd385e15da010715f525f8ee606dbefea53",
+          "stagedDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
+          "currentDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false

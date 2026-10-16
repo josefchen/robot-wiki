@@ -16,6 +16,7 @@ import {
   cardTextRuns,
   siteCardElement,
   titleFontSize,
+  type CardNode,
 } from '@/lib/og-card-artwork';
 import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
 import { sanitizeCardText } from '@/lib/og-cards';
@@ -176,6 +177,32 @@ describe('title fit', () => {
       expect(size, article.slug).toBeGreaterThanOrEqual(56);
       expect(lines(title, size), `${article.slug} at ${size}px`).toBeLessThanOrEqual(3);
     }
+  });
+
+  it('balances every hyphen-free title and leaves a hyphenated one on the greedy wrap', () => {
+    const findField = (node: CardNode, field: string): CardNode | undefined => {
+      if (node.props.ogMeta?.field === field) return node;
+      if (!Array.isArray(node.props.children)) return undefined;
+      for (const child of node.props.children) {
+        const found = findField(child, field);
+        if (found) return found;
+      }
+      return undefined;
+    };
+    const wraps = new Map<string, unknown>();
+    for (const { cardId, card } of CORPUS) {
+      if (cardId === 'site') continue;
+      const node = findField(openSealedCardTree(card), 'title');
+      expect(typeof node?.props.children, `${cardId} paints one title string`).toBe('string');
+      const title = node?.props.children as string;
+      wraps.set(title, node?.props.style.textWrap);
+      expect(node?.props.style.textWrap, `${cardId}: ${title}`).toBe(
+        title.includes('-') ? undefined : 'balance',
+      );
+    }
+    expect(wraps.size).toBe(publishedModules().length);
+    expect([...wraps.values()]).toContain('balance');
+    expect([...wraps.values()]).toContain(undefined);
   });
 
   it('sizes the site wordmark at least 1.5x the descriptor (reference rubric hierarchy)', () => {
