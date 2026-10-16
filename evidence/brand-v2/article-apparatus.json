@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "13833b9358d8686722524e219cd0c930602fcb7aa2525ce804da33f9f8b02175",
+  "fingerprint": "88223f3cd2498e6fc5e699b5143f21f34ccc37f600c7226c110d2fb3c452f0f3",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2103,7 +2103,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -10871,7 +10871,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -73347,7 +73347,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -78167,7 +78167,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -93821,7 +93821,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -97826,7 +97826,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -106594,7 +106594,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -169070,7 +169070,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -173890,7 +173890,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -189544,7 +189544,7 @@
           "href": "/glossary/#mpc",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. It was first posted in 2025 and revised in 2026 for ICRA 2026.",
+          "tooltipText": "model predictive controlModel predictive control is constant re-planning against an explicit dynamics model: each step it optimizes a short action sequence, executes only the first action and re-solves from the measured state. Per-step feedback corrects model error instead of freezing it into policy weights, so MPC shows less frozen-policy sim-to-real failure; a wrong model still costs closed-loop performance. Long assumed too slow for full robot dynamics, whole-body MPC now runs in real time on quadruped and humanoid hardware with Zhang and colleagues' MuJoCo-based iLQR controller. Posted in 2025, it was revised in 2026 to appear at ICRA 2026.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true

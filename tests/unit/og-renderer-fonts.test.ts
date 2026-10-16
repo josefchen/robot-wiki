@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { openSync, type Font } from 'fontkit';
 import { describe, expect, it } from 'vitest';
 import { FIRST_PARTY_TYPE_ROLES } from '@/data/type-roles';
+import { PUBLIC_DESCRIPTOR } from '@/lib/identity';
 import { PLEX_MONO_FONT_METADATA } from '@/data/plex-mono-font-metadata';
 import { TEKTUR_FONT_METADATA } from '@/data/tektur-font-metadata';
 import {
@@ -108,7 +109,9 @@ describe('OG renderer font delivery contract', () => {
     const siteMono = cardTextRuns(siteCardElement())
       .filter((run) => primaryFamily(run.family) === 'IBM Plex Mono')
       .map(({ text }) => text);
-    expect(siteMono).toEqual(['PRIMARY SOURCES', 'ROBOT-WIKI.COM']);
+    // The site card carries only the identity and the exact descriptor,
+    // which it sets in the data face as the home hero does.
+    expect(siteMono).toEqual([PUBLIC_DESCRIPTOR]);
   });
 
   it('walks every shipped card and covers each painted run (VAL-B2-TYPE-011 through 014)', () => {

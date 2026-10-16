@@ -683,7 +683,7 @@
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Adjacent domains are robotics fields that meet the same problems under their own safety and certification rules: driving, drones, surgery and space.",
@@ -724,7 +724,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "5bd40067a2d35f5a383bee0b4f84b9f2dbc6d2170814f76ebc1736f9a027ae84"
+      "fingerprint": "81bba597a2a64cf614641ee57f5166497e1ccc1d349768c46c21441961a27d4c"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -923,7 +923,7 @@
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "Classical robotics is the model-based stack that learned policies still run on: kinematics, planning, control, estimation, grasping, perception, mapping, calibration and ROS 2.",
@@ -964,7 +964,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9b2418e0c4cc7b300784dad06007467510e7b17efa89ae8222f75c7eddbd7c18"
+      "fingerprint": "0c9c1a1af7022cadf6cf53309f5e6e6369a1c84b52ee302b8f69e1e1c66b2c67"
     },
     {
       "id": "metadata:/classical/calibration/",
@@ -1449,7 +1449,7 @@
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "Data, hardware and evaluation are what robot learning runs on: training data, the robots that collect it and the tests that score results.",
@@ -1490,7 +1490,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "ae9c94675d7fca025a150fac5f3a5a5b80599ad92a632ed923709228b4b85cad"
+      "fingerprint": "25e9591d5a495f67b8c979af9c09616c08b4e087c307dd7375a2c5cfef00deaf"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1879,7 +1879,7 @@
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "Frontier problems are the open questions that keep robot demos from becoming products: reliability, dexterity, generalization and safety.",
@@ -1920,7 +1920,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "eea7d84e5277610cec79175ba545994750eb8d61506899466caee62467b1bf4a"
+      "fingerprint": "0005d1dd7b199bc2e3c60eccdfe90ef3fbe94d2c48ce515015131686c7c66c09"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -2307,7 +2307,7 @@
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "Manipulation is a robot handling objects with its arms and hands, and a learned policy maps what the robot senses to its next action.",
@@ -2348,7 +2348,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a5587941a83e2f1e34ad4bacd1e441850f60007cce414a274ea6d947b88dfa6e"
+      "fingerprint": "397ba0900ea4e3d37422ceb0c6d92193bdd86acac70d8047d519532dba6fbcf5"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -3213,7 +3213,7 @@
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning (RL) is trial-and-error training of a robot controller, usually in simulation before transfer to hardware.",
@@ -3254,7 +3254,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "dd4564d075e8be122ca7a0741b7134289471fad4b478f72348464d851f64564e"
+      "fingerprint": "0013b906f53ee080c6c2d2db449354f857e5c795dccb31dc5000ea007aa9b558"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -3691,7 +3691,7 @@
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "125ecfabd713ac09ad23176b2ee36b3951067c468df0170e421e89b1fca82a9e",
+      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "World models are learned models that predict how an environment changes when a robot acts, so it can plan, train or be tested on predictions. World-action models also predict actions and run as policies.",
@@ -3732,7 +3732,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "33fc7e788d5ca362c8f99900e318534184d4d80b087bdbcd03c95151f4037b70"
+      "fingerprint": "b02dec477a92a4bbadc0a8edee8a108a3d3a2de6b3d20e534a9131e62dabf9c1"
     },
     {
       "id": "metadata:/world-models/evaluation/",
@@ -17432,5 +17432,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "dbba9fc07306b144601033898d64e44ad90688a9649e7ba5e05db0d9722daced"
+  "rootFingerprint": "279b085b0e70aaebe61be17e1569a1a01462e488d6ba7992c30feefa5557f08b"
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "71025f2778d7ee278efbcf55dcd970dedc180272b0c29ae09d01b10309587a14",
+  "fingerprint": "efe2ba61c22ef3608c1ca056f22f410bde57fb159abb6c7cdd4005878d7a6c2a",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -599,7 +599,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1810,
+      "visibleTextLength": 1827,
       "route": "/adjacent/",
       "viewport": "1440x900"
     },
@@ -1189,7 +1189,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1577,
+      "visibleTextLength": 1594,
       "route": "/classical/",
       "viewport": "1440x900"
     },
@@ -2487,7 +2487,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1226,
+      "visibleTextLength": 1243,
       "route": "/data-hardware/",
       "viewport": "1440x900"
     },
@@ -3549,7 +3549,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1087,
+      "visibleTextLength": 1104,
       "route": "/frontier/",
       "viewport": "1440x900"
     },
@@ -4611,7 +4611,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2119,
+      "visibleTextLength": 2136,
       "route": "/manipulation/",
       "viewport": "1440x900"
     },
@@ -6853,7 +6853,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1489,
+      "visibleTextLength": 1506,
       "route": "/rl-sim2real/",
       "viewport": "1440x900"
     },
@@ -8033,7 +8033,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1425,
+      "visibleTextLength": 1442,
       "route": "/world-models/",
       "viewport": "1440x900"
     },
@@ -9495,7 +9495,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1810,
+      "visibleTextLength": 1827,
       "route": "/adjacent/",
       "viewport": "375x812"
     },
@@ -10085,7 +10085,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1577,
+      "visibleTextLength": 1594,
       "route": "/classical/",
       "viewport": "375x812"
     },
@@ -11383,7 +11383,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1226,
+      "visibleTextLength": 1243,
       "route": "/data-hardware/",
       "viewport": "375x812"
     },
@@ -12445,7 +12445,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1087,
+      "visibleTextLength": 1104,
       "route": "/frontier/",
       "viewport": "375x812"
     },
@@ -13507,7 +13507,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2119,
+      "visibleTextLength": 2136,
       "route": "/manipulation/",
       "viewport": "375x812"
     },
@@ -15749,7 +15749,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1489,
+      "visibleTextLength": 1506,
       "route": "/rl-sim2real/",
       "viewport": "375x812"
     },
@@ -16929,7 +16929,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1425,
+      "visibleTextLength": 1442,
       "route": "/world-models/",
       "viewport": "375x812"
     },

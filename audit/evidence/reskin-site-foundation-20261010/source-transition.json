@@ -3,7 +3,7 @@
   "name": "reskin-site-foundation-20261010",
   "reviewedBy": "implementation worker for the site-foundation re-skin of 2026-10-10 (not independent acceptance)",
   "rationale": "On 2026-10-10 the owner replaced the brand-v2 visual identity with the Pantheon research-page standard (PANTHEON-SPEC.md): paper and ink tokens, DM Sans, Geist and Geist Mono, a single top bar, and an article template with an eyebrow, a display title, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables, carried to the home, hub, glossary, A-Z and search pages. The change is presentation only. Each presentation source it touched is recorded here as exact edits over the bytes it had before, and the earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-16T07:36:51Z",
+  "observedAt": "2026-10-16T10:11:23Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -61,8 +61,8 @@
       },
       "after": {
         "path": "app/(content)/[domain]/page.tsx",
-        "bytes": 10073,
-        "sha256": "7a207fee460b3fcafb158fe227adca353a9e537e0a2de20c642d1ef0cd37ec95"
+        "bytes": 10361,
+        "sha256": "5c1ef612ed9def83ce545626ba1ea6c6320d98a1b4125ea6d93a4c14f3b14f82"
       },
       "edits": [
         {
@@ -103,7 +103,7 @@
         },
         {
           "before": "          <p className=\"mt-3 leading-relaxed text-text-dim\">{meta.description}</p>\n          <p className=\"mt-3 max-w-[65ch] leading-relaxed text-text-dim\">\n            This domain overview lists {published.length} articles, ordered as{' '}\n            {meta.readingOrder}\n          </p>\n",
-          "after": "          <p className=\"page-lead mt-[30px]\">\n            {meta.description}\n            {meta.fact ? (\n              <>\n                {' '}\n                <CitedText cited={meta.fact} stop=\".\" />\n              </>\n            ) : null}\n          </p>\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n            {published.length} articles. {meta.readingOrder}\n          </p>\n          <p data-hub-related className=\"meta-line mt-2 max-w-[960px]\">\n            Related:{' '}\n            {meta.related.map((href, index) => (\n              <span key={href}>\n                {index > 0 ? ', ' : null}\n                <Link data-brand-control-id=\"control:link-focus\" href={href}>\n                  {relatedTitle(href)}\n                </Link>\n              </span>\n            ))}\n            {furtherReading ? (\n              <>\n                . Further reading:{' '}\n                <a\n                  data-brand-control-id=\"control:link-focus\"\n                  href={furtherReading.url}\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                >\n                  {furtherReading.title}\n                </a>{' '}\n                ({citationLabel(furtherReading)})\n              </>\n            ) : null}\n          </p>\n          {meta.evidence ? <EvidenceTable rows={meta.evidence} /> : null}\n"
+          "after": "          <p className=\"page-lead mt-[30px]\">\n            {meta.description}\n            {meta.fact ? (\n              <>\n                {' '}\n                <CitedText cited={meta.fact} stop=\".\" />\n              </>\n            ) : null}\n          </p>\n          {/* \"Domain overview\" is this page's link text in the Articles\n              panel. The hidden prefix lets search find the page under that\n              label (VAL-SEARCH-022) without printing it a second time. */}\n          <p className=\"meta-line mt-6 max-w-[960px]\">\n            <span className=\"sr-only\">Domain overview: </span>\n            {published.length} articles. {meta.readingOrder}\n          </p>\n          <p data-hub-related className=\"meta-line mt-2 max-w-[960px]\">\n            Related:{' '}\n            {meta.related.map((href, index) => (\n              <span key={href}>\n                {index > 0 ? ', ' : null}\n                <Link data-brand-control-id=\"control:link-focus\" href={href}>\n                  {relatedTitle(href)}\n                </Link>\n              </span>\n            ))}\n            {furtherReading ? (\n              <>\n                . Further reading:{' '}\n                <a\n                  data-brand-control-id=\"control:link-focus\"\n                  href={furtherReading.url}\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                >\n                  {furtherReading.title}\n                </a>{' '}\n                ({citationLabel(furtherReading)})\n              </>\n            ) : null}\n          </p>\n          {meta.evidence ? <EvidenceTable rows={meta.evidence} /> : null}\n"
         },
         {
           "before": "        <ol>\n",

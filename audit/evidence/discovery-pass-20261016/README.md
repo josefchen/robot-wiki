@@ -8,7 +8,16 @@ The discovery pass of 2026-10-16 rewrote the seven domain hubs, `/glossary/`,
   landed the first hub changes of this pass. It was built outside the
   repository.
 - End: the export of `30532df0`, built by `npm run refresh:brand-v2-evidence`.
-  The commits after it change no page.
+  Later commits changed three things on these pages: route dates (JSON-LD
+  `dateModified`, sitemap `lastmod`); one sentence of the MPC definition on
+  `/glossary/` (`407ecb94`, same word count, which restores the paper's "to
+  appear at ICRA 2026" status); and a hidden "Domain overview:" prefix on
+  each hub's article count, so search finds the hubs under the Articles
+  panel's label (`4d72cc90`). Every measure file here, rebuilt from the
+  export of `db657a7d`, is identical on all 13 pages. The captures still
+  show these pages: the prefix is a hidden 1 px box, and the MPC entry
+  starts 16,234 px down `/glossary/` at 1440 px and 29,937 px at 375 px,
+  below where the captures stop.
 
 Every measure below reads the exported HTML; `words-browser.json` repeats
 the word counts on the DOM Chromium renders, for both exports. Prose words follow

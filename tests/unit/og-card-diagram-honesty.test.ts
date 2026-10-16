@@ -4,21 +4,33 @@ import { describe, expect, it } from 'vitest';
 import { publishedModules } from '@/data/modules';
 import { DOMAIN_META } from '@/data/modules';
 import { BRAND_COLORS } from '@/lib/brand-v2-tokens';
-import { articleCardElement, type CardNode } from '@/lib/og-card-artwork';
+import {
+  OG_CROSS_SPAN_PX,
+  OG_FRAME_INSET_PX,
+  articleCardElement,
+  type CardNode,
+} from '@/lib/og-card-artwork';
 import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
 
 /**
- * VAL-IMG-015: no generated card draws a quantity it does not have.
+ * VAL-IMG-015: no generated card draws or suggests a quantity it does not have.
  *
  * The three conditions are checked directly rather than by proxy:
  * (a) no pseudo-random or unrelated-quantity source reaches a mark's
- * geometry, (b) the drawings carry none of the three affordances that
- * make a shape read as a measurement, and (c) the drawing a card shows
- * is a constant of its family, so it cannot be read as per-article data.
+ * geometry, (b) the registered devices carry none of the affordances that
+ * make a drawing read as a measurement — a distinguished line, a filled or
+ * highlighted cell, an accent mark outside registration, a series of
+ * varying extents — and (c) the devices are one constant per card kind, so
+ * they cannot be read as per-article data.
+ *
+ * Superseded: the v1 fixed 8x12 grid of 34px cells is no longer an oracle,
+ * and neither is the brand-v2 32px lattice field. Owner-approved successor
+ * (research-page standard, Josef, 10 October 2026: "Surfaces are plain
+ * paper"): the website paints `.engineering-grid` as plain paper, so the
+ * card paints no lattice, and the clauses that graded the lattice now grade
+ * every device the card does paint: the frame rails, their registration
+ * crosses and the section rules.
  */
-
-const ACCENT = BRAND_COLORS.signal;
-const PANEL_WIDTH = 304;
 
 const SOURCE_PATH = join(process.cwd(), 'lib/og-card-artwork.ts');
 const SOURCE = readFileSync(SOURCE_PATH, 'utf8');
@@ -44,6 +56,8 @@ function blameSites(pattern: RegExp): string[] {
 interface Mark {
   width: string;
   height: string;
+  left: string;
+  top: string;
   color: string;
   absolute: boolean;
 }
@@ -64,20 +78,11 @@ function markOf(node: CardNode): Mark {
   return {
     width: styleString(node, 'width'),
     height: styleString(node, 'height'),
+    left: styleString(node, 'left'),
+    top: styleString(node, 'top'),
     color: `${styleString(node, 'backgroundColor')} ${styleString(node, 'border')}`.trim(),
     absolute: styleString(node, 'position') === 'absolute',
   };
-}
-
-function allMarks(node: CardNode): Mark[] {
-  const found: Mark[] = [];
-  const visit = (n: CardNode): void => {
-    if (isMark(n)) found.push(markOf(n));
-    const kids = n.props.children;
-    if (Array.isArray(kids)) for (const k of kids) visit(k);
-  };
-  visit(node);
-  return found;
 }
 
 /**
@@ -97,14 +102,47 @@ function flowSeries(node: CardNode): Mark[][] {
   return series;
 }
 
-/** The diagram subtree: the card's right-hand panel holds exactly one. */
-function diagramOf(card: CardNode): CardNode {
-  const children = card.props.children;
-  if (!Array.isArray(children)) throw new Error('card root has no children');
-  const panel = children[children.length - 1];
-  const inner = panel.props.children;
-  if (!Array.isArray(inner)) throw new Error('panel has no diagram child');
-  return inner[0];
+/** Every subtree annotated with a registered device, optionally one kind. */
+function devicesOf(card: CardNode, device?: string): CardNode[] {
+  const found: CardNode[] = [];
+  const visit = (n: CardNode): void => {
+    const meta = n.props.ogMeta;
+    if (meta?.device !== undefined && (device === undefined || meta.device === device)) found.push(n);
+    const kids = n.props.children;
+    if (Array.isArray(kids)) for (const k of kids) visit(k);
+  };
+  visit(card);
+  return found;
+}
+
+/** A device subtree with the facts it carries removed: its own geometry. */
+function geometryOf(node: CardNode): unknown {
+  const kids = node.props.children;
+  return {
+    meta: node.props.ogMeta?.field === undefined ? node.props.ogMeta : undefined,
+    style: node.props.ogMeta?.field === undefined ? node.props.style : undefined,
+    kids: Array.isArray(kids) ? kids.filter((kid) => kid.props.ogMeta?.field === undefined).map(geometryOf) : [],
+  };
+}
+
+/** Painted leaves of a subtree: filled divs with no children of their own. */
+function paintedLeaves(node: CardNode): CardNode[] {
+  const found: CardNode[] = [];
+  const visit = (n: CardNode): void => {
+    const kids = n.props.children;
+    if (Array.isArray(kids)) {
+      for (const k of kids) visit(k);
+      return;
+    }
+    if (kids === undefined && styleString(n, 'backgroundColor') !== '') found.push(n);
+  };
+  visit(node);
+  return found;
+}
+
+/** Every line the devices draw: the rails and the registration-cross arms. */
+function deviceLines(card: CardNode): CardNode[] {
+  return devicesOf(card).flatMap(paintedLeaves);
 }
 
 /**
@@ -115,30 +153,27 @@ function diagramOf(card: CardNode): CardNode {
  */
 const CORPUS = ogCardCorpus(process.cwd());
 
-function everyDiagram(): Array<{ label: string; domain: string; node: CardNode }> {
+function everyCard(): Array<{ label: string; tree: CardNode }> {
   return CORPUS.map(({ cardId, card }) => ({
     label: cardId === 'site' ? 'site card' : cardId,
-    domain: cardId === 'site' ? '<site>' : cardId.split('/')[0],
-    node: diagramOf(openSealedCardTree(card)),
+    tree: openSealedCardTree(card),
   }));
 }
 
-function articleDiagrams(): Array<{ label: string; domain: string; node: CardNode }> {
-  return everyDiagram().filter(({ domain }) => domain !== '<site>');
-}
-
 describe('VAL-IMG-015 population', () => {
-  it('grades the shipped card corpus, one diagram per card', () => {
-    const diagrams = everyDiagram();
-    expect(diagrams.length).toBe(publishedModules().length + 1);
-    expect(diagrams.filter(({ domain }) => domain === '<site>').length).toBe(1);
-    expect(articleDiagrams().length).toBe(publishedModules().length);
+  it('grades the shipped card corpus: registered devices on every card and no lattice field', () => {
+    const cards = everyCard();
+    expect(cards.length).toBe(publishedModules().length + 1);
+    for (const { label, tree } of cards) {
+      expect(devicesOf(tree, 'device:dot-grid'), label).toHaveLength(0);
+      expect(deviceLines(tree).length, label).toBeGreaterThan(10);
+    }
   });
 });
 
 describe('VAL-IMG-015 (a): no pseudo-random or unrelated-quantity geometry', () => {
   it('constructs no random-number generator anywhere in the artwork module', () => {
-    expect(blameSites(/new Rng\(/)).toEqual([]);
+    expect(blameSites(/new Rng\(|Math\.random\(/)).toEqual([]);
   });
 
   it('defines no random-number generator to construct', () => {
@@ -146,36 +181,88 @@ describe('VAL-IMG-015 (a): no pseudo-random or unrelated-quantity geometry', () 
   });
 
   it('feeds no string hash into the artwork', () => {
-    expect(blameSites(/hashString\(/)).toEqual([]);
+    expect(blameSites(/hashString\(|createHash\(/)).toEqual([]);
   });
 
-  it('does no arithmetic on the review year', () => {
-    const arithmetic = /reviewYear\s*[-+*/%]|[-+*/%]\s*reviewYear|Rng\(reviewYear/;
+  it('does no arithmetic on the review year or the reference count', () => {
+    const arithmetic =
+      /(?:reviewYear|referenceCount)\s*[-+*/%]|[-+*/%]\s*(?:input\.)?(?:reviewYear|referenceCount)/;
     expect(blameSites(arithmetic)).toEqual([]);
   });
 });
 
-describe('VAL-IMG-015 (b): no drawing carries a chart affordance', () => {
-  it('draws no panel-width hairline (an axis or baseline rule)', () => {
-    const offenders = everyDiagram()
-      .filter(({ node }) =>
-        allMarks(node).some((m) => m.width === `${PANEL_WIDTH}px` && m.height === '1px'),
-      )
-      .map(({ label }) => label);
+describe('VAL-IMG-015 (b): the devices carry no chart affordance', () => {
+  it('draws only uniform 1px hairlines: concrete rails and rules, and signal crosses of one span', () => {
+    const offenders: string[] = [];
+    for (const { label, tree } of everyCard()) {
+      for (const line of deviceLines(tree)) {
+        if (styleString(line, 'width') !== '1px' && styleString(line, 'height') !== '1px') {
+          offenders.push(`${label}: a device line is not a 1px hairline (${JSON.stringify(line.props.style)})`);
+        }
+      }
+      const rails = devicesOf(tree, 'device:outer-rail');
+      if (rails.length !== 4) offenders.push(`${label}: ${rails.length} rails, not 4`);
+      for (const rail of rails) {
+        const edge = rail.props.ogMeta?.instance ?? '';
+        if (styleString(rail, 'backgroundColor') !== BRAND_COLORS.concrete) {
+          offenders.push(`${label}: ${edge} rail painted ${styleString(rail, 'backgroundColor')}`);
+        }
+        if (styleString(rail, edge) !== `${OG_FRAME_INSET_PX}px`) {
+          offenders.push(`${label}: ${edge} rail sits at ${styleString(rail, edge)}`);
+        }
+        // A rail runs edge to edge, so no rail stops short and reads as an axis.
+        for (const side of edge === 'left' || edge === 'right' ? ['top', 'bottom'] : ['left', 'right']) {
+          if (styleString(rail, side) !== '0px') offenders.push(`${label}: ${edge} rail stops at ${side} ${styleString(rail, side)}`);
+        }
+      }
+      const arms = devicesOf(tree, 'device:registration-cross').flatMap(paintedLeaves);
+      if (arms.length !== 8) offenders.push(`${label}: ${arms.length} cross arms, not 8`);
+      for (const arm of arms) {
+        if (styleString(arm, 'backgroundColor') !== BRAND_COLORS.signal) {
+          offenders.push(`${label}: cross arm painted ${styleString(arm, 'backgroundColor')}`);
+        }
+        const extents = [styleString(arm, 'width'), styleString(arm, 'height')].sort().join(' by ');
+        if (extents !== ['1px', `${OG_CROSS_SPAN_PX}px`].sort().join(' by ')) {
+          offenders.push(`${label}: cross arm ${extents}, not ${OG_CROSS_SPAN_PX}px by 1px`);
+        }
+      }
+      const rules = devicesOf(tree, 'device:section-rule');
+      if (rules.length !== (label === 'site card' ? 0 : 2)) offenders.push(`${label}: ${rules.length} section rules`);
+      for (const rule of rules) {
+        const side = rule.props.ogMeta?.instance === 'header' ? 'borderBottom' : 'borderTop';
+        if (styleString(rule, side) !== `1px solid ${BRAND_COLORS.concrete}`) {
+          offenders.push(`${label}: ${rule.props.ogMeta?.instance} rule is ${styleString(rule, side)}`);
+        }
+      }
+    }
     expect(offenders).toEqual([]);
   });
 
-  it('draws no accent-coloured mark inside a diagram', () => {
-    const offenders = everyDiagram()
-      .filter(({ node }) => allMarks(node).some((m) => m.color.includes(ACCENT)))
+  it('paints the signal accent only on the registration crosses and the highlight tone nowhere', () => {
+    const offenders: string[] = [];
+    const visit = (label: string, node: CardNode, insideCross: boolean): void => {
+      const crossed = insideCross || node.props.ogMeta?.device === 'device:registration-cross';
+      const painted = JSON.stringify(node.props.style).toUpperCase();
+      if (painted.includes(BRAND_COLORS.signal) && !crossed) offenders.push(`${label}: signal outside a registration cross`);
+      if (painted.includes(BRAND_COLORS.highlight)) offenders.push(`${label}: highlight painted`);
+      const kids = node.props.children;
+      if (Array.isArray(kids)) for (const kid of kids) visit(label, kid, crossed);
+    };
+    for (const { label, tree } of everyCard()) visit(label, tree, false);
+    expect(offenders).toEqual([]);
+  });
+
+  it('paints no highlight tone on any card, so nothing reads as a selected datum or progress state', () => {
+    const offenders = everyCard()
+      .filter(({ tree }) => JSON.stringify(tree).toUpperCase().includes(BRAND_COLORS.highlight))
       .map(({ label }) => label);
     expect(offenders).toEqual([]);
   });
 
   it('lays out no flow series of comparable marks with varying extents', () => {
     const offenders: string[] = [];
-    for (const { label, node } of everyDiagram()) {
-      for (const series of flowSeries(node)) {
+    for (const { label, tree } of everyCard()) {
+      for (const series of flowSeries(tree)) {
         const boxes = new Set(series.map((m) => `${m.width}x${m.height}`));
         if (boxes.size > 1) offenders.push(`${label}: ${[...boxes].join(', ')}`);
       }
@@ -184,32 +271,38 @@ describe('VAL-IMG-015 (b): no drawing carries a chart affordance', () => {
   });
 });
 
-describe('VAL-IMG-015 (c): the drawing is a constant of its family', () => {
-  it('renders the identical diagram for every article sharing a domain', () => {
-    const byDomain = new Map<string, Set<string>>();
-    for (const { domain, node } of articleDiagrams()) {
-      const shapes = byDomain.get(domain) ?? new Set<string>();
-      shapes.add(JSON.stringify(node));
-      byDomain.set(domain, shapes);
+describe('VAL-IMG-015 (c): the devices are a constant of the corpus', () => {
+  it('renders the identical devices on every card of a kind, and the identical frame on both kinds', () => {
+    const byKind = new Map<string, Set<string>>();
+    const frames = new Set<string>();
+    for (const { label, tree } of everyCard()) {
+      const kind = label === 'site card' ? 'site' : 'article';
+      const shapes = byKind.get(kind) ?? new Set<string>();
+      shapes.add(JSON.stringify(devicesOf(tree).map(geometryOf)));
+      byKind.set(kind, shapes);
+      frames.add(
+        JSON.stringify(
+          [...devicesOf(tree, 'device:outer-rail'), ...devicesOf(tree, 'device:registration-cross')].map(geometryOf),
+        ),
+      );
     }
-    const varying = [...byDomain.entries()]
-      .filter(([, shapes]) => shapes.size > 1)
-      .map(([domain, shapes]) => `${domain}: ${shapes.size} distinct drawings`);
-    expect(varying).toEqual([]);
+    expect(byKind.get('site')?.size).toBe(1);
+    expect(byKind.get('article')?.size).toBe(1);
+    expect(frames.size).toBe(1);
   });
 
-  it('does not change the drawing when the article facts change', () => {
+  it('does not change the devices when the article facts change', () => {
     const [entry] = publishedModules();
     const build = (referenceCount: number, reviewYear: number): string =>
       JSON.stringify(
-        diagramOf(
+        devicesOf(
           articleCardElement({
             entry,
             domainName: DOMAIN_META[entry.domain].name,
             referenceCount,
             reviewYear,
           }),
-        ),
+        ).map(geometryOf),
       );
     expect(build(6, 2024)).toBe(build(24, 2026));
   });

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5181b0e385461f3c3f5c909dc432cece805736993696086828905da3bf718fbc",
+  "fingerprint": "ea77b275916f55d4bcaad1f274b7878d32aebcb1ef7993cce2de8c3b460a64c4",
   "viewport": "1440x900",
   "surfaces": [
     {
@@ -36,7 +36,7 @@
     },
     {
       "route": "/manipulation/",
-      "visibleTextLength": 7356,
+      "visibleTextLength": 7373,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Manipulation & Learned Policies",
@@ -67,7 +67,7 @@
     },
     {
       "route": "/rl-sim2real/",
-      "visibleTextLength": 4589,
+      "visibleTextLength": 4606,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "RL, Sim-to-Real & Locomotion",
@@ -98,7 +98,7 @@
     },
     {
       "route": "/world-models/",
-      "visibleTextLength": 4490,
+      "visibleTextLength": 4507,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "World Models",
@@ -129,7 +129,7 @@
     },
     {
       "route": "/data-hardware/",
-      "visibleTextLength": 3960,
+      "visibleTextLength": 3977,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Data, Hardware & Evaluation",
@@ -160,7 +160,7 @@
     },
     {
       "route": "/classical/",
-      "visibleTextLength": 4831,
+      "visibleTextLength": 4848,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Classical Foundations",
@@ -191,7 +191,7 @@
     },
     {
       "route": "/frontier/",
-      "visibleTextLength": 3419,
+      "visibleTextLength": 3436,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Frontier & Open Problems",
@@ -222,7 +222,7 @@
     },
     {
       "route": "/adjacent/",
-      "visibleTextLength": 4344,
+      "visibleTextLength": 4361,
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "h1Text": "Adjacent Domains",

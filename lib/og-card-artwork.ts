@@ -3,20 +3,32 @@
  * generator renders (scripts/generate-og-cards.ts). No node-only imports
  * here so the geometry is unit-testable under Vitest.
  *
- * Design system: the site's paper ground, hairline borders, Tektur display
- * wordmark, one locked signal-blue accent and mono technical readouts.
- * Nothing on a card is build state (AGENTS.md design rules 1 and 6: no
- * progress counters, no drafts).
+ * Research-page composition (library/design-system.md owner decision of
+ * 10 October 2026, §19): a plain paper ground framed by four 1px concrete
+ * hairline rails, one signal-blue registration cross on each rail
+ * intersection, and on the article card hairline section rules under the
+ * header band and over the footer band. There is no lattice or field: the
+ * website's `.engineering-grid` is plain paper now, and a card follows the
+ * website's grid. The Tektur display face, which survives only in this
+ * offline renderer, sets the title or the dominant wordmark; IBM Plex Mono,
+ * the registered OG face of the data role (data/type-roles.json), sets the
+ * registration metadata and the site descriptor.
  *
- * HONESTY CONTRACT FOR THE GRID FIELD (VAL-IMG-015). The right-hand panel
- * is the same literal engineering grid on every card. It encodes no article
- * quantity and carries no highlighted cell, axis, chart series or domain
- * glyph. Reference count and review year remain factual text on the card.
- * A constant grid claims nothing while still giving the identity one clear
- * graphic device.
+ * Every rail, cross and rule is one of the website's registered grid
+ * devices (`device:*` in contract/brand-v2-registries.json) and carries
+ * that ID in `props.ogMeta.device`, so the card population and the registry
+ * can be reconciled. Text nodes carry the card field they paint in
+ * `props.ogMeta.field`, so the renderer-input manifest records which
+ * canonical fact each string came from. Satori ignores `ogMeta`.
  *
- * Cards stay byte-distinct (VAL-DIST-003) through their text, which
- * carries the title, domain, reference count and review year.
+ * HONESTY CONTRACT (VAL-IMG-015). The devices are constants of the card
+ * kind: their geometry depends only on the canvas edges, never on an
+ * article fact, a hash or a random source. No device draws a series, cell,
+ * axis or distinguished line, the one accent is confined to the
+ * registration crosses, and the highlight tone is not painted at all, so
+ * nothing reads as a selected datum or a progress state. Cards stay
+ * byte-distinct (VAL-DIST-003) through their factual text: title, domain,
+ * review year and reference count.
  */
 
 import type { ModuleRegistryEntry } from '../data/schemas/module.ts';
@@ -44,19 +56,21 @@ export const OG_RENDERER_COLORS = {
   signal: BRAND_COLORS.signal,
 } as const;
 
-const BG = OG_RENDERER_COLORS.paper;
-const PANEL = OG_RENDERER_COLORS.white;
-const BORDER = OG_RENDERER_COLORS.concrete;
+export type OgRendererColorToken = keyof typeof OG_RENDERER_COLORS;
+
+const GROUND = OG_RENDERER_COLORS.paper;
+const PROBE_GROUND = OG_RENDERER_COLORS.white;
+const RULE = OG_RENDERER_COLORS.concrete;
 const TEXT = OG_RENDERER_COLORS.ink;
 const DIM = OG_RENDERER_COLORS.graphite;
-const ACCENT = OG_RENDERER_COLORS.signal;
+const REGISTRATION = OG_RENDERER_COLORS.signal;
 
 // Satori consumes separately vendored static TTFs. The browser uses the
 // approved variable Tektur WOFF2 through next/font/local and Plex Mono
 // through next/font/google instead; keeping those paths separate makes OG
 // rendering deterministic and offline. Both stacks come from the renderer
 // face registry so nothing can be painted in an unregistered family.
-const SANS = OG_DISPLAY_STACK;
+const DISPLAY = OG_DISPLAY_STACK;
 const MONO = OG_MONO_STACK;
 
 /* ------------------------------------------------------------------ */
@@ -64,11 +78,29 @@ const MONO = OG_MONO_STACK;
 /* wrapper keeps TS strict happy without importing React types here.   */
 /* ------------------------------------------------------------------ */
 
+/** The card field a text node paints; every text node names exactly one. */
+export type CardField =
+  | 'identity'
+  | 'descriptor'
+  | 'title'
+  | 'domain'
+  | 'reviewYear'
+  | 'referenceCount';
+
+export type CardMeta = {
+  /** A registered website grid device ID, e.g. `device:outer-rail`. */
+  device?: OgCardDeviceId;
+  /** Which instance of the device, e.g. `left` or `top-left`. */
+  instance?: string;
+  field?: CardField;
+};
+
 export type CardNode = {
   type: string;
   props: {
     style: Record<string, unknown>;
     children?: string | CardNode[];
+    ogMeta?: CardMeta;
   };
 };
 
@@ -76,30 +108,37 @@ function el(
   type: string,
   style: Record<string, unknown>,
   children?: string | CardNode[],
+  ogMeta?: CardMeta,
 ): CardNode {
   // Satori requires an explicit display on every element whose children
   // is an array (even a single-element array). Default such wrappers to
   // flex; absolutely-positioned children leave the flow, so this is
-  // inert for the relative grid containers that rely on it.
+  // inert for the relative containers that rely on it.
   const resolved =
     Array.isArray(children) && style.display === undefined
       ? { display: 'flex', ...style }
       : style;
-  return children === undefined
-    ? { type, props: { style: resolved } }
-    : { type, props: { style: resolved, children } };
+  const props: CardNode['props'] = { style: resolved };
+  if (children !== undefined) props.children = children;
+  if (ogMeta !== undefined) props.ogMeta = ogMeta;
+  return { type, props };
 }
 
-function div(style: Record<string, unknown>, children?: string | CardNode[]): CardNode {
-  return el('div', style, children);
+function div(
+  style: Record<string, unknown>,
+  children?: string | CardNode[],
+  ogMeta?: CardMeta,
+): CardNode {
+  return el('div', style, children, ogMeta);
 }
 
-export type CardTextRun = { family: string; text: string };
+export type CardTextRun = { family: string; text: string; field?: CardField };
 
 /**
  * Every text run a card paints, paired with the font-family stack that
- * resolves for it. Font checks read the population out of the element tree
- * the generator actually renders rather than restating a label list.
+ * resolves for it and the card field it carries. Font checks and the
+ * renderer-input manifest read the population out of the element tree the
+ * generator actually renders rather than restating a label list.
  */
 export function cardTextRuns(
   node: CardNode,
@@ -108,7 +147,10 @@ export function cardTextRuns(
   const declared = node.props.style.fontFamily;
   const family = typeof declared === 'string' ? declared : inheritedFamily;
   const children = node.props.children;
-  if (typeof children === 'string') return [{ family, text: children }];
+  if (typeof children === 'string') {
+    const field = node.props.ogMeta?.field;
+    return [field === undefined ? { family, text: children } : { family, text: children, field }];
+  }
   if (Array.isArray(children)) {
     return children.flatMap((child) => cardTextRuns(child, family));
   }
@@ -171,238 +213,352 @@ export function cardPaintedColors(node: CardNode): CardPaintedColor[] {
 }
 
 /* ------------------------------------------------------------------ */
-/* Engineering-grid panel. Flat geometry, no gradients, glow, logo or  */
-/* data encoding. The grid stays neutral; signal blue belongs to text. */
+/* Registered grid devices.                                            */
 /* ------------------------------------------------------------------ */
 
-type Ornament = 'grid';
+export type OgCardKind = 'site' | 'article';
 
-/** Every card uses the same non-semantic engineering grid. */
-export function ornamentFor(domain: string): Ornament {
-  void domain;
-  return 'grid';
-}
+export type OgCardDeviceId =
+  | 'device:outer-rail'
+  | 'device:section-rule'
+  | 'device:registration-cross';
 
-const GRID = OG_RENDERER_COLORS.concrete;
+export type OgCardDeviceRecord = {
+  /** The website grid-device registry row this card device instantiates. */
+  device: OgCardDeviceId;
+  instance: string;
+  purpose: string;
+  /** The real layout geometry the device sits on. */
+  anchor: string;
+  colourToken: OgRendererColorToken;
+  /** Card kinds that paint this instance. */
+  cards: readonly OgCardKind[];
+};
 
-function hairline(width: number): CardNode {
-  return div({ width: `${width}px`, height: '1px', backgroundColor: BORDER });
-}
+/** Outer-rail inset from each canvas edge; a spacing-ladder value. */
+export const OG_FRAME_INSET_PX = 48;
+/** Header and footer band height on the article card. */
+export const OG_BAND_HEIGHT_PX = 64;
+/** Registration cross arm span: odd, so one pixel sits on the rail. */
+export const OG_CROSS_SPAN_PX = 17;
+/** Text inset from the rails, a spacing-ladder value. */
+export const OG_TEXT_INSET_PX = 48;
 
-/** A continuous 8 by 12 drafting grid with no selected or variable cell. */
-function engineeringGrid(): CardNode {
-  const rowNodes: CardNode[] = [];
-  for (let r = 0; r < 12; r++) {
-    const cells: CardNode[] = [];
-    for (let c = 0; c < 8; c++) {
-      cells.push(
-        div({
-          width: '34px',
-          height: '34px',
-          borderRight: `1px solid ${GRID}`,
-          borderBottom: `1px solid ${GRID}`,
-        }),
-      );
+const CORNERS = ['top-left', 'top-right', 'bottom-left', 'bottom-right'] as const;
+const EDGES = ['left', 'right', 'top', 'bottom'] as const;
+
+/**
+ * Every device instance a card paints, with the geometry it is anchored
+ * to. The card trees are reconciled exactly against this table.
+ */
+export const OG_CARD_DEVICES: readonly OgCardDeviceRecord[] = [
+  ...EDGES.map((edge) => ({
+    device: 'device:outer-rail' as const,
+    instance: edge,
+    purpose: 'Bounds the composition the way the shell rails bound the page.',
+    anchor: `${OG_FRAME_INSET_PX}px from the ${edge} canvas edge, edge to edge`,
+    colourToken: 'concrete' as const,
+    cards: ['site', 'article'] as const,
+  })),
+  ...CORNERS.map((corner) => ({
+    device: 'device:registration-cross' as const,
+    instance: corner,
+    purpose: 'Registers the intersection of two outer rails.',
+    anchor: `centred on the ${corner} outer-rail intersection`,
+    colourToken: 'signal' as const,
+    cards: ['site', 'article'] as const,
+  })),
+  {
+    device: 'device:section-rule',
+    instance: 'header',
+    purpose: 'Closes the metadata band above the title.',
+    anchor: `bottom edge of the ${OG_BAND_HEIGHT_PX}px header band, rail to rail`,
+    colourToken: 'concrete',
+    cards: ['article'],
+  },
+  {
+    device: 'device:section-rule',
+    instance: 'footer',
+    purpose: 'Opens the identity and source-count band below the title.',
+    anchor: `top edge of the ${OG_BAND_HEIGHT_PX}px footer band, rail to rail`,
+    colourToken: 'concrete',
+    cards: ['article'],
+  },
+];
+
+export type CardDeviceUse = { device: OgCardDeviceId; instance: string };
+
+/** The device instances a card tree paints, in tree order. */
+export function cardDevices(node: CardNode): CardDeviceUse[] {
+  const found: CardDeviceUse[] = [];
+  const visit = (current: CardNode): void => {
+    const meta = current.props.ogMeta;
+    if (meta?.device !== undefined) {
+      found.push({ device: meta.device, instance: meta.instance ?? '' });
     }
-    rowNodes.push(div({ display: 'flex' }, cells));
-  }
+    const children = current.props.children;
+    if (Array.isArray(children)) children.forEach(visit);
+  };
+  visit(node);
+  return found;
+}
+
+function outerRail(edge: (typeof EDGES)[number]): CardNode {
+  const vertical = edge === 'left' || edge === 'right';
+  return div(
+    vertical
+      ? {
+          position: 'absolute',
+          [edge]: `${OG_FRAME_INSET_PX}px`,
+          top: '0px',
+          bottom: '0px',
+          width: '1px',
+          backgroundColor: RULE,
+        }
+      : {
+          position: 'absolute',
+          [edge]: `${OG_FRAME_INSET_PX}px`,
+          left: '0px',
+          right: '0px',
+          height: '1px',
+          backgroundColor: RULE,
+        },
+    undefined,
+    { device: 'device:outer-rail', instance: edge },
+  );
+}
+
+function registrationCross(corner: (typeof CORNERS)[number]): CardNode {
+  const offset = `${OG_FRAME_INSET_PX - (OG_CROSS_SPAN_PX - 1) / 2}px`;
+  const [vertical, horizontal] = corner.split('-') as ['top' | 'bottom', 'left' | 'right'];
+  const arm = (OG_CROSS_SPAN_PX - 1) / 2;
+  return div(
+    {
+      position: 'absolute',
+      [vertical]: offset,
+      [horizontal]: offset,
+      width: `${OG_CROSS_SPAN_PX}px`,
+      height: `${OG_CROSS_SPAN_PX}px`,
+    },
+    [
+      div({
+        position: 'absolute',
+        left: '0px',
+        top: `${arm}px`,
+        width: `${OG_CROSS_SPAN_PX}px`,
+        height: '1px',
+        backgroundColor: REGISTRATION,
+      }),
+      div({
+        position: 'absolute',
+        left: `${arm}px`,
+        top: '0px',
+        width: '1px',
+        height: `${OG_CROSS_SPAN_PX}px`,
+        backgroundColor: REGISTRATION,
+      }),
+    ],
+    { device: 'device:registration-cross', instance: corner },
+  );
+}
+
+/** The frame every card shares: four rails and their four crosses. */
+function frame(content: CardNode): CardNode {
+  return div(
+    {
+      position: 'relative',
+      display: 'flex',
+      width: '100%',
+      height: '100%',
+      backgroundColor: GROUND,
+      fontFamily: DISPLAY,
+    },
+    [
+      // One-pixel optical correction: the content box starts inside the
+      // 1px rails rather than on them, so its rules meet the rails flush.
+      div(
+        {
+          position: 'absolute',
+          top: `${OG_FRAME_INSET_PX + 1}px`,
+          right: `${OG_FRAME_INSET_PX + 1}px`,
+          bottom: `${OG_FRAME_INSET_PX + 1}px`,
+          left: `${OG_FRAME_INSET_PX + 1}px`,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        [content],
+      ),
+      ...EDGES.map(outerRail),
+      ...CORNERS.map(registrationCross),
+    ],
+  );
+}
+
+const LABEL = {
+  fontFamily: MONO,
+  fontSize: '18px',
+  // The registration-label tracking ratio (design-system §4.3, 0.08–0.14em).
+  letterSpacing: '1.8px',
+  color: DIM,
+} as const;
+
+function band(
+  edge: 'header' | 'footer',
+  children: CardNode[],
+): CardNode {
   return div(
     {
       display: 'flex',
-      flexDirection: 'column',
-      width: '273px',
-      height: '409px',
-      borderLeft: `1px solid ${GRID}`,
-      borderTop: `1px solid ${GRID}`,
+      flexShrink: 0,
+      height: `${OG_BAND_HEIGHT_PX}px`,
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: `0px ${OG_TEXT_INSET_PX}px`,
+      backgroundColor: GROUND,
+      [edge === 'header' ? 'borderBottom' : 'borderTop']: `1px solid ${RULE}`,
     },
-    rowNodes,
+    children,
+    { device: 'device:section-rule', instance: edge },
   );
 }
+
+// The body sizes from the frame, not from its content: a long title is
+// wider than the measure, so the body starts from a zero basis, fills the
+// space the bands leave and wraps the title inside it.
+const BODY = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  flexGrow: 1,
+  flexBasis: '0px',
+  minHeight: '0px',
+  minWidth: '0px',
+  padding: `0px ${OG_TEXT_INSET_PX}px`,
+} as const;
 
 /* ------------------------------------------------------------------ */
 /* Cards.                                                              */
 /* ------------------------------------------------------------------ */
 
-function titleFontSize(title: string): number {
-  if (title.length > 44) return 48;
-  if (title.length > 28) return 58;
-  return 66;
+/**
+ * Title size steps by length so every published title sets in at most
+ * three lines inside the measure and stays legible in a small X timeline
+ * preview; the smallest step is still the article-h1 display scale.
+ */
+export function titleFontSize(title: string): number {
+  if (title.length > 34) return 64;
+  if (title.length > 24) return 76;
+  return 88;
 }
 
+/** Width the title wraps inside: the frame less both text insets. */
+export const OG_TITLE_MEASURE_PX =
+  1200 - 2 * (OG_FRAME_INSET_PX + 1) - 2 * OG_TEXT_INSET_PX;
+
 /**
- * The article card: domain micro-label and review year across the top,
- * the title as the dominant element, a hairline footer with the wordmark
- * and the article's real reference count, and the shared grid in
- * a bordered right panel. All text passes sanitizeCardText.
+ * The article card: domain and review year in the header band, the title
+ * as the dominant element on the open paper between the bands, and the
+ * compact wordmark and the article's real reference count in the footer
+ * band. All text passes sanitizeCardText.
  */
 export function articleCardElement(input: CardArtworkInput): CardNode {
   const title = sanitizeCardText(input.entry.title);
-  return div(
-    {
-      width: '100%',
-      height: '100%',
-      backgroundColor: BG,
-      display: 'flex',
-      fontFamily: SANS,
-    },
-    [
-      div(
-        {
-          display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,
-          padding: '52px 48px 44px 60px',
-        },
-        [
-          div(
-            {
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'baseline',
-            },
-            [
-              div(
-                {
-                  fontFamily: MONO,
-                  fontSize: '17px',
-                  letterSpacing: '2px',
-                  color: ACCENT,
-                },
-                sanitizeCardText(input.domainName).toUpperCase(),
-              ),
-              div({ fontFamily: MONO, fontSize: '17px', color: DIM }, `REVIEWED ${input.reviewYear}`),
-            ],
-          ),
-          div(
-            {
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              flexGrow: 1,
-              maxWidth: '620px',
-            },
-            [
-              div(
-                {
-                  fontSize: `${titleFontSize(title)}px`,
-                  lineHeight: 1.16,
-                  color: TEXT,
-                  letterSpacing: '-0.5px',
-                },
-                title,
-              ),
-            ],
-          ),
-          div({ display: 'flex', flexDirection: 'column' }, [
-            hairline(620),
-            div(
-              {
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'baseline',
-                marginTop: '18px',
-              },
-              [
-                div({ fontSize: '26px', color: TEXT }, PUBLIC_IDENTITY),
-                div(
-                  { fontFamily: MONO, fontSize: '17px', color: DIM },
-                  `${input.referenceCount} REFERENCES`,
-                ),
-              ],
-            ),
-          ]),
-        ],
-      ),
-      div(
-        {
-          display: 'flex',
-          width: '400px',
-          backgroundColor: PANEL,
-          borderLeft: `1px solid ${BORDER}`,
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '48px 48px',
-        },
-        [engineeringGrid()],
-      ),
-    ],
+  return frame(
+    div({ display: 'flex', flexDirection: 'column', flexGrow: 1 }, [
+      band('header', [
+        div(LABEL, sanitizeCardText(input.domainName).toUpperCase(), {
+          field: 'domain',
+        }),
+        div(LABEL, `REVIEWED ${input.reviewYear}`, { field: 'reviewYear' }),
+      ]),
+      div(BODY, [
+        div(
+          {
+            fontSize: `${titleFontSize(title)}px`,
+            lineHeight: 1.06,
+            letterSpacing: '-0.5px',
+            color: TEXT,
+          },
+          title,
+          { field: 'title' },
+        ),
+      ]),
+      band('footer', [
+        div({ fontSize: '30px', color: TEXT }, PUBLIC_IDENTITY, {
+          field: 'identity',
+        }),
+        div(LABEL, `${input.referenceCount} REFERENCES`, {
+          field: 'referenceCount',
+        }),
+      ]),
+    ]),
   );
 }
 
 /**
- * The site-level card shared by the non-article destinations: the
- * wordmark as the dominant element, the site description, and the shared
- * engineering grid in the right panel. Its wordmark, eyebrow and description
- * appear on no article card, so the asset is byte-distinct from all of
- * them (VAL-DIST-003) through its text rather than its ornament.
+ * The site-level card shared by the non-article destinations: the dominant
+ * wordmark on one line over the exact descriptor (the site OG/X lockup,
+ * design-system §3.5). The descriptor is a full sentence, which §4.2 keeps
+ * out of the display face, so it sets in IBM Plex Mono, the renderer's
+ * other registered face. Its strings appear on no article card, so the
+ * asset is byte-distinct from all of them (VAL-DIST-003) through its text
+ * rather than ornament.
  */
 export function siteCardElement(): CardNode {
+  return frame(
+    div(BODY, [
+      div(
+        {
+          fontSize: '144px',
+          lineHeight: 1,
+          letterSpacing: '-1px',
+          color: TEXT,
+        },
+        PUBLIC_IDENTITY,
+        { field: 'identity' },
+      ),
+      div(
+        {
+          marginTop: '32px',
+          fontFamily: MONO,
+          fontSize: '28px',
+          lineHeight: 1.4,
+          color: DIM,
+        },
+        PUBLIC_DESCRIPTOR,
+        { field: 'descriptor' },
+      ),
+    ]),
+  );
+}
+
+/**
+ * A glyph-probe tree: one assigned string in one registered stack, wrapped
+ * inside a white canvas so every glyph is painted. Probes are rendered
+ * through the same boundary as the shipped cards and never ship.
+ */
+export function glyphProbeElement(input: {
+  text: string;
+  stack: string;
+  fontSize: number;
+}): CardNode {
   return div(
     {
+      display: 'flex',
       width: '100%',
       height: '100%',
-      backgroundColor: BG,
-      display: 'flex',
-      fontFamily: SANS,
+      padding: '16px',
+      backgroundColor: PROBE_GROUND,
     },
     [
       div(
         {
-          display: 'flex',
-          flexDirection: 'column',
-          flexGrow: 1,
-          padding: '52px 48px 44px 60px',
+          fontFamily: input.stack,
+          fontSize: `${input.fontSize}px`,
+          lineHeight: 1.2,
+          color: TEXT,
         },
-        [
-          // The site card carries the exact Brand v2 descriptor; article
-          // cards omit it so their title and source facts keep priority.
-          div(
-            {
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              flexGrow: 1,
-              maxWidth: '620px',
-            },
-            [
-              div(
-                { fontSize: '86px', lineHeight: 1.1, color: TEXT, letterSpacing: '-1px' },
-                PUBLIC_IDENTITY,
-              ),
-              div(
-                { marginTop: '22px', fontSize: '26px', lineHeight: 1.4, color: DIM },
-                PUBLIC_DESCRIPTOR,
-              ),
-            ],
-          ),
-          div({ display: 'flex', flexDirection: 'column' }, [
-            hairline(620),
-            div(
-              {
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'baseline',
-                marginTop: '18px',
-              },
-              [
-                div({ fontFamily: MONO, fontSize: '17px', color: DIM }, 'PRIMARY SOURCES'),
-                div({ fontFamily: MONO, fontSize: '17px', color: DIM }, 'ROBOT-WIKI.COM'),
-              ],
-            ),
-          ]),
-        ],
-      ),
-      div(
-        {
-          display: 'flex',
-          width: '400px',
-          backgroundColor: PANEL,
-          borderLeft: `1px solid ${BORDER}`,
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '48px 48px',
-        },
-        [engineeringGrid()],
+        input.text,
       ),
     ],
   );

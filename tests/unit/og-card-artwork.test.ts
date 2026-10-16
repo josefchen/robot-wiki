@@ -1,38 +1,31 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { openSync, type LayoutFont } from 'fontkit';
 import { describe, expect, it } from 'vitest';
-import { DOMAINS } from '@/data/domains';
-import { publishedModules } from '@/data/modules';
+import { DOMAIN_META, publishedModules } from '@/data/modules';
+import { BRAND_SPACING } from '@/lib/brand-v2-tokens';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '@/lib/identity';
 import {
+  OG_BAND_HEIGHT_PX,
+  OG_CARD_DEVICES,
+  OG_FRAME_INSET_PX,
+  OG_TEXT_INSET_PX,
+  OG_TITLE_MEASURE_PX,
   articleCardElement,
+  cardDevices,
   cardTextRuns,
-  ornamentFor,
   siteCardElement,
+  titleFontSize,
 } from '@/lib/og-card-artwork';
+import { ogCardCorpus, openSealedCardTree } from '@/lib/og-card-corpus';
+import { sanitizeCardText } from '@/lib/og-cards';
+import { TEKTUR_FONT_METADATA } from '@/data/tektur-font-metadata';
+
+const ROOT = process.cwd();
+const CORPUS = ogCardCorpus(ROOT);
 
 /**
- * The panel is the same engineering grid for every card, so it encodes
- * nothing about the article or its domain (VAL-IMG-015; drawing-level checks live in
- * og-card-diagram-honesty.test.ts).
- */
-describe('grid selection', () => {
-  it('assigns the shared grid to every registered domain', () => {
-    for (const domain of DOMAINS) {
-      expect(ornamentFor(domain)).toBe('grid');
-    }
-  });
-
-  it('is stable across domains because it is identity, not a glyph set', () => {
-    expect(ornamentFor('classical')).toBe(ornamentFor('classical'));
-    expect(ornamentFor('manipulation')).toBe(ornamentFor('classical'));
-  });
-
-  it('uses the same grid for an unregistered domain', () => {
-    expect(ornamentFor('not-a-domain')).toBe(ornamentFor('manipulation'));
-  });
-});
-
-/**
- * The identity the cards paint (VAL-B2-ID-001/002/003, VAL-BRAND-001/002).
+ * The identity the cards paint (VAL-B2-ID-001/002/003/009, VAL-BRAND-001/002).
  *
  * Read off the element tree the generator renders, so it is the same object
  * the shipped PNG is rasterised from rather than a restated literal. The
@@ -40,17 +33,6 @@ describe('grid selection', () => {
  * to `Robot Wiki`, because nothing here quantified over what the cards say.
  */
 describe('card identity text', () => {
-  const article = publishedModules()[0];
-  const articleRuns = cardTextRuns(
-    articleCardElement({
-      entry: article,
-      domainName: 'Manipulation',
-      referenceCount: 12,
-      reviewYear: 2026,
-    }),
-  ).map(({ text }) => text);
-  const siteRuns = cardTextRuns(siteCardElement()).map(({ text }) => text);
-
   /** Design-system §3.1 forbids each of these as a display identity. */
   const FORBIDDEN_DISPLAY = [
     'robot-wiki',
@@ -60,32 +42,153 @@ describe('card identity text', () => {
     'Robotics encyclopaedia',
   ];
 
-  it('paints the exact public identity on the article card', () => {
-    expect(articleRuns).toContain(PUBLIC_IDENTITY);
-  });
-
-  it('paints the exact public identity and descriptor on the site card', () => {
-    expect(siteRuns).toContain(PUBLIC_IDENTITY);
-    expect(siteRuns).toContain(PUBLIC_DESCRIPTOR);
-  });
-
-  it('paints no v1 display identity and no descriptor paraphrase', () => {
-    for (const run of [...articleRuns, ...siteRuns]) {
-      // Technical identifiers stay technical (VAL-B2-ID-004): the domain
-      // readout is a URL, not a display lockup, so it is compared whole
-      // rather than by substring.
-      if (run === 'ROBOT-WIKI.COM') continue;
-      expect(FORBIDDEN_DISPLAY, `card run ${JSON.stringify(run)}`).not.toContain(
-        run,
-      );
-      // A run that talks about citations is either the canonical descriptor
-      // or a paraphrase of it; there is no third case.
-      if (/citation/i.test(run)) expect(run).toBe(PUBLIC_DESCRIPTOR);
+  it('paints the compact identity and no descriptor on every article card, and both exact strings on the site card', () => {
+    expect(CORPUS.length).toBe(publishedModules().length + 1);
+    for (const { cardId, card } of CORPUS) {
+      const runs = cardTextRuns(openSealedCardTree(card));
+      const identity = runs.filter(({ text }) => text === PUBLIC_IDENTITY);
+      expect(identity, `${cardId} paints the identity once`).toHaveLength(1);
+      expect(identity[0].field).toBe('identity');
+      expect(
+        runs.filter(({ text }) => text === PUBLIC_DESCRIPTOR),
+        `${cardId} descriptor`,
+      ).toHaveLength(cardId === 'site' ? 1 : 0);
     }
-    expect(siteRuns.filter((run) => run === PUBLIC_DESCRIPTOR)).toHaveLength(1);
   });
 
-  it('keeps the technical domain readout on the site card', () => {
-    expect(siteRuns).toContain('ROBOT-WIKI.COM');
+  it('paints no v1 display identity, no descriptor paraphrase and no technical domain readout', () => {
+    for (const { cardId, card } of CORPUS) {
+      for (const run of cardTextRuns(openSealedCardTree(card))) {
+        expect(FORBIDDEN_DISPLAY, `${cardId} run ${JSON.stringify(run.text)}`).not.toContain(run.text);
+        // A run naming the brand is the exact display identity; the card
+        // facts are limited to the owning route's fields (VAL-IMG-015), so
+        // the production domain is not painted as a readout either.
+        if (/robot[- ]wiki/i.test(run.text)) expect(run.text).toBe(PUBLIC_IDENTITY);
+        // A run that talks about citations is either the canonical
+        // descriptor or a paraphrase of it; there is no third case.
+        if (/citation/i.test(run.text)) expect(run.text).toBe(PUBLIC_DESCRIPTOR);
+      }
+    }
+  });
+
+  it('limits each card to its canonical fields: site identity and descriptor, or article title, domain, review year, reference count and identity', () => {
+    for (const { cardId, card } of CORPUS) {
+      const fields = cardTextRuns(openSealedCardTree(card)).map(({ field }) => field).sort();
+      expect(fields, cardId).toEqual(
+        cardId === 'site'
+          ? ['descriptor', 'identity']
+          : ['domain', 'identity', 'referenceCount', 'reviewYear', 'title'],
+      );
+    }
+  });
+});
+
+describe('registered grid devices', () => {
+  it('paints exactly the registered device instances on each card kind', () => {
+    for (const { cardId, card } of CORPUS) {
+      const kind = cardId === 'site' ? 'site' : 'article';
+      const painted = cardDevices(openSealedCardTree(card))
+        .map(({ device, instance }) => `${device}#${instance}`)
+        .sort();
+      const registered = OG_CARD_DEVICES.filter(({ cards }) => cards.includes(kind))
+        .map(({ device, instance }) => `${device}#${instance}`)
+        .sort();
+      expect(painted, cardId).toEqual(registered);
+    }
+  });
+
+  // Owner-approved successor (research-page standard, Josef, 10 October
+  // 2026: "Surfaces are plain paper"): this pinned the card lattice to the
+  // 32px `.engineering-grid` tile. The website now paints that class as
+  // plain paper, so the card follows it with no lattice, and the geometry
+  // pin moves from the lattice pitch to the spacing ladder.
+  it('uses only device IDs the website registers, and no lattice, as the website paints none', () => {
+    const registries = JSON.parse(
+      readFileSync(join(ROOT, 'contract/brand-v2-registries.json'), 'utf8'),
+    ) as { gridDevices: Array<{ id: string; anchorGeometry: { pitchPx?: number } }> };
+    const ids = new Map(registries.gridDevices.map((device) => [device.id, device]));
+    for (const { device } of OG_CARD_DEVICES) expect(ids.has(device), device).toBe(true);
+    expect(OG_CARD_DEVICES.map(({ device }) => device)).not.toContain('device:dot-grid');
+    // The stylesheet keeps the class name and paints it as plain paper.
+    const css = readFileSync(join(ROOT, 'app/globals.css'), 'utf8');
+    expect(css).toMatch(/\.engineering-grid,?[^{]*\{[^}]*background-image: none;/);
+    expect(css).not.toMatch(/\.engineering-grid[^{]*\{[^}]*background-size:/);
+    for (const step of [OG_FRAME_INSET_PX, OG_TEXT_INSET_PX, OG_BAND_HEIGHT_PX]) {
+      expect(BRAND_SPACING, `${step}px`).toContain(step);
+    }
+  });
+
+  it('keeps device geometry independent of the article facts', () => {
+    const [entry] = publishedModules();
+    const devicesOf = (referenceCount: number, reviewYear: number) => {
+      // Each device's own geometry and its nested shapes; text inside a band
+      // is a fact, not device geometry, so it is left out.
+      const strip = (node: ReturnType<typeof articleCardElement>): unknown => {
+        const nested = Array.isArray(node.props.children)
+          ? node.props.children.map(strip).filter(Boolean)
+          : [];
+        if (node.props.ogMeta?.field) return null;
+        return node.props.ogMeta?.device
+          ? { meta: node.props.ogMeta, style: node.props.style, nested }
+          : nested.length > 0
+            ? nested
+            : typeof node.props.children === 'string'
+              ? null
+              : { style: node.props.style };
+      };
+      return JSON.stringify(
+        strip(articleCardElement({ entry, domainName: DOMAIN_META[entry.domain].name, referenceCount, reviewYear })),
+      );
+    };
+    expect(devicesOf(3, 2024)).toBe(devicesOf(41, 2026));
+  });
+});
+
+/**
+ * The title must stay legible in a small X timeline preview and must not
+ * become a narrow stack: every published title sets in at most three lines
+ * inside the measure, at a display size of at least 56px.
+ */
+describe('title fit', () => {
+  const font = openSync(join(ROOT, TEKTUR_FONT_METADATA.og.path)) as LayoutFont;
+  const width = (text: string, size: number): number =>
+    (font.layout(text).advanceWidth / font.unitsPerEm) * size;
+
+  function lines(title: string, size: number): number {
+    // Greedy wrap at spaces and after hyphens, which is where the renderer breaks.
+    const words = title.split(/(?<=-)|\s+/).filter(Boolean);
+    let count = 1;
+    let line = '';
+    for (const word of words) {
+      const next = line === '' ? word : line.endsWith('-') ? `${line}${word}` : `${line} ${word}`;
+      if (line !== '' && width(next, size) > OG_TITLE_MEASURE_PX) {
+        count += 1;
+        line = word;
+      } else line = next;
+    }
+    return count;
+  }
+
+  it('sets every published title in three lines or fewer at 56px or more', () => {
+    for (const article of publishedModules()) {
+      const title = sanitizeCardText(article.title);
+      const size = titleFontSize(title);
+      expect(size, article.slug).toBeGreaterThanOrEqual(56);
+      expect(lines(title, size), `${article.slug} at ${size}px`).toBeLessThanOrEqual(3);
+    }
+  });
+
+  it('sizes the site wordmark at least 1.5x the descriptor (reference rubric hierarchy)', () => {
+    const sizes = new Map<string, number>();
+    const visit = (node: ReturnType<typeof siteCardElement>, inherited: number): void => {
+      const own = Number.parseFloat(String(node.props.style.fontSize ?? inherited));
+      if (typeof node.props.children === 'string' && node.props.ogMeta?.field) {
+        sizes.set(node.props.ogMeta.field, own);
+      } else if (Array.isArray(node.props.children)) {
+        node.props.children.forEach((child) => visit(child, own));
+      }
+    };
+    visit(siteCardElement(), 16);
+    expect((sizes.get('identity') ?? 0) / (sizes.get('descriptor') ?? 1)).toBeGreaterThanOrEqual(1.5);
   });
 });

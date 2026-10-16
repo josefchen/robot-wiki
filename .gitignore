@@ -2,6 +2,9 @@ node_modules/
 .next/
 .next-probe/
 out/
+# Open Graph publication staging (scripts/generate-og-cards.ts). A leftover
+# tree means an interrupted run; the next generation recovers it.
+.og-staging/
 dist/
 .env*
 !.env.example
