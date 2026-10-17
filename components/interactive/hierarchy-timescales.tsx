@@ -273,7 +273,7 @@ export function HierarchyTimescales({
           footer={
             <>
               <div data-testid="system-detail" className="basis-full font-sans text-[12px] leading-normal text-text-dim">
-                <p className="m-0! max-w-[65ch] text-text">
+                <p aria-live="polite" aria-atomic="true" className="m-0! max-w-[65ch] text-text">
                   <span>{system.name}</span>{' '}
                   <span className="text-text-dim">({system.org})</span>: {system.plainPattern}
                 </p>

@@ -56,6 +56,9 @@ const MAIN_VIEWS: Array<{ id: Exclude<View, 'execution'>; label: string }> = [
   { id: 'training', label: 'What it learns' },
 ];
 
+/** How long the spoken view summary stays before it clears, so browsing the figure does not read it twice. */
+export const VIEW_NOTE_CLEAR_MS = 4000;
+
 const WIDTH = CHART_VIEW_WIDTH;
 const PLOT = { left: 8, right: 332 };
 const NOTE_BASELINE = 16;
@@ -184,10 +187,30 @@ export function AdvantageScrubber({ className }: { className?: string }) {
   const highlight = roleColour('highlight');
   const failureSeen = playhead >= CREDIT_ASSIGNMENT.failureAtS;
   const settled = playhead >= EPISODE_LENGTH_S;
+  // A view switch swaps the whole stage, so the reader who made it hears one sentence for the new view.
+  const [viewNote, setViewNote] = useState('');
 
   useEffect(() => () => {
     if (frame.current !== null) cancelAnimationFrame(frame.current);
   }, []);
+
+  useEffect(() => {
+    if (!viewNote) return;
+    const timer = window.setTimeout(() => setViewNote(''), VIEW_NOTE_CLEAR_MS);
+    return () => window.clearTimeout(timer);
+  }, [viewNote]);
+
+  function switchView(next: View) {
+    stop();
+    setView(next);
+    setViewNote(
+      next === 'training'
+        ? `What it learns: all ${tagged.length} steps stay in the training data, ${highCount} helped and ${lowCount} hurt.`
+        : next === 'execution'
+          ? `At execution: the robot is asked to act like its ${highCount} helped examples.`
+          : `The attempt: the failure shows up at ${CREDIT_ASSIGNMENT.failureAtS} seconds, but the cause was the crooked grip at ${CREDIT_ASSIGNMENT.blamedAtS} seconds.`,
+    );
+  }
 
   function stop() {
     if (frame.current !== null) cancelAnimationFrame(frame.current);
@@ -312,10 +335,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
         label="Show"
         presets={MAIN_VIEWS}
         value={view}
-        onChange={(next) => {
-          stop();
-          setView(next as View);
-        }}
+        onChange={(next) => switchView(next as View)}
       />
     </>
   );
@@ -331,10 +351,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           data-brand-control-id="control:selection"
           type="button"
           aria-pressed={view === 'execution'}
-          onClick={() => {
-            stop();
-            setView(view === 'execution' ? 'episode' : 'execution');
-          }}
+          onClick={() => switchView(view === 'execution' ? 'episode' : 'execution')}
           className={INSTRUMENT_TOGGLE_CLASS}
         >
           At execution
@@ -680,6 +697,9 @@ export function AdvantageScrubber({ className }: { className?: string }) {
       stage={
         <FigureStage>
           {view === 'episode' ? episodePlot : view === 'training' ? trainingView : executionView}
+          <span role="status" data-advantage-view-note="" data-pagefind-ignore className="sr-only">
+            {viewNote}
+          </span>
         </FigureStage>
       }
       caption="Tagging each step as helping or hurting lets the robot trace a failure to a cause long before it."

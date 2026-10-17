@@ -112,6 +112,21 @@ describe('HierarchyTimescales', () => {
     );
   });
 
+  it('announces the chosen system, its maker and its pattern in one polite region', async () => {
+    const user = userEvent.setup();
+    render(<HierarchyTimescales />);
+    const detail = screen.getByTestId('system-detail');
+    const live = detail.querySelector('[aria-live]')!;
+    expect(live).toHaveAttribute('aria-live', 'polite');
+    expect(live).toHaveAttribute('aria-atomic', 'true');
+    // The source link sits outside the region, so it is not read with every change.
+    expect(live.querySelector('a')).toBeNull();
+    await user.click(screen.getByRole('button', { name: /Gemini Robotics 1\.5/i }));
+    expect(live).toHaveTextContent(
+      'Gemini Robotics 1.5 (Google DeepMind): A separate planning model hands out steps',
+    );
+  });
+
   it('switching to Helix 02 changes the lane structure to S2/S1/S0', async () => {
     const user = userEvent.setup();
     render(<HierarchyTimescales />);
