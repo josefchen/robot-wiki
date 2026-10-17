@@ -80,6 +80,7 @@ const follow = (from: number, to: number, dt: number, tau: number) => {
 
 export function BearCaseLock({ className }: { className?: string }) {
   const groupLabel = useId();
+  const drawingId = `${useId()}-drawing`;
   const [supposed, setSupposed] = useState<Supposed>(NONE_SUPPOSED);
   const [pose, setPose] = useState(() => poseFor(NONE_SUPPOSED));
   const current = useRef(pose);
@@ -167,6 +168,7 @@ export function BearCaseLock({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               label={`A pin-tumbler lock cut open in front of its four pin stacks, one per premise of the bear case. ${onLine} of 4 pins sit on the shear line; the plug ${turned ? 'has turned and the bolt is drawn back' : 'is held and the bolt stays in its keeper'}.`}
+              describedBy={drawingId}
             >
               {PARTS.map((part, index) => {
                 if (part.kind !== 'slot') return <PartView key={index} part={part} />;
@@ -191,7 +193,7 @@ export function BearCaseLock({ className }: { className?: string }) {
             bear-case watchlist above puts that result in August 2026: not met for the deployment and the cost
             analysis, partial for the unseen homes and the scaling law. None is met.
           </p>
-          <p>
+          <p id={drawingId}>
             The drawing is a pin-tumbler lock cut open in front of its pins, one stack per premise. A plug turns
             only when the split between every key pin (dark) and its driver pin sits on the shear line, the
             plug&apos;s top edge (lit). A result not yet shown leaves its key pin standing well above the line;

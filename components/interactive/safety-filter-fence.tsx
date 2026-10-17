@@ -64,6 +64,7 @@ const r1 = (value: number) => Number(value.toFixed(1));
 
 export function SafetyFilterFence({ className }: { className?: string }) {
   const sliderId = useId();
+  const drawingId = `${useId()}-drawing`;
   const [t, setT] = useState(DEEPEST_T);
   const [running, setRunning] = useState(false);
   /** Where a run starts: set by the run button, read once by the effect. */
@@ -163,6 +164,7 @@ export function SafetyFilterFence({ className }: { className?: string }) {
               label={`A sealed box swings an arm; a pen hangs from the arm on a spring and draws on a plate. A lit ring fence round a keep-out zone is the safety filter. ${
                 phase === 'inside' ? 'The arm aims inside the fence, and the fence holds the pen at the nearest point on its edge.' : 'The arm aims outside the fence, and the pen draws exactly where it aims.'
               }`}
+              describedBy={drawingId}
             >
               {PARTS.map((part, index) => {
                 if (part.kind !== 'slot') return <PartView key={index} part={part} />;
@@ -186,7 +188,7 @@ export function SafetyFilterFence({ className }: { className?: string }) {
             each command, and Wabersich and colleagues describe a filter that takes a proposed input from any source
             and modifies it as little as necessary.
           </p>
-          <p>
+          <p id={drawingId}>
             The drawing is that rule as a bench. The sealed box, with no window and a tamper seal, stands for the
             policy: it swings the arm, and the arm&apos;s spindle is where the policy aims. The pen hangs from the
             spindle on a spring. The ring fence round the darker keep-out zone, lit, is the filter. Outside the

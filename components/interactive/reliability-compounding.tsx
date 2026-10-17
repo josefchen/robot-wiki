@@ -576,7 +576,7 @@ export function ReliabilityCompounding({
             rowHeader="episode length"
             columns={[{ header: 'episode success', numeric: true }]}
             rows={sampleRows}
-            description={reliabilityTakeaway({
+            description={`${reliabilityTakeaway({
               variant: descriptionVariant,
               perStepPercent,
               steps,
@@ -587,7 +587,7 @@ export function ReliabilityCompounding({
                 1,
                 Math.round(Math.log(0.5) / Math.log(perStep)),
               ),
-            })}
+            })} In the drawing, ${rest.finished} of ${MARBLES} marbles reach the finish tray.`}
           />
         </>
       }

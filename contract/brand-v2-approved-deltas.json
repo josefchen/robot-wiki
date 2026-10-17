@@ -102539,6 +102539,66 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "a11y-gate-20261017-interactive-sources-mounts-source-bear-case-lock",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/bear-case-lock.tsx",
+      "oldHash": "718e04c1e255424ba9cad235bbec30bb68850a314b671fb3d9051d775121b795",
+      "newHash": "f1d66418dac7c3355abc11074fd8599eadfef95a8e9f0c82596f59bc79751ec3",
+      "reason": "All-route accessibility gate of 2026-10-17 (figure coverage, VAL-EDU-035), as one plain edge from the member's last approved endpoint (anatomy-frontier-b02-figures-20261015-interactive-sources-mounts-source-bear-case-lock). BearCaseLock (bear case) drew its figure with no accessible description: its drawing, the role=\"img\" svg the figure kit renders, now carries aria-describedby naming the method paragraph of its \"How this was made\" fold (\"The drawing is a pin-tumbler lock cut open in front of its pins, one stack per premise.\"), which takes an id from useId. The attribute and the id are the whole change; the drawing, its accessible name, controls, readouts and every visible word are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order): launch-ready means every route passes accessibility and runtime checks, and item 4 orders brand-v2-all-route-accessibility-responsive-and-runtime-convergence to run that gate and fix every real finding. The figure-coverage sweep found this drawing without an accessible description; naming the paragraph that already explains the drawing is that fix and changes nothing a reader sees. Not release approval.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-EDU-035",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "a11y-gate-20261017-interactive-sources-mounts-source-helix-clockwork",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/helix-clockwork.tsx",
+      "oldHash": "f5df89bde86d4ce8cf7bcc59715612a7fc5b69b1da44772337a6b83bae525561",
+      "newHash": "bbf71ae35ffe7caf00c82c2e96c872b3b719e214dbb184fbbb9564dbd444cb3a",
+      "reason": "All-route accessibility gate of 2026-10-17 (figure coverage, VAL-EDU-035), as one plain edge from the member's last approved endpoint (anatomy-2-figures-20261012-interactive-sources-mounts-source-helix-clockwork). HelixClockwork (competing theses) drew its figure with no accessible description: its drawing, the role=\"img\" svg the figure kit renders, now carries aria-describedby naming the method paragraph of its \"How this was made\" fold (\"The drawing is a clock movement doing the same counting.\"), which takes an id from useId. The attribute and the id are the whole change; the drawing, its accessible name, controls, readouts and every visible word are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order): launch-ready means every route passes accessibility and runtime checks, and item 4 orders brand-v2-all-route-accessibility-responsive-and-runtime-convergence to run that gate and fix every real finding. The figure-coverage sweep found this drawing without an accessible description; naming the paragraph that already explains the drawing is that fix and changes nothing a reader sees. Not release approval.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-EDU-035",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "a11y-gate-20261017-interactive-sources-mounts-source-motion-pantograph",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/motion-pantograph.tsx",
+      "oldHash": "eab81f236a5774295855fac1bcbb6eaebb6020fa53c392e449bc07bdf0c53b7f",
+      "newHash": "d18ddbf9ebd34eef7c9b972c5ae727a0fca89e86cff502a905af917100a4a5e1",
+      "reason": "All-route accessibility gate of 2026-10-17 (figure coverage, VAL-EDU-035), as one plain edge from the member's last approved endpoint (anatomy-2-figures-20261012-interactive-sources-mounts-source-motion-pantograph). MotionPantograph (surgical) drew its figure with no accessible description: its drawing, the role=\"img\" svg the figure kit renders, now carries aria-describedby naming the method paragraph of its \"How this was made\" fold (\"The drawing is a reducing pantograph doing the same thing with four bars.\"), which takes an id from useId. The attribute and the id are the whole change; the drawing, its accessible name, controls, readouts and every visible word are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order): launch-ready means every route passes accessibility and runtime checks, and item 4 orders brand-v2-all-route-accessibility-responsive-and-runtime-convergence to run that gate and fix every real finding. The figure-coverage sweep found this drawing without an accessible description; naming the paragraph that already explains the drawing is that fix and changes nothing a reader sees. Not release approval.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-EDU-035",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "a11y-gate-20261017-interactive-sources-mounts-source-safety-filter-fence",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-filter-fence.tsx",
+      "oldHash": "0d2e601797c8ada503f3147a43a8a0f55eba16f4aacac080a116077b05dc31df",
+      "newHash": "cca34409ea630ea92fa49d939aa1b3bbc203453fd3d8986e32f16c2051a8d2b5",
+      "reason": "All-route accessibility gate of 2026-10-17 (figure coverage, VAL-EDU-035), as one plain edge from the member's last approved endpoint (anatomy-frontier-b02-figures-20261015-interactive-sources-mounts-source-safety-filter-fence). SafetyFilterFence (safety and assurance) drew its figure with no accessible description: its drawing, the role=\"img\" svg the figure kit renders, now carries aria-describedby naming the method paragraph of its \"How this was made\" fold (\"The drawing is that rule as a bench.\"), which takes an id from useId. The attribute and the id are the whole change; the drawing, its accessible name, controls, readouts and every visible word are unchanged.",
+      "ownerApproval": "Owner directive of 2026-10-09 21:20 (Josef Chen; mission AGENTS.md, launch-critical order): launch-ready means every route passes accessibility and runtime checks, and item 4 orders brand-v2-all-route-accessibility-responsive-and-runtime-convergence to run that gate and fix every real finding. The figure-coverage sweep found this drawing without an accessible description; naming the paragraph that already explains the drawing is that fix and changes nothing a reader sees. Not release approval.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-EDU-035",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

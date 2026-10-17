@@ -88,6 +88,14 @@ describe('HelixClockwork', () => {
     expect(svg.getAttribute('aria-label')).toMatch(/1,000 times a second/);
   });
 
+  it('describes the drawing with the method paragraph that explains the clock movement', () => {
+    render(<HelixClockwork />);
+    const svg = screen.getByTestId('clockwork-drawing').querySelector('svg')!;
+    expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
+      /^The drawing is a clock movement doing the same counting\./,
+    );
+  });
+
   it('moves both hands from the slider, in words for assistive technology', () => {
     render(<HelixClockwork />);
     const slider = screen.getByRole('slider', { name: /time on the clock/i });

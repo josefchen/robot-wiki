@@ -298,7 +298,7 @@ export function ActionTokenization({
     setStep(next);
   };
 
-  const stageLabel = `Continuous action chunk: ${ACTION_DIMS.length} dimensions over ${CHUNK_STEPS} control steps, drawn as seven racks side by side, one per motion (${ACTION_DIMS.map((_, i) => motionGloss(i)).join(', ')}), each cut with ${BIN_COUNT} notches from ${VALUE_MIN} to ${VALUE_MAX}. At moment ${step + 1} every slider sits in the notch nearest its smooth command; the setter on the gantry stands over the ${gloss} rack, and the register at the front has popped one pin for each of the seven words, written one after another.`;
+  const stageLabel = `Continuous action chunk drawn as seven notched racks, one per motion (${ACTION_DIMS.map((_, i) => motionGloss(i)).join(', ')}), at moment ${step + 1} with the setter over the ${gloss} rack.`;
 
   const renderRun = (run: { group: string; parts: Array<Part | DetailPart> }, key: string) => {
     const body = run.parts.map((part, k) => {
@@ -472,7 +472,7 @@ export function ActionTokenization({
             width={DETAIL_WIDTH}
             height={DETAIL_HEIGHT}
             className="mt-1"
-            label={`Binning detail for ${ACTION_DIMS[dim].label}: the value ${value.toFixed(3)} at step ${step} falls into bin ${bin} of 255 on a uniform grid of 256 bins per dimension. A close-up of the ${gloss} rack shows ${ZOOM_BINS} notches around it, the slider seated in slot ${bin} of 256, written as word ${bin}, and a needle at the exact value.`}
+            label={`Binning detail for ${ACTION_DIMS[dim].label} at step ${step} on a uniform grid of ${BIN_COUNT} bins: the ${gloss} slider seated in slot ${bin} of ${BIN_COUNT}, written as word ${bin}, with a needle at the exact value ${value.toFixed(3)}.`}
             describedBy={binDescriptionId}
           >
             {DETAIL_PARTS.map((part, k) => {

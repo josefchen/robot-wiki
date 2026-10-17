@@ -90,6 +90,7 @@ function Hand({ hand, degrees, lit, testId }: { hand: typeof S0_HAND; degrees: n
 
 export function HelixClockwork({ className }: { className?: string }) {
   const sliderId = useId();
+  const drawingId = `${useId()}-drawing`;
   const [ms, setMs] = useState(STILL_MS);
   const [running, setRunning] = useState(false);
   /** Where a run starts: set by the run button when it starts one, so the effect reads it once. */
@@ -180,6 +181,7 @@ export function HelixClockwork({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               label={`A clock movement with two hands. The escape wheel's hand ticks once per control step, 1,000 times a second; every fifth tick a lever jumps the star wheel's hand, the joint target, 200 times a second. At ${elapsed} milliseconds: ${reading.steps} control steps, ${reading.targets} new joint ${reading.targets === 1 ? 'target' : 'targets'}.`}
+              describedBy={drawingId}
             >
               {PARTS.map((part, index) => {
                 if (part.kind !== 'slot') return <PartView key={index} part={part} />;
@@ -218,7 +220,7 @@ export function HelixClockwork({ className }: { className?: string }) {
             whole-body controller, runs at 1 kHz. A joint target therefore lasts 5 milliseconds, and in that time the
             controller acts {STEPS_PER_TARGET} times. Figure gives no rate for S2, so it is not drawn.
           </p>
-          <p>
+          <p id={drawingId}>
             The drawing is a clock movement doing the same counting. The balance and the pallet fork let the escape
             wheel advance one tooth per control step, and its hand moves one division of the outer ring. Four pins on
             the escape wheel&apos;s arbor trip a lever once every fifth tooth, and the lever&apos;s pawl jumps the

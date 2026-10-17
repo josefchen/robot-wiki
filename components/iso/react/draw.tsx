@@ -128,7 +128,10 @@ interface IsoFigureProps {
   width: number;
   height: number;
   label: string;
-  /** Id of the element that describes the drawing in words (the figure's chart description). */
+  /**
+   * Id of the element that describes the drawing in words: the figure's chart description, or, for a
+   * drawing with no data behind it, the method paragraph that explains how to read the drawing.
+   */
   describedBy?: string;
   /**
    * The machine's own window, shown on a phone in place of the full viewBox

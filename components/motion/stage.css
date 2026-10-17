@@ -317,6 +317,19 @@ figure[data-figure-kind='official-mark'] > figcaption {
   color: var(--ink);
 }
 
+/*
+ * Chromium hides a closed disclosure's body with content-visibility, and
+ * computes an empty accessible description for a drawing whose
+ * aria-describedby points into that body, which is where the method fold
+ * keeps each figure's description. Hiding the closed method fold with
+ * display: none paints the same and keeps the description spoken. The cost
+ * is that find-in-page no longer opens a closed method fold to show a match.
+ */
+details[data-figure-fold='method']:not([open])::details-content {
+  display: none;
+  content-visibility: visible;
+}
+
 [data-figure-frame] [data-figure-fold-body] {
   color: var(--muted);
   font-size: 13px;

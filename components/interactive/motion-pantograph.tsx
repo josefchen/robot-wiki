@@ -70,6 +70,7 @@ const STILL_HANDS = strokeUpTo(1);
 
 export function MotionPantograph({ className }: { className?: string }) {
   const sliderId = useId();
+  const drawingId = `${useId()}-drawing`;
   const [scale, setScale] = useState<Scale>(DEFAULT_SCALE);
   const [tracing, setTracing] = useState(false);
   /** The hand's path drawn so far, and where the stylus is. */
@@ -194,6 +195,7 @@ export function MotionPantograph({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               label={`A reducing pantograph on a bench: four bars pinned to a fixed post carry the surgeon's stylus over the master plate and an instrument tip over a practice pad. Set to ${scale} to 1, a ${formatMm(handMm)} millimetre stroke of the stylus, wobble included, moves the tip ${formatMm(tipMm(handMm, scale))} millimetres.`}
+              describedBy={drawingId}
             >
               {PARTS.map((part, index) => {
                 if (part.kind !== 'slot') return <PartView key={index} part={part} />;
@@ -229,7 +231,7 @@ export function MotionPantograph({ className }: { className?: string }) {
             becomes a fine one inside the patient, and any wobble in the hand is divided too. Yang and colleagues
             count it as Level 0, no autonomy, because the instrument still follows the surgeon&apos;s own motion.
           </p>
-          <p>
+          <p id={drawingId}>
             The drawing is a reducing pantograph doing the same thing with four bars. With the stylus at H and the
             fixed pivot at O, the tip sits on the line between them at 1/scale of the way out, so tip = hand ÷ scale
             for every point of the stroke. The two knurled scale pins move along the bars&apos; hole rows to set 2 to 1

@@ -263,6 +263,7 @@ export function EurekaLoop({ className }: { className?: string }) {
   // Both code blocks scroll horizontally, so each one is a region named by the label above it.
   const codeLabelId = `${useId()}-code`;
   const diffLabelId = `${useId()}-diff`;
+  const drawingId = `${useId()}-drawing`;
   // An id the clip-path url can carry as it is.
   const clipId = `${useId().replace(/[^A-Za-z0-9_-]/g, '')}-card-clip`;
   const [gen, setGen] = useState(0);
@@ -427,6 +428,7 @@ export function EurekaLoop({ className }: { className?: string }) {
               focusable="false"
               data-testid="eureka-stage"
               aria-label={`Round ${gen + 1} of ${rounds}: ${PLAIN[gen].note.join(' ')}.`}
+              aria-describedby={drawingId}
             >
               {RUNS.map((run, index) =>
                 run.live ? (
@@ -454,7 +456,7 @@ export function EurekaLoop({ className }: { className?: string }) {
             task-fitness score picks the best, and the model reflects on per-term training statistics before writing
             the next generation. Task: {EUREKA_TASK}.
           </p>
-          <p>
+          <p id={drawingId}>
             The drawing is that loop as a bench. Each round&apos;s rules are punched into a card, one notch on its top
             edge for each rule the reward code pays or charges for: raw speed, being near the target speed, staying
             up, a fall, jerky moves. The reader&apos;s pins drop into the notches, the robot runs, and the logger writes

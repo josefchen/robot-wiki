@@ -234,10 +234,26 @@ describe('ReliabilityCompounding with full-range bounds', () => {
       container.querySelector('[data-chart-description]')?.textContent ?? '';
     const initial = description();
     expect(initial).toContain('95.0 percent per-step policy yields 21.5% episode success at 30 steps');
+    expect(initial).toMatch(/ In the drawing, 21 of 100 marbles reach the finish tray\.$/);
     fireEvent.change(ranges[0], { target: { value: '90' } });
     expect(description()).toContain('90.0 percent per-step policy yields 4.2% episode success at 30 steps');
+    expect(description()).toMatch(/ In the drawing, 4 of 100 marbles reach the finish tray\.$/);
     fireEvent.change(ranges[0], { target: { value: '95' } });
     expect(description()).toBe(initial);
+  });
+
+  it('counts the finish tray in every description variant, as the drawing labels it', () => {
+    for (const variant of ['home', 'prediction', 'evaluation', 'reliability'] as const) {
+      const { container, unmount } = render(<ReliabilityCompounding descriptionVariant={variant} defaultSteps={14} />);
+      const finished = container.querySelector('[data-testid="finish-tray"]')!.getAttribute('data-marbles');
+      expect(finished).toBe('49');
+      const label = screen.getByRole('img', { name: /marble run/ }).getAttribute('aria-label');
+      expect(label).toContain(`${finished} of 100 marbles reach the finish tray`);
+      const description = container.querySelector('[data-chart-description]')?.textContent ?? '';
+      expect(description).toContain('48.8%');
+      expect(description).toMatch(new RegExp(`\\. In the drawing, ${finished} of 100 marbles reach the finish tray\\.$`));
+      unmount();
+    }
   });
 });
 

@@ -84,6 +84,14 @@ describe('BearCaseLock', () => {
     expect(svg.getAttribute('aria-label')).toMatch(/0 of 4 pins sit on the shear line/);
   });
 
+  it('describes the drawing with the method paragraph that explains the lock', () => {
+    render(<BearCaseLock />);
+    const svg = screen.getByTestId('bear-lock-drawing').querySelector('svg')!;
+    expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
+      /^The drawing is a pin-tumbler lock cut open in front of its pins, one stack per premise\./,
+    );
+  });
+
   it('toggles each supposed result, and turns the plug at once under reduced motion when all four are in', () => {
     vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} }));
     render(<BearCaseLock />);

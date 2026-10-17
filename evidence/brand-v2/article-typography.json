@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "76932c405b041c36dfc9aeb021239c817eeb0793d0c368a22759fa24d273b9fc",
+  "fingerprint": "6ceb1d16959540910f42f325c3ef118d65bba324109d0210f71765629170d52a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -44923,7 +44923,7 @@
           "widthPx": 1,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "After a low-friction patch at step 4 the MPC base-height dev"
+          "text": "The robot that plans ahead runs MPC and the robot that learn"
         },
         {
           "familyHead": "geist",
@@ -99543,7 +99543,7 @@
           "widthPx": 1,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "After a low-friction patch at step 4 the MPC base-height dev"
+          "text": "The robot that plans ahead runs MPC and the robot that learn"
         },
         {
           "familyHead": "geist",

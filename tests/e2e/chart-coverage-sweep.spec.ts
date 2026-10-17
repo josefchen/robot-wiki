@@ -200,7 +200,99 @@ test.describe('VAL-EDU-035 chart-description coverage is complete site-wide', ()
       'at least one non-decorative described root',
     ).toBeGreaterThan(0);
   });
+
+  // The DOM check above proves each reference resolves to text; it cannot
+  // see whether the browser speaks that text. Most descriptions sit in a
+  // figure's closed "How this was made" fold, and Chromium computes an empty
+  // description for a target its closed-disclosure styling skips, so this
+  // reads the computed description from the accessibility tree itself.
+  test('every exposed described drawing has a computed description with its folds closed', async ({
+    browser,
+  }) => {
+    test.setTimeout(180_000);
+    const rows: ComputedDescriptionRow[] = [];
+    await forEachInOwnContext(browser, COVERAGE_ROUTES, async (page, route) => {
+      await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+      rows.push(...(await computedDescriptions(page, route)));
+    });
+    const silent = rows.filter((row) => row.referencedLength > 0 && row.computedLength === 0);
+    expect(rows.length, 'the sweep saw described drawings').toBeGreaterThan(0);
+    expect(
+      rows.filter((row) => row.inClosedFold).length,
+      'some description sits inside a closed fold',
+    ).toBeGreaterThan(0);
+    expect(
+      silent,
+      `drawings with an empty computed description: ${JSON.stringify(silent)}`,
+    ).toEqual([]);
+  });
 });
+
+type ComputedDescriptionRow = {
+  route: string;
+  label: string;
+  referencedLength: number;
+  inClosedFold: boolean;
+  computedLength: number;
+};
+
+async function computedDescriptions(
+  page: Page,
+  route: string,
+): Promise<ComputedDescriptionRow[]> {
+  const marked = await page.evaluate(() => {
+    const closedDetails = (el: Element) => {
+      for (let d = el.closest('details'); d; d = d.parentElement?.closest('details') ?? null) {
+        const summary = d.querySelector(':scope > summary');
+        if (!(d as HTMLDetailsElement).open && !summary?.contains(el)) return true;
+      }
+      return false;
+    };
+    return Array.from(
+      document.querySelectorAll('svg[aria-describedby], [role="img"][aria-describedby]'),
+    )
+      .filter((el) => !el.closest('[aria-hidden="true"]') && !closedDetails(el))
+      .map((el, index) => {
+        el.setAttribute('data-ax-description-probe', String(index));
+        const targets = (el.getAttribute('aria-describedby') ?? '')
+          .split(/\s+/)
+          .filter(Boolean)
+          .map((id) => document.getElementById(id));
+        return {
+          index,
+          label: (el.getAttribute('aria-label') ?? '').slice(0, 80),
+          referencedLength: targets.reduce(
+            (sum, target) => sum + (target?.textContent ?? '').trim().length,
+            0,
+          ),
+          inClosedFold: targets.some((target) => target !== null && closedDetails(target)),
+        };
+      });
+  });
+  const cdp = await page.context().newCDPSession(page);
+  const { root } = await cdp.send('DOM.getDocument', { depth: 0 });
+  const rows: ComputedDescriptionRow[] = [];
+  for (const entry of marked) {
+    const { nodeId } = await cdp.send('DOM.querySelector', {
+      nodeId: root.nodeId,
+      selector: `[data-ax-description-probe="${entry.index}"]`,
+    });
+    const { nodes } = await cdp.send('Accessibility.getPartialAXTree', {
+      nodeId,
+      fetchRelatives: false,
+    });
+    const computed = String(nodes[0]?.description?.value ?? '').trim();
+    rows.push({
+      route,
+      label: entry.label,
+      referencedLength: entry.referencedLength,
+      inClosedFold: entry.inClosedFold,
+      computedLength: computed.length,
+    });
+  }
+  await cdp.detach();
+  return rows;
+}
 
 test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () => {
   test('every chart description names quantities, has digits, and is unique', async ({
