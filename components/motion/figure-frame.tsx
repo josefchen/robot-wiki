@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode, Ref } from 'react';
+import { FoldReadoutRelay } from '@/components/motion/fold-readout-relay';
 import { cx } from '@/lib/utils';
 
 /**
@@ -233,6 +234,7 @@ export function FigureFrame({
         </div>
       ) : null}
       {children}
+      {adjust || method ? <FoldReadoutRelay /> : null}
     </>
   );
   return as === 'figure' ? (

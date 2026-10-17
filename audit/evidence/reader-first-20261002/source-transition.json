@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-16T21:31:32Z",
+  "observedAt": "2026-10-16T22:26:18Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -286,13 +286,17 @@
       },
       "after": {
         "path": "components/interactive/advantage-scrubber.tsx",
-        "bytes": 25565,
-        "sha256": "5fdffe99f439cc07acc8867b706d9341546022a81fadf6282dd7701312f78f27"
+        "bytes": 26661,
+        "sha256": "c543c7693e06cad5eefe30f4aef365cea6bc1adfb0065390e8e53426b7bebceb"
       },
       "edits": [
         {
           "before": " * The stage draws one pictogram per step, the value score as \"chance this\n",
           "after": " * The stage draws one numbered marker per step, the value score as \"chance this\n"
+        },
+        {
+          "before": "];\n\n",
+          "after": "];\n\n/** How long the spoken view summary stays before it clears, so browsing the figure does not read it twice. */\nexport const VIEW_NOTE_CLEAR_MS = 4000;\n\n"
         },
         {
           "before": "/** Plain step names, drawn under each pictogram (one or two lines). */\n",
@@ -323,6 +327,22 @@
           "after": "  const valueColour = roleColour('value');\n"
         },
         {
+          "before": "  const settled = playhead >= EPISODE_LENGTH_S;\n",
+          "after": "  const settled = playhead >= EPISODE_LENGTH_S;\n  // A view switch swaps the whole stage, so the reader who made it hears one sentence for the new view.\n  const [viewNote, setViewNote] = useState('');\n"
+        },
+        {
+          "before": "  }, []);\n\n",
+          "after": "  }, []);\n\n  useEffect(() => {\n    if (!viewNote) return;\n    const timer = window.setTimeout(() => setViewNote(''), VIEW_NOTE_CLEAR_MS);\n    return () => window.clearTimeout(timer);\n  }, [viewNote]);\n\n  function switchView(next: View) {\n    stop();\n    setView(next);\n    setViewNote(\n      next === 'training'\n        ? `What it learns: all ${tagged.length} steps stay in the training data, ${highCount} helped and ${lowCount} hurt.`\n        : next === 'execution'\n          ? `At execution: the robot is asked to act like its ${highCount} helped examples.`\n          : `The attempt: the failure shows up at ${CREDIT_ASSIGNMENT.failureAtS} seconds, but the cause was the crooked grip at ${CREDIT_ASSIGNMENT.blamedAtS} seconds.`,\n    );\n  }\n\n"
+        },
+        {
+          "before": "        onChange={(next) => {\n          stop();\n          setView(next as View);\n        }}\n",
+          "after": "        onChange={(next) => switchView(next as View)}\n"
+        },
+        {
+          "before": "          onClick={() => {\n            stop();\n            setView(view === 'execution' ? 'episode' : 'execution');\n          }}\n",
+          "after": "          onClick={() => switchView(view === 'execution' ? 'episode' : 'execution')}\n"
+        },
+        {
           "before": "            d={`M ${arcRight} ${arcEndY} C ${arcRight} ${ARC_APEX_CONTROL}, ${arcLeft} ${ARC_APEX_CONTROL}, ${arcLeft} ${arcEndY}`}\n            fill=\"none\"\n            stroke={highlight}\n            strokeWidth={CHART_STROKE.structure * 2}\n",
           "after": "            d={`M ${arcRight} ${arcEndY} C ${arcRight} ${ARC_APEX_CONTROL}, ${arcLeft} ${ARC_APEX_CONTROL}, ${arcLeft} ${arcEndY}`}\n            fill=\"none\"\n            stroke={highlight}\n            strokeWidth={CHART_STROKE.structure}\n"
         },
@@ -349,6 +369,10 @@
         {
           "before": "        <span className=\"rounded-sm border border-border-strong px-1.5 py-0.5 text-text\">\n          task: make espresso\n        </span>\n        <span className=\"rounded-sm border border-border-strong px-1.5 py-0.5 text-text\">\n          advantage: high\n        </span>\n",
           "after": "        <span className=\"font-mono text-[13px] text-text\">task: make espresso</span>\n        <span aria-hidden=\"true\" className=\"text-text-dim\">·</span>\n        <span className=\"font-mono text-[13px] text-text\">advantage: high</span>\n"
+        },
+        {
+          "before": "          {view === 'episode' ? episodePlot : view === 'training' ? trainingView : executionView}\n",
+          "after": "          {view === 'episode' ? episodePlot : view === 'training' ? trainingView : executionView}\n          <span role=\"status\" data-advantage-view-note=\"\" data-pagefind-ignore className=\"sr-only\">\n            {viewNote}\n          </span>\n"
         },
         {
           "before": "      caption=\"Tagging each step as helping or hurting lets the robot learn from its own failures, even when the cause came long before the failure.\"\n",
@@ -2038,8 +2062,8 @@
       },
       "after": {
         "path": "components/interactive/hierarchy-timescales.tsx",
-        "bytes": 18506,
-        "sha256": "7ee80bb328ebc0c091151c942bf6360f10517f8d4264e17341593cba1bae01fa"
+        "bytes": 18544,
+        "sha256": "1fa623174fe0dcf64a5e88b6e016c685279e4a88f3f2cb5622476a0af9508fd5"
       },
       "edits": [
         {
@@ -2055,12 +2079,8 @@
           "after": "  [HORIZON_MS, '2 seconds'],\n];\n\n"
         },
         {
-          "before": "              <div data-testid=\"system-detail\" className=\"basis-full font-sans text-sm leading-snug\">\n",
-          "after": "              <div data-testid=\"system-detail\" className=\"basis-full font-sans text-[12px] leading-normal text-text-dim\">\n"
-        },
-        {
-          "before": "                  <span className=\"font-medium\">{system.name}</span>{' '}\n",
-          "after": "                  <span>{system.name}</span>{' '}\n"
+          "before": "              <div data-testid=\"system-detail\" className=\"basis-full font-sans text-sm leading-snug\">\n                <p className=\"m-0! max-w-[65ch] text-text\">\n                  <span className=\"font-medium\">{system.name}</span>{' '}\n",
+          "after": "              <div data-testid=\"system-detail\" className=\"basis-full font-sans text-[12px] leading-normal text-text-dim\">\n                <p aria-live=\"polite\" aria-atomic=\"true\" className=\"m-0! max-w-[65ch] text-text\">\n                  <span>{system.name}</span>{' '}\n"
         },
         {
           "before": "                <g key={lane.id}>\n                  <g\n                    aria-hidden=\"true\"\n                    transform={`translate(${PLOT.left} ${baseline - ICON + 2})`}\n                    fill=\"none\"\n                    stroke={CHART_STRUCTURE.label}\n                    strokeWidth={1.2}\n                    strokeLinecap=\"round\"\n                    strokeLinejoin=\"round\"\n                  >\n                    {LANE_ICONS[i] ?? LANE_ICONS[LANE_ICONS.length - 1]}\n                  </g>\n",
@@ -4109,13 +4129,13 @@
       },
       "after": {
         "path": "components/iso/anatomy-stage.tsx",
-        "bytes": 6782,
-        "sha256": "44d1cab4bf958e1684bdbe15c693ca0ef6e64d56d5db7d838757c5dd646a63b6"
+        "bytes": 4120,
+        "sha256": "d70617d1856cc2979c6782424c80c601bd22c3efecc271c1db8e1dd12deed18b"
       },
       "edits": [
         {
-          "before": "import type { HTMLAttributes, ReactNode } from 'react';\n",
-          "after": "'use client';\n\nimport { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';\n"
+          "before": "import type { HTMLAttributes, ReactNode } from 'react';\nimport { FigureStage, StageStatus } from '@/components/motion/figure-frame';\n",
+          "after": "'use client';\n\nimport { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';\nimport { FigureStage, StageStatus } from '@/components/motion/figure-frame';\nimport { speakWhenSettled } from '@/components/motion/settled-speech';\n"
         },
         {
           "before": " * writes each frame without a re-render; it is not a live region, so a\n * screen reader hears the control's value text instead of every frame.\n",
@@ -4123,7 +4143,7 @@
         },
         {
           "before": "};\n\nexport function AnatomyStage({ story, hint, readout, status, viewWidth, className, style, children, ...props }: AnatomyStageProps) {\n",
-          "after": "};\n\n/** How long the readout must hold still after an action before it is spoken. */\nexport const READOUT_SETTLE_MS = 700;\n/** How long a spoken readout stays in the status region before it is cleared. */\nexport const READOUT_CLEAR_MS = 4000;\n/** A change that starts this soon after an action still counts as its result. */\nconst ACTION_REACH_MS = 1000;\nconst ACTION_EVENTS = ['click', 'keydown', 'input', 'change'] as const;\n\nconst numbersIn = (text: string) =>\n  (text.replace(/[\\u2212\\u2013]/g, '-').match(/-?\\d[\\d,]*(?:\\.\\d+)?/g) ?? []).map((n) => n.replace(/,/g, ''));\n\n/** Whether a slider's value text already says every number the readout prints. */\nexport function valueTextCovers(valueText: string | null, readout: string): boolean {\n  if (!valueText) return false;\n  const spoken = new Set(numbersIn(valueText));\n  return numbersIn(readout).every((n) => spoken.has(n));\n}\n\nfunction useSettledReadout(readoutRef: { current: HTMLSpanElement | null }, statusRef: { current: HTMLSpanElement | null }) {\n  useEffect(() => {\n    const readout = readoutRef.current;\n    const status = statusRef.current;\n    if (!readout || !status) return;\n    // The figure's controls sit beside the stage, not in it.\n    const scope: Element = readout.closest('[data-figure-frame]') ?? readout.closest('[data-anatomy-stage]') ?? readout;\n    const textOf = () => (readout.textContent ?? '').replace(/\\s+/g, ' ').trim();\n    let settledText = textOf();\n    let changed = false;\n    let activityStart = 0;\n    let lastAction = Number.NEGATIVE_INFINITY;\n    let settleTimer: number | undefined;\n    let speakTimer: number | undefined;\n    let clearTimer: number | undefined;\n\n    const speak = (text: string) => {\n      window.clearTimeout(speakTimer);\n      window.clearTimeout(clearTimer);\n      // Emptied first, so a run that ends where the last one did is spoken again.\n      status.textContent = '';\n      speakTimer = window.setTimeout(() => {\n        status.textContent = text;\n        clearTimer = window.setTimeout(() => {\n          status.textContent = '';\n        }, READOUT_CLEAR_MS);\n      }, 50);\n    };\n\n    const settle = () => {\n      const text = textOf();\n      const caused = lastAction >= activityStart - ACTION_REACH_MS;\n      const wasChanged = changed;\n      changed = false;\n      activityStart = 0;\n      settledText = text;\n      if (!wasChanged || !caused || !text) return;\n      const active = document.activeElement;\n      if (\n        active instanceof HTMLInputElement &&\n        active.type === 'range' &&\n        scope.contains(active) &&\n        valueTextCovers(active.getAttribute('aria-valuetext'), text)\n      ) {\n        return;\n      }\n      speak(text);\n    };\n\n    const observer = new MutationObserver(() => {\n      if (!activityStart) activityStart = performance.now();\n      if (textOf() !== settledText) changed = true;\n      window.clearTimeout(settleTimer);\n      settleTimer = window.setTimeout(settle, READOUT_SETTLE_MS);\n    });\n    observer.observe(readout, { childList: true, characterData: true, subtree: true });\n    const acted = () => {\n      lastAction = performance.now();\n    };\n    for (const type of ACTION_EVENTS) scope.addEventListener(type, acted, true);\n    return () => {\n      observer.disconnect();\n      for (const type of ACTION_EVENTS) scope.removeEventListener(type, acted, true);\n      window.clearTimeout(settleTimer);\n      window.clearTimeout(speakTimer);\n      window.clearTimeout(clearTimer);\n    };\n  }, [readoutRef, statusRef]);\n}\n\nexport function AnatomyStage({ story, hint, readout, status, viewWidth, className, style, children, ...props }: AnatomyStageProps) {\n  const readoutRef = useRef<HTMLSpanElement>(null);\n  const statusRef = useRef<HTMLSpanElement>(null);\n  useSettledReadout(readoutRef, statusRef);\n"
+          "after": "};\n\nexport {\n  ACTION_REACH_MS,\n  READOUT_CLEAR_MS,\n  READOUT_SETTLE_MS,\n  RUN_REACH_MS,\n  valueTextCovers,\n} from '@/components/motion/settled-speech';\n\nfunction useSettledReadout(readoutRef: { current: HTMLSpanElement | null }, statusRef: { current: HTMLSpanElement | null }) {\n  useEffect(() => {\n    const readout = readoutRef.current;\n    const status = statusRef.current;\n    if (!readout || !status) return;\n    return speakWhenSettled({\n      watch: readout,\n      // The figure's controls sit beside the stage, not in it.\n      scope: readout.closest('[data-figure-frame]') ?? readout.closest('[data-anatomy-stage]') ?? readout,\n      status,\n      read: () => (readout.textContent ?? '').replace(/\\s+/g, ' ').trim(),\n    });\n  }, [readoutRef, statusRef]);\n}\n\nexport function AnatomyStage({ story, hint, readout, status, viewWidth, className, style, children, ...props }: AnatomyStageProps) {\n  const readoutRef = useRef<HTMLSpanElement>(null);\n  const statusRef = useRef<HTMLSpanElement>(null);\n  useSettledReadout(readoutRef, statusRef);\n"
         },
         {
           "before": "          <span\n",
@@ -4299,13 +4319,13 @@
       },
       "after": {
         "path": "components/motion/figure-frame.tsx",
-        "bytes": 13243,
-        "sha256": "1ac7662ae289eb576016cc543938f00fe4f1938a1aee363c510acf3d3cb5a11b"
+        "bytes": 13373,
+        "sha256": "13d3145b5ecf6f9558429defff828536c56a4860eaf762ce3d4753e4f512effc"
       },
       "edits": [
         {
-          "before": "import type { HTMLAttributes, ReactNode, Ref } from 'react';\nimport { Surface } from '@/components/ui/surface';\n",
-          "after": "import type { HTMLAttributes, ReactNode, Ref } from 'react';\n"
+          "before": "import { Surface } from '@/components/ui/surface';\n",
+          "after": "import { FoldReadoutRelay } from '@/components/motion/fold-readout-relay';\n"
         },
         {
           "before": " * The one frame every explanatory figure renders in, in this order: a\n",
@@ -4350,6 +4370,10 @@
         {
           "before": "    className: cx('my-6 text-left', className),\n",
           "after": "    className: cx('my-9 text-left', className),\n"
+        },
+        {
+          "before": "      ) : null}\n      {children}\n",
+          "after": "      ) : null}\n      {children}\n      {adjust || method ? <FoldReadoutRelay /> : null}\n"
         },
         {
           "before": "    <figure ref={ref} {...rootProps}>\n",
@@ -7180,10 +7204,18 @@
       },
       "after": {
         "path": "tests/component/advantage-scrubber.test.tsx",
-        "bytes": 9235,
-        "sha256": "44a7587d6656a6245cb532a41aa04f07da4c0797150fbe0687009e3fe2821a62"
+        "bytes": 10878,
+        "sha256": "49fde6852edf6402df3dae8130bbea572a14ab58882ddf3198d3a264c94cae07"
       },
       "edits": [
+        {
+          "before": "import { fireEvent, render, screen } from '@testing-library/react';\n",
+          "after": "import { act, fireEvent, render, screen } from '@testing-library/react';\n"
+        },
+        {
+          "before": "import { describe, expect, it } from 'vitest';\nimport { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';\n",
+          "after": "import { describe, expect, it, vi } from 'vitest';\nimport { AdvantageScrubber, VIEW_NOTE_CLEAR_MS } from '@/components/interactive/advantage-scrubber';\n"
+        },
         {
           "before": "      'Tagging each step as helping or hurting lets the robot learn from its own failures',\n",
           "after": "      'Tagging each step as helping or hurting lets the robot trace a failure to a cause long before it.',\n"
@@ -7191,6 +7223,10 @@
         {
           "before": "  it('draws one pictogram per step, worded ends on the value line and one note', () => {\n",
           "after": "  it('draws one numbered marker per step, worded ends on the value line and one note', () => {\n"
+        },
+        {
+          "before": "      'false',\n    );\n",
+          "after": "      'false',\n    );\n  });\n\n  it('speaks one sentence for the view the reader switches to, then clears it', () => {\n    vi.useFakeTimers();\n    try {\n      const { container } = render(<AdvantageScrubber />);\n      const note = container.querySelector('[data-advantage-view-note]')!;\n      expect(note).toHaveAttribute('role', 'status');\n      expect(note).toHaveClass('sr-only');\n      // Nothing is said before the reader acts.\n      expect(note.textContent).toBe('');\n      const tagged = taggedSegments();\n      const helped = tagged.filter((s) => s.tag === 'high').length;\n      fireEvent.click(screen.getByRole('button', { name: /what it learns/i }));\n      expect(note.textContent).toBe(\n        `What it learns: all ${tagged.length} steps stay in the training data, ${helped} helped and ${tagged.length - helped} hurt.`,\n      );\n      fireEvent.click(screen.getByRole('button', { name: /at execution/i }));\n      expect(note.textContent).toBe(`At execution: the robot is asked to act like its ${helped} helped examples.`);\n      fireEvent.click(screen.getByRole('button', { name: /^the attempt$/i }));\n      expect(note.textContent).toBe(\n        'The attempt: the failure shows up at 32 seconds, but the cause was the crooked grip at 12 seconds.',\n      );\n      act(() => {\n        vi.advanceTimersByTime(VIEW_NOTE_CLEAR_MS);\n      });\n      expect(note.textContent).toBe('');\n      // Play and Reset change the run, not the view the reader chose, and stay quiet.\n      fireEvent.click(screen.getByRole('button', { name: /reset/i }));\n      expect(note.textContent).toBe('');\n    } finally {\n      vi.useRealTimers();\n    }\n"
         }
       ]
     },

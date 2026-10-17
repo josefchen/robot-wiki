@@ -2,9 +2,11 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
+  ACTION_REACH_MS,
   AnatomyStage,
   READOUT_CLEAR_MS,
   READOUT_SETTLE_MS,
+  RUN_REACH_MS,
   valueTextCovers,
 } from '@/components/iso/anatomy-stage';
 
@@ -24,6 +26,8 @@ function Harness({ valueText }: { valueText?: (value: number) => string }) {
       <button type="button" onClick={() => setReadout('phase 1')}>
         Run
       </button>
+      {/* A run with a lead-in: the press itself leaves the readout alone. */}
+      <button type="button">Start</button>
       <input
         type="range"
         aria-label="Speed"
@@ -124,6 +128,68 @@ describe('AnatomyStage readout announcements', () => {
       });
       expect(announcer().textContent).toBe('');
     }
+  });
+
+  it('speaks a run whose readout first moves more than a second after the press', async () => {
+    render(<Harness />);
+    fireEvent.click(screen.getByRole('button', { name: 'Start' }));
+    act(() => {
+      vi.advanceTimersByTime(1200);
+    });
+    act(() => setReadoutFromOutside('aim outside again'));
+    await settle();
+    expect(announcer().textContent).toBe('aim outside again');
+  });
+
+  it('speaks each held phase of a slow run and where it ends', async () => {
+    render(<Harness />);
+    fireEvent.click(screen.getByRole('button', { name: 'Start' }));
+    act(() => {
+      vi.advanceTimersByTime(1200);
+    });
+    act(() => setReadoutFromOutside('aim outside again'));
+    await settle();
+    expect(announcer().textContent).toBe('aim outside again');
+    // The last phase comes later than the reach from the press, but soon after the spoken pause.
+    act(() => {
+      vi.advanceTimersByTime(ACTION_REACH_MS - 500);
+    });
+    act(() => setReadoutFromOutside('done'));
+    await settle();
+    expect(announcer().textContent).toBe('done');
+  });
+
+  it('stops treating a run as the reader’s once it outlasts the run reach', async () => {
+    render(<Harness />);
+    fireEvent.click(screen.getByRole('button', { name: 'Start' }));
+    let elapsed = 0;
+    let phase = 0;
+    while (elapsed + ACTION_REACH_MS < RUN_REACH_MS) {
+      act(() => {
+        vi.advanceTimersByTime(ACTION_REACH_MS - 1000);
+      });
+      act(() => setReadoutFromOutside(`phase ${++phase}`));
+      await settle();
+      expect(announcer().textContent).toBe(`phase ${phase}`);
+      elapsed += ACTION_REACH_MS - 1000 + READOUT_SETTLE_MS + 60;
+    }
+    act(() => {
+      vi.advanceTimersByTime(RUN_REACH_MS - elapsed + 100);
+    });
+    act(() => setReadoutFromOutside('ambient'));
+    await settle();
+    expect(announcer().textContent).not.toBe('ambient');
+  });
+
+  it('stays silent when the readout first moves long after the press', async () => {
+    render(<Harness />);
+    fireEvent.click(screen.getByRole('button', { name: 'Start' }));
+    act(() => {
+      vi.advanceTimersByTime(ACTION_REACH_MS + 500);
+    });
+    act(() => setReadoutFromOutside('drifting'));
+    await settle();
+    expect(announcer().textContent).toBe('');
   });
 
   it('stays silent when the readout changes without anything the reader did', async () => {

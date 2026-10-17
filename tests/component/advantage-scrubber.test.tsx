@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
-import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
+import { describe, expect, it, vi } from 'vitest';
+import { AdvantageScrubber, VIEW_NOTE_CLEAR_MS } from '@/components/interactive/advantage-scrubber';
 import {
   EPISODE_LENGTH_S,
   EPISODE_SEGMENTS,
@@ -133,6 +133,39 @@ describe('AdvantageScrubber', () => {
       'data-active',
       'false',
     );
+  });
+
+  it('speaks one sentence for the view the reader switches to, then clears it', () => {
+    vi.useFakeTimers();
+    try {
+      const { container } = render(<AdvantageScrubber />);
+      const note = container.querySelector('[data-advantage-view-note]')!;
+      expect(note).toHaveAttribute('role', 'status');
+      expect(note).toHaveClass('sr-only');
+      // Nothing is said before the reader acts.
+      expect(note.textContent).toBe('');
+      const tagged = taggedSegments();
+      const helped = tagged.filter((s) => s.tag === 'high').length;
+      fireEvent.click(screen.getByRole('button', { name: /what it learns/i }));
+      expect(note.textContent).toBe(
+        `What it learns: all ${tagged.length} steps stay in the training data, ${helped} helped and ${tagged.length - helped} hurt.`,
+      );
+      fireEvent.click(screen.getByRole('button', { name: /at execution/i }));
+      expect(note.textContent).toBe(`At execution: the robot is asked to act like its ${helped} helped examples.`);
+      fireEvent.click(screen.getByRole('button', { name: /^the attempt$/i }));
+      expect(note.textContent).toBe(
+        'The attempt: the failure shows up at 32 seconds, but the cause was the crooked grip at 12 seconds.',
+      );
+      act(() => {
+        vi.advanceTimersByTime(VIEW_NOTE_CLEAR_MS);
+      });
+      expect(note.textContent).toBe('');
+      // Play and Reset change the run, not the view the reader chose, and stay quiet.
+      fireEvent.click(screen.getByRole('button', { name: /reset/i }));
+      expect(note.textContent).toBe('');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('reset restores the attempt view at the settled end of the episode', async () => {

@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2601583, sha256: 'd7a2c9c310d91b06b27c73edf18c0065b05ff3580ae283582a888028a726181c' };
+const reviewPin = { bytes: 2603893, sha256: '9302c7d265c84a38e28c099bf5571ad4a1372dcac9d4cb94f5c6c5faf3a91aa1' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -42,7 +42,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/article/commit-to-reveal.tsx', [14313, 'b3892a0853de9f0ab7c89551ba68526b488cf17c87697f329827c5c7a873ee3b']],
   ['components/interactive/action-conditioning.tsx', [22814, '644c625269c7fde4a217e7b17d793c3c72c4e2132f268bc941b99615119d8cf6']],
   ['components/interactive/action-tokenization.tsx', [24520, '5164e02ab585e54f9c588c0eb528e37d07308c8331d3096f730a3db17df55b77']],
-  ['components/interactive/advantage-scrubber.tsx', [25565, '5fdffe99f439cc07acc8867b706d9341546022a81fadf6282dd7701312f78f27']],
+  ['components/interactive/advantage-scrubber.tsx', [26661, 'c543c7693e06cad5eefe30f4aef365cea6bc1adfb0065390e8e53426b7bebceb']],
   ['components/interactive/appearance-physics-push.tsx', [23391, '8030b647629e852d4104e15cdc5e202a42ca3f8dd16eebebd018fc8ad32775e4']],
   ['components/interactive/calibration-chain.tsx', [18428, '2b83baaf6e298f990d071c0cdc26294ad99af689f991e7d4489f935cf0028deb']],
   ['components/interactive/chunk-size-curve.tsx', [15132, 'f0a2917f6a18c437a0b742dacb0224bba2c969647f337a2a4532215666bb3444']],
@@ -66,7 +66,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/grasp-wrench-lab.tsx', [29861, '5a33369af6318863df74fa2a7dd03769535b7bcb4fac9b591de7eb18057ef407']],
   ['components/interactive/hand-comparison.tsx', [15609, '76aa514f6eeb3173b5911b50569dd61eb864ab94e68c1bc46d2af1da24008cab']],
   ['components/interactive/hardware-guide.tsx', [10655, 'de9c934f26f16a81f84cc9cd3c78eca5be08524a23901897a4948e9876f4c4a3']],
-  ['components/interactive/hierarchy-timescales.tsx', [18506, '7ee80bb328ebc0c091151c942bf6360f10517f8d4264e17341593cba1bae01fa']],
+  ['components/interactive/hierarchy-timescales.tsx', [18544, '1fa623174fe0dcf64a5e88b6e016c685279e4a88f3f2cb5622476a0af9508fd5']],
   ['components/interactive/impedance-contact-lab.tsx', [28630, '7c185f6445dd05ff0b80ee7487c43d41610bab4571168682bef288d46a3f9235']],
   ['components/interactive/jepa-planning.tsx', [20878, '6233e584a9c6ef65ba1677037d342db640aba4cb47be6b127b8bc36f2c2c8804']],
   ['components/interactive/latency-comparison.tsx', [21988, '20dca515890b2d079d6169c505a381b179bbc96fb2476834278ba64bfdacdaa0']],
@@ -91,13 +91,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/thesis-explorer.tsx', [13363, '54279cd483fd09b3414a787c2862b7985adc217e0a1bcab8860b2aa2d87dc3c4']],
   ['components/interactive/wbc-decomposition.tsx', [14453, 'b588d52a32d59407b753d0f157420abc9b29b1b8b31e89af57022023502edb10']],
   ['components/interactive/wm-disambiguator.tsx', [22936, 'e8513e3aa8c5e3edeed57d0bc7072a32f60315f13c96d9d8aec2717753d2baf2']],
-  ['components/iso/anatomy-stage.tsx', [6782, '44d1cab4bf958e1684bdbe15c693ca0ef6e64d56d5db7d838757c5dd646a63b6']],
+  ['components/iso/anatomy-stage.tsx', [4120, 'd70617d1856cc2979c6782424c80c601bd22c3efecc271c1db8e1dd12deed18b']],
   ['components/motion/chart/chart-axes.tsx', [4508, '69fcf2832d6aee5e29bc8b74584dad5461b38c453ef88ada77aa9d2b3d84d717']],
   ['components/motion/chart/chart-layout.tsx', [5086, '9cd730cf44eaafff23708319430040ed6e3a16e89edf318526561393f30b4bd2']],
   ['components/motion/chart/chart-marks.tsx', [8842, '58c6ac94596f4db2372de3a472756c1734ddcc18dc48040753888ec8721ae9ae']],
   ['components/motion/chart/chart-tokens.ts', [3513, 'fd36d19b545b4deb478c4f8e061ac11a8a4ececfee0f1bd515667ed305bf3f7e']],
   ['components/motion/clip.tsx', [6910, '9f5bf57e9a743bd98a54895822909c318304568ed82159a0cd27651823c0e008']],
-  ['components/motion/figure-frame.tsx', [13243, '1ac7662ae289eb576016cc543938f00fe4f1938a1aee363c510acf3d3cb5a11b']],
+  ['components/motion/figure-frame.tsx', [13373, '13d3145b5ecf6f9558429defff828536c56a4860eaf762ce3d4753e4f512effc']],
   ['components/motion/gripper-glyph.tsx', [1551, '5a2255d2268934f435fa0145b04ee526e166e0fe4f1d9b06d7b7c41af6d20335']],
   ['components/motion/motion-tokens.css', [2760, '0147a8766a15ad8078a1b97592e57ce149d0339ede9fa344152bf168e533845b']],
   ['components/motion/robot-dog.tsx', [12087, 'b242c176cb20ffdb06ae58f56b64c1207f068a2f66211f37859475b4ae745d2e']],
@@ -156,7 +156,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['scripts/motion/motion_theme.py', [2399, '27b5b388de634ac4c0ae00a057ad5ce03e05b9f2171fc2fc1a4fef5f07ed1a68']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],
   ['tests/component/action-conditioning.test.tsx', [10538, 'fb7db1b679216ad5ae077b482eeb049985195b68ce1d8dc106eda0100093defb']],
-  ['tests/component/advantage-scrubber.test.tsx', [9235, '44a7587d6656a6245cb532a41aa04f07da4c0797150fbe0687009e3fe2821a62']],
+  ['tests/component/advantage-scrubber.test.tsx', [10878, '49fde6852edf6402df3dae8130bbea572a14ab58882ddf3198d3a264c94cae07']],
   ['tests/component/appearance-physics-push.test.tsx', [11531, '25134e1a204b93f5b429372b81f8938118c04cb769e7083726f08e80e7cae6ee']],
   ['tests/component/calibration-chain.test.tsx', [8812, '9e07238f7929e1edc62e0c34477094adb0f0857402fceb02f2257e62fca2ae90']],
   ['tests/component/chart-primitives.test.tsx', [8819, 'c2015ebfb22e5113e54fda1be779e68bdb9b6cb94ebcb91a19e1731a2e927af3']],
