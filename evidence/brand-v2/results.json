@@ -100610,11 +100610,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The four links and their measured errors",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -100666,11 +100666,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Poses and how much tighter the estimate gets",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -100722,11 +100722,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Gap between the photographed and the real hand",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -100778,11 +100778,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The four links and their measured errors",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -100834,11 +100834,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Poses and how much tighter the estimate gets",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -100890,11 +100890,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Gap between the photographed and the real hand",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -101282,11 +101282,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The messages each way of talking sends",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -101338,11 +101338,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "How old the picture the model uses is",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -101394,11 +101394,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The messages each way of talking sends",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -101450,11 +101450,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "How old the picture the model uses is",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -101506,11 +101506,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Datasets and corpora by scale, with the farm projection",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -101618,11 +101618,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Datasets and corpora by scale, with the farm projection",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -101842,11 +101842,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -101898,11 +101898,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102066,11 +102066,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Months to pay back by jam-clearing time",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102122,11 +102122,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Months to pay back by jam-clearing time",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102290,11 +102290,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
-                  "clientWidth": 931,
-                  "scrollWidth": 931,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 930.98,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102346,11 +102346,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
-                  "clientWidth": 293,
-                  "scrollWidth": 808,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 808,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102402,11 +102402,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
-                  "clientWidth": 931,
-                  "scrollWidth": 931,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 930.98,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102458,11 +102458,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The six theses by their technical names, with the core claim, the named proponents, the short falsification signal and the full criterion.",
-                  "clientWidth": 293,
-                  "scrollWidth": 593,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 593,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102514,11 +102514,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102570,11 +102570,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost, actuation, training bet and sources, in the order the cards show.",
-                  "clientWidth": 293,
-                  "scrollWidth": 722,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 722,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102626,11 +102626,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled loss and completion by pretraining hours",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102682,11 +102682,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled loss and completion by pretraining hours",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102738,11 +102738,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102794,11 +102794,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -102850,11 +102850,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled episode success by episode length",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102906,11 +102906,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Deployment programs with their reported value, what backs each record, and the source behind it. The filter above the chart narrows these rows too.",
-                  "clientWidth": 293,
-                  "scrollWidth": 537,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 537,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -102962,11 +102962,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled success rate and decision count by chunk size",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -103018,11 +103018,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled toy throughput scores by added delay",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -103074,11 +103074,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled executed action across the hand-off",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -103186,11 +103186,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled success rate and decision count by chunk size",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -103242,11 +103242,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled toy throughput scores by added delay",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -103298,11 +103298,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled executed action across the hand-off",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -103522,11 +103522,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -103578,11 +103578,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled toy deviation and reference scalings by horizon",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -103858,11 +103858,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The 13 records with maker, month, download status and source type.",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -103914,11 +103914,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The 13 records with maker, month, download status and source type.",
-                  "clientWidth": 293,
-                  "scrollWidth": 638,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 638,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -103970,11 +103970,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104026,11 +104026,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The 7 Physical Intelligence model entries, 6 with a source month, with architecture, contribution and source.",
-                  "clientWidth": 293,
-                  "scrollWidth": 851,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 850.67,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -104082,11 +104082,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104138,11 +104138,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled commanded velocity across the hand-off",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104194,11 +104194,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Teaching-model inference by toy size, against the 20 ms budget",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -104250,11 +104250,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled commanded velocity across the hand-off",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -104306,11 +104306,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Toy value along the fictional espresso episode",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104362,11 +104362,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Per-task successes out of 30",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104474,11 +104474,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Toy value along the fictional espresso episode",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -104530,11 +104530,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Per-task successes out of 30",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -104642,11 +104642,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled action value along the selected dimension",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104698,11 +104698,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled action value along the selected dimension",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -104754,11 +104754,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Whole-body pick success by where the object sits",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104866,11 +104866,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Where the robot's feet end up",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -104922,11 +104922,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Whole-body pick success by where the object sits",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105034,11 +105034,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Where the robot's feet end up",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105090,11 +105090,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "How far the simulated motor is from the real one",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105146,11 +105146,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Where the robots train after each round",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105202,11 +105202,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "How far the simulated motor is from the real one",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105258,11 +105258,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Where the robots train after each round",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105314,11 +105314,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Which squeeze the learner picks at each caution",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105370,11 +105370,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Where each way of learning takes the robot",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105426,11 +105426,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Real-robot success before and after RL",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105482,11 +105482,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Which squeeze the learner picks at each caution",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105538,11 +105538,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Where each way of learning takes the robot",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105594,11 +105594,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Real-robot success before and after RL",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105650,11 +105650,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Simulated robots at once",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105706,11 +105706,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Which solver handles which material",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -105762,11 +105762,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Simulated robots at once",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105818,11 +105818,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Which solver handles which material",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -105978,11 +105978,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled base-height deviation for both controllers",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106138,11 +106138,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled base-height deviation for both controllers",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -106194,11 +106194,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Modelled wall-clock cost of this budget under each source",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106250,11 +106250,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "What the update may learn from after 6 rounds",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106306,11 +106306,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The same push, judged against two goals",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106362,11 +106362,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Modelled wall-clock cost of this budget under each source",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -106418,11 +106418,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "What the update may learn from after 6 rounds",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -106474,11 +106474,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "The same push, judged against two goals",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -106530,11 +106530,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled task success against ground friction",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106586,11 +106586,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "How well simulated success predicts real success",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106642,11 +106642,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled task success against ground friction",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -106698,11 +106698,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "How well simulated success predicts real success",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -106754,11 +106754,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "What each recipe needs from a contact model",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106866,11 +106866,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Trials that finished the scramble",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -106922,11 +106922,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "What each recipe needs from a contact model",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -107034,11 +107034,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Trials that finished the scramble",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -107202,11 +107202,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled latent deviation by imagination step",
-                  "clientWidth": 876,
-                  "scrollWidth": 876,
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
                   "scrolledBy": 0
                 },
-                "tableWidth": 875.63,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 84.51
@@ -107258,11 +107258,11 @@
                   "tabIndex": 0,
                   "role": "region",
                   "accessibleName": "Sampled latent deviation by imagination step",
-                  "clientWidth": 293,
-                  "scrollWidth": 480,
-                  "scrolledBy": 40
+                  "clientWidth": 0,
+                  "scrollWidth": 0,
+                  "scrolledBy": 0
                 },
-                "tableWidth": 480,
+                "tableWidth": 0,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -202042,7 +202042,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1403 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
