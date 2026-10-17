@@ -41,7 +41,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/reliability-compounding.tsx',
     route: '/frontier/reliability-gap/',
     quantityNames: ['episode success', 'steps'],
-    text: 'On the reliability-gap calculator a 95.0 percent per-step policy yields 21.5% episode success at 30 steps and only 0.6% at the 100-step far end, with the 50 percent crossing near step 14.',
+    text: 'On the reliability-gap calculator a 95.0 percent per-step policy yields 21.5% episode success at 30 steps and only 0.6% at the 100-step far end, with the 50 percent crossing near step 14. In the drawing, 21 of 100 marbles reach the finish tray.',
   },
   {
     component: 'EgoScaleScaling',
@@ -99,7 +99,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/execution-modes.tsx',
     route: '/manipulation/realtime-execution/',
     quantityNames: ['velocity', 'delay'],
-    text: 'At 0 ms of inference delay the synchronous velocity trace stops for 0 ms of dead time, while the naive switch reaches a peak velocity step of 0.05 per 20 ms tick and real-time chunking reaches 0.05, both read against the illustrative 0.30 discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and each trolley\'s pendulum gauge keeps its largest step on a drag pointer.',
+    text: 'At 200 ms of inference delay the synchronous velocity trace stops for 200 ms of dead time, while the naive switch reaches a peak velocity step of 1.00 per 20 ms tick and real-time chunking reaches 0.18, both read against the illustrative 0.30 discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and each trolley\'s pendulum gauge keeps its largest step on a drag pointer.',
   },
   {
     component: 'ActionTokenization',
@@ -127,14 +127,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/advantage-scrubber.tsx',
     route: '/manipulation/rl-finetuning/',
     quantityNames: ['value', 'advantage'],
-    text: 'At t = 0.0 s this teaching toy shows an arbitrary value score of 30.0 in the Reach segment, tagged high advantage because its score changes by +8.0. The dashed arc links a fictional insertion failure at 32 s to a grasp 20 s earlier. The tinted stage blocks show these fictional stage tags. Its timings, values and stage-difference tags are illustrative, not a measured Recap episode or its reward-inclusive, task-thresholded advantage estimator.',
+    text: 'At t = 40.0 s this teaching toy shows an arbitrary value score of 10.0 in the Outcome segment, tagged low advantage because its score changes by -2.0. The dashed arc links a fictional insertion failure at 32 s to a grasp 20 s earlier. The tinted stage blocks are the steps tagged low advantage. Its timings, values and stage-difference tags are illustrative, not a measured Recap episode or its reward-inclusive, task-thresholded advantage estimator.',
   },
   {
     component: 'MpcVsRl',
     file: 'components/interactive/mpc-vs-rl.tsx',
     route: '/rl-sim2real/reward-design-mpc/',
     quantityNames: ['deviation', 'step'],
-    text: 'After a low-friction patch at step 4 the MPC base-height deviation peaks at 24.00 cm and ends at 24.00 cm while the RL policy peaks at 5.50 cm and ends at 0.07 cm; MPC compute per step re-solves iLQR against the current state at every control step, the RL policy is one network forward pass, weights fixed at training, and both traces are an illustrative teaching model rather than measured hardware data.',
+    text: 'The robot that plans ahead runs MPC and the robot that learned by practice runs an RL policy: after a low-friction patch at step 4 the MPC base-height deviation peaks at 24.00 cm and ends at 24.00 cm while the RL policy peaks at 5.50 cm and ends at 0.07 cm; MPC compute per step re-solves iLQR against the current state at every control step, the RL policy is one network forward pass, weights fixed at training, and both traces are an illustrative teaching model rather than measured hardware data.',
   },
   {
     component: 'FrictionTransfer',
@@ -232,7 +232,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/time-offset-miss.tsx',
     route: '/classical/calibration/',
     quantityNames: ['speed', 'delay'],
-    text: 'At a hand speed of 50 cm a second, the 55 ms camera delay measured on a RealSense D435 rig puts the photographed hand 27.5 mm behind the real one; the gap is speed times delay.',
+    text: "At a gripper speed of 50 cm a second, the 55 ms camera delay measured on a RealSense D435 rig puts the camera's beam 27.5 mm behind the gripper's pointer on the ruler; the gap is speed times delay.",
   },
   {
     component: 'HandEyePoses',
@@ -407,7 +407,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/mot-insulation.tsx',
     route: '/manipulation/knowledge-insulation/',
     quantityNames: ['backbone', 'expert'],
-    text: 'Forward pass at depth 8 of 8 keeps backbone supervision on no gradients (inference), language following at 92 of 100, and the separately reported 7.5x fewer training steps for the π0.5 + KI generalist versus π0 at similar table-bussing performance; the stop-gradient is on so expert gradients stay inside the action expert.',
+    text: 'Backward pass at depth 8 of 8 keeps backbone supervision on FAST-token cross-entropy only, language following at 92 of 100, and the separately reported 7.5x fewer training steps for the π0.5 + KI generalist versus π0 at similar table-bussing performance; the stop-gradient is on so expert gradients stay inside the action expert.',
   },
   {
     component: 'CrossEmbodimentStrategies',
@@ -421,7 +421,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/hierarchy-timescales.tsx',
     route: '/manipulation/hierarchical/',
     quantityNames: ['playhead', 'lanes'],
-    text: 'π0.5 by Physical Intelligence at playhead 0 ms of 2000 ms has 4 timescale lanes with 1 update fired; the 50 Hz Motor commands lane ticks 50 times (schematic) during one Subtask prediction update at ~1 Hz (schematic).',
+    text: 'π0.5 by Physical Intelligence at playhead 2000 ms of 2000 ms has 4 timescale lanes with 105 updates fired; the 50 Hz Motor commands lane ticks 50 times (schematic) during one Subtask prediction update at ~1 Hz (schematic).',
   },
   {
     component: 'ContactGeometry',
@@ -469,8 +469,8 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     component: 'GeneralistReleaseTimeline',
     file: 'components/interactive/generalist-release-timeline.tsx',
     route: '/manipulation/generalist-policies/',
-    quantityNames: ['policy records', 'weight availability'],
-    text: '13 of 13 selected generalist policy records are shown; selected is Helix from Figure (not disclosed, lab blog, vendor-reported) and weight availability is stated by each node label; dim nodes do not establish closed licensing.',
+    quantityNames: ['policy records', 'download'],
+    text: '13 of 13 selected generalist policy records are shown; selected is Helix from Figure (not disclosed, lab blog, vendor-reported). Filled nodes have a reported download; hollow, dim nodes include unavailable and not-disclosed records, and dim nodes do not establish closed licensing.',
   },
   {
     component: 'JepaPlanning',

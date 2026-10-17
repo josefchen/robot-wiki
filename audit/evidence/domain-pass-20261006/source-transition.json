@@ -3,7 +3,7 @@
   "name": "domain-pass-20261006",
   "reviewedBy": "implementation worker for the opus-pass domain passes of 2026-10-06 (not independent acceptance)",
   "rationale": "The opus-pass domain passes rewrite each article from the owner's verified draft: shorter prose, at least 30 cited sources, no Callout or Aside boxes, every non-OK audit finding fixed. Each rewrite is recorded here as exact edits over the bytes the article had before the pass. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, its frontmatter differs only by appended citation ids, every citation it had is still cited and every figure and component mount is unchanged, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-16T09:54:06Z",
+  "observedAt": "2026-10-17T01:39:46Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -14,8 +14,8 @@
       },
       "after": {
         "path": "components/interactive/reliability-compounding.tsx",
-        "bytes": 24221,
-        "sha256": "35afd1c4d3638670166102dbc2a5c0d51c86bc609df6abf1b026db7ce40fea3f"
+        "bytes": 24304,
+        "sha256": "55f577b59c08c08a7dbec44e30d1f57f9270259de919d2c45fc8e67e00c74e8a"
       },
       "edits": [
         {
@@ -117,6 +117,14 @@
         {
           "before": "            The tiles round the same number to whole jobs out of 100. Working backwards, a job\n            that must finish with probability q over n steps needs each step to succeed with\n            probability q^(1/n).\n",
           "after": "            The drawing is a marble run of {GATES} trapdoor gates, ten to a rail; the first {armed}{' '}\n            are armed as the job&rsquo;s steps and the rest are pinned shut. A hundred marbles, one\n            job each, roll from the hopper. Each armed gate passes the share p of the marbles that\n            reach it, rounded to whole marbles, so after k gates round(100 p^k) are still rolling, and\n            the finish tray holds the readout&rsquo;s share as whole jobs out of 100 (now{' '}\n            <span data-testid=\"finished-marbles\">{finished}</span>). Which marble drops at which\n            gate is a fixed shuffle of the release order; the counts do not depend on it. A run plays\n            in about ten seconds, not to scale. Working backwards, a job that must finish with\n            probability q over n steps needs each step to succeed with probability q^(1/n).\n"
+        },
+        {
+          "before": "            description={reliabilityTakeaway({\n",
+          "after": "            description={`${reliabilityTakeaway({\n"
+        },
+        {
+          "before": "              ),\n            })}\n",
+          "after": "              ),\n            })} In the drawing, ${rest.finished} of ${MARBLES} marbles reach the finish tray.`}\n"
         }
       ]
     },

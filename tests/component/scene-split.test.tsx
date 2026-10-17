@@ -74,6 +74,12 @@ describe('SceneSplit', () => {
     expect(container.querySelectorAll('svg text')).toHaveLength(0);
   });
 
+  it('describes the drawing with the method paragraph that explains the rack', () => {
+    render(<SceneSplit />);
+    const id = screen.getByRole('img', { name: /Twenty episode cards/ }).getAttribute('aria-describedby');
+    expect(document.getElementById(id ?? '')).toHaveTextContent(/^The rack is schematic: 20 episodes, 5 recorded in each of 4 scenes/);
+  });
+
   it('holds out scene 4 from the preset row', () => {
     const { container } = render(<SceneSplit />);
     const holdout = screen.getByTestId('split-mode-holdout');

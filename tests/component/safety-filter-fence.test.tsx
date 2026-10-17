@@ -112,6 +112,14 @@ describe('SafetyFilterFence', () => {
     expect(svg.getAttribute('aria-label')).toMatch(/nearest point on its edge/);
   });
 
+  it('describes the drawing with the method paragraph that explains the bench', () => {
+    render(<SafetyFilterFence />);
+    const svg = screen.getByTestId('fence-drawing').querySelector('svg')!;
+    expect(document.getElementById(svg.getAttribute('aria-describedby') ?? '')).toHaveTextContent(
+      /^The drawing is that rule as a bench\. The sealed box, with no window and a tamper seal, stands for the policy/,
+    );
+  });
+
   it('moves along the stroke from the slider, in words for assistive technology', () => {
     render(<SafetyFilterFence />);
     const slider = screen.getByRole('slider', { name: /along the stroke/i });

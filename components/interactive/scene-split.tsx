@@ -111,6 +111,7 @@ const restLifts = (mode: SplitMode) => {
 
 export function SceneSplit({ className }: { className?: string }) {
   const clipId = `scene-split-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}-floor`;
+  const drawingId = `${useId()}-drawing`;
   const [mode, setMode] = useState<SplitMode>('random');
   const test = testSetOf(mode);
   const { testScenes, leaked } = leakOf(test);
@@ -204,6 +205,7 @@ export function SceneSplit({ className }: { className?: string }) {
                 ? `Twenty episode cards stand in a channel, five from each of four scenes, each printed with its scene's shape. A random split raises ${TEST_SIZE} cards, from ${scenesWord(testScenes.length)}, against the test rail; each of those scenes still has cards down in training.`
                 : `Twenty episode cards stand in a channel, five from each of four scenes, each printed with its scene's shape. Holding out scene 4 raises all ${PER_SCENE} of its cards against the test rail and leaves none of its shape in training.`
             }
+            describedBy={drawingId}
           >
             <defs>
               <clipPath id={clipId}>
@@ -251,7 +253,7 @@ export function SceneSplit({ className }: { className?: string }) {
             because random episode splits can leak near-identical scenes and operators. Hold out environments for
             environment generalization, tasks for task generalization and embodiments for cross-embodiment claims.
           </p>
-          <p>
+          <p id={drawingId}>
             The rack is schematic: {EPISODES} episodes, {PER_SCENE} recorded in each of {SCENES} scenes, and a test set
             of {TEST_SIZE}. The random split is one seeded draw: it takes test episodes from{' '}
             {scenesWord(leakOf(testSetOf('random')).testScenes.length)}, and each of them keeps episodes in training. That

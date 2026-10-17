@@ -88,6 +88,14 @@ describe('MotionPantograph', () => {
     expect(container.textContent).toMatch(/Illustrative/);
   });
 
+  it('describes the drawing with the method paragraph that explains the pantograph', () => {
+    render(<MotionPantograph />);
+    const id = screen.getByRole('img').getAttribute('aria-describedby');
+    expect(document.getElementById(id ?? '')).toHaveTextContent(
+      /^The drawing is a reducing pantograph doing the same thing with four bars\./,
+    );
+  });
+
   it('re-pins the scale: the tip trace shrinks with the scale while the hand trace stays', () => {
     render(<MotionPantograph />);
     const slider = screen.getByRole('slider');

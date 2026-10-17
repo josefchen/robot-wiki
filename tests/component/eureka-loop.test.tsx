@@ -25,6 +25,12 @@ describe('EurekaLoop', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
+  it('describes the drawing with the method paragraph that explains the bench', () => {
+    render(<EurekaLoop />);
+    const id = screen.getByTestId('eureka-stage').getAttribute('aria-describedby');
+    expect(document.getElementById(id ?? '')).toHaveTextContent(/^The drawing is that loop as a bench\. Each round's rules are punched into a card/);
+  });
+
   it('draws the loop as a bench with no words: each round\'s card, its run on the ribbon and its robot', async () => {
     // Reduced motion: each round is drawn at its end at once, so the drawing can be read straight after a click.
     const matchMedia = window.matchMedia;

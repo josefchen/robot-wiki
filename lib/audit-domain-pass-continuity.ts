@@ -45,11 +45,11 @@ export type DomainPassReview = {
 
 // BEGIN domain-pass pins (written by scripts/record-domain-pass-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1452036, sha256: '47e45bc33c2da629904a781a0df798bba5aac3b3c4d4739fb6803833aef56ccb' };
+const reviewPin = { bytes: 1452419, sha256: 'fc9a6c5b088c5c8843fde953796c83deed16460e0e7d62da72bcf96d4552ce67' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['components/interactive/reliability-compounding.tsx', [24221, '35afd1c4d3638670166102dbc2a5c0d51c86bc609df6abf1b026db7ce40fea3f']],
+  ['components/interactive/reliability-compounding.tsx', [24304, '55f577b59c08c08a7dbec44e30d1f57f9270259de919d2c45fc8e67e00c74e8a']],
   ['content/adjacent/space.mdx', [14882, '90c63559e4cb1ee20d3c5ad022d060b23344120aa0dfd7d636223d99755c477a']],
   ['content/classical/calibration.mdx', [9689, 'f05b9f74bfefac02ed215bb3f4110b0afd3ec2ef1ed5cc5679c9e51be0943500']],
   ['content/classical/control.mdx', [20015, '5deb9961e56c1c5f4cfa3847fe479cddf795e00f255874e4276841e8953b9ba3']],

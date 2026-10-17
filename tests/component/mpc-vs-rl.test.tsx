@@ -135,4 +135,16 @@ describe('MpcVsRl', () => {
     await user.click(surprise('Heavy backpack'));
     expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(before);
   });
+
+  it('names each drawn robot in the description by the words its label uses', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<MpcVsRl />);
+    const svg = screen.getByTestId('perturbation-chart');
+    const desc = () => container.querySelector('[data-chart-description]')?.textContent ?? '';
+    for (const name of ['Heavy backpack', 'Sideways shove']) {
+      await user.click(surprise(name));
+      expect(svg.getAttribute('aria-label')).toMatch(/the robot that plans ahead .*, the robot that learned by practice /);
+      expect(desc()).toMatch(/^The robot that plans ahead runs MPC and the robot that learned by practice runs an RL policy: after a /);
+    }
+  });
 });

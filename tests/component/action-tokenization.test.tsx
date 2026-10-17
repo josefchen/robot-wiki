@@ -149,6 +149,34 @@ describe('ActionTokenization', () => {
     expect(ruler.querySelector('[data-selection="assigned bin"]')).toHaveAttribute('data-notch', String(bin));
   });
 
+  it('names each drawing more briefly than the description it points to, at every motion', () => {
+    // VAL-EDU-021: the accessible name is a short name; the numbers live in the description.
+    // VAL-EDU-036 (chart-coverage-sweep): name and description still share two quantity words.
+    const stopwords = ['with', 'from', 'over', 'against', 'versus', 'each', 'this', 'that', 'than', 'time'];
+    const words = (text: string) =>
+      text
+        .toLowerCase()
+        .split(/[^a-z0-9]+/)
+        .map((word) => word.replace(/s$/, ''))
+        .filter((word) => word.length >= 4 && !stopwords.includes(word));
+    for (const [dim] of ACTION_DIMS.entries()) {
+      for (const step of [0, 7, 15]) {
+        const { container, unmount } = render(<ActionTokenization defaultStep={step} defaultDim={dim} />);
+        for (const name of [/continuous action chunk/i, /binning detail/i]) {
+          const drawing = screen.getByRole('img', { name });
+          const label = drawing.getAttribute('aria-label') ?? '';
+          const id = drawing.getAttribute('aria-describedby') ?? '';
+          const description = (container.querySelector(`[id="${id}"]`)?.textContent ?? '').trim();
+          expect(description.length).toBeGreaterThan(0);
+          expect(label.length, `${name} at motion ${dim}, step ${step}`).toBeLessThan(description.length);
+          const shared = new Set(words(label).filter((word) => words(description).includes(word)));
+          expect(shared.size, `${name} at motion ${dim}, step ${step}`).toBeGreaterThanOrEqual(2);
+        }
+        unmount();
+      }
+    }
+  });
+
   it('describes the traces root with a sampled table and the bin chart with a state list', () => {
     const { container } = render(<ActionTokenization />);
     const desc = container.querySelector('[data-chart-description]');

@@ -183,7 +183,7 @@ export function MpcVsRl({ className }: { className?: string }) {
   const rlEnd = perturbation.rl.trace[TRACE_STEPS - 1];
   const mpcPeak = Math.max(...perturbation.mpc.trace);
   const rlPeak = Math.max(...perturbation.rl.trace);
-  const descriptionText = `After a ${perturbation.label} at step ${APPLY_STEP} the MPC base-height deviation peaks at ${mpcPeak.toFixed(2)} cm and ends at ${mpcEnd.toFixed(2)} cm while the RL policy peaks at ${rlPeak.toFixed(2)} cm and ends at ${rlEnd.toFixed(2)} cm; MPC compute per step ${CONTROLLERS.mpc.compute}, the RL policy is ${CONTROLLERS.rl.compute}, and both traces are an illustrative teaching model rather than measured hardware data.`;
+  const descriptionText = `The robot that plans ahead runs MPC and the robot that learned by practice runs an RL policy: after a ${perturbation.label} at step ${APPLY_STEP} the MPC base-height deviation peaks at ${mpcPeak.toFixed(2)} cm and ends at ${mpcEnd.toFixed(2)} cm while the RL policy peaks at ${rlPeak.toFixed(2)} cm and ends at ${rlEnd.toFixed(2)} cm; MPC compute per step ${CONTROLLERS.mpc.compute}, the RL policy is ${CONTROLLERS.rl.compute}, and both traces are an illustrative teaching model rather than measured hardware data.`;
 
   const [pointX, pointY] = poseFor(perturbation[plain.focus].status, perturbation.id).pointAt;
   const target: [number, number] = [f(COLUMN_X[plain.focus] + pointX * SCALE), f(GROUND_Y + pointY * SCALE)];
