@@ -1,6 +1,8 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { DESIGN_DEFS } from './helpers/design-defs';
 
@@ -241,41 +243,30 @@ const CHARTS: Array<{
 /**
  * VAL-EDU-031's population is "every published article route that hosts a
  * retrofitted chart, a self-check, or a prediction step". That set is
- * DERIVED from the rendered export, never hand-maintained: a route is in
- * scope when its exported HTML carries an <article> plus one of
+ * DERIVED, never hand-maintained: a published article route (data/modules)
+ * is in scope when its exported HTML carries an <article> plus one of
  * [data-chart-description], [data-self-check] or [data-predict]. A
- * hardcoded list here is what let 10 in-scope routes go ungraded.
+ * hardcoded list here is what let 10 in-scope routes go ungraded. A page
+ * that is not an article stays out even when it reuses a marker name: the
+ * /how-robots-work explainers keep an empty [data-predict] slot for their
+ * step prompts.
  */
-function deriveDesignBoundRoutes(outDir: string): string[] {
+function deriveDesignBoundRoutes(outDir: string, articleRoutes: readonly string[]): string[] {
   const marker = /data-chart-description|data-self-check|data-predict/;
   const inScope = (html: string): boolean =>
     /<article[\s>]/.test(html) && marker.test(html);
-  const routes: string[] = [];
-  const domains = readdirSync(outDir, { withFileTypes: true });
-  for (const domain of domains) {
-    if (!domain.isDirectory()) continue;
-    if (domain.name.startsWith('_') || domain.name.startsWith('.')) continue;
-    if (domain.name === '404' || domain.name === 'a-z') continue;
-    const domainDir = join(outDir, domain.name);
-    const domainIndex = join(domainDir, 'index.html');
-    if (existsSync(domainIndex)) {
-      if (inScope(readFileSync(domainIndex, 'utf8'))) routes.push(`/${domain.name}`);
-    }
-    for (const slug of readdirSync(domainDir, { withFileTypes: true })) {
-      if (!slug.isDirectory()) continue;
-      const articleIndex = join(domainDir, slug.name, 'index.html');
-      if (!existsSync(articleIndex)) continue;
-      if (inScope(readFileSync(articleIndex, 'utf8'))) {
-        routes.push(`/${domain.name}/${slug.name}`);
-      }
-    }
-  }
-  return routes.sort();
+  return articleRoutes
+    .filter((route) => {
+      const file = join(outDir, route, 'index.html');
+      return existsSync(file) && inScope(readFileSync(file, 'utf8'));
+    })
+    .sort();
 }
 
 const OUT_DIR = join(process.cwd(), 'out');
+const ARTICLE_ROUTES = publishedModules().map((m) => `/${m.domain}/${m.slug}`);
 const DESIGN_BOUND_ROUTES = existsSync(join(OUT_DIR, 'index.html'))
-  ? deriveDesignBoundRoutes(OUT_DIR)
+  ? deriveDesignBoundRoutes(OUT_DIR, ARTICLE_ROUTES)
   : [];
 
 async function setRange(page: Page, input: Locator, value: string) {
@@ -406,6 +397,98 @@ for (const chart of CHARTS) {
   });
 }
 
+/** The VAL-EDU-031 measurement of one rendered page: micro-labels, full-width rules and chart-data summaries. */
+function designBoundReport() {
+  const alpha = (color: string) => {
+    const m = color.match(/rgba?\(([^)]+)\)/);
+    if (!m) return 1;
+    const parts = m[1].split(',').map((s) => parseFloat(s));
+    return parts.length === 4 ? parts[3] : 1;
+  };
+  const micro: string[] = [];
+  for (const el of Array.from(document.querySelectorAll('body *'))) {
+    if (el.children.length > 0) continue;
+    const text = (el.textContent ?? '').trim();
+    if (text.length < 3) continue;
+    const cs = getComputedStyle(el);
+    const fontSize = parseFloat(cs.fontSize);
+    if (fontSize > 15) continue;
+    const spacing =
+      cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing);
+    if (spacing < 0.02 * fontSize) continue;
+    const upper =
+      cs.textTransform === 'uppercase' ||
+      (text === text.toUpperCase() && /[A-Z]/.test(text));
+    if (upper) micro.push(text);
+  }
+  const main = document.querySelector('main');
+  const rules: string[] = [];
+  if (main) {
+    for (const el of Array.from(main.querySelectorAll('*'))) {
+      if (el.closest('table')) continue;
+      const role = el.getAttribute('role');
+      if (el.tagName === 'ASIDE' || role === 'note' || role === 'alert') continue;
+      const cs = getComputedStyle(el);
+      const sides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
+        w: parseFloat(cs[`border${s}Width` as 'borderTopWidth']),
+        a: alpha(cs[`border${s}Color` as 'borderTopColor']),
+      }));
+      const four = sides.every((s) => s.w > 0 && s.a > 0);
+      const single =
+        (sides[0].w >= 1 && sides[0].a > 0) || (sides[2].w >= 1 && sides[2].a > 0);
+      if (four) continue;
+      // VAL-DESIGN-018: "Bordered content boxes inside the prose
+      // are not dividers and are never counted ... any four-sided
+      // framed box contributes 0 to this count no matter how wide
+      // it is or which of its borders is visible." A candidate
+      // whose nearest bordered ancestor inside <main> is a fully
+      // bordered box is that box's edge (a framed-table caveat
+      // strip, a code-block title bar), not a section divider.
+      let boxedInsideFramedAncestor = false;
+      let anc = el.parentElement;
+      while (anc && anc !== main) {
+        const acs = getComputedStyle(anc);
+        const ancSides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
+          w: parseFloat(acs[`border${s}Width` as 'borderTopWidth']),
+          a: alpha(acs[`border${s}Color` as 'borderTopColor']),
+        }));
+        const any = ancSides.some((s) => s.w >= 1 && s.a > 0);
+        if (any) {
+          boxedInsideFramedAncestor = ancSides.every((s) => s.w >= 1 && s.a > 0);
+          break; // nearest bordered ancestor decides
+        }
+        anc = anc.parentElement;
+      }
+      if (boxedInsideFramedAncestor) continue;
+      // A divider paints on the horizontal axis only; side borders
+      // make the element the edge of a box (a titled code block's
+      // title bar carries top+left+right). Same rule as
+      // design-chrome.spec.ts, so the two counters agree.
+      const sideBordered =
+        (sides[1].w >= 1 && sides[1].a > 0) || (sides[3].w >= 1 && sides[3].a > 0);
+      if (el.tagName !== 'HR' && sideBordered) continue;
+      if (!(el.tagName === 'HR' || single)) continue;
+      const column =
+        el.closest('article') ??
+        (el.closest('[style*="max-width"], .prose') as HTMLElement | null) ??
+        main;
+      const colW = column.getBoundingClientRect().width;
+      const w = el.getBoundingClientRect().width;
+      if (colW > 0 && w / colW >= 0.8) rules.push(el.tagName);
+    }
+  }
+  const summaries = Array.from(
+    document.querySelectorAll('details[data-chart-data] > summary'),
+  ).map((el) => {
+    const cs = getComputedStyle(el);
+    return {
+      text: (el.textContent ?? '').trim(),
+      transform: cs.textTransform,
+    };
+  });
+  return { micro: micro.length, rules: rules.length, summaries };
+}
+
 test.describe('article-route design bounds after the state retrofit (VAL-EDU-031)', () => {
   test('the graded population is derived from the export and covers the corpus', () => {
     // Not hardcoded: derived above from out/. >= 30 so a selector or
@@ -417,100 +500,56 @@ test.describe('article-route design bounds after the state retrofit (VAL-EDU-031
     expect(DESIGN_BOUND_ROUTES).toContain('/manipulation/action-chunking');
   });
 
+  test('a page that is not a published article stays out even with a marker', () => {
+    // The explainers page really carries an <article> and the kit's
+    // [data-predict] slot, so only the article corpus keeps it out.
+    const explainers = readFileSync(join(OUT_DIR, 'how-robots-work', 'index.html'), 'utf8');
+    expect(explainers).toMatch(/<article[\s>]/);
+    expect(explainers).toMatch(/data-predict/);
+    expect(DESIGN_BOUND_ROUTES).not.toContain('/how-robots-work');
+
+    // Planted export: the same markup is graded at an article route and
+    // left out at the explainers route.
+    const root = mkdtempSync(join(tmpdir(), 'design-bound-routes-'));
+    try {
+      const markup = '<main><article><div data-predict hidden></div></article></main>';
+      for (const route of ['/how-robots-work', '/rl-sim2real/humanoid-wbc']) {
+        mkdirSync(join(root, route), { recursive: true });
+        writeFileSync(join(root, route, 'index.html'), markup);
+      }
+      expect(deriveDesignBoundRoutes(root, ARTICLE_ROUTES)).toEqual(['/rl-sim2real/humanoid-wbc']);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  test('planted micro-labels on an article still break the bound', async ({ page }) => {
+    const route = '/world-models/world-models-vs-simulators';
+    expect(DESIGN_BOUND_ROUTES).toContain(route);
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(`${BASE}${route}`);
+    const before = await page.evaluate(designBoundReport);
+    expect(before.micro, `${route} micro-labels before planting`).toBeLessThanOrEqual(5);
+    // Six labels in the explainers' rail style: 12 px, 0.08 em, uppercase.
+    await page.evaluate(() => {
+      const article = document.querySelector('article')!;
+      for (const word of ['Body', 'Move', 'Touch', 'Sense', 'Learn', 'Next']) {
+        const label = document.createElement('p');
+        label.textContent = word;
+        label.style.cssText = 'font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase';
+        article.append(label);
+      }
+    });
+    const after = await page.evaluate(designBoundReport);
+    expect(after.micro).toBe(before.micro + 6);
+    expect(after.micro, 'planted labels exceed the bound').toBeGreaterThan(5);
+  });
+
   for (const route of DESIGN_BOUND_ROUTES) {
     test(`${route} keeps micro-label and rule bounds`, async ({ page }) => {
       await page.setViewportSize({ width: 1440, height: 900 });
       await page.goto(`${BASE}${route}`);
-      const report = await page.evaluate(() => {
-        const alpha = (color: string) => {
-          const m = color.match(/rgba?\(([^)]+)\)/);
-          if (!m) return 1;
-          const parts = m[1].split(',').map((s) => parseFloat(s));
-          return parts.length === 4 ? parts[3] : 1;
-        };
-        const micro: string[] = [];
-        for (const el of Array.from(document.querySelectorAll('body *'))) {
-          if (el.children.length > 0) continue;
-          const text = (el.textContent ?? '').trim();
-          if (text.length < 3) continue;
-          const cs = getComputedStyle(el);
-          const fontSize = parseFloat(cs.fontSize);
-          if (fontSize > 15) continue;
-          const spacing =
-            cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing);
-          if (spacing < 0.02 * fontSize) continue;
-          const upper =
-            cs.textTransform === 'uppercase' ||
-            (text === text.toUpperCase() && /[A-Z]/.test(text));
-          if (upper) micro.push(text);
-        }
-        const main = document.querySelector('main');
-        const rules: string[] = [];
-        if (main) {
-          for (const el of Array.from(main.querySelectorAll('*'))) {
-            if (el.closest('table')) continue;
-            const role = el.getAttribute('role');
-            if (el.tagName === 'ASIDE' || role === 'note' || role === 'alert') continue;
-            const cs = getComputedStyle(el);
-            const sides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
-              w: parseFloat(cs[`border${s}Width` as 'borderTopWidth']),
-              a: alpha(cs[`border${s}Color` as 'borderTopColor']),
-            }));
-            const four = sides.every((s) => s.w > 0 && s.a > 0);
-            const single =
-              (sides[0].w >= 1 && sides[0].a > 0) || (sides[2].w >= 1 && sides[2].a > 0);
-            if (four) continue;
-            // VAL-DESIGN-018: "Bordered content boxes inside the prose
-            // are not dividers and are never counted ... any four-sided
-            // framed box contributes 0 to this count no matter how wide
-            // it is or which of its borders is visible." A candidate
-            // whose nearest bordered ancestor inside <main> is a fully
-            // bordered box is that box's edge (a framed-table caveat
-            // strip, a code-block title bar), not a section divider.
-            let boxedInsideFramedAncestor = false;
-            let anc = el.parentElement;
-            while (anc && anc !== main) {
-              const acs = getComputedStyle(anc);
-              const ancSides = ['Top', 'Right', 'Bottom', 'Left'].map((s) => ({
-                w: parseFloat(acs[`border${s}Width` as 'borderTopWidth']),
-                a: alpha(acs[`border${s}Color` as 'borderTopColor']),
-              }));
-              const any = ancSides.some((s) => s.w >= 1 && s.a > 0);
-              if (any) {
-                boxedInsideFramedAncestor = ancSides.every((s) => s.w >= 1 && s.a > 0);
-                break; // nearest bordered ancestor decides
-              }
-              anc = anc.parentElement;
-            }
-            if (boxedInsideFramedAncestor) continue;
-            // A divider paints on the horizontal axis only; side borders
-            // make the element the edge of a box (a titled code block's
-            // title bar carries top+left+right). Same rule as
-            // design-chrome.spec.ts, so the two counters agree.
-            const sideBordered =
-              (sides[1].w >= 1 && sides[1].a > 0) || (sides[3].w >= 1 && sides[3].a > 0);
-            if (el.tagName !== 'HR' && sideBordered) continue;
-            if (!(el.tagName === 'HR' || single)) continue;
-            const column =
-              el.closest('article') ??
-              (el.closest('[style*="max-width"], .prose') as HTMLElement | null) ??
-              main;
-            const colW = column.getBoundingClientRect().width;
-            const w = el.getBoundingClientRect().width;
-            if (colW > 0 && w / colW >= 0.8) rules.push(el.tagName);
-          }
-        }
-        const summaries = Array.from(
-          document.querySelectorAll('details[data-chart-data] > summary'),
-        ).map((el) => {
-          const cs = getComputedStyle(el);
-          return {
-            text: (el.textContent ?? '').trim(),
-            transform: cs.textTransform,
-          };
-        });
-        return { micro: micro.length, rules: rules.length, summaries };
-      });
+      const report = await page.evaluate(designBoundReport);
       expect(report.micro, `${route} micro-labels`).toBeLessThanOrEqual(5);
       expect(report.rules, `${route} full-width rules`).toBeLessThanOrEqual(2);
       for (const summary of report.summaries) {

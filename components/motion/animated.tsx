@@ -31,6 +31,44 @@ export type AnimatedTag =
 
 export type AnimatedBindings = Record<string, (t: number) => number | string>;
 
+/**
+ * SVG attributes whose markup name is itself camelCase. Every other
+ * camelCase binding key is a React prop name for a hyphenated presentation
+ * attribute, and `setAttribute('strokeDashoffset', …)` would write an
+ * inert attribute of that literal name while the poster value stayed on.
+ */
+const CAMEL_CASE_SVG_ATTRIBUTES: ReadonlySet<string> = new Set([
+  'viewBox',
+  'preserveAspectRatio',
+  'pathLength',
+  'gradientTransform',
+  'gradientUnits',
+  'patternTransform',
+  'patternUnits',
+  'patternContentUnits',
+  'textLength',
+  'lengthAdjust',
+  'startOffset',
+  'stdDeviation',
+  'markerWidth',
+  'markerHeight',
+  'markerUnits',
+  'refX',
+  'refY',
+  'clipPathUnits',
+  'maskUnits',
+  'maskContentUnits',
+  'filterUnits',
+  'primitiveUnits',
+  'spreadMethod',
+]);
+
+/** The SVG attribute a binding key writes: `fillOpacity` → `fill-opacity`, `pathLength` unchanged. */
+export function svgAttributeName(key: string): string {
+  if (CAMEL_CASE_SVG_ATTRIBUTES.has(key) || !/[A-Z]/.test(key)) return key;
+  return key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+}
+
 type AnimatedElementProps = Omit<SVGAttributes<SVGElement>, 'children'> & {
   as: AnimatedTag;
   /** Attribute values as pure functions of scene time, in milliseconds. */
@@ -60,7 +98,9 @@ export function AnimatedElement({
   useLayoutEffect(() => {
     const element = ref.current;
     if (element === null || time === null) return;
-    const entries = Object.entries(bindings);
+    const entries = Object.entries(bindings).map(
+      ([key, select]) => [svgAttributeName(key), select] as const,
+    );
     if (entries.length === 0) return;
     const apply = (t: number) => {
       for (const [attribute, select] of entries) {

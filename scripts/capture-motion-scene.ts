@@ -25,6 +25,26 @@ const VIEWPORTS = [
 
 const BASE_URL = process.env.CAPTURE_BASE_URL ?? 'http://localhost:3200';
 
+// The development badge can intrude into a narrow component screenshot, and
+// the sticky top bar would cover a scene pinned to the top of the viewport.
+const CAPTURE_STYLE =
+  'nextjs-portal { display: none !important; } [data-site-topbar] { visibility: hidden !important; }';
+
+type SceneLocator = import('@playwright/test').Locator;
+
+// A scene almost as tall as the viewport, shot while it still sat partly
+// below the fold, came out with its lower edge blank (the caption cut off).
+// Pinning the scene's top to the viewport's top first gives a whole still.
+async function screenshotScene(scene: SceneLocator, file: string): Promise<void> {
+  await scene.evaluate((element) => {
+    const top = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'instant' });
+    return new Promise((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
+  await scene.screenshot({ path: file });
+}
+
 async function captureScene(
   browser: Awaited<ReturnType<typeof chromium.launch>>,
   sceneId: string,
@@ -35,7 +55,7 @@ async function captureScene(
   const written: string[] = [];
   const selector = `[data-motion-scene="${sceneId}"]`;
   const measurements: Record<string, SceneAudit> = {};
-  const audit = async (scope: import('@playwright/test').Locator, name: string) => {
+  const audit = async (scope: SceneLocator, name: string) => {
     const result = await scope.evaluate(auditSceneElement);
     measurements[name] = result;
     const failures = [...result.intersections, ...result.overflow, ...result.lowContrast];
@@ -52,13 +72,12 @@ async function captureScene(
     });
     const reducedPage = await reducedContext.newPage();
     await reducedPage.goto(BASE_URL + target.route, { waitUntil: 'networkidle' });
-    // The development badge can intrude into a narrow component screenshot.
-    await reducedPage.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
+    await reducedPage.addStyleTag({ content: CAPTURE_STYLE });
     await reducedPage.locator(selector).waitFor();
     await reducedPage.evaluate(() => document.fonts.ready);
     await audit(reducedPage.locator(selector), `${viewport.name} reduced poster`);
     const reducedStill = path.join(outDir, `${viewport.name}-reduced-poster.png`);
-    await reducedPage.locator(selector).screenshot({ path: reducedStill });
+    await screenshotScene(reducedPage.locator(selector), reducedStill);
     written.push(reducedStill);
     await reducedContext.close();
 
@@ -67,14 +86,14 @@ async function captureScene(
     });
     const page = await context.newPage();
     await page.goto(BASE_URL + target.route, { waitUntil: 'networkidle' });
-    await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' });
+    await page.addStyleTag({ content: CAPTURE_STYLE });
     const scene = page.locator(selector);
     await scene.waitFor();
     await page.evaluate(() => document.fonts.ready);
 
     const posterPath = path.join(outDir, `${viewport.name}-poster.png`);
     await audit(scene, `${viewport.name} poster`);
-    await scene.screenshot({ path: posterPath });
+    await screenshotScene(scene, posterPath);
     written.push(posterPath);
 
     // Activate, pause the autoplay, and walk the beats by keyboard from
@@ -121,7 +140,7 @@ async function captureScene(
       await expect(caption).toBeVisible();
       const still = path.join(outDir, `${viewport.name}-beat-${beat}.png`);
       await audit(scene, `${viewport.name} beat ${beat}`);
-      await scene.screenshot({ path: still });
+      await screenshotScene(scene, still);
       written.push(still);
     }
     await context.close();
