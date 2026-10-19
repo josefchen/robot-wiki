@@ -4,8 +4,9 @@ import {
   FigureFrame,
   FigureStage,
 } from '@/components/motion/figure-frame';
-import { LOGO_MARK_CLASS, LOGO_TILE_CLASS } from '@/components/ui/logo-tile';
+import { LogoMark } from '@/components/ui/logo-mark';
 import { ORIGINAL_SCHEMATICS } from '@/components/ui/original-schematics';
+import { MARK_PLACEMENT, markGeometry, markInk } from '@/lib/market-map-marks';
 import { cx } from '@/lib/utils';
 import type { FigureKind } from '@/data/schemas/image';
 
@@ -199,7 +200,6 @@ export function Figure({
       loading="lazy"
       decoding="async"
       className={cx(
-        mark && cx(LOGO_MARK_CLASS, 'h-full w-auto'),
         // The border stays on the image rather than the crop box: a bordered
         // box holding an element is a surface the registry would govern.
         photo && 'h-full w-full rounded-md border border-border object-cover',
@@ -228,13 +228,22 @@ export function Figure({
           {image}
         </span>
       ) : mark ? (
-        <span
-          data-logo-tile=""
-          data-brand-surface-id="surface:flat"
-          className={cx(LOGO_TILE_CLASS, 'h-24 max-w-full')}
-        >
-          {image}
-        </span>
+        // A company mark is drawn plate-less in the one secondary ink, sized
+        // by its measured artwork box, exactly as on the market map. Here the
+        // ink layer is the credited file's own <img>, with its registry alt
+        // and intrinsic size.
+        <LogoMark
+          file={src}
+          label={alt}
+          geometry={markGeometry(
+            { file: src, width: width ?? 1, height: height ?? 1 },
+            imageId ? MARK_PLACEMENT[imageId] : undefined,
+            'credits',
+          )}
+          ink={markInk(imageId ?? null)}
+          registered={{ width: width ?? 1, height: height ?? 1 }}
+          className="max-w-full"
+        />
       ) : (
         // One 3:2 crop for every photograph, filled rather than letterboxed.
         <span

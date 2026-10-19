@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "8a9bc0f6c7d796ff4d13df13448b39fceb7a821ef21d21fcb6df610305f77b37",
+  "fingerprint": "71e265717d5d22f404d7c868f67aa6aca3cf826f894bea2150d494fe3798703d",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -2990,7 +2990,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 56799,
+      "visibleTextLength": 57243,
       "header": {
         "present": true,
         "display": "flex",
@@ -8652,7 +8652,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 2771,
+      "visibleTextLength": 2767,
       "header": {
         "present": true,
         "display": "flex",

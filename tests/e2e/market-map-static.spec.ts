@@ -88,7 +88,9 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
   await expect(page.getByText('111 of 111 companies')).toBeVisible();
   await page.locator('button[data-map-tile="physical-intelligence"]').click();
   const pi = page.getByRole('dialog', { name: 'Physical Intelligence' });
-  await expect(pi.getByText('openpi')).toBeVisible();
+  // "openpi" until the 2026-10-19 field audit: no fetched source names that
+  // repository; the company's own release names π0 and π0-FAST.
+  await expect(pi.getByText('π0 and π0-FAST (weights and code)')).toBeVisible();
 
   // VAL-MKT-021: no runtime data/API fetch. Next.js still prefetches
   // same-origin HTML and `__next.*.txt` RSC payloads as static assets
@@ -106,6 +108,8 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
 
 test('deep links apply on the static export (VAL-MKT-007)', async ({ page }) => {
   await page.goto(`${BASE}/market-map/?segment=humanoids&country=US`);
-  await expect(page.getByText('6 of 111 companies')).toBeVisible();
-  await expect(page.locator('button[data-map-tile]')).toHaveCount(6);
+  // 6 -> 7 on 2026-10-19: 1X Technologies' headquarters is Palo Alto, as
+  // its Wikipedia body states, not Oslo.
+  await expect(page.getByText('7 of 111 companies')).toBeVisible();
+  await expect(page.locator('button[data-map-tile]')).toHaveCount(7);
 });

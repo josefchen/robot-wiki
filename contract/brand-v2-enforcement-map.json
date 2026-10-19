@@ -2502,6 +2502,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|farm-ng-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|field-ai-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -2853,6 +2858,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|neura-robotics-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -3682,6 +3692,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|farm-ng-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|field-ai-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -4033,6 +4048,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|neura-robotics-logo#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -5613,7 +5633,7 @@
         "statement": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 756,
+        "populationSize": 760,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5759,6 +5779,7 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|emergency-stop-siemens-2006#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|encord-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|engineai-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|farm-ng-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|field-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|figure-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|fingr-cube-layer-turn-2026#0",
@@ -5830,6 +5851,7 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|nabtesco-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|neura-robotics-logo#0",
+          "result:VAL-B2-ART-005:/credits/|1440x900|nimble-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nuro-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nvidia-logo#0",
@@ -5995,6 +6017,7 @@
           "result:VAL-B2-ART-005:/credits/|375x812|emergency-stop-siemens-2006#0",
           "result:VAL-B2-ART-005:/credits/|375x812|encord-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|engineai-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|farm-ng-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|field-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|figure-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|fingr-cube-layer-turn-2026#0",
@@ -6066,6 +6089,7 @@
           "result:VAL-B2-ART-005:/credits/|375x812|nabtesco-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-ART-005:/credits/|375x812|neura-robotics-logo#0",
+          "result:VAL-B2-ART-005:/credits/|375x812|nimble-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nuro-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nvidia-logo#0",
@@ -11976,11 +12000,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-logo.tsx:alt:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12122,6 +12141,16 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/instrument.tsx:aria-labelledby:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/logo-mark.tsx:alt:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/logo-mark.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21121,7 +21150,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1968,
+        "populationSize": 1969,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21271,7 +21300,6 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:3",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:4",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:5",
-          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-logo.tsx:alt:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/grid-view.tsx:aria-label:2",
@@ -21301,6 +21329,8 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/figure.tsx:alt:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/icon.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/instrument.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/logo-mark.tsx:alt:2",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/logo-mark.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/original-schematics.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/original-schematics.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/table.tsx:aria-label:2",
@@ -32201,7 +32231,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/cmr-surgical.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/cmr-surgical.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32211,12 +32241,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/collaborative-robotics.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/collaborative-robotics.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/covariant.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/covariant.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32286,7 +32316,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/fox-robotics.svg",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/fox-robotics.png",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32296,7 +32326,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/galbot.gif",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/galbot.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32326,7 +32356,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/harmonic-drive.svg",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/harmonic-drive-systems.png",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32336,7 +32366,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/humanoid-uk.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/humanoid-uk.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32381,7 +32411,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/limx-dynamics.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/limx-dynamics.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32401,12 +32431,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/micro1.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/micro1.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/mind-robotics.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/mind-robotics.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32531,7 +32561,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/saronic.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/saronic.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -32621,12 +32651,12 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/weave-robotics.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/weave-robotics.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/wonik.png",
+          "evidenceRowId": "result:VAL-B2-IMG-001:asset:images/logos/wonik-robotics.svg",
           "mechanism": "VAL-B2-IMG-001 pending rollout evidence over contract/brand-v2-registries.json#assets"
         },
         {
@@ -33143,10 +33173,10 @@
           "result:VAL-B2-IMG-001:asset:images/logos/carbon-robotics.png",
           "result:VAL-B2-IMG-001:asset:images/logos/chef-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/clone-robotics.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/cmr-surgical.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/cmr-surgical.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/coco-robotics.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/collaborative-robotics.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/covariant.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/collaborative-robotics.svg",
+          "result:VAL-B2-IMG-001:asset:images/logos/covariant.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/deep-robotics.png",
           "result:VAL-B2-IMG-001:asset:images/logos/dexterity.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/diligent-robotics.png",
@@ -33160,17 +33190,17 @@
           "result:VAL-B2-IMG-001:asset:images/logos/formic.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/foundry-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/fourier-intelligence.svg",
-          "result:VAL-B2-IMG-001:asset:images/logos/fox-robotics.svg",
+          "result:VAL-B2-IMG-001:asset:images/logos/fox-robotics.png",
           "result:VAL-B2-IMG-001:asset:images/logos/galaxea-ai.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/galbot.gif",
+          "result:VAL-B2-IMG-001:asset:images/logos/galbot.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/gecko-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/generalist-ai.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/genesis-ai.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/google-deepmind-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/hanson-robotics.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/harmonic-drive.svg",
+          "result:VAL-B2-IMG-001:asset:images/logos/harmonic-drive-systems.png",
           "result:VAL-B2-IMG-001:asset:images/logos/hugging-face.svg",
-          "result:VAL-B2-IMG-001:asset:images/logos/humanoid-uk.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/humanoid-uk.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/intuitive-surgical.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/irobot.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/k-scale-labs.png",
@@ -33179,12 +33209,12 @@
           "result:VAL-B2-IMG-001:asset:images/logos/leaderdrive.png",
           "result:VAL-B2-IMG-001:asset:images/logos/leju-robotics.png",
           "result:VAL-B2-IMG-001:asset:images/logos/lila-sciences.svg",
-          "result:VAL-B2-IMG-001:asset:images/logos/limx-dynamics.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/limx-dynamics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/locus-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/mentee-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/meta.svg",
-          "result:VAL-B2-IMG-001:asset:images/logos/micro1.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/mind-robotics.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/micro1.svg",
+          "result:VAL-B2-IMG-001:asset:images/logos/mind-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/miso-robotics.png",
           "result:VAL-B2-IMG-001:asset:images/logos/mitsubishi.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/monarch-tractor.png",
@@ -33209,7 +33239,7 @@
           "result:VAL-B2-IMG-001:asset:images/logos/robotphoenix.webp",
           "result:VAL-B2-IMG-001:asset:images/logos/sanctuary-ai.png",
           "result:VAL-B2-IMG-001:asset:images/logos/sanhua.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/saronic.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/saronic.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/serve-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/shadow-robot.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/sharpa.svg",
@@ -33227,8 +33257,8 @@
           "result:VAL-B2-IMG-001:asset:images/logos/ubtech.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/unitree.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/wandercraft.svg",
-          "result:VAL-B2-IMG-001:asset:images/logos/weave-robotics.png",
-          "result:VAL-B2-IMG-001:asset:images/logos/wonik.png",
+          "result:VAL-B2-IMG-001:asset:images/logos/weave-robotics.svg",
+          "result:VAL-B2-IMG-001:asset:images/logos/wonik-robotics.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/x-square-robot.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/xdof.svg",
           "result:VAL-B2-IMG-001:asset:images/logos/xela-robotics.png",
@@ -34928,6 +34958,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|farm-ng-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|field-ai-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -35279,6 +35314,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|neura-robotics-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -36108,6 +36148,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|farm-ng-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|field-ai-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -36459,6 +36504,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|neura-robotics-logo#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -38039,7 +38089,7 @@
         "statement": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 756,
+        "populationSize": 760,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38185,6 +38235,7 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|emergency-stop-siemens-2006#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|encord-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|engineai-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|farm-ng-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|field-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|figure-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|fingr-cube-layer-turn-2026#0",
@@ -38256,6 +38307,7 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|nabtesco-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|neura-robotics-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|1440x900|nimble-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nuro-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nvidia-logo#0",
@@ -38421,6 +38473,7 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|emergency-stop-siemens-2006#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|encord-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|engineai-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|farm-ng-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|field-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|figure-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|fingr-cube-layer-turn-2026#0",
@@ -38492,6 +38545,7 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|nabtesco-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|neura-robotics-logo#0",
+          "result:VAL-B2-IMG-005:/credits/|375x812|nimble-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nuro-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nvidia-logo#0",
@@ -40009,8 +40063,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).",
-        "expected": "Third-party company marks retain source identity and use one consistent neutral plate; no mark is redrawn in first-party style. The plate is the one logo tile, which renders every mark on `/credits/` and `/market-map/` in the same monochrome threshold so white and dark marks both clear 3:1 (owner visual audit 2026-09-29, `owner-visual-audit-20260929.md`).",
+        "statement": "Third-party company marks retain source identity and take one consistent treatment; no mark is redrawn in first-party style. Every mark on `/credits/` and `/market-map/` is drawn plate-less as a single-ink silhouette: the official file's alpha (or a reviewed luminance-derived mask recorded with the file's hash) masks one element filled with the secondary ink token (`--color-text-dim`), so white and dark marks read alike and clear 3:1 against the page, with no plate, background, border, padding, filter or shadow; a file whose mask would draw a solid block is replaced by an official transparent or one-colour version from the company's own site or press kit. (Owner decision of 19 October 2026; the owner visual audit of 2026-09-29, `owner-visual-audit-20260929.md`, put every mark on one neutral plate in a monochrome threshold.)",
+        "expected": "Third-party company marks retain source identity and take one consistent treatment; no mark is redrawn in first-party style. Every mark on `/credits/` and `/market-map/` is drawn plate-less as a single-ink silhouette: the official file's alpha (or a reviewed luminance-derived mask recorded with the file's hash) masks one element filled with the secondary ink token (`--color-text-dim`), so white and dark marks read alike and clear 3:1 against the page, with no plate, background, border, padding, filter or shadow; a file whose mask would draw a solid block is replaced by an official transparent or one-colour version from the company's own site or press kit. (Owner decision of 19 October 2026; the owner visual audit of 2026-09-29, `owner-visual-audit-20260929.md`, put every mark on one neutral plate in a monochrome threshold.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -40129,8 +40183,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
-        "expected": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields, contain fit, and neutral plate, with byte/style preservation and no recolour, filter, mask, distortion, or crop other than the logo tile's one registered monochrome threshold (`VAL-B2-MAP-007`). Automation verifies the closed record and preservation predicates, not an independent legal opinion.",
+        "statement": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields and contain fit, with byte/style preservation and no recolour, filter, distortion or crop: its one rendering is the single-ink mask of `VAL-B2-MAP-007`, which reads the file's alpha (or its luminance, for a mask recorded with the file's hash) and edits no byte. Automation verifies the closed record and preservation predicates, not an independent legal opinion. (Owner decision of 19 October 2026; the row allowed the logo tile's one registered monochrome threshold on a neutral plate.)",
+        "expected": "Canonical company population is derived from the market registry; each company mark has the owner-approved `official-identification-use` legal-basis value, official source URL, retrieval date, file hash, attribution/owner fields and contain fit, with byte/style preservation and no recolour, filter, distortion or crop: its one rendering is the single-ink mask of `VAL-B2-MAP-007`, which reads the file's alpha (or its luminance, for a mask recorded with the file's hash) and edits no byte. Automation verifies the closed record and preservation predicates, not an independent legal opinion. (Owner decision of 19 October 2026; the row allowed the logo tile's one registered monochrome threshold on a neutral plate.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {

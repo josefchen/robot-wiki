@@ -5,6 +5,7 @@ import { Figure } from '@/components/ui/figure';
 import { ORIGINAL_SCHEMATICS } from '@/components/ui/original-schematics';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { getImage, licenceLabel, type SiteImage } from '@/data/images';
+import { MARK_PLACEMENT } from '@/lib/market-map-marks';
 
 /**
  * The registry-backed figure (VAL-IMG-001/002/003/009): intrinsic
@@ -218,6 +219,56 @@ describe('figure treatment by kind', () => {
         id,
       ).toMatch(/^Logo: /);
       expect(figure.querySelector('[data-figure-label]'), id).toBeNull();
+      unmount();
+    }
+  });
+
+  it('draws a credited mark as its own registered <img>, masked in the one ink', () => {
+    // /credits credits the file itself (VAL-B2-IMG-005): the mark's ink layer
+    // is that file's <img>, with the registry alt and intrinsic size, and it
+    // paints only the ink through the mask of its own file, cropped to the
+    // measured artwork box (engineai-logo has one; nvidia-logo fills its file).
+    for (const [id, cropped] of [['nvidia-logo', false], ['engineai-logo', true]] as const) {
+      const image = getImage(id) as SiteImage;
+      const { unmount } = render(<ImageRef id={id} />);
+      const figure = document.querySelector('figure')!;
+      const images = figure.querySelectorAll('img');
+      expect(images, id).toHaveLength(1);
+      const img = images[0];
+      const mark = figure.querySelector('[data-logo-mark]')!;
+      expect(figure.querySelectorAll('[data-logo-mark]'), id).toHaveLength(1);
+      expect(mark.contains(img), id).toBe(true);
+      // One accessible name, on the image: the box around it is not named again.
+      expect(mark, id).not.toHaveAttribute('role');
+      expect(mark, id).not.toHaveAttribute('aria-label');
+      expect(img, id).toHaveAttribute('data-logo-ink', '');
+      expect(img, id).not.toHaveAttribute('aria-hidden');
+      expect(img, id).toHaveAttribute('src', image.file);
+      expect(img, id).toHaveAttribute('alt', image.alt);
+      expect(img, id).toHaveAttribute('width', String(image.width));
+      expect(img, id).toHaveAttribute('height', String(image.height));
+      expect(screen.getByRole('img', { name: image.alt }), id).toBe(img);
+      // Painted as the ink, never as the file: the ink class, the file as
+      // its mask, and the file's own pixels set outside the element.
+      expect(img.className, id).toContain('bg-text-dim');
+      expect(img.className, id).toContain('object-none');
+      expect(img.style.objectPosition, id).toBe('-100000px -100000px');
+      expect(img.style.maskImage, id).toBe(`url("${image.file}")`);
+      expect(img.style.filter, id).toBe('');
+      // The mask is the file scaled by file / artwork box and positioned so
+      // the box's margins fall outside: exactly the file when there is no box.
+      const box = MARK_PLACEMENT[id].box ?? [0, 0, 1, 1];
+      expect(MARK_PLACEMENT[id].box !== null, id).toBe(cropped);
+      const [sizeX, sizeY] = img.style.maskSize.split(' ').map(Number.parseFloat);
+      const [atX, atY] = img.style.maskPosition.split(' ').map(Number.parseFloat);
+      expect(sizeX, id).toBeCloseTo(100 / (box[2] - box[0]), 0);
+      expect(sizeY, id).toBeCloseTo(100 / (box[3] - box[1]), 0);
+      if (cropped) {
+        expect(atX, id).toBeCloseTo((100 * box[0]) / (box[0] + 1 - box[2]), 0);
+        expect(atY, id).toBeCloseTo((100 * box[1]) / (box[1] + 1 - box[3]), 0);
+      } else {
+        expect([atX, atY], id).toEqual([0, 0]);
+      }
       unmount();
     }
   });

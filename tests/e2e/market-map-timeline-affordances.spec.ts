@@ -55,7 +55,17 @@ test.describe('timeline view roving keyboard affordances', () => {
     // 72 -> 71 in the batch-3 re-verification pass (2026-08-18): robot-era's
     // round date was nulled (every fetched body says "over $200 million led
     // by SF Group" with no day stated), dropping its timeline row.
+    // 71 -> 72 on 2026-10-19: Farm-ng's acquisition by Bonsai Robotics
+    // (2025-07-24, Bonsai's own release) is a dated event in the window.
+    // 72 -> 71 the same day (market-map field audit): Physical
+    // Intelligence's Series B date was cut. The Robot Report (25 Nov 2025)
+    // says only that it raised the round "last week", and no fetched source
+    // states the 20 Nov 2025 date the record carried.
     await expect(rowButtons(page)).toHaveCount(71);
+    await expect(
+      page.locator('[data-timeline-id][data-company-id="physical-intelligence"]'),
+    ).toHaveCount(0);
+    await expect(page.locator('[data-timeline-id][data-company-id="farm-ng"]')).toHaveCount(1);
     const tabbables = await page.evaluate(
       () =>
         document.querySelectorAll('[data-timeline-id] > button[tabindex="0"]')
@@ -178,15 +188,16 @@ test.describe('timeline view roving keyboard affordances', () => {
     await expect(figure).toBeFocused();
     await expect(figure).toHaveAttribute('tabindex', '0');
 
-    const pi = page.locator(
-      '[data-company-id="physical-intelligence"] > button',
-    );
-    await pi.focus();
-    await pi.press(' ');
+    // The second row was Physical Intelligence's until the 2026-10-19 field
+    // audit cut its round date. Apptronik's Series A extension is dated and
+    // valued in its source ($5B).
+    const apptronik = page.locator('[data-company-id="apptronik"] > button');
+    await apptronik.focus();
+    await apptronik.press(' ');
     await expect(page.locator('[data-company-detail]')).toHaveCount(1);
     await expect(
       page.locator('[data-company-detail] [data-field="valuation"]'),
-    ).toHaveText('$5.6B');
+    ).toHaveText('$5B');
   });
 
   test('corrected round figures cite their explicit supporting sources', async ({

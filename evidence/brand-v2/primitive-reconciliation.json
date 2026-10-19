@@ -1035,7 +1035,7 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "dae7485ac6da4617f84bf8c43a8d26c3992cdfba1b5e6a6aef43be0124683070",
+      "fingerprint": "823b17d99dbc5849b2362f91a5d54bd7e0a9726d77ce6a8b5e09756af6bc0ce8",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
@@ -1052,7 +1052,6 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/training-time-chart.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
         "components/mdx/gr2-results-table.tsx",
@@ -1096,7 +1095,6 @@
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
         "components/mdx/gr2-results-table.tsx",
@@ -1165,7 +1163,6 @@
         "/manipulation/rl-finetuning/",
         "/manipulation/robot-learning-roadmap/",
         "/manipulation/vla-models/",
-        "/market-map/",
         "/playground/",
         "/rl-sim2real/humanoid-wbc/",
         "/rl-sim2real/legged-locomotion/",

@@ -26,7 +26,6 @@ const ROWS: Company[] = [
     id: 'physical-intelligence',
     name: 'Physical Intelligence',
     aka: [
-      'Pi',
       'π',
     ],
     website: 'https://www.pi.website',
@@ -38,7 +37,7 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds general-purpose vision-language-action foundation models (π0 series) that control any robot manipulator for contact-rich tasks.',
+    description: 'Builds vision-language-action models for robots in its π0 series, and open-sourced the code and weights of π0.',
     approach: [
       'vla',
       'flow-matching-action-expert',
@@ -49,7 +48,7 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Series B',
       amountUsd: 600000000,
-      date: '2025-11-20',
+      date: null,
       valuationUsd: 5600000000,
       leadInvestors: [
         'CapitalG',
@@ -57,11 +56,9 @@ const ROWS: Company[] = [
       ],
     },
     status: 'private',
-    deployments: [
-      'Pilot deployments across multiple robot embodiments',
-    ],
+    deployments: [],
     openSource: [
-      'openpi',
+      'π0 and π0-FAST (weights and code)',
     ],
     sources: [
       {
@@ -76,6 +73,14 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'skild-ai',
@@ -84,13 +89,13 @@ const ROWS: Company[] = [
     website: 'https://www.skild.ai',
     logo: 'skild-ai-logo',
     hq: {
-      city: 'Pittsburgh',
+      city: null,
       country: 'US',
     },
     founded: 2023,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds a scalable foundation model (\'Skild Brain\') designed to operate any robot across any embodiment and environment.',
+    description: 'Builds the Skild Brain: general-purpose robot foundation models meant to be retrofitted to many different robots and tasks.',
     approach: [
       'vla',
       'omni-bodied-intelligence',
@@ -101,15 +106,20 @@ const ROWS: Company[] = [
       type: 'Series C',
       amountUsd: 1400000000,
       date: '2026-01-14',
-      valuationUsd: 14000000000,
+      valuationUsd: null,
       leadInvestors: [
-        'SoftBank Group',
+        'SoftBank',
       ],
+      caveat: {
+        text: 'TechCrunch, citing Bloomberg, puts the valuation at more than $14 billion; no exact figure is given.',
+        sourceUrls: [
+          'https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
       'Foxconn Blackwell assembly lines (with Nvidia)',
-      'Acquired Zebra Technologies robotics automation business (Apr 2026)',
     ],
     openSource: [],
     sources: [
@@ -130,6 +140,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Skild AI and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'generalist-ai',
@@ -138,13 +167,13 @@ const ROWS: Company[] = [
     website: 'https://generalistai.com',
     logo: 'generalist-ai-logo',
     hq: {
-      city: 'San Mateo',
+      city: null,
       country: 'US',
     },
     founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Develops AI and robotics technologies enabling robots to perform physical tasks in real-world environments.',
+    description: 'Builds embodied foundation models for robots, GEN-1 and GEN-1.5, trained on more than half a million hours of real-world data gathered with its hand-mimicking grippers.',
     approach: [
       'robot-foundation-models',
     ],
@@ -172,8 +201,38 @@ const ROWS: Company[] = [
         title: 'Generalist AI raises $400M at $2B valuation, backed by Nvidia',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://generalistai.com/careers',
+        title: 'Careers / Generalist',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Generalist AI and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'dyna-robotics',
@@ -190,11 +249,11 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Builds robotic foundation models for cost-effective general-purpose robots, with first system DYNA-1 targeting repetitive manual tasks.',
+    description: 'Builds robots and the foundation models that run them, from DYNA-1 to Dyna-2.1, which it calls a general-purpose physical agent for long, dexterous workflows.',
     approach: [
       'robot-foundation-models',
     ],
-    totalRaisedUsd: 143500000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series A',
       amountUsd: 120000000,
@@ -215,8 +274,31 @@ const ROWS: Company[] = [
         title: 'Dyna Robotics closes $120M funding round to scale robotics foundation model',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.dyna.co/careers',
+        title: 'Careers — DYNA',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'sunday-robotics',
@@ -233,13 +315,13 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'home-robot-policies',
-    description: 'Builds the Memo household robot for tasks like laundry, clearing tables, and loading dishwashers, trained on 10M+ real-world household episodes.',
+    description: 'Builds Memo, an autonomous home robot that clears tables and loads the dishwasher, trained with data from its Skill Capture Glove.',
     approach: [
       'vla',
       'skill-capture-glove',
       'real-world-episodes',
     ],
-    totalRaisedUsd: 200000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series B',
       amountUsd: 165000000,
@@ -252,7 +334,6 @@ const ROWS: Company[] = [
     status: 'private',
     deployments: [
       'Beta deployments planned for fall 2026',
-      '1,000+ person waitlist',
     ],
     openSource: [],
     sources: [
@@ -273,6 +354,18 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'field-ai',
@@ -295,13 +388,19 @@ const ROWS: Company[] = [
       'cross-embodiment',
       'unstructured-environments',
     ],
-    totalRaisedUsd: 405000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: null,
       amountUsd: 405000000,
       date: '2025-08-20',
       valuationUsd: 2000000000,
       leadInvestors: [],
+      caveat: {
+        text: 'The $405M is two funding rounds announced together; the sources do not give the latest round on its own.',
+        sourceUrls: [
+          'https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
@@ -319,6 +418,24 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'covariant',
@@ -327,30 +444,28 @@ const ROWS: Company[] = [
     website: 'https://covariant.ai',
     logo: 'covariant-logo',
     hq: {
-      city: 'Berkeley',
+      city: null,
       country: 'US',
     },
-    founded: 2017,
+    founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Developed robotic foundation models for warehouse manipulation; founders and ~25% of staff acquired by Amazon with non-exclusive license.',
+    description: 'Built robotic foundation models for warehouse robot arms; in 2024 Amazon hired its founders and about a quarter of its staff and took a non-exclusive license to the models.',
     approach: [
       'robot-foundation-models',
       'rfm',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Acqui-hire',
+      type: 'Hiring and licensing deal',
       amountUsd: null,
-      date: '2024-08-31',
+      date: '2024-08-30',
       valuationUsd: null,
-      leadInvestors: [
-        'Amazon',
-      ],
+      leadInvestors: [],
     },
-    status: 'acquired',
+    status: 'private',
     deployments: [
-      'Amazon warehouse operations (post-acquisition)',
+      'Amazon\'s robot fleet, under a non-exclusive model license',
     ],
     openSource: [],
     sources: [
@@ -366,6 +481,36 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources call it Covariant and give no other name (its website returned no readable body).',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'A hiring and licensing deal, neither a financing round nor a sale, so it puts no value on the company.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'A hiring and licensing deal, not a financing round: Amazon hired staff and licensed the models, and neither source names an investor.',
+      },
+    },
   },
   {
     id: 'genesis-ai',
@@ -386,19 +531,21 @@ const ROWS: Company[] = [
       'physics-simulation',
       'vla',
     ],
-    totalRaisedUsd: 105000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Seed',
       amountUsd: 105000000,
       date: '2025-07-01',
       valuationUsd: null,
       leadInvestors: [
-        'Eclipse',
+        'Eclipse Ventures',
         'Khosla Ventures',
       ],
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Targeted customer deployments planned by the end of 2026',
+    ],
     openSource: [],
     sources: [
       {
@@ -413,6 +560,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Genesis AI and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'rhoda-ai',
@@ -427,7 +593,7 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'video-prediction-world-models',
-    description: 'Builds robot foundation models using video-predictive control (\'FutureVision\') trained on hundreds of millions of internet videos for manufacturing and logistics.',
+    description: 'Builds FutureVision, robot AI whose Direct Video Action model is pre-trained on hundreds of millions of videos, for industrial work in manufacturing and logistics.',
     approach: [
       'video-predictive-control',
       'direct-video-action',
@@ -456,6 +622,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Rhoda AI and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'mind-robotics',
@@ -470,7 +658,7 @@ const ROWS: Company[] = [
     founded: 2025,
     segment: 'foundation-models',
     subSegment: 'industrial-robotics',
-    description: 'Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories.',
+    description: 'Rivian spinoff developing industrial robots to further automate factory operations; it collects video of live work on factory lines, starting with automotive manufacturing.',
     approach: [
       'ai-industrial-robotics',
       'factory-data',
@@ -487,7 +675,7 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Rivian factory deployment target',
+      'Rivian, its first customer',
     ],
     openSource: [],
     sources: [
@@ -513,6 +701,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Mind Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'nvidia-robotics',
@@ -544,11 +748,12 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      'Isaac GR00T Reference Humanoid Robot (Unitree H2 Plus + Sharpa hands)',
-      'Partnerships with most major humanoid and robotics companies',
+      'Isaac GR00T reference humanoid, to be used by Ai2, ETH Zurich, Stanford and UC San Diego labs',
     ],
     openSource: [
-      'Isaac GR00T (open development platform)',
+      'Isaac GR00T N1.6 and Cosmos open models (on Hugging Face)',
+      'Isaac Lab-Arena (simulation framework)',
+      'OSMO (workflow command center)',
     ],
     sources: [
       {
@@ -561,8 +766,43 @@ const ROWS: Company[] = [
         title: 'Nvidia wants to be the Android of generalist robotics',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/',
+        title: 'Our History: Innovations Over the Years | NVIDIA',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it NVIDIA and give no other name.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'NVIDIA\'s robotics business, funded by NVIDIA: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'NVIDIA\'s robotics business, funded by NVIDIA: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'NVIDIA\'s robotics business, funded by NVIDIA: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'NVIDIA\'s robotics business, funded by NVIDIA: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'NVIDIA\'s robotics business, funded by NVIDIA: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'NVIDIA\'s robotics business, funded by NVIDIA: it raises no rounds of its own.',
+      },
+    },
   },
   {
     id: 'google-deepmind-robotics',
@@ -571,8 +811,8 @@ const ROWS: Company[] = [
     website: 'https://deepmind.google',
     logo: 'google-deepmind-robotics-logo',
     hq: {
-      city: 'Mountain View',
-      country: 'US',
+      city: 'London',
+      country: 'UK',
     },
     founded: 2010,
     segment: 'simulation-tooling',
@@ -594,10 +834,10 @@ const ROWS: Company[] = [
     status: 'public',
     deployments: [
       'Demonstrated on Apptronik Apollo 2',
-      'Partnership with Boston Dynamics for Atlas',
+      'Partner robots from Boston Dynamics and Agile Robots',
     ],
     openSource: [
-      'Gemini Robotics On-Device (model card published)',
+      'MuJoCo (physics simulator)',
     ],
     sources: [
       {
@@ -610,8 +850,53 @@ const ROWS: Company[] = [
         title: 'Gemini Robotics 2 brings whole body intelligence to robots',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://deepmind.google/about/',
+        title: 'About Google DeepMind',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://find-and-update.company-information.service.gov.uk/company/07386350',
+        title: 'DEEPMIND TECHNOLOGIES LIMITED, Companies House',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://github.com/google-deepmind/mujoco',
+        title: 'google-deepmind/mujoco: a general purpose physics simulator (GitHub)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Google DeepMind and give no other name.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'Google DeepMind\'s robotics work, funded by Google: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'Google DeepMind\'s robotics work, funded by Google: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'Google DeepMind\'s robotics work, funded by Google: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'Google DeepMind\'s robotics work, funded by Google: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'Google DeepMind\'s robotics work, funded by Google: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'Google DeepMind\'s robotics work, funded by Google: it raises no rounds of its own.',
+      },
+    },
   },
   {
     id: 'hugging-face-lerobot',
@@ -628,7 +913,7 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'simulation-tooling',
     subSegment: 'open-source-frameworks',
-    description: 'Develops the LeRobot open-source robotics platform and Reachy Mini desktop companion robot for accessible embodied AI experimentation.',
+    description: 'Develops LeRobot, an open-source library of data-collection, training and visualization tools for robot learning, and Reachy Mini, a desktop-sized open-source robot.',
     approach: [
       'open-source',
       'community-driven',
@@ -659,8 +944,47 @@ const ROWS: Company[] = [
         title: 'Hugging Face\'s Reachy Mini: The $300 Open Source Robot',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://techcrunch.com/2023/08/24/hugging-face-raises-235m-from-investors-including-salesforce-and-nvidia/',
+        title: 'Hugging Face raises $235M from investors, including Salesforce and Nvidia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://github.com/huggingface/lerobot',
+        title: 'huggingface/lerobot: Making AI for Robotics more accessible (GitHub)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'Hugging Face\'s robotics work (LeRobot), funded by Hugging Face: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'Hugging Face\'s robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'Hugging Face\'s robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'Hugging Face\'s robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'Hugging Face\'s robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'Hugging Face\'s robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own.',
+      },
+    },
   },
   {
     id: 'applied-intuition',
@@ -669,7 +993,7 @@ const ROWS: Company[] = [
     website: 'https://www.appliedintuition.com',
     logo: 'applied-intuition-logo',
     hq: {
-      city: 'Mountain View',
+      city: 'Sunnyvale',
       country: 'US',
     },
     founded: 2017,
@@ -691,11 +1015,16 @@ const ROWS: Company[] = [
         'BlackRock',
         'Kleiner Perkins',
       ],
+      caveat: {
+        text: 'The $600M covers the Series F and a tender offer together; the company does not say how much is new money.',
+        sourceUrls: [
+          'https://www.appliedintuition.com/press-releases/series-f',
+        ],
+      },
     },
     status: 'private',
     deployments: [
       '18 of top 20 automakers',
-      'AeroVironment Mayhem 10 drone swarm collaboration',
     ],
     openSource: [],
     sources: [
@@ -709,8 +1038,26 @@ const ROWS: Company[] = [
         title: 'Exclusive: Applied Intuition wants to turn robotics into child\'s play (Semafor; original of the syndicated Yahoo Tech piece)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.appliedintuition.com/press-releases/series-f',
+        title: 'Applied Intuition Closes $600M Series F at $15B Valuation',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Applied Intuition and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'xdof',
@@ -741,7 +1088,9 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [],
-    openSource: [],
+    openSource: [
+      'ABC-130K teleoperation dataset',
+    ],
     sources: [
       {
         url: 'https://techcrunch.com/2026/06/17/collecting-robot-training-data-is-dirty-unglamorous-work-some-ai-labs-are-already-paying-xdof-to-do-it/',
@@ -753,8 +1102,40 @@ const ROWS: Company[] = [
         title: 'XDOF Emerges from Stealth with $70M',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.xdof.ai/careers',
+        title: 'Careers | XDOF',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it XDOF and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'encord',
@@ -807,8 +1188,32 @@ const ROWS: Company[] = [
         title: 'The gig workers who are training humanoid robots at home (MIT Technology Review; Encord and Micro1 paying people to film chores)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://find-and-update.company-information.service.gov.uk/company/12330483',
+        title: 'CORD TECHNOLOGIES LIMITED, Companies House',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Encord and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'micro1',
@@ -817,13 +1222,13 @@ const ROWS: Company[] = [
     website: 'https://www.micro1.ai',
     logo: 'micro1-logo',
     hq: {
-      city: 'San Francisco',
+      city: 'Palo Alto',
       country: 'US',
     },
     founded: null,
     segment: 'simulation-tooling',
     subSegment: 'data-collection',
-    description: 'Provides expert-demonstrated teleoperation data for frontier robotics labs, capturing human demonstrations in real working environments.',
+    description: 'Provides expert-demonstrated data to frontier robotics labs: first-person and third-person recordings of domain experts doing real-world tasks.',
     approach: [
       'teleoperation',
       'expert-demonstrations',
@@ -845,8 +1250,47 @@ const ROWS: Company[] = [
         title: 'High quality expert-demonstrated data for frontier robotics labs',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.latimes.com/business/story/2026-02-07/how-la-garage-sales-launched-ais-latest-20-something-billionaire',
+        title: 'How L.A. garage sales launched AI\'s latest 20-something billionaire (Los Angeles Times)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Micro1 and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'figure-ai',
@@ -873,16 +1317,22 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series C',
-      amountUsd: 1000000000,
+      amountUsd: null,
       date: '2025-09-16',
       valuationUsd: 39000000000,
       leadInvestors: [
         'Parkway Venture Capital',
       ],
+      caveat: {
+        text: 'Figure says the Series C exceeded $1B; it gives no exact amount.',
+        sourceUrls: [
+          'https://www.figure.ai/news/series-c',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'BMW Spartanburg plant',
+      'BMW manufacturing partnership (announced Jan 2024)',
       '~740 robots operating internally as of Jun 2026',
     ],
     openSource: [],
@@ -904,24 +1354,36 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: '1x-technologies',
     name: '1X Technologies',
     aka: [
       '1X',
-      'Halodi',
+      'Halodi Robotics',
     ],
     website: 'https://www.1x.tech',
     logo: '1x-technologies-logo',
     hq: {
-      city: 'Oslo',
-      country: 'NO',
+      city: 'Palo Alto',
+      country: 'US',
     },
     founded: 2014,
     segment: 'humanoids',
     subSegment: 'home-humanoids',
-    description: 'Builds NEO, a bipedal home humanoid robot for household chores, available for pre-order at $20,000; also deploying to industrial use cases.',
+    description: 'Builds NEO, a bipedal humanoid robot for chores at home, on pre-order at $20,000 for early adopters.',
     approach: [
       'home-humanoid',
       'passive-stability',
@@ -930,16 +1392,15 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Series B',
       amountUsd: 100000000,
-      date: '2024-01-01',
-      valuationUsd: 500000000,
+      date: '2024-01-11',
+      valuationUsd: null,
       leadInvestors: [
         'EQT Ventures',
       ],
     },
     status: 'private',
     deployments: [
-      'Pre-orders open',
-      'Industrial pilots',
+      'NEO home robot pre-orders (opened Oct 2025)',
     ],
     openSource: [],
     sources: [
@@ -965,6 +1426,18 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'agility-robotics',
@@ -979,7 +1452,7 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Digit, a bipedal robot for material handling in warehouses and logistics; going public via SPAC merger with Churchill Capital Corp XI.',
+    description: 'Builds Digit, a bipedal robot working in manufacturing, distribution and logistics; going public through a merger with the SPAC Churchill Capital Corp XI.',
     approach: [
       'bipedal-locomotion',
       'warehouse-automation',
@@ -997,9 +1470,9 @@ const ROWS: Company[] = [
     status: 'private',
     deployments: [
       'GXO Logistics',
-      'Amazon fulfillment centers',
       'Schaeffler',
       'Toyota Motor Manufacturing Canada',
+      'Mercado Libre',
     ],
     openSource: [],
     sources: [
@@ -1015,6 +1488,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Agility Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'apptronik',
@@ -1029,7 +1518,7 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; scaling production and robot-training facilities in Austin.',
+    description: 'Builds Apollo humanoid robots for manufacturing, warehouses and retail, and is working with Google DeepMind on a next generation powered by Gemini Robotics.',
     approach: [
       'humanoid',
       'gemini-robotics-integration',
@@ -1066,13 +1555,26 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Apptronik and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'tesla-optimus',
     name: 'Tesla (Optimus)',
     aka: [
       'Optimus',
-      'Bot',
+      'Tesla Bot',
     ],
     website: 'https://www.tesla.com',
     logo: 'tesla-logo',
@@ -1083,7 +1585,7 @@ const ROWS: Company[] = [
     founded: 2003,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Develops the Optimus humanoid robot for factory and eventually consumer tasks; Gen 3 in internal testing with several hundred units deployed internally.',
+    description: 'Develops the Optimus humanoid robot, first for simple factory tasks and later for everyday tasks in and outside the home.',
     approach: [
       'full-stack',
       'in-house-actuators',
@@ -1099,8 +1601,7 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      'Several hundred units in Tesla factories (internal)',
-      'Production targeted late July 2026 at Fremont',
+      'Production to start at Fremont in late July or August 2026',
     ],
     openSource: [],
     sources: [
@@ -1110,12 +1611,47 @@ const ROWS: Company[] = [
         asOf: '2026-08-06',
       },
       {
-        url: 'https://optimusk.blog/blog/tesla-optimus-production-timeline/',
-        title: 'Tesla Optimus Production Timeline 2026',
-        asOf: '2026-08-06',
+        url: 'https://en.wikipedia.org/wiki/Tesla,_Inc.',
+        title: 'Tesla, Inc. - Wikipedia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Optimus_(robot)',
+        title: 'Optimus (robot) - Wikipedia',
+        asOf: '2026-10-19',
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'Tesla\'s humanoid programme, funded by Tesla: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'Tesla\'s humanoid programme, funded by Tesla: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'Tesla\'s humanoid programme, funded by Tesla: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'Tesla\'s humanoid programme, funded by Tesla: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'Tesla\'s humanoid programme, funded by Tesla: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'Tesla\'s humanoid programme, funded by Tesla: it raises no rounds of its own.',
+      },
+    },
   },
   {
     id: 'boston-dynamics',
@@ -1130,7 +1666,7 @@ const ROWS: Company[] = [
     founded: 1992,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds the electric Atlas humanoid for industrial deployment, partnering with Google DeepMind for embodied AI; Hyundai subsidiary.',
+    description: 'Builds the fully electric Atlas humanoid for industrial work, with first deployments at Hyundai and Google DeepMind; a Hyundai Motor Group subsidiary.',
     approach: [
       'electric-atlas',
       'whole-body-control',
@@ -1139,17 +1675,18 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
-      amountUsd: 1100000000,
-      date: '2021-01-01',
-      valuationUsd: null,
+      amountUsd: null,
+      date: '2021-06-21',
+      valuationUsd: 1100000000,
       leadInvestors: [
         'Hyundai Motor Group',
       ],
+      sourceUrl: 'https://bostondynamics.com/news/hyundai-motor-group-completes-acquisition-of-boston-dynamics-from-softbank/',
     },
     status: 'acquired',
     deployments: [
-      'Hyundai Metaplant Georgia',
-      'Hyundai committed 25,000 Atlas robots to own factories',
+      'Hyundai Motor Group Metaplant America, Savannah (first Atlas site, from 2028)',
+      'Hyundai plans more than 25,000 Atlas robots across Hyundai and Kia plants',
       'Atlas product unveiled Jan 2026; all 2026 deployments committed to Hyundai and Google DeepMind',
       'Hyundai preparing tens of thousands of robots; new US robotics factory planned at 30,000 robots/yr',
     ],
@@ -1165,8 +1702,34 @@ const ROWS: Company[] = [
         title: 'Hyundai Commits 25,000 Atlas Robots to Own Factories',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Boston_Dynamics',
+        title: 'Boston Dynamics - Wikipedia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://bostondynamics.com/news/hyundai-motor-group-completes-acquisition-of-boston-dynamics-from-softbank/',
+        title: 'Hyundai Motor Group Completes Acquisition of Boston Dynamics from SoftBank',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Boston Dynamics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'unitree-robotics',
@@ -1201,9 +1764,12 @@ const ROWS: Company[] = [
     status: 'public',
     deployments: [
       '2025 humanoid shipments, cumulative quadruped shipments, and global sales-share rank not verified from an inspected Unitree company body',
-      'DeepSeek strategic investment',
     ],
-    openSource: [],
+    openSource: [
+      'UnifoLM-VLA-0 model',
+      'G1 and Z1 manipulation datasets',
+      'unitree_IL_lerobot',
+    ],
     sources: [
       {
         url: 'https://restofworld.org/2026/unitree-china-humanoid-robot-shanghai-ipo/',
@@ -1220,8 +1786,21 @@ const ROWS: Company[] = [
         title: 'Unitree Robotics - Wikipedia',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.unitree.com/opensource',
+        title: 'Official Open Source - Unitree Robotics',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'medium',
+    absent: {
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'ubtech-robotics',
@@ -1282,6 +1861,15 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'fourier-intelligence',
@@ -1342,6 +1930,18 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'galbot',
@@ -1395,6 +1995,18 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'agibot',
@@ -1474,6 +2086,24 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'sanctuary-ai',
@@ -1520,6 +2150,31 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Sanctuary AI and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'neura-robotics',
@@ -1571,6 +2226,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it NEURA Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'humanoid-uk',
@@ -1615,6 +2292,19 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Humanoid and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+    },
   },
   {
     id: 'spirit-ai',
@@ -1669,6 +2359,27 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'galaxea-ai',
@@ -1723,6 +2434,24 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'engineai',
@@ -1776,6 +2505,18 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'robot-era',
@@ -1832,6 +2573,33 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'tars-robotics',
@@ -1839,7 +2607,7 @@ const ROWS: Company[] = [
     aka: [
       'TARS',
     ],
-    website: 'https://www.tars.bot',
+    website: null,
     logo: 'tars-robotics-logo',
     hq: {
       city: 'Shanghai',
@@ -1881,6 +2649,24 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'website': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'x-square-robot',
@@ -1941,6 +2727,21 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'deep-robotics',
@@ -1990,6 +2791,21 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'kepler-robot',
@@ -2041,6 +2857,24 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'limx-dynamics',
@@ -2095,6 +2929,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'wandercraft',
@@ -2141,6 +2999,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Wandercraft and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'clone-robotics',
@@ -2185,6 +3062,37 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Clone Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'mentee-robotics',
@@ -2241,6 +3149,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Mentee Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'persona-ai',
@@ -2294,6 +3221,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Persona AI and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'rainbow-robotics',
@@ -2344,6 +3287,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Rainbow Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'symbotic',
@@ -2392,6 +3351,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Symbotic and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'dexterity',
@@ -2437,6 +3424,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Dexterity and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'berkshire-grey',
@@ -2485,6 +3488,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Berkshire Grey and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'amazon-robotics',
@@ -2533,6 +3552,40 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources call it Amazon Robotics and give no other name (its website returned no readable body).',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'Amazon\'s robotics business, funded by Amazon: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'Amazon\'s robotics business, funded by Amazon: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'Amazon\'s robotics business, funded by Amazon: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'Amazon\'s robotics business, funded by Amazon: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'Amazon\'s robotics business, funded by Amazon: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'Amazon\'s robotics business, funded by Amazon: it raises no rounds of its own.',
+      },
+    },
   },
   {
     id: 'nimble-robotics',
@@ -2593,6 +3646,15 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'locus-robotics',
@@ -2638,6 +3700,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Locus Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'mujin',
@@ -2688,6 +3766,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Mujin and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'righthand-robotics',
@@ -2730,6 +3824,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it RightHand Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'ambirobotics',
@@ -2773,6 +3886,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Ambi Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'plus-one-robotics',
@@ -2818,6 +3950,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Plus One Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'carbon-robotics',
@@ -2872,6 +4023,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Carbon Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'monarch-tractor',
@@ -2929,6 +4096,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources call it Monarch Tractor and give no other name (its website returned no readable body).',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'farm-ng',
@@ -2937,25 +4123,28 @@ const ROWS: Company[] = [
     website: 'https://farm-ng.com',
     logo: 'farm-ng-logo',
     hq: {
-      city: null,
+      city: 'Watsonville',
       country: 'US',
     },
-    founded: null,
+    founded: 2020,
     segment: 'vertical-applications',
     subSegment: 'agriculture',
-    description: 'Builds modular autonomous farm robots for data collection and field operations.',
+    description: 'Built the Amiga, a modular electric farm robot for small and mid-sized farms; acquired by Bonsai Robotics in July 2025.',
     approach: [
       'modular-autonomous-farm-robot',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Acquisition',
       amountUsd: null,
-      date: null,
+      date: '2025-07-24',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Bonsai Robotics',
+      ],
+      sourceUrl: 'https://bonsairobotics.ai/news/bonsai-robotics-acquires-farm-ng-to-lead-the-future-of-autonomous-farming/',
     },
-    status: 'private',
+    status: 'acquired',
     deployments: [],
     openSource: [],
     sources: [
@@ -2964,8 +4153,45 @@ const ROWS: Company[] = [
         title: 'Farm-ng - Autonomous Farm Robots',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://bonsairobotics.ai/news/bonsai-robotics-acquires-farm-ng-to-lead-the-future-of-autonomous-farming/',
+        title: 'Bonsai Robotics Acquires farm-ng to Lead the Future of Autonomous Farming (Bonsai Robotics, first-party, 2025-07-24; financial terms undisclosed)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.therobotreport.com/bonsai-robotics-and-farm-ng-unite-for-intelligent-farming-solutions/',
+        title: 'Bonsai Robotics and farm-ng unite for intelligent farming solutions (The Robot Report, 2025-07-24)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://agfundernews.com/bonsai-robotics-acquires-farm-ng-to-herald-new-era-of-ai-first-machines-that-will-transform-crop-management',
+        title: 'Bonsai Robotics acquires farm-ng to herald new era of ag robotics (AgFunderNews, 2025-07-24; Watsonville-based, founded 2020)',
+        asOf: '2026-10-19',
+      },
     ],
-    confidence: 'low',
+    confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Farm-ng and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'bedrock-robotics',
@@ -3014,6 +4240,19 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Bedrock Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+    },
   },
   {
     id: 'chef-robotics',
@@ -3060,6 +4299,19 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Chef Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'simbe-robotics',
@@ -3107,6 +4359,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Simbe Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'intuitive-surgical',
@@ -3153,6 +4421,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Intuitive Surgical and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'cmr-surgical',
@@ -3198,6 +4494,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it CMR Surgical and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'moon-surgical',
@@ -3243,6 +4567,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Moon Surgical and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'nuro',
@@ -3295,6 +4647,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Nuro and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'serve-robotics',
@@ -3343,6 +4711,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Serve Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'gecko-robotics',
@@ -3394,6 +4790,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Gecko Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'standard-bots',
@@ -3448,6 +4860,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Standard Bots and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'collaborative-robotics',
@@ -3498,6 +4932,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Collaborative Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'the-bot-company',
@@ -3541,6 +4994,31 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it The Bot Company and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'weave-robotics',
@@ -3581,6 +5059,40 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Weave Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'irobot',
@@ -3628,6 +5140,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it iRobot and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'k-scale-labs',
@@ -3675,6 +5206,33 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'website': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources call it K-Scale Labs and give no other name (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'automata',
@@ -3722,6 +5280,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Automata and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'lila-sciences',
@@ -3765,6 +5339,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Lila Sciences and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'avidbots',
@@ -3812,6 +5405,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Avidbots and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'harmonic-drive-systems',
@@ -3859,6 +5468,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'nabtesco',
@@ -3899,6 +5532,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Nabtesco and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'leaderdrive',
@@ -3942,6 +5603,33 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'sanhua',
@@ -3984,6 +5672,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'shadow-robot',
@@ -4027,6 +5739,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'sharpa',
@@ -4084,6 +5820,37 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Sharpa and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'wonik-robotics',
@@ -4091,7 +5858,7 @@ const ROWS: Company[] = [
     aka: [
       'Wonik',
     ],
-    website: 'https://www.wonikrobotics.com',
+    website: 'https://wonikrobotics.com',
     logo: 'wonik-logo',
     hq: {
       city: 'Seoul',
@@ -4136,6 +5903,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'xela-robotics',
@@ -4175,6 +5966,37 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it XELA Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'openai-robotics',
@@ -4218,6 +6040,43 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it OpenAI and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'OpenAI\'s robotics team, funded by OpenAI: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'OpenAI\'s robotics team, funded by OpenAI: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'OpenAI\'s robotics team, funded by OpenAI: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'OpenAI\'s robotics team, funded by OpenAI: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'OpenAI\'s robotics team, funded by OpenAI: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'OpenAI\'s robotics team, funded by OpenAI: it raises no rounds of its own.',
+      },
+    },
   },
   {
     id: 'meta-robotics',
@@ -4260,6 +6119,26 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'Meta\'s robotics work, funded by Meta: it has no venture total of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'The latest event is a purchase by Meta, which has a buyer and no lead investors.',
+      },
+    },
   },
   {
     id: 'assured-robot-intelligence',
@@ -4267,7 +6146,7 @@ const ROWS: Company[] = [
     aka: [
       'ARI',
     ],
-    website: 'https://ari.bot',
+    website: null,
     logo: 'assured-robot-intelligence-logo',
     hq: {
       city: 'San Diego',
@@ -4299,8 +6178,37 @@ const ROWS: Company[] = [
         title: 'Meta buys Assured Robot Intelligence',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://web.archive.org/web/20260505070600/https://www.arirobots.com/',
+        title: 'ARI - Frontier AI for Robots (the company\'s own site, arirobots.com, in the Wayback Machine capture of 2026-05-05; the domain no longer resolves)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'website': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'saronic',
@@ -4348,6 +6256,19 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Saronic and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'eka-robotics',
@@ -4388,12 +6309,46 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Eka Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'foundry-robotics',
     name: 'Foundry Robotics',
     aka: [],
-    website: 'https://www.foundryrobotics.com',
+    website: 'https://foundryrobotics.ai',
     logo: 'foundry-robotics-logo',
     hq: {
       city: null,
@@ -4425,8 +6380,47 @@ const ROWS: Company[] = [
         title: 'Red Glass Ventures backed Foundry Robotics',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://foundryrobotics.ai/',
+        title: 'Foundry Robotics (company site: AI-first, assembly-focused robotics for American manufacturing)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'low',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources call it Foundry Robotics and give no other name (its website returned no readable body).',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'mytra',
@@ -4472,6 +6466,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Mytra and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'formic',
@@ -4519,6 +6535,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Formic and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'astribot',
@@ -4557,6 +6595,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Astribot and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'booster-robotics',
@@ -4601,6 +6661,27 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'leju-robotics',
@@ -4643,6 +6724,27 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'switchbot',
@@ -4688,6 +6790,24 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'hanson-robotics',
@@ -4733,6 +6853,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Hanson Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'paxini',
@@ -4792,6 +6940,18 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'miso-robotics',
@@ -4838,6 +6998,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Miso Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'starship-technologies',
@@ -4878,6 +7066,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Starship Technologies and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'coco-robotics',
@@ -4925,6 +7141,21 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'knightscope',
@@ -4965,6 +7196,34 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Knightscope and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'brain-corp',
@@ -5013,6 +7272,31 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'low',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Brain Corp and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'pollen-robotics',
@@ -5056,6 +7340,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Pollen Robotics and give no other name.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'diligent-robotics',
@@ -5109,6 +7417,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Diligent Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'fox-robotics',
@@ -5151,6 +7475,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Fox Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'zebra-robotics-automation',
@@ -5193,6 +7536,25 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Zebra Technologies and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'anduril',
@@ -5236,6 +7598,28 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Anduril and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'robotphoenix',
@@ -5273,6 +7657,30 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-disclosed',
+      },
+      'deployments': {
+        state: 'not-disclosed',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'abb-robotics',
@@ -5315,6 +7723,22 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'high',
+    absent: {
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it ABB Robotics and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+    },
   },
   {
     id: 'mitsubishi-robotics',
@@ -5355,6 +7779,43 @@ const ROWS: Company[] = [
       },
     ],
     confidence: 'medium',
+    absent: {
+      'founded': {
+        state: 'not-disclosed',
+      },
+      'aka': {
+        state: 'not-applicable',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Mitsubishi and give no other name.',
+      },
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it has no venture total of its own.',
+      },
+      'round.type': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+      },
+      'round.amountUsd': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+      },
+      'round.date': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+      },
+    },
   },
 ];
 

@@ -12,7 +12,11 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { companySchema, type Company } from '../data/schemas/company.ts';
+import {
+  ABSENT_FIELDS,
+  companySchema,
+  type Company,
+} from '../data/schemas/company.ts';
 
 const root = join(import.meta.dirname, '..');
 const SOURCE = join(root, 'research', '04-market-map-companies.json');
@@ -37,6 +41,7 @@ const COMPANY_KEYS = [
   'openSource',
   'sources',
   'confidence',
+  'absent',
 ] as const;
 
 const HQ_KEYS = ['city', 'country'] as const;
@@ -47,8 +52,11 @@ const ROUND_KEYS = [
   'valuationUsd',
   'leadInvestors',
   'sourceUrl',
+  'caveat',
 ] as const;
 const SOURCE_KEYS = ['url', 'title', 'asOf'] as const;
+const CAVEAT_KEYS = ['text', 'sourceUrls'] as const;
+const ABSENCE_KEYS = ['state', 'basis'] as const;
 
 function fail(message: string): never {
   console.error(`generate:companies: FAILED — ${message}`);
@@ -111,10 +119,16 @@ function emitValue(value: unknown, level: number): string {
       return emitObject(record, HQ_KEYS, level);
     }
     if ('amountUsd' in record && 'leadInvestors' in record) {
-      return emitObject(record, ROUND_KEYS, level, ['sourceUrl']);
+      return emitObject(record, ROUND_KEYS, level, ['sourceUrl', 'caveat']);
     }
     if ('url' in record && 'asOf' in record) {
       return emitObject(record, SOURCE_KEYS, level);
+    }
+    if ('text' in record && 'sourceUrls' in record) {
+      return emitObject(record, CAVEAT_KEYS, level);
+    }
+    if ('state' in record) {
+      return emitObject(record, ABSENCE_KEYS, level, ['basis']);
     }
     fail(`unrecognised object shape: ${Object.keys(record).join(',')}`);
   }
@@ -133,8 +147,29 @@ function emitArrayOfObjects(
   return `[\n${inner},\n${indent(level)}]`;
 }
 
+/** The absent-field map, keyed by dotted field names, in ABSENT_FIELDS order. */
+function emitAbsent(absent: Company['absent'], level: number): string {
+  const unknownKeys = Object.keys(absent).filter(
+    (key) => !(ABSENT_FIELDS as readonly string[]).includes(key),
+  );
+  if (unknownKeys.length > 0) fail(`unknown absent field(s): ${unknownKeys.join(', ')}`);
+  const lines = ABSENT_FIELDS.filter((field) => absent[field]).map(
+    (field) =>
+      `${indent(level + 1)}${emitString(field)}: ${emitValue(absent[field], level + 1)},`,
+  );
+  return lines.length === 0 ? '{}' : `{\n${lines.join('\n')}\n${indent(level)}}`;
+}
+
 function emitCompany(company: Company, level: number): string {
-  return emitObject(company as unknown as Record<string, unknown>, COMPANY_KEYS, level);
+  const lines = COMPANY_KEYS.map((key) => {
+    if (!(key in company)) fail(`missing key "${key}" on ${company.id}`);
+    const value =
+      key === 'absent'
+        ? emitAbsent(company.absent, level + 1)
+        : emitValue(company[key], level + 1);
+    return `${indent(level + 1)}${key}: ${value},`;
+  });
+  return `{\n${lines.join('\n')}\n${indent(level)}}`;
 }
 
 const raw = JSON.parse(readFileSync(SOURCE, 'utf8')) as unknown;

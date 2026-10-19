@@ -5045,9 +5045,9 @@
       "category": "official-mark",
       "ownershipId": "image:agibot-logo",
       "sourceRegistryId": "agibot-logo",
-      "byteHash": "3f5a555727f784715899dbfb5fa739e9bee94fa46aec12d7763eaaa9e6f1ada3",
+      "byteHash": "83535ee96d57a776b05e4f8f0c3b0c65014ea7994ff1bab96d18b173f87f5aa9",
       "semanticHash": null,
-      "fingerprint": "6e3667db614bfb330ad5369afa59edb30055834431bdf494f730bd79e85d2167"
+      "fingerprint": "4818e26b0120d5d59ff808b87cafa174b7a299fe838fabe2d878e9ace757f0b8"
     },
     {
       "id": "asset:images/logos/agility-robotics.svg",
@@ -5230,14 +5230,14 @@
       "fingerprint": "04c9606e62c40834181355ba5b4c4eecc9f901f122c30e7138640b9872058265"
     },
     {
-      "id": "asset:images/logos/cmr-surgical.png",
-      "path": "images/logos/cmr-surgical.png",
+      "id": "asset:images/logos/cmr-surgical.svg",
+      "path": "images/logos/cmr-surgical.svg",
       "category": "official-mark",
       "ownershipId": "image:cmr-surgical-logo",
       "sourceRegistryId": "cmr-surgical-logo",
-      "byteHash": "372d76bc8915307a1f5eab9b6633e09d47c8ae4ec0dd2b0c74980900c40312e8",
-      "semanticHash": null,
-      "fingerprint": "be0feeed26b52dbd88bca7bff20f4a5bde79abc138de53e42f43c8a07e01ba1b"
+      "byteHash": "18121d407b7da687efaba35878a6c4d9ae7653d038efee7f085ae8f81b4fd973",
+      "semanticHash": "0692058dd39f80167e3f88ad1ec1253256e3b1bd4ebe9d668e2cfa10d39e04b5",
+      "fingerprint": "c60500381c0876ed6da197181148c1ae911a4c05391abfc874d9a4cfd965d15f"
     },
     {
       "id": "asset:images/logos/coco-robotics.png",
@@ -5250,24 +5250,24 @@
       "fingerprint": "1aa813ce0535e27c1df2f37f3c8dccb63bf442bd679c3a126af1a65c2dff5e64"
     },
     {
-      "id": "asset:images/logos/collaborative-robotics.png",
-      "path": "images/logos/collaborative-robotics.png",
+      "id": "asset:images/logos/collaborative-robotics.svg",
+      "path": "images/logos/collaborative-robotics.svg",
       "category": "official-mark",
       "ownershipId": "image:collaborative-robotics-logo",
       "sourceRegistryId": "collaborative-robotics-logo",
-      "byteHash": "ca8090ec535f0c5e7edd86d3273788905f38d357cc8d9a96b87bd278d2cff6ad",
-      "semanticHash": null,
-      "fingerprint": "865ad188f09754affbeab8ff5672c3a824d8263619bf75097fb3cc2151a31cf7"
+      "byteHash": "812ff81760dea8dc71fabf42e1de1d17d25da78298c6a0056c35f7ae288cd755",
+      "semanticHash": "fc8acc532e7189587fe0fe9f821942e8b4f082ba57c74bf93d36885e241a25ef",
+      "fingerprint": "03be1acce73ac4b5d21d39fbbe3972730546f2a143466824cdfb2c2351ced333"
     },
     {
-      "id": "asset:images/logos/covariant.png",
-      "path": "images/logos/covariant.png",
+      "id": "asset:images/logos/covariant.svg",
+      "path": "images/logos/covariant.svg",
       "category": "official-mark",
       "ownershipId": "image:covariant-logo",
       "sourceRegistryId": "covariant-logo",
-      "byteHash": "387078f439e917d5465f1ffbd9600cf5b192071e161dede45c5afe7d1b6fa085",
-      "semanticHash": null,
-      "fingerprint": "ca60a087f9a0c50c5ac17c04f7f089d1f72fac6720684944e499f41c7849571e"
+      "byteHash": "f3b4b71e2da692e1e7646066a2cdce3a3b19ea1db5b1372f16bf1aeae5a75833",
+      "semanticHash": "48b55cc94260805a11061b193990c497529fefb6f101a1fa266ebbfa273612e1",
+      "fingerprint": "5d148450a4bc1fd40037dce842ca59b7e4e741fb0b36a057a1796c8b6515a8d9"
     },
     {
       "id": "asset:images/logos/deep-robotics.png",
@@ -5345,9 +5345,9 @@
       "category": "official-mark",
       "ownershipId": "image:farm-ng-logo",
       "sourceRegistryId": "farm-ng-logo",
-      "byteHash": "3e8030e3050445fd32d22cb06a45a42dd109721b397da1cdeed5f13dc96dbd38",
-      "semanticHash": "1e3f79bda88fca5216266b748e5753d7aa581c365965037e441425893b8d7098",
-      "fingerprint": "ceedd9baf5cbaa63cd4388d06717b3a6eb6120275f29826613f6432a4f372ba5"
+      "byteHash": "afce0abf0c8a8fbb1a833c44c0eef2dee44cc60a2d12150e08aa4a942469286f",
+      "semanticHash": "c706478d35726a407e916778dfde9d969bb366b7f2fcf6edccddc094fa4e4900",
+      "fingerprint": "adbaacfdb458b3cdec09265ae5de3c731169fb0630634d149b1ae63f9aa22b18"
     },
     {
       "id": "asset:images/logos/field-ai.svg",
@@ -5365,9 +5365,9 @@
       "category": "official-mark",
       "ownershipId": "image:figure-ai-logo",
       "sourceRegistryId": "figure-ai-logo",
-      "byteHash": "3a190c6601c047e02db24ded7894fe30edc158f14900eb5997c92417d136264e",
-      "semanticHash": "cf65eedb3ccb5bbb8547afcce54ed6e593c92513c74ad43b1c5e051a326df4d8",
-      "fingerprint": "01c77153c80f1f77e343a85014f0040a4117ca92b1915920ace391f4ef2bc449"
+      "byteHash": "01566fa8768852f29fb60c27fe603f6715f4eaeadc18dcd03eeaaafac36b4682",
+      "semanticHash": "7c6706190c3744ca3f9c2545573849db806b97b4f7899a87c5bb178989ed4be3",
+      "fingerprint": "a91ac14513fb9ff7acd1e03c9a9a98f550c87693d6fec6bb367462d97c4121f6"
     },
     {
       "id": "asset:images/logos/formic.svg",
@@ -5375,9 +5375,9 @@
       "category": "official-mark",
       "ownershipId": "image:formic-logo",
       "sourceRegistryId": "formic-logo",
-      "byteHash": "11e0a8a37e32b68306ddd36d2b9ada9995e0671a1b24644d8187fa28e7171475",
-      "semanticHash": "f0997d92103b3185691bf22d738f2519c5eb7e61cc3567dfd9002db230f459d7",
-      "fingerprint": "1b9dc17a1b68d056404b73c0cd4c641782446ea8531b315e957bb1e683419acb"
+      "byteHash": "2321647ef9c5751d19e3b34bf0b55986b08a2c6ea7b3fc90fabb9ae25a9f8247",
+      "semanticHash": "43eb31d1a086081a2d1e7bc5c24d1ec79ff3d26c3b01afef4281ab366f3ad1bf",
+      "fingerprint": "964b3b3ebafd4f98a45d725e510bc6e78f24c5a944e777df6a6534b7fd1fbd50"
     },
     {
       "id": "asset:images/logos/foundry-robotics.svg",
@@ -5400,14 +5400,14 @@
       "fingerprint": "15bf9a03c1905c4e5a7814ec4cfc9d81d3daabe064ec082ca1bb3fd4d80d93ef"
     },
     {
-      "id": "asset:images/logos/fox-robotics.svg",
-      "path": "images/logos/fox-robotics.svg",
+      "id": "asset:images/logos/fox-robotics.png",
+      "path": "images/logos/fox-robotics.png",
       "category": "official-mark",
       "ownershipId": "image:fox-robotics-logo",
       "sourceRegistryId": "fox-robotics-logo",
-      "byteHash": "e97014a3c766bd96d7e069cdaa47506d91bc591e8c09a09cea541e1e39b28f7d",
-      "semanticHash": "595855f78aadd6d53640258c7a9af28ad155132fe06cc695e5b4bd0318c33b99",
-      "fingerprint": "e0f2692981f5b5d360c0055b76fa7f504e5a7df12b9fc837fa7593612acd7c62"
+      "byteHash": "21fb2728292a852d655f42c0e1ddaec449b99acb1743441105516dabf6327561",
+      "semanticHash": null,
+      "fingerprint": "26d91bab16ea771699928c714983be958710b1c47098385785fa4ef654d851ed"
     },
     {
       "id": "asset:images/logos/galaxea-ai.png",
@@ -5420,14 +5420,14 @@
       "fingerprint": "accc86f038596ab603517772d453f71e367295962b87a63fc250a9fb7a9a87ae"
     },
     {
-      "id": "asset:images/logos/galbot.gif",
-      "path": "images/logos/galbot.gif",
+      "id": "asset:images/logos/galbot.svg",
+      "path": "images/logos/galbot.svg",
       "category": "official-mark",
       "ownershipId": "image:galbot-logo",
       "sourceRegistryId": "galbot-logo",
-      "byteHash": "9fb5943976af066b90115effb61690765d15157b04ad7f912e7497664e028eda",
-      "semanticHash": null,
-      "fingerprint": "815dab651b5ec588635de65a1b88ce450a8ae9658ce5a194a9950a294573864b"
+      "byteHash": "78ff7309207722d2d76d16b37ea60f00c37aaaec6f5806a978e503fe94f85179",
+      "semanticHash": "3aa61e2cf410bfafc8741315fff9734d7b834ee4330ba9cf573a3eb74e48ae89",
+      "fingerprint": "4d1bb3df6134072aa940d2aadf04b77c4a444daac5c002b07262824e35c1b0d6"
     },
     {
       "id": "asset:images/logos/gecko-robotics.svg",
@@ -5455,9 +5455,9 @@
       "category": "official-mark",
       "ownershipId": "image:genesis-ai-logo",
       "sourceRegistryId": "genesis-ai-logo",
-      "byteHash": "3ab079634a7d63945d2ad9448214b0598639c1da863600122d769e1c737b6e48",
-      "semanticHash": "eeeb54309d0e8005e214450b44e8209aec036caece5c96e985aff8a9d1b27825",
-      "fingerprint": "f8ec9929817b54214f8a00ef974ccde7ca7750f7418ceb5d2e9aed8f6904c3e1"
+      "byteHash": "f68da5b54cd5ff7415e835279ebcd47e7fbd3ddb6eaee45bd6bb67c790652b34",
+      "semanticHash": "20e794cd12b0796550450bba49733788733c8e344952aa6715f05a261945d553",
+      "fingerprint": "85a4f2937debc3e6f41dee515afb2cca9a4f74eec8b8989d7c0d90a9e0fdcf03"
     },
     {
       "id": "asset:images/logos/google-deepmind-robotics.svg",
@@ -5480,14 +5480,14 @@
       "fingerprint": "80dba696a977f43877eb5ee691c75c727134f3961cda1b4e899f35afc45e02db"
     },
     {
-      "id": "asset:images/logos/harmonic-drive.svg",
-      "path": "images/logos/harmonic-drive.svg",
+      "id": "asset:images/logos/harmonic-drive-systems.png",
+      "path": "images/logos/harmonic-drive-systems.png",
       "category": "official-mark",
       "ownershipId": "image:harmonic-drive-logo",
       "sourceRegistryId": "harmonic-drive-logo",
-      "byteHash": "b669c836dcbbdfd90d7eb9bad0d9f71e3def92a361d9408cf27c1eff1e94dc0e",
-      "semanticHash": "ff806fd5cc8345e8246a50256d01e04a183dd669a3deee41b2f1966b34019af6",
-      "fingerprint": "b279060954ba57e6e6c91cafd2061fbb17e5f6949cb5f873a142d2f82dd26dd0"
+      "byteHash": "9d3fef6d80f0549acd842e055f811675f6b08c28ff2568355b1cedf7e4ac4117",
+      "semanticHash": null,
+      "fingerprint": "c0a19140b79af134313b3ca2d9cfcdd84a0626090af741ce8975527ad59efd35"
     },
     {
       "id": "asset:images/logos/hugging-face.svg",
@@ -5495,19 +5495,19 @@
       "category": "official-mark",
       "ownershipId": "image:hugging-face-logo",
       "sourceRegistryId": "hugging-face-logo",
-      "byteHash": "fc95837e1bacb9b2cdbff9ae5d681ed8f20233b8fc72a65cdb38321ea9ddc015",
-      "semanticHash": "314c2da062ed49104d3d68e87377c0b3c10abf7657604537ee653751e0d3cf67",
-      "fingerprint": "733676543d999ee0e0ce592732661f6b7db2681a0216c60063c10f9a9037ff96"
+      "byteHash": "87ac947dc4f0a9146fcd42aad52b657909bef9860eb284c651a6690e935e0595",
+      "semanticHash": "fc0dbceba3ce0c61f9c7948f719531034ece61df408e3d0e5f3e554abb728d48",
+      "fingerprint": "528598759aa44c36ed92bd5b4255fc3d9791d29062994ba09dd7bc734ed5ad87"
     },
     {
-      "id": "asset:images/logos/humanoid-uk.png",
-      "path": "images/logos/humanoid-uk.png",
+      "id": "asset:images/logos/humanoid-uk.svg",
+      "path": "images/logos/humanoid-uk.svg",
       "category": "official-mark",
       "ownershipId": "image:humanoid-uk-logo",
       "sourceRegistryId": "humanoid-uk-logo",
-      "byteHash": "cd92590a15a0edaf5fcc8c3958f464c87f338a39abc287711a875bf2ca2a80b8",
-      "semanticHash": null,
-      "fingerprint": "e8d5ced486312fdfdb150ed602b1b03d483a2cde98fe684f44bf1e2f77eac616"
+      "byteHash": "0a86825d0538deb58434e567d00a9739a84f243702de6ed599a5b9de9a2696a9",
+      "semanticHash": "bb4ca1132d8c3e645ea5d84649fd1d9a4e16cf3a20b82b9f6dc69d9e5bbd5b51",
+      "fingerprint": "cb169857c31ad7692c3904191166fb4e404620471b1cf4c20d42b1535b74cfc0"
     },
     {
       "id": "asset:images/logos/intuitive-surgical.svg",
@@ -5590,14 +5590,14 @@
       "fingerprint": "4ef36e2ad175250e7eee008d585e9e5b95ad633bde82877afea300b30cc2d6ca"
     },
     {
-      "id": "asset:images/logos/limx-dynamics.png",
-      "path": "images/logos/limx-dynamics.png",
+      "id": "asset:images/logos/limx-dynamics.svg",
+      "path": "images/logos/limx-dynamics.svg",
       "category": "official-mark",
       "ownershipId": "image:limx-dynamics-logo",
       "sourceRegistryId": "limx-dynamics-logo",
-      "byteHash": "ebc4f8bb44e3d368ca2a5c7d6775548b2b5c86c302da433d97fcd31faec88585",
-      "semanticHash": null,
-      "fingerprint": "3515482f9d190d951924a77e5824ce2d61f55847907deccbb9779d3e6d75857a"
+      "byteHash": "0322dd27750096f9151a6a122741a1f084116dcc8bcc8d4ec427230b035246b2",
+      "semanticHash": "aa9efe54726ce5fe506734eef9c8fb6c5806dffaa2acefb82b311140a12fff07",
+      "fingerprint": "ef0a0110bf31d06e8d7b42f883665439853232199c3dad0f92a85d72778938e2"
     },
     {
       "id": "asset:images/logos/locus-robotics.svg",
@@ -5630,24 +5630,24 @@
       "fingerprint": "41a8b0b8a0e27e9f43395315dbb577f2e3c53dce414ab7cc8324d0cb063e6b22"
     },
     {
-      "id": "asset:images/logos/micro1.png",
-      "path": "images/logos/micro1.png",
+      "id": "asset:images/logos/micro1.svg",
+      "path": "images/logos/micro1.svg",
       "category": "official-mark",
       "ownershipId": "image:micro1-logo",
       "sourceRegistryId": "micro1-logo",
-      "byteHash": "3c80d0ffe1f9633d51e55ffb86affb15ca861e90f3d0582fb5379db442e3fd6d",
-      "semanticHash": null,
-      "fingerprint": "50649e6074f496ba76c3d6125d7f4586c48df4020dfd3c01976801888e781fcd"
+      "byteHash": "d47e282dc81a77947898972fbc5846de22d56ad81999fa338cf036d69ec73e97",
+      "semanticHash": "480440f85e05876ceac3b5a492c5e9cf2bc1d867f398e5f8be55db3d05983a17",
+      "fingerprint": "eec21682411c44b2b845c5bda4577d81c177cda649d451b16420dea978cbe2c4"
     },
     {
-      "id": "asset:images/logos/mind-robotics.png",
-      "path": "images/logos/mind-robotics.png",
+      "id": "asset:images/logos/mind-robotics.svg",
+      "path": "images/logos/mind-robotics.svg",
       "category": "official-mark",
       "ownershipId": "image:mind-robotics-logo",
       "sourceRegistryId": "mind-robotics-logo",
-      "byteHash": "a11a9b7d8b4caff0dbd5a340bac854b280a0de271d2726881412f1505747b784",
-      "semanticHash": null,
-      "fingerprint": "bdf8280c80398c1f9bebcdf862dc7f5d69605257ac1a29e98531257e7f11815c"
+      "byteHash": "032c5a7e937091711817ae998ea536f201080a1907db5b4f99aac89664c6ae82",
+      "semanticHash": "e177de35cdeec41902825fbb26ed709a92379e6612102eca6d6a982f0a938b07",
+      "fingerprint": "03b08e5b09025230ef4cc2bd76837b0d795ce44e883432e25f11602ecc79b2a5"
     },
     {
       "id": "asset:images/logos/miso-robotics.png",
@@ -5735,9 +5735,9 @@
       "category": "official-mark",
       "ownershipId": "image:nimble-robotics-logo",
       "sourceRegistryId": "nimble-robotics-logo",
-      "byteHash": "85383cb32a5d2ff2d064fb4ae24c0db7e70fd38147a49d83b0a08f8a24acf351",
-      "semanticHash": "f89f012164c09191a2db4a31cd152b8c27187d0c1ffb3ec62f8c4b11dc79411c",
-      "fingerprint": "602dce51c3de3bb51283184c2ed8f333e7d750ffbb96713d1b64dbc9e45f908d"
+      "byteHash": "6919f3a3da946bf42595d946a79b74578a9fc78b552069e74c8e7616431bf14c",
+      "semanticHash": "aecd4c47a95df58d26276ed411615aebe461fb1196b514c0b3675e2cec824e41",
+      "fingerprint": "d1d7e152658bac8ce2bfff3f775d2160c3cb8b4adbfc4bc367333fa14f0b9e63"
     },
     {
       "id": "asset:images/logos/nuro.svg",
@@ -5855,9 +5855,9 @@
       "category": "official-mark",
       "ownershipId": "image:robot-era-logo",
       "sourceRegistryId": "robot-era-logo",
-      "byteHash": "e5ca9950532f5d38cd311c45561d84de3cb681183e7a6dfae918faa08d49c3c2",
+      "byteHash": "621f1d9593021fe92d222c1f71943a4b07a3e8c3d6be22e0dd1ecc0d9d7090ea",
       "semanticHash": null,
-      "fingerprint": "6b4cf2dac466bab34329e6a27730263455e336ba11ca49c962e8daa5cf7dcc4f"
+      "fingerprint": "33ea56093603b45a6cee7f8c76601f9a2790216a99a21f3e0457cb8ba86e4ecb"
     },
     {
       "id": "asset:images/logos/robotphoenix.webp",
@@ -5890,14 +5890,14 @@
       "fingerprint": "55c82c5b42347934da75a487c4ec73b323a08c1f5bbcc87ce8e6a13044fb0b0b"
     },
     {
-      "id": "asset:images/logos/saronic.png",
-      "path": "images/logos/saronic.png",
+      "id": "asset:images/logos/saronic.svg",
+      "path": "images/logos/saronic.svg",
       "category": "official-mark",
       "ownershipId": "image:saronic-logo",
       "sourceRegistryId": "saronic-logo",
-      "byteHash": "d52613b5c59e8bf140e054403361f27f4da3fc242844dffbdb6eed6469ae914a",
-      "semanticHash": null,
-      "fingerprint": "56a53d8a5c53b0873f895d19b85d4d8b3da2deb226a476089f76a022efb56ab6"
+      "byteHash": "fc59d18b3f78246c1e300d43f28da466ec1cbbffdd2d39b2dc306d2488c00cd6",
+      "semanticHash": "19ba04fb23b8d9b1104e46412436f11c109ce57ee16d22e215c60b02c4ddd6c6",
+      "fingerprint": "f4747c56a2798895a72fa2117bbde298c2e415e57eba59fa893b5f32b4b7eb52"
     },
     {
       "id": "asset:images/logos/serve-robotics.svg",
@@ -5905,9 +5905,9 @@
       "category": "official-mark",
       "ownershipId": "image:serve-robotics-logo",
       "sourceRegistryId": "serve-robotics-logo",
-      "byteHash": "6227552fc552e78fd456f5e44f15b74adec394a3e94d121d2e98308f385feed0",
-      "semanticHash": "ed519e7402285e204851427c24ea6ed46e8528c7df07cbf98b3274e1175799b2",
-      "fingerprint": "836c0fa35e6952942fdc53b2d645d688767ca0188f0bb683f761f835e679a3c1"
+      "byteHash": "0d564558c00258447b9cf24711d7f4dcb2cf373d05c48ebf7dc15ea34b67c5ab",
+      "semanticHash": "9d1b9a05bbfd5ce9be384891979ae95a9e524e7904ad00fd9ea3399f7c8b06d2",
+      "fingerprint": "2e4f41d5155e6c05434d40eb87155e05851ff2d346dccfb583dfc69dee329449"
     },
     {
       "id": "asset:images/logos/shadow-robot.svg",
@@ -5985,9 +5985,9 @@
       "category": "official-mark",
       "ownershipId": "image:sunday-robotics-logo",
       "sourceRegistryId": "sunday-robotics-logo",
-      "byteHash": "3416dab04da25856e16b2f17bfd2d540a3ae60335284198347e05a89a76f7f6c",
-      "semanticHash": "5b5c96437c201f1877e6524e3d964859e854e699037ef78d2ca743fd9b93d43c",
-      "fingerprint": "5e7cc9e2719dc88eb2ba69ffba505aa2bbb559ce79bef3d708248057f27c43a8"
+      "byteHash": "afbe6d1eb3fd3f54c23c1addf0cfc56669b135731dab2baf8ce9785688ae1914",
+      "semanticHash": "3b06b010761569576af868b98ed7e841ed48453efaa24a06835fb7558e1b7c92",
+      "fingerprint": "56e8e3218a4d7d93aafb78f16d05cb32c9de1cc4a6a550785d614ff884886a87"
     },
     {
       "id": "asset:images/logos/switchbot.png",
@@ -6070,24 +6070,24 @@
       "fingerprint": "95c1c85aef8003098d1ba8ed9f5498177facf4b5e4767b13f8f2c541a24e9768"
     },
     {
-      "id": "asset:images/logos/weave-robotics.png",
-      "path": "images/logos/weave-robotics.png",
+      "id": "asset:images/logos/weave-robotics.svg",
+      "path": "images/logos/weave-robotics.svg",
       "category": "official-mark",
       "ownershipId": "image:weave-robotics-logo",
       "sourceRegistryId": "weave-robotics-logo",
-      "byteHash": "a0211fc10f670b01d0cde44871a4d037c874f5648dfb1dfabadd6c6437c6d16d",
-      "semanticHash": null,
-      "fingerprint": "8828a3360e6ba87778a40a858d85c7665e0c4c430df43c9d07825d6f22264365"
+      "byteHash": "fadd6aab37e07d0dc3ab065371f6ed73ccd84d1e8920fe9f02a919620c070025",
+      "semanticHash": "9547c085c6e96e055f646d658ed6bb3ee820466f4118851bebb8932b67050a06",
+      "fingerprint": "f4fa2d72289f55513fc70bc1dcf372a837bf34dbce38b0084c1d00fb5cc4dbae"
     },
     {
-      "id": "asset:images/logos/wonik.png",
-      "path": "images/logos/wonik.png",
+      "id": "asset:images/logos/wonik-robotics.svg",
+      "path": "images/logos/wonik-robotics.svg",
       "category": "official-mark",
       "ownershipId": "image:wonik-logo",
       "sourceRegistryId": "wonik-logo",
-      "byteHash": "13196cf95870b3164d69921c41c1266834ffcc9760b66b880aec7fd7ab3167a4",
-      "semanticHash": null,
-      "fingerprint": "317947a7f3824111a03fe8cc94531d1ea98c00cc4c125285c0bbc9c22d285f25"
+      "byteHash": "38b3b2f6d95e5e832c402c3a6bf20478124eff3694ebca9d61a50b460008cf2a",
+      "semanticHash": "23cc22fbd6ca5063cd331c6690046bde17b9f1e137e31421c515493a268d94fc",
+      "fingerprint": "c5a8d5637196d93bb4450fe0ab47a8d7702b1eb7b8b4f998003309cd9feff39b"
     },
     {
       "id": "asset:images/logos/x-square-robot.svg",
@@ -6948,10 +6948,10 @@
     "asset:images/logos/carbon-robotics.png",
     "asset:images/logos/chef-robotics.svg",
     "asset:images/logos/clone-robotics.png",
-    "asset:images/logos/cmr-surgical.png",
+    "asset:images/logos/cmr-surgical.svg",
     "asset:images/logos/coco-robotics.png",
-    "asset:images/logos/collaborative-robotics.png",
-    "asset:images/logos/covariant.png",
+    "asset:images/logos/collaborative-robotics.svg",
+    "asset:images/logos/covariant.svg",
     "asset:images/logos/deep-robotics.png",
     "asset:images/logos/dexterity.svg",
     "asset:images/logos/diligent-robotics.png",
@@ -6965,17 +6965,17 @@
     "asset:images/logos/formic.svg",
     "asset:images/logos/foundry-robotics.svg",
     "asset:images/logos/fourier-intelligence.svg",
-    "asset:images/logos/fox-robotics.svg",
+    "asset:images/logos/fox-robotics.png",
     "asset:images/logos/galaxea-ai.png",
-    "asset:images/logos/galbot.gif",
+    "asset:images/logos/galbot.svg",
     "asset:images/logos/gecko-robotics.svg",
     "asset:images/logos/generalist-ai.svg",
     "asset:images/logos/genesis-ai.svg",
     "asset:images/logos/google-deepmind-robotics.svg",
     "asset:images/logos/hanson-robotics.png",
-    "asset:images/logos/harmonic-drive.svg",
+    "asset:images/logos/harmonic-drive-systems.png",
     "asset:images/logos/hugging-face.svg",
-    "asset:images/logos/humanoid-uk.png",
+    "asset:images/logos/humanoid-uk.svg",
     "asset:images/logos/intuitive-surgical.svg",
     "asset:images/logos/irobot.svg",
     "asset:images/logos/k-scale-labs.png",
@@ -6984,12 +6984,12 @@
     "asset:images/logos/leaderdrive.png",
     "asset:images/logos/leju-robotics.png",
     "asset:images/logos/lila-sciences.svg",
-    "asset:images/logos/limx-dynamics.png",
+    "asset:images/logos/limx-dynamics.svg",
     "asset:images/logos/locus-robotics.svg",
     "asset:images/logos/mentee-robotics.svg",
     "asset:images/logos/meta.svg",
-    "asset:images/logos/micro1.png",
-    "asset:images/logos/mind-robotics.png",
+    "asset:images/logos/micro1.svg",
+    "asset:images/logos/mind-robotics.svg",
     "asset:images/logos/miso-robotics.png",
     "asset:images/logos/mitsubishi.svg",
     "asset:images/logos/monarch-tractor.png",
@@ -7014,7 +7014,7 @@
     "asset:images/logos/robotphoenix.webp",
     "asset:images/logos/sanctuary-ai.png",
     "asset:images/logos/sanhua.png",
-    "asset:images/logos/saronic.png",
+    "asset:images/logos/saronic.svg",
     "asset:images/logos/serve-robotics.svg",
     "asset:images/logos/shadow-robot.svg",
     "asset:images/logos/sharpa.svg",
@@ -7032,8 +7032,8 @@
     "asset:images/logos/ubtech.svg",
     "asset:images/logos/unitree.svg",
     "asset:images/logos/wandercraft.svg",
-    "asset:images/logos/weave-robotics.png",
-    "asset:images/logos/wonik.png",
+    "asset:images/logos/weave-robotics.svg",
+    "asset:images/logos/wonik-robotics.svg",
     "asset:images/logos/x-square-robot.svg",
     "asset:images/logos/xdof.svg",
     "asset:images/logos/xela-robotics.png",
@@ -17294,7 +17294,6 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/training-time-chart.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
         "components/mdx/gr2-results-table.tsx",
@@ -17338,7 +17337,6 @@
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
         "components/mdx/gr2-results-table.tsx",
@@ -17363,7 +17361,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "dae7485ac6da4617f84bf8c43a8d26c3992cdfba1b5e6a6aef43be0124683070"
+      "fingerprint": "823b17d99dbc5849b2362f91a5d54bd7e0a9726d77ce6a8b5e09756af6bc0ce8"
     },
     {
       "id": "surface:raised",
@@ -18248,5 +18246,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "71ff97885e85f8a870281ba770809c4ab99e63ccb3be6f6b4ae6844a662d565f"
+  "rootFingerprint": "adaea7898f00bd878a60bafef4a4f2649f961e77ecc27e599686076334a3440a"
 }

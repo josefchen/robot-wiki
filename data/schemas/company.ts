@@ -24,10 +24,21 @@ export const companyStatusSchema = z.enum([
 ]);
 
 /**
- * Never invent a number: unknown funding, valuation, and date fields are
- * null and render as "not disclosed". Round type is also nullable: many
- * rows are public companies or internal divisions with no disclosed latest
- * round.
+ * A visible caveat on a round figure the sources do not state exactly: two
+ * sources give different figures for the same round, a source gives only a
+ * floor, or one figure covers more than the round. Every URL must be one of
+ * the company's own sources, so the caveat points at documents the card lists.
+ */
+export const roundCaveatSchema = z.object({
+  text: z.string().min(1),
+  sourceUrls: z.array(httpsUrlSchema).min(1),
+});
+
+/**
+ * Never invent a number: an unknown funding, valuation, or date field is
+ * null, and the company's `absent` annotation records whether it is
+ * undisclosed or inapplicable. Round type is also nullable: many rows are
+ * public companies or internal divisions with no disclosed latest round.
  */
 export const fundingRoundSchema = z.object({
   /**
@@ -52,10 +63,88 @@ export const fundingRoundSchema = z.object({
    * after a later audit appends a corrected or more specific source.
    */
   sourceUrl: httpsUrlSchema.optional(),
+  caveat: roundCaveatSchema.optional(),
 });
 
+/**
+ * Every field the detail card renders that a record may leave empty. An
+ * empty list or a null is never read as a state on its own: each one needs
+ * an entry in the record's `absent` annotation.
+ */
+export const ABSENT_FIELDS = [
+  'hq.city',
+  'founded',
+  'website',
+  'aka',
+  'deployments',
+  'openSource',
+  'totalRaisedUsd',
+  'round.type',
+  'round.amountUsd',
+  'round.date',
+  'round.valuationUsd',
+  'round.leadInvestors',
+] as const;
+
+export const absentFieldSchema = z.enum(ABSENT_FIELDS);
+
+/**
+ * `not-disclosed`: the value exists (every company was founded somewhere,
+ * every financed startup has a total) but no fetched source states it; the
+ * card prints unknownFigure(). `not-applicable`: the field does not apply
+ * to this company (a corporate division raises no rounds, a company with
+ * one name has no other); the card prints inapplicableFigure(), and `basis`
+ * says why.
+ */
+export const absenceSchema = z
+  .object({
+    state: z.enum(['not-disclosed', 'not-applicable']),
+    basis: z.string().min(1).optional(),
+  })
+  .strict();
+
+export type AbsentField = z.infer<typeof absentFieldSchema>;
+export type Absence = z.infer<typeof absenceSchema>;
+
+type AbsenceProbe = {
+  hq: { city: string | null };
+  founded: number | null;
+  website: string | null;
+  aka: readonly string[];
+  deployments: readonly string[];
+  openSource: readonly string[];
+  totalRaisedUsd: number | null;
+  latestRound: {
+    type: string | null;
+    amountUsd: number | null;
+    date: string | null;
+    valuationUsd: number | null;
+    leadInvestors: readonly string[];
+  } | null;
+};
+
+/** The rendered fields this record leaves empty, in ABSENT_FIELDS order. */
+export function absentFieldsOf(company: AbsenceProbe): AbsentField[] {
+  const round = company.latestRound;
+  const empty: Record<AbsentField, boolean> = {
+    'hq.city': company.hq.city === null,
+    founded: company.founded === null,
+    website: company.website === null,
+    aka: company.aka.length === 0,
+    deployments: company.deployments.length === 0,
+    openSource: company.openSource.length === 0,
+    totalRaisedUsd: company.totalRaisedUsd === null,
+    'round.type': round === null || round.type === null,
+    'round.amountUsd': round === null || round.amountUsd === null,
+    'round.date': round === null || round.date === null,
+    'round.valuationUsd': round === null || round.valuationUsd === null,
+    'round.leadInvestors': round === null || round.leadInvestors.length === 0,
+  };
+  return ABSENT_FIELDS.filter((field) => empty[field]);
+}
+
 /** Market-map company entry (data/companies.ts, 111 rows from research/04). */
-export const companySchema = z.object({
+const companyObjectSchema = z.object({
   id: slugSchema,
   name: z.string().min(1),
   aka: z.array(z.string().min(1)),
@@ -81,7 +170,7 @@ export const companySchema = z.object({
   segment: companySegmentSchema,
   subSegment: z.string().min(1).nullable(),
   description: z.string().min(1),
-  approach: z.array(z.string().min(1)),
+  approach: z.array(z.string().min(1)).min(1),
   /**
    * Company-wide total stated by a fetched source. Never use an aggregator
    * figure, add individual rounds yourself, or promote a floor or ceiling to
@@ -97,6 +186,50 @@ export const companySchema = z.object({
   openSource: z.array(z.string().min(1)),
   sources: z.array(sourceSchema).min(1),
   confidence: confidenceSchema,
+  /**
+   * Registry annotation for each rendered field the record leaves empty
+   * (absentFieldsOf). Exactly the empty fields carry an entry; a populated
+   * field never does.
+   */
+  absent: z.record(absentFieldSchema, absenceSchema),
+});
+
+export const companySchema = companyObjectSchema.superRefine((company, ctx) => {
+  const empty = new Set<string>(absentFieldsOf(company));
+  for (const field of ABSENT_FIELDS) {
+    const absence = company.absent[field];
+    if (empty.has(field) && !absence) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['absent', field],
+        message: `${company.id}: ${field} is empty but has no recorded disposition`,
+      });
+    }
+    if (!empty.has(field) && absence) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['absent', field],
+        message: `${company.id}: ${field} is populated but carries a disposition`,
+      });
+    }
+    if (absence?.state === 'not-applicable' && !absence.basis) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['absent', field, 'basis'],
+        message: `${company.id}: ${field} is marked not-applicable without a basis`,
+      });
+    }
+  }
+  const cited = new Set(company.sources.map((source) => source.url));
+  for (const url of company.latestRound?.caveat?.sourceUrls ?? []) {
+    if (!cited.has(url)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['latestRound', 'caveat', 'sourceUrls'],
+        message: `${company.id}: caveat source ${url} is not one of its sources`,
+      });
+    }
+  }
 });
 
 export type FundingRound = z.infer<typeof fundingRoundSchema>;

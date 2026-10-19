@@ -1,15 +1,14 @@
 'use client';
 
-/* eslint-disable @next/next/no-img-element -- static export serves plain images */
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getCompanyLogo } from '@/data/logos';
 import type { Company } from '@/data/schemas/company.ts';
-import { LOGO_MARK_CLASS, LOGO_TILE_CLASS } from '@/components/ui/logo-tile';
+import { LogoMark } from '@/components/ui/logo-mark';
 import { companyShortName } from '@/lib/market-map';
 import {
   MARK_PLACEMENT,
   markGeometry,
+  markInk,
   withheldMark,
   type MarkPreset,
 } from '@/lib/market-map-marks';
@@ -29,17 +28,18 @@ type CompanyLogoProps = {
 };
 
 /**
- * A company's official mark on the shared logo tile (components/ui/logo-tile.ts),
- * the same plate, padding and monochrome threshold the credits page uses.
- * The image carries the alt text "<Company> logo" from the registry name.
+ * A company's official mark, drawn plate-less in the one secondary ink
+ * (components/ui/logo-mark.tsx), the same treatment the credits page uses.
+ * It is named "<Company> logo" from the registry name.
  *
- * Placement comes from lib/market-map-marks.ts: the tile is sized to the
- * mark's artwork (not its file box, so a padded file no longer draws small)
- * and every mark gets about the same area within a legible height range.
- * A withheld mark (a registered file that shows another company's artwork)
- * is never drawn: the name stands in as text, or nothing where the name is
- * already beside it. So does a file that fails to load. Failure is keyed to
- * the image path so a reused instance retries when the company changes.
+ * Placement comes from lib/market-map-marks.ts: the mark is sized to its
+ * artwork (not its file box, so a padded file no longer draws small) and
+ * every mark gets about the same visual weight within a legible height
+ * range. A withheld mark (a registered file that shows another company's
+ * artwork) is never drawn: the name stands in as text, or nothing where the
+ * name is already beside it. So does a file that fails to load: the mask
+ * would paint nothing, so a probe reports the failure. Failure is keyed to
+ * the file path so a reused instance retries when the company changes.
  */
 export function CompanyLogo({
   company,
@@ -50,44 +50,32 @@ export function CompanyLogo({
   const [failedSrc, setFailedSrc] = useState<string | null>(null);
   const withheld = withheldMark(company.logo);
   const image = company.logo && !withheld ? getCompanyLogo(company.logo) : undefined;
+  const file = image?.file ?? null;
+
+  useEffect(() => {
+    if (!file) return;
+    let live = true;
+    const probe = new Image();
+    probe.onerror = () => {
+      if (live) setFailedSrc(file);
+    };
+    probe.src = file;
+    return () => {
+      live = false;
+      probe.onerror = null;
+    };
+  }, [file]);
 
   if (image && failedSrc !== image.file) {
-    const { tile, image: art } = markGeometry(image, MARK_PLACEMENT[company.logo!], preset);
-    // Sized in pixels, but never wider than its line: on a narrow phone
-    // tile the plate scales down whole, the image placed in percentages of
-    // it, so the artwork box stays exactly on the plate.
-    const percent = (part: number, whole: number) => `${((part / whole) * 100).toFixed(3)}%`;
     return (
-      <span
-        data-company-logo={company.id}
-        data-logo-state="image"
-        data-logo-tile=""
-        data-brand-surface-id="surface:flat"
-        className={cx(LOGO_TILE_CLASS, 'relative', className)}
-        style={{
-          width: `min(100%, ${tile.width}px)`,
-          aspectRatio: `${tile.width} / ${tile.height}`,
-        }}
-      >
-        <img
-          src={image.file}
-          alt={`${company.name} logo`}
-          width={image.width}
-          height={image.height}
-          loading={preset === 'sheet' ? 'eager' : 'lazy'}
-          decoding="async"
-          onError={() => setFailedSrc(image.file)}
-          className={cx(LOGO_MARK_CLASS, 'pointer-events-none absolute')}
-          style={{
-            left: percent(art.left, tile.width),
-            top: percent(art.top, tile.height),
-            width: percent(art.width, tile.width),
-            height: percent(art.height, tile.height),
-            maxWidth: 'none',
-            maxHeight: 'none',
-          }}
-        />
-      </span>
+      <LogoMark
+        file={image.file}
+        label={`${company.name} logo`}
+        geometry={markGeometry(image, MARK_PLACEMENT[company.logo!], preset)}
+        ink={markInk(company.logo)}
+        className={className}
+        data={{ 'data-company-logo': company.id, 'data-logo-state': 'image' }}
+      />
     );
   }
 
@@ -103,9 +91,8 @@ export function CompanyLogo({
       />
     );
   }
-  // Our own text, so it keeps the page's surface rather than the plate,
-  // and it stays out of the accessibility tree: the name is announced by
-  // the control or heading the mark belongs to.
+  // Our own text, in the page's ink, and it stays out of the accessibility
+  // tree: the name is announced by the control or heading the mark belongs to.
   return (
     <span
       data-company-logo={company.id}

@@ -5,7 +5,7 @@
  * Intersection filters, deep-link parsing, and the null-funding plot
  * rule are unit-tested in tests/unit/market-map.test.ts.
  */
-import type { Company } from '@/data/schemas/company.ts';
+import type { AbsentField, Company } from '@/data/schemas/company.ts';
 
 export const MARKET_MAP_AS_OF = '2026-08-06';
 
@@ -116,6 +116,9 @@ export interface TimelineEvent {
   sourceUrl: string;
   sourceTitle: string;
   asOf: string;
+  /** What an empty type or amount renders, from the record's disposition. */
+  typeAbsent: string | null;
+  amountAbsent: string | null;
 }
 
 export interface BubblePoint {
@@ -488,6 +491,33 @@ export function unknownFigure(): string {
   return 'not disclosed';
 }
 
+export function inapplicableFigure(): string {
+  return 'n/a';
+}
+
+/**
+ * What an empty field renders, read from the disposition the registry
+ * records for it (Company.absent). A missing disposition is a data error,
+ * never a default: an empty list or a null alone does not say whether the
+ * value is undisclosed or inapplicable.
+ */
+export function absentState(
+  company: Company,
+  field: AbsentField,
+): 'not-disclosed' | 'not-applicable' {
+  const absence = company.absent[field];
+  if (!absence) {
+    throw new Error(`${company.id}: no recorded disposition for empty ${field}`);
+  }
+  return absence.state;
+}
+
+export function absentFigure(company: Company, field: AbsentField): string {
+  return absentState(company, field) === 'not-applicable'
+    ? inapplicableFigure()
+    : unknownFigure();
+}
+
 export function formatShortDate(iso: string): string {
   const match = ISO_DATE.exec(iso);
   if (!match) {
@@ -564,7 +594,11 @@ export function tileFact(company: Company): TileFact {
       label: `latest round ${formatUsd(amount)}${round ? `, ${round}` : ''}`,
     };
   }
-  return { kind: 'none', text: '', label: `latest round amount ${unknownFigure()}` };
+  return {
+    kind: 'none',
+    text: '',
+    label: `latest round amount ${absentFigure(company, 'round.amountUsd')}`,
+  };
 }
 
 export function timelineEvents(
@@ -589,6 +623,9 @@ export function timelineEvents(
       sourceUrl: source.url,
       sourceTitle: source.title,
       asOf: source.asOf,
+      typeAbsent: round.type === null ? absentFigure(company, 'round.type') : null,
+      amountAbsent:
+        round.amountUsd === null ? absentFigure(company, 'round.amountUsd') : null,
     });
   }
   return events.sort((a, b) => {

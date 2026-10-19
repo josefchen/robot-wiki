@@ -6,21 +6,25 @@ import { COMPANIES } from '@/data/companies';
 import { LOGO_IMAGES } from '@/data/logo-images';
 import { companyLogoIds, getCompanyLogo } from '@/data/logos';
 import {
+  BLOCK_FILL,
+  INK_WEIGHT,
+  LUMINANCE_MASKS,
   MARK_PLACEMENT,
-  MARK_PLATE_PADDING,
   MARK_PRESETS,
   WITHHELD_MARKS,
+  inkWeight,
   markGeometry,
+  markInk,
   markRatio,
   withheldMark,
 } from '@/lib/market-map-marks';
 
 /**
- * Placement of the company marks (lib/market-map-marks.ts). The mark files
- * and their registry are locked; these checks hold the rendering rules to
- * the bytes on disk, so a changed file fails here until it is measured
- * again (node scripts/measure-logo-marks.ts) or, for a withheld file,
- * until the withholding is reviewed.
+ * Placement and ink of the company marks (lib/market-map-marks.ts). These
+ * checks hold the rendering rules to the bytes on disk, so a changed file
+ * fails here until it is measured again (node scripts/measure-logo-marks.ts)
+ * or, for a withheld file or a luminance-derived mask, until the entry is
+ * reviewed.
  */
 
 const repoRoot = join(import.meta.dirname, '../..');
@@ -54,17 +58,78 @@ describe('measured mark placement', () => {
   });
 });
 
+describe('no mark draws as a block', () => {
+  const drawn = companyLogoIds().filter((id) => !(id in WITHHELD_MARKS));
+
+  it('measures every mask’s ink inside its artwork box', () => {
+    for (const id of companyLogoIds()) {
+      const { ink } = MARK_PLACEMENT[id];
+      expect(ink, id).toBeGreaterThan(0);
+      expect(ink, id).toBeLessThanOrEqual(1);
+    }
+  });
+
+  it('keeps every drawn mask under the block fill, so a silhouette is never a solid shape', () => {
+    expect(drawn.length).toBeGreaterThan(100);
+    const blocks = drawn.filter((id) => MARK_PLACEMENT[id].ink >= BLOCK_FILL).map((id) => `${id} ${MARK_PLACEMENT[id].ink}`);
+    expect(blocks).toEqual([]);
+  });
+
+  it('refuses a file with an opaque background: its alpha mask fills its box', () => {
+    // The withheld ARI file is an app icon on an opaque square; drawn by its
+    // alpha it would be exactly the block the rule refuses.
+    expect(MARK_PLACEMENT['assured-robot-intelligence-logo'].ink).toBeGreaterThanOrEqual(BLOCK_FILL);
+  });
+});
+
+describe('luminance-derived masks', () => {
+  it('apply to the recorded bytes only and name their reason', () => {
+    expect(Object.keys(LUMINANCE_MASKS).sort()).toEqual([
+      'k-scale-labs-logo',
+      'miso-robotics-logo',
+      'rainbow-robotics-logo',
+      'sanhua-logo',
+    ]);
+    for (const [id, entry] of Object.entries(LUMINANCE_MASKS)) {
+      const asset = getCompanyLogo(id);
+      expect(asset, id).toBeDefined();
+      expect(sha256(bytesOf(asset!.file)), id).toBe(entry.sha256);
+      expect(['light', 'dark'], id).toContain(entry.ink);
+      expect(entry.reason.length, id).toBeGreaterThan(30);
+      expect(entry.recorded).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(markInk(id)).toBe(entry.ink);
+      expect(id in WITHHELD_MARKS, id).toBe(false);
+    }
+    expect(markInk('nvidia-logo')).toBe('alpha');
+    expect(markInk(null)).toBe('alpha');
+  });
+});
+
 describe('mark geometry', () => {
   const tile = MARK_PRESETS.tile;
 
   it('draws every map mark at least 10 px high and fits the narrowest tile', () => {
     for (const id of companyLogoIds()) {
       const geometry = markGeometry(getCompanyLogo(id)!, MARK_PLACEMENT[id], 'tile');
-      const inner = geometry.tile.height - 2 * MARK_PLATE_PADDING;
-      expect(inner, id).toBeGreaterThanOrEqual(10);
-      expect(inner, id).toBeLessThanOrEqual(tile.maxHeight);
-      expect(geometry.tile.width, id).toBeLessThanOrEqual(139);
+      expect(geometry.box.height, id).toBeGreaterThanOrEqual(10);
+      expect(geometry.box.height, id).toBeLessThanOrEqual(tile.maxHeight);
+      expect(geometry.box.width, id).toBeLessThanOrEqual(tile.maxWidth);
     }
+  });
+
+  it('weights each mark’s area by its ink, within the recorded range', () => {
+    for (const id of companyLogoIds()) {
+      const weight = inkWeight(MARK_PLACEMENT[id]);
+      expect(weight, id).toBeGreaterThanOrEqual(INK_WEIGHT.min);
+      expect(weight, id).toBeLessThanOrEqual(INK_WEIGHT.max);
+    }
+    // A hairline wordmark is drawn larger than a solid slab of the same shape.
+    const light = { sha256: 'x', box: null, ink: 0.1 };
+    const heavy = { sha256: 'x', box: null, ink: 0.7 };
+    const asset = { file: '/x.svg', width: 300, height: 100 };
+    expect(markGeometry(asset, light, 'sheet').box.height).toBeGreaterThan(
+      markGeometry(asset, heavy, 'sheet').box.height,
+    );
   });
 
   it('draws Apptronik and Boston Dynamics at a legible size', () => {
@@ -75,21 +140,21 @@ describe('mark geometry', () => {
       MARK_PLACEMENT['apptronik-logo'],
       'tile',
     );
-    expect(apptronik.tile.height - 2 * MARK_PLATE_PADDING).toBeGreaterThanOrEqual(10.5);
+    expect(apptronik.box.height).toBeGreaterThanOrEqual(10.5);
     const asset = getCompanyLogo('boston-dynamics-logo')!;
     const placement = MARK_PLACEMENT['boston-dynamics-logo'];
     const boston = markGeometry(asset, placement, 'tile');
     const box = placement.box!;
-    // The artwork box, not the file box, fills the plate's inner area.
+    // The artwork box, not the file box, fills the drawn box.
     const artHeight = boston.image.height * (box[3] - box[1]);
-    expect(artHeight).toBeCloseTo(boston.tile.height - 2 * MARK_PLATE_PADDING, 1);
-    expect(boston.image.top + box[1] * boston.image.height).toBeCloseTo(MARK_PLATE_PADDING, 1);
+    expect(artHeight).toBeCloseTo(boston.box.height, 1);
+    expect(boston.image.top + box[1] * boston.image.height).toBeCloseTo(0, 1);
     expect(artHeight).toBeGreaterThanOrEqual(10.5);
     expect(markRatio(asset, placement)).toBeGreaterThan(4);
   });
 
-  it('places the artwork box exactly on the plate for every mark at every preset', () => {
-    for (const preset of ['tile', 'sheet'] as const) {
+  it('places the artwork box exactly on the drawn box for every mark at every preset', () => {
+    for (const preset of ['tile', 'sheet', 'credits'] as const) {
       for (const id of companyLogoIds()) {
         const placement = MARK_PLACEMENT[id];
         const geometry = markGeometry(getCompanyLogo(id)!, placement, preset);
@@ -98,22 +163,27 @@ describe('mark geometry', () => {
         const right = geometry.image.left + x1 * geometry.image.width;
         const top = geometry.image.top + y0 * geometry.image.height;
         const bottom = geometry.image.top + y1 * geometry.image.height;
-        expect(left, `${preset} ${id}`).toBeCloseTo(MARK_PLATE_PADDING, 0);
-        expect(top, `${preset} ${id}`).toBeCloseTo(MARK_PLATE_PADDING, 0);
-        expect(right, `${preset} ${id}`).toBeCloseTo(geometry.tile.width - MARK_PLATE_PADDING, 0);
-        expect(bottom, `${preset} ${id}`).toBeCloseTo(geometry.tile.height - MARK_PLATE_PADDING, 0);
+        expect(left, `${preset} ${id}`).toBeCloseTo(0, 0);
+        expect(top, `${preset} ${id}`).toBeCloseTo(0, 0);
+        expect(right, `${preset} ${id}`).toBeCloseTo(geometry.box.width, 0);
+        expect(bottom, `${preset} ${id}`).toBeCloseTo(geometry.box.height, 0);
       }
     }
   });
 });
 
 describe('withheld marks', () => {
-  it('withholds exactly the three files that show another company’s mark', () => {
-    expect(Object.keys(WITHHELD_MARKS).sort()).toEqual([
-      'assured-robot-intelligence-logo',
-      'farm-ng-logo',
-      'nimble-robotics-logo',
-    ]);
+  it('withholds exactly the one file that shows another company’s mark', () => {
+    // Nimble's and Farm-ng's files were replaced by their official marks on
+    // 19 October 2026 (Farm-ng's from the archived farm-ng.com, by the owner
+    // session's decision); ARI never published a mark.
+    expect(Object.keys(WITHHELD_MARKS).sort()).toEqual(['assured-robot-intelligence-logo']);
+    expect(withheldMark('nimble-robotics-logo')).toBeNull();
+    expect(withheldMark('farm-ng-logo')).toBeNull();
+    // The replaced Farm-ng file no longer carries the Bonsai wordmark's bytes.
+    expect(sha256(bytesOf(getCompanyLogo('farm-ng-logo')!.file))).not.toBe(
+      '3e8030e3050445fd32d22cb06a45a42dd109721b397da1cdeed5f13dc96dbd38',
+    );
   });
 
   it('applies to the recorded bytes only, so a corrected file ends it', () => {
@@ -123,8 +193,8 @@ describe('withheld marks', () => {
       expect(sha256(bytesOf(asset!.file)), id).toBe(entry.sha256);
       expect(entry.reason.length, id).toBeGreaterThan(30);
       expect(entry.recorded).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-      // The registry entry is still there (the data is locked) and still
-      // claims to be that company's mark: the gap is real.
+      // The registry entry is still there and still claims to be that
+      // company's mark: the gap is real.
       const record = LOGO_IMAGES.find((image) => image.id === id)!;
       const companies = COMPANIES.filter((company) => company.logo === id);
       expect(companies, id).toHaveLength(1);

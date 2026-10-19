@@ -71,6 +71,11 @@ describe('FundingTimeline roving keyboard access', () => {
     // robot-era's round date: every fetched body says "over $200 million
     // led by SF Group" with no day stated, so the bound-shaped round lost
     // its aggregator-only 2026-04-01 date and its timeline row.
+    // 71 -> 72 when the 2026-10-19 data pass recorded Farm-ng's acquisition
+    // by Bonsai Robotics (24 July 2025, terms undisclosed, first-party
+    // release), which is a dated 2023-2026 event.
+    // 72 -> 71 when the 2026-10-19 field audit cut Physical Intelligence's
+    // round date: The Robot Report says only that it raised "last week".
     expect(all.length).toBe(71); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);
@@ -182,7 +187,9 @@ describe('FundingTimeline roving keyboard access', () => {
     // "amount at valuation".
     expect(figure).toHaveTextContent('16 Sep 2025');
     expect(figure).toHaveTextContent('Series C');
-    expect(figure).toHaveTextContent('$1B at $39B');
+    // "$1B at $39B" until 2026-10-19: Figure's source says the round
+    // "exceeds $1B", a floor, so the amount reads as not disclosed.
+    expect(figure).toHaveTextContent('not disclosed at $39B');
     expect(figure.getAttribute('aria-expanded')).toBe('false');
     fireEvent.click(figure);
     // The row opens the company's details (MarketMap's sheet) and is marked.
@@ -202,12 +209,16 @@ describe('FundingTimeline roving keyboard access', () => {
   }, TIMEOUT);
 
   it('plots every round, undisclosed amounts on their own lane', () => {
-    render(<Timeline initial="figure-ai" />);
+    // The open company takes the accent fill whatever its lane, so the
+    // hollow-mark count below holds only when its own amount is disclosed.
+    // Skild's $1.4B is; Figure's amount has not been since 2026-10-19.
+    render(<Timeline initial="skild-ai" />);
     const plot = document.querySelector('svg[data-timeline-plot]');
     expect(plot).not.toBeNull();
     // The plot is for the eye; the list is its accessible equivalent.
     expect(plot!.getAttribute('aria-hidden')).toBe('true');
     const events = timelineEvents(COMPANIES);
+    expect(events.find((event) => event.companyId === 'skild-ai')?.amountUsd).not.toBeNull();
     const marks = plot!.querySelectorAll('circle[pointer-events="none"]');
     expect(marks).toHaveLength(events.length);
     const undisclosed = events.filter((event) => event.amountUsd === null).length;

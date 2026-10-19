@@ -67,6 +67,30 @@ describe('figure-system check', () => {
     expect(rulesFor(clean + loose)).toContainEqual(['Loose success chart', 'outside-frame']);
   });
 
+  it('admits a company-mark figure on credits, and still frames anything else in it', () => {
+    // A mark is drawn as a mask (components/ui/logo-mark.tsx) whose ink
+    // layer on /credits is the credited file's own <img>; like a photograph
+    // it is a registered image, not an explanatory figure.
+    const mark = (inner: string, kind = 'official-mark') =>
+      `<figure data-figure-kind="${kind}" data-image-id="nvidia-logo">${inner}<figcaption>NVIDIA logo</figcaption></figure>`;
+    const one =
+      '<span data-logo-mark=""><img src="/images/logos/nvidia.svg" alt="NVIDIA logo" width="40" height="30" data-logo-ink=""></span>';
+    expect(inspectFigureDocument(page(clean + mark(one)), ROUTE).figures).not.toContain('image:nvidia-logo');
+    expect(rulesFor(clean + mark(one))).toEqual([]);
+    // Not a mark figure: two marks, a drawing inside it, an image outside
+    // the mark, an image that is not the ink layer, or a mark with no image.
+    const svg = '<svg role="img" aria-label="Loose chart" viewBox="0 0 400 200"><path d="M0 0L400 200"/></svg>';
+    const stray = '<img src="/images/logos/nvidia.svg" alt="NVIDIA logo" width="40" height="30">';
+    const bare = '<span role="img" aria-label="NVIDIA logo" data-logo-mark=""><span aria-hidden="true" data-logo-ink=""></span></span>';
+    expect(rulesFor(clean + mark(one + one))).toContainEqual(['image:nvidia-logo', 'outside-frame']);
+    expect(rulesFor(clean + mark(one + svg))).toContainEqual(['image:nvidia-logo', 'outside-frame']);
+    expect(rulesFor(clean + mark(one + stray))).toContainEqual(['image:nvidia-logo', 'outside-frame']);
+    expect(rulesFor(clean + mark(`<span data-logo-mark="">${stray}</span>`))).toContainEqual(['image:nvidia-logo', 'outside-frame']);
+    expect(rulesFor(clean + mark(bare))).toContainEqual(['image:nvidia-logo', 'outside-frame']);
+    // Another kind holding a mask with no image is not a photograph either.
+    expect(rulesFor(clean + mark(bare, 'photograph'))).toContainEqual(['image:nvidia-logo', 'outside-frame']);
+  });
+
   it('fails a caption over 25 words and a legend off the stage', () => {
     const run = (n: number) => Array.from({ length: n }, (_, i) => `word${i}`).join(' ');
     const at = (n: number) => plant(clean, /(<figcaption data-figure-caption=""[^>]*>)[^<]*/, `$1${run(n)}`);

@@ -171,7 +171,7 @@ test.describe('licensed imagery', () => {
     for (const id of Object.keys(WITHHELD_MARKS)) {
       await expect(page.locator(`[data-credits-entry="${id}"]`)).toHaveCount(0);
       const file = IMAGES.find((image) => image.id === id)!.file;
-      await expect(page.locator(`img[src="${file}"]`)).toHaveCount(0);
+      await expect(page.locator(`img[src="${file}"], [data-logo-src="${file}"]`)).toHaveCount(0);
     }
     for (const image of shown) {
       const entry = page.locator(`[data-credits-entry="${image.id}"]`);
@@ -184,6 +184,23 @@ test.describe('licensed imagery', () => {
         await expect(drawing).toHaveCount(1);
         await expect(drawing).toHaveAttribute('aria-label', image.alt);
         await expect(entry.locator('[data-figure-label]')).toHaveText('Original schematic');
+      } else if (figureKind(image) === 'official-mark') {
+        // A company mark is drawn plate-less as a single-ink mask of its
+        // file (VAL-B2-MAP-007, successor of 2026-10-19). On /credits the
+        // mask's ink layer is the registered file's own <img> (VAL-B2-IMG-005):
+        // one mark, one image inside it, named by the alt text, declaring
+        // the intrinsic size, showing exactly the registered file.
+        const mark = entry.locator('[data-logo-mark]');
+        await expect(mark).toHaveCount(1);
+        await expect(mark).toHaveAttribute('data-logo-src', image.file);
+        await expect(mark).not.toHaveAttribute('role', 'img');
+        await expect(entry.locator('img')).toHaveCount(1);
+        const img = mark.locator('img[data-logo-ink]');
+        await expect(img).toHaveCount(1);
+        await expect(img).toHaveAttribute('src', image.file);
+        await expect(img).toHaveAttribute('alt', image.alt);
+        await expect(img).toHaveAttribute('width', String(image.width));
+        await expect(img).toHaveAttribute('height', String(image.height));
       } else {
         await expect(entry.locator('img')).toHaveCount(1);
       }

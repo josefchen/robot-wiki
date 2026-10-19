@@ -66,7 +66,10 @@ describe('filterCompanies', () => {
       COMPANIES,
       filters({ segment: 'humanoids', country: 'US' }),
     );
-    expect(humanoidsUs).toHaveLength(6);
+    // 6 -> 7 on 2026-10-19: the field audit moved 1X Technologies from NO
+    // to US (Wikipedia: headquartered in Palo Alto, California).
+    expect(humanoidsUs).toHaveLength(7);
+    expect(humanoidsUs.map((row) => row.id)).toContain('1x-technologies');
     expect(
       humanoidsUs.every(
         (row) => row.segment === 'humanoids' && row.hq.country === 'US',
@@ -86,7 +89,9 @@ describe('filterCompanies', () => {
     const acquired = filterCompanies(COMPANIES, filters({ status: 'acquired' }));
     expect(acquired.map((row) => row.id)).toEqual(
       expect.arrayContaining([
-        'covariant',
+        // Covariant left on 2026-10-19: Amazon hired its founders and
+        // licensed its models without buying it (status private).
+        'boston-dynamics',
         'irobot',
         'berkshire-grey',
         'abb-robotics',
@@ -94,6 +99,7 @@ describe('filterCompanies', () => {
       ]),
     );
     expect(acquired.every((row) => row.status === 'acquired')).toBe(true);
+    expect(acquired.map((row) => row.id)).not.toContain('covariant');
 
     const shutDown = filterCompanies(
       COMPANIES,
@@ -115,10 +121,13 @@ describe('filterCompanies', () => {
 
   it('filters open-source contributions (VAL-MKT-004)', () => {
     const open = filterCompanies(COMPANIES, filters({ openSource: 'yes' }));
-    expect(open).toHaveLength(6);
+    // 6 -> 8 on 2026-10-19: the field audit added XDOF's ABC-130K dataset
+    // and Unitree's released models and datasets, both named in fetched
+    // bodies (The AI Insider; unitree.com/opensource).
+    expect(open).toHaveLength(8);
     expect(open.every((row) => row.openSource.length > 0)).toBe(true);
     expect(open.map((row) => row.id)).toEqual(
-      expect.arrayContaining(['physical-intelligence', 'k-scale-labs']),
+      expect.arrayContaining(['physical-intelligence', 'k-scale-labs', 'xdof', 'unitree-robotics']),
     );
   });
 
@@ -339,7 +348,15 @@ describe('money and unknown figures', () => {
 describe('timelineEvents', () => {
   it('covers 2023-2026 notable rounds including the five anchors (VAL-MKT-015)', () => {
     const events = timelineEvents(COMPANIES);
+    // 71 -> 72 on 2026-10-19: Farm-ng's acquisition by Bonsai Robotics
+    // (2025-07-24, first-party release) is a dated event in the window.
+    // 72 -> 71 the same day: the field audit cut Physical Intelligence's
+    // round date (The Robot Report says only that it raised "last week"),
+    // so its Series B has no place on a dated timeline.
     expect(events).toHaveLength(71);
+    expect(events.some((event) => event.companyId === 'physical-intelligence')).toBe(false);
+    const farmNg = events.find((event) => event.companyId === 'farm-ng');
+    expect(farmNg?.date).toBe('2025-07-24');
     expect(events.every((event) => event.date >= '2023-01-01')).toBe(true);
     expect(events.every((event) => event.date <= '2026-12-31')).toBe(true);
     expect(events.every((event) => event.sourceUrl.startsWith('http'))).toBe(
@@ -351,21 +368,19 @@ describe('timelineEvents', () => {
     expect(events.every((event) => event.asOf >= MARKET_MAP_AS_OF)).toBe(true);
 
     const byId = Object.fromEntries(events.map((event) => [event.companyId, event]));
+    // Figure's amount and Skild's valuation became null on 2026-10-19: their
+    // sources give floors ("exceeds $1B", "more than $14 billion"), which the
+    // cards carry as caveats instead of printing them as exact figures.
     expect(byId['figure-ai']).toMatchObject({
-      amountUsd: 1_000_000_000,
+      amountUsd: null,
+      amountAbsent: unknownFigure(),
       valuationUsd: 39_000_000_000,
       type: 'Series C',
       date: '2025-09-16',
     });
-    expect(byId['physical-intelligence']).toMatchObject({
-      amountUsd: 600_000_000,
-      valuationUsd: 5_600_000_000,
-      type: 'Series B',
-      date: '2025-11-20',
-    });
     expect(byId['skild-ai']).toMatchObject({
       amountUsd: 1_400_000_000,
-      valuationUsd: 14_000_000_000,
+      valuationUsd: null,
       date: '2026-01-14',
     });
     expect(byId['neura-robotics']).toMatchObject({
@@ -516,7 +531,10 @@ describe('name search (the q param)', () => {
     ]);
     expect(filterCompanies(COMPANIES, filters({ query: 'zzz' }))).toHaveLength(0);
     const humanoidsRo = filterCompanies(COMPANIES, filters({ segment: 'humanoids', query: 'ro' }));
-    expect(humanoidsRo).toHaveLength(18);
+    // 18 -> 19 on 2026-10-19: the field audit corrected 1X's former name
+    // from "Halodi" to "Halodi Robotics", as Wikipedia gives it.
+    expect(humanoidsRo).toHaveLength(19);
+    expect(humanoidsRo.map((company) => company.id)).toContain('1x-technologies');
     expect(humanoidsRo.every((company) => company.segment === 'humanoids')).toBe(true);
     expect(hasActiveFilters(filters({ query: 'ro' }))).toBe(true);
   });
@@ -567,19 +585,38 @@ describe('round source and tile facts', () => {
   });
 
   it('shows status for a company no longer private, else the latest disclosed amount', () => {
-    expect(tileFact(byId('figure-ai'))).toEqual({
+    // Figure's tile went blank on 2026-10-19 when its "exceeds $1B" floor
+    // stopped standing in for an amount; Skild's exact $1.4B now carries
+    // the round example, and Covariant, no longer marked acquired, is a
+    // private company whose deal has no disclosed amount.
+    expect(tileFact(byId('skild-ai'))).toEqual({
       kind: 'round',
-      text: '$1B',
-      label: 'latest round $1B, Series C',
+      text: '$1.4B',
+      label: 'latest round $1.4B, Series C',
+    });
+    expect(tileFact(byId('figure-ai'))).toEqual({
+      kind: 'none',
+      text: '',
+      label: `latest round amount ${unknownFigure()}`,
     });
     expect(tileFact(byId('unitree-robotics'))).toMatchObject({ kind: 'status', text: 'IPO' });
-    expect(tileFact(byId('covariant'))).toMatchObject({ kind: 'status', text: 'Acquired' });
+    expect(tileFact(byId('boston-dynamics'))).toMatchObject({ kind: 'status', text: 'Acquired' });
+    expect(tileFact(byId('covariant'))).toMatchObject({ kind: 'none', text: '' });
     expect(tileFact(byId('k-scale-labs'))).toMatchObject({ kind: 'status', text: 'Shut down' });
-    // An undisclosed amount leaves the tile blank and says so to a screen
-    // reader; it is never printed as zero.
-    const blank = COMPANIES.map(tileFact).filter((fact) => fact.kind === 'none');
+    // An empty amount leaves the tile blank and tells a screen reader the
+    // disposition the registry records for it; it is never printed as zero.
+    const blankCompanies = COMPANIES.filter((company) => tileFact(company).kind === 'none');
+    const blank = blankCompanies.map(tileFact);
     expect(blank.length).toBeGreaterThan(0);
-    expect(blank.every((fact) => fact.text === '' && fact.label.endsWith(unknownFigure()))).toBe(true);
+    for (const company of blankCompanies) {
+      const recorded = company.absent['round.amountUsd'];
+      expect(recorded, company.id).toBeDefined();
+      expect(tileFact(company)).toEqual({
+        kind: 'none',
+        text: '',
+        label: `latest round amount ${recorded!.state === 'not-applicable' ? 'n/a' : unknownFigure()}`,
+      });
+    }
     expect(COMPANIES.map(tileFact).some((fact) => /\$0\b/.test(fact.text))).toBe(false);
     // Every tile carries exactly one of the three.
     const kinds = COMPANIES.map((company) => tileFact(company).kind);

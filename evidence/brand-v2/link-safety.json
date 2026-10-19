@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "80931fd1a7dbfa6583d35e782bd87a938d0f1701a9d07fe807feb8cf4e07e7e8",
+  "fingerprint": "339ed0128cfd60aee1ec8762dffd3f4190929eccad1e0861b5699837ec0fd8a4",
   "source": "out/ static export",
   "routes": [
     {
@@ -213,8 +213,8 @@
     },
     {
       "route": "/credits/",
-      "outboundAnchors": 474,
-      "distinctHrefs": 232,
+      "outboundAnchors": 478,
+      "distinctHrefs": 234,
       "shapes": [
         "figure-credit",
         "footer",
@@ -854,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6024,
-  "distinctOutboundHrefs": 1623,
+  "outboundAnchors": 6028,
+  "distinctOutboundHrefs": 1625,
   "anchorsByShape": {
     "citation-chip": 2514,
     "footer": 152,
-    "figure-credit": 869,
+    "figure-credit": 873,
     "reference-entry": 2174,
     "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5688,
+  "anchorsWithNoreferrer": 5692,
   "keyboard": [
     {
       "route": "/",
@@ -1020,11 +1020,11 @@
     },
     {
       "route": "/credits/",
-      "outboundInDom": 474,
-      "reachedByTab": 474,
+      "outboundInDom": 478,
+      "reachedByTab": 478,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 742
+      "tabStops": 748
     },
     {
       "route": "/data-hardware/",

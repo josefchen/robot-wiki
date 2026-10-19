@@ -63,9 +63,16 @@ describe('MarketMap', () => {
       );
     }
     // A tile names its company and its one fact for a screen reader.
-    expect(tile('figure-ai')).toHaveAccessibleName('Figure AI, latest round $1B, Series C');
-    expect(tile('covariant')).toHaveAccessibleName('Covariant, acquired');
-    expect(tile('farm-ng')).toHaveAccessibleName('Farm-ng, latest round amount not disclosed');
+    expect(tile('skild-ai')).toHaveAccessibleName('Skild AI, latest round $1.4B, Series C');
+    // Since the 2026-10-19 field audit Figure's round has no exact amount
+    // (its source says it "exceeds $1B") and Covariant is private (Amazon
+    // hired its founders and licensed its models without buying it).
+    expect(tile('figure-ai')).toHaveAccessibleName('Figure AI, latest round amount not disclosed');
+    expect(tile('covariant')).toHaveAccessibleName('Covariant, latest round amount not disclosed');
+    expect(tile('boston-dynamics')).toHaveAccessibleName('Boston Dynamics, acquired');
+    expect(tile('cmr-surgical')).toHaveAccessibleName('CMR Surgical, latest round amount not disclosed');
+    // Farm-ng's acquisition by Bonsai Robotics (2025-07-24) is its status, not a round.
+    expect(tile('farm-ng')).toHaveAccessibleName('Farm-ng, acquired');
   }, TIMEOUT);
 
   it('exposes all seven filter dimensions, a name search and the three views (VAL-MKT-003, VAL-MKT-004)', async () => {
@@ -111,8 +118,9 @@ describe('MarketMap', () => {
     expect(window.location.search).toBe('?segment=humanoids');
     await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Country'), 'US');
-    expect(screen.getByText('6 of 111 companies')).toBeInTheDocument();
-    expect(tiles()).toHaveLength(6);
+    // 6 -> 7 when the 2026-10-19 field audit moved 1X to Palo Alto, US.
+    expect(screen.getByText('7 of 111 companies')).toBeInTheDocument();
+    expect(tiles()).toHaveLength(7);
     await user.selectOptions(screen.getByLabelText('Confidence'), 'high');
     expect(screen.getByText('4 of 111 companies')).toBeInTheDocument();
     // Segment counts follow the other filters: four US humanoids at high
@@ -166,7 +174,9 @@ describe('MarketMap', () => {
     expect(pi).toHaveTextContent(/vision-language-action/);
     expect(pi).toHaveTextContent('flow matching action expert');
     expect(pi.querySelector('[data-field="amount"]')).toHaveTextContent('$600M');
-    expect(pi.querySelector('[data-field="date"]')).toHaveTextContent('20 Nov 2025');
+    // "20 Nov 2025" until the 2026-10-19 field audit: The Robot Report says
+    // only that the round closed "last week", so the day is not disclosed.
+    expect(pi.querySelector('[data-field="date"]')).toHaveTextContent('not disclosed');
     expect(pi.querySelector('[data-field="valuation"]')).toHaveTextContent('$5.6B');
     expect(pi.querySelector('[data-field="status"]')).toHaveTextContent('Private');
     expect(pi.querySelector('[data-field="confidence"]')).toHaveTextContent('high');
@@ -175,11 +185,13 @@ describe('MarketMap', () => {
         name: /Physical Intelligence raises \$600M to advance robot foundation models/,
       })[0],
     ).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
-    expect(within(pi).getByText('Pi, π')).toBeInTheDocument();
+    // The 2026-10-19 field audit cut "Pi" (its sources use it only for the
+    // Pi0 model and the API) and named the open release as PI's own pages do.
+    expect(within(pi).getByText('π')).toBeInTheDocument();
     expect(within(pi).getByText('San Francisco, US')).toBeInTheDocument();
     // TRR (fetched 2026-08-18): CapitalG led the Series B with Lux Capital.
     expect(within(pi).getByText('CapitalG, Lux Capital')).toBeInTheDocument();
-    expect(within(pi).getByText('openpi')).toBeInTheDocument();
+    expect(within(pi).getByText('π0 and π0-FAST (weights and code)')).toBeInTheDocument();
     // The round's figures carry the date their source was read.
     expect(pi.querySelector('[data-round-source] [data-field="as-of"]')).toHaveTextContent(
       /\d{1,2} [A-Z][a-z]{2} 2026/,
@@ -204,6 +216,27 @@ describe('MarketMap', () => {
       'href',
       'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
     );
+  }, TIMEOUT);
+
+  it('shows a round caveat with its source on the card (VAL-B2-MAP-009)', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.click(tile('figure-ai'));
+    const figure = sheet('Figure AI');
+    // The floor the source states is visible next to the undisclosed
+    // amount, never silently dropped, and it cites the page it came from.
+    expect(figure.querySelector('[data-field="amount"]')).toHaveTextContent('not disclosed');
+    const caveat = figure.querySelector('[data-round-caveat]') as HTMLElement;
+    expect(caveat).toHaveTextContent(
+      'Caveat: Figure says the Series C exceeded $1B; it gives no exact amount. Source:',
+    );
+    expect(within(caveat).getByRole('link')).toHaveAttribute(
+      'href',
+      'https://www.figure.ai/news/series-c',
+    );
+    // A company without a caveat shows none.
+    await user.click(tile('genesis-ai'));
+    expect(sheet('Genesis AI').querySelector('[data-round-caveat]')).toBeNull();
   }, TIMEOUT);
 
   it('renders unknown funding as not disclosed, never zero (VAL-MKT-011)', async () => {
@@ -299,17 +332,22 @@ describe('MarketMap', () => {
     expect(screen.getByText('Founding year')).toBeInTheDocument();
     expect(screen.getByText('Latest valuation')).toBeInTheDocument();
     expect(screen.getByText('Total raised, where no valuation is disclosed')).toBeInTheDocument();
+    // 83 -> 84 with the 2026-10-19 field audit (27 plotted, see
+    // market-map-bubble-view.test.tsx for the members that moved).
     expect(document.querySelector('[data-bubble-excluded]')).toHaveTextContent(
-      /83 are left off, not drawn at zero/,
+      /84 are left off, not drawn at zero/,
     );
     expect(tiles()).toHaveLength(0);
     expect(window.location.search).toBe('?view=bubble');
 
     await user.click(screen.getByRole('button', { name: 'Timeline' }));
-    expect(screen.getByText('Figure AI')).toBeInTheDocument();
-    expect(screen.getByText(/\$1B at \$39B/)).toBeInTheDocument();
-    expect(screen.getByText('Skild AI')).toBeInTheDocument();
-    expect(screen.getByText(/\$1.4B at \$14B/)).toBeInTheDocument();
+    // Figure's amount and Skild's valuation have been floors, not figures,
+    // since the 2026-10-19 field audit, so neither prints as exact.
+    const figureEvent = screen.getByText('Figure AI').closest('[data-company-id="figure-ai"]');
+    expect(figureEvent).toHaveTextContent('not disclosed at $39B');
+    const skildEvent = screen.getByText('Skild AI').closest('[data-company-id="skild-ai"]');
+    expect(skildEvent).toHaveTextContent('$1.4B');
+    expect(skildEvent).not.toHaveTextContent(/ at \$/);
     const unitreeEvent = screen
       .getByText('Unitree Robotics')
       .closest('[data-company-id="unitree-robotics"]');
@@ -350,7 +388,8 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/?segment=humanoids&country=US');
     const { unmount } = render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('6 of 111 companies')).toBeInTheDocument();
+      // 6 -> 7 when the 2026-10-19 field audit moved 1X to Palo Alto, US.
+      expect(screen.getByText('7 of 111 companies')).toBeInTheDocument();
     });
     // A folded filter set from the URL opens the fold, so the reader can
     // see what narrowed the map.

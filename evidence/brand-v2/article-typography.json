@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "6c6085590e43464b1979286e52e7c2bf1c394352c9063e8838e803cd7db58b4b",
+  "fingerprint": "767e060fa0cf44702da7285e7bba748ed222af7421a8eff3652c572b3c52edce",
   "viewports": [
     "375x812",
     "1440x900"
@@ -12586,7 +12586,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 56799,
+      "visibleTextLength": 57243,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39254,7 +39254,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2771,
+      "visibleTextLength": 2767,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39569,7 +39569,7 @@
         },
         {
           "tag": "select",
-          "text": "All countriesCACHCNDEFRHKILJPKRN",
+          "text": "All countriesCACHCNDEFRHKILJPKRP",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": false,
@@ -39626,14 +39626,6 @@
         {
           "tag": "button",
           "text": "Covariant",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Acquired",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -39930,14 +39922,6 @@
         {
           "tag": "button",
           "text": "Figure AI",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$1B",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40642,6 +40626,14 @@
         {
           "tag": "button",
           "text": "Farm-ng",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -68758,7 +68750,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 56799,
+      "visibleTextLength": 57243,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95118,7 +95110,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2771,
+      "visibleTextLength": 2767,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95433,7 +95425,7 @@
         },
         {
           "tag": "select",
-          "text": "All countriesCACHCNDEFRHKILJPKRN",
+          "text": "All countriesCACHCNDEFRHKILJPKRP",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": false,
@@ -95490,14 +95482,6 @@
         {
           "tag": "button",
           "text": "Covariant",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Acquired",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -95794,14 +95778,6 @@
         {
           "tag": "button",
           "text": "Figure AI",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$1B",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96506,6 +96482,14 @@
         {
           "tag": "button",
           "text": "Farm-ng",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

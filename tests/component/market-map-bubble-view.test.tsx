@@ -115,7 +115,11 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     // Aug 2025 strategic round with terms undisclosed). mind-robotics
     // entered the plotted set the same day (founded 2025 confirmed by
     // TechCrunch/TRR, so its fetched $3.4B valuation now plots).
-    expect(focusable.length).toBe(28);
+    // 28 -> 27 with the 2026-10-19 field audit: skild-ai left (its source
+    // says "more than $14 billion", a floor, not a valuation), 1x left (no
+    // fetched source states its $500M valuation), and boston-dynamics
+    // joined (its own release says Hyundai's deal valued it at $1.1B).
+    expect(focusable.length).toBe(27);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);
@@ -169,8 +173,8 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
   it('hands the opening mark to the selection callback', () => {
     const onSelect = vi.fn();
     render(<BubbleView companies={COMPANIES} selectedId={null} onSelect={onSelect} />);
-    fireEvent.click(mark('skild-ai'));
-    expect(onSelect).toHaveBeenCalledWith('skild-ai', mark('skild-ai'));
+    fireEvent.click(mark('unitree-robotics'));
+    expect(onSelect).toHaveBeenCalledWith('unitree-robotics', mark('unitree-robotics'));
   }, TIMEOUT);
 
   it('draws a valuation filled and a total raised open, and says how many of each', () => {
@@ -178,12 +182,12 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const inks = Array.from(document.querySelectorAll('[data-mark-ink]'));
     const filled = inks.filter((el) => el.getAttribute('data-mark-kind') === 'valuation');
     const open = inks.filter((el) => el.getAttribute('data-mark-kind') === 'totalRaised');
-    expect(filled.length + open.length).toBe(28);
+    expect(filled.length + open.length).toBe(27);
     expect(open.length).toBeGreaterThan(0);
     expect(filled.every((el) => el.getAttribute('class') === 'fill-graphite')).toBe(true);
     expect(open.every((el) => el.getAttribute('class') === 'fill-paper stroke-graphite')).toBe(true);
     expect(document.querySelector('figcaption')).toHaveTextContent(
-      `28 of 111 companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
+      `27 of 111 companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
     );
   }, TIMEOUT);
 });
@@ -215,9 +219,9 @@ describe('BubbleView deep-link highlight parity', () => {
       <BubbleView companies={COMPANIES} selectedId="figure-ai" onSelect={() => {}} />,
     );
     expect(mark('figure-ai').tabIndex).toBe(0);
-    rerender(<BubbleView companies={COMPANIES} selectedId="skild-ai" onSelect={() => {}} />);
-    expect(selectedOnChart()).toBe('skild-ai');
-    expect(mark('skild-ai').tabIndex).toBe(0);
+    rerender(<BubbleView companies={COMPANIES} selectedId="unitree-robotics" onSelect={() => {}} />);
+    expect(selectedOnChart()).toBe('unitree-robotics');
+    expect(mark('unitree-robotics').tabIndex).toBe(0);
     expect(mark('figure-ai').tabIndex).toBe(-1);
   }, TIMEOUT);
 

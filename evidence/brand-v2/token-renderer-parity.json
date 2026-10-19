@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "638a0cbb539ca7487d1f0334c88c77a3b665394f87e333e9ecb20ee6502fadc0",
+  "fingerprint": "96bf22d0efe1d9423203186ab16a264a729bb74bf1f760d0982420b6a23b284b",
   "rendererSource": {
     "producers": [
       "lib/brand-v2-renderer-parity.ts",

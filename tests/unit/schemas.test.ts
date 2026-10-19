@@ -267,6 +267,15 @@ describe('companySchema', () => {
       },
     ],
     confidence: 'high',
+    absent: {},
+  };
+  const undisclosed = { state: 'not-disclosed' } as const;
+  const roundUndisclosed = {
+    'round.type': undisclosed,
+    'round.amountUsd': undisclosed,
+    'round.date': undisclosed,
+    'round.valuationUsd': undisclosed,
+    'round.leadInvestors': undisclosed,
   };
 
   it('accepts a valid company', () => {
@@ -278,6 +287,7 @@ describe('companySchema', () => {
       ...valid,
       totalRaisedUsd: null,
       latestRound: null,
+      absent: { totalRaisedUsd: undisclosed, ...roundUndisclosed },
     });
     expect(parsed.success).toBe(true);
   });
@@ -292,8 +302,76 @@ describe('companySchema', () => {
         valuationUsd: null,
         leadInvestors: [],
       },
+      absent: roundUndisclosed,
     });
     expect(parsed.success).toBe(true);
+  });
+
+  it('rejects an empty field with no recorded disposition (VAL-B2-BASE-005)', () => {
+    // An empty list or a null is never read as a state on its own.
+    for (const [field, patch] of [
+      ['aka', { aka: [] }],
+      ['deployments', { deployments: [] }],
+      ['openSource', { openSource: [] }],
+      ['website', { website: null }],
+      ['founded', { founded: null }],
+      ['totalRaisedUsd', { totalRaisedUsd: null }],
+      ['hq.city', { hq: { city: null, country: 'US' } }],
+    ] as const) {
+      const parsed = companySchema.safeParse({ ...valid, ...patch });
+      expect(parsed.success, field).toBe(false);
+      expect(parsed.error?.issues.map((issue) => issue.path.join('.'))).toContain(
+        `absent.${field}`,
+      );
+      expect(
+        companySchema.safeParse({ ...valid, ...patch, absent: { [field]: undisclosed } })
+          .success,
+        field,
+      ).toBe(true);
+    }
+    const withoutDate: Record<string, unknown> = { ...roundUndisclosed };
+    delete withoutDate['round.date'];
+    expect(
+      companySchema.safeParse({ ...valid, latestRound: null, absent: withoutDate }).success,
+    ).toBe(false);
+  });
+
+  it('rejects a disposition on a populated field and an n/a without a basis', () => {
+    expect(
+      companySchema.safeParse({ ...valid, absent: { founded: undisclosed } }).success,
+    ).toBe(false);
+    expect(
+      companySchema.safeParse({
+        ...valid,
+        aka: [],
+        absent: { aka: { state: 'not-applicable' } },
+      }).success,
+    ).toBe(false);
+    expect(
+      companySchema.safeParse({
+        ...valid,
+        aka: [],
+        absent: { aka: { state: 'not-applicable', basis: 'It trades under one name.' } },
+      }).success,
+    ).toBe(true);
+    expect(
+      companySchema.safeParse({ ...valid, aka: [], absent: { aka: { state: 'unknown' } } })
+        .success,
+    ).toBe(false);
+  });
+
+  it('accepts a round caveat only when it cites the company sources', () => {
+    const caveat = (url: string) => ({
+      ...valid,
+      latestRound: {
+        ...valid.latestRound,
+        caveat: { text: 'Two sources give two amounts.', sourceUrls: [url] },
+      },
+    });
+    expect(companySchema.safeParse(caveat('https://www.pi.website/blog/pistar06')).success).toBe(
+      true,
+    );
+    expect(companySchema.safeParse(caveat('https://example.com/other')).success).toBe(false);
   });
 
   it('requires at least one source', () => {
@@ -323,8 +401,12 @@ describe('companySchema', () => {
 
   it('accepts a null website and a licensed logo registry id', () => {
     expect(
-      companySchema.safeParse({ ...valid, website: null, logo: 'nvidia-logo' })
-        .success,
+      companySchema.safeParse({
+        ...valid,
+        website: null,
+        logo: 'nvidia-logo',
+        absent: { website: undisclosed },
+      }).success,
     ).toBe(true);
   });
 

@@ -36,20 +36,21 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'covariant-logo',
-    file: '/images/logos/covariant.png',
-    alt: 'Covariant wordmark used by the robotics foundation model company',
-    caption: 'Covariant logo from Wikimedia Commons, used on the market map.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Covariant_Logo_2021.png',
-    creator: 'Covariant.AI',
-    licence: 'cc-by-sa-4.0',
-    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
-    retrieved: '2026-08-20',
-    width: 2000,
-    height: 832,
-    // Licence sentence read on the file page: "This file is licensed under the Creative Commons
-    // Attribution-Share Alike 4.0 International license."
+    file: '/images/logos/covariant.svg',
+    alt: 'Covariant C mark from the official website',
+    caption: 'Covariant logo from the official website, used on the market map.',
+    sourceName: 'Covariant official website',
+    sourceUrl: 'https://covariant.ai/',
+    creator: 'Covariant',
+    licence: 'unlicensed',
+    licenceUrl: 'https://covariant.ai/',
+    retrieved: '2026-10-19',
+    width: 21,
+    height: 21,
+    // Official mark: the mark the site now shows, https://covariant.ai/covariant-c.svg; it replaces a 2021 wordmark
+    // file drawn on an opaque white ground. File SHA-256
+    // f3b4b71e2da692e1e7646066a2cdce3a3b19ea1db5b1372f16bf1aeae5a75833, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'nvidia-logo',
@@ -73,38 +74,40 @@ export const LOGO_IMAGES: SiteImage[] = [
   {
     id: 'hugging-face-logo',
     file: '/images/logos/hugging-face.svg',
-    alt: 'Hugging Face wordmark with the smiling face mark',
-    caption: 'Hugging Face logo from Wikimedia Commons, used on the market map.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Hf-logo-with-title.svg',
-    creator: 'Victor (Hugging Face Staff)',
-    licence: 'public-domain',
-    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-textlogo',
-    retrieved: '2026-08-20',
-    width: 963,
-    height: 256,
-    // Licence sentence read on the file page: "This logo image consists only of simple geometric shapes or
-    // text. It does not meet the threshold of originality needed
-    // for copyright protection, and is therefore in the public
-    // domain."
+    alt: 'Hugging Face monochrome face mark from the official brand page',
+    caption: 'Hugging Face logo from the official brand page, used on the market map.',
+    sourceName: 'Hugging Face brand page',
+    sourceUrl: 'https://huggingface.co/brand',
+    creator: 'Hugging Face',
+    licence: 'unlicensed',
+    licenceUrl: 'https://huggingface.co/brand',
+    retrieved: '2026-10-19',
+    width: 1500,
+    height: 1500,
+    // Official mark: the monochrome logo of the official brand assets,
+    // https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-monochrome.svg; it replaces a
+    // colour file whose face drew as a solid shape. File SHA-256
+    // 87ac947dc4f0a9146fcd42aad52b657909bef9860eb284c651a6690e935e0595, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'figure-ai-logo',
     file: '/images/logos/figure-ai.svg',
-    alt: 'Figure AI circular mark used by the humanoid company',
-    caption: 'Figure AI logo from Wikimedia Commons, used on the market map.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Figure-ai-logo.svg',
+    alt: 'Figure AI wordmark from the official website',
+    caption: 'Figure AI logo from the official website, used on the market map.',
+    sourceName: 'Figure AI official website',
+    sourceUrl: 'https://www.figure.ai/',
     creator: 'Figure AI',
-    licence: 'cc-by-4.0',
-    licenceUrl: 'https://creativecommons.org/licenses/by/4.0',
-    retrieved: '2026-08-20',
-    width: 512,
-    height: 512,
-    // Licence sentence read on the file page: "This file is licensed under the Creative Commons Attribution
-    // 4.0 International license."
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.figure.ai/',
+    retrieved: '2026-10-19',
+    width: 461,
+    height: 69,
+    // Official mark: the header wordmark of https://www.figure.ai/, served from the site's asset host as
+    // https://images.ctfassets.net/qx5k8y1u9drj/3ygvPaiOiIX62OhZ7oNO2h/d50ccd3bc449eab7ae098d87aa0cd040/figure-logo.svg;
+    // it replaces a symbol file drawn on a black square. File SHA-256
+    // 01566fa8768852f29fb60c27fe603f6715f4eaeadc18dcd03eeaaafac36b4682, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'agility-robotics-logo',
@@ -317,20 +320,23 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'cmr-surgical-logo',
-    file: '/images/logos/cmr-surgical.png',
-    alt: 'CMR Surgical circular mark on a transparent field',
-    caption: 'CMR Surgical logo from Wikimedia Commons, used on the market map.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:CMR_Surgical_logo.png',
+    file: '/images/logos/cmr-surgical.svg',
+    alt: 'CMR Surgical company mark from the official website',
+    caption: 'CMR Surgical logo from the official website, used on the market map.',
+    sourceName: 'CMR Surgical official website',
+    sourceUrl: 'https://cmrsurgical.com/',
     creator: 'CMR Surgical',
-    licence: 'cc-by-sa-4.0',
-    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
-    retrieved: '2026-08-20',
-    width: 225,
-    height: 225,
-    // Licence sentence read on the file page: "This file is licensed under the Creative Commons
-    // Attribution-Share Alike 4.0 International license."
+    licence: 'unlicensed',
+    licenceUrl: 'https://cmrsurgical.com/',
+    retrieved: '2026-10-19',
+    width: 1080,
+    height: 470,
+    // Official mark: the header logo,
+    // https://cmrsurgical.com/wp-content/uploads/2022/04/cmr-surgical-logo-web-white.svg (the press kit at
+    // https://cmrsurgical.com/press-kit carries the same mark as Logo-CMRSurgical-White.png); it replaces a file
+    // drawn on an opaque white ground. File SHA-256
+    // 18121d407b7da687efaba35878a6c4d9ae7653d038efee7f085ae8f81b4fd973, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'nuro-logo',
@@ -372,22 +378,21 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'harmonic-drive-logo',
-    file: '/images/logos/harmonic-drive.svg',
-    alt: 'Harmonic Drive wordmark used by the reducer maker',
-    caption: 'Harmonic Drive logo from Wikimedia Commons, used on the market map.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Harmonic_Drive_AG_logo.svg',
-    creator: 'Harmonic Drive AG',
-    licence: 'public-domain',
-    licenceUrl: 'https://commons.wikimedia.org/wiki/Template:PD-textlogo',
-    retrieved: '2026-08-20',
-    width: 1024,
-    height: 323,
-    // Licence sentence read on the file page: "This logo image consists only of simple geometric shapes or
-    // text. It does not meet the threshold of originality needed
-    // for copyright protection, and is therefore in the public
-    // domain."
+    file: '/images/logos/harmonic-drive-systems.png',
+    alt: 'Harmonic Drive Systems company mark from the official website',
+    caption: 'Harmonic Drive Systems logo from the official website, used on the market map.',
+    sourceName: 'Harmonic Drive Systems official website',
+    sourceUrl: 'https://www.hds.co.jp/english/',
+    creator: 'Harmonic Drive Systems Inc.',
+    licence: 'unlicensed',
+    licenceUrl: 'https://www.hds.co.jp/english/',
+    retrieved: '2026-10-19',
+    width: 225,
+    height: 60,
+    // Official mark: the header logo for light backgrounds,
+    // https://www.hds.co.jp/Portals/0/files/common/images/logo_blue_en.png; it replaces the Harmonic Drive AG mark,
+    // a group company's. File SHA-256 9d3fef6d80f0549acd842e055f811675f6b08c28ff2568355b1cedf7e4ac4117, retrieved
+    // 2026-10-19. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'nabtesco-logo',
@@ -410,20 +415,21 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'wonik-logo',
-    file: '/images/logos/wonik.png',
-    alt: 'Wonik wordmark used by Wonik Robotics',
-    caption: 'Wonik logo from Wikimedia Commons, used on the market map.',
-    sourceName: 'Wikimedia Commons',
-    sourceUrl:
-      'https://commons.wikimedia.org/wiki/File:Wonik_Logo.png',
-    creator: 'Wonik USA',
-    licence: 'cc-by-sa-4.0',
-    licenceUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
-    retrieved: '2026-08-20',
-    width: 2330,
-    height: 1800,
-    // Licence sentence read on the file page: "This file is licensed under the Creative Commons
-    // Attribution-Share Alike 4.0 International license."
+    file: '/images/logos/wonik-robotics.svg',
+    alt: 'Wonik Robotics company mark from the official website',
+    caption: 'Wonik Robotics logo from the official website, used on the market map.',
+    sourceName: 'Wonik Robotics official website',
+    sourceUrl: 'https://wonikrobotics.com/index.php',
+    creator: 'Wonik Robotics',
+    licence: 'unlicensed',
+    licenceUrl: 'https://wonikrobotics.com/index.php',
+    retrieved: '2026-10-19',
+    width: 296,
+    height: 30,
+    // Official mark: the header logo, https://wonikrobotics.com/img/svg/img_logo.svg; it replaces the WONIK
+    // Corporation USA mark, a group company's. File SHA-256
+    // 38b3b2f6d95e5e832c402c3a6bf20478124eff3694ebca9d61a50b460008cf2a, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'openai-logo',
@@ -668,10 +674,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Sunday Robotics',
     licence: 'unlicensed',
     licenceUrl: 'https://www.sunday.ai/',
-    retrieved: '2026-08-21',
-    width: 260,
-    height: 260,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 982,
+    height: 145,
+    // Official mark: the header wordmark of https://www.sunday.ai/ (an inline SVG), saved as a standalone file
+    // unchanged; it replaces an icon drawn on a yellow square. File SHA-256
+    // afbe6d1eb3fd3f54c23c1addf0cfc56669b135731dab2baf8ce9785688ae1914, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'field-ai-logo',
@@ -698,10 +707,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Genesis AI',
     licence: 'unlicensed',
     licenceUrl: 'https://www.genesis.ai/',
-    retrieved: '2026-08-21',
-    width: 16,
-    height: 16,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 98,
+    height: 36,
+    // Official mark: an inline SVG of https://www.genesis.ai/ (the ring and wordmark), saved as a standalone file
+    // unchanged; it replaces a symbol file that drew as a solid disc. File SHA-256
+    // f68da5b54cd5ff7415e835279ebcd47e7fbd3ddb6eaee45bd6bb67c790652b34, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'rhoda-ai-logo',
@@ -720,7 +732,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'mind-robotics-logo',
-    file: '/images/logos/mind-robotics.png',
+    file: '/images/logos/mind-robotics.svg',
     alt: 'Mind Robotics company mark from the official website',
     caption: 'Mind Robotics logo from the official website, used on the market map.',
     sourceName: 'Mind Robotics official website',
@@ -728,10 +740,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Mind Robotics',
     licence: 'unlicensed',
     licenceUrl: 'https://www.mindrobotics.com/',
-    retrieved: '2026-08-21',
-    width: 180,
-    height: 180,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 80,
+    height: 64,
+    // Official mark: the mark of https://www.mindrobotics.com/ (an inline SVG), saved as a standalone file with its
+    // viewBox size added; it replaces a file drawn on an opaque ground. File SHA-256
+    // 032c5a7e937091711817ae998ea536f201080a1907db5b4f99aac89664c6ae82, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'google-deepmind-robotics-logo',
@@ -798,7 +813,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'micro1-logo',
-    file: '/images/logos/micro1.png',
+    file: '/images/logos/micro1.svg',
     alt: 'Micro1 company mark from the official website',
     caption: 'Micro1 logo from the official website, used on the market map.',
     sourceName: 'Micro1 official website',
@@ -806,10 +821,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Micro1',
     licence: 'unlicensed',
     licenceUrl: 'https://www.micro1.ai/',
-    retrieved: '2026-08-21',
-    width: 32,
-    height: 32,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 89,
+    height: 20,
+    // Official mark: the header wordmark of https://www.micro1.ai/ (an inline SVG), saved as a standalone file with
+    // its width and height set to its viewBox; it replaces an icon drawn on a black square. File SHA-256
+    // d47e282dc81a77947898972fbc5846de22d56ad81999fa338cf036d69ec73e97, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: '1x-technologies-logo',
@@ -873,18 +891,21 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'galbot-logo',
-    file: '/images/logos/galbot.gif',
+    file: '/images/logos/galbot.svg',
     alt: 'Galbot company mark from the official website',
     caption: 'Galbot logo from the official website, used on the market map.',
     sourceName: 'Galbot official website',
-    sourceUrl: 'https://www.galbot.com/en',
+    sourceUrl: 'https://galbot.com/',
     creator: 'Galbot',
     licence: 'unlicensed',
-    licenceUrl: 'https://www.galbot.com/en',
-    retrieved: '2026-08-21',
-    width: 128,
-    height: 128,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    licenceUrl: 'https://galbot.com/',
+    retrieved: '2026-10-19',
+    width: 463,
+    height: 48,
+    // Official mark: the header wordmark of https://galbot.com/ (the inline SVG with class brand-logo), saved as a
+    // standalone file with its viewbox attribute spelled viewBox, as the page's parser reads it; it replaces an icon
+    // drawn on a black square. File SHA-256 78ff7309207722d2d76d16b37ea60f00c37aaaec6f5806a978e503fe94f85179,
+    // retrieved 2026-10-19. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'agibot-logo',
@@ -896,10 +917,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'AgiBot',
     licence: 'unlicensed',
     licenceUrl: 'https://www.agibot.com/',
-    retrieved: '2026-08-21',
-    width: 1038,
-    height: 491,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 243,
+    height: 58,
+    // Official mark: the header logo for light backgrounds,
+    // https://www.agibot.com/public/static/index/en/images/logo2.png; it replaces a file drawn on an opaque ground.
+    // File SHA-256 83535ee96d57a776b05e4f8f0c3b0c65014ea7994ff1bab96d18b173f87f5aa9, retrieved 2026-10-19. No reuse
+    // grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'sanctuary-ai-logo',
@@ -918,7 +942,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'humanoid-uk-logo',
-    file: '/images/logos/humanoid-uk.png',
+    file: '/images/logos/humanoid-uk.svg',
     alt: 'Humanoid company mark from the official website',
     caption: 'Humanoid logo from the official website, used on the market map.',
     sourceName: 'Humanoid official website',
@@ -926,10 +950,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Humanoid',
     licence: 'unlicensed',
     licenceUrl: 'https://thehumanoid.ai/',
-    retrieved: '2026-08-21',
-    width: 270,
-    height: 270,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 327,
+    height: 31,
+    // Official mark: the footer logo,
+    // https://thehumanoid.ai/wp-content/themes/SKLTech/src/assets/images/footer-logo.svg; it replaces an icon drawn
+    // on a rounded square. File SHA-256 0a86825d0538deb58434e567d00a9739a84f243702de6ed599a5b9de9a2696a9, retrieved
+    // 2026-10-19. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'spirit-ai-logo',
@@ -979,17 +1006,21 @@ export const LOGO_IMAGES: SiteImage[] = [
   {
     id: 'robot-era-logo',
     file: '/images/logos/robot-era.png',
-    alt: 'RobotEra company mark from the official website',
-    caption: 'RobotEra logo from the official website, used on the market map.',
-    sourceName: 'RobotEra GitHub organisation',
-    sourceUrl: 'https://github.com/roboterax',
+    alt: 'RobotEra wordmark',
+    caption: 'RobotEra logo from its brand profile, used on the market map.',
+    sourceName: 'Brand.dev profile of robotera.com',
+    sourceUrl: 'https://media.brand.dev/83d34286-0941-4e2a-b869-c84f8ca40830.png',
     creator: 'RobotEra',
     licence: 'unlicensed',
-    licenceUrl: 'https://github.com/roboterax',
-    retrieved: '2026-08-21',
-    width: 108,
-    height: 108,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    licenceUrl: 'https://media.brand.dev/83d34286-0941-4e2a-b869-c84f8ca40830.png',
+    retrieved: '2026-10-19',
+    width: 174,
+    height: 64,
+    // Official mark: the logo Brand.dev records for robotera.com, fetched from its file URL above; robotera.com
+    // reset every request for its own logo files on 19 October 2026, and the wordmark reads "ROBOTERA 星动纪元", the
+    // company's English and Chinese names. File SHA-256
+    // 621f1d9593021fe92d222c1f71943a4b07a3e8c3d6be22e0dd1ecc0d9d7090ea, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'tars-robotics-logo',
@@ -1053,7 +1084,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'limx-dynamics-logo',
-    file: '/images/logos/limx-dynamics.png',
+    file: '/images/logos/limx-dynamics.svg',
     alt: 'LimX Dynamics company mark from the official website',
     caption: 'LimX Dynamics logo from the official website, used on the market map.',
     sourceName: 'LimX Dynamics official website',
@@ -1061,10 +1092,14 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'LimX Dynamics',
     licence: 'unlicensed',
     licenceUrl: 'https://www.limxdynamics.com/en',
-    retrieved: '2026-08-21',
-    width: 1200,
-    height: 630,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 3232,
+    height: 1024,
+    // Official mark: the header logo, symbol icon-a-zhujidongli-yingwenLogozuhe1caise1 of
+    // https://www.limxdynamics.com/iconfont/iconfont.js, its paths unchanged inside an svg element with the symbol's
+    // viewBox; it replaces a sharing image drawn on an opaque grey ground. File SHA-256
+    // 0322dd27750096f9151a6a122741a1f084116dcc8bcc8d4ec427230b035246b2, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'clone-robotics-logo',
@@ -1151,10 +1186,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Nimble',
     licence: 'unlicensed',
     licenceUrl: 'https://nimble.ai/',
-    retrieved: '2026-08-21',
-    width: 583,
-    height: 125,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 105,
+    height: 32,
+    // Official mark: the header mark of https://nimble.ai/ (the inline SVG in the link named "Nimble Logo"), saved
+    // as a standalone file with an xmlns and its viewBox size added. File SHA-256
+    // 6919f3a3da946bf42595d946a79b74578a9fc78b552069e74c8e7616431bf14c, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'locus-robotics-logo',
@@ -1249,17 +1287,24 @@ export const LOGO_IMAGES: SiteImage[] = [
   {
     id: 'farm-ng-logo',
     file: '/images/logos/farm-ng.svg',
-    alt: 'Farm-ng company mark from the official website',
-    caption: 'Farm-ng logo from the official website, used on the market map.',
-    sourceName: 'Bonsai Robotics official website',
-    sourceUrl: 'https://bonsairobotics.ai/',
-    creator: 'Bonsai Robotics',
+    alt: 'Farm-ng company mark, a prompt symbol over its name, from the archived company website',
+    caption: 'Farm-ng logo from the company website as archived before the acquisition, used on the market map.',
+    sourceName: 'Farm-ng official website (Wayback Machine capture)',
+    sourceUrl:
+      'https://web.archive.org/web/20250710134407/https://farm-ng.com/wp-content/uploads/2025/05/farm-ng-logo.svg',
+    creator: 'Farm-ng',
     licence: 'unlicensed',
-    licenceUrl: 'https://bonsairobotics.ai/',
-    retrieved: '2026-08-21',
-    width: 168,
-    height: 39,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    licenceUrl:
+      'https://web.archive.org/web/20250710134407/https://farm-ng.com/wp-content/uploads/2025/05/farm-ng-logo.svg',
+    retrieved: '2026-10-19',
+    width: 135,
+    height: 57,
+    // Official mark (owner-session decision of 2026-10-19): the header logo of the company's own site,
+    // https://farm-ng.com/wp-content/uploads/2025/05/farm-ng-logo.svg, in the Wayback Machine capture of
+    // 2025-07-10 13:44:07 UTC (the header of the farm-ng.com capture of 2025-06-18 references it, under
+    // "© 2025 Farm-ng, Inc."), from before farm-ng.com began redirecting to Bonsai Robotics; saved byte for byte.
+    // File SHA-256 afce0abf0c8a8fbb1a833c44c0eef2dee44cc60a2d12150e08aa4a942469286f, retrieved 2026-10-19. No
+    // reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'chef-robotics-logo',
@@ -1316,10 +1361,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Serve Robotics',
     licence: 'unlicensed',
     licenceUrl: 'https://www.serverobotics.com/',
-    retrieved: '2026-08-21',
-    width: 540,
-    height: 540,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 255,
+    height: 51,
+    // Official mark: the header logo of https://www.serverobotics.com/ (an inline SVG), saved as a standalone file
+    // with its viewBox size added; it replaces an icon drawn on a white square. File SHA-256
+    // 0d564558c00258447b9cf24711d7f4dcb2cf373d05c48ebf7dc15ea34b67c5ab, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'gecko-robotics-logo',
@@ -1353,18 +1401,22 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'collaborative-robotics-logo',
-    file: '/images/logos/collaborative-robotics.png',
-    alt: 'Collaborative Robotics company mark from the official website',
-    caption: 'Collaborative Robotics logo from the official website, used on the market map.',
-    sourceName: 'Collaborative Robotics official website',
-    sourceUrl: 'https://www.co.bot/',
+    file: '/images/logos/collaborative-robotics.svg',
+    alt: 'Collaborative Robotics (Cobot) wordmark',
+    caption: 'Collaborative Robotics logo from its brand profile, used on the market map.',
+    sourceName: 'Brand.dev profile of co.bot',
+    sourceUrl: 'https://media.brand.dev/5464ba3d-049e-4500-a3ed-42ab07ab4944.svg',
     creator: 'Collaborative Robotics',
     licence: 'unlicensed',
-    licenceUrl: 'https://www.co.bot/',
-    retrieved: '2026-08-21',
-    width: 180,
-    height: 180,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    licenceUrl: 'https://media.brand.dev/5464ba3d-049e-4500-a3ed-42ab07ab4944.svg',
+    retrieved: '2026-10-19',
+    width: 112,
+    height: 32,
+    // Official mark: the wordmark Brand.dev records for co.bot, fetched from its file URL above; co.bot draws its
+    // header logo by script, so the file could not be fetched from the site itself, and the wordmark reads "cobot",
+    // the name the site gives its logo link. File SHA-256
+    // 812ff81760dea8dc71fabf42e1de1d17d25da78298c6a0056c35f7ae288cd755, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'the-bot-company-logo',
@@ -1383,7 +1435,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'weave-robotics-logo',
-    file: '/images/logos/weave-robotics.png',
+    file: '/images/logos/weave-robotics.svg',
     alt: 'Weave Robotics company mark from the official website',
     caption: 'Weave Robotics logo from the official website, used on the market map.',
     sourceName: 'Weave Robotics official website',
@@ -1391,10 +1443,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Weave Robotics',
     licence: 'unlicensed',
     licenceUrl: 'https://www.weaverobotics.com/',
-    retrieved: '2026-08-21',
-    width: 180,
-    height: 180,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 158,
+    height: 32,
+    // Official mark: the header wordmark of https://www.weaverobotics.com/ (an inline SVG), saved as a standalone
+    // file with its viewBox size added; it replaces a file drawn on an opaque ground. File SHA-256
+    // fadd6aab37e07d0dc3ab065371f6ed73ccd84d1e8920fe9f02a919620c070025, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'k-scale-labs-logo',
@@ -1548,7 +1603,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'saronic-logo',
-    file: '/images/logos/saronic.png',
+    file: '/images/logos/saronic.svg',
     alt: 'Saronic company mark from the official website',
     caption: 'Saronic logo from the official website, used on the market map.',
     sourceName: 'Saronic official website',
@@ -1556,10 +1611,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Saronic',
     licence: 'unlicensed',
     licenceUrl: 'https://www.saronic.com/',
-    retrieved: '2026-08-21',
-    width: 64,
-    height: 64,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 140,
+    height: 28,
+    // Official mark: the header logo of https://www.saronic.com/ (an inline SVG), saved as a standalone file with
+    // its viewBox size added; it replaces an icon drawn on a lime square. File SHA-256
+    // fc59d18b3f78246c1e300d43f28da466ec1cbbffdd2d39b2dc306d2488c00cd6, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'eka-robotics-logo',
@@ -1616,10 +1674,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Formic',
     licence: 'unlicensed',
     licenceUrl: 'https://formic.co/',
-    retrieved: '2026-08-21',
-    width: 132,
+    retrieved: '2026-10-19',
+    width: 721,
     height: 132,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    // Official mark: the logo the site declares for itself, https://formic.co/formic-logo.svg (the same drawing as
+    // its header); it replaces an icon drawn on an orange square. File SHA-256
+    // 2321647ef9c5751d19e3b34bf0b55986b08a2c6ea7b3fc90fabb9ae25a9f8247, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'astribot-logo',
@@ -1758,7 +1819,7 @@ export const LOGO_IMAGES: SiteImage[] = [
   },
   {
     id: 'fox-robotics-logo',
-    file: '/images/logos/fox-robotics.svg',
+    file: '/images/logos/fox-robotics.png',
     alt: 'Fox Robotics company mark from the official website',
     caption: 'Fox Robotics logo from the official website, used on the market map.',
     sourceName: 'Fox Robotics official website',
@@ -1766,10 +1827,13 @@ export const LOGO_IMAGES: SiteImage[] = [
     creator: 'Fox Robotics',
     licence: 'unlicensed',
     licenceUrl: 'https://foxrobotics.com/',
-    retrieved: '2026-08-21',
-    width: 760,
-    height: 322,
-    // Official first-party mark fetched from the source page. No reuse grant named; recorded as unlicensed rather than inventing a Commons licence.
+    retrieved: '2026-10-19',
+    width: 3167,
+    height: 1342,
+    // Official mark: the one-colour header logo, https://foxrobotics.com/hubfs/fox-logo-wht.png; it replaces a file
+    // whose type sat on an opaque white panel. File SHA-256
+    // 21fb2728292a852d655f42c0e1ddaec449b99acb1743441105516dabf6327561, retrieved 2026-10-19. No reuse grant named;
+    // recorded as unlicensed rather than inventing a Commons licence.
   },
   {
     id: 'zebra-robotics-automation-logo',

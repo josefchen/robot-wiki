@@ -1103,3 +1103,292 @@ assured-robot-intelligence `website` (https://ari.bot) now serves a domain-sale
 page; farm-ng.com redirects to Bonsai Robotics, so the Farm-ng record's status
 needs a sourced review; the Harmonic Drive Systems and Wonik Robotics marks are
 their group companies' marks ("Harmonic Drive AG", "WONIK Corporation USA").
+
+
+## Market-map marks and company status, sourced (2026-10-19)
+
+Queue item market-data-1019, owner session of 2026-10-19, with the owner's
+review of the live map the same day ("the market map has weird background and
+borders"). Every web request in this pass used the user agent
+`robot-wiki-research/1.0`; each download went to its own empty directory, and
+every SVG was scanned for script, event handlers, foreignObject and external
+references before use (none of the files below has any). Each company's own
+site was read first; a brand-data lookup by domain (Brand.dev, one lookup per
+company, all 111) was used to cross-check every mark and to supply two files
+the companies' sites would not serve. Records changed in
+`research/04-market-map-companies.json`, `data/companies.ts` regenerated with
+`npm run generate:companies`; marks changed in `public/images/logos`,
+`data/logo-images.ts` (provenance) and `data/logos.ts` (file and size).
+
+**How marks are drawn now.** The grey logo plate and its monochrome threshold
+are gone. Every mark is a single-ink silhouette: its file's alpha masks one
+element filled with the secondary ink token (`--color-text-dim`), on
+`/market-map/` and `/credits/` alike (`components/ui/logo-mark.tsx`;
+`VAL-B2-MAP-007` and `VAL-B2-MAP-010` successor rows of 2026-10-19). A mask is
+only as good as its alpha, so every file whose alpha was a solid block (an
+opaque ground, or a badge read by its colours) was replaced by an official
+transparent or one-colour version, below. `scripts/measure-logo-marks.ts` now
+records each mask's ink (how much of its artwork box it fills); no drawn mark
+reaches the block fill (0.88), and marks are sized by area weighted by that
+ink so the grid reads even.
+
+### Company records
+
+| Record | Field | Old | New | Source (fetched 2026-10-19) | Verdict |
+|---|---|---|---|---|---|
+| farm-ng | status, latestRound | private; no round | acquired; Acquisition 2025-07-24, amount not disclosed, lead Bonsai Robotics | Bonsai Robotics release, https://bonsairobotics.ai/news/bonsai-robotics-acquires-farm-ng-to-lead-the-future-of-autonomous-farming/ ("today announced its acquisition of farm-ng Inc.", July 24, 2025; "Financial terms of this acquisition were not disclosed"); The Robot Report, https://www.therobotreport.com/bonsai-robotics-and-farm-ng-unite-for-intelligent-farming-solutions/ (2025-07-24); AgFunderNews, https://agfundernews.com/bonsai-robotics-acquires-farm-ng-to-herald-new-era-of-ai-first-machines-that-will-transform-crop-management (2025-07-24) | C |
+| farm-ng | hq.city, founded, description, confidence | null, null, generic, low | Watsonville, 2020, the Amiga and the acquisition, medium | the release ("Based in Watsonville, California, farm-ng inc."; the Amiga "modular, electric, open-architecture robot designed to serve small- and mid-sized farms"); AgFunderNews ("Watsonville, CA-based farm-ng, founded by Ethan Rublee in 2020") | C |
+| assured-robot-intelligence | website | https://ari.bot | null | ari.bot was a domain for sale in the Wayback Machine captures of 2025-08-06 and 2025-10-14 ("Ari dot Bot: premium domain name"), before the logo pass of 2026-08-21, and still is ("Domain Showcase"); TechCrunch links the company to https://www.arirobots.com/, whose capture of 2026-05-05 (added as a source) is the company's site ("ARI - Frontier AI for Robots") and which no longer resolves. Status `acquired` (Meta, TechCrunch 2026-05-01) unchanged | C |
+| tars-robotics | website | https://www.tars.bot | null | tars.bot redirects to a parked-domain lander, as in the Wayback Machine capture of 2024-09-27; TARS's own pages are on tars-ai.com (https://wiyh.tars-ai.com/, "Copyright @2025 Shanghai TARS Robotics Co., Ltd."), whose root does not resolve | C |
+| foundry-robotics | website | https://www.foundryrobotics.com | https://foundryrobotics.ai | foundryrobotics.com redirects to a parked-domain lander (Wayback capture of 2024-08-15 likewise); https://foundryrobotics.ai/ is "Foundry Robotics", "AI-first, assembly-focused robotics", matching the record's Business Insider source ("developing robots to automate factory assembly"); added as a source | C |
+| wonik-robotics | website | https://www.wonikrobotics.com | https://wonikrobotics.com | www.wonikrobotics.com does not resolve; the apex serves the company site the record already cites | C |
+
+### Marks replaced
+
+Each new file is the company's official mark, fetched on 2026-10-19 and
+registered as `unlicensed` (official identification use, no reuse grant
+named), the way the existing official marks are. Inline SVGs are saved as
+standalone files with only what a standalone file needs (listed).
+
+| Logo id | Old file (SHA-256 prefix) and why it was replaced | New file and SHA-256 | Fetched from | Standalone wrapping |
+|---|---|---|---|---|
+| nimble-robotics-logo | `nimble-robotics.svg` (85383cb32a5d2ff2…) withheld: showed another company's wordmark | `nimble-robotics.svg` `6919f3a3da946bf42595d946a79b74578a9fc78b552069e74c8e7616431bf14c` | inline header SVG of https://nimble.ai/ (link named "Nimble Logo") | added xmlns; added width=105; added height=32; final newline |
+| harmonic-drive-logo | `harmonic-drive.svg` (b669c836dcbbdfd9…) group mark: Harmonic Drive AG | `harmonic-drive-systems.png` `9d3fef6d80f0549acd842e055f811675f6b08c28ff2568355b1cedf7e4ac4117` | https://www.hds.co.jp/Portals/0/files/common/images/logo_blue_en.png | byte for byte |
+| wonik-logo | `wonik.png` (13196cf95870b316…) group mark: WONIK Corporation USA | `wonik-robotics.svg` `38b3b2f6d95e5e832c402c3a6bf20478124eff3694ebca9d61a50b460008cf2a` | https://wonikrobotics.com/img/svg/img_logo.svg | byte for byte |
+| covariant-logo | `covariant.png` (387078f439e917d5…) opaque white ground | `covariant.svg` `f3b4b71e2da692e1e7646066a2cdce3a3b19ea1db5b1372f16bf1aeae5a75833` | https://covariant.ai/covariant-c.svg | byte for byte |
+| cmr-surgical-logo | `cmr-surgical.png` (372d76bc8915307a…) opaque white ground | `cmr-surgical.svg` `18121d407b7da687efaba35878a6c4d9ae7653d038efee7f085ae8f81b4fd973` | https://cmrsurgical.com/wp-content/uploads/2022/04/cmr-surgical-logo-web-white.svg (same mark as the press kit's Logo-CMRSurgical-White.png) | byte for byte |
+| limx-dynamics-logo | `limx-dynamics.png` (ebc4f8bb44e3d368…) opaque grey ground (a sharing image) | `limx-dynamics.svg` `0322dd27750096f9151a6a122741a1f084116dcc8bcc8d4ec427230b035246b2` | symbol icon-a-zhujidongli-yingwenLogozuhe1caise1 of https://www.limxdynamics.com/iconfont/iconfont.js (the header logo) | symbol icon-a-zhujidongli-yingwenLogozuhe1caise1 wrapped in an svg element with its viewBox; added width=3232; added height=1024; final newline |
+| agibot-logo | `agibot.png` (3f5a555727f78471…) opaque ground | `agibot.png` `83535ee96d57a776b05e4f8f0c3b0c65014ea7994ff1bab96d18b173f87f5aa9` | https://www.agibot.com/public/static/index/en/images/logo2.png | byte for byte |
+| figure-ai-logo | `figure-ai.svg` (3a190c6601c047e0…) symbol on a black square | `figure-ai.svg` `01566fa8768852f29fb60c27fe603f6715f4eaeadc18dcd03eeaaafac36b4682` | header image of https://www.figure.ai/, https://images.ctfassets.net/qx5k8y1u9drj/3ygvPaiOiIX62OhZ7oNO2h/d50ccd3bc449eab7ae098d87aa0cd040/figure-logo.svg | byte for byte |
+| fox-robotics-logo | `fox-robotics.svg` (e97014a3c766bd96…) type on an opaque white panel | `fox-robotics.png` `21fb2728292a852d655f42c0e1ddaec449b99acb1743441105516dabf6327561` | https://foxrobotics.com/hubfs/fox-logo-wht.png | byte for byte |
+| genesis-ai-logo | `genesis-ai.svg` (3ab079634a7d6394…) drew as a solid disc | `genesis-ai.svg` `f68da5b54cd5ff7415e835279ebcd47e7fbd3ddb6eaee45bd6bb67c790652b34` | inline SVG of https://www.genesis.ai/ (ring and wordmark) | final newline |
+| galbot-logo | `galbot.gif` (9fb5943976af066b…) icon on a black square | `galbot.svg` `78ff7309207722d2d76d16b37ea60f00c37aaaec6f5806a978e503fe94f85179` | inline header SVG of https://galbot.com/ (class brand-logo) | viewbox spelled viewBox; final newline |
+| hugging-face-logo | `hugging-face.svg` (fc95837e1bacb9b2…) colour face drew as a solid shape | `hugging-face.svg` `87ac947dc4f0a9146fcd42aad52b657909bef9860eb284c651a6690e935e0595` | https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-monochrome.svg (official brand page https://huggingface.co/brand) | byte for byte |
+| micro1-logo | `micro1.png` (3c80d0ffe1f9633d…) icon on a black square | `micro1.svg` `d47e282dc81a77947898972fbc5846de22d56ad81999fa338cf036d69ec73e97` | inline header SVG of https://www.micro1.ai/ | width 100% set to 89; height 100% set to 20; final newline |
+| mind-robotics-logo | `mind-robotics.png` (a11a9b7d8b4caff0…) opaque ground | `mind-robotics.svg` `032c5a7e937091711817ae998ea536f201080a1907db5b4f99aac89664c6ae82` | inline SVG of https://www.mindrobotics.com/ | added width=80; added height=64; final newline |
+| saronic-logo | `saronic.png` (d52613b5c59e8bf1…) icon on a lime square | `saronic.svg` `fc59d18b3f78246c1e300d43f28da466ec1cbbffdd2d39b2dc306d2488c00cd6` | inline header SVG of https://www.saronic.com/ | added width=140; added height=28; final newline |
+| serve-robotics-logo | `serve-robotics.svg` (6227552fc552e78f…) icon on a white square | `serve-robotics.svg` `0d564558c00258447b9cf24711d7f4dcb2cf373d05c48ebf7dc15ea34b67c5ab` | inline header SVG of https://www.serverobotics.com/ | added width=255; added height=51; final newline |
+| sunday-robotics-logo | `sunday-robotics.svg` (3416dab04da25856…) icon on a yellow square | `sunday-robotics.svg` `afbe6d1eb3fd3f54c23c1addf0cfc56669b135731dab2baf8ce9785688ae1914` | inline header SVG of https://www.sunday.ai/ | final newline |
+| weave-robotics-logo | `weave-robotics.png` (a0211fc10f670b01…) opaque ground | `weave-robotics.svg` `fadd6aab37e07d0dc3ab065371f6ed73ccd84d1e8920fe9f02a919620c070025` | inline header SVG of https://www.weaverobotics.com/ | added width=158.34; added height=32.09; final newline |
+| humanoid-uk-logo | `humanoid-uk.png` (cd92590a15a0edaf…) icon on a rounded square | `humanoid-uk.svg` `0a86825d0538deb58434e567d00a9739a84f243702de6ed599a5b9de9a2696a9` | https://thehumanoid.ai/wp-content/themes/SKLTech/src/assets/images/footer-logo.svg | byte for byte |
+| collaborative-robotics-logo | `collaborative-robotics.png` (ca8090ec535f0c5e…) opaque ground | `collaborative-robotics.svg` `812ff81760dea8dc71fabf42e1de1d17d25da78298c6a0056c35f7ae288cd755` | brand-data copy for co.bot, https://media.brand.dev/5464ba3d-049e-4500-a3ed-42ab07ab4944.svg (co.bot draws its logo by script; the wordmark reads "cobot", the label of the site's logo link) | byte for byte |
+| robot-era-logo | `robot-era.png` (e5ca9950532f5d38…) avatar on a black square | `robot-era.png` `621f1d9593021fe92d222c1f71943a4b07a3e8c3d6be22e0dd1ecc0d9d7090ea` | brand-data copy for robotera.com, https://media.brand.dev/83d34286-0941-4e2a-b869-c84f8ca40830.png (robotera.com reset every request for its own logo files; the wordmark reads "ROBOTERA 星动纪元") | byte for byte |
+| formic-logo | `formic.svg` (11e0a8a37e32b683…) icon on an orange square | `formic.svg` `2321647ef9c5751d19e3b34bf0b55986b08a2c6ea7b3fc90fabb9ae25a9f8247` | https://formic.co/formic-logo.svg (the logo the site declares for itself) | byte for byte |
+
+### Luminance-derived masks (no official one-colour version found)
+
+Four files are badges whose alpha is a solid square, and neither the
+company's site nor a brand page offered a transparent or one-colour version
+(Sanhua's site did not resolve on 2026-10-19). The files are unchanged; their
+mask reads their colours instead of their alpha (`LUMINANCE_MASKS`, bound to
+each file's SHA-256), checked on a contact sheet at tile size:
+
+| Logo id | Mask | What the reader sees |
+|---|---|---|
+| k-scale-labs-logo | light (luminance x alpha) | the white K-Scale mark; the black square drops out |
+| miso-robotics-logo | dark (alpha less luminance) | the purple badge as ink with its white onion cut out, beside the wordmark |
+| rainbow-robotics-logo | dark | the red badge as ink with its white "rb" cut out, beside the wordmark |
+| sanhua-logo | dark | the blue badge as ink with its three white flowers cut out |
+
+### Still withheld
+
+- **assured-robot-intelligence-logo.** The file is the "TD." icon of the
+  ari.bot domain-sale page. The company's own site (arirobots.com, capture
+  of 2026-05-05) showed its name in type and a plain circle favicon, with no
+  logo file, and the brand-data lookup for arirobots.com failed (the domain
+  no longer resolves). No official mark exists to register; the map shows
+  the name.
+
+### Farm-ng's mark from the archived farm-ng.com (owner-session decision of 2026-10-19)
+
+farm-ng.com and www.farm-ng.com redirect to bonsairobotics.ai; amiga.farm-ng.com,
+the developer site, shows only the ">_" symbol; the brand-data lookup for
+farm-ng.com returns Bonsai's icon; Bonsai's pages hold no farm-ng logo file.
+By the owner session's decision of 2026-10-19 the mark comes from the
+company's own domain as the Wayback Machine archived it before the redirect:
+the header of the farm-ng.com capture of 2025-06-18
+(https://web.archive.org/web/20250618065341/https://farm-ng.com/, footer
+"© 2025 Farm-ng, Inc.") shows https://farm-ng.com/wp-content/uploads/2025/05/farm-ng-logo.svg,
+fetched from its capture of 2025-07-10 13:44:07 UTC
+(https://web.archive.org/web/20250710134407/https://farm-ng.com/wp-content/uploads/2025/05/farm-ng-logo.svg),
+before Bonsai's announcement of 2025-07-24. Saved byte for byte as
+`farm-ng.svg` (135 x 57; SHA-256
+`afce0abf0c8a8fbb1a833c44c0eef2dee44cc60a2d12150e08aa4a942469286f`; no script,
+handler, foreignObject or external reference, one internal clip path),
+retrieved 2026-10-19, registered `unlicensed` like the other official marks.
+It replaces the Bonsai Robotics wordmark, and the withholding ends.
+
+### Checked and kept
+
+Every other mark was compared, as the site now draws it, with the
+brand-data candidates for the company's domain on contact sheets: each is
+the right company and already a clean transparent mark, so it was kept.
+Two observations, no change: Mentee Robotics' site now shows a newer lockup
+(three dots and "mentee robotics") than the registered official mark; and
+the Harmonic Drive Systems record's website, https://www.harmonicdrive.net,
+is the site of Harmonic Drive LLC, the US group company (the parent's site is
+https://www.hds.co.jp/english/, where its mark now comes from).
+
+## Field audit of the company dataset (2026-10-19)
+
+Owner request of 2026-10-19: "start the market map and playground". The audit of 2026-08-18 above checked each
+record against its sources, but about 40 of its 98 rows rested on search-snippet corroboration (the method
+paragraph at the top), and 21 records were checked for identity only, with no founded year re-fetched (the
+identity-only row of the corrections ledger). This pass reads the page body of every source a record cites
+(its `sources`, its round's `sourceUrl` and its website) and checks every field the map renders, one row per
+field, in `audit/market-map-ledger.json`: the value, the URL, how the body was read, when, and the passage that
+states the value.
+
+The rules of 2026-08-18 hold, on fetched bodies only. A value no fetched body states is cut, never guessed. A
+floor ("more than $1B") is never promoted to an amount or a total. A description says only what its sources
+say. Where the sources disagree about the same round, or state only a floor, the card shows a caveat that cites
+the sources instead of dropping either figure.
+
+**Progress.** 24 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics.
+The other 87 still rest on the evidence of the earlier passes until their batch lands.
+
+**Ledger rows.** 349 rows: 242 verified, 72 corrected, 10 added and 25 cut. The quoted passages come from a body fetched directly (277 rows), a page rendered in a headless browser (5) and a follow-up fetch (48).
+
+**Empty fields.** Every rendered field a record leaves empty now carries a recorded disposition in the registry
+(`absent` in `research/04-market-map-companies.json`). `not-disclosed` means a value exists but no source
+publishes it, and the card prints exactly "not disclosed". `not-applicable` carries its basis and means the field
+does not apply (the venture total of a division its parent funds, the valuation of a hiring-and-licensing deal, a
+company with no open-source release of its own), and the card prints exactly "n/a". The schema
+(`data/schemas/company.ts`) rejects an empty field without a disposition, a disposition on a populated field and
+an n/a without a basis, and `tests/unit/schemas.test.ts` plants each one. This replaces the redesign's rule
+above, under which every empty list and a missing website read "n/a" whatever the reason. Across the 111 records:
+
+| Field | not disclosed | n/a |
+|---|---:|---:|
+| HQ city | 15 | 0 |
+| founded | 23 | 0 |
+| website | 3 | 0 |
+| aka | 9 | 75 |
+| deployments | 33 | 0 |
+| open source | 0 | 103 |
+| total raised | 92 | 8 |
+| round type | 34 | 7 |
+| round amount | 45 | 7 |
+| round date | 28 | 7 |
+| round valuation | 74 | 8 |
+| lead investors | 48 | 9 |
+
+**Round caveats.** A caveat shows under the round on the card, with links to the sources it cites:
+
+| Record | Round | Caveat | Sources |
+|---|---|---|---|
+| Skild AI | Series C | TechCrunch, citing Bloomberg, puts the valuation at more than $14 billion; no exact figure is given. | https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/ |
+| Field AI | type not disclosed | The $405M is two funding rounds announced together; the sources do not give the latest round on its own. | https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html |
+| Applied Intuition | Series F | The $600M covers the Series F and a tender offer together; the company does not say how much is new money. | https://www.appliedintuition.com/press-releases/series-f |
+| Figure AI | Series C | Figure says the Series C exceeded $1B; it gives no exact amount. | https://www.figure.ai/news/series-c |
+
+### Changes, by record
+
+Every value the ledger does not mark verified, against the record at the audit's base commit
+(0c6a02b3). A cut field shows the disposition the card now prints.
+
+| Record | Field | Was | Now | Basis |
+|---|---|---|---|---|
+| Physical Intelligence | description | Builds general-purpose vision-language-action foundation models (π0 series) that control any robot manipulator for contact-rich tasks. | Builds vision-language-action models for robots in its π0 series, and open-sourced the code and weights of π0. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Physical Intelligence | round date | 2025-11-20 | not disclosed | The Robot Report (25 Nov 2025) says only "last week"; no fetched source states 20 Nov 2025 |
+| Physical Intelligence | aka | Pi | removed | the sources use "Pi" only for the Pi API and the Pi0 model, never as a name for the company |
+| Physical Intelligence | deployments | Pilot deployments across multiple robot embodiments | not disclosed | no fetched source describes pilot deployments by Physical Intelligence; The Robot Report's deployment sentence is about its partner AgiBot |
+| Physical Intelligence | open source | openpi | π0 and π0-FAST (weights and code) | the repository name "openpi" appears in no fetched source; the release does (https://www.pi.website) |
+| Skild AI | description | Builds a scalable foundation model ('Skild Brain') designed to operate any robot across any embodiment and environment. | Builds the Skild Brain: general-purpose robot foundation models meant to be retrofitted to many different robots and tasks. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Skild AI | HQ city | Pittsburgh | not disclosed | no fetched source states Pittsburgh (TechCrunch, Reuters via U.S. News and skild.ai read) |
+| Skild AI | round valuation | $14B | not disclosed | a floor ("more than"), not a value; the headline's "$14B" rounds it |
+| Skild AI | deployments | Acquired Zebra Technologies robotics automation business (Apr 2026) | removed | an acquisition, not a deployment, and no fetched Skild source states it |
+| Skild AI | lead investors | SoftBank Group | SoftBank | "SoftBank Group" is not the name the source gives (https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/) |
+| Generalist AI | description | Develops AI and robotics technologies enabling robots to perform physical tasks in real-world environments. | Builds embodied foundation models for robots, GEN-1 and GEN-1.5, trained on more than half a million hours of real-world data gathered with its hand-mimicking grippers. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Generalist AI | HQ city | San Mateo | not disclosed | no fetched source states San Mateo; the careers page lists on-site roles in San Francisco and Boston |
+| Dyna Robotics | description | Builds robotic foundation models for cost-effective general-purpose robots, with first system DYNA-1 targeting repetitive manual tasks. | Builds robots and the foundation models that run them, from DYNA-1 to Dyna-2.1, which it calls a general-purpose physical agent for long, dexterous workflows. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Dyna Robotics | total raised | $143.5M | not disclosed | $143.5M is the sum of two rounds; no source states a total |
+| Sunday Robotics | description | Builds the Memo household robot for tasks like laundry, clearing tables, and loading dishwashers, trained on 10M+ real-world household episodes. | Builds Memo, an autonomous home robot that clears tables and loads the dishwasher, trained with data from its Skill Capture Glove. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Sunday Robotics | total raised | $200M | not disclosed | no fetched source states a $200M total |
+| Sunday Robotics | deployments | 1,000+ person waitlist | removed | no fetched source mentions a waitlist |
+| Field AI | total raised | $405M | not disclosed | the sources give the two rounds' sum, not a total raised to date |
+| Covariant | description | Developed robotic foundation models for warehouse manipulation; founders and ~25% of staff acquired by Amazon with non-exclusive license. | Built robotic foundation models for warehouse robot arms; in 2024 Amazon hired its founders and about a quarter of its staff and took a non-exclusive license to the models. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Covariant | HQ city | Berkeley | not disclosed | no fetched source states Berkeley; Amazon calls Covariant "a Bay Area-based company" |
+| Covariant | founded | 2017 | not disclosed | no fetched source states 2017 (Amazon, TechCrunch, covariant.ai renders no text) |
+| Covariant | status | acquired | private | Amazon hired the founders and licensed the models "without having to fully acquire" the startup (TechCrunch) (https://techcrunch.com/2024/08/31/amazon-hires-the-founders-of-robotics-ai-startup-covariant/) |
+| Covariant | round type | Acqui-hire | Hiring and licensing deal | no source calls it an acqui-hire or an acquisition (https://techcrunch.com/2024/08/31/amazon-hires-the-founders-of-robotics-ai-startup-covariant/) |
+| Covariant | round date | 2024-08-31 | 2024-08-30 | Friday 30 Aug 2024 in the US; Amazon's post is stamped 2024-08-31T02:35Z (https://techcrunch.com/2024/08/31/amazon-hires-the-founders-of-robotics-ai-startup-covariant/) |
+| Covariant | deployments | Amazon warehouse operations (post-acquisition) | Amazon's robot fleet, under a non-exclusive model license | stated by https://techcrunch.com/2024/08/31/amazon-hires-the-founders-of-robotics-ai-startup-covariant/ |
+| Covariant | lead investors | Amazon | n/a | Amazon hired staff and licensed the models; neither source says Amazon invested, so it is no lead investor |
+| Genesis AI | total raised | $105M | not disclosed | the round's amount, not a stated total |
+| Genesis AI | deployments |  | Targeted customer deployments planned by the end of 2026 | stated by https://www.genesis.ai/press |
+| Genesis AI | lead investors | Eclipse | Eclipse Ventures | the name the source gives (https://techfundingnews.com/genesis-ai-105m-seed-funding/) |
+| Rhoda AI | description | Builds robot foundation models using video-predictive control ('FutureVision') trained on hundreds of millions of internet videos for manufacturing and logistics. | Builds FutureVision, robot AI whose Direct Video Action model is pre-trained on hundreds of millions of videos, for industrial work in manufacturing and logistics. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Mind Robotics | description | Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories. | Rivian spinoff developing industrial robots to further automate factory operations; it collects video of live work on factory lines, starting with automotive manufacturing. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Mind Robotics | deployments | Rivian factory deployment target | Rivian, its first customer | robots still in development (https://www.therobotreport.com/mind-robotics-raises-400m-scale-ai-powered-robots/) |
+| NVIDIA | deployments | Isaac GR00T Reference Humanoid Robot (Unitree H2 Plus + Sharpa hands) | Isaac GR00T reference humanoid, to be used by Ai2, ETH Zurich, Stanford and UC San Diego labs | a reference design available from Unitree in late 2026 (https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design) |
+| NVIDIA | deployments | Partnerships with most major humanoid and robotics companies | removed | no fetched source names partnerships with most humanoid and robotics companies |
+| NVIDIA | open source | Isaac GR00T (open development platform) | Isaac GR00T N1.6 and Cosmos open models (on Hugging Face) | stated by https://techcrunch.com/2026/01/05/nvidia-wants-to-be-the-android-of-generalist-robotics/ |
+| NVIDIA | open source |  | Isaac Lab-Arena (simulation framework) | stated by https://techcrunch.com/2026/01/05/nvidia-wants-to-be-the-android-of-generalist-robotics/ |
+| NVIDIA | open source |  | OSMO (workflow command center) | stated by https://techcrunch.com/2026/01/05/nvidia-wants-to-be-the-android-of-generalist-robotics/ |
+| Google DeepMind (Robotics) | HQ city | Mountain View | London | registered office of DeepMind Technologies Limited; no fetched source places it in Mountain View (https://find-and-update.company-information.service.gov.uk/company/07386350) |
+| Google DeepMind (Robotics) | HQ country | US | UK | stated by https://find-and-update.company-information.service.gov.uk/company/07386350 |
+| Google DeepMind (Robotics) | deployments | Partnership with Boston Dynamics for Atlas | Partner robots from Boston Dynamics and Agile Robots | no fetched source names Atlas (https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/) |
+| Google DeepMind (Robotics) | open source | Gemini Robotics On-Device (model card published) | removed | a published model card is not an open-source release |
+| Google DeepMind (Robotics) | open source |  | MuJoCo (physics simulator) | the google-deepmind/mujoco repository (https://github.com/google-deepmind/mujoco) |
+| Hugging Face (LeRobot) | description | Develops the LeRobot open-source robotics platform and Reachy Mini desktop companion robot for accessible embodied AI experimentation. | Develops LeRobot, an open-source library of data-collection, training and visualization tools for robot learning, and Reachy Mini, a desktop-sized open-source robot. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Applied Intuition | HQ city | Mountain View | Sunnyvale | Semafor (July 2026) also describes its Sunnyvale headquarters; no fetched source says Mountain View (https://www.appliedintuition.com) |
+| Applied Intuition | deployments | AeroVironment Mayhem 10 drone swarm collaboration | removed | no fetched source mentions AeroVironment or the Mayhem 10 |
+| XDOF | open source |  | ABC-130K teleoperation dataset | stated by https://theaiinsider.tech/2026/06/18/robotics-infrastructure-startup-xdof-emerges-from-stealth-with-70m/ |
+| Micro1 | description | Provides expert-demonstrated teleoperation data for frontier robotics labs, capturing human demonstrations in real working environments. | Provides expert-demonstrated data to frontier robotics labs: first-person and third-person recordings of domain experts doing real-world tasks. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Micro1 | HQ city | San Francisco | Palo Alto | no fetched source says San Francisco (https://www.latimes.com/business/story/2026-02-07/how-la-garage-sales-launched-ais-latest-20-something-billionaire) |
+| Figure AI | round amount | $1B | not disclosed | a floor ("exceeds $1B"), not an amount; the card caveat carries it |
+| Figure AI | deployments | BMW Spartanburg plant | BMW manufacturing partnership (announced Jan 2024) | no fetched source names the Spartanburg plant (https://en.wikipedia.org/wiki/Figure_AI) |
+| 1X Technologies | description | Builds NEO, a bipedal home humanoid robot for household chores, available for pre-order at $20,000; also deploying to industrial use cases. | Builds NEO, a bipedal humanoid robot for chores at home, on pre-order at $20,000 for early adopters. | rewritten to what its sources state; each clause quoted from 3 sources in the ledger |
+| 1X Technologies | HQ city | Oslo | Palo Alto | manufacturing in Hayward and Moss, Norway; no fetched source puts the headquarters in Oslo (https://en.wikipedia.org/wiki/1X_Technologies) |
+| 1X Technologies | HQ country | NO | US | stated by https://en.wikipedia.org/wiki/1X_Technologies |
+| 1X Technologies | round date | 2024-01-01 | 2024-01-11 | VentureBeat reported it on 11 Jan 2024; 1X's own post is stamped 13 Jan; no source gives 1 Jan (https://en.wikipedia.org/wiki/1X_Technologies) |
+| 1X Technologies | round valuation | $500M | not disclosed | no fetched source states a $500M valuation |
+| 1X Technologies | aka | Halodi | Halodi Robotics | the former name as the source gives it (https://en.wikipedia.org/wiki/1X_Technologies) |
+| 1X Technologies | deployments | Pre-orders open | NEO home robot pre-orders (opened Oct 2025) | stated by https://en.wikipedia.org/wiki/1X_Technologies |
+| 1X Technologies | deployments | Industrial pilots | removed | no fetched source describes industrial pilots |
+| Agility Robotics | description | Builds Digit, a bipedal robot for material handling in warehouses and logistics; going public via SPAC merger with Churchill Capital Corp XI. | Builds Digit, a bipedal robot working in manufacturing, distribution and logistics; going public through a merger with the SPAC Churchill Capital Corp XI. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Agility Robotics | deployments | Amazon fulfillment centers | removed | Amazon appears only as an investor in the fetched sources |
+| Agility Robotics | deployments |  | Mercado Libre | stated by https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital-corp-xi |
+| Apptronik | description | Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; scaling production and robot-training facilities in Austin. | Builds Apollo humanoid robots for manufacturing, warehouses and retail, and is working with Google DeepMind on a next generation powered by Gemini Robotics. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Tesla (Optimus) | description | Develops the Optimus humanoid robot for factory and eventually consumer tasks; Gen 3 in internal testing with several hundred units deployed internally. | Develops the Optimus humanoid robot, first for simple factory tasks and later for everyday tasks in and outside the home. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Tesla (Optimus) | aka | Bot | Tesla Bot | the alias is "Tesla Bot", not "Bot" (https://en.wikipedia.org/wiki/Optimus_(robot)) |
+| Tesla (Optimus) | deployments | Several hundred units in Tesla factories (internal) | removed | no fetched source counts Optimus units in Tesla factories; Electrek (April 2026) reports Musk saying in January 2026 that none were doing useful work, and the "several hundred" figure came from a fan blog summarising other reports |
+| Tesla (Optimus) | deployments | Production targeted late July 2026 at Fremont | Production to start at Fremont in late July or August 2026 | stated by https://electrek.co/2026/04/22/tesla-optimus-production-fremont-model-sx-line/ |
+| Boston Dynamics | description | Builds the electric Atlas humanoid for industrial deployment, partnering with Google DeepMind for embodied AI; Hyundai subsidiary. | Builds the fully electric Atlas humanoid for industrial work, with first deployments at Hyundai and Google DeepMind; a Hyundai Motor Group subsidiary. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Boston Dynamics | round amount | $1.1B | not disclosed | the release gives the deal's $1.1B as the company's value and says additional financial details were not disclosed; $1.1B was never the amount paid |
+| Boston Dynamics | round valuation |  | $1.1B | stated by https://bostondynamics.com/news/hyundai-motor-group-completes-acquisition-of-boston-dynamics-from-softbank/ |
+| Boston Dynamics | round date | 2021-01-01 | 2021-06-21 | the closing date; 2021-01-01 was a placeholder (https://bostondynamics.com/news/hyundai-motor-group-completes-acquisition-of-boston-dynamics-from-softbank/) |
+| Boston Dynamics | deployments | Hyundai Metaplant Georgia | Hyundai Motor Group Metaplant America, Savannah (first Atlas site, from 2028) | stated by https://www.techtimes.com/articles/317005/20260522/hyundai-commits-25000-atlas-robots-own-factories.htm |
+| Boston Dynamics | deployments | Hyundai committed 25,000 Atlas robots to own factories | Hyundai plans more than 25,000 Atlas robots across Hyundai and Kia plants | stated by https://www.techtimes.com/articles/317005/20260522/hyundai-commits-25000-atlas-robots-own-factories.htm |
+| Unitree Robotics | deployments | DeepSeek strategic investment | removed | an investor, not a deployment: CNBC names DeepSeek among the IPO's strategic investors |
+| Unitree Robotics | open source |  | UnifoLM-VLA-0 model | stated by https://www.unitree.com/opensource |
+| Unitree Robotics | open source |  | G1 and Z1 manipulation datasets | stated by https://www.unitree.com/opensource |
+| Unitree Robotics | open source |  | unitree_IL_lerobot | stated by https://www.unitree.com/opensource |
+
+## /credits marks as their registered images (2026-10-19, market-data-1019c)
+
+The release run of 2026-10-19 21:40 failed `tests/e2e/brand-v2-figures.spec.ts`
+("sweeps every figure-bearing route at both widths", VAL-B2-IMG-005) on
+`/credits/`: the plate-less marks of market-data-1019 drew each credited file
+as a CSS mask on a `<span>`, so the figure the sweep enumerates by
+`data-image-id` held no `<img>`, no alt, no declared size and no decoded file.
+It passed at the released head 97e16fcd, where the marks were `<img>`
+elements on the grey plate.
+
+The fix keeps the one treatment and puts the credited file back in the page:
+on `/credits/` the mark's ink layer is the registered `<img>` of the file
+(`components/ui/logo-mark.tsx`, `registered`), with the registry alt and
+intrinsic width and height, loaded lazily like every other credited image. It
+fills the measured artwork box, and the crop moved from a negative offset into
+the mask's size and position, so the image never reaches past its figure. It
+paints only its ink fill (`--color-text-dim`) through the mask of its own file,
+and `object-position` sets its own pixels outside the element, which clips
+them. No plate, border, padding or filter returns; the market map is unchanged.
+Showing the files as plain images was measured and rejected: 29 of the 110
+credited files are white or near-white (most of their opaque pixels under
+1.5:1 on the paper), so they would vanish without the plate the owner removed.
+
+Farm-ng's alt, new in market-data-1019b, said most of its caption again
+(0.86 of its words over three letters, above the 0.85 limit); it now describes the mark: "Farm-ng company mark, a
+prompt symbol over its name, from the archived company website" (0.55).

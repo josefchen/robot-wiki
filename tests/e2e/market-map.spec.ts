@@ -96,7 +96,11 @@ test.describe('market map visualization', () => {
 
     await openMoreFilters(page);
     await page.getByLabel('Country', { exact: true }).selectOption('US');
-    await expect(page.getByText('6 of 111 companies')).toBeVisible();
+    // 6 -> 7 on 2026-10-19 (market-map field audit): 1X Technologies'
+    // headquarters moved Oslo -> Palo Alto, as its Wikipedia body states
+    // ("headquartered in Palo Alto, California"), so it joins the US
+    // humanoids. Its confidence is medium, so the high count stays 4.
+    await expect(page.getByText('7 of 111 companies')).toBeVisible();
 
     await page.getByLabel('Confidence', { exact: true }).selectOption('high');
     await expect(page.getByText('4 of 111 companies')).toBeVisible();
@@ -178,10 +182,16 @@ test.describe('market map visualization', () => {
     await expect(pi.locator('[data-field="amount"]')).toHaveText('$600M');
     await expect(pi.locator('[data-field="valuation"]')).toHaveText('$5.6B');
     await expect(pi.locator('[data-field="confidence"]')).toHaveText('high');
-    await expect(pi.getByText('openpi')).toBeVisible();
+    // The open-source entry was "openpi" until the 2026-10-19 field audit:
+    // no fetched source names that repository, and Physical Intelligence's
+    // own release says "We are releasing the weights and code for π0 as
+    // well as our new π0-FAST autoregressive model."
+    const piRelease = 'π0 and π0-FAST (weights and code)';
+    await expect(pi.getByText(piRelease)).toBeVisible();
+    await expect(pi.getByText('openpi')).toHaveCount(0);
     await expect(pi.getByText('CapitalG, Lux Capital')).toBeVisible();
     await pi.getByRole('button', { name: 'Close Physical Intelligence details' }).click();
-    await expect(page.getByText('openpi')).toHaveCount(0);
+    await expect(page.getByText(piRelease)).toHaveCount(0);
     await expect(tile(page, 'physical-intelligence')).toBeFocused();
 
     await tile(page, 'unitree-robotics').click();
@@ -212,8 +222,17 @@ test.describe('market map visualization', () => {
     await page.goto(ROUTE);
     await page.getByRole('button', { name: 'Timeline' }).click();
     await expect(page.getByText('Figure AI')).toBeVisible();
-    await expect(page.getByText('$1B at $39B')).toBeVisible();
-    await expect(page.getByText('$1.4B at $14B')).toBeVisible();
+    // Both anchors lost a floor on 2026-10-19 (market-map field audit):
+    // Figure's release says the Series C "exceeds $1B" and TechCrunch says
+    // Skild's round "values it at more than $14 billion". Neither floor is
+    // a figure, so the row prints what is stated and each card carries the
+    // floor as a sourced caveat.
+    const figureRow = page.locator('[data-timeline-id][data-company-id="figure-ai"]');
+    await expect(figureRow).toContainText('not disclosed at $39B');
+    await expect(figureRow).not.toContainText('$1B');
+    const skildRow = page.locator('[data-timeline-id][data-company-id="skild-ai"]');
+    await expect(skildRow).toContainText('$1.4B');
+    await expect(skildRow).not.toContainText('$14B');
     await expect(page.getByText('Unitree Robotics')).toBeVisible();
 
     const unitree = page.locator('[data-company-id="unitree-robotics"]');
@@ -270,15 +289,20 @@ test.describe('market map visualization', () => {
     await page.goto(ROUTE);
     await openMoreFilters(page);
     await statusSelect(page).selectOption('acquired');
-    await expect(tile(page, 'covariant')).toBeVisible();
+    await expect(tile(page, 'boston-dynamics')).toBeVisible();
     await expect(tile(page, 'irobot')).toBeVisible();
     await expect(tile(page, 'berkshire-grey')).toBeVisible();
     await expect(tile(page, 'abb-robotics')).toBeVisible();
     // mentee-robotics moved private -> acquired on 2026-08-18: Mobileye's
     // Form 8-K records the acquisition completed Feb 3, 2026.
     await expect(tile(page, 'mentee-robotics')).toBeVisible();
+    // covariant moved acquired -> private on 2026-10-19 (market-map field
+    // audit): Amazon hired its founders and licensed its models, and
+    // TechCrunch reports Covariant "will continue operating" under Ted
+    // Stinson. No source calls it an acquisition.
+    await expect(tile(page, 'covariant')).toHaveCount(0);
     // Each says so on its tile.
-    await expect(tile(page, 'covariant')).toContainText('Acquired');
+    await expect(tile(page, 'boston-dynamics')).toContainText('Acquired');
 
     await statusSelect(page).selectOption('shut-down');
     await expect(tile(page, 'k-scale-labs')).toBeVisible();

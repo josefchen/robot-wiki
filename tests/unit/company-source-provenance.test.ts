@@ -41,6 +41,16 @@ function timelineCompany(sourceUrl?: string): Company {
       },
     ],
     confidence: 'high',
+    absent: {
+      'hq.city': { state: 'not-disclosed' },
+      website: { state: 'not-disclosed' },
+      aka: { state: 'not-applicable', basis: 'Fixture with one name.' },
+      deployments: { state: 'not-disclosed' },
+      openSource: { state: 'not-applicable', basis: 'Fixture with no release.' },
+      totalRaisedUsd: { state: 'not-disclosed' },
+      'round.valuationUsd': { state: 'not-disclosed' },
+      'round.leadInvestors': { state: 'not-disclosed' },
+    },
   };
 }
 

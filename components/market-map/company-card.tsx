@@ -1,9 +1,10 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import type { Company } from '@/data/schemas/company.ts';
+import type { AbsentField, Company } from '@/data/schemas/company.ts';
 import {
   SEGMENT_LABELS,
+  absentState,
   companyStatusLabel,
   formatApproach,
   formatShortDate,
@@ -15,17 +16,29 @@ import {
 import { withheldMark } from '@/lib/market-map-marks';
 import { CompanyLogo } from './company-logo';
 
-function Missing({ children }: { children: ReactNode }) {
-  return <span className="text-text-dim">{children}</span>;
+/**
+ * An empty field, printed as the disposition the registry records for it
+ * (Company.absent), never as zero or a blank. The literal stays in this file
+ * because the value-state census measures the card as a render site.
+ */
+function Absent({ company, field }: { company: Company; field: AbsentField }) {
+  return (
+    <span className="text-text-dim">
+      {absentState(company, field) === 'not-applicable' ? 'n/a' : unknownFigure()}
+    </span>
+  );
 }
 
-/**
- * A money figure. An unknown figure reads as undisclosed (it exists but no
- * fetched source states it), never as zero; the inapplicable state is kept
- * for lists a company simply does not have.
- */
-function Money({ value }: { value: number | null }) {
-  if (value === null) return <Missing>{unknownFigure()}</Missing>;
+function Money({
+  company,
+  field,
+  value,
+}: {
+  company: Company;
+  field: AbsentField;
+  value: number | null;
+}) {
+  if (value === null) return <Absent company={company} field={field} />;
   return <span className="tabular-nums">{formatUsd(value)}</span>;
 }
 
@@ -40,8 +53,16 @@ function Row({ term, field, children }: { term: string; field: string; children:
   );
 }
 
-function List({ items }: { items: readonly string[] }) {
-  return items.length > 0 ? <>{items.join(', ')}</> : <Missing>n/a</Missing>;
+function List({
+  company,
+  field,
+  items,
+}: {
+  company: Company;
+  field: AbsentField;
+  items: readonly string[];
+}) {
+  return items.length > 0 ? <>{items.join(', ')}</> : <Absent company={company} field={field} />;
 }
 
 const linkClass =
@@ -113,23 +134,31 @@ export function CompanyDetail({
             {companyStatusLabel(company)}
           </Row>
           <Row term="Round" field="round-type">
-            {round?.type ?? <Missing>{unknownFigure()}</Missing>}
+            {round?.type ?? <Absent company={company} field="round.type" />}
           </Row>
           <Row term="Amount" field="amount">
-            <Money value={round?.amountUsd ?? null} />
+            <Money company={company} field="round.amountUsd" value={round?.amountUsd ?? null} />
           </Row>
           <Row term="Date" field="date">
-            {round?.date ? formatShortDate(round.date) : <Missing>{unknownFigure()}</Missing>}
+            {round?.date ? (
+              formatShortDate(round.date)
+            ) : (
+              <Absent company={company} field="round.date" />
+            )}
           </Row>
           <Row term="Valuation" field="valuation">
-            <Money value={round?.valuationUsd ?? null} />
+            <Money
+              company={company}
+              field="round.valuationUsd"
+              value={round?.valuationUsd ?? null}
+            />
           </Row>
           <Row term="Lead investors" field="leads">
-            {round && round.leadInvestors.length > 0 ? (
-              round.leadInvestors.join(', ')
-            ) : (
-              <Missing>{unknownFigure()}</Missing>
-            )}
+            <List
+              company={company}
+              field="round.leadInvestors"
+              items={round?.leadInvestors ?? []}
+            />
           </Row>
         </dl>
         {source ? (
@@ -150,6 +179,33 @@ export function CompanyDetail({
             , as of <span data-field="as-of">{formatShortDate(source.asOf)}</span>.
           </p>
         ) : null}
+        {round?.caveat ? (
+          <p
+            data-round-caveat
+            className="mt-2 font-sans text-[13px] leading-5 text-text-dim"
+          >
+            <span className="font-medium text-text">Caveat:</span> {round.caveat.text}{' '}
+            {round.caveat.sourceUrls.length > 1 ? 'Sources: ' : 'Source: '}
+            {round.caveat.sourceUrls.map((url, index) => {
+              const cited = company.sources.find((entry) => entry.url === url);
+              return (
+                <span key={url}>
+                  {index > 0 ? '; ' : ''}
+                  <a
+                    data-brand-control-id="control:link-focus"
+                    href={url}
+                    target="_blank"
+                    rel="noopener"
+                    className={linkClass}
+                  >
+                    {cited?.title ?? url}
+                  </a>
+                </span>
+              );
+            })}
+            .
+          </p>
+        ) : null}
       </section>
 
       <section aria-labelledby={`${headingId}-company`} className="mt-7">
@@ -161,25 +217,31 @@ export function CompanyDetail({
         </h3>
         <dl className="font-sans text-[14px] leading-5">
           <Row term="Total raised" field="total-raised">
-            <Money value={company.totalRaisedUsd} />
+            <Money company={company} field="totalRaisedUsd" value={company.totalRaisedUsd} />
           </Row>
           <Row term="Founded" field="founded">
-            {company.founded ?? <Missing>{unknownFigure()}</Missing>}
+            {company.founded ?? <Absent company={company} field="founded" />}
           </Row>
           <Row term="Headquarters" field="hq">
-            {place}
+            {company.hq.city === null ? (
+              <>
+                {company.hq.country}, city <Absent company={company} field="hq.city" />
+              </>
+            ) : (
+              place
+            )}
           </Row>
           <Row term="Approach" field="approach">
-            <List items={company.approach.map(formatApproach)} />
+            {company.approach.map(formatApproach).join(', ')}
           </Row>
           <Row term="Deployments" field="deployments">
-            <List items={company.deployments} />
+            <List company={company} field="deployments" items={company.deployments} />
           </Row>
           <Row term="Open source" field="open-source">
-            <List items={company.openSource} />
+            <List company={company} field="openSource" items={company.openSource} />
           </Row>
           <Row term="Also known as" field="aka">
-            <List items={company.aka} />
+            <List company={company} field="aka" items={company.aka} />
           </Row>
           <Row term="Website" field="website">
             {company.website ? (
@@ -193,7 +255,7 @@ export function CompanyDetail({
                 {company.website.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '')}
               </a>
             ) : (
-              <Missing>n/a</Missing>
+              <Absent company={company} field="website" />
             )}
           </Row>
           <Row term="Confidence" field="confidence">

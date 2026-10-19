@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "2e95a946282493c53f596c64a3a788583ac352098396a2591adf625924c8f5e8",
+  "fingerprint": "ccaefc3c7bc3bf08ab13d3ce716c984d18ac874dc8a5c136bf9d91720df7265c",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -27,7 +27,7 @@
     "graphicHeightPx": 598,
     "playerMountedAtFirstPaint": false,
     "idleFrameRequests": 0,
-    "playingFrameRequests": 52,
+    "playingFrameRequests": 53,
     "startControl": "Turn it in 3D",
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
@@ -93,8 +93,8 @@
     "graphicTag": "canvas",
     "graphicHeightPx": 541,
     "playerMountedAtFirstPaint": true,
-    "idleFrameRequests": 28,
-    "playingFrameRequests": 14,
+    "idleFrameRequests": 48,
+    "playingFrameRequests": 24,
     "startControl": null,
     "focusOutlineWidthPx": null,
     "focusOutlineStyle": null,

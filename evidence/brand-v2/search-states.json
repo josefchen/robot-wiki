@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "69fe5d71ba79e4d06508287fb21e9d3d410c7a26ef303917737737aaa5b9fb7c",
+  "fingerprint": "7bd1f42f600e407193ae5695557a1902d4c686fec9a2696b955d889f7d1d1408",
   "desktopViewport": "1440x900",
   "mobileViewport": "375x812",
   "states": [
@@ -157,9 +157,9 @@
       "structuredRowTypes": [
         "method",
         "company",
-        "method",
-        "method",
         "company",
+        "method",
+        "method",
         "method"
       ],
       "groups": [
@@ -194,9 +194,9 @@
         "rowTypes": [
           "method",
           "company",
-          "method",
-          "method",
           "company",
+          "method",
+          "method",
           "method"
         ]
       }
@@ -478,9 +478,9 @@
       "structuredRowTypes": [
         "method",
         "company",
-        "method",
-        "method",
         "company",
+        "method",
+        "method",
         "method"
       ],
       "groups": [
@@ -515,9 +515,9 @@
         "rowTypes": [
           "method",
           "company",
-          "method",
-          "method",
           "company",
+          "method",
+          "method",
           "method"
         ]
       }
@@ -625,9 +625,9 @@
       "structuredRowTypes": [
         "method",
         "company",
-        "method",
-        "method",
         "company",
+        "method",
+        "method",
         "method"
       ],
       "groups": [
@@ -662,9 +662,9 @@
         "rowTypes": [
           "method",
           "company",
-          "method",
-          "method",
           "company",
+          "method",
+          "method",
           "method"
         ]
       }
@@ -732,8 +732,8 @@
           "dataset": false
         },
         "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
-        "selectedColourRgb": "rgb(108, 107, 102)",
-        "selectedRuleRgb": "rgba(0, 0, 0, 0)",
+        "selectedColourRgb": "rgb(105, 104, 100)",
+        "selectedRuleRgb": "rgba(28, 28, 26, 0.03)",
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [

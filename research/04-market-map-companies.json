@@ -2,31 +2,35 @@
   {
     "id": "physical-intelligence",
     "name": "Physical Intelligence",
-    "aka": ["Pi", "π"],
+    "aka": ["π"],
     "website": "https://www.pi.website",
     "logo": "physical-intelligence-logo",
     "hq": { "city": "San Francisco", "country": "US" },
     "founded": 2024,
     "segment": "foundation-models",
     "subSegment": "generalist-manipulation-policies",
-    "description": "Builds general-purpose vision-language-action foundation models (π0 series) that control any robot manipulator for contact-rich tasks.",
+    "description": "Builds vision-language-action models for robots in its π0 series, and open-sourced the code and weights of π0.",
     "approach": ["vla", "flow-matching-action-expert", "cross-embodiment", "real-world-rl"],
     "totalRaisedUsd": 1100000000,
     "latestRound": {
       "type": "Series B",
       "amountUsd": 600000000,
-      "date": "2025-11-20",
+      "date": null,
       "valuationUsd": 5600000000,
       "leadInvestors": ["CapitalG", "Lux Capital"]
     },
     "status": "private",
-    "deployments": ["Pilot deployments across multiple robot embodiments"],
-    "openSource": ["openpi"],
+    "deployments": [],
+    "openSource": ["π0 and π0-FAST (weights and code)"],
     "sources": [
       { "url": "https://www.therobotreport.com/physical-intelligence-raises-600m-advance-robot-foundation-models/", "title": "Physical Intelligence raises $600M to advance robot foundation models", "asOf": "2026-08-18" },
       { "url": "https://www.pi.website/blog/pistar06", "title": "π*0.6: A VLA That Learns from Experience", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "deployments": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "skild-ai",
@@ -34,29 +38,37 @@
     "aka": [],
     "website": "https://www.skild.ai",
     "logo": "skild-ai-logo",
-    "hq": { "city": "Pittsburgh", "country": "US" },
+    "hq": { "city": null, "country": "US" },
     "founded": 2023,
     "segment": "foundation-models",
     "subSegment": "generalist-manipulation-policies",
-    "description": "Builds a scalable foundation model ('Skild Brain') designed to operate any robot across any embodiment and environment.",
+    "description": "Builds the Skild Brain: general-purpose robot foundation models meant to be retrofitted to many different robots and tasks.",
     "approach": ["vla", "omni-bodied-intelligence", "large-scale-data"],
     "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series C",
       "amountUsd": 1400000000,
       "date": "2026-01-14",
-      "valuationUsd": 14000000000,
-      "leadInvestors": ["SoftBank Group"]
+      "valuationUsd": null,
+      "leadInvestors": ["SoftBank"],
+      "caveat": { "text": "TechCrunch, citing Bloomberg, puts the valuation at more than $14 billion; no exact figure is given.", "sourceUrls": ["https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/"] }
     },
     "status": "private",
-    "deployments": ["Foxconn Blackwell assembly lines (with Nvidia)", "Acquired Zebra Technologies robotics automation business (Apr 2026)"],
+    "deployments": ["Foxconn Blackwell assembly lines (with Nvidia)"],
     "openSource": [],
     "sources": [
       { "url": "https://techcrunch.com/2026/01/14/robotic-software-maker-skild-ai-hits-14b-valuation/", "title": "Skild AI hits $14B valuation", "asOf": "2026-08-18" },
       { "url": "https://www.businesswire.com/news/home/20260114335623/en/Skild-AI-Raises-$1.4B", "title": "Skild AI Raises $1.4B, Now Valued Over $14B", "asOf": "2026-08-18" },
       { "url": "https://money.usnews.com/investing/news/articles/2026-03-16/skild-ai-nvidia-deploy-robot-brain-on-blackwell-assembly-lines", "title": "Skild AI, Nvidia deploy robot brain on Blackwell assembly lines (US News, Reuters wire, 2026-03-16)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Skild AI and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "generalist-ai",
@@ -64,11 +76,11 @@
     "aka": [],
     "website": "https://generalistai.com",
     "logo": "generalist-ai-logo",
-    "hq": { "city": "San Mateo", "country": "US" },
+    "hq": { "city": null, "country": "US" },
     "founded": null,
     "segment": "foundation-models",
     "subSegment": "generalist-manipulation-policies",
-    "description": "Develops AI and robotics technologies enabling robots to perform physical tasks in real-world environments.",
+    "description": "Builds embodied foundation models for robots, GEN-1 and GEN-1.5, trained on more than half a million hours of real-world data gathered with its hand-mimicking grippers.",
     "approach": ["robot-foundation-models"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -83,9 +95,19 @@
     "openSource": [],
     "sources": [
       { "url": "https://generalistai.com/blog/accelerating-the-next-phase-of-physical-ai", "title": "Accelerating the Next Phase of Physical AI", "asOf": "2026-08-18" },
-      { "url": "https://qz.com/generalist-ai-funding-robotics-nvidia-bezos-060526", "title": "Generalist AI raises $400M at $2B valuation, backed by Nvidia", "asOf": "2026-08-18" }
+      { "url": "https://qz.com/generalist-ai-funding-robotics-nvidia-bezos-060526", "title": "Generalist AI raises $400M at $2B valuation, backed by Nvidia", "asOf": "2026-08-18" },
+      { "url": "https://generalistai.com/careers", "title": "Careers / Generalist", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Generalist AI and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "dyna-robotics",
@@ -97,9 +119,9 @@
     "founded": null,
     "segment": "foundation-models",
     "subSegment": "generalist-manipulation-policies",
-    "description": "Builds robotic foundation models for cost-effective general-purpose robots, with first system DYNA-1 targeting repetitive manual tasks.",
+    "description": "Builds robots and the foundation models that run them, from DYNA-1 to Dyna-2.1, which it calls a general-purpose physical agent for long, dexterous workflows.",
     "approach": ["robot-foundation-models"],
-    "totalRaisedUsd": 143500000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series A",
       "amountUsd": 120000000,
@@ -111,9 +133,17 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://www.therobotreport.com/dyna-robotics-closes-120m-funding-round-to-scale-robotics-foundation-model/", "title": "Dyna Robotics closes $120M funding round to scale robotics foundation model", "asOf": "2026-08-18" }
+      { "url": "https://www.therobotreport.com/dyna-robotics-closes-120m-funding-round-to-scale-robotics-foundation-model/", "title": "Dyna Robotics closes $120M funding round to scale robotics foundation model", "asOf": "2026-08-18" },
+      { "url": "https://www.dyna.co/careers", "title": "Careers — DYNA", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "sunday-robotics",
@@ -125,9 +155,9 @@
     "founded": null,
     "segment": "foundation-models",
     "subSegment": "home-robot-policies",
-    "description": "Builds the Memo household robot for tasks like laundry, clearing tables, and loading dishwashers, trained on 10M+ real-world household episodes.",
+    "description": "Builds Memo, an autonomous home robot that clears tables and loads the dishwasher, trained with data from its Skill Capture Glove.",
     "approach": ["vla", "skill-capture-glove", "real-world-episodes"],
-    "totalRaisedUsd": 200000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series B",
       "amountUsd": 165000000,
@@ -136,14 +166,19 @@
       "leadInvestors": ["Coatue"]
     },
     "status": "private",
-    "deployments": ["Beta deployments planned for fall 2026", "1,000+ person waitlist"],
+    "deployments": ["Beta deployments planned for fall 2026"],
     "openSource": [],
     "sources": [
       { "url": "https://www.globenewswire.com/news-release/2026/03/12/3254877/0/en/Sunday-Raises-165M-to-Launch-First-Autonomous-Robots-by-Thanksgiving.html", "title": "Sunday Raises $165M at $1.15B valuation, led by Coatue (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.techbuzz.ai/articles/sunday-robotics-hits-1-15b-valuation-on-household-robot-push", "title": "Sunday Robotics Hits $1.15B Valuation on Household Bot Push (TechBuzz, 2026-03-12)", "asOf": "2026-08-18" },
       { "url": "https://www.bloomberg.com/news/articles/2026-03-12/dishwashing-home-robot-maker-sunday-hits-1-15-billion-valuation", "title": "Sunday Hits $1.15 Billion Valuation", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "field-ai",
@@ -157,13 +192,14 @@
     "subSegment": "navigation-mobility",
     "description": "Builds field foundation models enabling robots across diverse embodiments to operate safely in unstructured real-world environments like construction sites.",
     "approach": ["field-foundation-models", "cross-embodiment", "unstructured-environments"],
-    "totalRaisedUsd": 405000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": null,
       "amountUsd": 405000000,
       "date": "2025-08-20",
       "valuationUsd": 2000000000,
-      "leadInvestors": []
+      "leadInvestors": [],
+      "caveat": { "text": "The $405M is two funding rounds announced together; the sources do not give the latest round on its own.", "sourceUrls": ["https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html"] }
     },
     "status": "private",
     "deployments": [],
@@ -172,7 +208,14 @@
       { "url": "https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html", "title": "Gates, Nvidia-backed robotics firm Field AI hits $2 billion valuation after recent raise", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/fieldai-raises-405m-scales-physics-first-foundation-models/", "title": "FieldAI raises $405M to scale physics-first foundation models (The Robot Report)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "covariant",
@@ -180,28 +223,38 @@
     "aka": [],
     "website": "https://covariant.ai",
     "logo": "covariant-logo",
-    "hq": { "city": "Berkeley", "country": "US" },
-    "founded": 2017,
+    "hq": { "city": null, "country": "US" },
+    "founded": null,
     "segment": "foundation-models",
     "subSegment": "generalist-manipulation-policies",
-    "description": "Developed robotic foundation models for warehouse manipulation; founders and ~25% of staff acquired by Amazon with non-exclusive license.",
+    "description": "Built robotic foundation models for warehouse robot arms; in 2024 Amazon hired its founders and about a quarter of its staff and took a non-exclusive license to the models.",
     "approach": ["robot-foundation-models", "rfm"],
     "totalRaisedUsd": null,
     "latestRound": {
-      "type": "Acqui-hire",
+      "type": "Hiring and licensing deal",
       "amountUsd": null,
-      "date": "2024-08-31",
+      "date": "2024-08-30",
       "valuationUsd": null,
-      "leadInvestors": ["Amazon"]
+      "leadInvestors": []
     },
-    "status": "acquired",
-    "deployments": ["Amazon warehouse operations (post-acquisition)"],
+    "status": "private",
+    "deployments": ["Amazon's robot fleet, under a non-exclusive model license"],
     "openSource": [],
     "sources": [
       { "url": "https://www.aboutamazon.com/news/company-news/amazon-covariant-ai-robots", "title": "Amazon hires Covariant founders and ~25% of staff, licenses Covariant RFMs (first-party, 2024-08-31)", "asOf": "2026-08-18" },
       { "url": "https://techcrunch.com/2024/08/31/amazon-hires-the-founders-of-robotics-ai-startup-covariant/", "title": "Amazon hires the founders of AI robotics startup Covariant", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources call it Covariant and give no other name (its website returned no readable body)." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "A hiring and licensing deal, neither a financing round nor a sale, so it puts no value on the company." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "A hiring and licensing deal, not a financing round: Amazon hired staff and licensed the models, and neither source names an investor." }
+    }
   },
   {
     "id": "genesis-ai",
@@ -215,22 +268,29 @@
     "subSegment": "generalist-manipulation-policies",
     "description": "Builds general-purpose robotics foundation models trained on synthetic data from a proprietary physics simulation engine; unveiled GENE-26.5 model and Eno robot.",
     "approach": ["synthetic-data", "physics-simulation", "vla"],
-    "totalRaisedUsd": 105000000,
+    "totalRaisedUsd": null,
     "latestRound": {
       "type": "Seed",
       "amountUsd": 105000000,
       "date": "2025-07-01",
       "valuationUsd": null,
-      "leadInvestors": ["Eclipse", "Khosla Ventures"]
+      "leadInvestors": ["Eclipse Ventures", "Khosla Ventures"]
     },
     "status": "private",
-    "deployments": [],
+    "deployments": ["Targeted customer deployments planned by the end of 2026"],
     "openSource": [],
     "sources": [
       { "url": "https://techfundingnews.com/genesis-ai-105m-seed-funding/", "title": "Genesis AI emerges from stealth with $105M seed funding (TechFundingNews, 2025-07-02)", "asOf": "2026-08-18" },
       { "url": "https://www.genesis.ai/press", "title": "Genesis AI press page (first-party; GENE-26.5 full-stack demo, May 2026)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Genesis AI and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "rhoda-ai",
@@ -242,7 +302,7 @@
     "founded": null,
     "segment": "foundation-models",
     "subSegment": "video-prediction-world-models",
-    "description": "Builds robot foundation models using video-predictive control ('FutureVision') trained on hundreds of millions of internet videos for manufacturing and logistics.",
+    "description": "Builds FutureVision, robot AI whose Direct Video Action model is pre-trained on hundreds of millions of videos, for industrial work in manufacturing and logistics.",
     "approach": ["video-predictive-control", "direct-video-action"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -259,7 +319,15 @@
       { "url": "https://finance.yahoo.com/news/rhoda-ai-raises-450-million-160945418.html", "title": "Rhoda AI raises $450 million at $1.7 billion valuation (Reuters)", "asOf": "2026-08-18" },
       { "url": "https://techfundingnews.com/rhoda-ai-450m-series-a-stealth-exit-robotics/", "title": "Khosla-backed Rhoda raises $450M at $1.7B valuation for video-trained AI", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Rhoda AI and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "mind-robotics",
@@ -271,7 +339,7 @@
     "founded": 2025,
     "segment": "foundation-models",
     "subSegment": "industrial-robotics",
-    "description": "Rivian spinout building AI-enabled industrial robotics platform for automating manufacturing tasks at scale, training on data from Rivian factories.",
+    "description": "Rivian spinoff developing industrial robots to further automate factory operations; it collects video of live work on factory lines, starting with automotive manufacturing.",
     "approach": ["ai-industrial-robotics", "factory-data"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -282,7 +350,7 @@
       "leadInvestors": ["Kleiner Perkins"]
     },
     "status": "private",
-    "deployments": ["Rivian factory deployment target"],
+    "deployments": ["Rivian, its first customer"],
     "openSource": [],
     "sources": [
       { "url": "https://techcrunch.com/2026/05/13/rivian-spinoff-mind-robotics-raises-another-400m/", "title": "Rivian spinoff Mind Robotics raises another $400M (TechCrunch; total >$1B at $3.4B valuation)", "asOf": "2026-08-18" },
@@ -290,7 +358,13 @@
       { "url": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/", "title": "Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges", "asOf": "2026-08-18" },
       { "url": "https://finance.yahoo.com/news/rivian-spinout-mind-robotics-valued-154827510.html", "title": "Rivian spinout Mind Robotics valued at $3.4 billion in new funding round (Reuters; valuation source of record)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mind Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "nvidia-robotics",
@@ -313,13 +387,23 @@
       "leadInvestors": []
     },
     "status": "public",
-    "deployments": ["Isaac GR00T Reference Humanoid Robot (Unitree H2 Plus + Sharpa hands)", "Partnerships with most major humanoid and robotics companies"],
-    "openSource": ["Isaac GR00T (open development platform)"],
+    "deployments": ["Isaac GR00T reference humanoid, to be used by Ai2, ETH Zurich, Stanford and UC San Diego labs"],
+    "openSource": ["Isaac GR00T N1.6 and Cosmos open models (on Hugging Face)", "Isaac Lab-Arena (simulation framework)", "OSMO (workflow command center)"],
     "sources": [
       { "url": "https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design", "title": "NVIDIA Announces Isaac GR00T Reference Humanoid Robot", "asOf": "2026-08-06" },
-      { "url": "https://techcrunch.com/2026/01/05/nvidia-wants-to-be-the-android-of-generalist-robotics/", "title": "Nvidia wants to be the Android of generalist robotics", "asOf": "2026-08-06" }
+      { "url": "https://techcrunch.com/2026/01/05/nvidia-wants-to-be-the-android-of-generalist-robotics/", "title": "Nvidia wants to be the Android of generalist robotics", "asOf": "2026-08-06" },
+      { "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/", "title": "Our History: Innovations Over the Years | NVIDIA", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it NVIDIA and give no other name." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "NVIDIA's robotics business, funded by NVIDIA: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "NVIDIA's robotics business, funded by NVIDIA: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "NVIDIA's robotics business, funded by NVIDIA: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "NVIDIA's robotics business, funded by NVIDIA: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "NVIDIA's robotics business, funded by NVIDIA: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "NVIDIA's robotics business, funded by NVIDIA: it raises no rounds of its own." }
+    }
   },
   {
     "id": "google-deepmind-robotics",
@@ -327,7 +411,7 @@
     "aka": [],
     "website": "https://deepmind.google",
     "logo": "google-deepmind-robotics-logo",
-    "hq": { "city": "Mountain View", "country": "US" },
+    "hq": { "city": "London", "country": "UK" },
     "founded": 2010,
     "segment": "simulation-tooling",
     "subSegment": "foundation-models",
@@ -342,13 +426,25 @@
       "leadInvestors": []
     },
     "status": "public",
-    "deployments": ["Demonstrated on Apptronik Apollo 2", "Partnership with Boston Dynamics for Atlas"],
-    "openSource": ["Gemini Robotics On-Device (model card published)"],
+    "deployments": ["Demonstrated on Apptronik Apollo 2", "Partner robots from Boston Dynamics and Agile Robots"],
+    "openSource": ["MuJoCo (physics simulator)"],
     "sources": [
       { "url": "https://www.theverge.com/tech/973276/google-deepmind-gemini-robotics-2-whole-body-control-ai", "title": "Google DeepMind's Gemini Robotics 2 can control a robot's entire body (The Verge)", "asOf": "2026-08-18" },
-      { "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/", "title": "Gemini Robotics 2 brings whole body intelligence to robots", "asOf": "2026-08-06" }
+      { "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/", "title": "Gemini Robotics 2 brings whole body intelligence to robots", "asOf": "2026-08-06" },
+      { "url": "https://deepmind.google/about/", "title": "About Google DeepMind", "asOf": "2026-10-19" },
+      { "url": "https://find-and-update.company-information.service.gov.uk/company/07386350", "title": "DEEPMIND TECHNOLOGIES LIMITED, Companies House", "asOf": "2026-10-19" },
+      { "url": "https://github.com/google-deepmind/mujoco", "title": "google-deepmind/mujoco: a general purpose physics simulator (GitHub)", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Google DeepMind and give no other name." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "Google DeepMind's robotics work, funded by Google: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "Google DeepMind's robotics work, funded by Google: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "Google DeepMind's robotics work, funded by Google: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "Google DeepMind's robotics work, funded by Google: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "Google DeepMind's robotics work, funded by Google: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "Google DeepMind's robotics work, funded by Google: it raises no rounds of its own." }
+    }
   },
   {
     "id": "hugging-face-lerobot",
@@ -360,7 +456,7 @@
     "founded": 2016,
     "segment": "simulation-tooling",
     "subSegment": "open-source-frameworks",
-    "description": "Develops the LeRobot open-source robotics platform and Reachy Mini desktop companion robot for accessible embodied AI experimentation.",
+    "description": "Develops LeRobot, an open-source library of data-collection, training and visualization tools for robot learning, and Reachy Mini, a desktop-sized open-source robot.",
     "approach": ["open-source", "community-driven", "democratization"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -375,9 +471,20 @@
     "openSource": ["LeRobot", "Reachy Mini"],
     "sources": [
       { "url": "https://huggingface.co/blog/reachy-mini", "title": "Reachy Mini - Open-Source Robot", "asOf": "2026-08-06" },
-      { "url": "https://www.startuphub.ai/ai-news/robotics/2026/hugging-face-s-reachy-mini-the-300-open-source-robot", "title": "Hugging Face's Reachy Mini: The $300 Open Source Robot", "asOf": "2026-08-06" }
+      { "url": "https://www.startuphub.ai/ai-news/robotics/2026/hugging-face-s-reachy-mini-the-300-open-source-robot", "title": "Hugging Face's Reachy Mini: The $300 Open Source Robot", "asOf": "2026-08-06" },
+      { "url": "https://techcrunch.com/2023/08/24/hugging-face-raises-235m-from-investors-including-salesforce-and-nvidia/", "title": "Hugging Face raises $235M from investors, including Salesforce and Nvidia", "asOf": "2026-10-19" },
+      { "url": "https://github.com/huggingface/lerobot", "title": "huggingface/lerobot: Making AI for Robotics more accessible (GitHub)", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "deployments": { "state": "not-disclosed" },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "Hugging Face's robotics work (LeRobot), funded by Hugging Face: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "Hugging Face's robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "Hugging Face's robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "Hugging Face's robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "Hugging Face's robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "Hugging Face's robotics work (LeRobot), funded by Hugging Face: it raises no rounds of its own." }
+    }
   },
   {
     "id": "applied-intuition",
@@ -385,7 +492,7 @@
     "aka": [],
     "website": "https://www.appliedintuition.com",
     "logo": "applied-intuition-logo",
-    "hq": { "city": "Mountain View", "country": "US" },
+    "hq": { "city": "Sunnyvale", "country": "US" },
     "founded": 2017,
     "segment": "simulation-tooling",
     "subSegment": "simulation-platforms",
@@ -397,16 +504,23 @@
       "amountUsd": 600000000,
       "date": "2025-06-17",
       "valuationUsd": 15000000000,
-      "leadInvestors": ["BlackRock", "Kleiner Perkins"]
+      "leadInvestors": ["BlackRock", "Kleiner Perkins"],
+      "caveat": { "text": "The $600M covers the Series F and a tender offer together; the company does not say how much is new money.", "sourceUrls": ["https://www.appliedintuition.com/press-releases/series-f"] }
     },
     "status": "private",
-    "deployments": ["18 of top 20 automakers", "AeroVironment Mayhem 10 drone swarm collaboration"],
+    "deployments": ["18 of top 20 automakers"],
     "openSource": [],
     "sources": [
       { "url": "https://www.appliedintuition.com/blog/series-f", "title": "Series F funding drives $15B valuation (first-party; BlackRock and Kleiner Perkins led)", "asOf": "2026-08-18" },
-      { "url": "https://www.semafor.com/article/07/20/2026/applied-intuition-wants-to-turn-robotics-into-childs-play", "title": "Exclusive: Applied Intuition wants to turn robotics into child's play (Semafor; original of the syndicated Yahoo Tech piece)", "asOf": "2026-08-18" }
+      { "url": "https://www.semafor.com/article/07/20/2026/applied-intuition-wants-to-turn-robotics-into-childs-play", "title": "Exclusive: Applied Intuition wants to turn robotics into child's play (Semafor; original of the syndicated Yahoo Tech piece)", "asOf": "2026-08-18" },
+      { "url": "https://www.appliedintuition.com/press-releases/series-f", "title": "Applied Intuition Closes $600M Series F at $15B Valuation", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Applied Intuition and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "xdof",
@@ -430,12 +544,23 @@
     },
     "status": "private",
     "deployments": [],
-    "openSource": [],
+    "openSource": ["ABC-130K teleoperation dataset"],
     "sources": [
       { "url": "https://techcrunch.com/2026/06/17/collecting-robot-training-data-is-dirty-unglamorous-work-some-ai-labs-are-already-paying-xdof-to-do-it/", "title": "XDOF exits stealth with $70M (Thrive Capital, Spark Capital, a16z, Lux, WndrCo)", "asOf": "2026-08-18" },
-      { "url": "https://theaiinsider.tech/2026/06/18/robotics-infrastructure-startup-xdof-emerges-from-stealth-with-70m/", "title": "XDOF Emerges from Stealth with $70M", "asOf": "2026-08-06" }
+      { "url": "https://theaiinsider.tech/2026/06/18/robotics-infrastructure-startup-xdof-emerges-from-stealth-with-70m/", "title": "XDOF Emerges from Stealth with $70M", "asOf": "2026-08-06" },
+      { "url": "https://www.xdof.ai/careers", "title": "Careers | XDOF", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it XDOF and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "encord",
@@ -463,9 +588,17 @@
     "sources": [
       { "url": "https://encord.com/blog/encord-announces-30-million-series-b/", "title": "Announcing Encord's $30 million Series B funding, led by Next47 (first-party)", "asOf": "2026-08-18" },
       { "url": "https://encord.com/data-collection-services/", "title": "Real-world training data collection for Physical AI", "asOf": "2026-08-06" },
-      { "url": "https://www.technologyreview.com/2026/04/01/1134863/", "title": "The gig workers who are training humanoid robots at home (MIT Technology Review; Encord and Micro1 paying people to film chores)", "asOf": "2026-08-18" }
+      { "url": "https://www.technologyreview.com/2026/04/01/1134863/", "title": "The gig workers who are training humanoid robots at home (MIT Technology Review; Encord and Micro1 paying people to film chores)", "asOf": "2026-08-18" },
+      { "url": "https://find-and-update.company-information.service.gov.uk/company/12330483", "title": "CORD TECHNOLOGIES LIMITED, Companies House", "asOf": "2026-10-19" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Encord and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "micro1",
@@ -473,11 +606,11 @@
     "aka": [],
     "website": "https://www.micro1.ai",
     "logo": "micro1-logo",
-    "hq": { "city": "San Francisco", "country": "US" },
+    "hq": { "city": "Palo Alto", "country": "US" },
     "founded": null,
     "segment": "simulation-tooling",
     "subSegment": "data-collection",
-    "description": "Provides expert-demonstrated teleoperation data for frontier robotics labs, capturing human demonstrations in real working environments.",
+    "description": "Provides expert-demonstrated data to frontier robotics labs: first-person and third-person recordings of domain experts doing real-world tasks.",
     "approach": ["teleoperation", "expert-demonstrations"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -491,9 +624,22 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://www.micro1.ai/data-engine/robotics", "title": "High quality expert-demonstrated data for frontier robotics labs", "asOf": "2026-08-06" }
+      { "url": "https://www.micro1.ai/data-engine/robotics", "title": "High quality expert-demonstrated data for frontier robotics labs", "asOf": "2026-08-06" },
+      { "url": "https://www.latimes.com/business/story/2026-02-07/how-la-garage-sales-launched-ais-latest-20-something-billionaire", "title": "How L.A. garage sales launched AI's latest 20-something billionaire (Los Angeles Times)", "asOf": "2026-10-19" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Micro1 and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "figure-ai",
@@ -510,43 +656,49 @@
     "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series C",
-      "amountUsd": 1000000000,
+      "amountUsd": null,
       "date": "2025-09-16",
       "valuationUsd": 39000000000,
-      "leadInvestors": ["Parkway Venture Capital"]
+      "leadInvestors": ["Parkway Venture Capital"],
+      "caveat": { "text": "Figure says the Series C exceeded $1B; it gives no exact amount.", "sourceUrls": ["https://www.figure.ai/news/series-c"] }
     },
     "status": "private",
-    "deployments": ["BMW Spartanburg plant", "~740 robots operating internally as of Jun 2026"],
+    "deployments": ["BMW manufacturing partnership (announced Jan 2024)", "~740 robots operating internally as of Jun 2026"],
     "openSource": [],
     "sources": [
       { "url": "https://www.figure.ai/news/series-c", "title": "Figure Exceeds $1B in Series C Funding at $39B Post-Money Valuation", "asOf": "2026-08-18" },
       { "url": "https://en.wikipedia.org/wiki/Figure_AI", "title": "Figure AI - Wikipedia", "asOf": "2026-08-18" },
       { "url": "https://www.thedailystar.net/news/tech-startup/news/figure-ai-now-employs-more-robots-humans-founder-says-4205101", "title": "Figure AI now employs more robots than humans", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "1x-technologies",
     "name": "1X Technologies",
-    "aka": ["1X", "Halodi"],
+    "aka": ["1X", "Halodi Robotics"],
     "website": "https://www.1x.tech",
     "logo": "1x-technologies-logo",
-    "hq": { "city": "Oslo", "country": "NO" },
+    "hq": { "city": "Palo Alto", "country": "US" },
     "founded": 2014,
     "segment": "humanoids",
     "subSegment": "home-humanoids",
-    "description": "Builds NEO, a bipedal home humanoid robot for household chores, available for pre-order at $20,000; also deploying to industrial use cases.",
+    "description": "Builds NEO, a bipedal humanoid robot for chores at home, on pre-order at $20,000 for early adopters.",
     "approach": ["home-humanoid", "passive-stability"],
     "totalRaisedUsd": null,
     "latestRound": {
       "type": "Series B",
       "amountUsd": 100000000,
-      "date": "2024-01-01",
-      "valuationUsd": 500000000,
+      "date": "2024-01-11",
+      "valuationUsd": null,
       "leadInvestors": ["EQT Ventures"]
     },
     "status": "private",
-    "deployments": ["Pre-orders open", "Industrial pilots"],
+    "deployments": ["NEO home robot pre-orders (opened Oct 2025)"],
     "openSource": [],
     "sources": [
       { "url": "https://en.wikipedia.org/wiki/1X_Technologies", "title": "1X Technologies (funding history: $23.5M A2 led OpenAI Startup Fund 2023; $100M Series B led EQT Ventures 2024-01; Sept 2025 reported *seeking* $1B, not closed)", "asOf": "2026-08-18" },
@@ -554,7 +706,12 @@
       { "url": "https://techstartups.com/2025/09/24/norways-1x-raising-1b-at-10b-valuation/", "title": "Norway's 1X raising $1B at $10B valuation", "asOf": "2026-08-06" },
       { "url": "https://humanoidroboticstechnology.com/industry-news/1x-announces-strategic-partnership-with-eqt/", "title": "1X Announces Strategic Partnership with EQT (up to 10,000 humanoids across EQT portfolio companies, 2026-2030)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "agility-robotics",
@@ -566,7 +723,7 @@
     "founded": 2015,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
-    "description": "Builds Digit, a bipedal robot for material handling in warehouses and logistics; going public via SPAC merger with Churchill Capital Corp XI.",
+    "description": "Builds Digit, a bipedal robot working in manufacturing, distribution and logistics; going public through a merger with the SPAC Churchill Capital Corp XI.",
     "approach": ["bipedal-locomotion", "warehouse-automation"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -577,13 +734,19 @@
       "leadInvestors": ["Churchill Capital Corp XI"]
     },
     "status": "private",
-    "deployments": ["GXO Logistics", "Amazon fulfillment centers", "Schaeffler", "Toyota Motor Manufacturing Canada"],
+    "deployments": ["GXO Logistics", "Schaeffler", "Toyota Motor Manufacturing Canada", "Mercado Libre"],
     "openSource": [],
     "sources": [
       { "url": "https://www.agilityrobotics.com/content/agility-robotics-to-go-public-through-merger-with-churchill-capital-corp-xi", "title": "Agility Robotics to Go Public Through Merger with Churchill Capital Corp XI (first-party; $2.5B; ticker AGLT)", "asOf": "2026-08-18" },
       { "url": "https://techcrunch.com/2026/06/24/agility-robotics-plans-to-go-public-via-spac-in-a-2-5b-deal/", "title": "Agility Robotics plans to go public via SPAC", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Agility Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "apptronik",
@@ -595,7 +758,7 @@
     "founded": 2016,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
-    "description": "Builds Apollo humanoid robots for industrial use, powered by Google DeepMind Gemini Robotics; scaling production and robot-training facilities in Austin.",
+    "description": "Builds Apollo humanoid robots for manufacturing, warehouses and retail, and is working with Google DeepMind on a next generation powered by Gemini Robotics.",
     "approach": ["humanoid", "gemini-robotics-integration", "data-collection-at-scale"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -612,19 +775,24 @@
       { "url": "https://www.cnbc.com/2026/02/11/apptronik-raises-520-million-at-5-billion-valuation-for-apollo-robot.html", "title": "Apptronik raises $520 million at $5 billion valuation", "asOf": "2026-08-18" },
       { "url": "https://apptronik.com/news-collection/apptronik-closes-over-935-million-series-a", "title": "Apptronik Closes Over $935 Million Series A", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Apptronik and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "tesla-optimus",
     "name": "Tesla (Optimus)",
-    "aka": ["Optimus", "Bot"],
+    "aka": ["Optimus", "Tesla Bot"],
     "website": "https://www.tesla.com",
     "logo": "tesla-logo",
     "hq": { "city": "Austin", "country": "US" },
     "founded": 2003,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
-    "description": "Develops the Optimus humanoid robot for factory and eventually consumer tasks; Gen 3 in internal testing with several hundred units deployed internally.",
+    "description": "Develops the Optimus humanoid robot, first for simple factory tasks and later for everyday tasks in and outside the home.",
     "approach": ["full-stack", "in-house-actuators", "end-to-end-neural"],
     "totalRaisedUsd": null,
     "latestRound": {
@@ -635,13 +803,23 @@
       "leadInvestors": []
     },
     "status": "public",
-    "deployments": ["Several hundred units in Tesla factories (internal)", "Production targeted late July 2026 at Fremont"],
+    "deployments": ["Production to start at Fremont in late July or August 2026"],
     "openSource": [],
     "sources": [
       { "url": "https://electrek.co/2026/04/22/tesla-optimus-production-fremont-model-sx-line/", "title": "Tesla pushes Optimus V3 reveal later this year", "asOf": "2026-08-06" },
-      { "url": "https://optimusk.blog/blog/tesla-optimus-production-timeline/", "title": "Tesla Optimus Production Timeline 2026", "asOf": "2026-08-06" }
+      { "url": "https://en.wikipedia.org/wiki/Tesla,_Inc.", "title": "Tesla, Inc. - Wikipedia", "asOf": "2026-10-19" },
+      { "url": "https://en.wikipedia.org/wiki/Optimus_(robot)", "title": "Optimus (robot) - Wikipedia", "asOf": "2026-10-19" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "Tesla's humanoid programme, funded by Tesla: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "Tesla's humanoid programme, funded by Tesla: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "Tesla's humanoid programme, funded by Tesla: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "Tesla's humanoid programme, funded by Tesla: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "Tesla's humanoid programme, funded by Tesla: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "Tesla's humanoid programme, funded by Tesla: it raises no rounds of its own." }
+    }
   },
   {
     "id": "boston-dynamics",
@@ -653,24 +831,33 @@
     "founded": 1992,
     "segment": "humanoids",
     "subSegment": "industrial-humanoids",
-    "description": "Builds the electric Atlas humanoid for industrial deployment, partnering with Google DeepMind for embodied AI; Hyundai subsidiary.",
+    "description": "Builds the fully electric Atlas humanoid for industrial work, with first deployments at Hyundai and Google DeepMind; a Hyundai Motor Group subsidiary.",
     "approach": ["electric-atlas", "whole-body-control", "deepmind-partnership"],
     "totalRaisedUsd": null,
     "latestRound": {
       "type": "Acquisition",
-      "amountUsd": 1100000000,
-      "date": "2021-01-01",
-      "valuationUsd": null,
-      "leadInvestors": ["Hyundai Motor Group"]
+      "amountUsd": null,
+      "date": "2021-06-21",
+      "valuationUsd": 1100000000,
+      "leadInvestors": ["Hyundai Motor Group"],
+      "sourceUrl": "https://bostondynamics.com/news/hyundai-motor-group-completes-acquisition-of-boston-dynamics-from-softbank/"
     },
     "status": "acquired",
-    "deployments": ["Hyundai Metaplant Georgia", "Hyundai committed 25,000 Atlas robots to own factories", "Atlas product unveiled Jan 2026; all 2026 deployments committed to Hyundai and Google DeepMind", "Hyundai preparing tens of thousands of robots; new US robotics factory planned at 30,000 robots/yr"],
+    "deployments": ["Hyundai Motor Group Metaplant America, Savannah (first Atlas site, from 2028)", "Hyundai plans more than 25,000 Atlas robots across Hyundai and Kia plants", "Atlas product unveiled Jan 2026; all 2026 deployments committed to Hyundai and Google DeepMind", "Hyundai preparing tens of thousands of robots; new US robotics factory planned at 30,000 robots/yr"],
     "openSource": [],
     "sources": [
       { "url": "https://bostondynamics.com/blog/boston-dynamics-unveils-new-atlas-robot-to-revolutionize-industry/", "title": "Boston Dynamics unveils product Atlas at CES Jan 2026; Hyundai majority shareholder; 2026 fleets committed to Hyundai and Google DeepMind", "asOf": "2026-08-18" },
-      { "url": "https://www.techtimes.com/articles/317005/20260522/hyundai-commits-25000-atlas-robots-own-factories.htm", "title": "Hyundai Commits 25,000 Atlas Robots to Own Factories", "asOf": "2026-08-06" }
+      { "url": "https://www.techtimes.com/articles/317005/20260522/hyundai-commits-25000-atlas-robots-own-factories.htm", "title": "Hyundai Commits 25,000 Atlas Robots to Own Factories", "asOf": "2026-08-06" },
+      { "url": "https://en.wikipedia.org/wiki/Boston_Dynamics", "title": "Boston Dynamics - Wikipedia", "asOf": "2026-10-19" },
+      { "url": "https://bostondynamics.com/news/hyundai-motor-group-completes-acquisition-of-boston-dynamics-from-softbank/", "title": "Hyundai Motor Group Completes Acquisition of Boston Dynamics from SoftBank", "asOf": "2026-10-19" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Boston Dynamics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "unitree-robotics",
@@ -694,14 +881,19 @@
       "sourceUrl": "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html"
     },
     "status": "public",
-    "deployments": ["2025 humanoid shipments, cumulative quadruped shipments, and global sales-share rank not verified from an inspected Unitree company body", "DeepSeek strategic investment"],
-    "openSource": [],
+    "deployments": ["2025 humanoid shipments, cumulative quadruped shipments, and global sales-share rank not verified from an inspected Unitree company body"],
+    "openSource": ["UnifoLM-VLA-0 model", "G1 and Z1 manipulation datasets", "unitree_IL_lerobot"],
     "sources": [
       { "url": "https://restofworld.org/2026/unitree-china-humanoid-robot-shanghai-ipo/", "title": "China robot maker Unitree files for $610 million Shanghai IPO", "asOf": "2026-08-18" },
       { "url": "https://www.cnbc.com/2026/08/06/chinese-humanoid-robot-maker-unitree-prices-ipo-at-9-billion-valuation.html", "title": "Chinese humanoid robot maker Unitree prices IPO at $9 billion valuation", "asOf": "2026-08-18" },
-      { "url": "https://en.wikipedia.org/wiki/Unitree_Robotics", "title": "Unitree Robotics - Wikipedia", "asOf": "2026-08-18" }
+      { "url": "https://en.wikipedia.org/wiki/Unitree_Robotics", "title": "Unitree Robotics - Wikipedia", "asOf": "2026-08-18" },
+      { "url": "https://www.unitree.com/opensource", "title": "Official Open Source - Unitree Robotics", "asOf": "2026-10-19" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "ubtech-robotics",
@@ -732,7 +924,11 @@
       { "url": "https://www.bastillepost.com/global/article/5377164-ubtech-humanoid-robot-walker-s2-begins-mass-production-and-delivery", "title": "UBTECH Humanoid Robot Walker S2 Begins Mass Production and Delivery (Bastille Post, PRN wire, 2025-11-17)", "asOf": "2026-08-18" },
       { "url": "https://kelo.com/2026/01/21/ubtech-agrees-airbus-deal-to-expand-robot-use-in-aviation-manufacturing/", "title": "UBTech agrees Airbus deal", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "fourier-intelligence",
@@ -763,7 +959,12 @@
       { "url": "https://interestingengineering.com/ai-robotics/fouriers-gr-3-humanoid-at-ces-2026", "title": "Fourier's GR-3 humanoid at CES 2026", "asOf": "2026-08-06" },
       { "url": "https://techbullion.com/fourier-intelligence-partners-with-deepseek-to-launch-soft-designed-gr-3-humanoid-robot/", "title": "Fourier Intelligence Partners with DeepSeek for GR-3", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "galbot",
@@ -793,7 +994,12 @@
       { "url": "https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html", "title": "Galbot Secures Over $300 Million in New Funding", "asOf": "2026-08-06" },
       { "url": "https://www.catl.com/en/news/6881.html", "title": "First Heavy-Duty Humanoid Robot Powered by CATL Batteries Goes Global (CATL first-party, 2026-06-24)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.type": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "agibot",
@@ -832,7 +1038,14 @@
       { "url": "https://finance.yahoo.com/news/exclusive-chinese-robot-maker-agibot-092020928.html", "title": "AgiBot plans Hong Kong IPO next year (Reuters; Shanghai-based, Tencent and HongShan backers, PitchBook $2.07B valuation)", "asOf": "2026-08-18" },
       { "url": "https://www.prnewswire.com/news-releases/omdia-ranks-agibot-no1-worldwide-in-humanoid-robot-shipments-in-2025-302656788.html", "title": "Omdia Ranks AGIBOT No.1 Worldwide in Humanoid Robot Shipments in 2025 (first-party)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "sanctuary-ai",
@@ -861,7 +1074,16 @@
       { "url": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review", "title": "Sanctuary AI Phoenix 2026: the June 2026 pivot to Physical AI software, funding history (fully sourced recap)", "asOf": "2026-08-18" },
       { "url": "https://sanctuary.ai/news/", "title": "Sanctuary AI deploys Physical AI with production-ready performance", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Sanctuary AI and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "neura-robotics",
@@ -891,7 +1113,15 @@
       { "url": "https://neura-robotics.com/record-series-c/", "title": "NEURA Robotics Announces Record Series C of up to $1.4B (first-party; amount kept as a bound, not promoted)", "asOf": "2026-08-18" },
       { "url": "https://www.cnbc.com/2026/06/10/neura-robotics-funding-ai-humanoid-robots.html", "title": "NEURA Robotics raises up to $1.4B from Nvidia, Amazon", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it NEURA Robotics and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "humanoid-uk",
@@ -920,7 +1150,12 @@
       { "url": "https://thehumanoid.ai/humanoid-raises-152-million-at-1-35-billion-post-money-valuation", "title": "Humanoid Raises $152 Million at $1.35 Billion Post-Money Valuation (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/uk-based-humanoid-secures-152m-in-series-a-funding/", "title": "U.K.-based Humanoid secures $152M in Series A funding (The Robot Report)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Humanoid and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." }
+    }
   },
   {
     "id": "spirit-ai",
@@ -952,7 +1187,15 @@
       { "url": "https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/", "title": "Spirit AI's Spirit v1.6 Tops RoboArena (StackFutures; 1.5B yuan / $222M Series A+ on June 3)", "asOf": "2026-08-18" },
       { "url": "https://news.pedaily.cn/202606/564786.shtml", "title": "千寻智能完成15亿元A+轮融资 (PEdaily; A+ round announced 2026-06-03)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "galaxea-ai",
@@ -983,7 +1226,14 @@
       { "url": "https://www.cxodigitalpulse.com/chinas-galaxea-ai-raises-290-4-million-in-series-b-round-to-accelerate-robotics-push/", "title": "China's Galaxea AI Raises $290.4 Million in Series B+ Round (CXO Digitalpulse)", "asOf": "2026-08-18" },
       { "url": "https://theaiinsider.tech/2026/04/04/chinese-robotics-startup-galaxea-ai-raises-290m-usd-in-series-b-funding-valued-at-29b-usd/", "title": "Chinese Robotics Startup Galaxea AI Raises $290M USD in Series B+ Funding (The AI Insider, citing Yicai Global)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "engineai",
@@ -1013,7 +1263,12 @@
       { "url": "https://www.lanjinger.com/d/1778055085697120105", "title": "蓝鲸独家｜众擎机器人完成B+轮融资 (Blue Whale Finance; Series B closed 2026-04-09, co-led by Henan Huirong + Luxshare, B+ in May)", "asOf": "2026-08-18" },
       { "url": "https://cryptobriefing.com/engineai-hong-kong-ipo-filing/", "title": "EngineAI files confidentially for Hong Kong IPO (Crypto Briefing; $200M Series B at $1.5B)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "robot-era",
@@ -1044,13 +1299,23 @@
       { "url": "https://pulse2.com/robotera-raises-over-200-million-to-scale-humanoid-robotics-commercialization/", "title": "ROBOTERA Raises Over $200 Million To Scale Humanoid Robotics Commercialization (Pulse 2.0; round led by SF Group)", "asOf": "2026-08-18" },
       { "url": "https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/", "title": "RobotEra raises over US$200M in latest funding round (Frontier Enterprise; led by SF Group after RMB 1B March round)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "tars-robotics",
     "name": "TARS Robotics",
     "aka": ["TARS"],
-    "website": "https://www.tars.bot",
+    "website": null,
     "logo": "tars-robotics-logo",
     "hq": { "city": "Shanghai", "country": "CN" },
     "founded": 2025,
@@ -1074,7 +1339,14 @@
       { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "TARS Robotics raises $513M seed", "asOf": "2026-08-18" },
       { "url": "https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector", "title": "TARS Raises $455M Pre-A Round, Setting Record in China's Embodied AI Sector (Pandaily; announced 2026-04-16)", "asOf": "2026-08-25" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "website": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "x-square-robot",
@@ -1105,7 +1377,13 @@
       { "url": "https://kr-asia.com/xiaomi-hongshan-back-x-square-robot-in-series-b-round", "title": "Xiaomi, HongShan back X Square Robot in Series B round (KrASIA; nearly RMB 2B / USD 292.8M, co-led)", "asOf": "2026-08-18" },
       { "url": "https://theaiinsider.tech/2026/04/22/x-square-robot-raises-276m-in-series-b-funding-for-household-robots/", "title": "X Square Robot Raises $276M in Series B Funding (The AI Insider, citing China Daily; nearly $276M led by Xiaomi arm)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "deep-robotics",
@@ -1134,7 +1412,13 @@
       { "url": "https://finance.yahoo.com/news/chinas-deep-robotics-raises-us-093000532.html", "title": "China's Deep Robotics raises US$70 million (500M yuan Series C; SCMP via Yahoo)", "asOf": "2026-08-18" },
       { "url": "https://www.deeprobotics.cn/en", "title": "Deep Robotics - Global Quadruped Robot Leader", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "kepler-robot",
@@ -1164,7 +1448,14 @@
       { "url": "https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml", "title": "YICAI: Kelin Electric to buy controlling stake in Kepler (up to USD 44.1M)", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/kepler-robot", "title": "Kepler Robot - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "limx-dynamics",
@@ -1196,7 +1487,16 @@
       { "url": "https://finance.biggo.com/news/269a54b1-070f-49ab-bce0-ff7a5776dd0f", "title": "LimX Dynamics Raises $400M in Six Months, Hits $2.2B Valuation (BigGo; nearly $200M Pre-IPO completed 2026-07-14, 15B yuan post-money)", "asOf": "2026-08-18" },
       { "url": "https://eu.36kr.com/en/p/3893976502287618", "title": "LimX Dynamics $200M Pre-IPO Financing | 15B Yuan Post-Money Valuation (36Kr)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "wandercraft",
@@ -1225,7 +1525,14 @@
       { "url": "https://www.globenewswire.com/news-release/2025/06/11/3097632/0/en/wandercraft-announces-Series-D-Round-bringing-75M-in-total-funding.html", "title": "Wandercraft announces Series D Round (first-party)", "asOf": "2026-08-18" },
       { "url": "https://techfundingnews.com/wandercraft-snaps-75m-series-d-to-expand-ai-powered-robotics/", "title": "Wandercraft snaps $75M Series D", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Wandercraft and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "clone-robotics",
@@ -1254,7 +1561,18 @@
       { "url": "https://www.aparobot.com/companies/clone-robotics", "title": "Clone Robotics profile (seed $6.5M, as reported)", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/clone-robotics", "title": "Clone Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Clone Robotics and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "mentee-robotics",
@@ -1287,7 +1605,14 @@
       { "url": "https://humanoidindex.org/companies/mentee-robotics", "title": "Mentee Robotics - Humanoid Index", "asOf": "2026-08-18" },
       { "url": "https://web.archive.org/web/20250724144907/https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/", "title": "Mentee Robotics Raised $17 million for their Humanoid Robot, MenteeBot (Startup Hub AI; archived capture of 2025-07-24, the live page is gone)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mentee Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "persona-ai",
@@ -1317,7 +1642,13 @@
       { "url": "https://www.therobotreport.com/persona-ai-raises-27m-develops-purpose-built-humanoid-robots/", "title": "Persona AI raises $27M for humanoid robots", "asOf": "2026-08-06" },
       { "url": "https://spectrum.ieee.org/persona-ai-radford-pratt/particle-1", "title": "Robotics Experts Found Persona AI Startup", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Persona AI and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "rainbow-robotics",
@@ -1346,7 +1677,13 @@
       { "url": "https://news.samsung.com/global/samsung-electronics-to-become-largest-shareholder-in-rainbow-robotics", "title": "Samsung To Become Largest Shareholder in Rainbow Robotics", "asOf": "2026-08-06" },
       { "url": "https://www.techtimes.com/articles/317465/20260531/samsung-lg-robotics-investment-drives-117-revenue-surge.htm", "title": "Samsung LG robotics investment drives 117% revenue surge", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Rainbow Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "symbotic",
@@ -1375,7 +1712,17 @@
       { "url": "https://seekingalpha.com/article/4924767-symbotic-compelling-growth-story-but-at-the-wrong-price", "title": "Symbotic: $22.7B backlog with Walmart", "asOf": "2026-08-06" },
       { "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/", "title": "Symbotic acquires Fox Robotics", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Symbotic and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "dexterity",
@@ -1404,7 +1751,13 @@
       { "url": "https://finance.yahoo.com/news/dexterity-secures-95m-reaching-1-110002439.html", "title": "Dexterity secures $95m, reaching $1.65bn valuation (total funding nearly $300m)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/dexterity-picks-up-95m-funding-container-unloading-robots/", "title": "Dexterity picks up $95M in funding", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Dexterity and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.type": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "berkshire-grey",
@@ -1433,7 +1786,13 @@
       { "url": "https://www.berkshiregrey.com/resources/press-release/berkshire-grey-enters-into-definitive-merger-agreement-with-softbank", "title": "Berkshire Grey Enters into Definitive Merger Agreement with SoftBank", "asOf": "2026-08-06" },
       { "url": "https://techcrunch.com/2026/03/31/fedex-chooses-partnerships-over-proprietary-tech-for-its-automation-strategy/", "title": "FedEx chooses partnerships, including Berkshire Grey", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Berkshire Grey and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "amazon-robotics",
@@ -1462,7 +1821,17 @@
       { "url": "https://www.aboutamazon.com/news/operations/new-robots-amazon-fulfillment-agentic-ai", "title": "Introducing Blue Jay and Project Eluna", "asOf": "2026-08-06" },
       { "url": "https://awsinsider.net/articles/2025/11/05/the-rise-of-amazon-ai-robots.aspx", "title": "The Rise of Amazon AI Robots", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources call it Amazon Robotics and give no other name (its website returned no readable body)." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "Amazon's robotics business, funded by Amazon: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "Amazon's robotics business, funded by Amazon: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "Amazon's robotics business, funded by Amazon: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "Amazon's robotics business, funded by Amazon: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "Amazon's robotics business, funded by Amazon: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "Amazon's robotics business, funded by Amazon: it raises no rounds of its own." }
+    }
   },
   {
     "id": "nimble-robotics",
@@ -1494,7 +1863,11 @@
       { "url": "https://pulse2.com/nimble-ai-based-robotics-company-raises-106-million-series-c/", "title": "Nimble: AI-Based Robotics Company Raises $106 Million Series C (Pulse2, 2024-10-25)", "asOf": "2026-08-18" },
       { "url": "https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex", "title": "Nimble Closes $106 Million Series C at $1B Valuation, Scales Fully Autonomous Fulfillment with FedEx (first-party, 2024-10-23)", "asOf": "2026-08-24" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "locus-robotics",
@@ -1523,7 +1896,13 @@
       { "url": "https://aithority.com/technology/locus-robotics-announces-117-million-in-series-f-funding/", "title": "Locus Robotics Announces $117 Million in Series F Funding (AIthority, 2022-11-29)", "asOf": "2026-08-18" },
       { "url": "https://www.dcvelocity.com/editorial/featured/locus-robotics-acquires-nexera-robotics/", "title": "Locus Robotics acquires Nexera Robotics", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Locus Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "mujin",
@@ -1553,7 +1932,13 @@
       { "url": "https://www.ttnews.com/articles/mujin-robot-software-warehouse", "title": "Mujin Develops Robot Software for Warehouses and Factories (Transport Topics, Bloomberg wire; IPO by 2030)", "asOf": "2026-08-18" },
       { "url": "https://pulse2.com/mujin-233-million-funding/", "title": "Mujin: $233 Million Closed To Scale Its Intelligent Robotics Platform (Pulse2)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mujin and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "righthand-robotics",
@@ -1581,7 +1966,14 @@
     "sources": [
       { "url": "https://www.therobotreport.com/righthand-robotics-receives-investment-from-rockwell-automation/", "title": "RightHand Robotics receives strategic investment from Rockwell Automation (2025-03-06)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it RightHand Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "ambirobotics",
@@ -1610,7 +2002,14 @@
       { "url": "https://www.ambirobotics.com/media/ambi-robotics-secures-32m-infusion-to-deploy-its-item-sorting-robots/", "title": "Ambi Robotics secures $32M infusion (first-party, 2022-10-17)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/ambi-robotics-32m-sorting-robots/", "title": "Ambi Robotics raises $32M for sorting robots (The Robot Report)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Ambi Robotics and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "plus-one-robotics",
@@ -1639,7 +2038,14 @@
       { "url": "https://techcrunch.com/2023/03/07/plusone-raises-50m-for-its-parcel-robotics-vision-systems/", "title": "Plus One raises $50M for its parcel robotics vision systems (TechCrunch, 2023-03-07)", "asOf": "2026-08-18" },
       { "url": "https://newmarketpitch.com/blogs/news/warehouse-robotics-top-startups-fundraising", "title": "Top Warehouse Robotics Startups by Fundraising 2026", "asOf": "2026-08-06" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Plus One Robotics and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "carbon-robotics",
@@ -1670,7 +2076,13 @@
       { "url": "https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/", "title": "Carbon Robotics raises $20M (GeekWire, 2025-10-23; includes NVIDIA NVentures)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/carbon-robotics-brings-in-70m-to-scale-laserweeder/", "title": "Carbon Robotics brings in $70M to scale LaserWeeder (The Robot Report, 2024-10-21)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Carbon Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "monarch-tractor",
@@ -1701,7 +2113,14 @@
       { "url": "https://www.ttnews.com/articles/caterpillar-acquires-monarch", "title": "Caterpillar Buys Autonomous Electric Tractor Firm Monarch", "asOf": "2026-08-06" },
       { "url": "https://futurism.com/robots-and-machines/ai-tractor-startup-founders", "title": "AI-Powered Tractor Startup Burns Through Quarter Billion Dollars", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources call it Monarch Tractor and give no other name (its website returned no readable body)." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "farm-ng",
@@ -1709,27 +2128,39 @@
     "aka": [],
     "website": "https://farm-ng.com",
     "logo": "farm-ng-logo",
-    "hq": { "city": null, "country": "US" },
-    "founded": null,
+    "hq": { "city": "Watsonville", "country": "US" },
+    "founded": 2020,
     "segment": "vertical-applications",
     "subSegment": "agriculture",
-    "description": "Builds modular autonomous farm robots for data collection and field operations.",
+    "description": "Built the Amiga, a modular electric farm robot for small and mid-sized farms; acquired by Bonsai Robotics in July 2025.",
     "approach": ["modular-autonomous-farm-robot"],
     "totalRaisedUsd": null,
     "latestRound": {
-      "type": null,
+      "type": "Acquisition",
       "amountUsd": null,
-      "date": null,
+      "date": "2025-07-24",
       "valuationUsd": null,
-      "leadInvestors": []
+      "leadInvestors": ["Bonsai Robotics"],
+      "sourceUrl": "https://bonsairobotics.ai/news/bonsai-robotics-acquires-farm-ng-to-lead-the-future-of-autonomous-farming/"
     },
-    "status": "private",
+    "status": "acquired",
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://farm-ng.com/", "title": "Farm-ng - Autonomous Farm Robots", "asOf": "2026-08-06" }
+      { "url": "https://farm-ng.com/", "title": "Farm-ng - Autonomous Farm Robots", "asOf": "2026-08-06" },
+      { "url": "https://bonsairobotics.ai/news/bonsai-robotics-acquires-farm-ng-to-lead-the-future-of-autonomous-farming/", "title": "Bonsai Robotics Acquires farm-ng to Lead the Future of Autonomous Farming (Bonsai Robotics, first-party, 2025-07-24; financial terms undisclosed)", "asOf": "2026-10-19" },
+      { "url": "https://www.therobotreport.com/bonsai-robotics-and-farm-ng-unite-for-intelligent-farming-solutions/", "title": "Bonsai Robotics and farm-ng unite for intelligent farming solutions (The Robot Report, 2025-07-24)", "asOf": "2026-10-19" },
+      { "url": "https://agfundernews.com/bonsai-robotics-acquires-farm-ng-to-herald-new-era-of-ai-first-machines-that-will-transform-crop-management", "title": "Bonsai Robotics acquires farm-ng to herald new era of ag robotics (AgFunderNews, 2025-07-24; Watsonville-based, founded 2020)", "asOf": "2026-10-19" }
     ],
-    "confidence": "low"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Farm-ng and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "bedrock-robotics",
@@ -1758,7 +2189,12 @@
       { "url": "https://finance.yahoo.com/news/bedrock-robotics-raises-270m-red-131800649.html", "title": "Bedrock Robotics raises $270M in red-hot AI sector (Construction Dive via Yahoo; co-led by CapitalG and Valor Atreides AI Fund)", "asOf": "2026-08-18" },
       { "url": "https://techfundingnews.com/bedrock-robotics-270m-series-b-autonomous-construction/", "title": "Bedrock Robotics raises $270M Series B (TechFundingNews; ex-Waymo founders, CapitalG and Valor Atreides co-lead)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Bedrock Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." }
+    }
   },
   {
     "id": "chef-robotics",
@@ -1786,7 +2222,12 @@
     "sources": [
       { "url": "https://www.therobotreport.com/chef-robotics-brings-in-43m-to-deploy-more-food-assembly-robots/", "title": "Chef Robotics brings in $43M (Series A: $20.6M equity + $22.5M debt; total capital $65.6M)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Chef Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "simbe-robotics",
@@ -1815,7 +2256,13 @@
       { "url": "https://www.globenewswire.com/news-release/2024/10/24/2968475/0/en/Simbe-Raises-50-Million-in-Series-C-Funding-Led-by-Growth-Equity-at-Goldman-Sachs-Alternatives.html", "title": "Simbe Raises $50 Million in Series C (GlobeNewswire, first-party, 2024-10-24)", "asOf": "2026-08-18" },
       { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Eclipse invested in Simbe Robotics", "asOf": "2026-08-06" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Simbe Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "intuitive-surgical",
@@ -1844,7 +2291,17 @@
       { "url": "https://isrg.intuitive.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings", "title": "Intuitive Announces Q2 2026 Earnings", "asOf": "2026-08-06" },
       { "url": "https://www.medtechdive.com/news/5-robotic-surgery-trends-to-watch-2026/810577/", "title": "5 robotic surgery trends to watch in 2026", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Intuitive Surgical and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "cmr-surgical",
@@ -1873,7 +2330,17 @@
       { "url": "https://cmrsurgical.com/", "title": "CMR Surgical (company site; Versius surgical robot)", "asOf": "2026-08-18" },
       { "url": "https://pdpspectra.com/blog/surgical-robotics-2026/", "title": "Surgical Robotics in 2026", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it CMR Surgical and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "moon-surgical",
@@ -1902,7 +2369,17 @@
       { "url": "https://moon-medical.com/", "title": "Moon Surgery (company site)", "asOf": "2026-08-18" },
       { "url": "https://pdpspectra.com/blog/surgical-robotics-2026/", "title": "Surgical Robotics in 2026: Maestro", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Moon Surgical and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "nuro",
@@ -1932,7 +2409,13 @@
       { "url": "https://www.builtinsf.com/articles/nuro-secures-203m-6b-valuation-20250825", "title": "Nuro Secures $203M at $6B Valuation to Scale Global Robotaxis (Built In SF, 2025-08-25)", "asOf": "2026-08-18" },
       { "url": "https://tech.yahoo.com/articles/nuro-valued-6-billion-latest-131300388.html", "title": "Nuro secures $6 billion valuation in latest funding round (Yahoo Tech, 2025-04-09; the $106M licensing-shift round)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Nuro and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "serve-robotics",
@@ -1961,7 +2444,17 @@
       { "url": "https://techcrunch.com/2026/08/11/uber-surprised-robotics-company-serve-by-selling-its-entire-stake/", "title": "Uber sells entire Serve Robotics stake; Serve pivots to Grubhub/DoorDash (TechCrunch, 2026-08-11)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/", "title": "Serve Robotics acquires Diligent Robotics (The Robot Report, 2026-01-20)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Serve Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "gecko-robotics",
@@ -1991,7 +2484,13 @@
       { "url": "https://www.cnbc.com/2025/06/12/gecko-robotics-raises-125-million-surpassing-billion-dollar-valuation.html", "title": "Gecko Robotics raises $125 million, valuation $1.25 billion (CNBC)", "asOf": "2026-08-18" },
       { "url": "https://tsginvest.com/gecko-robotics/", "title": "Gecko Robotics Stock: $1.25B Valuation", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Gecko Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "standard-bots",
@@ -2023,7 +2522,15 @@
       { "url": "https://www.therobotreport.com/standard-bots-raises-63m-to-bring-cobot-arms-to-market/", "title": "Standard Bots raises $63M", "asOf": "2026-08-06" },
       { "url": "https://newmarketpitch.com/blogs/news/robotics-standard-bots-overvalued", "title": "Is Standard Bots really worth $1B?", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Standard Bots and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "collaborative-robotics",
@@ -2053,7 +2560,14 @@
       { "url": "https://www.co.bot/news/robots-come-to-life", "title": "Our Robot Comes to Life and Gets Right to Work (Cobot first-party)", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/collaborative-robotics", "title": "Collaborative Robotics - Humanoid Index", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Collaborative Robotics and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "the-bot-company",
@@ -2082,7 +2596,16 @@
       { "url": "https://www.bloomberg.com/news/articles/2025-10-28/cruise-founder-kyle-vogt-s-robotics-startup-eyes-4-billion-valuation", "title": "The Bot Company Eyes $4 Billion Valuation", "asOf": "2026-08-06" },
       { "url": "https://www.therobotreport.com/the-bot-company-led-by-kyle-vogt-brings-in-another-150m/", "title": "The Bot Company brings in another $150M", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it The Bot Company and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "weave-robotics",
@@ -2110,7 +2633,19 @@
     "sources": [
       { "url": "https://www.businessinsider.com/weave-robotics-isaac-1-8000-home-robot-chores-2026-7", "title": "A $7,999 Home Robot Joins the Race", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Weave Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "irobot",
@@ -2139,7 +2674,14 @@
       { "url": "https://www.bbc.com/news/articles/c1lr75lp239o", "title": "Roomba vacuum cleaner firm files for bankruptcy", "asOf": "2026-08-18" },
       { "url": "https://www.wbur.org/hereandnow/2026/03/17/irobot-bankruptcy", "title": "Why iRobot went bankrupt", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it iRobot and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "k-scale-labs",
@@ -2168,7 +2710,17 @@
       { "url": "https://newsletter.failory.com/p/the-open-source-robot", "title": "How K-Scale Labs tried to democratize humanoid robots but ran out of runway (Nov 2025)", "asOf": "2026-08-18" },
       { "url": "https://mikekalil.com/blog/k-scale-labs-shuts-down/", "title": "Palo Alto Humanoid Startup K-Scale Labs Shuts Down", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "website": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources call it K-Scale Labs and give no other name (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "automata",
@@ -2197,7 +2749,13 @@
       { "url": "https://www.businesswire.com/news/home/20260129548625/en/Automata-Raises-45M-Series-C-to-Build-the-Operating-System-for-Life-Sciences", "title": "Automata Raises $45M Series C led by Dimension (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.automata.tech/company-news/automata-raises-45m-series-c-funding", "title": "Automata Secures $45M Series C", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Automata and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "lila-sciences",
@@ -2226,7 +2784,14 @@
       { "url": "https://www.lila.ai/news/exclusive-ai-lab-lila-sciences-tops-1-3-billion-valuation-with-new-nvidia-backing", "title": "Exclusive: AI lab Lila Sciences tops $1.3 billion valuation with new Nvidia backing (lila.ai, Reuters wire, 2025-10-14)", "asOf": "2026-08-18" },
       { "url": "https://www.lila.ai/news/announcing-the-close-of-our-series-a", "title": "Announcing Lila's $350M Series A (first-party; total funding to $550M)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Lila Sciences and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "avidbots",
@@ -2255,7 +2820,13 @@
       { "url": "https://avidbots.com/news/avidbots-raises-70m-in-series-c-funding/", "title": "Avidbots raises $70M in Series C funding, led by Jeneration Capital (first-party)", "asOf": "2026-08-18" },
       { "url": "https://techcrunch.com/2022/09/27/avidbots-maker-of-autonomous-industrial-cleaning-robots-nabs-70m/", "title": "Avidbots, maker of autonomous industrial cleaning robots, nabs $70M (TechCrunch)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Avidbots and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "harmonic-drive-systems",
@@ -2284,7 +2855,16 @@
       { "url": "https://topsecretstocks.substack.com/p/harmonic-drive-systems-positioned", "title": "Harmonic Drive Systems: Positioned to 10X?", "asOf": "2026-08-06" },
       { "url": "https://nextfinancial.substack.com/p/the-joint-problem-who-owns-the-most", "title": "The Joint Problem: Who Owns the Most Expensive Part of a Humanoid", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "nabtesco",
@@ -2312,7 +2892,17 @@
     "sources": [
       { "url": "https://nextfinancial.substack.com/p/the-joint-problem-who-owns-the-most", "title": "The Joint Problem: Reducer duopoly", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Nabtesco and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "leaderdrive",
@@ -2340,7 +2930,17 @@
     "sources": [
       { "url": "https://humanoid.guide/leaderdrive-harmonic-reducers-surge-as-humanoid-demand", "title": "Leaderdrive harmonic reducers rise on humanoid demand", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "sanhua",
@@ -2368,7 +2968,16 @@
     "sources": [
       { "url": "https://eu.36kr.com/en/p/3510288514980998", "title": "Elon Musk Places $685M Order with Sanhua", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "shadow-robot",
@@ -2396,7 +3005,16 @@
     "sources": [
       { "url": "https://shadowrobot.com/", "title": "Shadow Robot - Dexterous Robotic Hands", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "sharpa",
@@ -2427,13 +3045,24 @@
       { "url": "https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design", "title": "NVIDIA Announces NVIDIA Isaac GR00T Reference Humanoid Robot for Academic Research (NVIDIA Newsroom)", "asOf": "2026-08-18" },
       { "url": "https://roboticsandautomationnews.com/2026/01/31/sharpa-showcases-autonomous-fine-manipulation-robot-and-new-ai-model-at-ces-2026/", "title": "Sharpa showcases autonomous fine-manipulation robot and new AI model at CES 2026 (Robotics & Automation News)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Sharpa and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "wonik-robotics",
     "name": "Wonik Robotics",
     "aka": ["Wonik"],
-    "website": "https://www.wonikrobotics.com",
+    "website": "https://wonikrobotics.com",
     "logo": "wonik-logo",
     "hq": { "city": "Seoul", "country": "KR" },
     "founded": 1991,
@@ -2457,7 +3086,16 @@
       { "url": "https://wonikrobotics.com/index.php", "title": "Wonik Robotics (corporate site: Allegro Hand maker)", "asOf": "2026-08-18" },
       { "url": "https://www.therobotreport.com/gelsight-meta-ai-release-digit-360-tactile-sensor-for-robotic-fingers/", "title": "GelSight, Meta AI release Digit 360 tactile sensor for robotic fingers (The Robot Report)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "xela-robotics",
@@ -2485,7 +3123,18 @@
     "sources": [
       { "url": "https://xelarobotics.com/press-release/xela-robotics-unlocks-enhanced-automation-for-humanoid-and-industrial", "title": "XELA Robotics Unlocks Enhanced Automation", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it XELA Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "openai-robotics",
@@ -2514,7 +3163,18 @@
       { "url": "https://www.wired.com/story/openai-ramps-up-robotics-work-in-race-toward-agi/", "title": "OpenAI Ramps Up Robotics Work", "asOf": "2026-08-06" },
       { "url": "https://humanoid.guide/openai-robotics-hiring-expands-raising-stakes-for-humanoids", "title": "OpenAI robotics hiring expands", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it OpenAI and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "OpenAI's robotics team, funded by OpenAI: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "OpenAI's robotics team, funded by OpenAI: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "OpenAI's robotics team, funded by OpenAI: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "OpenAI's robotics team, funded by OpenAI: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "OpenAI's robotics team, funded by OpenAI: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "OpenAI's robotics team, funded by OpenAI: it raises no rounds of its own." }
+    }
   },
   {
     "id": "meta-robotics",
@@ -2542,13 +3202,20 @@
     "sources": [
       { "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/", "title": "Meta buys robotics startup for humanoid AI", "asOf": "2026-08-06" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "Meta's robotics work, funded by Meta: it has no venture total of its own." },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "The latest event is a purchase by Meta, which has a buyer and no lead investors." }
+    }
   },
   {
     "id": "assured-robot-intelligence",
     "name": "Assured Robot Intelligence",
     "aka": ["ARI"],
-    "website": "https://ari.bot",
+    "website": null,
     "logo": "assured-robot-intelligence-logo",
     "hq": { "city": "San Diego", "country": "US" },
     "founded": null,
@@ -2568,9 +3235,19 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/", "title": "Meta buys Assured Robot Intelligence", "asOf": "2026-08-06" }
+      { "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/", "title": "Meta buys Assured Robot Intelligence", "asOf": "2026-08-06" },
+      { "url": "https://web.archive.org/web/20260505070600/https://www.arirobots.com/", "title": "ARI - Frontier AI for Robots (the company's own site, arirobots.com, in the Wayback Machine capture of 2026-05-05; the domain no longer resolves)", "asOf": "2026-10-19" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "website": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "saronic",
@@ -2599,7 +3276,12 @@
       { "url": "https://www.govconwire.com/articles/saronic-1-75b-series-d-maritime-autonomy", "title": "Saronic Raises $1.75B in Series D Funding Round (GovConWire, 2026-04-01; Kleiner Perkins-led)", "asOf": "2026-08-18" },
       { "url": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/", "title": "Saronic $1.75B Series D, largest robotics round 2026", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Saronic and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "eka-robotics",
@@ -2627,13 +3309,25 @@
     "sources": [
       { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Obvious Ventures backed Eka Robotics", "asOf": "2026-08-06" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Eka Robotics and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "foundry-robotics",
     "name": "Foundry Robotics",
     "aka": [],
-    "website": "https://www.foundryrobotics.com",
+    "website": "https://foundryrobotics.ai",
     "logo": "foundry-robotics-logo",
     "hq": { "city": null, "country": "US" },
     "founded": null,
@@ -2653,9 +3347,22 @@
     "deployments": [],
     "openSource": [],
     "sources": [
-      { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Red Glass Ventures backed Foundry Robotics", "asOf": "2026-08-06" }
+      { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Red Glass Ventures backed Foundry Robotics", "asOf": "2026-08-06" },
+      { "url": "https://foundryrobotics.ai/", "title": "Foundry Robotics (company site: AI-first, assembly-focused robotics for American manufacturing)", "asOf": "2026-10-19" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources call it Foundry Robotics and give no other name (its website returned no readable body)." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body)." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "mytra",
@@ -2684,7 +3391,15 @@
       { "url": "https://mytra.ai/news/mytra-raises-120m-series-c", "title": "Mytra Raises $120M Series C led by Avenir Growth (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.prnewswire.com/news-releases/mytra-raises-120m-series-c-to-scale-operating-system-for-supply-chain-302661685.html", "title": "Mytra Raises $120M Series C to Scale Operating System for Supply Chain (PR Newswire)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mytra and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "formic",
@@ -2713,7 +3428,15 @@
       { "url": "https://formic.co/resources/press/formic-technologies-raises-265-million-series-a-led-by-lux-capital", "title": "Formic Technologies Raises $26.5 Million Series A Led By Lux Capital (first-party)", "asOf": "2026-08-18" },
       { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Lux Capital backed Formic", "asOf": "2026-08-06" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Formic and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "astribot",
@@ -2741,7 +3464,15 @@
     "sources": [
       { "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/", "title": "Astribot closes Series B over 1 billion RMB (~$138M) at a valuation north of 10B RMB (~$1.38B)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Astribot and give no other name." },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "booster-robotics",
@@ -2770,7 +3501,15 @@
       { "url": "https://www.sohu.com/a/975073436_116132", "title": "TMTPost: Booster Robotics raises over $14M led by IDG Capital", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/booster-robotics", "title": "Booster Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "hq.city": { "state": "not-disclosed" },
+      "aka": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "leju-robotics",
@@ -2799,7 +3538,15 @@
       { "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/", "title": "Leju raises $200M for humanoid production", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/leju-robotics", "title": "Leju Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "switchbot",
@@ -2828,7 +3575,14 @@
       { "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html", "title": "Smart-Home Startup OneRobotics Lands $206 Million in HK IPO", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/switchbot", "title": "SwitchBot - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "hanson-robotics",
@@ -2857,7 +3611,17 @@
       { "url": "https://getlatka.com/companies/hanson-robotics-limited", "title": "Hanson Robotics funding profile ($21.7M across 2 rounds, as reported)", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/hanson-robotics", "title": "Hanson Robotics - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Hanson Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "paxini",
@@ -2888,7 +3652,12 @@
       { "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/", "title": "BYD-backed PaXini weighs HK IPO ($148M March round)", "asOf": "2026-08-18" },
       { "url": "https://humanoidindex.org/companies/paxini", "title": "PaXini - Humanoid Index", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "miso-robotics",
@@ -2917,7 +3686,17 @@
       { "url": "https://www.therobotreport.com/tag/miso-robotics/", "title": "Miso Robotics coverage hub (The Robot Report; incl. Feb 2026 Zignyl acquisition coverage)", "asOf": "2026-08-18" },
       { "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl", "title": "Flippy maker Miso Robotics acquires operations app Zignyl (Restaurant Business, 2026-02-26)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Miso Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "starship-technologies",
@@ -2945,7 +3724,17 @@
     "sources": [
       { "url": "https://www.starship.xyz/", "title": "Starship Technologies - Autonomous Delivery Robots", "asOf": "2026-08-06" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Starship Technologies and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "coco-robotics",
@@ -2974,7 +3763,13 @@
       { "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/", "title": "Coco Robotics raises $80M to scale sidewalk delivery robots", "asOf": "2026-08-18" },
       { "url": "https://www.cocodelivery.com/", "title": "Coco Robotics - Home (first-party; the company's current domain)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "knightscope",
@@ -3002,7 +3797,17 @@
     "sources": [
       { "url": "https://www.knightscope.com/", "title": "Knightscope - Autonomous Security Robots", "asOf": "2026-08-06" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Knightscope and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "brain-corp",
@@ -3031,7 +3836,16 @@
       { "url": "https://www.braincorp.com/", "title": "Brain Corp - AI for Autonomous Floor Care", "asOf": "2026-08-06" },
       { "url": "https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz", "title": "Brain Corp Raises $36M in Series D, led by SoftBank Vision Fund 1 with Qualcomm Ventures (VC News Daily)", "asOf": "2026-08-18" }
     ],
-    "confidence": "low"
+    "confidence": "low",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Brain Corp and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "pollen-robotics",
@@ -3059,7 +3873,16 @@
     "sources": [
       { "url": "https://pollen-robotics.com/reachy-mini/", "title": "Reachy Mini - Open source companion robot", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Pollen Robotics and give no other name." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "diligent-robotics",
@@ -3089,7 +3912,13 @@
       { "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/", "title": "Serve Robotics acquires Diligent Robotics (The Robot Report, 2026-01-20)", "asOf": "2026-08-18" },
       { "url": "https://www.diligentrobots.com/moxi", "title": "Moxi - Diligent Robotics", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Diligent Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "fox-robotics",
@@ -3117,7 +3946,14 @@
     "sources": [
       { "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/", "title": "Symbotic acquires Fox Robotics", "asOf": "2026-08-06" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Fox Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "zebra-robotics-automation",
@@ -3145,7 +3981,14 @@
     "sources": [
       { "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html", "title": "Skild AI Acquires Zebra Technologies' Robotics Automation Business", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Zebra Technologies and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "anduril",
@@ -3173,7 +4016,15 @@
     "sources": [
       { "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6", "title": "Anduril valued at $61B, Founders Fund", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Anduril and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.type": { "state": "not-disclosed" },
+      "round.amountUsd": { "state": "not-disclosed" },
+      "round.date": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "robotphoenix",
@@ -3201,7 +4052,16 @@
     "sources": [
       { "url": "https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/", "title": "Robotphoenix listed on HKEX, raising ~$86M", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-disclosed" },
+      "deployments": { "state": "not-disclosed" },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" },
+      "round.leadInvestors": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "abb-robotics",
@@ -3229,7 +4089,13 @@
     "sources": [
       { "url": "https://group.softbank/en/news/press/20251008", "title": "Acquisition of ABB Ltd's Robotics Business (SoftBank Group press release, 2025-10-08)", "asOf": "2026-08-18" }
     ],
-    "confidence": "high"
+    "confidence": "high",
+    "absent": {
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it ABB Robotics and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-disclosed" },
+      "round.valuationUsd": { "state": "not-disclosed" }
+    }
   },
   {
     "id": "mitsubishi-robotics",
@@ -3257,6 +4123,17 @@
     "sources": [
       { "url": "https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant", "title": "Mitsubishi to Mass-Produce Humanoid Robots at Former Engine Plant (1,000/month target, H1 2027, with startup Highlanders)", "asOf": "2026-08-18" }
     ],
-    "confidence": "medium"
+    "confidence": "medium",
+    "absent": {
+      "founded": { "state": "not-disclosed" },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mitsubishi and give no other name." },
+      "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." }
+    }
   }
 ]

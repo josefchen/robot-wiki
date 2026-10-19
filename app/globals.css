@@ -83,19 +83,6 @@
   --color-accent: var(--color-signal);
   --color-err: var(--color-error);
 
-  /*
-   * The plate a third-party company mark sits on (components/market-map/
-   * company-logo.tsx). Not a surface step: a deliberate mid neutral, because
-   * the mark set spans both extremes and no single light ground holds it.
-   * 35 of the 111 shipped marks are near-white (mean relative luminance
-   * above 0.60) and 41 are near-black, so a paper-coloured tile loses the
-   * first group and a near-black tile loses the second. This value sits at
-   * relative luminance 0.20, the point where pure white and the text colour
-   * are equidistant, giving both about 4.1:1. Every mark gets the same
-   * plate; nothing is special-cased per company.
-   */
-  --color-logo-plate: #7d7a73;
-
   /* Typography: DM Sans display, Geist text and interface, Geist Mono for
      numerals, code and readouts. Variables are set by next/font in
      layout.tsx. The reading role is Geist too: one text face. */

@@ -118,7 +118,10 @@ describe('COMPANIES data', () => {
     // carries its listed entity as an aka.
     expect(withAka.length).toBe(27);
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
-    expect(pi?.aka).toEqual(['Pi', 'π']);
+    // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
+    // (audit/market-map-ledger.json) found its sources use "Pi" only for the
+    // Pi0 model and the Pi API, never as a name for the company.
+    expect(pi?.aka).toEqual(['π']);
   });
 
   it('matches the research JSON row-for-row without invented fields', () => {
@@ -134,7 +137,12 @@ describe('COMPANIES data', () => {
     expect(figure, 'missing figure-ai').toBeDefined();
     expect(figure?.name).toBe('Figure AI');
     expect(figure?.latestRound?.type).toBe('Series C');
-    expect(figure?.latestRound?.amountUsd).toBe(1_000_000_000);
+    // $1B -> null on 2026-10-19: Figure's own post says the round "exceeded
+    // more than $1 billion", a floor, so the amount is not disclosed and the
+    // floor moves to a visible caveat on the card.
+    expect(figure?.latestRound?.amountUsd).toBeNull();
+    expect(figure?.absent['round.amountUsd']?.state).toBe('not-disclosed');
+    expect(figure?.latestRound?.caveat?.text).toMatch(/exceeded \$1B/);
     expect(figure?.latestRound?.valuationUsd).toBe(39_000_000_000);
     expect(figure?.latestRound?.date).toBe('2025-09-16');
     expect(figure?.sources.some((s) => s.url.includes('figure.ai/news/series-c'))).toBe(
@@ -145,7 +153,11 @@ describe('COMPANIES data', () => {
     expect(skild, 'missing skild-ai').toBeDefined();
     expect(skild?.latestRound?.type).toBe('Series C');
     expect(skild?.latestRound?.amountUsd).toBe(1_400_000_000);
-    expect(skild?.latestRound?.valuationUsd).toBe(14_000_000_000);
+    // $14B -> null on 2026-10-19: TechCrunch, citing Bloomberg, says the
+    // round values Skild "at more than $14 billion", a floor, so the
+    // valuation is not disclosed and the floor is a visible caveat.
+    expect(skild?.latestRound?.valuationUsd).toBeNull();
+    expect(skild?.latestRound?.caveat?.text).toMatch(/more than \$14 billion/);
     expect(skild?.latestRound?.date).toBe('2026-01-14');
     // TechCrunch quotes the CEO saying the company has raised "more than
     // $2 billion to date" — a lower bound, not a precise total. The
@@ -195,7 +207,18 @@ describe('COMPANIES data', () => {
     const withLogo = COMPANIES.filter((company) => company.logo !== null);
     const withSite = COMPANIES.filter((company) => company.website !== null);
     expect(withLogo.length).toBe(111);
-    expect(withSite.length).toBe(110);
+    // 110 -> 108 on 2026-10-19: ari.bot and tars.bot are a domain for sale
+    // and a parked lander, never the companies' sites, so both websites are
+    // null; two more records moved to the domains their companies use
+    // (audit/market-map.md, "Market-map marks and company status, sourced").
+    expect(withSite.length).toBe(108);
+    const site = (id: string) => COMPANIES.find((company) => company.id === id)?.website;
+    expect(site('assured-robot-intelligence')).toBeNull();
+    expect(site('tars-robotics')).toBeNull();
+    expect(site('k-scale-labs')).toBeNull();
+    expect(site('foundry-robotics')).toBe('https://foundryrobotics.ai');
+    expect(site('wonik-robotics')).toBe('https://wonikrobotics.com');
+    expect(COMPANIES.some((company) => /ari\.bot|tars\.bot|foundryrobotics\.com/.test(company.website ?? ''))).toBe(false);
     const nvidia = COMPANIES.find((company) => company.id === 'nvidia-robotics');
     expect(nvidia?.website).toBe('https://www.nvidia.com');
     expect(nvidia?.logo).toBe('nvidia-logo');
@@ -215,7 +238,14 @@ describe('COMPANIES data', () => {
 
   it('keeps Covariant and Genesis AI unknown funding fields null', () => {
     const covariant = COMPANIES.find((c) => c.id === 'covariant');
-    expect(covariant?.status).toBe('acquired');
+    // 'acquired' -> 'private' on 2026-10-19: Amazon hired the founders and
+    // licensed the models without buying the company, which TechCrunch says
+    // continues under its own CEO; Amazon invested nothing, so the deal has
+    // no lead investor (n/a).
+    expect(covariant?.status).toBe('private');
+    expect(covariant?.latestRound?.type).toBe('Hiring and licensing deal');
+    expect(covariant?.latestRound?.leadInvestors).toEqual([]);
+    expect(covariant?.absent['round.leadInvestors']?.state).toBe('not-applicable');
     expect(covariant?.totalRaisedUsd).toBeNull();
     expect(covariant?.latestRound?.amountUsd).toBeNull();
     expect(covariant?.latestRound?.valuationUsd).toBeNull();

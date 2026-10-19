@@ -41,7 +41,23 @@ const CANDIDATES = [
 const HIDDEN = '.sr-only, [hidden], [aria-hidden="true"]';
 
 function isPhoto(el: Element): boolean {
-  return el.tagName === 'FIGURE' && !!el.querySelector('img') && !el.querySelector('svg, canvas, video');
+  return el.tagName === 'FIGURE' && el.getAttribute('data-figure-kind') !== 'official-mark' &&
+    !!el.querySelector('img') && !el.querySelector('svg, canvas, video');
+}
+
+/**
+ * A company mark on /credits: an official-mark figure holding the one mark
+ * element (components/ui/logo-mark.tsx), whose ink layer is the credited
+ * file's own <img>, drawn as a mask of itself, and nothing else drawn. Like
+ * a photograph it is a registered image, not an explanatory figure, so it
+ * needs no figure frame.
+ */
+function isCompanyMark(el: Element): boolean {
+  if (el.tagName !== 'FIGURE' || el.getAttribute('data-figure-kind') !== 'official-mark') return false;
+  const marks = el.querySelectorAll('[data-logo-mark]');
+  const images = el.querySelectorAll('img');
+  return marks.length === 1 && images.length === 1 && marks[0].contains(images[0]) &&
+    images[0].hasAttribute('data-logo-ink') && !el.querySelector('svg, canvas, video');
 }
 
 /** An svg is a figure when it explains something: labelled, or drawn at figure size. */
@@ -57,7 +73,7 @@ export function findFigures(main: Element): Element[] {
   const frames = [...main.querySelectorAll('[data-figure-frame]')];
   const loose = [...main.querySelectorAll(CANDIDATES)].filter((el) => {
     if (el.closest('[data-figure-frame]') || el.querySelector('[data-figure-frame]')) return false;
-    if (isPhoto(el) || el.closest('table')) return false;
+    if (isPhoto(el) || isCompanyMark(el) || el.closest('table')) return false;
     return el.tagName.toLowerCase() !== 'svg' || isExplanatorySvg(el);
   });
   const all = [...frames, ...loose];
