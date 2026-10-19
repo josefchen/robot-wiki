@@ -1,129 +1,75 @@
 'use client';
 
 import type { Vec3 } from '@/lib/ik';
-import type { EePose, JointControl } from './use-playground-kinematics';
+import { plainPosition, sceneToBaseFrame } from './joint-labels';
 
-interface PlaygroundHudProps {
-  joints: JointControl[];
-  angles: Record<string, number>;
-  eePose: EePose | null;
-  targetScene: Vec3 | null;
+export type ReachState = 'idle' | 'solving' | 'reached' | 'unreachable';
+
+/** A reach within a millimetre of the target counts as reached. */
+export const REACHED_WITHIN_MM = 1;
+
+export function reachState({
+  target,
+  solving,
+  residualMm,
+}: {
+  target: Vec3 | null;
   solving: boolean;
-  /** Live EE-to-target distance, millimeters. */
   residualMm: number | null;
+}): ReachState {
+  if (target === null) return 'idle';
+  if (solving) return 'solving';
+  return residualMm !== null && residualMm <= REACHED_WITHIN_MM ? 'reached' : 'unreachable';
+}
+
+/** The reach verdict in plain words. */
+export function reachText(
+  state: ReachState,
+  iterations: number | null,
+  residualMm: number | null,
+): string {
+  if (state === 'solving') return 'Reaching the target…';
+  if (state === 'reached') {
+    const steps = iterations ?? 0;
+    return `Reached in ${steps} ${steps === 1 ? 'step' : 'steps'}`;
+  }
+  if (state === 'unreachable') {
+    const mm = residualMm ?? 0;
+    const gap = mm >= 10 ? `${Math.round(mm / 10)} cm` : `${Math.max(1, Math.round(mm))} mm`;
+    return `Out of reach, ${gap} short`;
+  }
+  return '';
+}
+
+interface PlaygroundReadoutProps {
+  hand: Vec3 | null;
+  state: ReachState;
   iterations: number | null;
-}
-
-const RAD_TO_DEG = 180 / Math.PI;
-
-function signed(value: number, digits: number): string {
-  return `${value >= 0 ? '+' : ''}${value.toFixed(digits)}`;
-}
-
-function formatVec(v: Vec3): string {
-  return `x ${signed(v.x, 3)}  y ${signed(v.y, 3)}  z ${signed(v.z, 3)}`;
+  residualMm: number | null;
 }
 
 /**
- * Monospace readout overlay for the playground: joint angles, end-effector
- * pose, and the live IK residual/iteration count. Compact, pinned to the
- * top-left corner, and pointer-transparent so it never blocks the scene.
+ * The line under the stage, which replaced the monospace HUD that sat over
+ * the canvas: where the hand is, in centimetres from the base, and how the
+ * last reach went. The verdict is a live region, so a
+ * screen reader hears "Reached in 12 steps" or "Out of reach" when it
+ * settles.
  */
-export function PlaygroundHud({
-  joints,
-  angles,
-  eePose,
-  targetScene,
-  solving,
-  residualMm,
+export function PlaygroundReadout({
+  hand,
+  state,
   iterations,
-}: PlaygroundHudProps) {
-  const status = solving
-    ? 'solving'
-    : targetScene === null
-      ? null
-      : residualMm !== null && residualMm <= 1
-        ? 'reached'
-        : 'not reached';
-
+  residualMm,
+}: PlaygroundReadoutProps) {
   return (
-    <div
-      data-testid="playground-hud"
-      data-brand-surface-id="surface:flat"
-      role="region"
-      aria-label="Kinematics readout"
-      className="pointer-events-none absolute left-3 top-3 rounded-sm border border-border bg-surface/95 px-3 py-2 font-mono text-[11px] leading-relaxed tabular-nums text-text-dim"
-    >
-      <dl>
-        {joints.map((joint) => (
-          <div key={joint.name} className="flex justify-between gap-4">
-            <dt className="text-text-dim">{joint.name}</dt>
-            <dd
-              data-testid={`hud-joint-${joint.name}`}
-              className="text-text"
-            >
-              {signed((angles[joint.name] ?? 0) * RAD_TO_DEG, 1)}°
-            </dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="mt-1.5 border-t border-border pt-1.5">
-        <p>
-          <span className="text-text">ee </span>
-          <span data-testid="hud-ee-position">
-            {eePose ? formatVec(eePose.position) : 'n/a'}
-          </span>
-        </p>
-        <p>
-          <span className="text-text">{'   '}</span>
-          <span data-testid="hud-ee-orientation">
-            {eePose
-              ? `r ${signed(eePose.roll * RAD_TO_DEG, 1)}°  p ${signed(eePose.pitch * RAD_TO_DEG, 1)}°  y ${signed(eePose.yaw * RAD_TO_DEG, 1)}°`
-              : 'n/a'}
-          </span>
-        </p>
-      </div>
-
-      <div className="mt-1.5 border-t border-border pt-1.5">
-        <p>
-          <span className="text-text">tgt </span>
-          <span data-testid="hud-target">
-            {targetScene ? formatVec(targetScene) : 'none'}
-          </span>
-        </p>
-        <p>
-          <span className="text-text">ik </span>
-          <span data-testid="hud-residual">
-            {residualMm !== null ? `${residualMm.toFixed(2)} mm` : 'n/a'}
-          </span>
-          {'  iter '}
-          <span data-testid="hud-iterations">
-            {iterations !== null ? iterations : 'n/a'}
-          </span>
-          {status ? (
-            <>
-              {'  '}
-              <span
-                data-testid="hud-ik-status"
-                className={
-                  status === 'reached'
-                    ? 'text-ok'
-                    : status === 'not reached'
-                      ? 'text-err'
-                      : 'text-text-dim'
-                }
-              >
-                {status}
-              </span>
-            </>
-          ) : (
-            <span data-testid="hud-ik-status" className="text-text-dim">
-              {'  idle'}
-            </span>
-          )}
-        </p>
-      </div>
+    <div className="pg-readout" data-empty={hand ? undefined : ''}>
+      <p data-testid="hand-readout">
+        <span className="pg-label">Hand </span>
+        {hand ? plainPosition(sceneToBaseFrame(hand)) : ''}
+      </p>
+      <p data-testid="reach-status" data-state={state} role="status">
+        {reachText(state, iterations, residualMm)}
+      </p>
     </div>
   );
 }

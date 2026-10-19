@@ -80,14 +80,21 @@ function listen(page: Page, run: Run, origin: string) {
   });
 }
 
+// A stage moves only while it is on screen. On a phone the guess and the self-check sit far enough
+// below it that reaching them scrolls it away, and a step paused off screen never settles.
 async function settle(page: Page, id: string, webgl: boolean) {
+  const stage = page.locator('[data-x="stage"]');
+  await stage.scrollIntoViewIfNeeded();
   await page.waitForFunction(([want, wantLive]) => {
     const h = (window as unknown as { __explainer?: Hook }).__explainer;
     const predict = document.querySelector<HTMLElement>('[data-predict]');
     return Boolean(h?.id === want && h.ready && (h.live || !wantLive) && (!h.busy || predict?.hidden === false));
   }, [id, webgl] as const, { timeout: 120_000, polling: 100 });
   const guess = page.locator('[data-predict] .opts button:not([disabled])').first();
-  if (await guess.isVisible()) await guess.click();
+  if (await guess.isVisible()) {
+    await guess.click();
+    await stage.scrollIntoViewIfNeeded();
+  }
   await page.waitForFunction(() => {
     const h = (window as unknown as { __explainer?: Hook }).__explainer;
     return Boolean(h && !h.busy && !h.moving);

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "whereami",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/whereami/1280-s1.jpg",
+    "evidence/teach-back/whereami/1280-s2-guess.jpg",
+    "evidence/teach-back/whereami/1280-s2-reveal.jpg",
+    "evidence/teach-back/whereami/1280-s3.jpg",
+    "evidence/teach-back/whereami/1280-s4.jpg",
+    "evidence/teach-back/whereami/390-s1.jpg",
+    "evidence/teach-back/whereami/390-s2-guess.jpg",
+    "evidence/teach-back/whereami/390-s2-reveal.jpg",
+    "evidence/teach-back/whereami/390-s3.jpg",
+    "evidence/teach-back/whereami/390-s4.jpg"
+  ],
+  "takeaway": "A robot never knows exactly where it is: it keeps a best guess and a cloud of doubt, and moving grows the doubt while every measurement shrinks it.",
+  "selfCheck": {
+    "question": "Why can't it simply trust the GPS?",
+    "answer": "GPS only accurate to about 4.9 m in open sky, worse near buildings and trees; one more imperfect reading; blend it with wheel counting and landmarks.",
+    "correct": true
+  },
+  "sentence": "A robot can't be sure where it is. When it moves by counting wheel turns, small errors add up and its \"cloud of doubt\" grows. When it sees a landmark it already knows, the cloud shrinks. It keeps blending its own guess with these readings, trusting whichever is less doubtful, and that method is called a Kalman filter.",
+  "unclearTerms": [
+    "\"Where the landmark says it is\" (a sign can't speak)",
+    "black ball on a stick (what it marks)",
+    "97% (why not all the way)",
+    "18 times smaller (width or area)",
+    "42% and 1.7 times smaller (where from)",
+    "1.5 metres (no scale)",
+    "4.9 metres (where from, vs cloud size)",
+    "sensor (which part; good/poor)",
+    "\"a pattern it recognises\" (QR code?)",
+    "\"trusting whichever has less doubt\" (reading's doubt never drawn)",
+    "drifts (half clear)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "Kalman filter",
+      "why": "the concept the last step introduces"
+    }
+  ],
+  "samePoint": "yes",
+  "reason": "My TAKEAWAY covers the same ideas: the robot is never sure where it is, it keeps a guess and a cloud of doubt, moving grows the cloud and looking at a landmark shrinks it; I only said \"landmark\" where the authors say \"every measurement\".",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 22,
+      "labels": 3,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "2 guess",
+      "words": 20,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "2 reveal",
+      "words": 20,
+      "labels": 2,
+      "controls": 2,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "3",
+      "words": 22,
+      "labels": 3,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4",
+      "words": 20,
+      "labels": 2,
+      "controls": 2,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 22,
+      "labels": 3,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "2 guess",
+      "words": 20,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "2 reveal",
+      "words": 20,
+      "labels": 2,
+      "controls": 2,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "3",
+      "words": 22,
+      "labels": 3,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4",
+      "words": 20,
+      "labels": 2,
+      "controls": 2,
+      "colours": [
+        "focus"
+      ]
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: \"Where the landmark says it is\"; black ball on a stick; 97%; 18 times smaller; 42% and 1.7 times smaller; 1.5 metres; 4.9 metres; sensor; \"a pattern it recognises\"; \"trusting whichever has less doubt\"; drifts.",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording was revised in a8e577cf after this round and has not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-b5494316",
+  "sourceDigest": "be997f56b55ac633ae45ec4e4ac4cd6422c77ee44a04d4c575951af9a1e252f7"
+}

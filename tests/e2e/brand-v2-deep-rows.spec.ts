@@ -234,26 +234,28 @@ test.describe('brand-v2 27-row deep executor', () => {
                 })
                 .click();
             } else if (step.action === 'select-company') {
+              // A chart mark in the bubble view, else a map tile: either
+              // opens the same company details, a side sheet or, on a
+              // phone, a bottom sheet.
               const bubble = page.locator('circle[data-company-id]').first();
-              if ((await bubble.count()) > 0) {
-                await bubble.click();
-                await expect(page.locator('[data-bubble-detail]')).toBeVisible();
-              } else {
-                await page.getByRole('button', { name: 'Expand' }).first().click();
-                await expect(
-                  page.locator('article[data-company-id] [aria-expanded="true"]'),
-                ).toHaveCount(1);
-              }
+              const opener =
+                (await bubble.count()) > 0
+                  ? bubble
+                  : page.locator('button[data-map-tile]').first();
+              await opener.click();
+              await expect(page.locator('[data-company-detail]')).toBeVisible();
+              await expect(opener).toHaveAttribute('aria-expanded', 'true');
             } else if (step.action === 'dismiss-company') {
-              const bubble = page.locator('circle[data-company-id]').first();
-              if ((await bubble.count()) > 0) {
-                await bubble.click();
-                await expect(page.locator('[data-bubble-detail]')).toHaveCount(0);
-              } else {
-                await page.getByRole('button', { name: 'Collapse' }).first().click();
-              }
+              await page
+                .locator('[data-company-detail]')
+                .getByRole('button', { name: /^Close .* details$/ })
+                .click();
+              await expect(page.locator('[data-company-detail]')).toHaveCount(0);
             } else if (step.action === 'select-filter') {
-              await page.locator('#filter-segment').selectOption('humanoids');
+              await page
+                .getByRole('group', { name: 'Segment' })
+                .getByRole('button', { name: /^Humanoids/ })
+                .click();
             } else if (step.action === 'clear-filter') {
               await page
                 .getByRole('button', { name: 'Clear filters', exact: true })

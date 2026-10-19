@@ -1,4 +1,14 @@
-import { expect, test, type Locator, type Page } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
+import {
+  expectReach,
+  openImport,
+  reachFor,
+  readoutDeg,
+  setSlider,
+  techDeg,
+  techPosition,
+  waitForArm,
+} from './helpers/playground';
 
 /**
  * Trajectory record/replay and playground polish: keyframe capture, eased
@@ -19,37 +29,9 @@ function collectErrors(page: Page) {
   return { consoleErrors, pageErrors };
 }
 
-async function waitForArm(page: Page) {
-  const status = page.getByTestId('robot-status');
-  await expect(status).not.toHaveText(/loading/i, { timeout: 15_000 });
-  await expect(status).toContainText('so-101');
-  await expect(page.getByTestId('playground-hud')).toBeVisible();
-}
-
-/** Sets a range input's value and dispatches the events React listens to. */
-async function setSlider(slider: Locator, value: string) {
-  await slider.evaluate((el, v) => {
-    const input = el as HTMLInputElement;
-    // Bypass React's value tracker: direct `input.value = v` assignments are
-    // invisible to React's synthetic change detection.
-    const setter = Object.getOwnPropertyDescriptor(
-      window.HTMLInputElement.prototype,
-      'value',
-    )!.set!;
-    setter.call(input, v);
-    input.dispatchEvent(new Event('input', { bubbles: true }));
-    input.dispatchEvent(new Event('change', { bubbles: true }));
-  }, value);
-}
-
-async function readoutDeg(page: Page, joint: string): Promise<number> {
-  const text = await page.getByTestId(`joint-readout-${joint}`).textContent();
-  return Number.parseFloat((text ?? 'NaN').replace('°', ''));
-}
-
-/** Records a keyframe at the current pose (record mode must be armed). */
+/** Records the current pose as the next keyframe (Record pose). */
 async function addKeyframe(page: Page) {
-  await page.getByTestId('trajectory-add').click();
+  await page.getByTestId('trajectory-record').click();
 }
 
 /** Waits for an in-progress playback to finish. */
@@ -71,7 +53,7 @@ interface PlaybackSample {
   t: number;
   /** Total duration, seconds. */
   duration: number;
-  /** shoulder_pan readout, degrees, from the same DOM commit. */
+  /** shoulder_pan technical readout, degrees, from the same DOM commit. */
   pan: number;
 }
 
@@ -100,20 +82,21 @@ async function startPlaybackRecorder(page: Page) {
     };
     const samples: PlaybackSample[] = [];
     const capture = () => {
-      const progressEl = document.querySelector(
+      const progressEl = document.querySelector<HTMLElement>(
         '[data-testid="trajectory-progress"]',
       );
       if (!progressEl) return;
       const readoutEl = document.querySelector(
-        '[data-testid="joint-readout-shoulder_pan"]',
+        '[data-testid="tech-joint-shoulder_pan"]',
       );
-      const match = progressEl.textContent!.match(
-        /t ([\d.]+) s \/ ([\d.]+) s/,
-      );
-      if (!match || !readoutEl) return;
+      // The progress line reads "0.4 of 2.4 s" for people; its data
+      // attributes carry the same time to the millisecond.
+      const t = Number(progressEl.dataset.t);
+      const duration = Number(progressEl.dataset.duration);
+      if (!Number.isFinite(t) || !Number.isFinite(duration) || !readoutEl) return;
       const sample = {
-        t: Number(match[1]),
-        duration: Number(match[2]),
+        t,
+        duration,
         pan: Number.parseFloat(readoutEl.textContent!.replace('°', '')),
       };
       const previous = samples.at(-1);
@@ -130,6 +113,8 @@ async function startPlaybackRecorder(page: Page) {
     observer.observe(document.body, {
       childList: true,
       characterData: true,
+      attributes: true,
+      attributeFilter: ['data-t'],
       subtree: true,
     });
     playbackWindow.__robotWikiPlaybackObserver = observer;
@@ -155,7 +140,7 @@ async function collectPlaybackSeries(page: Page): Promise<PlaybackSample[]> {
 }
 
 test.describe('trajectory recording and playback', () => {
-  test('record captures keyframes and the counter accumulates them', async ({
+  test('Record pose captures keyframes and the counter accumulates them', async ({
     page,
   }) => {
     const { consoleErrors, pageErrors } = collectErrors(page);
@@ -163,26 +148,29 @@ test.describe('trajectory recording and playback', () => {
     await waitForArm(page);
 
     await expect(page.getByTestId('trajectory-count')).toHaveText(
-      'no keyframes',
+      'No poses yet',
     );
-    await page.getByTestId('trajectory-record').click();
-    await expect(page.getByTestId('trajectory-record')).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
+    await expect(page.getByTestId('trajectory-play')).toBeDisabled();
 
     await addKeyframe(page);
-    await expect(page.getByTestId('trajectory-count')).toHaveText('1 keyframe');
+    await expect(page.getByTestId('trajectory-count')).toHaveText('1 pose');
 
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '45');
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-elbow_flex'), '-30');
     await addKeyframe(page);
     await expect(page.getByTestId('trajectory-count')).toHaveText(
-      '3 keyframes · 2.4 s',
+      '3 poses · 2.4 s',
     );
     await expect(page.getByTestId('trajectory-keyframe-0')).toBeVisible();
     await expect(page.getByTestId('trajectory-keyframe-2')).toBeVisible();
+    await expect(page.getByTestId('trajectory-keyframe-2')).toHaveAccessibleName(
+      /pose 3, at 2\.4 s/i,
+    );
+    // Each recorded pose is the arm's pose when the button was pressed.
+    await page.getByTestId('trajectory-keyframe-1').click();
+    await expect(page.getByTestId('tech-joint-shoulder_pan')).toHaveText('+45.0°');
+    await expect(page.getByTestId('tech-joint-elbow_flex')).toHaveText('+0.0°');
 
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);
@@ -198,7 +186,6 @@ test.describe('trajectory recording and playback', () => {
     // Three keyframes, 0 -> 60 -> 60 degrees on shoulder_pan: one eased
     // segment then a hold, 2.4 s total, so there is a wide window to sample
     // the eased curve even when evaluate calls lag behind wall-clock time.
-    await page.getByTestId('trajectory-record').click();
     await addKeyframe(page); // home pose, pan at 0
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '60');
     await addKeyframe(page);
@@ -244,8 +231,8 @@ test.describe('trajectory recording and playback', () => {
     });
     expect(discriminating.length).toBeGreaterThan(0);
 
-    expect(await readoutDeg(page, 'shoulder_pan')).toBeCloseTo(60, 0);
-    await expect(page.getByTestId('hud-joint-shoulder_pan')).toHaveText(
+    expect(await readoutDeg(page, 'shoulder_pan')).toBe(60);
+    await expect(page.getByTestId('tech-joint-shoulder_pan')).toHaveText(
       '+60.0°',
     );
 
@@ -260,18 +247,18 @@ test.describe('trajectory recording and playback', () => {
     await page.goto('/playground');
     await waitForArm(page);
 
-    await page.getByTestId('trajectory-record').click();
     await setSlider(page.getByTestId('joint-slider-shoulder_lift'), '30');
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-shoulder_lift'), '0');
 
     await page.getByTestId('trajectory-play').click();
     await expect(page.getByTestId('trajectory-message')).toHaveText(
-      /single keyframe/i,
+      /only one pose/i,
     );
     await expect(
       page.getByTestId('joint-readout-shoulder_lift'),
-    ).toHaveText('+30.0°');
+    ).toHaveText('30°');
+    await expect(page.getByTestId('tech-joint-shoulder_lift')).toHaveText('+30.0°');
 
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);
@@ -282,7 +269,6 @@ test.describe('trajectory recording and playback', () => {
     await page.goto('/playground');
     await waitForArm(page);
 
-    await page.getByTestId('trajectory-record').click();
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '40');
     await addKeyframe(page);
@@ -293,7 +279,7 @@ test.describe('trajectory recording and playback', () => {
     await page.getByTestId('trajectory-clear').click();
 
     await expect(page.getByTestId('trajectory-count')).toHaveText(
-      'no keyframes',
+      'No poses yet',
     );
     await expect(page.getByTestId('trajectory-progress')).toHaveCount(0);
     // Playback with no keyframes is disabled and explains itself.
@@ -308,7 +294,6 @@ test.describe('trajectory recording and playback', () => {
 test.describe('trajectory export and import', () => {
   /** Records a 3-keyframe trajectory and exports it; returns the JSON. */
   async function recordAndExport(page: Page): Promise<string> {
-    await page.getByTestId('trajectory-record').click();
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '45');
     await setSlider(page.getByTestId('joint-slider-shoulder_lift'), '20');
@@ -338,7 +323,7 @@ test.describe('trajectory export and import', () => {
         expect(Number.isFinite(keyframe.angles[joint])).toBe(true);
       }
     }
-    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 keyframes/);
+    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 poses/);
     await expect(page.getByTestId('trajectory-download')).toHaveAttribute(
       'download',
       /trajectory\.json$/,
@@ -362,14 +347,15 @@ test.describe('trajectory export and import', () => {
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '-60');
     await page.getByTestId('trajectory-clear').click();
     await expect(page.getByTestId('trajectory-count')).toHaveText(
-      'no keyframes',
+      'No poses yet',
     );
 
+    await openImport(page);
     await page.getByTestId('trajectory-import-json').fill(exported);
     await page.getByTestId('trajectory-import').click();
-    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 keyframes/);
+    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 poses/);
     await expect(page.getByTestId('trajectory-message')).toHaveText(
-      /imported 3 keyframes/i,
+      /imported 3 poses/i,
     );
 
     // Playback lands on the imported final pose within a degree per joint.
@@ -378,7 +364,7 @@ test.describe('trajectory export and import', () => {
     const RAD_TO_DEG = 180 / Math.PI;
     for (const [joint, radians] of Object.entries(finalKeyframe)) {
       const expected = (radians as number) * RAD_TO_DEG;
-      expect(await readoutDeg(page, joint)).toBeCloseTo(expected, 0);
+      expect(await techDeg(page, joint)).toBeCloseTo(expected, 0);
     }
 
     expect(consoleErrors).toEqual([]);
@@ -446,13 +432,14 @@ test.describe('trajectory export and import', () => {
       2,
     );
 
+    await openImport(page);
     await page.getByTestId('trajectory-import-json').fill(preRebrandFile);
     await page.getByTestId('trajectory-import').click();
     await expect(page.getByTestId('trajectory-count')).toHaveText(
-      /^3 keyframes/,
+      /^3 poses/,
     );
     await expect(page.getByTestId('trajectory-message')).toHaveText(
-      /imported 3 keyframes/i,
+      /imported 3 poses/i,
     );
 
     // Playback lands on the imported final pose within a degree per joint.
@@ -468,7 +455,7 @@ test.describe('trajectory export and import', () => {
       gripper: 0.1,
     };
     for (const [joint, radians] of Object.entries(finalPose)) {
-      expect(await readoutDeg(page, joint)).toBeCloseTo(radians * RAD_TO_DEG, 0);
+      expect(await techDeg(page, joint)).toBeCloseTo(radians * RAD_TO_DEG, 0);
     }
 
     expect(consoleErrors).toEqual([]);
@@ -521,14 +508,14 @@ test.describe('trajectory export and import', () => {
       await page.goto('/playground');
       await waitForArm(page);
 
-      await page.getByTestId('trajectory-record').click();
       await addKeyframe(page);
       await expect(page.getByTestId('trajectory-count')).toHaveText(
-        '1 keyframe',
+        '1 pose',
       );
 
       const text =
         typeof payload === 'string' ? payload : JSON.stringify(payload);
+      await openImport(page);
       await page.getByTestId('trajectory-import-json').fill(text);
       await page.getByTestId('trajectory-import').click();
 
@@ -537,7 +524,7 @@ test.describe('trajectory export and import', () => {
       await expect(message).toHaveAttribute('role', 'alert');
       // The previously recorded keyframe survives the failed import.
       await expect(page.getByTestId('trajectory-count')).toHaveText(
-        '1 keyframe',
+        '1 pose',
       );
 
       expect(consoleErrors).toEqual([]);
@@ -555,7 +542,6 @@ test.describe('playground polish', () => {
     await page.goto('/playground');
     await waitForArm(page);
 
-    await page.getByTestId('trajectory-record').click();
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '50');
     await addKeyframe(page);
@@ -573,7 +559,7 @@ test.describe('playground polish', () => {
         );
         if (!progressEl) return null;
         const readoutEl = document.querySelector(
-          '[data-testid="joint-readout-shoulder_pan"]',
+          '[data-testid="tech-joint-shoulder_pan"]',
         );
         return Number.parseFloat(readoutEl!.textContent!.replace('°', ''));
       });
@@ -586,16 +572,20 @@ test.describe('playground polish', () => {
       expect(Math.abs(value)).toBeLessThan(0.6);
     }
     await waitForPlaybackEnd(page);
-    expect(await readoutDeg(page, 'shoulder_pan')).toBeCloseTo(50, 0);
+    expect(await techDeg(page, 'shoulder_pan')).toBeCloseTo(50, 0);
 
-    // Sliders and reset still work under reduced motion.
+    // Sliders and reset still work under reduced motion, live in the scene.
+    const canvas = page.locator('canvas');
+    await expect(canvas).toHaveCount(1);
+    const before = await canvas.screenshot();
     await setSlider(page.getByTestId('joint-slider-elbow_flex'), '20');
     await expect(page.getByTestId('joint-readout-elbow_flex')).toHaveText(
-      '+20.0°',
+      '20°',
     );
+    expect(Buffer.compare(before, await canvas.screenshot())).not.toBe(0);
     await page.getByRole('button', { name: /reset pose/i }).click();
     await expect(page.getByTestId('joint-readout-elbow_flex')).toHaveText(
-      '+0.0°',
+      '0°',
     );
 
     expect(consoleErrors).toEqual([]);
@@ -621,14 +611,13 @@ test.describe('playground polish', () => {
 
     // Controls remain reachable and usable at mobile width.
     await page.getByTestId('trajectory-record').scrollIntoViewIfNeeded();
-    await page.getByTestId('trajectory-record').click();
     await addKeyframe(page);
-    await expect(page.getByTestId('trajectory-count')).toHaveText('1 keyframe');
+    await expect(page.getByTestId('trajectory-count')).toHaveText('1 pose');
     const slider = page.getByTestId('joint-slider-shoulder_pan');
     await slider.scrollIntoViewIfNeeded();
     await setSlider(slider, '30');
     await expect(page.getByTestId('joint-readout-shoulder_pan')).toHaveText(
-      '+30.0°',
+      '30°',
     );
 
     expect(consoleErrors).toEqual([]);
@@ -700,37 +689,23 @@ test.describe('playground polish', () => {
     }
 
     // Reachable IK target, then an unreachable one.
-    const eeText = await page.getByTestId('hud-ee-position').textContent();
-    const match = eeText!.match(
-      /x\s+([+-]?[\d.]+)\s+y\s+([+-]?[\d.]+)\s+z\s+([+-]?[\d.]+)/,
-    )!;
-    await page.getByTestId('ik-input-x').fill((Number(match[1]) - 0.03).toFixed(3));
-    await page.getByTestId('ik-input-y').fill(Number(match[2]).toFixed(3));
-    await page.getByTestId('ik-input-z').fill(Number(match[3]).toFixed(3));
-    await page.getByTestId('ik-solve').click();
-    await expect(page.getByTestId('hud-ik-status')).toHaveText('reached', {
-      timeout: 3_000,
-    });
+    const hand = await techPosition(page, 'tech-hand');
+    await reachFor(page, { x: hand.x - 0.03, y: hand.y, z: hand.z });
+    await expectReach(page, 'reached');
 
-    await page.getByTestId('ik-input-x').fill('0.6');
-    await page.getByTestId('ik-input-y').fill('0.5');
-    await page.getByTestId('ik-input-z').fill('0');
-    await page.getByTestId('ik-solve').click();
-    await expect(page.getByTestId('hud-ik-status')).toHaveText('not reached', {
-      timeout: 5_000,
-    });
-    await page.getByTestId('ik-clear').click();
+    await reachFor(page, { x: 0.6, y: 0, z: 0.5 });
+    await expectReach(page, 'unreachable', 10_000);
+    await page.getByTestId('reach-clear').click();
 
     // Record a 3-keyframe trajectory, play it back, export it, reset.
     await page.getByRole('button', { name: /reset pose/i }).click();
-    await page.getByTestId('trajectory-record').click();
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '40');
     await setSlider(page.getByTestId('joint-slider-shoulder_lift'), '25');
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-elbow_flex'), '-20');
     await addKeyframe(page);
-    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 keyframes/);
+    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 poses/);
     await page.getByTestId('trajectory-play').click();
     await waitForPlaybackEnd(page);
     await page.getByTestId('trajectory-export').click();
@@ -740,8 +715,10 @@ test.describe('playground polish', () => {
     expect(JSON.parse(exported).keyframes).toHaveLength(3);
     await page.getByRole('button', { name: /reset pose/i }).click();
     await expect(page.getByTestId('joint-readout-shoulder_pan')).toHaveText(
-      '+0.0°',
+      '0°',
     );
+    // Reset pose keeps the recorded motion; Clear is what removes it.
+    await expect(page.getByTestId('trajectory-count')).toHaveText(/^3 poses/);
 
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);

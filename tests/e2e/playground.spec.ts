@@ -1,4 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import { waitForPlayground } from './helpers/playground';
 
 const MODEL_URL = /\/models\/so101\//;
 const CAMERA_EPSILON = 0.0001;
@@ -24,9 +26,21 @@ function collectErrors(page: Page) {
 }
 
 async function waitForArm(page: Page) {
-  const status = page.getByTestId('robot-status');
-  await expect(status).not.toHaveText(/loading/i, { timeout: 15_000 });
-  return status;
+  await waitForPlayground(page);
+  await expect(page.getByTestId('playground-viewport')).toHaveAttribute(
+    'data-scene-ready',
+    'true',
+    { timeout: SCENE_READY_BUDGET_MS },
+  );
+  return page.getByTestId('robot-status');
+}
+
+/** The page paper from app/globals.css, the colour the canvas must clear to. */
+function paperRgb(): [number, number, number] {
+  const match = readFileSync('app/globals.css', 'utf8').match(/--color-paper:\s*#([0-9A-Fa-f]{6});/);
+  if (!match) throw new Error('--color-paper is not declared');
+  const value = Number.parseInt(match[1], 16);
+  return [(value >> 16) & 255, (value >> 8) & 255, value & 255];
 }
 
 interface SceneSnapshot {
@@ -86,7 +100,7 @@ async function waitForRenderedCameraChange(
 }
 
 test.describe('3D playground scene and model', () => {
-  test('renders the SO-101 arm in a lit, gridded canvas with zero errors', async ({
+  test('renders the SO-101 arm in the clay look on the page paper with zero errors', async ({
     page,
   }) => {
     // Software-rendered WebGL under parallel load can need well over 10s
@@ -98,7 +112,7 @@ test.describe('3D playground scene and model', () => {
     const canvas = page.locator('canvas');
     await expect(canvas).toBeVisible({ timeout: 15_000 });
     const status = await waitForArm(page);
-    await expect(status).toContainText('so-101');
+    await expect(status).toContainText('SO-101');
     await expect(status).toContainText(/6 joints/);
 
     // The canvas must contain more than the flat background: sample pixels.
@@ -111,7 +125,7 @@ test.describe('3D playground scene and model', () => {
     // and plain readPixels on a multisampled default framebuffer
     // nondeterministically returns zeros under SwiftShader. Blitting the
     // default framebuffer into our own FBO resolves it deterministically.
-    const readNonBackgroundRatio = () =>
+    const readPixelStats = () =>
       page.evaluate(() => {
         const el = document.querySelector('canvas') as HTMLCanvasElement;
         const gl = (el.getContext('webgl2') ??
@@ -171,14 +185,22 @@ test.describe('3D playground scene and model', () => {
         gl.deleteTexture(tex);
 
         let nonBackground = 0;
-        // Background is #F5F6F7 (245, 246, 247), channel sum 738. The arm and
-        // grid are darker than the ground, so a painted pixel reads BELOW it;
-        // the threshold looked for brighter-than-ground under the old theme.
+        // The ground is the page paper, #FAFAF8 (channel sum 748). The clay
+        // arm and its motors are darker than the paper, so a painted pixel
+        // reads BELOW it; the floor shadow (13 % at most) stays above 636.
+        // An undrawn buffer is transparent black; only drawn (opaque)
+        // pixels count, so an empty canvas can never pass for the arm.
         for (let i = 0; i < pixels.length; i += 4) {
-          if (pixels[i] + pixels[i + 1] + pixels[i + 2] < 636) nonBackground++;
+          if (pixels[i + 3] === 255 && pixels[i] + pixels[i + 1] + pixels[i + 2] < 636) nonBackground++;
         }
-        return nonBackground / (bw * bh);
+        // readPixels rows run bottom-up: rows near the end are the canvas's
+        // top edge, open sky above the arm, which only the clear colour
+        // paints. A few pixels in from the corner, clear of the edge.
+        const top = ((bh - 5) * bw + 5) * 4;
+        const corner = [pixels[top], pixels[top + 1], pixels[top + 2]];
+        return { ratio: nonBackground / (bw * bh), corner };
       });
+    const readNonBackgroundRatio = async () => (await readPixelStats()).ratio;
     // Headless SwiftShader can kill the GL context under load; a lost
     // context never repaints, so give each attempt a bounded poll and
     // retry on a fresh page (fresh context) before calling it a failure.
@@ -200,6 +222,12 @@ test.describe('3D playground scene and model', () => {
       }
     }
     expect(rendered).toBe(true);
+
+    // Token parity: WebGL clears to exactly the runtime paper token, so
+    // the stage reads as the page itself (no tone mapping on the way out).
+    const { corner } = await readPixelStats();
+    const paper = paperRgb();
+    corner.forEach((channel, i) => expect(Math.abs(channel - paper[i])).toBeLessThanOrEqual(1));
 
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);
@@ -263,8 +291,9 @@ test.describe('3D playground scene and model', () => {
 
     await expect(page.locator('canvas')).toBeVisible({ timeout: 15_000 });
     const status = await waitForArm(page);
-    await expect(status).toContainText('fallback');
-    await expect(status).toContainText(/3 joints/);
+    await expect(status).toContainText('Simplified');
+    await expect(status).toContainText(/3-joint/);
+    await expect(page.getByRole('slider')).toHaveCount(3);
     expect(pageErrors).toEqual([]);
   });
 
@@ -279,7 +308,15 @@ test.describe('3D playground scene and model', () => {
     await expect(
       page.getByText(/WebGL is not available/i),
     ).toBeVisible();
+    await expect(page.getByTestId('playground')).toHaveAttribute(
+      'data-playground-state',
+      'unavailable',
+    );
     await expect(page.locator('canvas')).toHaveCount(0);
+    // The fallback replaces the instrument, it does not mimic it: no
+    // sliders, and no loading state left spinning.
+    await expect(page.getByRole('slider')).toHaveCount(0);
+    await expect(page.getByRole('status')).toHaveCount(0);
     expect(consoleErrors).toEqual([]);
     expect(pageErrors).toEqual([]);
   });

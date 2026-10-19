@@ -18,6 +18,9 @@ import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/market-map/';
 
+/** The accent, --color-signal #3B6EA8. */
+const ACCENT = 'rgb(59, 110, 168)';
+
 function marks(page: Page): Locator {
   return page.locator('circle[data-company-id]');
 }
@@ -87,7 +90,7 @@ test.describe('bubble view hover/focus affordances', () => {
     const ring = page.locator('circle[data-focus-ring]');
     await expect(ring).toHaveCount(1);
     await expect(ring).toBeVisible();
-    await expect(ring).toHaveCSS('stroke', 'rgb(36, 95, 255)');
+    await expect(ring).toHaveCSS('stroke', ACCENT);
     const r = parseFloat((await ring.getAttribute('r')) ?? '0');
     expect(r).toBeGreaterThan(6);
     // The ring renders outside the clip group, so it is never cut at the
@@ -241,24 +244,33 @@ test.describe('bubble view hover/focus affordances', () => {
     expect(reentered).toBe(movedId);
   });
 
-  test('Enter and Space still select and reveal the detail panel', async ({
+  test('Enter and Space still select and reveal the details', async ({
     page,
   }) => {
     await openBubble(page);
     const figure = mark(page, 'figure-ai');
     await figure.focus();
     await figure.press('Enter');
-    await expect(page.locator('[data-bubble-detail]')).toContainText('Figure AI');
-    await expect(page.locator('[data-bubble-detail]')).toContainText('$39B');
+    const details = page.getByRole('dialog', { name: 'Figure AI' });
+    await expect(details).toContainText('Figure AI');
+    await expect(details.locator('[data-field="valuation"]')).toHaveText('$39B');
+    // Focus moved into the details; Escape closes them and returns it.
+    await expect(details.getByRole('heading', { name: 'Figure AI' })).toBeFocused();
+    await expect(figure).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(figure).toBeFocused();
+    // Enter on the open company's mark closes it too.
     await figure.press('Enter');
-    await expect(page.locator('[data-bubble-detail]')).toHaveCount(0);
+    await expect(page.getByRole('dialog')).toHaveCount(1);
+    await figure.focus();
+    await figure.press('Enter');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
 
     const pi = mark(page, 'physical-intelligence');
     await pi.focus();
     await pi.press(' ');
-    await expect(page.locator('[data-bubble-detail]')).toContainText(
-      'Physical Intelligence',
-    );
+    await expect(page.getByRole('dialog', { name: 'Physical Intelligence' })).toBeVisible();
   });
 
   test('deep link highlights the hashed mark in bubble view', async ({
@@ -276,11 +288,12 @@ test.describe('bubble view hover/focus affordances', () => {
     const figure = mark(page, 'figure-ai');
     await expect(figure).toBeVisible();
     const figureInk = figure.locator('xpath=preceding-sibling::*[1]');
-    await expect(figureInk).toHaveCSS('fill', 'rgb(36, 95, 255)');
+    await expect(figureInk).toHaveCSS('fill', ACCENT);
     await expect(figureInk).toHaveAttribute('r', '6');
-    // Selection state falls out naturally: the detail panel shows the
-    // hashed company.
-    await expect(page.locator('[data-bubble-detail]')).toContainText('Figure AI');
+    // Selection state falls out naturally: the details show the hashed
+    // company, and the chart labels its mark.
+    await expect(page.getByRole('dialog', { name: 'Figure AI' })).toBeVisible();
+    await expect(label(page)).toContainText('Figure AI');
     // The filter was relaxed so the mark is plotted at all.
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(errors).toEqual([]);

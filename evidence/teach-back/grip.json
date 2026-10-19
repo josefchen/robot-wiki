@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "grip",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/grip/1280-s1.jpg",
+    "evidence/teach-back/grip/1280-s2.jpg",
+    "evidence/teach-back/grip/1280-s3-guess.jpg",
+    "evidence/teach-back/grip/1280-s3-reveal.jpg",
+    "evidence/teach-back/grip/1280-s4.jpg",
+    "evidence/teach-back/grip/1280-s5.jpg",
+    "evidence/teach-back/grip/390-s1.jpg",
+    "evidence/teach-back/grip/390-s2.jpg",
+    "evidence/teach-back/grip/390-s3-guess.jpg",
+    "evidence/teach-back/grip/390-s3-reveal.jpg",
+    "evidence/teach-back/grip/390-s4.jpg",
+    "evidence/teach-back/grip/390-s5.jpg"
+  ],
+  "takeaway": "A pinch holds only if each finger pushes within a narrow cone set by friction; tilt the grip outside the cones and the object slides out.",
+  "selfCheck": {
+    "question": "Why do grippers have rubber pads?",
+    "answer": "rubber is grippy, wider cone (45 vs 17 vs 6); can hold when tilted or not lined up; room to spare.",
+    "correct": true
+  },
+  "sentence": "A fingertip can only push on an object within a certain range of angles before it slides off, and that range is shown as a cone. When a gripper squeezes at a tilt, the block stays put only if the slant still fits inside both fingertips' cones. Slippery surfaces make the cones narrower, so a tilted grip that works on rubber can fail on plastic or ice.",
+  "unclearTerms": [
+    "\"Fingertip cone\" (what the cone stands for, only from next sentence)",
+    "\"push ... within this cone\" (direction of finger or block?)",
+    "\"plastic cone\"/\"rubber cone\" (read as physical cone)",
+    "\"Surface\" Rubber/Plastic/Ice (fingertip or block material?)",
+    "\"measured from straight across\" (half guess)",
+    "\"30°\", \"17°\", \"45°\", \"6°\" (where the values come from, real?)",
+    "\"Line between fingertips\" (which line; label floats)",
+    "\"finger spots whose cones face each other\" (half)",
+    "\"with room to spare\" (guess)",
+    "\"2026 study of 1,599 robot-hand grasps\" (no source)",
+    "\"grasps that should hold\" (who decided)",
+    "\"53% ... would fail\" (failed or predicted)",
+    "\"the slippery end of what is realistic\" (vague)",
+    "\"Guess first\" (note says nothing about ice)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "friction cone",
+      "why": "the concept the last step introduces"
+    }
+  ],
+  "samePoint": "yes",
+  "reason": "My takeaway gives the same rule as the registered sentence: a fingertip can push only within a cone (the registered sentence says it is set by friction, and I tied it to surface grippiness), and a tilt outside the cones makes the block slide out; the registered sentence has no numbers to check.",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 12,
+      "labels": 1,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "2",
+      "words": 22,
+      "labels": 1,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "3 guess",
+      "words": 20,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "3 reveal",
+      "words": 20,
+      "labels": 2,
+      "controls": 1,
+      "colours": [
+        "fail"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4",
+      "words": 14,
+      "labels": 1,
+      "controls": 2,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "5",
+      "words": 23,
+      "labels": 1,
+      "controls": 2,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 12,
+      "labels": 1,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "2",
+      "words": 22,
+      "labels": 1,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "3 guess",
+      "words": 20,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "3 reveal",
+      "words": 20,
+      "labels": 2,
+      "controls": 1,
+      "colours": [
+        "fail"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4",
+      "words": 14,
+      "labels": 1,
+      "controls": 2,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "5",
+      "words": 23,
+      "labels": 1,
+      "controls": 2,
+      "colours": [
+        "focus"
+      ]
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: \"Fingertip cone\"; \"push ... within this cone\"; \"plastic cone\"/\"rubber cone\"; \"Surface\" Rubber/Plastic/Ice; \"measured from straight across\"; \"30°\", \"17°\", \"45°\", \"6°\"; \"Line between fingertips\"; \"finger spots whose cones face each other\"; \"with room to spare\"; \"2026 study of 1,599 robot-hand grasps\"; \"grasps that should hold\"; \"53% ... would fail\"; \"the slippery end of what is realistic\"; \"Guess first\".",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording was revised in a8e577cf after this round and has not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-ab39137e",
+  "sourceDigest": "ba0cf05d915c8a6a0f7a21387da531bd8ce23b41c2114d873ad65005f30abd9b"
+}

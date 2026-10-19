@@ -13,16 +13,35 @@ async function noOverflow(page: Page) {
   );
 }
 
-function segmentSelect(page: Page) {
-  return page.locator('#filter-segment');
+function segmentTab(page: Page, name: RegExp) {
+  return page.getByRole('group', { name: 'Segment' }).getByRole('button', { name });
 }
 
 function statusSelect(page: Page) {
   return page.locator('#filter-status');
 }
 
+function tiles(page: Page) {
+  return page.locator('button[data-map-tile]');
+}
+
+function tile(page: Page, id: string) {
+  return page.locator(`button[data-map-tile="${id}"]`);
+}
+
+/** The open company's details: a side sheet, or a bottom sheet on phones. */
+function sheet(page: Page, name: string | RegExp) {
+  return page.getByRole('dialog', { name });
+}
+
+async function openMoreFilters(page: Page) {
+  const toggle = page.getByRole('button', { name: /More filters/ });
+  if ((await toggle.getAttribute('aria-expanded')) !== 'true') await toggle.click();
+  await expect(page.locator('#filter-country')).toBeVisible();
+}
+
 test.describe('market map visualization', () => {
-  test('renders 111 companies grouped by segment (VAL-MKT-001, VAL-MKT-002)', async ({
+  test('maps 111 companies in six segments (VAL-MKT-001, VAL-MKT-002)', async ({
     page,
   }) => {
     const response = await page.goto(ROUTE);
@@ -31,7 +50,7 @@ test.describe('market map visualization', () => {
       page.getByRole('heading', { level: 1, name: 'Market Map' }),
     ).toBeVisible();
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
-    await expect(page.locator('article[data-company-id]')).toHaveCount(111);
+    await expect(tiles(page)).toHaveCount(111);
     await expect(
       page.getByRole('heading', { name: /Foundation models/ }),
     ).toContainText('12');
@@ -53,19 +72,29 @@ test.describe('market map visualization', () => {
       '8',
     );
     await expect(page.getByText(/as of 6 August 2026/i)).toBeVisible();
+    // At desktop width the six segments sit side by side: every segment
+    // heading starts on the same line, so the whole landscape reads at once.
+    const tops = await page.locator('[data-segment] > h2').evaluateAll((headings) =>
+      headings.map((heading) => Math.round(heading.getBoundingClientRect().top)),
+    );
+    expect(tops).toHaveLength(6);
+    // Simulation / tooling and Components share the last column.
+    expect(new Set(tops.slice(0, 5)).size).toBe(1);
+    expect(tops[5]).toBeGreaterThan(tops[4]);
   });
 
   test('filters compose, deep-link, and clear (VAL-MKT-005 to VAL-MKT-008, VAL-MKT-018)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    await segmentSelect(page).selectOption('humanoids');
+    await segmentTab(page, /^Humanoids/).click();
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
-    // 34 cards for the 34-row humanoids segment (see the heading count
+    // 34 tiles for the 34-row humanoids segment (see the heading count
     // above; both oracles must agree).
-    await expect(page.locator('article[data-company-id]')).toHaveCount(34);
+    await expect(tiles(page)).toHaveCount(34);
     expect(page.url()).toContain('segment=humanoids');
 
+    await openMoreFilters(page);
     await page.getByLabel('Country', { exact: true }).selectOption('US');
     await expect(page.getByText('6 of 111 companies')).toBeVisible();
 
@@ -75,7 +104,9 @@ test.describe('market map visualization', () => {
     const filteredUrl = page.url();
     await page.goto(filteredUrl);
     await expect(page.getByText('4 of 111 companies')).toBeVisible();
-    await expect(page.locator('article[data-company-id]')).toHaveCount(4);
+    await expect(tiles(page)).toHaveCount(4);
+    // Filters arriving with the URL open the fold that holds them.
+    await expect(page.locator('#filter-country')).toHaveValue('US');
 
     await page.getByRole('button', { name: 'Bubble' }).click();
     await expect(page.getByRole('group', { name: /bubble chart/i })).toBeVisible();
@@ -88,6 +119,17 @@ test.describe('market map visualization', () => {
     await page.getByRole('button', { name: 'Clear filters' }).click();
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
     expect(new URL(page.url()).search).toBe('');
+  });
+
+  test('name search narrows the map and lives in the URL', async ({ page }) => {
+    await page.goto(ROUTE);
+    await page.getByRole('searchbox', { name: 'Search companies by name' }).fill('dyn');
+    await expect(page.getByText('3 of 111 companies')).toBeVisible();
+    await expect(tiles(page)).toHaveCount(3);
+    expect(new URL(page.url()).searchParams.get('q')).toBe('dyn');
+    await page.reload();
+    await expect(page.getByRole('searchbox', { name: 'Search companies by name' })).toHaveValue('dyn');
+    await expect(tiles(page)).toHaveCount(3);
   });
 
   test('invalid params fall back to the full set (VAL-MKT-024)', async ({
@@ -110,7 +152,7 @@ test.describe('market map visualization', () => {
     await expect(sub.locator('option[value="warehouse-automation"]')).toHaveCount(
       1,
     );
-    await segmentSelect(page).selectOption('humanoids');
+    await segmentTab(page, /^Humanoids/).click();
     await expect(sub.locator('option[value="industrial-humanoids"]')).toHaveCount(
       1,
     );
@@ -119,42 +161,47 @@ test.describe('market map visualization', () => {
     );
   });
 
-  test('company cards expand and keep unknown funding honest (VAL-MKT-009 to VAL-MKT-013)', async ({
+  test('company details open in a sheet and keep unknown funding honest (VAL-MKT-009 to VAL-MKT-013)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const pi = page.locator('article[data-company-id="physical-intelligence"]');
-    await expect(pi.getByRole('heading', { name: 'Physical Intelligence' })).toBeVisible();
+    await tile(page, 'physical-intelligence').click();
+    const pi = sheet(page, 'Physical Intelligence');
+    await expect(pi).toBeVisible();
+    await expect(pi.getByRole('heading', { name: 'Physical Intelligence' })).toBeFocused();
+    await expect(page).toHaveURL(/#company-physical-intelligence$/);
     await expect(pi.getByText(/vision-language-action/)).toBeVisible();
-    // Target the funding figure by its data field: the source list below
-    // the card includes a Robot Report link whose TITLE contains "$600M"
-    // (a correct title), so a bare getByText collides with it in strict
-    // mode. The data-field locator still fails if the figure is wrong.
+    // Target the funding figure by its data field: the source list in the
+    // sheet includes a Robot Report link whose TITLE contains "$600M" (a
+    // correct title), so a bare getByText collides with it in strict mode.
+    // The data-field locator still fails if the figure is wrong.
     await expect(pi.locator('[data-field="amount"]')).toHaveText('$600M');
     await expect(pi.locator('[data-field="valuation"]')).toHaveText('$5.6B');
-    await expect(pi.getByText('high')).toBeVisible();
-    await pi.getByRole('button', { name: 'Expand' }).click();
+    await expect(pi.locator('[data-field="confidence"]')).toHaveText('high');
     await expect(pi.getByText('openpi')).toBeVisible();
     await expect(pi.getByText('CapitalG, Lux Capital')).toBeVisible();
-    await pi.getByRole('button', { name: 'Collapse' }).click();
-    await expect(pi.getByText('openpi')).toHaveCount(0);
+    await pi.getByRole('button', { name: 'Close Physical Intelligence details' }).click();
+    await expect(page.getByText('openpi')).toHaveCount(0);
+    await expect(tile(page, 'physical-intelligence')).toBeFocused();
 
-    const unitree = page.locator('article[data-company-id="unitree-robotics"]');
+    await tile(page, 'unitree-robotics').click();
+    const unitree = sheet(page, 'Unitree Robotics');
     await expect(unitree.locator('[data-field="status"]')).toHaveText('IPO');
     // VAL-MKT-009 (2026-09-24 qualification): the 5,500-unit 2025
     // shipment, 30,000+ cumulative quadruped and ~33% sales-share
     // literals were press-repeated prospectus figures (Rest of World);
-    // the Unitree prospectus itself was never inspected, so the card
-    // discloses that scope instead of asserting a count or rank.
+    // the Unitree prospectus itself was never inspected, so the details
+    // disclose that scope instead of asserting a count or rank.
     await expect(
-      unitree.getByText(/not verified from an inspected Unitree company body/),
+      unitree.getByText(/not verified from an inspected Unitree company body/).first(),
     ).toBeVisible();
     await expect(unitree.getByText(/5,500/)).toHaveCount(0);
     await expect(unitree.getByText(/30,000\+/)).toHaveCount(0);
     await expect(unitree.getByText(/33%/)).toHaveCount(0);
     await expect(unitree.getByText(/profitable since 2025/)).toHaveCount(0);
 
-    const covariant = page.locator('article[data-company-id="covariant"]');
+    await tile(page, 'covariant').click();
+    const covariant = sheet(page, 'Covariant');
     await expect(covariant.getByText('not disclosed').first()).toBeVisible();
     await expect(covariant).not.toContainText('$0');
   });
@@ -174,15 +221,16 @@ test.describe('market map visualization', () => {
 
     const figure = page.locator('[data-company-id="figure-ai"]');
     await figure.getByRole('button').click();
-    await expect(figure.getByText(/as of/i).first()).toBeVisible();
-    await expect(figure.getByRole('link').first()).toHaveAttribute(
+    const details = sheet(page, 'Figure AI');
+    await expect(details.locator('[data-round-source]')).toContainText(/as of/i);
+    await expect(details.locator('[data-round-source] a')).toHaveAttribute(
       'href',
       /^https:\/\//,
     );
 
     const covariant = page.locator('[data-company-id="covariant"]');
     await covariant.getByRole('button').click();
-    await expect(covariant.getByText('not disclosed').first()).toBeVisible();
+    await expect(sheet(page, 'Covariant').getByText('not disclosed').first()).toBeVisible();
   });
 
   test('bubble view excludes null funding and labels axes (VAL-MKT-023)', async ({
@@ -194,19 +242,20 @@ test.describe('market map visualization', () => {
     const markCount = await marks.count();
     expect(markCount).toBeGreaterThan(0);
     expect(markCount).toBeLessThan(111);
-    await expect(page.getByText(/Founding year/)).toBeVisible();
-    await expect(page.getByText(/excluded for missing/)).toBeVisible();
+    await expect(page.getByText('Founding year', { exact: true })).toBeVisible();
+    await expect(page.getByText(/left off, not drawn at zero/)).toBeVisible();
     await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(
       0,
     );
     await page.locator('circle[data-company-id="figure-ai"]').click();
-    await expect(page.getByText('Figure AI').first()).toBeVisible();
-    await expect(page.getByText('$39B').first()).toBeVisible();
+    await expect(sheet(page, 'Figure AI')).toBeVisible();
+    await expect(sheet(page, 'Figure AI').locator('[data-field="valuation"]')).toHaveText('$39B');
   });
 
   test('empty filter state is recoverable (VAL-MKT-017)', async ({ page }) => {
     await page.goto(ROUTE);
-    await segmentSelect(page).selectOption('components-hardware');
+    await segmentTab(page, /^Components/).click();
+    await openMoreFilters(page);
     await statusSelect(page).selectOption('shut-down');
     await expect(
       page.getByText('No companies match these filters.'),
@@ -219,28 +268,22 @@ test.describe('market map visualization', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    await openMoreFilters(page);
     await statusSelect(page).selectOption('acquired');
-    await expect(
-      page.locator('article[data-company-id="covariant"]'),
-    ).toBeVisible();
-    await expect(page.locator('article[data-company-id="irobot"]')).toBeVisible();
-    await expect(
-      page.locator('article[data-company-id="berkshire-grey"]'),
-    ).toBeVisible();
-    await expect(
-      page.locator('article[data-company-id="abb-robotics"]'),
-    ).toBeVisible();
+    await expect(tile(page, 'covariant')).toBeVisible();
+    await expect(tile(page, 'irobot')).toBeVisible();
+    await expect(tile(page, 'berkshire-grey')).toBeVisible();
+    await expect(tile(page, 'abb-robotics')).toBeVisible();
     // mentee-robotics moved private -> acquired on 2026-08-18: Mobileye's
     // Form 8-K records the acquisition completed Feb 3, 2026.
-    await expect(
-      page.locator('article[data-company-id="mentee-robotics"]'),
-    ).toBeVisible();
+    await expect(tile(page, 'mentee-robotics')).toBeVisible();
+    // Each says so on its tile.
+    await expect(tile(page, 'covariant')).toContainText('Acquired');
 
     await statusSelect(page).selectOption('shut-down');
-    await expect(
-      page.locator('article[data-company-id="k-scale-labs"]'),
-    ).toBeVisible();
-    await expect(page.locator('article[data-company-id]')).toHaveCount(1);
+    await expect(tile(page, 'k-scale-labs')).toBeVisible();
+    await expect(tile(page, 'k-scale-labs')).toContainText('Shut down');
+    await expect(tiles(page)).toHaveCount(1);
   });
 
   test('is usable at 375px and has no axe violations (VAL-MKT-019, VAL-MKT-026)', async ({
@@ -248,14 +291,14 @@ test.describe('market map visualization', () => {
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto(ROUTE);
-    await expect(page.getByRole('button', { name: 'Filters' })).toBeVisible();
+    await expect(page.getByRole('button', { name: /More filters/ })).toBeVisible();
     expect(await noOverflow(page)).toBe(true);
 
-    await page.getByRole('button', { name: 'Filters' }).click();
-    await segmentSelect(page).selectOption('humanoids');
+    await segmentTab(page, /^Humanoids/).click();
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
-    await page.getByRole('button', { name: 'Close filters' }).click();
-    await expect(segmentSelect(page)).toBeHidden();
+    await openMoreFilters(page);
+    await page.getByRole('button', { name: /More filters/ }).click();
+    await expect(page.locator('#filter-country')).toBeHidden();
 
     await page.getByRole('button', { name: 'Timeline' }).click();
     expect(await noOverflow(page)).toBe(true);
@@ -264,15 +307,90 @@ test.describe('market map visualization', () => {
     expect(results.violations).toEqual([]);
   });
 
+  test('the details are a modal bottom sheet on a phone', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(ROUTE);
+    await tile(page, 'figure-ai').click();
+    const details = sheet(page, 'Figure AI');
+    await expect(details).toHaveAttribute('aria-modal', 'true');
+    await expect(details).toHaveAttribute('data-company-sheet', 'bottom');
+    // The sheet rises to rest on the bottom edge and the page behind it is
+    // still.
+    const panel = details.locator(':scope > div').nth(1);
+    await expect
+      .poll(async () => {
+        const box = await panel.boundingBox();
+        return Math.round((box?.y ?? 0) + (box?.height ?? 0));
+      })
+      .toBe(844);
+    expect(await page.evaluate(() => document.body.style.overflow)).toBe('hidden');
+    // Tab stays inside the sheet.
+    for (let i = 0; i < 30; i += 1) {
+      await page.keyboard.press('Tab');
+      expect(
+        await page.evaluate(() => document.activeElement?.closest('[role="dialog"]') !== null),
+      ).toBe(true);
+    }
+    const axe = await new AxeBuilder({ page }).analyze();
+    expect(axe.violations).toEqual([]);
+    // The browser's Back closes it, as on desktop.
+    await page.goBack();
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    expect(await page.evaluate(() => document.body.style.overflow)).toBe('');
+    expect(await noOverflow(page)).toBe(true);
+  });
+
   test('filter bar is keyboard operable (VAL-MKT-026)', async ({ page }) => {
     await page.goto(ROUTE);
-    await segmentSelect(page).focus();
-    await segmentSelect(page).selectOption('humanoids');
+    await segmentTab(page, /^Humanoids/).focus();
+    await page.keyboard.press('Enter');
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
     await page.getByRole('button', { name: 'Timeline' }).press('Enter');
     await expect(page.getByText('Figure AI')).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).press('Enter');
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
+  });
+
+  test('the map is one tab stop with arrow keys; Enter opens, Escape and Back close', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    await expect(page.locator('button[data-map-tile][tabindex="0"]')).toHaveCount(1);
+    await tiles(page).first().focus();
+    const first = await page.evaluate(() => document.activeElement?.getAttribute('data-map-tile'));
+    // Down stays in the column: the next tile is directly below.
+    await page.keyboard.press('ArrowDown');
+    const below = await page.evaluate(() => document.activeElement?.getAttribute('data-map-tile'));
+    expect(below).toBeTruthy();
+    expect(below).not.toBe(first);
+    const [a, b] = await Promise.all(
+      [first, below].map((id) => tile(page, id as string).boundingBox()),
+    );
+    expect(Math.abs((a?.x ?? 0) - (b?.x ?? 1))).toBeLessThan(2);
+    expect(b!.y).toBeGreaterThan(a!.y);
+    await page.keyboard.press('ArrowRight');
+    const right = await page.evaluate(() => document.activeElement?.getAttribute('data-map-tile'));
+    expect(right).not.toBe(below);
+    await expect(page.locator('button[data-map-tile][tabindex="0"]')).toHaveCount(1);
+
+    // Enter opens the details and the URL names the company.
+    await page.keyboard.press('Enter');
+    await expect(page).toHaveURL(new RegExp(`#company-${right}$`));
+    await expect(page.getByRole('dialog')).toBeVisible();
+    // Escape closes them and hands focus back to the tile.
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(tile(page, right as string)).toBeFocused();
+    expect(new URL(page.url()).hash).toBe('');
+
+    // Back closes them too, and Forward reopens.
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog')).toBeVisible();
+    await page.goBack();
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    expect(new URL(page.url()).pathname).toBe('/market-map/');
+    await page.goForward();
+    await expect(page.getByRole('dialog')).toBeVisible();
   });
 
   test('uppercase letterspaced micro-labels stay at or under 5 (VAL-DESIGN-010)', async ({

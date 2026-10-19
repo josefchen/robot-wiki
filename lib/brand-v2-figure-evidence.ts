@@ -6,6 +6,7 @@ import type { SiteImage } from '../data/schemas/image.ts';
 import { LEGAL_BASES } from '../data/schemas/image.ts';
 import { publishedModules } from '../data/modules.ts';
 import { referencedImageIdOccurrences } from './images.ts';
+import { withheldMark } from './market-map-marks.ts';
 import { moduleBody } from './references.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
@@ -103,7 +104,8 @@ const STATIC_PAGE_MODULE = /^app\/(.*)page\.tsx$/;
  * expectation and its figures would be unmeasured extras.
  */
 const DATA_DRIVEN_FIGURE_ROUTES: ReadonlyMap<string, () => string[]> = new Map([
-  [CREDITS_ROUTE, () => IMAGES.map(({ id }) => id)],
+  // A withheld company mark is drawn nowhere, so /credits gives it no row.
+  [CREDITS_ROUTE, () => IMAGES.filter(({ id }) => !withheldMark(id)).map(({ id }) => id)],
 ]);
 
 /** `<Image id={…}>`: an id the page computes, which no source scan can read. */

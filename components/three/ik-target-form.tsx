@@ -1,143 +1,170 @@
 'use client';
 
 import { useState } from 'react';
-import type { Vec3 } from '@/lib/ik';
+import { robotToScene, type Vec3 } from '@/lib/ik';
+import { sceneToBaseFrame } from './joint-labels';
 
 interface IkTargetFormProps {
-  /** Scene coordinates used to prefill the form (the home EE position). */
+  /** Scene point the fields start from: the placed target, or the hand at home. */
   defaultTarget: Vec3 | null;
   hasTarget: boolean;
   onSolve: (target: Vec3) => void;
   onClear: () => void;
+  /** The reach verdict, repeated here for screens where the stage is out of view. */
+  status?: string | null;
+  disabled?: boolean;
 }
 
-const AXES = ['x', 'y', 'z'] as const;
+const FIELDS = [
+  { key: 'forward', label: 'Forward' },
+  { key: 'left', label: 'Left' },
+  { key: 'up', label: 'Up' },
+] as const;
+type FieldKey = (typeof FIELDS)[number]['key'];
 
-function formatInput(value: number): string {
-  return String(Math.round(value * 1000) / 1000);
+function formatCm(metres: number): string {
+  const cm = Math.round(metres * 1000) / 10;
+  return String(Object.is(cm, -0) ? 0 : cm);
 }
 
 /**
- * The keyboard path for inverse kinematics: three numeric inputs for the
- * target in scene coordinates plus solve/clear actions. This produces the
- * same solve as click-to-reach and is fully operable without a pointer.
+ * The keyboard path to a reach: three boxes for the target in centimetres
+ * from the base (forward, left, up), the same frame the hand readout uses,
+ * and a Reach button. It runs the same solve as a click on the floor.
  */
 export function IkTargetForm({
   defaultTarget,
   hasTarget,
   onSolve,
   onClear,
+  status = null,
+  disabled = false,
 }: IkTargetFormProps) {
-  const [fields, setFields] = useState<Record<(typeof AXES)[number], string>>({
-    x: '',
-    y: '',
-    z: '',
+  const [fields, setFields] = useState<Record<FieldKey, string>>({
+    forward: '',
+    left: '',
+    up: '',
   });
   const [error, setError] = useState<string | null>(null);
 
-  // Repopulate the fields whenever the prefill target changes (first ready
+  // Refill the boxes whenever the starting point changes (first ready
   // state, a newly placed target, a reset). Render-time state adjustment,
   // not an effect.
   const [previousDefault, setPreviousDefault] = useState<Vec3 | null>(null);
   if (previousDefault !== defaultTarget) {
     setPreviousDefault(defaultTarget);
     if (defaultTarget) {
+      const point = sceneToBaseFrame(defaultTarget);
       setFields({
-        x: formatInput(defaultTarget.x),
-        y: formatInput(defaultTarget.y),
-        z: formatInput(defaultTarget.z),
+        forward: formatCm(point.forward),
+        left: formatCm(point.left),
+        up: formatCm(point.up),
       });
       setError(null);
     }
   }
 
   const submit = () => {
-    const parsed: Partial<Vec3> = {};
-    for (const axis of AXES) {
-      const value = Number.parseFloat(fields[axis]);
+    const cm: Partial<Record<FieldKey, number>> = {};
+    for (const { key } of FIELDS) {
+      const value = Number.parseFloat(fields[key]);
       if (!Number.isFinite(value)) {
-        setError('Enter a finite number for x, y, and z (meters).');
+        setError('Enter a number of centimetres in each box.');
         return;
       }
-      parsed[axis] = value;
+      cm[key] = value;
     }
     setError(null);
-    onSolve(parsed as Vec3);
+    onSolve(
+      robotToScene({
+        x: (cm.forward ?? 0) / 100,
+        y: (cm.left ?? 0) / 100,
+        z: (cm.up ?? 0) / 100,
+      }),
+    );
   };
 
   return (
-    <div>
-      <h2 className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
-        IK target
-      </h2>
-      <p className="mt-2 text-xs leading-relaxed text-text-dim">
-        Click the ground in the scene, or type a target here. Scene
-        coordinates in meters; y is up.
+    <section className="pg-section" aria-labelledby="pg-reach-heading">
+      <div className="pg-head">
+        <h2 id="pg-reach-heading">Reach</h2>
+      </div>
+      <p className="pg-note">
+        Click the floor to set a target, or type one in centimetres from the
+        base.
       </p>
-
-      <div className="mt-3 grid grid-cols-3 gap-2">
-        {AXES.map((axis) => (
-          <div key={axis}>
-            <label
-              htmlFor={`ik-target-${axis}`}
-              className="font-mono text-xs text-text"
-            >
-              Target {axis} (m)
-            </label>
-            <input
-              data-brand-control-id="control:input"
-              id={`ik-target-${axis}`}
-              data-testid={`ik-input-${axis}`}
-              type="number"
-              step={0.01}
-              inputMode="decimal"
-              value={fields[axis]}
-              onChange={(event) =>
-                setFields((previous) => ({
-                  ...previous,
-                  [axis]: event.target.value,
-                }))
-              }
-              onKeyDown={(event) => {
-                if (event.key === 'Enter') {
-                  event.preventDefault();
-                  submit();
+      <div className="pg-fields">
+        {FIELDS.map(({ key, label }) => (
+          <div key={key} className="pg-field">
+            <label htmlFor={`reach-${key}`}>{label}</label>
+            <span className="pg-unit-wrap">
+              <input
+                data-brand-control-id="control:input"
+                id={`reach-${key}`}
+                data-testid={`reach-input-${key}`}
+                type="number"
+                step={0.1}
+                inputMode="decimal"
+                disabled={disabled}
+                value={fields[key]}
+                aria-describedby="pg-reach-unit"
+                onChange={(event) =>
+                  setFields((previous) => ({
+                    ...previous,
+                    [key]: event.target.value,
+                  }))
                 }
-              }}
-              className="mt-1 w-full rounded-sm border border-border bg-bg px-2 py-1.5 font-mono text-xs tabular-nums text-text placeholder:text-text-dim"
-              placeholder="0.000"
-            />
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    event.preventDefault();
+                    submit();
+                  }
+                }}
+              />
+              <span className="pg-unit" aria-hidden="true">
+                cm
+              </span>
+            </span>
           </div>
         ))}
       </div>
+      <span id="pg-reach-unit" hidden>
+        centimetres
+      </span>
 
       {error ? (
-        <p role="alert" className="mt-2 font-mono text-xs text-err">
+        <p role="alert" className="pg-error">
           {error}
         </p>
       ) : null}
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="pg-actions">
         <button
           data-brand-control-id="control:secondary-action"
           type="button"
-          data-testid="ik-solve"
+          data-testid="reach-submit"
           onClick={submit}
-          className="rounded-sm border border-accent px-3 py-1.5 font-sans text-xs text-accent transition-colors hover:bg-accent/10 active:translate-y-[1px]"
+          disabled={disabled}
+          className="pg-btn"
         >
-          Solve to target
+          Reach
         </button>
         <button
           data-brand-control-id="control:secondary-action"
           type="button"
-          data-testid="ik-clear"
+          data-testid="reach-clear"
           onClick={onClear}
-          disabled={!hasTarget}
-          className="rounded-sm border border-border px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-text-dim"
+          disabled={disabled || !hasTarget}
+          className="pg-text"
         >
           Clear target
         </button>
       </div>
-    </div>
+      {status ? (
+        <p className="pg-note pg-narrow-only" aria-hidden="true">
+          {status}
+        </p>
+      ) : null}
+    </section>
   );
 }

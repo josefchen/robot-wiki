@@ -1,7 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import PlaygroundPage from '@/app/playground/page';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
+
+// The page stylesheet is plain CSS; jsdom has no layout, and the test
+// transform does not run the site's PostCSS pipeline.
+vi.mock('@/components/three/playground.css', () => ({}));
 
 describe('/playground page', () => {
   it('renders the playground heading inside a labeled region', () => {
@@ -31,5 +35,12 @@ describe('PlaygroundCanvas without WebGL (jsdom has no GL context)', () => {
       await screen.findByText(/WebGL is not available/i),
     ).toBeInTheDocument();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
+    // The fallback is the only branch: no loading state, no controls, and
+    // the root says so for tests that wait on it.
+    expect(screen.queryByRole('slider')).not.toBeInTheDocument();
+    expect(screen.getByTestId('playground')).toHaveAttribute(
+      'data-playground-state',
+      'unavailable',
+    );
   });
 });

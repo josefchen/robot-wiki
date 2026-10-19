@@ -25,16 +25,14 @@ export interface TrajectoryProgress {
 
 export interface TrajectoryController {
   keyframes: TrajectoryKeyframe[];
-  recording: boolean;
   playing: boolean;
   progress: TrajectoryProgress | null;
   message: TrajectoryMessage | null;
   /** The last exported JSON, shown as copyable text and as a download. */
   exportText: string | null;
   segmentSeconds: number;
-  startRecording: () => void;
-  stopRecording: () => void;
-  addKeyframe: () => void;
+  /** Records the arm's current pose as the next keyframe. */
+  recordPose: () => void;
   play: () => void;
   stopPlayback: () => void;
   clear: () => void;
@@ -62,10 +60,16 @@ function prefersReducedMotion(): boolean {
   );
 }
 
+const START_MESSAGE = 'Pose the arm, then record the pose. Two or more poses make a motion.';
+
+function poses(count: number): string {
+  return `${count} ${count === 1 ? 'pose' : 'poses'}`;
+}
+
 /**
- * Owns the playground's trajectory state: recorded keyframes, the
- * record-armed flag, playback, export/import, and the user-facing message
- * line. Playback advances on a timer (not rAF) so it progresses even in
+ * Owns the playground's trajectory state: recorded keyframes (the reader's
+ * poses), playback, export/import, and the user-facing message line.
+ * Playback advances on a timer (not rAF) so it progresses even in
  * environments where requestAnimationFrame never fires, and the joint
  * readouts update continuously because every tick writes through the same
  * setPose the IK solver uses.
@@ -80,18 +84,19 @@ export function useTrajectory({
   setPose,
 }: UseTrajectoryArgs): TrajectoryController {
   const [keyframes, setKeyframes] = useState<TrajectoryKeyframe[]>([]);
-  const [recording, setRecording] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState<TrajectoryProgress | null>(null);
   const [message, setMessage] = useState<TrajectoryMessage | null>({
     kind: 'info',
-    text: 'Record a pose to start a trajectory.',
+    text: START_MESSAGE,
   });
   const [exportText, setExportText] = useState<string | null>(null);
 
   const timerRef = useRef<number | null>(null);
   // Refs mirror the values the playback tick reads, so the interval never
-  // closes over stale state. Synced in an effect, never during render.
+  // closes over stale state. Synced in an effect, never during render; the
+  // handlers that change the keyframes also write the ref, so two quick
+  // presses of Record pose both land.
   const keyframesRef = useRef(keyframes);
   const anglesRef = useRef(angles);
   const jointsRef = useRef(joints);
@@ -122,48 +127,39 @@ export function useTrajectory({
     previousJointsKey.current = jointsKey;
     stopTimer();
     setKeyframes([]);
-    setRecording(false);
     setPlaying(false);
     setProgress(null);
     setExportText(null);
-    setMessage({ kind: 'info', text: 'Record a pose to start a trajectory.' });
+    setMessage({ kind: 'info', text: START_MESSAGE });
   }, [jointsKey, stopTimer]);
 
   // Never leak the interval on unmount.
   useEffect(() => stopTimer, [stopTimer]);
 
-  const startRecording = useCallback(() => {
-    setRecording(true);
-    setMessage({
-      kind: 'info',
-      text: 'Recording. Move the arm, then add a keyframe per pose.',
-    });
-  }, []);
-
-  const stopRecording = useCallback(() => {
-    setRecording(false);
-  }, []);
-
-  const addKeyframe = useCallback(() => {
-    if (!recording) return;
+  const recordPose = useCallback(() => {
     const snapshot: Record<string, number> = {};
     for (const joint of jointsRef.current) {
       snapshot[joint.name] = anglesRef.current[joint.name] ?? 0;
     }
-    setKeyframes((previous) => [...previous, { angles: snapshot }]);
+    const count = keyframesRef.current.length + 1;
+    keyframesRef.current = [...keyframesRef.current, { angles: snapshot }];
+    setKeyframes(keyframesRef.current);
     setMessage({
       kind: 'info',
-      text: `Captured keyframe ${keyframesRef.current.length + 1}.`,
+      text:
+        count === 1
+          ? 'Recorded pose 1. Move the arm and record another.'
+          : `Recorded pose ${count}.`,
     });
     setExportText(null);
-  }, [recording]);
+  }, []);
 
   const play = useCallback(() => {
     const recorded = keyframesRef.current;
     if (recorded.length === 0) {
       setMessage({
         kind: 'info',
-        text: 'Nothing to play. Record at least one keyframe first.',
+        text: 'Nothing to play yet. Record a pose first.',
       });
       return;
     }
@@ -175,7 +171,7 @@ export function useTrajectory({
       setPose(recorded[0].angles);
       setMessage({
         kind: 'info',
-        text: 'Single keyframe trajectory: moved straight to it. Add another keyframe to interpolate.',
+        text: 'Only one pose, so the arm moved straight to it. Record another to make a motion.',
       });
       return;
     }
@@ -185,7 +181,7 @@ export function useTrajectory({
     const startedAt = Date.now();
     setPlaying(true);
     setProgress({ t: 0, duration });
-    setMessage({ kind: 'info', text: 'Playing trajectory.' });
+    setMessage({ kind: 'info', text: 'Playing.' });
 
     timerRef.current = window.setInterval(() => {
       const t = (Date.now() - startedAt) / 1000;
@@ -205,11 +201,12 @@ export function useTrajectory({
 
   const clear = useCallback(() => {
     stopPlayback();
+    keyframesRef.current = [];
     setKeyframes([]);
     setExportText(null);
     setMessage({
       kind: 'info',
-      text: 'Trajectory cleared. Record a pose to start a new one.',
+      text: 'Cleared. Record a pose to start again.',
     });
   }, [stopPlayback]);
 
@@ -218,7 +215,7 @@ export function useTrajectory({
     if (recorded.length === 0) {
       setMessage({
         kind: 'info',
-        text: 'Nothing to export. Record at least one keyframe first.',
+        text: 'Nothing to export yet. Record a pose first.',
       });
       return;
     }
@@ -230,7 +227,7 @@ export function useTrajectory({
     );
     setMessage({
       kind: 'info',
-      text: `Exported ${recorded.length} ${recorded.length === 1 ? 'keyframe' : 'keyframes'} as JSON.`,
+      text: `Exported ${poses(recorded.length)} as JSON.`,
     });
   }, []);
 
@@ -242,11 +239,12 @@ export function useTrajectory({
         return false;
       }
       stopPlayback();
+      keyframesRef.current = result.keyframes;
       setKeyframes(result.keyframes);
       setExportText(null);
       setMessage({
         kind: 'info',
-        text: `Imported ${result.keyframes.length} ${result.keyframes.length === 1 ? 'keyframe' : 'keyframes'}.`,
+        text: `Imported ${poses(result.keyframes.length)}.`,
       });
       return true;
     },
@@ -261,7 +259,7 @@ export function useTrajectory({
       setPose(keyframe.angles);
       setMessage({
         kind: 'info',
-        text: `Moved to keyframe ${index + 1}.`,
+        text: `Moved to pose ${index + 1}.`,
       });
     },
     [setPose, stopPlayback],
@@ -269,15 +267,12 @@ export function useTrajectory({
 
   return {
     keyframes,
-    recording,
     playing,
     progress,
     message,
     exportText,
     segmentSeconds: SEGMENT_SECONDS,
-    startRecording,
-    stopRecording,
-    addKeyframe,
+    recordPose,
     play,
     stopPlayback,
     clear,

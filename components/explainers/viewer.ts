@@ -85,6 +85,11 @@ export async function startExplainers(
       }
       const kit = await import('./kit.js');
       await nextTask();
+      // Disposed while the kit loaded (a reader who left, or React's StrictMode remount): build nothing.
+      if (closed) {
+        context.getExtension('WEBGL_lose_context')?.loseContext();
+        return null;
+      }
       stage = new kit.Stage(stageEl, { brand, canvas, context, paused: true }) as KitStage;
       ui = new kit.TeachUI($('explainer'), { brand }) as unknown as KitUI;
       return stage;
@@ -332,6 +337,7 @@ export async function startExplainers(
     prev.removeEventListener('click', onPrev);
     next.removeEventListener('click', onNext);
     void Promise.resolve(inst?.dispose?.()).catch(() => {});
-    stage?.dispose();
+    if (stage) stage.dispose();
+    else void stageReady?.then((pending) => pending?.dispose());
   };
 }

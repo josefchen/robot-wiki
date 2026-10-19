@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "fingerprint": "fe30afc89021e5ef44f889ff92573812dd15d19f0e24f652622612617fa6f61a",
+  "version": 2,
+  "fingerprint": "7a7aa0f701bcc6abd7cd9ec8d86b5b270306dd8f240d80ac4b5dcb8770124053",
   "viewports": [
     "375x812",
     "1440x900"
@@ -12586,7 +12586,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39254,7 +39254,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 50129,
+      "visibleTextLength": 2771,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39409,9 +39409,137 @@
         },
         {
           "tag": "button",
+          "text": "All",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "111",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Foundation models",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "12",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Humanoids",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "34",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Industrial / logistics",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "15",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Vertical applications",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "32",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Simulation / tooling",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "10",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Components",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "8",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "input",
+          "text": "Search companies",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "More filters",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Grid",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:selection"
         },
@@ -39419,7 +39547,7 @@
           "tag": "button",
           "text": "Bubble",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:selection"
         },
@@ -39427,31 +39555,15 @@
           "tag": "button",
           "text": "Timeline",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Filters",
-          "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "select",
-          "text": "All segmentsFoundation models (1",
-          "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:input"
         },
         {
           "tag": "select",
           "text": "All sub-segmentsactuators compon",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -39459,7 +39571,7 @@
           "tag": "select",
           "text": "All countriesCACHCNDEFRHKILJPKRN",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -39467,7 +39579,7 @@
           "tag": "select",
           "text": "All statusesPrivatePublicAcquire",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -39475,7 +39587,7 @@
           "tag": "select",
           "text": "All approaches3d tactile sensors",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -39483,7 +39595,7 @@
           "tag": "select",
           "text": "AllHas contributionsNone listed",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -39491,897 +39603,1545 @@
           "tag": "select",
           "text": "All levelshighmediumlow",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Assured Robot Intelligence",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Covariant",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Dyna Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$120M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Eka Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Field AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$405M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Generalist AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$400M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Genesis AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$105M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mind Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$400M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Physical Intelligence",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$600M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Rhoda AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$450M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Skild AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$1.4B",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Sunday Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$165M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "1X Technologies",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$100M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "AgiBot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Agility Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Apptronik",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$520M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Astribot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$138M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Booster Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$14M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Boston Dynamics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Clone Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Deep Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$70M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "EngineAI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$200M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Figure AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$1B",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Fourier",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$62M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Galaxea AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$290M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Galbot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$300M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Hanson Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Humanoid",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$152M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Kepler Robot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Leju Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$200M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "LimX Dynamics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mentee Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mitsubishi",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "NEURA Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "PaXini",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$148M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Persona AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$27M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Rainbow Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "RobotEra",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Sanctuary AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Spirit AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$222M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "TARS Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$455M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Tesla",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "UBTECH Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "IPO",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Unitree Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "IPO",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Wandercraft",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$75M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "X Square Robot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "ABB Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Amazon Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Ambi Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$32M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Berkshire Grey",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Dexterity",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$95M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Fox Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Locus Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$117M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mujin",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$233M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mytra",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$120M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Nimble",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$106M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Plus One Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$50M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "RightHand Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Robotphoenix",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "IPO",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Symbotic",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Zebra Technologies",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Anduril",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Automata",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$45M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Avidbots",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$70M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Bedrock Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$270M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Brain Corp",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Carbon Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$20M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Chef Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$43M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "CMR Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Coco",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$80M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Collaborative Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$100M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Diligent Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Farm-ng",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Formic",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$27M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Foundry Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Gecko Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$125M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Intuitive Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "iRobot",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "K-Scale Labs",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Shut down",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Knightscope",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Lila Sciences",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$350M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Miso Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Monarch Tractor",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Moon Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Nuro",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$203M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Saronic",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$1.8B",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Serve Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Simbe Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$50M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Standard Bots",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$200M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Starship Technologies",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "SwitchBot",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "IPO",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "The Bot Company",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$250M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Weave Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Applied Intuition",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$600M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Encord",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$30M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Google DeepMind",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hugging Face",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Meta",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Micro1",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "NVIDIA",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "OpenAI",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Pollen Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "XDOF",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$70M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Harmonic Drive Systems",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Leaderdrive",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Nabtesco",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Sanhua",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Shadow Robot",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Sharpa",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Wonik Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "XELA Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
         }
       ],
       "rules": [],
@@ -40390,7 +41150,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1745,
+      "visibleTextLength": 1042,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40532,27 +41292,33 @@
           "variants": []
         }
       ],
-      "registrationLabels": [
+      "registrationLabels": [],
+      "monoRequired": [
         {
-          "text": "Joint angles",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "trackingEm": 0.14
+          "tag": "code",
+          "familyHead": "geist mono"
         },
         {
-          "text": "IK target",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "trackingEm": 0.14
+          "tag": "code",
+          "familyHead": "geist mono"
         },
         {
-          "text": "Trajectory",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "trackingEm": 0.14
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
         }
       ],
-      "monoRequired": [],
       "interfaceControls": [
         {
           "tag": "button",
@@ -40566,39 +41332,39 @@
           "tag": "button",
           "text": "Reset pose",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "input",
-          "text": "0.391",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:input"
-        },
-        {
-          "tag": "input",
-          "text": "0.226",
-          "familyHead": "geist mono",
-          "sizePx": 12,
+          "text": "39.1",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "input",
           "text": "0",
-          "familyHead": "geist mono",
-          "sizePx": 12,
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "22.6",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "button",
-          "text": "Solve to target",
+          "text": "Reach",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -40606,39 +41372,23 @@
           "tag": "button",
           "text": "Clear target",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
-          "text": "Record",
+          "text": "Record pose",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Add keyframe",
-          "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Play",
           "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Stop",
-          "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -40646,41 +41396,57 @@
           "tag": "button",
           "text": "Clear",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
-          "text": "Export JSON",
+          "text": "Export",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "button",
-          "text": "Import",
+          "tag": "summary",
+          "text": "Import a motion",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "textarea",
-          "text": "Paste a trajectory JSON file her",
+          "text": "Paste an exported motion here",
           "familyHead": "geist mono",
-          "sizePx": 11,
+          "sizePx": 13,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "input",
-          "text": "Choose a trajectory JSON file",
-          "familyHead": "geist mono",
-          "sizePx": 12,
+          "text": "Choose a motion file",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": false,
           "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Import",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Technical names",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [],
@@ -68010,7 +68776,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94370,7 +95136,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 54520,
+      "visibleTextLength": 2771,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -94525,9 +95291,137 @@
         },
         {
           "tag": "button",
+          "text": "All",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "111",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Foundation models",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "12",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Humanoids",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "34",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Industrial / logistics",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "15",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Vertical applications",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "32",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Simulation / tooling",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "10",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Components",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "8",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "input",
+          "text": "Search companies",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "More filters",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Grid",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:selection"
         },
@@ -94535,7 +95429,7 @@
           "tag": "button",
           "text": "Bubble",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:selection"
         },
@@ -94543,31 +95437,15 @@
           "tag": "button",
           "text": "Timeline",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Filters",
-          "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "select",
-          "text": "All segmentsFoundation models (1",
-          "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:input"
         },
         {
           "tag": "select",
           "text": "All sub-segmentsactuators compon",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -94575,7 +95453,7 @@
           "tag": "select",
           "text": "All countriesCACHCNDEFRHKILJPKRN",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -94583,7 +95461,7 @@
           "tag": "select",
           "text": "All statusesPrivatePublicAcquire",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -94591,7 +95469,7 @@
           "tag": "select",
           "text": "All approaches3d tactile sensors",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -94599,7 +95477,7 @@
           "tag": "select",
           "text": "AllHas contributionsNone listed",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
@@ -94607,897 +95485,1545 @@
           "tag": "select",
           "text": "All levelshighmediumlow",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Assured Robot Intelligence",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Covariant",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Dyna Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$120M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Eka Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Field AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$405M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Generalist AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$400M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Genesis AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$105M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mind Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$400M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Physical Intelligence",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$600M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Rhoda AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$450M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Skild AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$1.4B",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Sunday Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$165M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "1X Technologies",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$100M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "AgiBot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Agility Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Apptronik",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$520M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Astribot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$138M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Booster Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$14M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Boston Dynamics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Clone Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Deep Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$70M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "EngineAI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$200M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Figure AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$1B",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Fourier",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$62M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Galaxea AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$290M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Galbot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$300M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Hanson Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Humanoid",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$152M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Kepler Robot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Leju Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$200M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "LimX Dynamics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mentee Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mitsubishi",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "NEURA Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "PaXini",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$148M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Persona AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$27M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Rainbow Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "RobotEra",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Sanctuary AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Spirit AI",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$222M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "TARS Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$455M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Tesla",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "UBTECH Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "IPO",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Unitree Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "IPO",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Wandercraft",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$75M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "X Square Robot",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "ABB Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Amazon Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Ambi Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$32M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Berkshire Grey",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Dexterity",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$95M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Fox Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Locus Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$117M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mujin",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$233M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Mytra",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$120M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Nimble",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$106M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Plus One Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "$50M",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "RightHand Robotics",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Robotphoenix",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "IPO",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Symbotic",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Public",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Zebra Technologies",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Acquired",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
         },
         {
           "tag": "button",
-          "text": "Expand",
+          "text": "Anduril",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 13,
           "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Automata",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$45M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Avidbots",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$70M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Bedrock Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$270M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Brain Corp",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Carbon Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$20M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Chef Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$43M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "CMR Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Coco",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$80M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Collaborative Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$100M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Diligent Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Farm-ng",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Formic",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$27M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Foundry Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Gecko Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$125M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Intuitive Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "iRobot",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "K-Scale Labs",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Shut down",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Knightscope",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Lila Sciences",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$350M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Miso Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Monarch Tractor",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Moon Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Nuro",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$203M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Saronic",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$1.8B",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Serve Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Simbe Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$50M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Standard Bots",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$200M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Starship Technologies",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "SwitchBot",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "IPO",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "The Bot Company",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$250M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Weave Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Applied Intuition",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$600M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Encord",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$30M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Google DeepMind",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hugging Face",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Meta",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Micro1",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "NVIDIA",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "OpenAI",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Pollen Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "XDOF",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$70M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Harmonic Drive Systems",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Leaderdrive",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Nabtesco",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Sanhua",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Shadow Robot",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Sharpa",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Wonik Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "XELA Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
         }
       ],
       "rules": [],
@@ -95506,7 +97032,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 1745,
+      "visibleTextLength": 1042,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95648,27 +97174,33 @@
           "variants": []
         }
       ],
-      "registrationLabels": [
+      "registrationLabels": [],
+      "monoRequired": [
         {
-          "text": "Joint angles",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "trackingEm": 0.14
+          "tag": "code",
+          "familyHead": "geist mono"
         },
         {
-          "text": "IK target",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "trackingEm": 0.14
+          "tag": "code",
+          "familyHead": "geist mono"
         },
         {
-          "text": "Trajectory",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "trackingEm": 0.14
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
         }
       ],
-      "monoRequired": [],
       "interfaceControls": [
         {
           "tag": "button",
@@ -95682,39 +97214,39 @@
           "tag": "button",
           "text": "Reset pose",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "input",
-          "text": "0.391",
-          "familyHead": "geist mono",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:input"
-        },
-        {
-          "tag": "input",
-          "text": "0.226",
-          "familyHead": "geist mono",
-          "sizePx": 12,
+          "text": "39.1",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "input",
           "text": "0",
-          "familyHead": "geist mono",
-          "sizePx": 12,
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "22.6",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "button",
-          "text": "Solve to target",
+          "text": "Reach",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -95722,39 +97254,23 @@
           "tag": "button",
           "text": "Clear target",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
-          "text": "Record",
+          "text": "Record pose",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "Add keyframe",
-          "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:secondary-action"
+          "controlId": "control:primary-action"
         },
         {
           "tag": "button",
           "text": "Play",
           "familyHead": "geist",
-          "sizePx": 12,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Stop",
-          "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
@@ -95762,41 +97278,57 @@
           "tag": "button",
           "text": "Clear",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "button",
-          "text": "Export JSON",
+          "text": "Export",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
-          "tag": "button",
-          "text": "Import",
+          "tag": "summary",
+          "text": "Import a motion",
           "familyHead": "geist",
-          "sizePx": 12,
+          "sizePx": 14,
           "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
           "tag": "textarea",
-          "text": "Paste a trajectory JSON file her",
+          "text": "Paste an exported motion here",
           "familyHead": "geist mono",
-          "sizePx": 11,
+          "sizePx": 13,
           "inProse": false,
           "controlId": "control:input"
         },
         {
           "tag": "input",
-          "text": "Choose a trajectory JSON file",
-          "familyHead": "geist mono",
-          "sizePx": 12,
+          "text": "Choose a motion file",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": false,
           "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Import",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Technical names",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [],
@@ -110649,5 +112181,20 @@
       "viewport": "1440x900",
       "isArticle": true
     }
-  ]
+  ],
+  "registrationLabelProbe": {
+    "route": "/",
+    "viewport": "1440x900",
+    "text": "Planted registration label",
+    "sizePx": 10,
+    "trackingEm": 0.1,
+    "collected": [
+      {
+        "text": "Planted registration label",
+        "familyHead": "geist mono",
+        "sizePx": 10,
+        "trackingEm": 0.1
+      }
+    ]
+  }
 }

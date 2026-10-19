@@ -1403,7 +1403,7 @@
       "routeId": "route:/credits/",
       "owner": "route:/credits/",
       "ownerPath": "app/credits/page.tsx",
-      "ownerSourceFingerprint": "17f1f3dabb2b345fcb8d2430ec3af4088f6a8098b692c7d79d3a2daa6e5d11f0",
+      "ownerSourceFingerprint": "ff01b9f114ec518019ed33834d68797bf05c0dcc310ae59c9ac1ebf36b0d414c",
       "canonical": "https://robot-wiki.com/credits/",
       "title": "Credits",
       "description": "Every photograph and diagram on Robot Wiki, with its creator, source, and licence.",
@@ -1442,7 +1442,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "55554238f8cdf32f09467fd627812df03302105501b3bee647e4076a892a6ad5"
+      "fingerprint": "e3151a027a2cd4e7ddec795c394df4ec2787837d043d72d8e0c0e1ad64ded600"
     },
     {
       "id": "metadata:/data-hardware/",
@@ -3075,7 +3075,7 @@
       "routeId": "route:/market-map/",
       "owner": "route:/market-map/",
       "ownerPath": "app/market-map/page.tsx",
-      "ownerSourceFingerprint": "4a28a5df35edcbd63f9a83cf9cc270d029fadd85edd54b061eece47b478d3396",
+      "ownerSourceFingerprint": "deda0ece798083f98632991fae548b9e29b8e217310a8410d303dd9f45155b56",
       "canonical": "https://robot-wiki.com/market-map/",
       "title": "Market Map",
       "description": "The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.",
@@ -3114,14 +3114,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e8bdf988bfb2e6c8e31f5a7ad895ad915dc13c8151136a7ce50fca9e8f77a0bf"
+      "fingerprint": "11360b729608270062426da6a54bb228492d629054fa29cddbdc6948f6a3a3c6"
     },
     {
       "id": "metadata:/playground/",
       "routeId": "route:/playground/",
       "owner": "route:/playground/",
       "ownerPath": "app/playground/page.tsx",
-      "ownerSourceFingerprint": "9b9b47608c79391f445f850513db063e336fbb87100d416c0770e26d1129f8bb",
+      "ownerSourceFingerprint": "e72a6966f963712c17d22648cc67cc35494271b3a346db4193df0c05d168c93e",
       "canonical": "https://robot-wiki.com/playground/",
       "title": "3D Kinematics Playground",
       "description": "A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.",
@@ -3160,7 +3160,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "d0bf39c5c8eceafce8dc217e01c2bbf7127f9fb5b002ee2475a85fa2f544f811"
+      "fingerprint": "c380289dcc207b1b7d1b68bc76c8adbe2de0dfeea18899650b1198ef5e45a118"
     },
     {
       "id": "metadata:/privacy/",
@@ -17294,7 +17294,6 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/training-time-chart.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-card.tsx",
         "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
@@ -17311,7 +17310,6 @@
         "components/motion/figure-frame.tsx",
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
-        "components/three/playground-hud.tsx",
         "components/ui/aside.tsx",
         "components/ui/badge.tsx",
         "components/ui/callout.tsx",
@@ -17340,7 +17338,6 @@
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-card.tsx",
         "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
@@ -17357,7 +17354,6 @@
         "components/motion/figure-frame.tsx",
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
-        "components/three/playground-hud.tsx",
         "components/ui/badge.tsx",
         "components/ui/card.tsx",
         "components/ui/figure.tsx",
@@ -17367,7 +17363,7 @@
         "mdx-components.tsx"
       ],
       "mountState": "production",
-      "fingerprint": "d4dcfa37bca2e3d4b072583daa6fd416da447a425943a2cb0caffb4d34cb4bf3"
+      "fingerprint": "dae7485ac6da4617f84bf8c43a8d26c3992cdfba1b5e6a6aef43be0124683070"
     },
     {
       "id": "surface:raised",
@@ -17587,6 +17583,7 @@
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
+        "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
@@ -17596,6 +17593,7 @@
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
+        "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "mountState": "production",
@@ -17606,7 +17604,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "49f7c9469358c3a1bcbec1217f1d9ee7a35a99d772beca8f3f9143f0e98b9c61"
+      "fingerprint": "60392895803737311b66fd8cd172c3bd0ce48b6d7f04def10728a7c26cf0de99"
     },
     {
       "id": "control:secondary-action",
@@ -17680,6 +17678,7 @@
         "components/search/search-interface.tsx",
         "components/three/ik-target-form.tsx",
         "components/three/joint-controls.tsx",
+        "components/three/technical-names.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx",
         "components/ui/chart-description.tsx",
@@ -17744,6 +17743,7 @@
         "components/search/search-interface.tsx",
         "components/three/ik-target-form.tsx",
         "components/three/joint-controls.tsx",
+        "components/three/technical-names.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/chart-description.tsx",
         "components/ui/instrument.tsx",
@@ -17763,7 +17763,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "f0c7244ad5b672017e6a3ab0f907dbad25b7d43bc066cf2eb82521163355c9f0"
+      "fingerprint": "53f3e0fe8f2e757c43aa84d6d30b639d29fc8a0be55febfb6e118d5c172d2f86"
     },
     {
       "id": "control:selection",
@@ -17809,8 +17809,8 @@
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
+        "components/market-map/grid-view.tsx",
         "components/search/type-facet-bar.tsx",
-        "components/three/trajectory-panel.tsx",
         "components/ui/chip.tsx",
         "components/ui/instrument.tsx",
         "components/ui/tabs.tsx"
@@ -17840,8 +17840,8 @@
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
+        "components/market-map/grid-view.tsx",
         "components/search/type-facet-bar.tsx",
-        "components/three/trajectory-panel.tsx",
         "components/ui/instrument.tsx"
       ],
       "mountState": "production",
@@ -17858,7 +17858,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "f749c100cab99e4a6705db8f7d1d12c9a3c0577108b7a33057d105f79816aafb"
+      "fingerprint": "ab8f26aa30d43d919f1b39b45d7a90472ddb88932b68a9ffef742d9bdf602485"
     },
     {
       "id": "control:link-focus",
@@ -17929,7 +17929,6 @@
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
         "components/market-map/company-card.tsx",
-        "components/market-map/funding-timeline.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/site-footer.tsx",
@@ -17998,7 +17997,6 @@
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
         "components/market-map/company-card.tsx",
-        "components/market-map/funding-timeline.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/site-footer.tsx",
@@ -18031,7 +18029,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "80e3d669cf6789921822d7542be6207a3a9f691ae99737484555f4b3e2dd17c7"
+      "fingerprint": "46761419c5d37c3e33a89b633afe731b549567c6c29863275e4ee88c0a27d7d4"
     },
     {
       "id": "control:segmented",
@@ -18250,5 +18248,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "4f288f80db754b81b43c15e3b112e105f50bd16503eef4cf7f3c0102207a057a"
+  "rootFingerprint": "71ff97885e85f8a870281ba770809c4ab99e63ccb3be6f6b4ae6844a662d565f"
 }

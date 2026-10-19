@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, figureKind, licenceLabel } from '../../data/images';
+import { WITHHELD_MARKS } from '../../lib/market-map-marks';
 import { CREDIT_NOUNS } from '../../data/schemas/image';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { openArticlesPanel } from './helpers/articles-panel';
@@ -161,8 +162,18 @@ test.describe('licensed imagery', () => {
       page.getByRole('heading', { level: 1, name: 'Credits' }),
     ).toBeVisible();
     const entries = page.locator('[data-credits-entry]');
-    await expect(entries).toHaveCount(IMAGES.length);
-    for (const image of IMAGES) {
+    // Every registered image the site shows. A withheld company mark (its
+    // file shows another company's artwork, lib/market-map-marks.ts) is
+    // drawn nowhere and so has no entry, and its file is not on the page.
+    const shown = IMAGES.filter((image) => !(image.id in WITHHELD_MARKS));
+    expect(IMAGES.length - shown.length).toBe(Object.keys(WITHHELD_MARKS).length);
+    await expect(entries).toHaveCount(shown.length);
+    for (const id of Object.keys(WITHHELD_MARKS)) {
+      await expect(page.locator(`[data-credits-entry="${id}"]`)).toHaveCount(0);
+      const file = IMAGES.find((image) => image.id === id)!.file;
+      await expect(page.locator(`img[src="${file}"]`)).toHaveCount(0);
+    }
+    for (const image of shown) {
       const entry = page.locator(`[data-credits-entry="${image.id}"]`);
       if (figureKind(image) === 'original-schematic') {
         // An original schematic is drawn inline on the page stage, so
@@ -236,7 +247,11 @@ test.describe('licensed imagery', () => {
       .evaluateAll((els) =>
         els.map((el) => el.getAttribute('data-credits-entry')).sort(),
       );
-    expect(rendered).toEqual(IMAGES.map((i) => i.id).sort());
+    // The registered set less exactly the withheld company marks, which no
+    // page draws (lib/market-map-marks.ts, recorded in audit/market-map.md).
+    expect(rendered).toEqual(
+      IMAGES.map((i) => i.id).filter((id) => !(id in WITHHELD_MARKS)).sort(),
+    );
   });
 
   test('images declare intrinsic dimensions and cause no layout shift (VAL-IMG-009)', async ({

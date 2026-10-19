@@ -32,43 +32,38 @@ export default function PlaygroundPage() {
       {/* data-pagefind-body scoped to the heading and the description:
           Pagefind excludes every page that declares no body region once
           one page declares one, so this route needed its own
-          (VAL-SEARCH-021). The canvas below carries live joint readouts
+          (VAL-SEARCH-021). The playground below carries live readouts
           that change on every interaction and are not prose. */}
-      <div data-pagefind-body>
+      <div data-pagefind-body className="max-w-[58ch]">
         <h1
           data-tektur-role="page-h1"
           className="font-display-page text-3xl tracking-tight text-text"
         >
           3D Kinematics Playground
         </h1>
-        <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">
-          A SO-101 follower arm loaded from its URDF and rendered
-          client-side with WebGL. Move each joint with the sliders, click the
-          ground to set a target for the damped-least-squares solver, or
-          record a sequence of poses and play it back as an eased
-          trajectory. Nothing here touches a server.
+        <p className="mt-3 leading-relaxed text-text-dim">
+          Pose the SO-101, a small open-source robot arm, one joint at a time,
+          or click the floor and watch it work out how to reach. Record a few
+          poses and play them back as one smooth motion.
         </p>
       </div>
 
-      <section aria-label="3D robot playground" className="mt-6">
+      <section aria-label="3D robot playground" className="mt-8">
         <PlaygroundCanvas />
       </section>
 
-      <p className="mt-3 font-mono text-xs leading-relaxed text-text-dim">
-        Drag to orbit. Scroll to zoom. Right-drag to pan. Click the ground to
-        set an IK target, or type one into the target form. In the trajectory
-        panel, Record arms keyframe capture and Play eases between the saved
-        poses. Model: SO-101 from{' '}
+      <p className="mt-12 max-w-[68ch] text-[13px] leading-relaxed text-text-dim">
+        Model: the SO-101 arm from{' '}
         <a
           data-brand-control-id="control:link-focus"
           href="https://github.com/TheRobotStudio/SO-ARM100"
           target="_blank"
           rel="noopener"
-          className="text-text underline decoration-border underline-offset-2 transition-colors hover:decoration-accent"
+          className="text-text underline decoration-border underline-offset-2 transition-colors hover:decoration-text"
         >
           TheRobotStudio/SO-ARM100
         </a>{' '}
-        (Apache-2.0), meshes converted to GLB with Draco compression.
+        (Apache-2.0), loaded from its URDF. Everything runs in your browser.
       </p>
     </div>
   );

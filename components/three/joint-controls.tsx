@@ -1,14 +1,15 @@
 'use client';
 
+import {
+  jointLabel,
+  plainJointValue,
+  SO101_JOINT_ORDER,
+  spokenJointValue,
+} from './joint-labels';
 import type { JointControl } from './use-playground-kinematics';
 
 const RAD_TO_DEG = 180 / Math.PI;
 const DEG_TO_RAD = Math.PI / 180;
-
-function formatDeg(radians: number): string {
-  const deg = radians * RAD_TO_DEG;
-  return `${deg >= 0 ? '+' : ''}${deg.toFixed(1)}°`;
-}
 
 interface JointControlsProps {
   joints: JointControl[];
@@ -16,61 +17,68 @@ interface JointControlsProps {
   angles: Record<string, number>;
   onChange: (name: string, radians: number) => void;
   onReset: () => void;
+  /** The joint whose slider has the pointer or the keyboard focus. */
+  activeJoint?: string | null;
+  onActiveJoint?: (name: string | null) => void;
 }
 
 /**
- * One labeled slider per revolute joint, with a live degree readout. The
- * slider range is exactly the joint's limit range, so both pointer and
- * keyboard (arrow/Home/End) input clamp at the limits natively; values are
- * clamped again on the way out for synthetic events.
+ * One slider per joint, named in plain words ("Base turn", "Elbow") with
+ * its value beside the name. The slider range is exactly the joint's URDF
+ * limit range in degrees, so pointer and keyboard input (arrows, Home, End)
+ * stop at the limits; values are clamped again on the way out for synthetic
+ * events. Pointing at a slider or focusing it lights that joint's motor in
+ * the scene.
  */
 export function JointControls({
   joints,
   angles,
   onChange,
   onReset,
+  activeJoint = null,
+  onActiveJoint,
 }: JointControlsProps) {
   return (
-    <div>
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
-          Joint angles
-        </h2>
+    <section className="pg-section" aria-labelledby="pg-joints-heading">
+      <div className="pg-head">
+        <h2 id="pg-joints-heading">Joints</h2>
         <button
           data-brand-control-id="control:secondary-action"
           type="button"
+          data-testid="reset-pose"
           onClick={onReset}
-          className="rounded-sm border border-border px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="pg-text"
         >
           Reset pose
         </button>
       </div>
-
-      <div className="mt-4 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+      <ul className="pg-joints">
         {joints.map((joint) => {
+          const label = jointLabel(joint.name);
           const value = angles[joint.name] ?? 0;
           const minDeg = joint.lower * RAD_TO_DEG;
           const maxDeg = joint.upper * RAD_TO_DEG;
+          const id = `joint-slider-${joint.name}`;
           return (
-            <div key={joint.name}>
-              <div className="flex items-baseline justify-between gap-2">
-                <label
-                  htmlFor={`joint-slider-${joint.name}`}
-                  className="font-mono text-xs text-text"
-                >
-                  {joint.name}
-                </label>
-                <span
-                  data-testid={`joint-readout-${joint.name}`}
-                  className="font-mono text-xs tabular-nums text-accent"
-                >
-                  {formatDeg(value)}
-                </span>
-              </div>
+            <li
+              key={joint.name}
+              className="pg-joint"
+              data-active={activeJoint === joint.name ? '' : undefined}
+              onPointerEnter={() => onActiveJoint?.(joint.name)}
+              onPointerLeave={() => onActiveJoint?.(null)}
+            >
+              <label htmlFor={id}>{label.name}</label>
+              <span
+                data-testid={`joint-readout-${joint.name}`}
+                className="pg-value"
+                aria-hidden="true"
+              >
+                {plainJointValue(joint.name, value, joint.upper)}
+              </span>
               <input
                 data-brand-control-id="control:input"
-                id={`joint-slider-${joint.name}`}
-                data-testid={`joint-slider-${joint.name}`}
+                id={id}
+                data-testid={id}
                 type="range"
                 min={minDeg}
                 max={maxDeg}
@@ -79,7 +87,9 @@ export function JointControls({
                 // keys move 1 degree per press.
                 step="any"
                 value={value * RAD_TO_DEG}
-                aria-label={`${joint.name} joint angle, degrees`}
+                aria-valuetext={spokenJointValue(joint.name, value, joint.upper)}
+                onFocus={() => onActiveJoint?.(joint.name)}
+                onBlur={() => onActiveJoint?.(null)}
                 onChange={(event) => {
                   const deg = Number.parseFloat(event.target.value);
                   if (!Number.isFinite(deg)) return;
@@ -88,15 +98,35 @@ export function JointControls({
                     Math.min(maxDeg, Math.max(minDeg, deg)) * DEG_TO_RAD,
                   );
                 }}
-                className="mt-1.5 w-full accent-accent"
               />
-              <p className="mt-0.5 font-mono text-[10px] tabular-nums text-text-dim">
-                limits {minDeg.toFixed(0)}° to +{maxDeg.toFixed(0)}°
-              </p>
-            </div>
+            </li>
           );
         })}
+      </ul>
+    </section>
+  );
+}
+
+/**
+ * The joints section while the arm loads: the SO-101's joint names over
+ * resting tracks, in the same places the sliders will take, so nothing
+ * moves when the model arrives.
+ */
+export function JointControlsPlaceholder() {
+  return (
+    <section className="pg-section" aria-labelledby="pg-joints-heading" aria-busy="true">
+      <div className="pg-head">
+        <h2 id="pg-joints-heading">Joints</h2>
       </div>
-    </div>
+      <ul className="pg-joints">
+        {SO101_JOINT_ORDER.map((name) => (
+          <li key={name} className="pg-joint">
+            <span className="pg-name">{jointLabel(name).name}</span>
+            <span className="pg-value" aria-hidden="true" />
+            <span className="pg-track" aria-hidden="true" />
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

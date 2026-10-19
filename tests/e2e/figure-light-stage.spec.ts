@@ -9,8 +9,8 @@ import { readStages, type StageRow } from './helpers/figure-light-stage';
 /**
  * Every figure belongs to the page (owner decision 2026-10-02, which replaced
  * the graphite stage of VAL-OPUS-132). On the static export of every Sitemap
- * URL except `/` and `/playground/`, at 375 and 1440 px and at settle, each
- * figure's stage resolves to the page ground (paper, white or a light token),
+ * URL except `/`, at 375 and 1440 px and at settle, each figure's stage
+ * resolves to the page ground (paper, white or a light token),
  * and nothing inside the frame that covers a tenth of the stage or more paints
  * a dark surface, unless it is a data mark in its role colour. The JSDOM
  * figure-system check cannot see a panel painted with a token, so this reads
@@ -27,8 +27,15 @@ const tokens = JSON.parse(readFileSync('motion-tokens.json', 'utf8')) as {
 };
 const PAPER = tokens.stage.background.toUpperCase();
 const ROLES = Object.values(tokens.roles).map((role) => role.stage.toUpperCase());
-/** Light page grounds a stage may resolve to: paper, white and the light surface tints. */
-const PAGE_GROUNDS = new Set([PAPER, '#FFFFFF']);
+/**
+ * The page's own paper, from app/globals.css. The research-page standard of
+ * 2026-10-10 made it #FAFAF8 while the motion stage stayed white, and a
+ * figure drawn straight on the page resolves to it.
+ */
+const PAGE_PAPER = readFileSync('app/globals.css', 'utf8').match(/--color-paper:\s*(#[0-9A-Fa-f]{6});/)?.[1]?.toUpperCase();
+if (!PAGE_PAPER) throw new Error('--color-paper is not declared in app/globals.css');
+/** Light page grounds a stage may resolve to: the page paper, the motion stage's paper and white. */
+const PAGE_GROUNDS = new Set([PAGE_PAPER, PAPER, '#FFFFFF']);
 
 let server: StaticExportServer;
 test.beforeAll(async () => {
@@ -69,13 +76,20 @@ for (const width of [375, 1440]) {
     test.setTimeout(30 * 60_000);
     const sitemap = [...readFileSync(join(EXPORT_ROOT, 'sitemap.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)]
       .map((m) => new URL(m[1]).pathname);
-    // The playground's WebGL canvas is an instrument with its own rows.
-    const routes = sitemap.filter((route) => route !== '/' && route !== '/playground/');
+    // The playground's WebGL canvas is held to the same light page ground
+    // (owner request of 2026-10-19, which retired the graphite instrument of
+    // VAL-B2-PLAY-001 in favour of the explainers' light clay stage).
+    const routes = sitemap.filter((route) => route !== '/');
     const rows: (StageRow & { route: string })[] = [];
     const failures: string[] = [];
     await forEachInOwnContext(browser, routes, async (page, route) => {
       try {
         await page.goto(`http://localhost:${server.port}${route}`, { waitUntil: 'networkidle', timeout: 60_000 });
+        if (route === '/playground/') {
+          // Probe the canvas with the arm drawn on it, not the empty stage.
+          await expect(page.getByTestId('playground')).toHaveAttribute('data-playground-state', 'ready', { timeout: 60_000 });
+          await expect(page.getByTestId('playground-viewport')).toHaveAttribute('data-scene-ready', 'true', { timeout: 30_000 });
+        }
         await settle(page);
         const found = await page.evaluate(readStages, { limit: LIMIT, roles: ROLES });
         for (const row of found) {
@@ -92,7 +106,10 @@ for (const width of [375, 1440]) {
     writeFileSync(join(dir, `light-stage-${width}.json`), `${JSON.stringify({ width, limit: LIMIT, stage: PAPER, routes: routes.length, figures: rows.length, failures, rows }, null, 1)}\n`);
 
     expect(failures, 'routes that did not load').toEqual([]);
-    expect(sitemap, 'the instrument route this sweep leaves to its own rows').toContain('/playground/');
+    expect(sitemap).toContain('/playground/');
+    const playground = rows.filter((row) => row.route === '/playground/' && row.stage === 'raster');
+    expect(playground.length, 'the playground canvas is probed as a raster stage').toBeGreaterThan(0);
+    expect(playground.every((row) => row.rasters.every((raster) => raster.dark != null)), 'the playground canvas was measured').toBe(true);
     expect(rows.length, 'figures probed').toBeGreaterThan(0);
     const shown = rows.filter((row) => row.stageArea > 0);
     const problems = shown.flatMap((row) => {

@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "hand",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/hand/1280-s1.jpg",
+    "evidence/teach-back/hand/1280-s2.jpg",
+    "evidence/teach-back/hand/1280-s3.jpg",
+    "evidence/teach-back/hand/1280-s4.jpg",
+    "evidence/teach-back/hand/1280-s5-guess.jpg",
+    "evidence/teach-back/hand/1280-s5-reveal.jpg",
+    "evidence/teach-back/hand/390-s1.jpg",
+    "evidence/teach-back/hand/390-s2.jpg",
+    "evidence/teach-back/hand/390-s3.jpg",
+    "evidence/teach-back/hand/390-s4.jpg",
+    "evidence/teach-back/hand/390-s5-guess.jpg",
+    "evidence/teach-back/hand/390-s5-reveal.jpg"
+  ],
+  "takeaway": "A human hand packs about 20 ways to move and dense touch into a small space; most robots use a simple two-finger clamp instead and lose most of that.",
+  "selfCheck": {
+    "question": "Why do so many robots still use a two-finger clamp?",
+    "answer": "much simpler: one motor instead of 16, no fingertip sensors; cheaper, less likely to break, easier to control; most of the time only pick and place; falls short when the object must be turned in the grip.",
+    "correct": true
+  },
+  "sentence": "A simple robot clamp uses one motor to open and close two fingers. A human-like robot hand needs many joints, each with its own motor, and touch sensors as well, which makes it much harder to build. What you get for that effort is a hand that can move and turn an object while holding it, which a clamp cannot do.",
+  "unclearTerms": [
+    "\"27 bones\" (no bones shown)",
+    "\"about 20 separate movements\" (movement vs joint)",
+    "\"Movements counted: 21\" (4 x 5 = 20, where is 21st)",
+    "\"swings sideways\" (which part, which direction)",
+    "\"One research robot hand\" (not named)",
+    "\"16 joints, each with its own motor\" (where are the motors)",
+    "\"Meta\" (Facebook? odd)",
+    "\"8.3 million tiny touch-sensing spots\" (what a spot is)",
+    "\"feels vibrations up to 10,000 times a second\" (half understood; a lot vs human?)",
+    "\"Slip felt: grip tightens\" (no slip visible in still)",
+    "\"Let it slip again\" (what would I see)",
+    "\"Faint key: the goal\" (no faint key visible)",
+    "\"walks the key round, one finger push at a time\" (figure of speech)",
+    "\"Guess first\" (counted?)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "dexterous manipulation",
+      "why": "the concept the last step introduces"
+    },
+    {
+      "term": "Robot anatomy",
+      "why": "only in the kicker"
+    }
+  ],
+  "samePoint": "no",
+  "reason": "My takeaway was about how hard robot hands are to build (16 motors and sensors against one motor) and what a hand can do in return, but it left out the human hand's roughly 20 movements and dense touch, the small space they fit into, and the fact that most robots use a clamp and lose most of that.",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 18,
+      "labels": 2,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "2",
+      "words": 25,
+      "labels": 2,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "3",
+      "words": 21,
+      "labels": 1,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4",
+      "words": 22,
+      "labels": 2,
+      "controls": 1,
+      "colours": [
+        "sense"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "5 guess",
+      "words": 18,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "5 reveal",
+      "words": 18,
+      "labels": 3,
+      "controls": 2,
+      "colours": [
+        "fail",
+        "ok"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 18,
+      "labels": 2,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "2",
+      "words": 25,
+      "labels": 2,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "3",
+      "words": 21,
+      "labels": 1,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4",
+      "words": 22,
+      "labels": 2,
+      "controls": 1,
+      "colours": [
+        "sense"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "5 guess",
+      "words": 18,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "5 reveal",
+      "words": 18,
+      "labels": 3,
+      "controls": 2,
+      "colours": [
+        "fail",
+        "ok"
+      ]
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: \"27 bones\"; \"about 20 separate movements\"; \"Movements counted: 21\"; \"swings sideways\"; \"One research robot hand\"; \"16 joints, each with its own motor\"; \"Meta\"; \"8.3 million tiny touch-sensing spots\"; \"feels vibrations up to 10,000 times a second\"; \"Slip felt: grip tightens\"; \"Let it slip again\"; \"Faint key: the goal\"; \"walks the key round, one finger push at a time\"; \"Guess first\".",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording was revised in a8e577cf after this round and has not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-484f9b77",
+  "sourceDigest": "4d215a575ee870f0478e5523d6d16f44ea5b2e3382fcb1da5f909392c8dfb66a"
+}

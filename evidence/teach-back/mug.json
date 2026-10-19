@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "mug",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/mug/1280-s1.jpg",
+    "evidence/teach-back/mug/1280-s2.jpg",
+    "evidence/teach-back/mug/1280-s3.jpg",
+    "evidence/teach-back/mug/1280-s4.jpg",
+    "evidence/teach-back/mug/1280-s5-guess.jpg",
+    "evidence/teach-back/mug/1280-s5-reveal.jpg",
+    "evidence/teach-back/mug/390-s1.jpg",
+    "evidence/teach-back/mug/390-s2.jpg",
+    "evidence/teach-back/mug/390-s3.jpg",
+    "evidence/teach-back/mug/390-s4.jpg",
+    "evidence/teach-back/mug/390-s5-guess.jpg",
+    "evidence/teach-back/mug/390-s5-reveal.jpg"
+  ],
+  "takeaway": "It stores the world as dots, cubes, a skin or soft blobs, and each one trades detail against speed and memory.",
+  "selfCheck": {
+    "question": "Why might one robot keep the same mug both as cubes and as a skin?",
+    "answer": "each does a different job; cubes: one look-up, avoid bumping; skin: smooth accurate shape to plan where fingers go.",
+    "correct": true
+  },
+  "sentence": "A robot can store the same object in different ways: as dots, as small cubes, as a surface made of triangles, or as soft blobs. Each way is good for a different job, and none is best at everything. For example, cubes make it quickest to check whether something is in the way.",
+  "unclearTerms": [
+    "\"depth camera\" (how it differs from a normal camera)",
+    "\"voxels\"",
+    "\"mesh\"",
+    "\"splats\" (names)",
+    "\"Coarse\"",
+    "\"full or empty\" (full of what)",
+    "\"joins the surface into small flat triangles\" (awkward)",
+    "\"plan where fingers go\" (robot fingers?)",
+    "\"Real ones carry colour and look like a photo\" (why grey here)",
+    "\"They are the newest of the four\" (why it matters)",
+    "\"see-through smudge\" (looks solid)",
+    "\"four costs\" (money?)",
+    "\"memory and time\"",
+    "\"3,625 dots\", \"485 cubes\", \"2,136 triangles\", \"5,000 soft blobs\" (large or small; relation to costs)",
+    "\"One cube: 1 centimetre\" (which cube)",
+    "\"the 15 empty cubes it passed\" (could not count 15)",
+    "\"Far side: no dots\" (label points at the dotted part)",
+    "\"·\"",
+    "\"Fingertip\" (no arm or hand, only a red ball)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "scene representations",
+      "why": "the concept the last step introduces"
+    }
+  ],
+  "samePoint": "no",
+  "reason": "My takeaway names the same four storage forms, but it says each one suits a different job and leaves out the trade between detail and speed and memory, so it only matches part of the point.",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 25,
+      "labels": 2,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "2",
+      "words": 20,
+      "labels": 1,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "3",
+      "words": 24,
+      "labels": 1,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "4",
+      "words": 25,
+      "labels": 0,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "5 guess",
+      "words": 19,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "5 reveal",
+      "words": 19,
+      "labels": 1,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 25,
+      "labels": 2,
+      "controls": 1,
+      "colours": [
+        "sense"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "2",
+      "words": 20,
+      "labels": 1,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "3",
+      "words": 24,
+      "labels": 1,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "4",
+      "words": 25,
+      "labels": 0,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "5 guess",
+      "words": 19,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "sense"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "5 reveal",
+      "words": 19,
+      "labels": 1,
+      "controls": 0,
+      "colours": []
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: \"depth camera\"; \"voxels\"; \"mesh\"; \"splats\"; \"Coarse\"; \"full or empty\"; \"joins the surface into small flat triangles\"; \"plan where fingers go\"; \"Real ones carry colour and look like a photo\"; \"They are the newest of the four\"; \"see-through smudge\"; \"four costs\"; \"memory and time\"; \"3,625 dots\", \"485 cubes\", \"2,136 triangles\", \"5,000 soft blobs\"; \"One cube: 1 centimetre\"; \"the 15 empty cubes it passed\"; \"Far side: no dots\"; \"·\"; \"Fingertip\".",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording was revised in a8e577cf after this round and has not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-ccf7de27",
+  "sourceDigest": "4fa91c2cf0d3bb52c362eed2063b81ff6cf995bfb784b81d2c28ac54cd2a60fd"
+}

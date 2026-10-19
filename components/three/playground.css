@@ -1,0 +1,488 @@
+/*
+ * The playground: one stage and one control deck, in the site's research-page
+ * tokens and the /how-robots-work/ explainers' stage (paper ground, hairline
+ * rules above and below, the clay arm). The deck sits beside the stage from
+ * 1024px and under it below that. Controls follow the figure standard: a 1 px
+ * ink track with a 12 px thumb, quiet text actions, one ink button for the
+ * main action, and a 1 px ink focus outline for the keyboard only.
+ */
+.playground {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.playground [hidden] { display: none !important; }
+
+@media (min-width: 1024px) {
+  .playground {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 48px;
+    align-items: start;
+  }
+  /* Held under the site's sticky top bar while the deck scrolls. */
+  .playground .pg-view {
+    position: sticky;
+    top: calc(var(--topbar-height, 72px) + 16px);
+  }
+}
+
+/* The stage. */
+.playground .pg-stage {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--paper);
+}
+@media (min-width: 640px) {
+  .playground .pg-stage { aspect-ratio: 4 / 3; }
+}
+@media (min-width: 1024px) {
+  .playground .pg-stage {
+    aspect-ratio: auto;
+    height: clamp(400px, calc(100dvh - var(--topbar-height, 72px) - 140px), 600px);
+  }
+}
+.playground .pg-stage canvas { display: block; outline: none; }
+.playground .pg-stage canvas:focus-visible { outline: 1px solid var(--ink); outline-offset: -1px; }
+
+.playground .pg-hint {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  margin: 0;
+  padding: 2px 6px 2px 0;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  font-size: 13px;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.playground .pg-hint-touch { display: none; }
+@media (hover: none) {
+  .playground .pg-hint-touch { display: inline; }
+  .playground .pg-hint-mouse { display: none; }
+}
+
+.playground .pg-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 16px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .playground .pg-status[data-loading] { animation: pg-breathe 1.6s ease-in-out infinite alternate; }
+}
+@keyframes pg-breathe {
+  from { opacity: 0.45; }
+  to { opacity: 1; }
+}
+
+/* Without WebGL there is no deck: the stage keeps its rules and holds the message. */
+.playground[data-playground-state='unavailable'] { grid-template-columns: minmax(0, 1fr); }
+.playground[data-playground-state='unavailable'] .pg-stage {
+  aspect-ratio: auto;
+  height: auto;
+}
+.playground .pg-unavailable {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 8px;
+  padding: 48px 0;
+}
+.playground .pg-unavailable h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.playground .pg-unavailable p {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--muted);
+}
+
+/* The readout under the stage: where the hand is, and how the reach went. */
+.playground .pg-readout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding-top: 12px;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.playground .pg-readout p { margin: 0; }
+.playground .pg-readout[data-empty] { visibility: hidden; }
+.playground .pg-readout .pg-label { color: var(--muted); }
+.playground .pg-model {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* The deck. */
+.playground .pg-deck {
+  display: grid;
+  gap: 28px;
+  min-width: 0;
+}
+.playground .pg-section {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.playground .pg-section + .pg-section {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.playground .pg-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.playground .pg-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.playground .pg-note {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+.playground .pg-count {
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Joint sliders. */
+.playground .pg-joints {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.playground .pg-joint {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: 12px;
+}
+.playground .pg-joint :is(label, .pg-name) { font-size: 14px; }
+.playground .pg-joint[data-active] label { font-weight: 600; }
+.playground .pg-joint[data-active] label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 8px 1px 0;
+  background: var(--accent);
+}
+.playground .pg-value {
+  min-width: 5ch;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.playground .pg-joint input,
+.playground .pg-joint .pg-track { grid-column: 1 / -1; }
+
+.playground input[type='range'] {
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.playground input[type='range']::-webkit-slider-runnable-track {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+}
+.playground input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -5.5px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.playground input[type='range']::-moz-range-track {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+}
+.playground input[type='range']::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.playground .pg-joint[data-active] input[type='range']::-webkit-slider-thumb { background: var(--accent); }
+.playground .pg-joint[data-active] input[type='range']::-moz-range-thumb { background: var(--accent); }
+
+/* While the arm loads, each joint shows its name over a resting track. */
+.playground .pg-track {
+  display: grid;
+  align-items: center;
+  height: 28px;
+}
+.playground .pg-track::after {
+  content: '';
+  height: 1px;
+  background: var(--line-strong);
+}
+
+/* Buttons: one ink action per section, outlined actions beside it, text actions for the rest. */
+.playground .pg-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.playground .pg-actions .pg-text + .pg-text { margin-left: 6px; }
+.playground .pg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 6px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  font: 500 14px/1.2 var(--font-sans);
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms, border-color 150ms;
+}
+.playground .pg-btn:hover { background: var(--paper-deep); }
+.playground .pg-btn:active { transform: translateY(1px); }
+.playground .pg-btn.pg-primary {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.playground .pg-btn.pg-primary:hover { background: var(--chart-dark); }
+.playground .pg-btn:disabled,
+.playground .pg-text:disabled {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--muted);
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+.playground .pg-text {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 400 14px/1.2 var(--font-sans);
+  cursor: pointer;
+  transition: color 150ms;
+}
+.playground .pg-text:hover { color: var(--ink); }
+.playground .pg-text:active { transform: translateY(1px); }
+
+/* The typed target. */
+.playground .pg-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.playground .pg-field { display: grid; gap: 2px; min-width: 0; }
+.playground .pg-field label { font-size: 13px; color: var(--muted); }
+.playground .pg-field span.pg-unit-wrap { display: flex; align-items: baseline; gap: 4px; }
+.playground .pg-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font: 400 14px/1.3 var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+.playground .pg-field input:hover { border-bottom-color: var(--ink); }
+.playground .pg-unit { font-size: 13px; color: var(--muted); }
+.playground .pg-error { margin: 0; font-size: 14px; color: var(--fail); }
+
+/* Recorded poses: small numbered squares, like the explainers' step dots. */
+.playground .pg-poses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.playground .pg-pose {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink);
+  font: 400 13px/1 var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+.playground .pg-pose:hover { background: var(--paper-deep); }
+
+.playground .pg-progress {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.playground .pg-bar {
+  height: 1px;
+  background: var(--line-strong);
+}
+.playground .pg-bar > span {
+  display: block;
+  height: 1px;
+  background: var(--ink);
+  transform-origin: left;
+}
+
+.playground .pg-message { margin: 0; font-size: 15px; color: var(--muted); }
+.playground .pg-message[role='alert'] { color: var(--fail); }
+
+.playground textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 13px/1.5 var(--font-mono);
+  resize: vertical;
+}
+.playground .pg-download {
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+}
+.playground .pg-download:hover { text-decoration-color: var(--ink); }
+.playground input[type='file'] { font-size: 13px; color: var(--muted); max-width: 100%; }
+.playground input[type='file']::file-selector-button {
+  margin-right: 10px;
+  padding: 5px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  font: 500 13px/1.2 var(--font-sans);
+  cursor: pointer;
+}
+
+/* Folds: a plain summary line with a + or minus, no box. */
+.playground details > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  list-style: none;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+}
+.playground details > summary::-webkit-details-marker { display: none; }
+.playground details > summary::before {
+  content: '+';
+  width: 1ch;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+.playground details[open] > summary::before { content: '\2212'; }
+.playground details > summary:hover { color: var(--ink); }
+.playground .pg-fold {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.playground details > .pg-fold { padding-top: 8px; }
+@media (min-width: 1024px) {
+  .playground .pg-narrow-only { display: none; }
+}
+
+/* The technical table: booktabs rules, mono figures. */
+.playground .pg-tech {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.playground .pg-tech caption {
+  text-align: left;
+  padding-bottom: 6px;
+  color: var(--muted);
+}
+.playground .pg-tech thead tr { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+.playground .pg-tech tbody tr:last-child { border-bottom: 1px solid var(--ink); }
+.playground .pg-tech th,
+.playground .pg-tech td {
+  padding: 4px 8px 4px 0;
+  text-align: left;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+.playground .pg-tech thead th { color: var(--muted); }
+.playground .pg-tech tbody th :is(.pg-plain, code) { display: block; }
+.playground .pg-tech tbody th code { color: var(--muted); }
+.playground .pg-tech td { white-space: nowrap; }
+.playground .pg-tech td:last-child,
+.playground .pg-tech th:last-child { padding-right: 0; text-align: right; }
+.playground .pg-tech code,
+.playground .pg-tech .pg-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.playground .pg-tech-list { display: grid; gap: 4px; margin: 0; font-size: 13px; }
+.playground .pg-tech-list div { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 8px; }
+.playground .pg-tech-list dt { color: var(--muted); }
+.playground .pg-tech-list dd { margin: 0; font-family: var(--font-mono); font-size: 13px; overflow-wrap: anywhere; }
+
+.playground :is(button, summary, input, textarea, a):focus { outline: none; }
+.playground :is(button, summary, input, textarea, a):focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+}

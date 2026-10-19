@@ -1,4 +1,4 @@
-import { render, screen, waitFor, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
 import { COMPANIES } from '@/data/companies';
@@ -12,158 +12,298 @@ afterEach(() => {
   window.history.replaceState(null, '', '/');
 });
 
-function card(name: string): HTMLElement {
-  const heading = screen.getByRole('heading', { level: 3, name });
-  const article = heading.closest('article');
-  if (!article) throw new Error(`no article for ${name}`);
-  return article;
+/** Every company tile on the map (one button per company). */
+function tiles(): HTMLElement[] {
+  return Array.from(document.querySelectorAll<HTMLElement>('button[data-map-tile]'));
 }
 
-// MarketMap renders 111 DOM-heavy company cards. Under full-suite jsdom
-// load the second render can exceed the 5s default timeout (it takes ~3s
-// in isolation), so every test in this file gets a 15s ceiling.
+function tile(id: string): HTMLElement {
+  const el = document.querySelector<HTMLElement>(`button[data-map-tile="${id}"]`);
+  if (!el) throw new Error(`no tile for ${id}`);
+  return el;
+}
+
+/** The open company's details (the side sheet at this width). */
+function sheet(name: string | RegExp): HTMLElement {
+  return screen.getByRole('dialog', { name });
+}
+
+function segmentTab(name: RegExp) {
+  return within(screen.getByRole('group', { name: 'Segment' })).getByRole('button', { name });
+}
+
+async function openMoreFilters(user: ReturnType<typeof userEvent.setup>) {
+  const toggle = screen.getByRole('button', { name: /More filters/ });
+  if (toggle.getAttribute('aria-expanded') !== 'true') await user.click(toggle);
+}
+
+// MarketMap renders 111 company tiles. Under full-suite jsdom load a render
+// can exceed the 5 s default timeout, so every test here gets 15 s.
 const TIMEOUT = 15_000;
 
 describe('MarketMap', () => {
-  it('renders all 111 companies grouped by the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
+  it('maps all 111 companies in the six segments (VAL-MKT-001, VAL-MKT-002)', () => {
     render(<MarketMap companies={COMPANIES} />);
     expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(111);
-    expect(
-      screen.getByRole('heading', { name: /Foundation models/ }),
-    ).toHaveTextContent('12');
-    expect(screen.getByRole('heading', { name: /Humanoids/ })).toHaveTextContent(
-      '34',
-    );
-    expect(
-      screen.getByRole('heading', { name: /Industrial \/ logistics/ }),
-    ).toHaveTextContent('15');
-    expect(
-      screen.getByRole('heading', { name: /Vertical applications/ }),
-    ).toHaveTextContent('32');
-    expect(
-      screen.getByRole('heading', { name: /Simulation \/ tooling/ }),
-    ).toHaveTextContent('10');
-    expect(screen.getByRole('heading', { name: /Components/ })).toHaveTextContent(
-      '8',
-    );
+    expect(tiles()).toHaveLength(111);
+    const segments: Array<[RegExp, string]> = [
+      [/Foundation models/, '12'],
+      [/^Humanoids/, '34'],
+      [/Industrial \/ logistics/, '15'],
+      [/Vertical applications/, '32'],
+      [/Simulation \/ tooling/, '10'],
+      [/^Components/, '8'],
+    ];
+    for (const [name, count] of segments) {
+      const heading = screen.getByRole('heading', { level: 2, name });
+      expect(heading).toHaveTextContent(count);
+      // The heading's own segment holds exactly that many tiles.
+      expect(heading.closest('section')!.querySelectorAll('button[data-map-tile]')).toHaveLength(
+        Number(count),
+      );
+    }
+    // A tile names its company and its one fact for a screen reader.
+    expect(tile('figure-ai')).toHaveAccessibleName('Figure AI, latest round $1B, Series C');
+    expect(tile('covariant')).toHaveAccessibleName('Covariant, acquired');
+    expect(tile('farm-ng')).toHaveAccessibleName('Farm-ng, latest round amount not disclosed');
   }, TIMEOUT);
 
-  it('exposes all seven filter dimensions and the three views (VAL-MKT-003, VAL-MKT-004)', async () => {
+  it('exposes all seven filter dimensions, a name search and the three views (VAL-MKT-003, VAL-MKT-004)', async () => {
     const user = userEvent.setup();
-    // Render a one-segment subset (10 cards) instead of the full grid:
-    // the filter bar is a sibling of the grid, not a child of it, so all
-    // seven dimensions are fully observable without paying the 111-card
-    // render cost (that cost, paid once per assertion-shaped rerender, is
-    // what used to push this test past the module timeout under
-    // full-suite jsdom load).
+    // A one-segment subset keeps the render cheap; the controls are the
+    // same for any population.
     const subset = filterCompanies(COMPANIES, {
       ...DEFAULT_MARKET_MAP_FILTERS,
       segment: 'simulation-tooling',
     });
     render(<MarketMap companies={subset} />);
-    expect(screen.getByLabelText('Segment')).toBeInTheDocument();
-    expect(screen.getByLabelText('Sub-segment')).toBeInTheDocument();
-    expect(screen.getByLabelText('Country')).toBeInTheDocument();
-    expect(screen.getByLabelText('Stage / status')).toBeInTheDocument();
-    expect(screen.getByLabelText('Approach')).toBeInTheDocument();
-    expect(screen.getByLabelText('Open source')).toBeInTheDocument();
-    expect(screen.getByLabelText('Confidence')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Grid' })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
+    const segments = within(screen.getByRole('group', { name: 'Segment' })).getAllByRole('button');
+    // "All" plus the six segments.
+    expect(segments).toHaveLength(7);
+    expect(segments[0]).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('searchbox', { name: 'Search companies by name' })).toBeInTheDocument();
+    const more = screen.getByRole('button', { name: /More filters/ });
+    expect(more).toHaveAttribute('aria-expanded', 'false');
+    await openMoreFilters(user);
+    expect(more).toHaveAttribute('aria-expanded', 'true');
+    for (const label of ['Sub-segment', 'Country', 'Stage / status', 'Approach', 'Open source', 'Confidence']) {
+      expect(screen.getByLabelText(label)).toBeVisible();
+    }
+    expect(screen.getByRole('button', { name: 'Grid' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: 'Bubble' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Timeline' })).toBeInTheDocument();
     const status = screen.getByLabelText('Stage / status');
-    expect(status).toHaveTextContent('Private');
-    expect(status).toHaveTextContent('Public');
-    expect(status).toHaveTextContent('Acquired');
-    expect(status).toHaveTextContent('IPO');
-    expect(status).toHaveTextContent('Shut down');
-    // The subset genuinely renders cards (the assertions above are not
-    // passing against an empty grid).
-    expect(screen.getAllByRole('article')).toHaveLength(subset.length);
-    // And one dimension still narrows: the interaction surface works.
+    for (const option of ['Private', 'Public', 'Acquired', 'IPO', 'Shut down']) {
+      expect(status).toHaveTextContent(option);
+    }
+    expect(tiles()).toHaveLength(subset.length);
     await user.selectOptions(screen.getByLabelText('Country'), 'US');
-    expect(screen.getAllByRole('article').length).toBeLessThan(subset.length);
+    expect(tiles().length).toBeLessThan(subset.length);
   }, TIMEOUT);
 
   it('applies a single filter and composes a second one (VAL-MKT-005, VAL-MKT-006)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
-    await user.selectOptions(screen.getByLabelText('Segment'), 'humanoids');
+    await user.click(segmentTab(/^Humanoids/));
+    expect(segmentTab(/^Humanoids/)).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(34);
+    expect(tiles()).toHaveLength(34);
+    expect(window.location.search).toBe('?segment=humanoids');
+    await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Country'), 'US');
     expect(screen.getByText('6 of 111 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(6);
+    expect(tiles()).toHaveLength(6);
     await user.selectOptions(screen.getByLabelText('Confidence'), 'high');
     expect(screen.getByText('4 of 111 companies')).toBeInTheDocument();
+    // Segment counts follow the other filters: four US humanoids at high
+    // confidence, and the tab says so before it is chosen.
+    expect(segmentTab(/^Humanoids/)).toHaveTextContent('4');
+    // Choosing the active segment again returns to all segments.
+    await user.click(segmentTab(/^Humanoids/));
+    expect(segmentTab(/^All/)).toHaveAttribute('aria-pressed', 'true');
+  }, TIMEOUT);
+
+  it('searches names and writes the query into the URL', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    const search = screen.getByRole('searchbox', { name: 'Search companies by name' });
+    await user.type(search, 'dyn');
+    expect(screen.getByText('3 of 111 companies')).toBeInTheDocument();
+    expect(tiles().map((el) => el.dataset.mapTile).sort()).toEqual([
+      'boston-dynamics',
+      'dyna-robotics',
+      'limx-dynamics',
+    ]);
+    expect(window.location.search).toBe('?q=dyn');
+    await user.clear(search);
+    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(window.location.search).toBe('');
   }, TIMEOUT);
 
   it('narrows sub-segments when a segment is active (VAL-MKT-025)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
+    await openMoreFilters(user);
     const sub = screen.getByLabelText('Sub-segment');
     expect(sub).toHaveTextContent('warehouse automation');
-    await user.selectOptions(screen.getByLabelText('Segment'), 'humanoids');
+    await user.click(segmentTab(/^Humanoids/));
     expect(sub).toHaveTextContent('industrial humanoids');
     expect(sub).not.toHaveTextContent('warehouse automation');
   }, TIMEOUT);
 
-  it('shows the complete field set and expands inline (VAL-MKT-009, VAL-MKT-010)', async () => {
+  it('opens the full field set with cited sources and closes it (VAL-MKT-009, VAL-MKT-010)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
-    const pi = card('Physical Intelligence');
+    const before = window.history.length;
+    await user.click(tile('physical-intelligence'));
+    const pi = sheet('Physical Intelligence');
+    // The selection is the URL hash, one history entry deep, and focus
+    // moves to the company's heading.
+    expect(window.location.hash).toBe('#company-physical-intelligence');
+    expect(window.history.length).toBe(before + 1);
+    expect(within(pi).getByRole('heading', { level: 2, name: 'Physical Intelligence' })).toHaveFocus();
+    expect(tile('physical-intelligence')).toHaveAttribute('aria-expanded', 'true');
     expect(pi).toHaveTextContent(/vision-language-action/);
     expect(pi).toHaveTextContent('flow matching action expert');
-    expect(pi).toHaveTextContent('$600M');
-    expect(pi).toHaveTextContent('20 Nov 2025');
-    expect(pi).toHaveTextContent('$5.6B');
-    expect(pi).toHaveTextContent('Private');
-    expect(pi).toHaveTextContent('high');
+    expect(pi.querySelector('[data-field="amount"]')).toHaveTextContent('$600M');
+    expect(pi.querySelector('[data-field="date"]')).toHaveTextContent('20 Nov 2025');
+    expect(pi.querySelector('[data-field="valuation"]')).toHaveTextContent('$5.6B');
+    expect(pi.querySelector('[data-field="status"]')).toHaveTextContent('Private');
+    expect(pi.querySelector('[data-field="confidence"]')).toHaveTextContent('high');
     expect(
-      within(pi).getByRole('link', {
+      within(pi).getAllByRole('link', {
         name: /Physical Intelligence raises \$600M to advance robot foundation models/,
-      }),
+      })[0],
     ).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
-
-    await user.click(within(pi).getByRole('button', { name: 'Expand' }));
     expect(within(pi).getByText('Pi, π')).toBeInTheDocument();
     expect(within(pi).getByText('San Francisco, US')).toBeInTheDocument();
     // TRR (fetched 2026-08-18): CapitalG led the Series B with Lux Capital.
     expect(within(pi).getByText('CapitalG, Lux Capital')).toBeInTheDocument();
     expect(within(pi).getByText('openpi')).toBeInTheDocument();
-    await user.click(within(pi).getByRole('button', { name: 'Collapse' }));
-    expect(within(pi).queryByText('openpi')).not.toBeInTheDocument();
+    // The round's figures carry the date their source was read.
+    expect(pi.querySelector('[data-round-source] [data-field="as-of"]')).toHaveTextContent(
+      /\d{1,2} [A-Z][a-z]{2} 2026/,
+    );
+
+    await user.click(within(pi).getByRole('button', { name: 'Close Physical Intelligence details' }));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(window.location.hash).toBe('');
+    expect(tile('physical-intelligence')).toHaveFocus();
+    expect(tile('physical-intelligence')).toHaveAttribute('aria-expanded', 'false');
   }, TIMEOUT);
 
-  it('renders unknown funding as not disclosed, never zero (VAL-MKT-011)', () => {
+  it('dates round figures by the round source, not the first source', async () => {
+    const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
-    const covariant = card('Covariant');
-    expect(within(covariant).getAllByText('not disclosed').length).toBeGreaterThanOrEqual(
-      2,
+    await user.click(tile('tars-robotics'));
+    const tars = sheet('TARS Robotics');
+    const source = tars.querySelector('[data-round-source]')!;
+    expect(source).toHaveTextContent('TARS Raises $455M Pre-A Round');
+    expect(source.querySelector('[data-field="as-of"]')).toHaveTextContent('25 Aug 2026');
+    expect(source.querySelector('a')).toHaveAttribute(
+      'href',
+      'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
     );
+  }, TIMEOUT);
+
+  it('renders unknown funding as not disclosed, never zero (VAL-MKT-011)', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    // No tile prints a zero.
+    expect(tiles().some((el) => /\$0\b/.test(el.textContent ?? ''))).toBe(false);
+    await user.click(tile('covariant'));
+    const covariant = sheet('Covariant');
+    expect(within(covariant).getAllByText('not disclosed').length).toBeGreaterThanOrEqual(2);
     expect(covariant).not.toHaveTextContent('$0');
 
-    const genesis = card('Genesis AI');
-    expect(genesis).toHaveTextContent('$105M');
-    expect(genesis.querySelector('[data-field="valuation"]')?.textContent).toBe(
-      'not disclosed',
-    );
+    await user.click(tile('genesis-ai'));
+    const genesis = sheet('Genesis AI');
+    expect(genesis.querySelector('[data-field="amount"]')).toHaveTextContent('$105M');
+    expect(genesis.querySelector('[data-field="valuation"]')?.textContent).toBe('not disclosed');
+  }, TIMEOUT);
+
+  it('switches company in place, so one Back closes the details', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    const before = window.history.length;
+    await user.click(tile('figure-ai'));
+    await user.click(tile('skild-ai'));
+    expect(sheet('Skild AI')).toBeInTheDocument();
+    expect(window.location.hash).toBe('#company-skild-ai');
+    expect(window.history.length).toBe(before + 1);
+    act(() => window.history.back());
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(window.location.hash).toBe('');
+  }, TIMEOUT);
+
+  it('keeps a filter changed while the details were open when they close', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.click(tile('figure-ai'));
+    await user.click(segmentTab(/^Humanoids/));
+    expect(window.location.search).toBe('?segment=humanoids');
+    expect(window.location.hash).toBe('#company-figure-ai');
+    // Going Back over the opened entry would restore the older, unfiltered
+    // query, so closing drops the hash in place instead.
+    await user.keyboard('{Escape}');
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(window.location.search).toBe('?segment=humanoids');
+    expect(window.location.hash).toBe('');
+    expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
+  }, TIMEOUT);
+
+  it('closes on Escape and hands focus back to the tile, but not from the search field', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.click(tile('figure-ai'));
+    expect(sheet('Figure AI')).toBeInTheDocument();
+    // Escape inside a field keeps its own meaning.
+    fireEvent.keyDown(screen.getByRole('searchbox', { name: 'Search companies by name' }), {
+      key: 'Escape',
+    });
+    expect(sheet('Figure AI')).toBeInTheDocument();
+    await user.keyboard('{Escape}');
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(tile('figure-ai')).toHaveFocus();
+    // Clicking the open company's tile again also closes it.
+    await user.click(tile('figure-ai'));
+    expect(sheet('Figure AI')).toBeInTheDocument();
+    await user.click(tile('figure-ai'));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  }, TIMEOUT);
+
+  it('makes the map one tab stop with arrow-key movement', () => {
+    render(<MarketMap companies={COMPANIES} />);
+    expect(tiles().filter((el) => el.tabIndex === 0)).toHaveLength(1);
+    const first = tiles().find((el) => el.tabIndex === 0)!;
+    act(() => first.focus());
+    fireEvent.keyDown(first, { key: 'ArrowRight' });
+    const second = document.activeElement as HTMLElement;
+    expect(second).not.toBe(first);
+    expect(second.dataset.mapTile).toBeTruthy();
+    expect(tiles().filter((el) => el.tabIndex === 0)).toEqual([second]);
+    fireEvent.keyDown(second, { key: 'End' });
+    expect(document.activeElement).toBe(tiles()[tiles().length - 1]);
+    fireEvent.keyDown(document.activeElement!, { key: 'Home' });
+    expect(document.activeElement).toBe(tiles()[0]);
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' });
+    expect(document.activeElement).toBe(tiles()[tiles().length - 1]);
   }, TIMEOUT);
 
   it('switches to bubble and timeline views (VAL-MKT-003, VAL-MKT-015, VAL-MKT-023)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.click(screen.getByRole('button', { name: 'Bubble' }));
-    expect(
-      screen.getByRole('group', { name: /bubble chart/i }),
-    ).toBeInTheDocument();
-    expect(screen.getByText(/Founding year/)).toBeInTheDocument();
-    expect(screen.getByText(/excluded for missing/)).toBeInTheDocument();
-    expect(screen.queryByRole('article')).not.toBeInTheDocument();
+    expect(screen.getByRole('group', { name: /bubble chart/i })).toBeInTheDocument();
+    // The axis is titled, and the legend names the two kinds of mark.
+    expect(screen.getByText('Founding year')).toBeInTheDocument();
+    expect(screen.getByText('Latest valuation')).toBeInTheDocument();
+    expect(screen.getByText('Total raised, where no valuation is disclosed')).toBeInTheDocument();
+    expect(document.querySelector('[data-bubble-excluded]')).toHaveTextContent(
+      /83 are left off, not drawn at zero/,
+    );
+    expect(tiles()).toHaveLength(0);
+    expect(window.location.search).toBe('?view=bubble');
 
     await user.click(screen.getByRole('button', { name: 'Timeline' }));
     expect(screen.getByText('Figure AI')).toBeInTheDocument();
@@ -174,43 +314,51 @@ describe('MarketMap', () => {
       .getByText('Unitree Robotics')
       .closest('[data-company-id="unitree-robotics"]');
     expect(unitreeEvent).toHaveTextContent('IPO');
+    // A timeline row opens the same details.
+    await user.click(within(unitreeEvent as HTMLElement).getByRole('button'));
+    expect(sheet('Unitree Robotics').querySelector('[data-field="status"]')).toHaveTextContent('IPO');
 
     await user.click(screen.getByRole('button', { name: 'Grid' }));
-    expect(screen.getAllByRole('article')).toHaveLength(111);
+    expect(tiles()).toHaveLength(111);
+    // The open company survives the view change.
+    expect(tile('unitree-robotics')).toHaveAttribute('aria-expanded', 'true');
   }, TIMEOUT);
 
   it('shows an empty state and restores the full set on clear (VAL-MKT-017, VAL-MKT-018)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
-    await user.selectOptions(
-      screen.getByLabelText('Segment'),
-      'components-hardware',
-    );
+    await user.click(segmentTab(/^Components/));
+    await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Stage / status'), 'shut-down');
-    expect(screen.getByText('No companies match these filters.')).toBeInTheDocument();
+    const empty = screen.getByRole('status');
+    expect(empty).toHaveTextContent('No companies match these filters.');
+    expect(empty).toHaveTextContent('Nothing in Components matches every filter at once.');
     expect(screen.getByText('0 of 111 companies')).toBeInTheDocument();
-    await user.click(screen.getAllByRole('button', { name: 'Clear filters' })[0]);
+    await user.click(within(empty).getByRole('button', { name: 'Clear filters' }));
     expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
-    expect(screen.getAllByRole('article')).toHaveLength(111);
+    expect(tiles()).toHaveLength(111);
+  }, TIMEOUT);
+
+  it('names the search in the empty state', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.type(screen.getByRole('searchbox', { name: 'Search companies by name' }), 'zzz');
+    expect(screen.getByRole('status')).toHaveTextContent('No company name starts with “zzz”.');
   }, TIMEOUT);
 
   it('hydrates filters from the URL and ignores invalid params (VAL-MKT-007, VAL-MKT-024)', async () => {
-    window.history.replaceState(
-      null,
-      '',
-      '/market-map/?segment=humanoids&country=US',
-    );
+    window.history.replaceState(null, '', '/market-map/?segment=humanoids&country=US');
     const { unmount } = render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
       expect(screen.getByText('6 of 111 companies')).toBeInTheDocument();
     });
+    // A folded filter set from the URL opens the fold, so the reader can
+    // see what narrowed the map.
+    expect(screen.getByRole('button', { name: /More filters/ })).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByLabelText('Country')).toHaveValue('US');
     unmount();
 
-    window.history.replaceState(
-      null,
-      '',
-      '/market-map/?segment=bogus&confidence=999',
-    );
+    window.history.replaceState(null, '', '/market-map/?segment=bogus&confidence=999');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
       expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
@@ -229,10 +377,10 @@ describe('MarketMap', () => {
     });
     expect(screen.getByLabelText('Sub-segment')).toHaveValue('');
     expect(screen.getByLabelText('Country')).toHaveValue('');
-    // The valid sibling filter still narrows the grid: the bogus values
+    // The valid sibling filter still narrows the map: the bogus values
     // must not silently empty it.
-    expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
-    expect(screen.getAllByRole('article').length).toBeLessThan(111);
+    expect(tiles().length).toBeGreaterThan(0);
+    expect(tiles().length).toBeLessThan(111);
   }, TIMEOUT);
 
   it('relaxes filters that exclude the company named in the hash', async () => {
@@ -244,29 +392,32 @@ describe('MarketMap', () => {
     render(<MarketMap companies={COMPANIES} />);
     // Figure AI is a US humanoid maker: the segment filter survives (it
     // passes), the country filter is dropped (it fails), and the named
-    // card renders highlighted.
+    // company's tile is marked and its details are open.
     await waitFor(() => {
       expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
     });
-    const figure = card('Figure AI');
-    expect(figure).toHaveClass('bg-surface-2');
+    expect(tile('figure-ai')).toHaveClass('bg-surface-2');
+    expect(tile('figure-ai')).toHaveAttribute('aria-expanded', 'true');
+    expect(sheet('Figure AI')).toBeInTheDocument();
+    // A selection that arrives with the page leaves focus alone.
+    expect(document.activeElement).toBe(document.body);
     expect(window.location.search).toBe('?segment=humanoids');
     expect(window.location.hash).toBe('#company-figure-ai');
   }, TIMEOUT);
 
   it('clears every filter when the hashed company fails all of them', async () => {
-    window.history.replaceState(
-      null,
-      '',
-      '/market-map/?country=CN&status=ipo#company-figure-ai',
-    );
+    window.history.replaceState(null, '', '/market-map/?country=CN&status=ipo#company-figure-ai');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
       expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
     });
-    expect(card('Figure AI')).toHaveClass('bg-surface-2');
+    expect(tile('figure-ai')).toHaveClass('bg-surface-2');
     expect(window.location.search).toBe('');
     expect(window.location.hash).toBe('#company-figure-ai');
+    // Closing a selection the page arrived with drops the hash in place.
+    await userEvent.setup().keyboard('{Escape}');
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(window.location.hash).toBe('');
   }, TIMEOUT);
 
   it('does not relax again after the hash has been honored', async () => {
@@ -278,33 +429,29 @@ describe('MarketMap', () => {
     });
     // The user explicitly re-excludes the hashed company; the arrival
     // relax must not fight that choice.
+    await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Country'), 'CN');
     await waitFor(() => {
       expect(screen.getByText('21 of 111 companies')).toBeInTheDocument();
     });
-    expect(
-      screen.queryByRole('heading', { level: 3, name: 'Figure AI' }),
-    ).not.toBeInTheDocument();
+    expect(document.querySelector('button[data-map-tile="figure-ai"]')).toBeNull();
+    // The details stay open: the selection is explicit.
+    expect(sheet('Figure AI')).toBeInTheDocument();
+    expect(window.location.hash).toBe('#company-figure-ai');
   }, TIMEOUT);
 
   it('leaves filters alone when the hash names an unknown company', async () => {
-    window.history.replaceState(
-      null,
-      '',
-      '/market-map/?country=CN#company-ghost',
-    );
+    window.history.replaceState(null, '', '/market-map/?country=CN#company-ghost');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
       expect(screen.getByText('21 of 111 companies')).toBeInTheDocument();
     });
     expect(document.getElementById('company-ghost')).toBeNull();
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   }, TIMEOUT);
 
   it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
     render(<MarketMap companies={COMPANIES} />);
-    expect(screen.getByText('111 of 111 companies')).toHaveAttribute(
-      'aria-live',
-      'polite',
-    );
+    expect(screen.getByText('111 of 111 companies')).toHaveAttribute('aria-live', 'polite');
   }, TIMEOUT);
 });

@@ -22,6 +22,7 @@ import {
  */
 
 import { IMAGES } from '../../data/images';
+import { WITHHELD_MARKS } from '../../lib/market-map-marks';
 import { IMAGE_LICENCES } from '../../data/schemas/image';
 
 /**
@@ -198,7 +199,9 @@ test('the About section does not trim the licence list (VAL-IMG-004 guard)', asy
 }) => {
   await page.goto(`${BASE}/credits/`);
   const entryCount = await page.locator('[data-credits-entry]').count();
-  const registryCount = IMAGES.length;
+  // Every registered image the site shows; a withheld company mark is drawn
+  // nowhere and has no row (lib/market-map-marks.ts).
+  const registryCount = IMAGES.length - Object.keys(WITHHELD_MARKS).length;
   expect(entryCount, 'every registered image still has a licence row').toBe(
     registryCount,
   );

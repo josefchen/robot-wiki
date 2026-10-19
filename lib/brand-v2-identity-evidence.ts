@@ -401,7 +401,7 @@ export const IDENTITY_REQUIRED_STATES = [
     route: '/playground/',
     definedIn: 'lib/trajectory.ts',
     provokedBy:
-      'the trajectory instrument is driven Record then Add keyframe then Export JSON, which renders the exported document into a visible readonly textarea',
+      'once the playground reads data-playground-state="ready", the trajectory instrument is driven Record pose then Export, which renders the exported document into a visible readonly textarea',
     witness: 'robot-atlas-trajectory',
   },
 ] as const;

@@ -628,13 +628,37 @@ test.describe('brand-v2 article sheet and type hierarchy', () => {
       }
     }
 
+    // The research-page standard permits registration labels without
+    // requiring any, so the sweep may find none. The collector is proven on
+    // one planted in the site's own data face instead, and the readers refuse
+    // an artifact whose collector missed it or measured it wrong.
+    const probeViewport = ARTICLE_VIEWPORTS[ARTICLE_VIEWPORTS.length - 1];
+    const planted = { text: 'Planted registration label', sizePx: 10, trackingEm: 0.1 };
+    await page.setViewportSize({ width: probeViewport.width, height: probeViewport.height });
+    await page.goto(`${staticBase}${routes[0]}`);
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => document.fonts.ready);
+    await page.evaluate(({ text, sizePx, trackingEm }) => {
+      const label = document.createElement('span');
+      label.textContent = text;
+      label.style.cssText = `font-family: var(--font-mono); font-size: ${sizePx}px; letter-spacing: ${trackingEm}em; text-transform: uppercase`;
+      (document.querySelector('main') ?? document.body).append(label);
+    }, planted);
+    const registrationLabelProbe = {
+      route: routes[0],
+      viewport: probeViewport.id,
+      ...planted,
+      collected: (await page.evaluate(collectArticle)).registrationLabels,
+    };
+
     const artifact = {
-      version: 1 as const,
+      version: 2 as const,
       fingerprint: articleEvidenceFingerprint({ root: ROOT }),
       viewports: ARTICLE_VIEWPORTS.map(({ id }) => id),
       routes,
       articleRoutes,
       observations,
+      registrationLabelProbe,
     };
 
     // Enforced here as well as in the generator, so a sheet that regressed

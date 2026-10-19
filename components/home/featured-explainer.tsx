@@ -35,12 +35,14 @@ export function FeaturedExplainer({
   useEffect(() => {
     let stop: (() => void) | null = null;
     let cancelled = false;
-    void import('@/components/explainers/viewer').then(({ startExplainers }) =>
-      startExplainers(root.current!, { scene }).then((dispose) => {
+    void import('@/components/explainers/viewer').then(({ startExplainers }) => {
+      // Unmounted, or cleaned up by StrictMode, before the viewer loaded: the ref may be gone, so start none.
+      if (cancelled) return;
+      return startExplainers(root.current!, { scene }).then((dispose) => {
         if (cancelled) dispose();
         else stop = dispose;
-      }),
-    );
+      });
+    });
     return () => {
       cancelled = true;
       stop?.();

@@ -1,7 +1,9 @@
 /**
  * Plants three violations into a copy of the explainers and their
- * teach-back records, and fails unless the teach-back check exits non-zero
- * naming the explainer for each plant and exits zero on the clean copy.
+ * teach-back records (a record deleted, the owner-acceptance line removed
+ * from a failing record, a scene file edited), and fails unless the
+ * teach-back check exits non-zero naming the explainer for each plant and
+ * exits zero on the clean copy.
  *
  *   node scripts/plant-teach-back.ts [--id arm]
  */
@@ -26,10 +28,12 @@ function mirror(): string {
 const PLANTS: { plant: string; apply: (base: string) => void }[] = [
   { plant: 'record deleted', apply: (base) => rmSync(join(base, recordPath(id))) },
   {
-    plant: 'verdict flipped to fail',
+    plant: 'owner-acceptance line removed from a failing record',
     apply: (base) => {
       const file = join(base, recordPath(id));
-      writeFileSync(file, readFileSync(file, 'utf8').replace('"verdict": "pass"', '"verdict": "fail"'));
+      const { ownerAcceptance, ...rest } = JSON.parse(readFileSync(file, 'utf8')) as { ownerAcceptance?: string; verdict: string };
+      if (rest.verdict !== 'fail' || !ownerAcceptance) throw new Error(`#${id} has no failing record with an owner-acceptance line to remove`);
+      writeFileSync(file, `${JSON.stringify(rest, null, 2)}\n`);
     },
   },
   { plant: 'scene file edited', apply: (base) => appendFileSync(join(base, SCENE_DIR, `${id}.js`), '\n// planted edit\n') },

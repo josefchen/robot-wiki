@@ -24725,80 +24725,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-005:/credits/|1440x900|assured-robot-intelligence-logo#0",
-      "assertionId": "VAL-B2-ART-005",
-      "populationMemberId": "/credits/|1440x900|assured-robot-intelligence-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|1440x900|assured-robot-intelligence-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
-      "actual": "/credits/|1440x900|assured-robot-intelligence-logo#0 states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|1440x900|assured-robot-intelligence-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|1440x900|assured-robot-intelligence-logo#0",
-              "observed": {
-                "imageId": "assured-robot-intelligence-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/assured-robot-intelligence.png",
-                "alt": "Assured Robot Intelligence company mark from the official website",
-                "declaredWidth": "512",
-                "declaredHeight": "512",
-                "loading": "lazy",
-                "naturalWidth": 512,
-                "naturalHeight": 512,
-                "complete": true,
-                "renderedWidth": 90,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Assured Robot Intelligence logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Assured Robot Intelligence / Assured Robot Intelligence official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Assured Robot Intelligence official website"
-                  },
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-ART-005:/credits/|1440x900|astribot-logo#0",
       "assertionId": "VAL-B2-ART-005",
       "populationMemberId": "/credits/|1440x900|astribot-logo#0",
@@ -28764,80 +28690,6 @@
                   },
                   {
                     "href": "https://www.engineai.com.cn/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-005:/credits/|1440x900|farm-ng-logo#0",
-      "assertionId": "VAL-B2-ART-005",
-      "populationMemberId": "/credits/|1440x900|farm-ng-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|1440x900|farm-ng-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
-      "actual": "/credits/|1440x900|farm-ng-logo#0 states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|1440x900|farm-ng-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|1440x900|farm-ng-logo#0",
-              "observed": {
-                "imageId": "farm-ng-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/farm-ng.svg",
-                "alt": "Farm-ng company mark from the official website",
-                "declaredWidth": "168",
-                "declaredHeight": "39",
-                "loading": "lazy",
-                "naturalWidth": 168,
-                "naturalHeight": 39,
-                "complete": true,
-                "renderedWidth": 387.69,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Farm-ng logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Bonsai Robotics / Bonsai Robotics official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://bonsairobotics.ai/",
-                    "text": "Bonsai Robotics official website"
-                  },
-                  {
-                    "href": "https://bonsairobotics.ai/",
                     "text": "Unlicensed"
                   }
                 ],
@@ -34093,80 +33945,6 @@
                   {
                     "href": "https://commons.wikimedia.org/wiki/Template:PD-textlogo",
                     "text": "Public domain"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-005:/credits/|1440x900|nimble-robotics-logo#0",
-      "assertionId": "VAL-B2-ART-005",
-      "populationMemberId": "/credits/|1440x900|nimble-robotics-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|1440x900|nimble-robotics-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
-      "actual": "/credits/|1440x900|nimble-robotics-logo#0 states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|1440x900|nimble-robotics-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|1440x900|nimble-robotics-logo#0",
-              "observed": {
-                "imageId": "nimble-robotics-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/nimble-robotics.svg",
-                "alt": "Nimble company mark from the official website",
-                "declaredWidth": "583",
-                "declaredHeight": "125",
-                "loading": "lazy",
-                "naturalWidth": 777,
-                "naturalHeight": 167,
-                "complete": true,
-                "renderedWidth": 419.75,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Nimble logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Nimble / Nimble official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Nimble official website"
-                  },
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Unlicensed"
                   }
                 ],
                 "surfaceId": null,
@@ -42403,80 +42181,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-ART-005:/credits/|375x812|assured-robot-intelligence-logo#0",
-      "assertionId": "VAL-B2-ART-005",
-      "populationMemberId": "/credits/|375x812|assured-robot-intelligence-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|375x812|assured-robot-intelligence-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
-      "actual": "/credits/|375x812|assured-robot-intelligence-logo#0 states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|375x812|assured-robot-intelligence-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|375x812|assured-robot-intelligence-logo#0",
-              "observed": {
-                "imageId": "assured-robot-intelligence-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/assured-robot-intelligence.png",
-                "alt": "Assured Robot Intelligence company mark from the official website",
-                "declaredWidth": "512",
-                "declaredHeight": "512",
-                "loading": "lazy",
-                "naturalWidth": 512,
-                "naturalHeight": 512,
-                "complete": true,
-                "renderedWidth": 90,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Assured Robot Intelligence logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Assured Robot Intelligence / Assured Robot Intelligence official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Assured Robot Intelligence official website"
-                  },
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-ART-005:/credits/|375x812|astribot-logo#0",
       "assertionId": "VAL-B2-ART-005",
       "populationMemberId": "/credits/|375x812|astribot-logo#0",
@@ -46442,80 +46146,6 @@
                   },
                   {
                     "href": "https://www.engineai.com.cn/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-005:/credits/|375x812|farm-ng-logo#0",
-      "assertionId": "VAL-B2-ART-005",
-      "populationMemberId": "/credits/|375x812|farm-ng-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|375x812|farm-ng-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
-      "actual": "/credits/|375x812|farm-ng-logo#0 states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|375x812|farm-ng-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|375x812|farm-ng-logo#0",
-              "observed": {
-                "imageId": "farm-ng-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/farm-ng.svg",
-                "alt": "Farm-ng company mark from the official website",
-                "declaredWidth": "168",
-                "declaredHeight": "39",
-                "loading": "lazy",
-                "naturalWidth": 168,
-                "naturalHeight": 39,
-                "complete": true,
-                "renderedWidth": 287,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Farm-ng logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Bonsai Robotics / Bonsai Robotics official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://bonsairobotics.ai/",
-                    "text": "Bonsai Robotics official website"
-                  },
-                  {
-                    "href": "https://bonsairobotics.ai/",
                     "text": "Unlicensed"
                   }
                 ],
@@ -51771,80 +51401,6 @@
                   {
                     "href": "https://commons.wikimedia.org/wiki/Template:PD-textlogo",
                     "text": "Public domain"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-ART-005:/credits/|375x812|nimble-robotics-logo#0",
-      "assertionId": "VAL-B2-ART-005",
-      "populationMemberId": "/credits/|375x812|nimble-robotics-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|375x812|nimble-robotics-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
-      "actual": "/credits/|375x812|nimble-robotics-logo#0 states a takeaway caption that is not its own alt text again, and renders the attribution the registry records, naming creator, source and licence and linking both, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|375x812|nimble-robotics-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|375x812|nimble-robotics-logo#0",
-              "observed": {
-                "imageId": "nimble-robotics-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/nimble-robotics.svg",
-                "alt": "Nimble company mark from the official website",
-                "declaredWidth": "583",
-                "declaredHeight": "125",
-                "loading": "lazy",
-                "naturalWidth": 777,
-                "naturalHeight": 167,
-                "complete": true,
-                "renderedWidth": 287,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Nimble logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Nimble / Nimble official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Nimble official website"
-                  },
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Unlicensed"
                   }
                 ],
                 "surfaceId": null,
@@ -124360,6 +123916,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-label:2",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/company-card.tsx:aria-label:2",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/company-card.tsx:aria-label:2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/company-card.tsx:aria-label:2 moved from null to cc5b3777148bcf7362619b2f31f579bf022438db04835cf4d63f42ceba76c61a exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-card-aria-label-2 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) names its Close button for the company it closes: aria-label={`Close ${company.name} details`}, so a screen reader hears which details close (VAL-B2-MAP-006).",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/company-card.tsx:aria-label:2",
+          "baselineHash": null,
+          "currentHash": "cc5b3777148bcf7362619b2f31f579bf022438db04835cf4d63f42ceba76c61a",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-label-2"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:1",
@@ -124368,7 +123952,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/market-map/company-card.tsx:aria-labelledby:1 hashes to 5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/market-map/company-card.tsx:aria-labelledby:1 moved from 5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0 to ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545 exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-1 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) is an <article> named by the company heading (aria-labelledby={headingId}); the expression names the new heading id in place of the old card's name id.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -124380,9 +123964,93 @@
           "manifest": "accessible-names",
           "member": "expression:components/market-map/company-card.tsx:aria-labelledby:1",
           "baselineHash": "5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0",
-          "currentHash": "5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545",
+          "status": "approved-delta",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:3",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:3",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:3"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/company-card.tsx:aria-labelledby:3 moved from null to 1d52cd249c26d608f99c12a9a64c9aad76fbe49dd670bf6bfe78831bc6ec5626 exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-3 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) groups the latest round's facts in a section named by its \"Latest round\" heading.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/company-card.tsx:aria-labelledby:3",
+          "baselineHash": null,
+          "currentHash": "1d52cd249c26d608f99c12a9a64c9aad76fbe49dd670bf6bfe78831bc6ec5626",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-3"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:4",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:4",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:4"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/company-card.tsx:aria-labelledby:4 moved from null to 64208c92f457779806396414bd61985e52d0ecd1bc4f4a2861471f00764c6048 exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-4 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) groups the company's facts in a section named by its \"Company\" heading.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/company-card.tsx:aria-labelledby:4",
+          "baselineHash": null,
+          "currentHash": "64208c92f457779806396414bd61985e52d0ecd1bc4f4a2861471f00764c6048",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-4"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:5",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:5",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:5"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/company-card.tsx:aria-labelledby:5 moved from null to 6837a3f2682b0181edd42ee1b742eec0f26a1b118d72fd0fd3ca3d49ff1b346a exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-5 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) groups the cited sources in a section named by its \"Sources\" heading.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/company-card.tsx:aria-labelledby:5",
+          "baselineHash": null,
+          "currentHash": "6837a3f2682b0181edd42ee1b742eec0f26a1b118d72fd0fd3ca3d49ff1b346a",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-5"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -124411,6 +124079,90 @@
           "currentHash": "84e94ed6c6a228aeab449e16d04150a17e07eac57ec71ea7ea647b1dc35adc6d",
           "status": "approved-addition",
           "approvedDelta": "seo-pass-20261002-accessible-names-company-logo-alt"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/company-sheet.tsx:aria-labelledby:1 moved from null to ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545 exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-sheet-aria-labelledby-1 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The phone bottom sheet (components/market-map/company-sheet.tsx) is a modal dialog named by the company heading (role=\"dialog\", aria-modal=\"true\", aria-labelledby={headingId}).",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
+          "baselineHash": null,
+          "currentHash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-sheet-aria-labelledby-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/company-sheet.tsx:aria-labelledby:2 moved from null to ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545 exactly as approved delta market-map-redesign-20261019-accessible-names-expression-company-sheet-aria-labelledby-2 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The side sheet beside the map (components/market-map/company-sheet.tsx) is a non-modal dialog named by the company heading (role=\"dialog\", aria-modal=\"false\", aria-labelledby={headingId}), so the map stays usable beside it (VAL-B2-MAP-006).",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
+          "baselineHash": null,
+          "currentHash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-company-sheet-aria-labelledby-2"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/grid-view.tsx:aria-label:2",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:expression:components/market-map/grid-view.tsx:aria-label:2",
+      "coveredPopulationMemberIds": [
+        "accessible-names:expression:components/market-map/grid-view.tsx:aria-label:2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member expression:components/market-map/grid-view.tsx:aria-label:2 moved from null to 102aa692a7d5bb97de2ede105a5100018105c67744073fbacb8989a2eefb76a8 exactly as approved delta market-map-redesign-20261019-accessible-names-expression-grid-view-aria-label-2 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. Each map tile is a button named for its company and its one fact (aria-label={`${company.name}, ${fact.label}`}, for example \"Figure AI, latest round $1B, Series C\" or \"Covariant, acquired\"), with aria-haspopup=\"dialog\" and aria-expanded for the detail sheet (VAL-B2-MAP-005).",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "expression:components/market-map/grid-view.tsx:aria-label:2",
+          "baselineHash": null,
+          "currentHash": "102aa692a7d5bb97de2ede105a5100018105c67744073fbacb8989a2eefb76a8",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-expression-grid-view-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -124920,34 +124672,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/three/joint-controls.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:expression:components/three/joint-controls.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:expression:components/three/joint-controls.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/three/joint-controls.tsx:aria-label:1 hashes to 84ab756341d368ecfe8dd91d68f7a3f4b17009ecb1a096aa9c9716e38e98a5a9 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "expression:components/three/joint-controls.tsx:aria-label:1",
-          "baselineHash": "84ab756341d368ecfe8dd91d68f7a3f4b17009ecb1a096aa9c9716e38e98a5a9",
-          "currentHash": "84ab756341d368ecfe8dd91d68f7a3f4b17009ecb1a096aa9c9716e38e98a5a9",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:expression:components/three/trajectory-panel.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:expression:components/three/trajectory-panel.tsx:aria-label:1",
@@ -124956,7 +124680,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/three/trajectory-panel.tsx:aria-label:1 hashes to 26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member expression:components/three/trajectory-panel.tsx:aria-label:1 moved from 26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16 to 668a01cce7e7887a1d921c209279188ca764016216e098d5db20fac1069e1562 exactly as approved delta playground-redesign-20261019-accessible-names-expression-trajectory-panel-tsx-aria-label-1 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Each recorded pose's button reads \"Move the arm to pose N, at T s\" in place of \"Move arm to keyframe N\", so the playback time the old visible label carried stays in the name",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -124968,9 +124692,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/three/trajectory-panel.tsx:aria-label:1",
           "baselineHash": "26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16",
-          "currentHash": "26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "668a01cce7e7887a1d921c209279188ca764016216e098d5db20fac1069e1562",
+          "status": "approved-delta",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-expression-trajectory-panel-tsx-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -127160,62 +126884,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/company-card.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/market-map/company-card.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/market-map/company-card.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/market-map/company-card.tsx:aria-label:1 hashes to 4338d731a2eab80ade35fb3b6904c9799c58eef73a9f889f6e283d1e1f46baf3 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/market-map/company-card.tsx:aria-label:1",
-          "baselineHash": "4338d731a2eab80ade35fb3b6904c9799c58eef73a9f889f6e283d1e1f46baf3",
-          "currentHash": "4338d731a2eab80ade35fb3b6904c9799c58eef73a9f889f6e283d1e1f46baf3",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/company-card.tsx:aria-label:2",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/market-map/company-card.tsx:aria-label:2",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/market-map/company-card.tsx:aria-label:2"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/market-map/company-card.tsx:aria-label:2 hashes to 808408541bd8907cfef3c2f13503d43d96dd2679323975b05b8617a673ad1fe8 in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/market-map/company-card.tsx:aria-label:2",
-          "baselineHash": "808408541bd8907cfef3c2f13503d43d96dd2679323975b05b8617a673ad1fe8",
-          "currentHash": "808408541bd8907cfef3c2f13503d43d96dd2679323975b05b8617a673ad1fe8",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
       "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:1",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:1",
@@ -127224,7 +126892,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/market-map/filter-bar.tsx:aria-label:1 hashes to 7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/market-map/filter-bar.tsx:aria-label:1 moved from 7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1 to 59ab16faeb29f894ad575e2afafb420841625a3a8a1e484b30fd534034df83c1 exactly as approved delta market-map-redesign-20261019-accessible-names-literal-filter-bar-aria-label-1 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash. The filter bar's first named group is now the six segments as text tabs plus \"All\" (role=\"group\" aria-label=\"Segment\"), replacing the segment drop-down; the \"View\" group follows as the second.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -127236,9 +126904,93 @@
           "manifest": "accessible-names",
           "member": "literal:components/market-map/filter-bar.tsx:aria-label:1",
           "baselineHash": "7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1",
+          "currentHash": "59ab16faeb29f894ad575e2afafb420841625a3a8a1e484b30fd534034df83c1",
+          "status": "approved-delta",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-literal-filter-bar-aria-label-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:2",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:2",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:2"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/market-map/filter-bar.tsx:aria-label:2 moved from null to 7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1 exactly as approved delta market-map-redesign-20261019-accessible-names-literal-filter-bar-aria-label-2 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The filter bar keeps its \"View\" group (Grid, Bubble, Timeline, aria-pressed), now the second named group after \"Segment\".",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/market-map/filter-bar.tsx:aria-label:2",
+          "baselineHash": null,
           "currentHash": "7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1",
-          "status": "identical",
-          "approvedDelta": null
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-literal-filter-bar-aria-label-2"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/funding-timeline.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/market-map/funding-timeline.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/market-map/funding-timeline.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/market-map/funding-timeline.tsx:aria-label:1 moved from null to 7d2c9c5360252fba56e6b0f5e20fca46eaf8f9e1116e1a8d350336c62939194b exactly as approved delta market-map-redesign-20261019-accessible-names-literal-funding-timeline-aria-label-1 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The funding timeline's list of rounds is named \"Funding rounds and listings, oldest first\"; it is the accessible equivalent of the dated plot above it, which is aria-hidden (VAL-B2-MAP-002).",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/market-map/funding-timeline.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "7d2c9c5360252fba56e6b0f5e20fca46eaf8f9e1116e1a8d350336c62939194b",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-literal-funding-timeline-aria-label-1"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/grid-view.tsx:aria-label:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/market-map/grid-view.tsx:aria-label:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/market-map/grid-view.tsx:aria-label:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/market-map/grid-view.tsx:aria-label:1 moved from null to fec0b3e597ff6dc37ae535746b5ebbc1ce86b7d32ce201812de1397b8badf799 exactly as approved delta market-map-redesign-20261019-accessible-names-literal-grid-view-aria-label-1 permits: Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The map (components/market-map/grid-view.tsx) is one group named \"Market map\", one tab stop with a roving tabindex and arrow keys, described by a visually hidden hint (\"Arrow keys move between companies. Enter opens a company's details.\").",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/market-map/grid-view.tsx:aria-label:1",
+          "baselineHash": null,
+          "currentHash": "fec0b3e597ff6dc37ae535746b5ebbc1ce86b7d32ce201812de1397b8badf799",
+          "status": "approved-addition",
+          "approvedDelta": "market-map-redesign-20261019-accessible-names-literal-grid-view-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -127944,15 +127696,15 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:1",
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/ik-target-form.tsx:aria-labelledby:1",
       "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:1",
+      "populationMemberId": "accessible-names:literal:components/three/ik-target-form.tsx:aria-labelledby:1",
       "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:1"
+        "accessible-names:literal:components/three/ik-target-form.tsx:aria-labelledby:1"
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/playground-canvas.tsx:aria-label:1 hashes to 273a7feab2e82bdd9938629a142f3cf70d9b09efd019d6b812145537f0fd9c5e in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/three/ik-target-form.tsx:aria-labelledby:1 moved from null to 7b4b91b358b57d17d49b6e6339ca8ca04d56bb21e76f4c6a0915279cc502bd12 exactly as approved delta playground-redesign-20261019-accessible-names-literal-ik-target-form-tsx-aria-labelledby-1 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Reach section is labelled by its heading (pg-reach-heading)",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -127962,25 +127714,25 @@
         "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "observed": {
           "manifest": "accessible-names",
-          "member": "literal:components/three/playground-canvas.tsx:aria-label:1",
-          "baselineHash": "273a7feab2e82bdd9938629a142f3cf70d9b09efd019d6b812145537f0fd9c5e",
-          "currentHash": "273a7feab2e82bdd9938629a142f3cf70d9b09efd019d6b812145537f0fd9c5e",
-          "status": "identical",
-          "approvedDelta": null
+          "member": "literal:components/three/ik-target-form.tsx:aria-labelledby:1",
+          "baselineHash": null,
+          "currentHash": "7b4b91b358b57d17d49b6e6339ca8ca04d56bb21e76f4c6a0915279cc502bd12",
+          "status": "approved-addition",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-ik-target-form-tsx-aria-labelledby-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:2",
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:1",
       "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:2",
+      "populationMemberId": "accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:1",
       "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:2"
+        "accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:1"
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/playground-canvas.tsx:aria-label:2 hashes to 031f4d38d31e3be5d8961a024e83107412f6a82a552cac09a0bfc29e8303b422 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/three/joint-controls.tsx:aria-labelledby:1 moved from null to 0af04fbc9483bde4396f95fd004e621aef4a957abde71fc16563738302ba66fd exactly as approved delta playground-redesign-20261019-accessible-names-literal-joint-controls-tsx-aria-labelledby-1 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Joints section is labelled by its heading (pg-joints-heading)",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -127990,25 +127742,25 @@
         "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "observed": {
           "manifest": "accessible-names",
-          "member": "literal:components/three/playground-canvas.tsx:aria-label:2",
-          "baselineHash": "031f4d38d31e3be5d8961a024e83107412f6a82a552cac09a0bfc29e8303b422",
-          "currentHash": "031f4d38d31e3be5d8961a024e83107412f6a82a552cac09a0bfc29e8303b422",
-          "status": "identical",
-          "approvedDelta": null
+          "member": "literal:components/three/joint-controls.tsx:aria-labelledby:1",
+          "baselineHash": null,
+          "currentHash": "0af04fbc9483bde4396f95fd004e621aef4a957abde71fc16563738302ba66fd",
+          "status": "approved-addition",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-joint-controls-tsx-aria-labelledby-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
     },
     {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:3",
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:2",
       "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:3",
+      "populationMemberId": "accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:2",
       "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:3"
+        "accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:2"
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/playground-canvas.tsx:aria-label:3 hashes to d3585aa892024947b85c0eb319c46d25d375a263683fb6d55548f0a38537e506 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/three/joint-controls.tsx:aria-labelledby:2 moved from null to 0af04fbc9483bde4396f95fd004e621aef4a957abde71fc16563738302ba66fd exactly as approved delta playground-redesign-20261019-accessible-names-literal-joint-controls-tsx-aria-labelledby-2 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Joints section shown while the arm loads is labelled by the same heading",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128018,95 +127770,11 @@
         "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "observed": {
           "manifest": "accessible-names",
-          "member": "literal:components/three/playground-canvas.tsx:aria-label:3",
-          "baselineHash": "d3585aa892024947b85c0eb319c46d25d375a263683fb6d55548f0a38537e506",
-          "currentHash": "d3585aa892024947b85c0eb319c46d25d375a263683fb6d55548f0a38537e506",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:4",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:4",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/three/playground-canvas.tsx:aria-label:4"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/playground-canvas.tsx:aria-label:4 hashes to 8d1c1965f9ef0e8eee16a92ccc22bb9435cb4426ee46e16ca088765b13381e7e in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/three/playground-canvas.tsx:aria-label:4",
-          "baselineHash": "8d1c1965f9ef0e8eee16a92ccc22bb9435cb4426ee46e16ca088765b13381e7e",
-          "currentHash": "8d1c1965f9ef0e8eee16a92ccc22bb9435cb4426ee46e16ca088765b13381e7e",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-hud.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/three/playground-hud.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/three/playground-hud.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/playground-hud.tsx:aria-label:1 hashes to cac04d87f5aebc0fdb26073601c7956eba6d48d922471299c3b696238e4d2e8c in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/three/playground-hud.tsx:aria-label:1",
-          "baselineHash": "cac04d87f5aebc0fdb26073601c7956eba6d48d922471299c3b696238e4d2e8c",
-          "currentHash": "cac04d87f5aebc0fdb26073601c7956eba6d48d922471299c3b696238e4d2e8c",
-          "status": "identical",
-          "approvedDelta": null
-        },
-        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:1",
-      "assertionId": "VAL-B2-BASE-002",
-      "populationMemberId": "accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:1",
-      "coveredPopulationMemberIds": [
-        "accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:1"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:1 hashes to e8c73ee69681dffc7394cd53c9868d6e0adc12b4af29ba54d332b0f4b8a4be1c in the current tree, the value the immutable migration baseline sealed",
-      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "source-build",
-        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
-        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-        "observed": {
-          "manifest": "accessible-names",
-          "member": "literal:components/three/trajectory-panel.tsx:aria-label:1",
-          "baselineHash": "e8c73ee69681dffc7394cd53c9868d6e0adc12b4af29ba54d332b0f4b8a4be1c",
-          "currentHash": "e8c73ee69681dffc7394cd53c9868d6e0adc12b4af29ba54d332b0f4b8a4be1c",
-          "status": "identical",
-          "approvedDelta": null
+          "member": "literal:components/three/joint-controls.tsx:aria-labelledby:2",
+          "baselineHash": null,
+          "currentHash": "0af04fbc9483bde4396f95fd004e621aef4a957abde71fc16563738302ba66fd",
+          "status": "approved-addition",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-joint-controls-tsx-aria-labelledby-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -128120,7 +127788,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:2 hashes to 2dc9fed8510c4aea72546369f83e7eb1c46f154242a79ab71489b767e3e7bbee in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:2 moved from 2dc9fed8510c4aea72546369f83e7eb1c46f154242a79ab71489b767e3e7bbee to 1f109c85c26284b4a5c0f1336e1b940cf0382d170934d0da134398b2954ff205 exactly as approved delta playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-2 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Ordinal 2 is now the Clear button's name \"Clear the recorded poses\" (its visible label is \"Clear\"); the export textarea's name moved to ordinal 4",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128132,9 +127800,9 @@
           "manifest": "accessible-names",
           "member": "literal:components/three/trajectory-panel.tsx:aria-label:2",
           "baselineHash": "2dc9fed8510c4aea72546369f83e7eb1c46f154242a79ab71489b767e3e7bbee",
-          "currentHash": "2dc9fed8510c4aea72546369f83e7eb1c46f154242a79ab71489b767e3e7bbee",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "1f109c85c26284b4a5c0f1336e1b940cf0382d170934d0da134398b2954ff205",
+          "status": "approved-delta",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -128148,7 +127816,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:3 hashes to 9148011ea1a7243bb7b28f4a1311682d8a14402a8e42aa81447a47ca680b49b7 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:3 moved from 9148011ea1a7243bb7b28f4a1311682d8a14402a8e42aa81447a47ca680b49b7 to c05328ae336bae7f0f966e9ed0f4cbe0bbe42d3c564c0337cde70aaa727a6f47 exactly as approved delta playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-3 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Ordinal 3 is now the list name \"Recorded poses\"; the import textarea's name moved to ordinal 5",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128160,9 +127828,9 @@
           "manifest": "accessible-names",
           "member": "literal:components/three/trajectory-panel.tsx:aria-label:3",
           "baselineHash": "9148011ea1a7243bb7b28f4a1311682d8a14402a8e42aa81447a47ca680b49b7",
-          "currentHash": "9148011ea1a7243bb7b28f4a1311682d8a14402a8e42aa81447a47ca680b49b7",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "c05328ae336bae7f0f966e9ed0f4cbe0bbe42d3c564c0337cde70aaa727a6f47",
+          "status": "approved-delta",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-3"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -128176,7 +127844,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:4 hashes to eee117d0742b157869dfdf817930dd9c1dcaca969ec85dde252944f62a3acf83 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:4 moved from eee117d0742b157869dfdf817930dd9c1dcaca969ec85dde252944f62a3acf83 to a6aeaf761fa2a6f756f209aafeebde3ed55ed0f21854970af93670f39b4a7c58 exactly as approved delta playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-4 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Ordinal 4 is now the export textarea, named \"The exported motion, as JSON\" in place of \"Exported trajectory JSON\"; the file input's name moved to ordinal 6",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -128188,9 +127856,93 @@
           "manifest": "accessible-names",
           "member": "literal:components/three/trajectory-panel.tsx:aria-label:4",
           "baselineHash": "eee117d0742b157869dfdf817930dd9c1dcaca969ec85dde252944f62a3acf83",
-          "currentHash": "eee117d0742b157869dfdf817930dd9c1dcaca969ec85dde252944f62a3acf83",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "a6aeaf761fa2a6f756f209aafeebde3ed55ed0f21854970af93670f39b4a7c58",
+          "status": "approved-delta",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-4"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:5",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:5",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:5"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:5 moved from null to e88082ed9f4b7460118137f05bbd6be02072a561f74af96fa68afa17962b844a exactly as approved delta playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-5 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New ordinal: the import textarea, named \"A motion to import, as JSON\" in place of \"Trajectory JSON to import\"",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/three/trajectory-panel.tsx:aria-label:5",
+          "baselineHash": null,
+          "currentHash": "e88082ed9f4b7460118137f05bbd6be02072a561f74af96fa68afa17962b844a",
+          "status": "approved-addition",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-5"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:6",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:6",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:6"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-label:6 moved from null to 367e1e6e20ffa3e6ab204e2cd39185a94c97d2a0d80c956b9eb9fa9f117ba6c8 exactly as approved delta playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-6 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New ordinal: the import file input, named \"Choose a motion file\" in place of \"Choose a trajectory JSON file\"",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/three/trajectory-panel.tsx:aria-label:6",
+          "baselineHash": null,
+          "currentHash": "367e1e6e20ffa3e6ab204e2cd39185a94c97d2a0d80c956b9eb9fa9f117ba6c8",
+          "status": "approved-addition",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-6"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-labelledby:1",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "accessible-names:literal:components/three/trajectory-panel.tsx:aria-labelledby:1",
+      "coveredPopulationMemberIds": [
+        "accessible-names:literal:components/three/trajectory-panel.tsx:aria-labelledby:1"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "accessible-names member literal:components/three/trajectory-panel.tsx:aria-labelledby:1 moved from null to 62135339b2b10c5f8540e065e73b21080ec10d8a25ea55e6989a5c70c6dfb849 exactly as approved delta playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-labelledby-1 permits: Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Motion section is labelled by its heading (pg-motion-heading)",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/accessible-names.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "accessible-names",
+          "member": "literal:components/three/trajectory-panel.tsx:aria-labelledby:1",
+          "baselineHash": null,
+          "currentHash": "62135339b2b10c5f8540e065e73b21080ec10d8a25ea55e6989a5c70c6dfb849",
+          "status": "approved-addition",
+          "approvedDelta": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-labelledby-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -176293,7 +176045,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/credits/ ships 480 outbound anchor(s) across figure-credit, footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 480 outbound anchor occurrences on it with a visible focus ring in 751 stops",
+      "actual": "/credits/ ships 474 outbound anchor(s) across figure-credit, footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 474 outbound anchor occurrences on it with a visible focus ring in 742 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -176301,17 +176053,17 @@
         "kind": "browser-state",
         "computed": {
           "route": "/credits/",
-          "outboundAnchors": 480,
-          "distinctHrefs": 235,
+          "outboundAnchors": 474,
+          "distinctHrefs": 232,
           "shapes": [
             "figure-credit",
             "footer",
             "other"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 476,
-          "reachedByTab": 480,
-          "tabStops": 751,
+          "anchorsWithNoreferrer": 470,
+          "reachedByTab": 474,
+          "tabStops": 742,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -177601,7 +177353,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/market-map/ ships 252 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 252 outbound anchor occurrences on it with a visible focus ring in 388 stops",
+      "actual": "/market-map/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 30 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -177609,16 +177361,15 @@
         "kind": "browser-state",
         "computed": {
           "route": "/market-map/",
-          "outboundAnchors": 252,
-          "distinctHrefs": 234,
+          "outboundAnchors": 2,
+          "distinctHrefs": 2,
           "shapes": [
-            "footer",
-            "other"
+            "footer"
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "reachedByTab": 252,
-          "tabStops": 388,
+          "reachedByTab": 2,
+          "tabStops": 30,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -177636,7 +177387,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/playground/ ships 3 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 3 outbound anchor occurrences on it with a visible focus ring in 32 stops",
+      "actual": "/playground/ ships 3 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 3 outbound anchor occurrences on it with a visible focus ring in 33 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -177653,7 +177404,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
           "reachedByTab": 3,
-          "tabStops": 32,
+          "tabStops": 33,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -189952,94 +189703,30 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#error",
+      "resultId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/stage-look.ts#error",
       "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-renderer:components/three/robot-scene.tsx#error",
+      "populationMemberId": "semantic-renderer:components/three/stage-look.ts#error",
       "coveredPopulationMemberIds": [
-        "semantic-renderer:components/three/robot-scene.tsx#error"
+        "semantic-renderer:components/three/stage-look.ts#error"
       ],
       "coverageKind": "per-member",
       "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/robot-scene.tsx mirrors error as #A52A1E, which equals the #A52A1E authored in app/globals.css",
+      "actual": "components/three/stage-look.ts mirrors error as #A52A1E, which equals the #A52A1E authored in app/globals.css",
       "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "member": "semantic-renderer:components/three/robot-scene.tsx#error",
+          "member": "semantic-renderer:components/three/stage-look.ts#error",
           "token": "error",
-          "module": "components/three/robot-scene.tsx",
+          "module": "components/three/stage-look.ts",
           "forms": [
             "BRAND_COLORS.error"
           ],
           "references": 1,
           "rendererMirror": "#A52A1E",
           "authored": "#A52A1E",
-          "paintedInCardCorpus": 0,
-          "evidence": [
-            "evidence/brand-v2/token-renderer-parity.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#ok",
-      "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-renderer:components/three/robot-scene.tsx#ok",
-      "coveredPopulationMemberIds": [
-        "semantic-renderer:components/three/robot-scene.tsx#ok"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/robot-scene.tsx mirrors ok as #1A6F45, which equals the #1A6F45 authored in app/globals.css",
-      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "semantic-renderer:components/three/robot-scene.tsx#ok",
-          "token": "ok",
-          "module": "components/three/robot-scene.tsx",
-          "forms": [
-            "BRAND_COLORS.ok"
-          ],
-          "references": 1,
-          "rendererMirror": "#1A6F45",
-          "authored": "#1A6F45",
-          "paintedInCardCorpus": 0,
-          "evidence": [
-            "evidence/brand-v2/token-renderer-parity.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#warn",
-      "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-renderer:components/three/robot-scene.tsx#warn",
-      "coveredPopulationMemberIds": [
-        "semantic-renderer:components/three/robot-scene.tsx#warn"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/robot-scene.tsx mirrors warn as #8A5A00, which equals the #8A5A00 authored in app/globals.css",
-      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "semantic-renderer:components/three/robot-scene.tsx#warn",
-          "token": "warn",
-          "module": "components/three/robot-scene.tsx",
-          "forms": [
-            "BRAND_COLORS.warn"
-          ],
-          "references": 1,
-          "rendererMirror": "#8A5A00",
-          "authored": "#8A5A00",
           "paintedInCardCorpus": 0,
           "evidence": [
             "evidence/brand-v2/token-renderer-parity.json"
@@ -190727,188 +190414,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
-      "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-use:components/three/ik-target-form.tsx#error",
-      "coveredPopulationMemberIds": [
-        "semantic-use:components/three/ik-target-form.tsx#error"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/ik-target-form.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (role-switch, text-carrier), and the token resolved on all 75 swept public routes",
-      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "semantic-use:components/three/ik-target-form.tsx#error",
-          "token": "error",
-          "module": "components/three/ik-target-form.tsx",
-          "forms": [
-            "text-err"
-          ],
-          "references": 1,
-          "viaAlias": "err",
-          "authored": "#A52A1E",
-          "marks": [
-            {
-              "id": "components/three/ik-target-form.tsx#115:p:error",
-              "element": "p",
-              "binding": "inline",
-              "via": null,
-              "cues": [
-                "role-switch",
-                "text-carrier"
-              ]
-            }
-          ],
-          "colourOnlyMarks": [],
-          "routesResolved": 75,
-          "evidence": [
-            "evidence/brand-v2/token-runtime.json",
-            "evidence/brand-v2/semantic-colour-only-marks.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#error",
-      "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-use:components/three/playground-hud.tsx#error",
-      "coveredPopulationMemberIds": [
-        "semantic-use:components/three/playground-hud.tsx#error"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/playground-hud.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 75 swept public routes",
-      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "semantic-use:components/three/playground-hud.tsx#error",
-          "token": "error",
-          "module": "components/three/playground-hud.tsx",
-          "forms": [
-            "text-err"
-          ],
-          "references": 1,
-          "viaAlias": "err",
-          "authored": "#A52A1E",
-          "marks": [
-            {
-              "id": "components/three/playground-hud.tsx#107:span:error",
-              "element": "span",
-              "binding": "inline",
-              "via": null,
-              "cues": [
-                "text-carrier"
-              ]
-            }
-          ],
-          "colourOnlyMarks": [],
-          "routesResolved": 75,
-          "evidence": [
-            "evidence/brand-v2/token-runtime.json",
-            "evidence/brand-v2/semantic-colour-only-marks.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#ok",
-      "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-use:components/three/playground-hud.tsx#ok",
-      "coveredPopulationMemberIds": [
-        "semantic-use:components/three/playground-hud.tsx#ok"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/playground-hud.tsx uses ok through text-ok on 1 marks, each carrying its own non-colour cue (text-carrier), and the token resolved on all 75 swept public routes",
-      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "semantic-use:components/three/playground-hud.tsx#ok",
-          "token": "ok",
-          "module": "components/three/playground-hud.tsx",
-          "forms": [
-            "text-ok"
-          ],
-          "references": 1,
-          "viaAlias": null,
-          "authored": "#1A6F45",
-          "marks": [
-            {
-              "id": "components/three/playground-hud.tsx#107:span:ok",
-              "element": "span",
-              "binding": "inline",
-              "via": null,
-              "cues": [
-                "text-carrier"
-              ]
-            }
-          ],
-          "colourOnlyMarks": [],
-          "routesResolved": 75,
-          "evidence": [
-            "evidence/brand-v2/token-runtime.json",
-            "evidence/brand-v2/semantic-colour-only-marks.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-COMP-012:semantic-use:components/three/trajectory-panel.tsx#error",
-      "assertionId": "VAL-B2-COMP-012",
-      "populationMemberId": "semantic-use:components/three/trajectory-panel.tsx#error",
-      "coveredPopulationMemberIds": [
-        "semantic-use:components/three/trajectory-panel.tsx#error"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
-      "actual": "components/three/trajectory-panel.tsx uses error through text-err on 1 marks, each carrying its own non-colour cue (role-switch, text-carrier), and the token resolved on all 75 swept public routes",
-      "selectorOrRegistryId": "app/globals.css#semantic-tokens-and-use-sites",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "semantic-use:components/three/trajectory-panel.tsx#error",
-          "token": "error",
-          "module": "components/three/trajectory-panel.tsx",
-          "forms": [
-            "text-err"
-          ],
-          "references": 1,
-          "viaAlias": "err",
-          "authored": "#A52A1E",
-          "marks": [
-            {
-              "id": "components/three/trajectory-panel.tsx#160:p:error",
-              "element": "p",
-              "binding": "inline",
-              "via": null,
-              "cues": [
-                "role-switch",
-                "text-carrier"
-              ]
-            }
-          ],
-          "colourOnlyMarks": [],
-          "routesResolved": 75,
-          "evidence": [
-            "evidence/brand-v2/token-runtime.json",
-            "evidence/brand-v2/semantic-colour-only-marks.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#error",
       "assertionId": "VAL-B2-COMP-012",
       "populationMemberId": "semantic-use:components/ui/badge.tsx#error",
@@ -191204,7 +190709,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 9 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 10 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -191228,6 +190733,7 @@
             "components/motion/clip.tsx",
             "components/motion/scene-mount.tsx",
             "components/motion/scene-player.tsx",
+            "components/three/trajectory-panel.tsx",
             "components/ui/action.tsx"
           ],
           "targetSize": {
@@ -191245,6 +190751,7 @@
             "/frontier/dexterity/",
             "/how-robots-work/",
             "/manipulation/diffusion-policy/",
+            "/playground/",
             "/rl-sim2real/legged-locomotion/",
             "/rl-sim2real/parallel-sim-rl/"
           ],
@@ -191336,6 +190843,7 @@
             "components/search/search-interface.tsx",
             "components/three/ik-target-form.tsx",
             "components/three/joint-controls.tsx",
+            "components/three/technical-names.tsx",
             "components/three/trajectory-panel.tsx",
             "components/ui/chart-description.tsx",
             "components/ui/instrument.tsx",
@@ -191447,7 +190955,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A control/state registry assigns stable IDs, owner route/mount, action, persistent ARIA, disabled exceptions, target-size requirement, pointer alternative, and supported states; DOM-discovered controls and registered controls/actions reconcile exactly.",
-      "actual": "rendered on 54 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 53 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -191492,8 +191000,8 @@
             "components/interactive/wm-disambiguator.tsx",
             "components/market-map/bubble-view.tsx",
             "components/market-map/filter-bar.tsx",
+            "components/market-map/grid-view.tsx",
             "components/search/type-facet-bar.tsx",
-            "components/three/trajectory-panel.tsx",
             "components/ui/instrument.tsx"
           ],
           "targetSize": {
@@ -191547,7 +191055,6 @@
             "/manipulation/rl-finetuning/",
             "/manipulation/robot-learning-roadmap/",
             "/market-map/",
-            "/playground/",
             "/rl-sim2real/humanoid-wbc/",
             "/rl-sim2real/legged-locomotion/",
             "/rl-sim2real/offline-rl/",
@@ -191651,7 +191158,6 @@
             "components/interactive/time-offset-miss.tsx",
             "components/interactive/trajectory-stitching.tsx",
             "components/market-map/company-card.tsx",
-            "components/market-map/funding-timeline.tsx",
             "components/motion/figure-reuse.tsx",
             "components/nav/nav-tree.tsx",
             "components/nav/site-footer.tsx",
@@ -201216,7 +200722,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/credits/ rendered no v1 identity spelling and no v1 descriptor in 114650 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/credits/ rendered no v1 identity spelling and no v1 descriptor in 113598 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -202861,7 +202367,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/market-map/ rendered no v1 identity spelling and no v1 descriptor in 104649 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/market-map/ rendered no v1 identity spelling and no v1 descriptor in 5542 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -202908,7 +202414,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/playground/ rendered no v1 identity spelling and no v1 descriptor in 1734 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/playground/ rendered no v1 identity spelling and no v1 descriptor in 1562 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -238173,80 +237679,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-IMG-005:/credits/|1440x900|assured-robot-intelligence-logo#0",
-      "assertionId": "VAL-B2-IMG-005",
-      "populationMemberId": "/credits/|1440x900|assured-robot-intelligence-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|1440x900|assured-robot-intelligence-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-      "actual": "/credits/|1440x900|assured-robot-intelligence-logo#0 renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|1440x900|assured-robot-intelligence-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|1440x900|assured-robot-intelligence-logo#0",
-              "observed": {
-                "imageId": "assured-robot-intelligence-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/assured-robot-intelligence.png",
-                "alt": "Assured Robot Intelligence company mark from the official website",
-                "declaredWidth": "512",
-                "declaredHeight": "512",
-                "loading": "lazy",
-                "naturalWidth": 512,
-                "naturalHeight": 512,
-                "complete": true,
-                "renderedWidth": 90,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Assured Robot Intelligence logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Assured Robot Intelligence / Assured Robot Intelligence official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Assured Robot Intelligence official website"
-                  },
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-IMG-005:/credits/|1440x900|astribot-logo#0",
       "assertionId": "VAL-B2-IMG-005",
       "populationMemberId": "/credits/|1440x900|astribot-logo#0",
@@ -242212,80 +241644,6 @@
                   },
                   {
                     "href": "https://www.engineai.com.cn/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-IMG-005:/credits/|1440x900|farm-ng-logo#0",
-      "assertionId": "VAL-B2-IMG-005",
-      "populationMemberId": "/credits/|1440x900|farm-ng-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|1440x900|farm-ng-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-      "actual": "/credits/|1440x900|farm-ng-logo#0 renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|1440x900|farm-ng-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|1440x900|farm-ng-logo#0",
-              "observed": {
-                "imageId": "farm-ng-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/farm-ng.svg",
-                "alt": "Farm-ng company mark from the official website",
-                "declaredWidth": "168",
-                "declaredHeight": "39",
-                "loading": "lazy",
-                "naturalWidth": 168,
-                "naturalHeight": 39,
-                "complete": true,
-                "renderedWidth": 387.69,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Farm-ng logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Bonsai Robotics / Bonsai Robotics official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://bonsairobotics.ai/",
-                    "text": "Bonsai Robotics official website"
-                  },
-                  {
-                    "href": "https://bonsairobotics.ai/",
                     "text": "Unlicensed"
                   }
                 ],
@@ -247541,80 +246899,6 @@
                   {
                     "href": "https://commons.wikimedia.org/wiki/Template:PD-textlogo",
                     "text": "Public domain"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-IMG-005:/credits/|1440x900|nimble-robotics-logo#0",
-      "assertionId": "VAL-B2-IMG-005",
-      "populationMemberId": "/credits/|1440x900|nimble-robotics-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|1440x900|nimble-robotics-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-      "actual": "/credits/|1440x900|nimble-robotics-logo#0 renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|1440x900|nimble-robotics-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|1440x900|nimble-robotics-logo#0",
-              "observed": {
-                "imageId": "nimble-robotics-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/nimble-robotics.svg",
-                "alt": "Nimble company mark from the official website",
-                "declaredWidth": "583",
-                "declaredHeight": "125",
-                "loading": "lazy",
-                "naturalWidth": 777,
-                "naturalHeight": 167,
-                "complete": true,
-                "renderedWidth": 419.75,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Nimble logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Nimble / Nimble official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Nimble official website"
-                  },
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Unlicensed"
                   }
                 ],
                 "surfaceId": null,
@@ -255851,80 +255135,6 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-IMG-005:/credits/|375x812|assured-robot-intelligence-logo#0",
-      "assertionId": "VAL-B2-IMG-005",
-      "populationMemberId": "/credits/|375x812|assured-robot-intelligence-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|375x812|assured-robot-intelligence-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-      "actual": "/credits/|375x812|assured-robot-intelligence-logo#0 renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|375x812|assured-robot-intelligence-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|375x812|assured-robot-intelligence-logo#0",
-              "observed": {
-                "imageId": "assured-robot-intelligence-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/assured-robot-intelligence.png",
-                "alt": "Assured Robot Intelligence company mark from the official website",
-                "declaredWidth": "512",
-                "declaredHeight": "512",
-                "loading": "lazy",
-                "naturalWidth": 512,
-                "naturalHeight": 512,
-                "complete": true,
-                "renderedWidth": 90,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Assured Robot Intelligence logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Assured Robot Intelligence / Assured Robot Intelligence official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Assured Robot Intelligence official website"
-                  },
-                  {
-                    "href": "https://ari.bot/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
       "resultId": "result:VAL-B2-IMG-005:/credits/|375x812|astribot-logo#0",
       "assertionId": "VAL-B2-IMG-005",
       "populationMemberId": "/credits/|375x812|astribot-logo#0",
@@ -259890,80 +259100,6 @@
                   },
                   {
                     "href": "https://www.engineai.com.cn/",
-                    "text": "Unlicensed"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-IMG-005:/credits/|375x812|farm-ng-logo#0",
-      "assertionId": "VAL-B2-IMG-005",
-      "populationMemberId": "/credits/|375x812|farm-ng-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|375x812|farm-ng-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-      "actual": "/credits/|375x812|farm-ng-logo#0 renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|375x812|farm-ng-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|375x812|farm-ng-logo#0",
-              "observed": {
-                "imageId": "farm-ng-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/farm-ng.svg",
-                "alt": "Farm-ng company mark from the official website",
-                "declaredWidth": "168",
-                "declaredHeight": "39",
-                "loading": "lazy",
-                "naturalWidth": 168,
-                "naturalHeight": 39,
-                "complete": true,
-                "renderedWidth": 287,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Farm-ng logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Bonsai Robotics / Bonsai Robotics official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://bonsairobotics.ai/",
-                    "text": "Bonsai Robotics official website"
-                  },
-                  {
-                    "href": "https://bonsairobotics.ai/",
                     "text": "Unlicensed"
                   }
                 ],
@@ -265219,80 +264355,6 @@
                   {
                     "href": "https://commons.wikimedia.org/wiki/Template:PD-textlogo",
                     "text": "Public domain"
-                  }
-                ],
-                "surfaceId": null,
-                "surfaceBackground": null,
-                "surfaceLuminance": null,
-                "surfaceBorderWidth": 0,
-                "surfaceBorderStyle": null,
-                "surroundLuminance": null,
-                "boundaryContrast": 0,
-                "label": null,
-                "labelFontFamily": null,
-                "labelContrast": null
-              }
-            }
-          ],
-          "viewports": [
-            "375x812",
-            "1440x900"
-          ],
-          "evidence": [
-            "evidence/brand-v2/figures.json"
-          ]
-        }
-      }
-    },
-    {
-      "resultId": "result:VAL-B2-IMG-005:/credits/|375x812|nimble-robotics-logo#0",
-      "assertionId": "VAL-B2-IMG-005",
-      "populationMemberId": "/credits/|375x812|nimble-robotics-logo#0",
-      "coveredPopulationMemberIds": [
-        "/credits/|375x812|nimble-robotics-logo#0"
-      ],
-      "coverageKind": "per-member",
-      "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
-      "actual": "/credits/|375x812|nimble-robotics-logo#0 renders the registry alt text, which describes the image without repeating the caption beside it or using the repository identity, and reserves its intrinsic size, decodes, and stays inside the viewport, measured at 375x812 and 1440x900",
-      "selectorOrRegistryId": "evidence/brand-v2/figures.json#figures",
-      "exceptionVerdict": "none",
-      "status": "passed",
-      "payload": {
-        "kind": "browser-state",
-        "computed": {
-          "member": "/credits/|375x812|nimble-robotics-logo#0",
-          "measured": [
-            {
-              "id": "/credits/|375x812|nimble-robotics-logo#0",
-              "observed": {
-                "imageId": "nimble-robotics-logo",
-                "index": 0,
-                "figureKind": "official-mark",
-                "src": "/images/logos/nimble-robotics.svg",
-                "alt": "Nimble company mark from the official website",
-                "declaredWidth": "583",
-                "declaredHeight": "125",
-                "loading": "lazy",
-                "naturalWidth": 777,
-                "naturalHeight": 167,
-                "complete": true,
-                "renderedWidth": 287,
-                "renderedHeight": 90,
-                "overflowPx": 0,
-                "caption": "Nimble logo from the official website, used on the market map.",
-                "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "captionContrast": 5.11,
-                "credit": "Logo: Nimble / Nimble official website. Licence: Unlicensed.",
-                "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-                "creditContrast": 5.11,
-                "creditLinks": [
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Nimble official website"
-                  },
-                  {
-                    "href": "https://nimble.ai/",
-                    "text": "Unlicensed"
                   }
                 ],
                 "surfaceId": null,
@@ -314056,7 +313118,7 @@
         "route:/world-models/world-models-vs-simulators/"
       ],
       "coverageKind": "population-wide",
-      "expected": "The 3D canvas is a bounded ink/graphite instrument inside a light shell; body and shell do not become full-page dark UI.",
+      "expected": "The 3D canvas is a bounded light stage on the page ground: it clears to exactly the runtime paper token, sits between the page's 1 px rules with no dark panel and no full-page dark UI, and draws the arm in the explainers' clay and motor greys; the light-stage sweep probes it with every other figure. (Owner decision of 19 October 2026; the brand-v2 row required a bounded ink/graphite instrument inside a light shell.)",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -314244,7 +313306,7 @@
         "route:/world-models/world-models-vs-simulators/"
       ],
       "coverageKind": "population-wide",
-      "expected": "Passive geometry uses concrete/neutral tones, active path/focus uses signal blue, and selected joint/target uses lime plus a non-colour marker.",
+      "expected": "Passive geometry uses the clay and motor greys mixed from concrete and graphite; the joint being worked and the reach target use the one muted accent plus a non-colour marker (the joint row's bold label and square, the target's dot and ring, a dashed gap line when it is out of reach). (Owner decision of 19 October 2026; the brand-v2 row used signal blue for focus and lime for selection.)",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -314338,7 +313400,7 @@
         "route:/world-models/world-models-vs-simulators/"
       ],
       "coverageKind": "population-wide",
-      "expected": "Controls use the shared black/lime/outlined hierarchy, persistent labels, semantic values, visible focus, and keyboard operation.",
+      "expected": "Controls use the site's ink, outlined and text-action hierarchy, persistent plain-language labels, semantic values, visible focus, and keyboard operation, the canvas included (arrow keys turn it, + and - zoom). (Owner decisions of 10 and 19 October 2026; the brand-v2 row named a black/lime/outlined hierarchy.)",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -315184,7 +314246,7 @@
         "route:/world-models/world-models-vs-simulators/"
       ],
       "coverageKind": "population-wide",
-      "expected": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics.",
+      "expected": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear` (named \"Clear the recorded poses\") removes keyframes/path without changing the reset/default semantics. (Owner decision of 19 October 2026: the control is labelled in plain words; the brand-v2 row named it `Clear trajectory`.)",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
@@ -337304,7 +336366,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every product surface carries a stable variant ID whose registry row names flat/raised/floating/bounded-dark level, stacking purpose, radius, border, shadow tolerance, and allowed owners; source, registry, and rendered populations are equal.",
-      "actual": "rendered on 63 of 77 swept route states and reconciled exactly against the registry row",
+      "actual": "rendered on 62 of 77 swept route states and reconciled exactly against the registry row",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#surfaces",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -337409,8 +336471,7 @@
             "/world-models/latent-dynamics/",
             "/world-models/model-based-robot-learning/",
             "/world-models/taxonomy/",
-            "/world-models/world-models-vs-simulators/",
-            "/market-map/?view=timeline"
+            "/world-models/world-models-vs-simulators/"
           ],
           "sweptRouteStates": 77,
           "reconciliationSource": "evidence/brand-v2/primitive-reconciliation.json"
@@ -337911,7 +336972,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "First-party brand/UI/editorial/data typography uses exactly three web families across the four registered roles: DM Sans (display), Geist (interface and reading) and Geist Mono (data), each published by framework-bundled `next/font` `@font-face` rules the browser is seen to fetch. Tektur Variable and IBM Plex Mono are the offline Open Graph renderer faces. KaTeX math fonts and the licensed icon font/system are scoped content/functional exceptions and never substitute for a first-party role.",
-      "actual": "Geist Mono resolves as the computed head \"geist mono\" (declared by 6 framework-bundled @font-face source(s), 1 of them fetched as font payloads) on 73 of 76 swept routes, in 292 of 304 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
+      "actual": "Geist Mono resolves as the computed head \"geist mono\" (declared by 6 framework-bundled @font-face source(s), 1 of them fetched as font payloads) on 72 of 76 swept routes, in 288 of 304 route x width documents; walking every element of those documents resolved 12 distinct font-family heads, of which 0 were neither one of the 4 registered first-party families nor a scoped exception (0 such documents), and every exception head appeared only inside rendered mathematics",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#typeRoles",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -337943,8 +337004,8 @@
           "declaredStacks": [
             "--font-mono: \"Geist Mono\", \"Geist Mono Fallback\", ui-monospace, SFMono-Regular, Consolas, monospace"
           ],
-          "observationsResolvingFamily": 292,
-          "routesResolvingFamily": 73,
+          "observationsResolvingFamily": 288,
+          "routesResolvingFamily": 72,
           "routesMeasured": 76,
           "observationsMeasured": 304,
           "distinctHeadsMeasured": [
@@ -348322,7 +347383,7 @@
               "id": "/market-map/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 123,
+                "interfaceControlCount": 218,
                 "controlsInProse": 0,
                 "registrationLabelCount": 0
               }
@@ -348359,10 +347420,10 @@
             {
               "id": "/playground/",
               "observed": {
-                "monoRequiredCount": 0,
+                "monoRequiredCount": 6,
                 "interfaceControlCount": 16,
                 "controlsInProse": 0,
-                "registrationLabelCount": 3
+                "registrationLabelCount": 0
               }
             }
           ],
@@ -376072,7 +375133,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376110,7 +375171,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376148,7 +375209,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376186,7 +375247,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376224,7 +375285,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376262,7 +375323,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376300,7 +375361,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376338,7 +375399,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376376,7 +375437,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376414,7 +375475,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376452,7 +375513,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376490,7 +375551,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376528,7 +375589,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376566,7 +375627,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376604,7 +375665,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376642,7 +375703,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376680,7 +375741,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376718,7 +375779,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376756,7 +375817,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376794,7 +375855,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376832,7 +375893,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376870,7 +375931,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376908,7 +375969,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376946,7 +376007,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -376984,7 +376045,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377022,7 +376083,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377060,7 +376121,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377098,7 +376159,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377136,7 +376197,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377174,7 +376235,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377212,7 +376273,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377250,7 +376311,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377288,7 +376349,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377326,7 +376387,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377364,7 +376425,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377402,7 +376463,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377440,7 +376501,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377478,7 +376539,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377516,7 +376577,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377554,7 +376615,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377592,7 +376653,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377630,7 +376691,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377668,7 +376729,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377706,7 +376767,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377744,7 +376805,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377782,7 +376843,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377820,7 +376881,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377858,7 +376919,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377896,7 +376957,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377934,7 +376995,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -377972,7 +377033,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378010,7 +377071,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378048,7 +377109,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378086,7 +377147,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378122,11 +377183,9 @@
             {
               "id": "/playground/",
               "observed": {
-                "labelCount": 6,
-                "trackingEm": [
-                  0.14
-                ],
-                "siteWideTrackingEm": 0.14,
+                "labelCount": 0,
+                "trackingEm": [],
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378164,7 +377223,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378202,7 +377261,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378240,7 +377299,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378278,7 +377337,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378316,7 +377375,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378354,7 +377413,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378392,7 +377451,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378430,7 +377489,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378468,7 +377527,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378506,7 +377565,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378544,7 +377603,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378582,7 +377641,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378620,7 +377679,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378658,7 +377717,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378696,7 +377755,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378734,7 +377793,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378772,7 +377831,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378810,7 +377869,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378848,7 +377907,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }
@@ -378886,7 +377945,7 @@
               "observed": {
                 "labelCount": 0,
                 "trackingEm": [],
-                "siteWideTrackingEm": 0.14,
+                "siteWideTrackingEm": null,
                 "spreadEm": 0
               }
             }

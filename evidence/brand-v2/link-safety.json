@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "8a0a1697628f378f16fa7aa8763a1c6a752384e320bab13418c8b77730455001",
+  "fingerprint": "80931fd1a7dbfa6583d35e782bd87a938d0f1701a9d07fe807feb8cf4e07e7e8",
   "source": "out/ static export",
   "routes": [
     {
@@ -213,8 +213,8 @@
     },
     {
       "route": "/credits/",
-      "outboundAnchors": 480,
-      "distinctHrefs": 235,
+      "outboundAnchors": 474,
+      "distinctHrefs": 232,
       "shapes": [
         "figure-credit",
         "footer",
@@ -611,11 +611,10 @@
     },
     {
       "route": "/market-map/",
-      "outboundAnchors": 252,
-      "distinctHrefs": 234,
+      "outboundAnchors": 2,
+      "distinctHrefs": 2,
       "shapes": [
-        "footer",
-        "other"
+        "footer"
       ]
     },
     {
@@ -855,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6280,
-  "distinctOutboundHrefs": 1849,
+  "outboundAnchors": 6024,
+  "distinctOutboundHrefs": 1623,
   "anchorsByShape": {
     "citation-chip": 2514,
     "footer": 152,
-    "figure-credit": 875,
+    "figure-credit": 869,
     "reference-entry": 2174,
-    "other": 565
+    "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5694,
+  "anchorsWithNoreferrer": 5688,
   "keyboard": [
     {
       "route": "/",
@@ -1021,11 +1020,11 @@
     },
     {
       "route": "/credits/",
-      "outboundInDom": 480,
-      "reachedByTab": 480,
+      "outboundInDom": 474,
+      "reachedByTab": 474,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 751
+      "tabStops": 742
     },
     {
       "route": "/data-hardware/",
@@ -1301,11 +1300,11 @@
     },
     {
       "route": "/market-map/",
-      "outboundInDom": 252,
-      "reachedByTab": 252,
+      "outboundInDom": 2,
+      "reachedByTab": 2,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 388
+      "tabStops": 30
     },
     {
       "route": "/playground/",
@@ -1313,7 +1312,7 @@
       "reachedByTab": 3,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 32
+      "tabStops": 33
     },
     {
       "route": "/privacy/",

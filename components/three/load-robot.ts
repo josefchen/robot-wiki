@@ -1,8 +1,9 @@
-import { LoadingManager } from 'three';
+import { LoadingManager, type Material, type Mesh, type Object3D } from 'three';
 import URDFLoader from 'urdf-loader';
 import type { URDFRobot } from 'urdf-loader';
 import { createGlbMeshLoader } from './glb-mesh-loader';
 import { createProceduralArm } from './procedural-arm';
+import { PLAYGROUND_MATERIALS } from './stage-look';
 
 const URDF_URL = '/models/so101/so101.urdf';
 
@@ -17,6 +18,81 @@ export interface RobotInfo {
 export interface LoadedRobot {
   robot: URDFRobot;
   info: RobotInfo;
+  /**
+   * The motor meshes that turn each joint, by joint name. The scene paints
+   * them in the accent while the reader works that joint's slider.
+   */
+  motors: Record<string, Mesh[]>;
+}
+
+/** The URDF material name of the Feetech STS3215 servo bodies. */
+const MOTOR_MATERIAL = 'sts3215';
+
+/**
+ * Which joint the motor in each link turns: the SO-101's servo sits in the
+ * link before its joint (the explainers' arm scene uses the same table),
+ * and the fallback arm's servos in the link they rotate.
+ */
+const MOTOR_JOINT: Record<string, string> = {
+  base_link: 'shoulder_pan',
+  shoulder_link: 'shoulder_lift',
+  upper_arm_link: 'elbow_flex',
+  lower_arm_link: 'wrist_flex',
+  wrist_link: 'wrist_roll',
+  gripper_link: 'gripper',
+};
+const FALLBACK_MOTOR_JOINT: Record<string, string> = {
+  shoulder_link: 'shoulder_pan',
+  upper_arm_link: 'shoulder_lift',
+  forearm_link: 'elbow_flex',
+};
+
+type UrdfTagged = Object3D & {
+  isURDFVisual?: boolean;
+  isURDFLink?: boolean;
+  urdfNode?: Element | null;
+};
+
+function materialName(mesh: Mesh): string {
+  for (let node: Object3D | null = mesh; node; node = node.parent) {
+    const tagged = node as UrdfTagged;
+    if (tagged.isURDFVisual && tagged.urdfNode) {
+      return tagged.urdfNode.querySelector('material')?.getAttribute('name') ?? '';
+    }
+  }
+  return ([mesh.material].flat()[0] as Material | undefined)?.name ?? '';
+}
+
+function owningLink(mesh: Mesh): string | null {
+  for (let node: Object3D | null = mesh.parent; node; node = node.parent) {
+    if ((node as UrdfTagged).isURDFLink) return node.name;
+  }
+  return null;
+}
+
+/**
+ * Repaints a loaded arm in the explainers' clay look: printed parts in clay,
+ * servos in the motor grey, every mesh casting and taking the key light's
+ * shadow. The SO-101 meshes ship with a baked yellow; this replaces it.
+ */
+export function applyStageLook(
+  robot: URDFRobot,
+  kind: RobotInfo['kind'],
+): Record<string, Mesh[]> {
+  const table = kind === 'so101' ? MOTOR_JOINT : FALLBACK_MOTOR_JOINT;
+  const motors: Record<string, Mesh[]> = {};
+  robot.traverse((object) => {
+    const mesh = object as Mesh;
+    if (!mesh.isMesh) return;
+    const isMotor = materialName(mesh) === MOTOR_MATERIAL;
+    mesh.material = isMotor ? PLAYGROUND_MATERIALS.dark : PLAYGROUND_MATERIALS.clay;
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    const link = owningLink(mesh);
+    const joint = isMotor && link ? table[link] : undefined;
+    if (joint) (motors[joint] ??= []).push(mesh);
+  });
+  return motors;
 }
 
 export function countRevoluteJoints(robot: URDFRobot): number {
@@ -34,6 +110,7 @@ function fallbackRobot(): LoadedRobot {
       jointCount: countRevoluteJoints(robot),
       eeLink: 'tool_tip',
     },
+    motors: applyStageLook(robot, 'fallback'),
   };
 }
 
@@ -82,6 +159,7 @@ export function loadSo101Robot(): Promise<LoadedRobot> {
             jointCount: countRevoluteJoints(loadedRobot),
             eeLink: 'gripper_frame_link',
           },
+          motors: applyStageLook(loadedRobot, 'so101'),
         });
       } else {
         settle(fallbackRobot());

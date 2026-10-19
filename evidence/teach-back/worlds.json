@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "worlds",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/worlds/1280-s1.jpg",
+    "evidence/teach-back/worlds/1280-s2.jpg",
+    "evidence/teach-back/worlds/1280-s3.jpg",
+    "evidence/teach-back/worlds/1280-s4-guess.jpg",
+    "evidence/teach-back/worlds/1280-s4-reveal.jpg",
+    "evidence/teach-back/worlds/1280-s5.jpg",
+    "evidence/teach-back/worlds/390-s1.jpg",
+    "evidence/teach-back/worlds/390-s2.jpg",
+    "evidence/teach-back/worlds/390-s3.jpg",
+    "evidence/teach-back/worlds/390-s4-guess.jpg",
+    "evidence/teach-back/worlds/390-s4-reveal.jpg",
+    "evidence/teach-back/worlds/390-s5.jpg"
+  ],
+  "takeaway": "They practise in thousands of slightly different simulated worlds at once, so the real world is just one more variation.",
+  "selfCheck": {
+    "question": "Why vary the worlds instead of building one perfect copy of the real one?",
+    "answer": "no copy is ever perfect; real ground, weight, bumps differ; one-world robot slips; thousands of floors, weights and shoves -> real floor is just another.",
+    "correct": true
+  },
+  "sentence": "Robots can learn to walk by practising in a computer simulation. Thousands of copies practise at the same time, each in a slightly different world, so the robot learns to handle almost anything, and the real world becomes just one more variation it can cope with.",
+  "unclearTerms": [
+    "\"Attempt 2: walking…\" (what happened in attempt 1)",
+    "\"simulated\" (half guess)",
+    "\"4,096\" (why this number)",
+    "\"one computer\" (ordinary or special)",
+    "\"pool what they learn\" (how)",
+    "\"under four minutes\" (real or simulated time)",
+    "\"and on rough ground in twenty\" (unit left out)",
+    "\"Slide to zoom out\" (what to slide)",
+    "\"slippery to grippy ground\" (which end is slippery)",
+    "\"darker body: heavier\" (greys hard to tell)",
+    "\"a random shove, every 10 seconds\" (real seconds? who shoves)",
+    "\"single perfect world\" (perfect how)",
+    "\"One world\"/\"4,096 worlds\" labels (took a moment)",
+    "\"reality is just one more\" (compressed)",
+    "\"This is massively parallel simulation with domain randomization\" (sudden jargon)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "massively parallel simulation",
+      "why": "the concept the last step introduces"
+    },
+    {
+      "term": "domain randomization",
+      "why": "the concept the last step introduces"
+    }
+  ],
+  "samePoint": "yes",
+  "reason": "My takeaway says the robot practises in thousands of slightly different simulated worlds at the same time, so the real world becomes just one more variation, which is the same subject and the same effect as the registered sentence.",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 19,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "2",
+      "words": 21,
+      "labels": 1,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "3",
+      "words": 19,
+      "labels": 0,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4 guess",
+      "words": 22,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4 reveal",
+      "words": 22,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "fail",
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "5",
+      "words": 20,
+      "labels": 1,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 19,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "2",
+      "words": 21,
+      "labels": 1,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "3",
+      "words": 19,
+      "labels": 0,
+      "controls": 1,
+      "colours": [
+        "focus",
+        "fail"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4 guess",
+      "words": 22,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4 reveal",
+      "words": 22,
+      "labels": 3,
+      "controls": 0,
+      "colours": [
+        "fail",
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "5",
+      "words": 20,
+      "labels": 1,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: \"Attempt 2: walking…\"; \"simulated\"; \"4,096\"; \"one computer\"; \"pool what they learn\"; \"under four minutes\"; \"and on rough ground in twenty\"; \"Slide to zoom out\"; \"slippery to grippy ground\"; \"darker body: heavier\"; \"a random shove, every 10 seconds\"; \"single perfect world\"; \"One world\"/\"4,096 worlds\" labels; \"reality is just one more\"; \"This is massively parallel simulation with domain randomization\".",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording was revised in a8e577cf after this round and has not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-629764b9",
+  "sourceDigest": "d024bb248cdfbc9746e04f4defcf32a14d180be7a30f842d4bb871181a0f9bbd"
+}

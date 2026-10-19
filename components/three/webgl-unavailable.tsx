@@ -1,24 +1,19 @@
 import { PUBLIC_IDENTITY } from '@/lib/identity';
 
 /**
- * Shown when the browser cannot create a WebGL context. Non-blocking: the
- * page around it keeps working, and the message explains why the 3D view is
- * missing.
+ * Shown in the stage when the browser cannot create a WebGL context. It
+ * replaces only the 3D view: the page around it keeps working, and the
+ * message says what is missing and how a reader usually gets it back.
+ * Reduced motion never leads here; it only calms the live scene.
  */
 export function WebGLUnavailable() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 px-6 py-12 text-center">
-      <p className="font-mono text-xs uppercase tracking-[0.14em] text-text-dim">
-        3D unavailable
-      </p>
-      <h2 className="font-sans text-lg font-semibold tracking-tight text-text">
-        WebGL is not available
-      </h2>
-      <p className="max-w-md text-sm leading-relaxed text-text-dim">
-        The playground renders the robot with WebGL, and this browser refused
-        to create a WebGL context. That usually means hardware acceleration is
-        disabled or the GPU driver is blocked. The rest of {PUBLIC_IDENTITY} is
-        static HTML and works without it.
+    <div className="pg-unavailable" data-testid="webgl-unavailable">
+      <h2>WebGL is not available</h2>
+      <p>
+        The 3D arm needs WebGL, and this browser did not start it. Turning on
+        hardware acceleration in the browser&apos;s settings and reloading
+        usually fixes it. The rest of {PUBLIC_IDENTITY} works without it.
       </p>
     </div>
   );

@@ -249,7 +249,7 @@
     },
     "control:link-focus": {
       "kind": "controls",
-      "fingerprint": "80e3d669cf6789921822d7542be6207a3a9f691ae99737484555f4b3e2dd17c7",
+      "fingerprint": "46761419c5d37c3e33a89b633afe731b549567c6c29863275e4ee88c0a27d7d4",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/page.tsx",
@@ -306,7 +306,6 @@
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
         "components/market-map/company-card.tsx",
-        "components/market-map/funding-timeline.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/site-footer.tsx",
@@ -375,7 +374,6 @@
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
         "components/market-map/company-card.tsx",
-        "components/market-map/funding-timeline.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
         "components/nav/site-footer.tsx",
@@ -471,7 +469,7 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "49f7c9469358c3a1bcbec1217f1d9ee7a35a99d772beca8f3f9143f0e98b9c61",
+      "fingerprint": "60392895803737311b66fd8cd172c3bd0ce48b6d7f04def10728a7c26cf0de99",
       "mountState": "production",
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
@@ -480,6 +478,7 @@
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
+        "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
@@ -489,6 +488,7 @@
         "components/motion/clip.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
+        "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "renderedOn": [
@@ -499,13 +499,14 @@
         "/frontier/dexterity/",
         "/how-robots-work/",
         "/manipulation/diffusion-policy/",
+        "/playground/",
         "/rl-sim2real/legged-locomotion/",
         "/rl-sim2real/parallel-sim-rl/"
       ]
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "f0c7244ad5b672017e6a3ab0f907dbad25b7d43bc066cf2eb82521163355c9f0",
+      "fingerprint": "53f3e0fe8f2e757c43aa84d6d30b639d29fc8a0be55febfb6e118d5c172d2f86",
       "mountState": "production",
       "definedIn": [
         "components/article/author-list.tsx",
@@ -566,6 +567,7 @@
         "components/search/search-interface.tsx",
         "components/three/ik-target-form.tsx",
         "components/three/joint-controls.tsx",
+        "components/three/technical-names.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx",
         "components/ui/chart-description.tsx",
@@ -630,6 +632,7 @@
         "components/search/search-interface.tsx",
         "components/three/ik-target-form.tsx",
         "components/three/joint-controls.tsx",
+        "components/three/technical-names.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/chart-description.tsx",
         "components/ui/instrument.tsx",
@@ -770,7 +773,7 @@
     },
     "control:selection": {
       "kind": "controls",
-      "fingerprint": "f749c100cab99e4a6705db8f7d1d12c9a3c0577108b7a33057d105f79816aafb",
+      "fingerprint": "ab8f26aa30d43d919f1b39b45d7a90472ddb88932b68a9ffef742d9bdf602485",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
@@ -800,8 +803,8 @@
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
+        "components/market-map/grid-view.tsx",
         "components/search/type-facet-bar.tsx",
-        "components/three/trajectory-panel.tsx",
         "components/ui/chip.tsx",
         "components/ui/instrument.tsx",
         "components/ui/tabs.tsx"
@@ -831,8 +834,8 @@
         "components/interactive/wm-disambiguator.tsx",
         "components/market-map/bubble-view.tsx",
         "components/market-map/filter-bar.tsx",
+        "components/market-map/grid-view.tsx",
         "components/search/type-facet-bar.tsx",
-        "components/three/trajectory-panel.tsx",
         "components/ui/instrument.tsx"
       ],
       "renderedOn": [
@@ -873,7 +876,6 @@
         "/manipulation/rl-finetuning/",
         "/manipulation/robot-learning-roadmap/",
         "/market-map/",
-        "/playground/",
         "/rl-sim2real/humanoid-wbc/",
         "/rl-sim2real/legged-locomotion/",
         "/rl-sim2real/offline-rl/",
@@ -1033,7 +1035,7 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "d4dcfa37bca2e3d4b072583daa6fd416da447a425943a2cb0caffb4d34cb4bf3",
+      "fingerprint": "dae7485ac6da4617f84bf8c43a8d26c3992cdfba1b5e6a6aef43be0124683070",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
@@ -1050,7 +1052,6 @@
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/training-time-chart.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-card.tsx",
         "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
@@ -1067,7 +1068,6 @@
         "components/motion/figure-frame.tsx",
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
-        "components/three/playground-hud.tsx",
         "components/ui/aside.tsx",
         "components/ui/badge.tsx",
         "components/ui/callout.tsx",
@@ -1096,7 +1096,6 @@
         "components/interactive/scene-representation-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/wm-disambiguator.tsx",
-        "components/market-map/company-card.tsx",
         "components/market-map/company-logo.tsx",
         "components/mdx/av-stack-table.tsx",
         "components/mdx/dh-parameter-table.tsx",
@@ -1113,7 +1112,6 @@
         "components/motion/figure-frame.tsx",
         "components/nav/search-box.tsx",
         "components/three/playground-canvas.tsx",
-        "components/three/playground-hud.tsx",
         "components/ui/badge.tsx",
         "components/ui/card.tsx",
         "components/ui/figure.tsx",
@@ -1184,8 +1182,7 @@
         "/world-models/latent-dynamics/",
         "/world-models/model-based-robot-learning/",
         "/world-models/taxonomy/",
-        "/world-models/world-models-vs-simulators/",
-        "/market-map/?view=timeline"
+        "/world-models/world-models-vs-simulators/"
       ]
     },
     "surface:floating": {

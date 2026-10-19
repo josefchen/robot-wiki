@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function MarketMapPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 py-12">
+    <div className="mx-auto w-full max-w-[84rem] px-6 pt-8 pb-24 sm:pt-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: marketMapJsonLd(COMPANIES) }}
@@ -31,7 +31,7 @@ export default function MarketMapPage() {
       {/* data-pagefind-body scoped to the heading and the intro, not the
           map: Pagefind excludes every page that declares no body region
           once one page declares one, so this route needed its own to be
-          searchable (VAL-SEARCH-021), but the 111 company cards are
+          searchable (VAL-SEARCH-021), but the 111 company tiles are
           already reachable through the structured index, and indexing
           their prose here would return this page for every company name
           instead of the entity row. */}
@@ -42,14 +42,12 @@ export default function MarketMapPage() {
         >
           Market Map
         </h1>
-        <p className="mt-3 max-w-3xl leading-relaxed text-text-dim">
-          {COMPANIES.length} companies in six segments: foundation models,
-          humanoids, industrial and logistics, vertical applications,
-          simulation and tooling, and components. Filters write into the URL.
-          Expand a card for the sources behind a figure.
+        <p className="mt-3 max-w-[40rem] font-sans text-[16px] leading-[1.6] text-text">
+          {COMPANIES.length} companies in six segments. Select one for its
+          latest round and the sources behind each figure.
         </p>
       </div>
-      <div className="mt-8">
+      <div className="mt-9">
         <MarketMap companies={COMPANIES} />
       </div>
     </div>

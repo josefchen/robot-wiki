@@ -103159,6 +103159,1130 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-card.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "cc5b3777148bcf7362619b2f31f579bf022438db04835cf4d63f42ceba76c61a",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) names its Close button for the company it closes: aria-label={`Close ${company.name} details`}, so a screen reader hears which details close (VAL-B2-MAP-006).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-card.tsx:aria-labelledby:1",
+      "oldHash": "5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0",
+      "newHash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) is an <article> named by the company heading (aria-labelledby={headingId}); the expression names the new heading id in place of the old card's name id.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-card.tsx:aria-labelledby:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1d52cd249c26d608f99c12a9a64c9aad76fbe49dd670bf6bfe78831bc6ec5626",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) groups the latest round's facts in a section named by its \"Latest round\" heading.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-card.tsx:aria-labelledby:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "64208c92f457779806396414bd61985e52d0ecd1bc4f4a2861471f00764c6048",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) groups the company's facts in a section named by its \"Company\" heading.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-card-aria-labelledby-5",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-card.tsx:aria-labelledby:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6837a3f2682b0181edd42ee1b742eec0f26a1b118d72fd0fd3ca3d49ff1b346a",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The detail sheet (components/market-map/company-card.tsx, in components/market-map/company-sheet.tsx) groups the cited sources in a section named by its \"Sources\" heading.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-sheet-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The phone bottom sheet (components/market-map/company-sheet.tsx) is a modal dialog named by the company heading (role=\"dialog\", aria-modal=\"true\", aria-labelledby={headingId}).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-company-sheet-aria-labelledby-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The side sheet beside the map (components/market-map/company-sheet.tsx) is a non-modal dialog named by the company heading (role=\"dialog\", aria-modal=\"false\", aria-labelledby={headingId}), so the map stays usable beside it (VAL-B2-MAP-006).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-expression-grid-view-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/market-map/grid-view.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "102aa692a7d5bb97de2ede105a5100018105c67744073fbacb8989a2eefb76a8",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. Each map tile is a button named for its company and its one fact (aria-label={`${company.name}, ${fact.label}`}, for example \"Figure AI, latest round $1B, Series C\" or \"Covariant, acquired\"), with aria-haspopup=\"dialog\" and aria-expanded for the detail sheet (VAL-B2-MAP-005).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-literal-company-card-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/market-map/company-card.tsx:aria-label:1",
+      "oldHash": "4338d731a2eab80ade35fb3b6904c9799c58eef73a9f889f6e283d1e1f46baf3",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash to an absent member: the site is gone. The old card's \"Approach tags\" list name is gone with the card: the approach tags are now one line of text in the detail sheet's facts list, under the \"Approach\" term.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-literal-company-card-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/market-map/company-card.tsx:aria-label:2",
+      "oldHash": "808408541bd8907cfef3c2f13503d43d96dd2679323975b05b8617a673ad1fe8",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash to an absent member: the site is gone. The old card's \"Sources\" list name is gone with the card: the detail sheet lists its sources under a \"Sources\" heading that names the section (aria-labelledby).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-literal-filter-bar-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/market-map/filter-bar.tsx:aria-label:1",
+      "oldHash": "7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1",
+      "newHash": "59ab16faeb29f894ad575e2afafb420841625a3a8a1e484b30fd534034df83c1",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash. The filter bar's first named group is now the six segments as text tabs plus \"All\" (role=\"group\" aria-label=\"Segment\"), replacing the segment drop-down; the \"View\" group follows as the second.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-literal-filter-bar-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/market-map/filter-bar.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7c71a71c1aa2ba9097e9071c93de8666a21f88329dde59523ca08f640813c6e1",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The filter bar keeps its \"View\" group (Grid, Bubble, Timeline, aria-pressed), now the second named group after \"Segment\".",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-literal-funding-timeline-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/market-map/funding-timeline.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7d2c9c5360252fba56e6b0f5e20fca46eaf8f9e1116e1a8d350336c62939194b",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The funding timeline's list of rounds is named \"Funding rounds and listings, oldest first\"; it is the accessible equivalent of the dated plot above it, which is aria-hidden (VAL-B2-MAP-002).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-accessible-names-literal-grid-view-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/market-map/grid-view.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fec0b3e597ff6dc37ae535746b5ebbc1ce86b7d32ce201812de1397b8badf799",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one edge from an absent seal: the member is new. The map (components/market-map/grid-view.tsx) is one group named \"Market map\", one tab stop with a roving tabindex and arrow keys, described by a visually hidden hint (\"Arrow keys move between companies. Enter opens a company's details.\").",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-MAP-005",
+        "VAL-B2-MAP-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-value-states-state-site-company-card-not-applicable-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/market-map/company-card.tsx:not-applicable:3",
+      "oldHash": "86cbaf64d8d8e36648c917772589e44908263af38ae69eb4485d0e90210c30ec",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash to an absent member: the site is gone. The detail sheet renders the inapplicable state through one list helper and the website row, so company-card.tsx carries two \"n/a\" sites instead of four; aka, deployments, open source and website still read \"n/a\" when empty, and every undisclosed figure still reads \"not disclosed\" (VAL-B2-BASE-013, VAL-B2-MAP-009).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-013",
+        "VAL-B2-MAP-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-value-states-state-site-company-card-not-applicable-4",
+      "manifest": "value-states",
+      "memberId": "state-site:components/market-map/company-card.tsx:not-applicable:4",
+      "oldHash": "2dcca78f106c6d62b4eb110f049e52f13e4ffa4c8d93b5e9060e65f662245206",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the sealed hash to an absent member: the site is gone. The detail sheet renders the inapplicable state through one list helper and the website row, so company-card.tsx carries two \"n/a\" sites instead of four; aka, deployments, open source and website still read \"n/a\" when empty, and every undisclosed figure still reads \"not disclosed\" (VAL-B2-BASE-013, VAL-B2-MAP-009).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-013",
+        "VAL-B2-MAP-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "market-map-redesign-20261019-value-states-state-source-company-card",
+      "manifest": "value-states",
+      "memberId": "state-source:components/market-map/company-card.tsx",
+      "oldHash": "500809699192d0420f4f300864119e094279d9ea21b1697087f1e17f26162e4b",
+      "newHash": "cb02b497f20bc2c228886bcf6cad79f73934d9ed90f2ddf51695d12fce9ea0c7",
+      "reason": "Market-map redesign of 2026-10-19 (the two market-map features, views, selection, history and mobile, and data provenance and logo policy): the long list of company cards became a map of compact company tiles in the six segments, one company opens at a time in a detail sheet (a side sheet beside the map, a modal bottom sheet on phones) held in the #company-<id> URL hash, so Escape, the Close button and the browser Back button close it, as one plain edge from the member's last approved endpoint (native-baseline-repair-20260924-company-card-presentation). company-card.tsx now holds the detail sheet's content (CompanyDetail). It keeps the two value states apart: a money, date, founding-year or lead-investor field with no fetched figure reads \"not disclosed\", never zero, and an empty list or missing website reads \"n/a\". The latest round's figures now cite the round's own source with that source's as-of date (lib/market-map.ts roundSource), where the old card dated them by sources[0].",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", under the owner's standing bar for the site (\"extremely premium\", \"remove AI slop\", \"not too long text\") and the Pantheon research-page directive of 2026-10-10 (\"Want everything to feel like this website\", PANTHEON-SPEC.md: paper and ink, hairline rules, grey data tones and one accent). The request names the market map's views and legends, selecting, details and deselecting, source facts, URL and history state, keyboard controls and screen-reader announcements, the empty state and an equivalent detail view on mobile, and the logo policy: never show a wrong mark, and fix the 7 px Apptronik mark and the padded Boston Dynamics file in rendering code. Not release approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-013",
+        "VAL-B2-MAP-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-ik-target-form-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/ik-target-form.tsx",
+      "oldHash": "cf3d6f2cdde5276f38ad45ead9ac5d014cee2acbd87bdda3d2800ab265798183",
+      "newHash": "33130cb53ce92326b0829710bd20d748e9d73d26c9e11417644839dbaf826772",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-src-three-ik-target-form-tsx). IkTargetForm becomes the Reach section: three boxes in centimetres from the base (forward, left, up: the URDF base frame), a Reach button and Clear target, the same solve as a click on the floor, and the verdict repeated beside it on narrow screens. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-joint-controls-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/joint-controls.tsx",
+      "oldHash": "eaa8f6468d2c3c2b122da52cc3094f232bc4ed437d7ef21be89dbe140ceb490b",
+      "newHash": "8f83b4a7c4a45ba3f718423ff9081d8e124ddd96f628d23f470b5c2d2bed83e2",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-src-three-joint-controls-tsx). JointControls names each slider in plain words (Base turn, Shoulder, Elbow, Wrist bend, Wrist turn, Gripper open) through its visible label, shows the value in whole degrees or percent open, speaks it through aria-valuetext, reports the joint under the pointer or keyboard focus, and offers Reset pose; the slider range is still the URDF limit range in degrees. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-joint-labels-ts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/joint-labels.ts",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2db82ca1dcf7735cedda46cec277224d88dabd1523175ffa6f2fd10df74451db",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New: the plain joint names and the readout formats (whole degrees, percent open, centimetres from the base in words, and the technical tenths and metres), with the base-frame conversion from the scene. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-load-robot-ts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/load-robot.ts",
+      "oldHash": "5d231125bfaf9fe21aef1f07919810cacff270e9bfa0b3fa8fa7b97c02e04001",
+      "newHash": "4bf4601802b21eff86c16457fc154667d01ca0718119cb61aa8c3d176f331695",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. loadSo101Robot repaints the loaded arm in the clay look (printed parts clay, sts3215 servos in the motor grey, every mesh casting the key-light shadow) and returns the motor meshes per joint for the accent; the URDF, its meshes, the joint list and the fallback rule are unchanged. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-playground-canvas-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/playground-canvas.tsx",
+      "oldHash": "fe1a51cf5175b3dd01388a1bc8e5427127418cb913719d2d714b7373579a8f6e",
+      "newHash": "56e2c10ee8551c2c8233d25804eb58aecd2db3ba8727845da2a5b48b4c33e612",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-src-three-playground-canvas-tsx). PlaygroundCanvas now lays out one stage and one control deck (Joints, Reach, Motion, Technical names) beside the stage from 1024 px and under it on a phone, marks its root data-playground-state loading, ready or unavailable so tests wait for live controls, shows a resting skeleton of the deck while the arm loads, routes a runtime WebGL failure to the same unavailable branch, and passes the working joint, the hand and the reset token to the scene. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-playground-hud-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/playground-hud.tsx",
+      "oldHash": "0bd0117678fc506364c82a932530b3412e26b7593b7786ddee362c7bf36cb8aa",
+      "newHash": "e50397f049077e5974da1dc6262bc69dbe2e7d767dbce9556043fedab0973627",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-src-three-playground-hud-tsx). playground-hud.tsx now holds the plain readout under the stage, which replaced the monospace overlay: the hand in centimetres from the base and the reach verdict (\"Reached in 12 steps\", \"Out of reach, 24 cm short\") in a live region. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-procedural-arm-ts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/procedural-arm.ts",
+      "oldHash": "b9b02bafbb318447dd0dbd2a98ce73e1d42f234a2d6556e5b0913c528bd3c48f",
+      "newHash": "dbdb3ce8d3211127d339d3fe33486cf2f9148b2e25d1f28e4675e2f9e630320f",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The fallback arm's two materials take the URDF material names (3d_printed, sts3215) and the clay and motor greys in place of the baked amber; its joints, limits and geometry are unchanged. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-robot-scene-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/robot-scene.tsx",
+      "oldHash": "6f2833c253c72fd3382b99fea68ac5142e5a85f8b94163fbd9284ae06077d5b0",
+      "newHash": "8c3bf8e57cfd3aa5f3724b6255be1ea6436d1db2b785eaa4adf393f32a6b386b",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-src-three-robot-scene-tsx). RobotScene draws in the explainer stage's look (paper clear colour, no tone mapping, percentage-closer key-light shadow on a shadow-only floor, hemisphere and fill lights from components/three/stage-look.ts), frames the whole arm from a home view with orbit limits, turns and zooms from the keyboard, follows the explainers' tap-to-turn touch rule, eases back home on Reset pose (instantly under reduced motion), paints the working joint's motor in the accent, and marks the reach target with a dot, a floor ring and a dashed gap line when it is out of reach; it publishes camera target, lens, pixel ratio and drawing-buffer size beside the camera position. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-scene-error-boundary-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/scene-error-boundary.tsx",
+      "oldHash": "730ac6a4f2803da85117c7928a57ace6b791243a8da763f8581135bf0fabf254",
+      "newHash": "9b0d6164debad62dddb522b546fed13b757143354b0995df86ae95406e2e7f28",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. SceneErrorBoundary reports a caught scene failure through onError, so the playground takes its unavailable branch. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-stage-look-ts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/stage-look.ts",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "64ee642cdb329af43288576966b84058a8fe4d98cf0e73945d558388ebfb95df",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New: the playground palette and light rig, derived from the renderer mirror in lib/brand-v2-tokens.ts and the explainers' clay and motor color-mix declarations, with the explainer stage's lights and lens rule; tests/unit/playground-stage-look.test.ts holds it to app/globals.css, explainers.css and kit.js. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-technical-names-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/technical-names.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "01748cd1174f236673a370ddfa188540aaf1068455eba33694a30a4d20e4dc9b",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New: the Technical names fold, a booktabs table of each joint's plain and URDF name with its angle to a tenth of a degree and its limits, and the hand position and angles, target, solver, iterations and gap in metres in the base frame; it keeps every value the monospace HUD showed. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-trajectory-panel-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/trajectory-panel.tsx",
+      "oldHash": "601be1fcd364d827295765bda502a3ea3aa358796499506722df603bba778c9b",
+      "newHash": "c78fdd6808a02384dd0184c50554e75909f2b647dca5ed1f0892433d2c60ba5e",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-src-three-trajectory-panel-tsx). TrajectoryPanel becomes the Motion section: Record pose captures the current pose at once, one button reads Play or Stop, Clear and Export are text actions, poses are numbered squares named with their playback time, progress reads in seconds over a hairline bar with exact data-t and data-duration attributes, and import sits in an \"Import a motion\" fold; the exported JSON and its download are unchanged. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-use-playground-kinematics-ts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/use-playground-kinematics.ts",
+      "oldHash": "db8e3ea1bbcbed65df309e188b980ae1066c0fffc2a16e4bea8967cd5656222a",
+      "newHash": "4241ab35d254b31f9693d78644b0e09cb147d5bc496bea9ce3c87c7aefca20b6",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The end-effector pose also carries its ZYX angles in the URDF base frame for the Technical names fold; the solver, its timing and every other value are unchanged. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-use-trajectory-ts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/use-trajectory.ts",
+      "oldHash": "99401e21723931e3830018966ac544d8351bc28fd6c48f87cd8c24ba9e1ba94a",
+      "newHash": "1c3daeefff7a1850c8df8f24b18e6ca1fb356a0a60c362d281f87fdee372c78d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. useTrajectory records a pose per press of Record pose (the record-armed toggle and Add keyframe are retired) and words its messages for readers (\"Recorded pose 2.\", \"Imported 3 poses.\"); playback timing, easing, reduced-motion stepping, export and import are unchanged. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-interactive-sources-mounts-source-webgl-unavailable-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/webgl-unavailable.tsx",
+      "oldHash": "3fbda6529a2870fa8b462f6c8541152379a1c54b9b4aade93fa3835fcfe291a6",
+      "newHash": "8a9d9f05f45d0e676ef8c89560092c9c3c18b2838a47f44e8269ff534dfe0f3c",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's approved endpoint at the head (brand-v2-id-webgl-unavailable-copy); its later edge seo-20260824-interactive-sources-mounts-9ce25a5f81c8 ends at bytes the head does not carry. The WebGL fallback keeps its heading \"WebGL is not available\" and PUBLIC_IDENTITY, drops the small uppercase label, says how a reader usually gets 3D back, and sits in the stage's place on the page ground. Its source record in the interactive-sources registry is regenerated by npm run generate:brand-v2-registries.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-market-playground-playground-source-load-robot-ts",
+      "manifest": "market-playground",
+      "memberId": "playground-source:components/three/load-robot.ts",
+      "oldHash": "5d231125bfaf9fe21aef1f07919810cacff270e9bfa0b3fa8fa7b97c02e04001",
+      "newHash": "4bf4601802b21eff86c16457fc154667d01ca0718119cb61aa8c3d176f331695",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. loadSo101Robot repaints the loaded arm in the clay look (printed parts clay, sts3215 servos in the motor grey, every mesh casting the key-light shadow) and returns the motor meshes per joint for the accent; the URDF, its meshes, the joint list and the fallback rule are unchanged. This is one of the playground sources the seal binds; model identity, geometry, joint constraints, kinematic calculations and trajectory data stay as sealed (VAL-B2-BASE-004).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-002",
+        "VAL-B2-BASE-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-market-playground-playground-source-playground-canvas-tsx",
+      "manifest": "market-playground",
+      "memberId": "playground-source:components/three/playground-canvas.tsx",
+      "oldHash": "fe1a51cf5175b3dd01388a1bc8e5427127418cb913719d2d714b7373579a8f6e",
+      "newHash": "56e2c10ee8551c2c8233d25804eb58aecd2db3ba8727845da2a5b48b4c33e612",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-pg-three-playground-canvas-tsx). PlaygroundCanvas now lays out one stage and one control deck (Joints, Reach, Motion, Technical names) beside the stage from 1024 px and under it on a phone, marks its root data-playground-state loading, ready or unavailable so tests wait for live controls, shows a resting skeleton of the deck while the arm loads, routes a runtime WebGL failure to the same unavailable branch, and passes the working joint, the hand and the reset token to the scene. This is one of the playground sources the seal binds; model identity, geometry, joint constraints, kinematic calculations and trajectory data stay as sealed (VAL-B2-BASE-004).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-002",
+        "VAL-B2-BASE-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-market-playground-playground-source-playground-hud-tsx",
+      "manifest": "market-playground",
+      "memberId": "playground-source:components/three/playground-hud.tsx",
+      "oldHash": "0bd0117678fc506364c82a932530b3412e26b7593b7786ddee362c7bf36cb8aa",
+      "newHash": "e50397f049077e5974da1dc6262bc69dbe2e7d767dbce9556043fedab0973627",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-pg-three-playground-hud-tsx). playground-hud.tsx now holds the plain readout under the stage, which replaced the monospace overlay: the hand in centimetres from the base and the reach verdict (\"Reached in 12 steps\", \"Out of reach, 24 cm short\") in a live region. This is one of the playground sources the seal binds; model identity, geometry, joint constraints, kinematic calculations and trajectory data stay as sealed (VAL-B2-BASE-004).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-002",
+        "VAL-B2-BASE-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-market-playground-playground-source-trajectory-panel-tsx",
+      "manifest": "market-playground",
+      "memberId": "playground-source:components/three/trajectory-panel.tsx",
+      "oldHash": "601be1fcd364d827295765bda502a3ea3aa358796499506722df603bba778c9b",
+      "newHash": "c78fdd6808a02384dd0184c50554e75909f2b647dca5ed1f0892433d2c60ba5e",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the member's last approved endpoint (round5-closeout2-pg-three-trajectory-panel-tsx). TrajectoryPanel becomes the Motion section: Record pose captures the current pose at once, one button reads Play or Stop, Clear and Export are text actions, poses are numbered squares named with their playback time, progress reads in seconds over a hairline bar with exact data-t and data-duration attributes, and import sits in an \"Import a motion\" fold; the exported JSON and its download are unchanged. This is one of the playground sources the seal binds; model identity, geometry, joint constraints, kinematic calculations and trajectory data stay as sealed (VAL-B2-BASE-004).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-002",
+        "VAL-B2-BASE-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-expression-joint-controls-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/three/joint-controls.tsx:aria-label:1",
+      "oldHash": "84ab756341d368ecfe8dd91d68f7a3f4b17009ecb1a096aa9c9716e38e98a5a9",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The slider name `${joint.name} joint angle, degrees` is retired: each slider is named by its visible label in plain words (for example \"Base turn\"), with its value spoken through aria-valuetext (\"30 degrees\", \"40 percent open\")",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-expression-trajectory-panel-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/three/trajectory-panel.tsx:aria-label:1",
+      "oldHash": "26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16",
+      "newHash": "668a01cce7e7887a1d921c209279188ca764016216e098d5db20fac1069e1562",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Each recorded pose's button reads \"Move the arm to pose N, at T s\" in place of \"Move arm to keyframe N\", so the playback time the old visible label carried stays in the name",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-ik-target-form-tsx-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/ik-target-form.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7b4b91b358b57d17d49b6e6339ca8ca04d56bb21e76f4c6a0915279cc502bd12",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Reach section is labelled by its heading (pg-reach-heading)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-joint-controls-tsx-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/joint-controls.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0af04fbc9483bde4396f95fd004e621aef4a957abde71fc16563738302ba66fd",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Joints section is labelled by its heading (pg-joints-heading)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-joint-controls-tsx-aria-labelledby-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/joint-controls.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0af04fbc9483bde4396f95fd004e621aef4a957abde71fc16563738302ba66fd",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Joints section shown while the arm loads is labelled by the same heading",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-playground-canvas-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/playground-canvas.tsx:aria-label:1",
+      "oldHash": "273a7feab2e82bdd9938629a142f3cf70d9b09efd019d6b812145537f0fd9c5e",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The wrapper name \"Interactive 3D view of a SO-101 robot arm. Drag to orbit, ...\" moves onto the canvas itself (role img, set in robot-scene.tsx at creation) with the keyboard turn and zoom it now supports",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-playground-canvas-tsx-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/playground-canvas.tsx:aria-label:2",
+      "oldHash": "031f4d38d31e3be5d8961a024e83107412f6a82a552cac09a0bfc29e8303b422",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The section name \"Joint angle controls\" is retired: the Joints section is labelled by its visible heading",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-playground-canvas-tsx-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/playground-canvas.tsx:aria-label:3",
+      "oldHash": "d3585aa892024947b85c0eb319c46d25d375a263683fb6d55548f0a38537e506",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The section name \"Inverse kinematics target\" is retired: the Reach section is labelled by its visible heading",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-playground-canvas-tsx-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/playground-canvas.tsx:aria-label:4",
+      "oldHash": "8d1c1965f9ef0e8eee16a92ccc22bb9435cb4426ee46e16ca088765b13381e7e",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The section name \"Trajectory recording and playback\" is retired: the Motion section is labelled by its visible heading",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-playground-hud-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/playground-hud.tsx:aria-label:1",
+      "oldHash": "cac04d87f5aebc0fdb26073601c7956eba6d48d922471299c3b696238e4d2e8c",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The region name \"Kinematics readout\" is retired with the overlay; the reach verdict is a live status and the exact values are in the Technical names fold",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-label:1",
+      "oldHash": "e8c73ee69681dffc7394cd53c9868d6e0adc12b4af29ba54d332b0f4b8a4be1c",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The list name \"Keyframes\" is retired; the list of recorded poses is now named \"Recorded poses\" (aria-label 3)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-label:2",
+      "oldHash": "2dc9fed8510c4aea72546369f83e7eb1c46f154242a79ab71489b767e3e7bbee",
+      "newHash": "1f109c85c26284b4a5c0f1336e1b940cf0382d170934d0da134398b2954ff205",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Ordinal 2 is now the Clear button's name \"Clear the recorded poses\" (its visible label is \"Clear\"); the export textarea's name moved to ordinal 4",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-label:3",
+      "oldHash": "9148011ea1a7243bb7b28f4a1311682d8a14402a8e42aa81447a47ca680b49b7",
+      "newHash": "c05328ae336bae7f0f966e9ed0f4cbe0bbe42d3c564c0337cde70aaa727a6f47",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Ordinal 3 is now the list name \"Recorded poses\"; the import textarea's name moved to ordinal 5",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-label:4",
+      "oldHash": "eee117d0742b157869dfdf817930dd9c1dcaca969ec85dde252944f62a3acf83",
+      "newHash": "a6aeaf761fa2a6f756f209aafeebde3ed55ed0f21854970af93670f39b4a7c58",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. Ordinal 4 is now the export textarea, named \"The exported motion, as JSON\" in place of \"Exported trajectory JSON\"; the file input's name moved to ordinal 6",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-5",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-label:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e88082ed9f4b7460118137f05bbd6be02072a561f74af96fa68afa17962b844a",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New ordinal: the import textarea, named \"A motion to import, as JSON\" in place of \"Trajectory JSON to import\"",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-label-6",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-label:6",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "367e1e6e20ffa3e6ab204e2cd39185a94c97d2a0d80c956b9eb9fa9f117ba6c8",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New ordinal: the import file input, named \"Choose a motion file\" in place of \"Choose a trajectory JSON file\"",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-accessible-names-literal-trajectory-panel-tsx-aria-labelledby-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/three/trajectory-panel.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "62135339b2b10c5f8540e065e73b21080ec10d8a25ea55e6989a5c70c6dfb849",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New name: the Motion section is labelled by its heading (pg-motion-heading)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-behavioral-defaults-default-ik-target-form-tsx-6",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/three/ik-target-form.tsx:6",
+      "oldHash": "4d6844330bc6b87a0017dbca7fd4c895c4e40b2bf7412f8cea2e2096b58e5719",
+      "newHash": "19a7f6012e00a18ca2e736143349bc110ede4a7dc36f29e8b4a71c58e2ad318d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The Reach boxes still start from the default target (the placed target, or the hand at home); the form now converts that scene point to centimetres in the base frame once (sceneToBaseFrame(defaultTarget)) in place of reading defaultTarget.x, .y and .z into metre boxes",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-005",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-behavioral-defaults-default-ik-target-form-tsx-7",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/three/ik-target-form.tsx:7",
+      "oldHash": "6bbe565a4f9fdf14b4ecf3e6721c0b14869e0e2b35a56be0a55366c8fc711211",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. Retired with the metre boxes: defaultTarget.y now reaches the Up box through sceneToBaseFrame (default ordinal 6)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-005",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-behavioral-defaults-default-ik-target-form-tsx-8",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/three/ik-target-form.tsx:8",
+      "oldHash": "5a01199e9265b74167922824e4263bcddd846987d9e1a234e0eab2205e890d20",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. Retired with the metre boxes: defaultTarget.z now reaches the Left box through sceneToBaseFrame (default ordinal 6)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-005",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-behavioral-defaults-default-playground-canvas-tsx-1",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/three/playground-canvas.tsx:1",
+      "oldHash": "f195eec27a38869cf238ebbbdd2b7875e7526bd784892705046f027600f63175",
+      "newHash": "e8e4804571d6e96420eaef041c604245c674a8658a8f6395aca057ba9b9c7dc1",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The same default, renamed: the Reach boxes start from kinematics.targetScene ?? homeHand (the hand position at home, formerly homeEe)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-005",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-playground-hud-tsx-not-applicable-1",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/playground-hud.tsx:not-applicable:1",
+      "oldHash": "a0907870f15b0e94b4dbfc46b2f4313da62988eb197c31979545e2475ed68216",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The overlay's exact \"n/a\" for the hand position before the arm loads moves with the overlay's values to the Technical names fold, which renders exactly n/a for it (state-site technical-names.tsx:not-applicable:1)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-playground-hud-tsx-not-applicable-2",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/playground-hud.tsx:not-applicable:2",
+      "oldHash": "1dc91859dc03bd1739a68b74c6895f76a8c754c6ee2ed5d5c45357c8aa34a481",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The overlay's exact \"n/a\" for the hand orientation before the arm loads moves to the Technical names fold (state-site technical-names.tsx:not-applicable:2)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-playground-hud-tsx-not-applicable-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/playground-hud.tsx:not-applicable:3",
+      "oldHash": "746b7ec0bb5c8f17ee717950de07ddefb191950ee7d302e4b47942fc33c8df94",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The overlay's exact \"n/a\" for the solver gap with no target moves to the Technical names fold (state-site technical-names.tsx:not-applicable:4)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-playground-hud-tsx-not-applicable-4",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/playground-hud.tsx:not-applicable:4",
+      "oldHash": "ea729d83cfc0a30e7eb468235f5ea84767c6b954e5242569a51bace093d16e36",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one plain edge from the sealed hash. The member is removed: its new hash is the absent-member hash. The overlay's exact \"n/a\" for the iteration count with no target moves to the Technical names fold (state-site technical-names.tsx:not-applicable:3)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-technical-names-tsx-not-applicable-1",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/technical-names.tsx:not-applicable:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1c3f456c0a76f3ef9da2b848c18db1a5307c4a165fbf9cb0fbb394325290638f",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New site: the Technical names fold renders exactly \"n/a\" for the hand position before the arm loads, as the retired overlay did (playground-hud.tsx:not-applicable:1); a genuinely inapplicable value, kept apart from published values and from not disclosed",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-technical-names-tsx-not-applicable-2",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/technical-names.tsx:not-applicable:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a8a6724cf894d33ba92b5a7b840f1bf3d27158a388678caf0dbd2e7d29d4cbd4",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New site: exactly \"n/a\" for the hand angles before the arm loads, as the retired overlay rendered for its orientation (playground-hud.tsx:not-applicable:2)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-technical-names-tsx-not-applicable-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/technical-names.tsx:not-applicable:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5e515901579c81a1eb6eebb492c1adf7336f61261a312d7b3c252c5556770bfa",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New site: exactly \"n/a\" for the iteration count while no target is set, as the retired overlay did (playground-hud.tsx:not-applicable:4)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-redesign-20261019-value-states-state-site-technical-names-tsx-not-applicable-4",
+      "manifest": "value-states",
+      "memberId": "state-site:components/three/technical-names.tsx:not-applicable:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0e2f59849b17381bac4255beeccbb329a596651e8e4a4c3c5f1f934d6111b011",
+      "reason": "Playground redesign of 2026-10-19 (/playground/: the 3D Kinematics Playground takes the light clay look of the /how-robots-work/ 3D explainers, a plain-language readout under the stage and one control deck; the SO-101 URDF and its joint limits, the forward and inverse kinematics in lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged), as one edge from an absent seal: the member is new. New site: exactly \"n/a\" for the solver gap while no target is set, as the retired overlay did (playground-hud.tsx:not-applicable:3)",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen: \"start the market map and playground\", under his standing bar \"extremely premium\", \"remove AI slop\", \"not too long text\"), on the owner directives of 2026-10-02 13:15 (figures are light and part of the page; the dark graphite stage is retired) and 2026-10-10 (the research-page standard of PANTHEON-SPEC.md: paper and ink, hairline rules, one muted accent), and the decision of 2026-10-12 that keeps the /how-robots-work/ explainers exactly as they are, whose look the playground borrows read-only. Recorded in contract/design-integrity.md section 13 as the successor rows of VAL-B2-PLAY-001, VAL-B2-PLAY-003, VAL-B2-PLAY-004 and VAL-B2-PLAY-013, with the light-stage sweep (tests/e2e/figure-light-stage.spec.ts) now probing the playground canvas. Presentation, naming and controls only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-006",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "upright",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/upright/1280-s1.jpg",
+    "evidence/teach-back/upright/1280-s2.jpg",
+    "evidence/teach-back/upright/1280-s3-guess.jpg",
+    "evidence/teach-back/upright/1280-s3-reveal.jpg",
+    "evidence/teach-back/upright/1280-s4.jpg",
+    "evidence/teach-back/upright/1280-s5.jpg",
+    "evidence/teach-back/upright/390-s1.jpg",
+    "evidence/teach-back/upright/390-s2.jpg",
+    "evidence/teach-back/upright/390-s3-guess.jpg",
+    "evidence/teach-back/upright/390-s3-reveal.jpg",
+    "evidence/teach-back/upright/390-s4.jpg",
+    "evidence/teach-back/upright/390-s5.jpg"
+  ],
+  "takeaway": "A robot stays up while its balance point is over the patch between its feet; four feet make a big patch, two make a tiny one.",
+  "selfCheck": {
+    "question": "Why does a humanoid take a small step when pushed?",
+    "answer": "small patch; push moves the spot outside; stepping puts a foot down where the weight is going, moving the patch back under the balance point.",
+    "correct": true
+  },
+  "sentence": "A robot stays standing as long as the spot on the floor directly below its balance point is inside the patch its feet cover. A four-legged robot has a big patch, so a push rarely moves that spot outside it. A two-legged robot has a small patch, so a push easily moves the spot outside and the robot has to step to catch itself. Walking is harder still, because fewer feet are on the ground at any moment.",
+  "unclearTerms": [
+    "ANYmal (is the dog in the picture ANYmal?)",
+    "200 times a second (\"picks new leg moves\"/\"adjusts its legs\" in practice; why it matters)",
+    "32 kilograms (why it matters)",
+    "balance point (\"inside\" but the dot looks on top of the back)",
+    "Walking is falling and catching (half guess)",
+    "a line or one foot (how a line is a patch; on the line counts?)",
+    "dog 2 of 4, humanoid 1 of 2 (frozen moment or rule?)",
+    "the dashed line (explained in step 2 only)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "support polygon",
+      "why": "the concept the last step introduces"
+    }
+  ],
+  "samePoint": "yes",
+  "reason": "My takeaway gives the same rule (the robot stays up while the spot below its balance point is inside the patch its feet cover) and the same comparison (four feet make a big patch, two make a small one), though it also adds the parts about pushing and walking.",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 23,
+      "labels": 2,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "2",
+      "words": 23,
+      "labels": 2,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "3 guess",
+      "words": 15,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "3 reveal",
+      "words": 15,
+      "labels": 0,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4",
+      "words": 25,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "5",
+      "words": 21,
+      "labels": 1,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 23,
+      "labels": 2,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "2",
+      "words": 23,
+      "labels": 2,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "3 guess",
+      "words": 15,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "3 reveal",
+      "words": 15,
+      "labels": 0,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4",
+      "words": 25,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "5",
+      "words": 21,
+      "labels": 1,
+      "controls": 1,
+      "colours": [
+        "focus"
+      ]
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: ANYmal; 200 times a second; 32 kilograms; balance point; Walking is falling and catching; a line or one foot; dog 2 of 4, humanoid 1 of 2; the dashed line.",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording was revised in a8e577cf after this round and has not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-3dd22731",
+  "sourceDigest": "c32dc451090e891af2ee0bb1a140ed2bab657efa426a1c8013e75b44fa92ca30"
+}

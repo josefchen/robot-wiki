@@ -11,49 +11,83 @@ import {
 import type { Vec3 } from '@/lib/ik';
 import { isWebGLAvailable } from '@/lib/webgl';
 import { IkTargetForm } from './ik-target-form';
-import { JointControls } from './joint-controls';
+import { JointControls, JointControlsPlaceholder } from './joint-controls';
 import { loadSo101Robot, type LoadedRobot } from './load-robot';
-import { PlaygroundHud } from './playground-hud';
+import {
+  PlaygroundReadout,
+  reachState,
+  reachText,
+} from './playground-hud';
 import { SceneErrorBoundary } from './scene-error-boundary';
+import { TechnicalNames } from './technical-names';
 import { TrajectoryPanel } from './trajectory-panel';
 import { usePlaygroundKinematics } from './use-playground-kinematics';
 import { useTrajectory } from './use-trajectory';
 import { WebGLUnavailable } from './webgl-unavailable';
 import type { RenderedFrameSnapshot } from './robot-scene';
+import './playground.css';
 
 // Client-only: R3F must never render on the server (breaks static export).
 const RobotScene = dynamic(() => import('./robot-scene'), { ssr: false });
 
 const NOOP_SUBSCRIBE = () => () => {};
+const REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
+
+function subscribeReducedMotion(onChange: () => void) {
+  if (typeof window.matchMedia !== 'function') return () => {};
+  const query = window.matchMedia(REDUCED_MOTION);
+  query.addEventListener?.('change', onChange);
+  return () => query.removeEventListener?.('change', onChange);
+}
+
+function prefersReducedMotion(): boolean {
+  return typeof window.matchMedia === 'function' && window.matchMedia(REDUCED_MOTION).matches;
+}
 
 /**
- * Viewport and control deck for the 3D playground. Probes WebGL support
- * before mounting the canvas, shows a skeletal loading state while the
- * model loads, then renders the scene with a monospace HUD overlay plus
- * joint sliders and an IK target form below.
+ * The playground: a light stage with the SO-101 arm in the explainers' clay
+ * look, the line under it that says where the hand is, and one control deck
+ * (joints, reach, motion, technical names) beside the stage on a wide screen
+ * and under it on a phone.
  *
- * The WebGL probe runs through useSyncExternalStore so the server render
- * and the first client render agree (null: probe not run yet), keeping
- * static export hydration clean. The model loads outside the R3F tree so
- * progress never depends on the frame loop.
+ * The WebGL probe runs through useSyncExternalStore so the server render and
+ * the first client render agree (null: probe not run yet), keeping static
+ * export hydration clean. The model loads outside the R3F tree so progress
+ * never depends on the frame loop. `data-playground-state` on the root reads
+ * `loading` until the arm and its controls are live, then `ready`, or
+ * `unavailable` without WebGL; tests wait on it rather than on timing.
  */
 export function PlaygroundCanvas() {
-  const webgl = useSyncExternalStore(
+  const probed = useSyncExternalStore(
     NOOP_SUBSCRIBE,
     () => isWebGLAvailable(),
     () => null,
   );
+  // A context that probes available but fails when the scene creates it
+  // takes the same unavailable branch.
+  const [sceneFailed, setSceneFailed] = useState(false);
+  const webgl = probed === true && sceneFailed ? false : probed;
+  const reducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    prefersReducedMotion,
+    () => false,
+  );
   const [loaded, setLoaded] = useState<LoadedRobot | null>(null);
+  const [activeJoint, setActiveJoint] = useState<string | null>(null);
+  const [viewResetToken, setViewResetToken] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
   const publishRenderedFrame = useCallback(
     (snapshot: RenderedFrameSnapshot) => {
       const viewport = viewportRef.current;
       if (viewport === null) return;
+      const fixed = (values: number[]) => values.map((value) => value.toFixed(6)).join(',');
       viewport.dataset.sceneFrame = String(snapshot.frame);
       viewport.dataset.sceneReady = String(snapshot.ready);
-      viewport.dataset.cameraPosition = snapshot.camera
-        .map((value) => value.toFixed(6))
-        .join(',');
+      viewport.dataset.cameraPosition = fixed(snapshot.camera);
+      viewport.dataset.cameraTarget = fixed(snapshot.target);
+      viewport.dataset.cameraFov = snapshot.fov.toFixed(4);
+      viewport.dataset.dpr = String(snapshot.dpr);
+      viewport.dataset.drawingBuffer = snapshot.buffer.join('x');
     },
     [],
   );
@@ -75,11 +109,11 @@ export function PlaygroundCanvas() {
     angles: kinematics.angles,
     setPose: kinematics.setPose,
   });
-  const loading = webgl === true && loaded === null;
   const ready = loaded !== null && kinematics.ready;
+  const state = webgl === false ? 'unavailable' : ready ? 'ready' : 'loading';
 
   // Manual pose input wins over an in-progress playback: moving a slider or
-  // resetting the pose stops the trajectory timer before writing.
+  // resetting the pose stops the motion before writing.
   const setJointManual = useCallback(
     (name: string, radians: number) => {
       trajectory.stopPlayback();
@@ -87,125 +121,147 @@ export function PlaygroundCanvas() {
     },
     [trajectory, kinematics],
   );
+  // Reset pose: every joint to zero, no target, the camera home. The
+  // recorded poses stay; Clear is what removes them.
   const resetPoseManual = useCallback(() => {
     trajectory.stopPlayback();
     kinematics.resetPose();
+    setViewResetToken((token) => token + 1);
   }, [trajectory, kinematics]);
 
-  // The target form is prefilled with the home end-effector position (once,
-  // not on every pose change) and then tracks explicitly placed targets.
-  const [homeEe, setHomeEe] = useState<Vec3 | null>(null);
-  if (homeEe === null && kinematics.eePose !== null) {
-    setHomeEe(kinematics.eePose.position);
+  // The reach boxes start from the hand's home position (once, not on every
+  // pose change) and then follow explicitly placed targets.
+  const [homeHand, setHomeHand] = useState<Vec3 | null>(null);
+  if (homeHand === null && kinematics.eePose !== null) {
+    setHomeHand(kinematics.eePose.position);
   }
 
-  const targetState = kinematics.solving
-    ? 'solving'
-    : kinematics.residualMm !== null && kinematics.residualMm <= 1
-      ? 'reached'
-      : 'unreachable';
+  const reach = reachState({
+    target: kinematics.targetScene,
+    solving: kinematics.solving,
+    residualMm: kinematics.residualMm,
+  });
+  const hand = kinematics.eePose?.position ?? null;
 
   return (
-    <div>
-      <div
-        ref={viewportRef}
-        data-testid="playground-viewport"
-        data-brand-surface-id="surface:flat"
-        className="relative h-[min(72dvh,760px)] min-h-[420px] w-full overflow-hidden rounded-sm border border-border bg-bg"
-      >
-        {webgl === false ? <WebGLUnavailable /> : null}
+    <div className="playground" data-testid="playground" data-playground-state={state}>
+      <div className="pg-view">
+        <div
+          ref={viewportRef}
+          data-testid="playground-viewport"
+          data-brand-surface-id="surface:flat"
+          className="pg-stage"
+        >
+          {webgl === false ? <WebGLUnavailable /> : null}
 
-        {webgl === true ? (
-          <SceneErrorBoundary fallback={<WebGLUnavailable />}>
-            <div
-              role="img"
-              aria-label="Interactive 3D view of a SO-101 robot arm. Drag to orbit, scroll to zoom, right-drag to pan, click the ground to set an IK target."
-              className="absolute inset-0"
+          {webgl === true ? (
+            <SceneErrorBoundary
+              fallback={<WebGLUnavailable />}
+              onError={() => setSceneFailed(true)}
             >
-              <RobotScene
-                robot={loaded}
-                angles={kinematics.angles}
-                target={kinematics.targetScene}
-                targetState={targetState}
-                onPlaceTarget={kinematics.placeTarget}
-                onRenderedFrame={publishRenderedFrame}
-              />
-            </div>
-          </SceneErrorBoundary>
-        ) : null}
+              <div className="absolute inset-0">
+                <RobotScene
+                  robot={loaded}
+                  angles={kinematics.angles}
+                  target={kinematics.targetScene}
+                  targetState={reach === 'idle' ? 'solving' : reach}
+                  hand={hand}
+                  activeJoint={activeJoint}
+                  viewResetToken={viewResetToken}
+                  reducedMotion={reducedMotion}
+                  onPlaceTarget={kinematics.placeTarget}
+                  onRenderedFrame={publishRenderedFrame}
+                />
+              </div>
+            </SceneErrorBoundary>
+          ) : null}
 
-        {loading ? (
-          <div
-            role="status"
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <p className="font-mono text-xs text-text-dim motion-safe:animate-pulse">
-              loading SO-101 model
+          {ready ? (
+            <p className="pg-hint">
+              <span className="pg-hint-mouse">Drag to turn. Click the floor to set a target.</span>
+              <span className="pg-hint-touch">Tap, then drag to turn. Tap the floor to set a target.</span>
             </p>
-          </div>
-        ) : null}
+          ) : null}
 
-        {ready ? (
-          <PlaygroundHud
-            joints={kinematics.joints}
-            angles={kinematics.angles}
-            eePose={kinematics.eePose}
-            targetScene={kinematics.targetScene}
-            solving={kinematics.solving}
-            residualMm={kinematics.residualMm}
-            iterations={kinematics.iterations}
-          />
-        ) : null}
+          {webgl !== false && !ready ? (
+            <p role="status" className="pg-status" data-loading="">
+              Loading the arm…
+            </p>
+          ) : null}
+        </div>
 
-        {loaded !== null ? (
-          <p
-            data-testid="robot-status"
-            className="pointer-events-none absolute bottom-3 left-3 font-mono text-xs text-text-dim"
-          >
-            <span className="text-text">
-              {loaded.info.kind === 'so101' ? 'so-101' : 'procedural fallback'}
-            </span>
-            {` · ${loaded.info.jointCount} joints`}
-            {loaded.info.kind === 'fallback'
-              ? ' (model assets unavailable)'
-              : ''}
-          </p>
+        {webgl !== false ? (
+          <>
+            <PlaygroundReadout
+              hand={ready ? hand : null}
+              state={reach}
+              iterations={kinematics.iterations}
+              residualMm={kinematics.residualMm}
+            />
+            {loaded !== null ? (
+              <p className="pg-model" data-testid="robot-status">
+                {loaded.info.kind === 'so101'
+                  ? `SO-101 · ${loaded.info.jointCount} joints, from its URDF`
+                  : `Simplified ${loaded.info.jointCount}-joint arm · the SO-101 model files did not load`}
+              </p>
+            ) : null}
+          </>
         ) : null}
       </div>
 
-      {ready ? (
-        <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)]">
-          <section
-            aria-label="Joint angle controls"
-            data-brand-surface-id="surface:flat"
-            className="rounded-sm border border-border bg-surface p-4"
-          >
-            <JointControls
-              joints={kinematics.joints}
-              angles={kinematics.angles}
-              onChange={setJointManual}
-              onReset={resetPoseManual}
-            />
-          </section>
-          <section
-            aria-label="Inverse kinematics target"
-            data-brand-surface-id="surface:flat"
-            className="rounded-sm border border-border bg-surface p-4"
-          >
-            <IkTargetForm
-              defaultTarget={kinematics.targetScene ?? homeEe}
-              hasTarget={kinematics.targetScene !== null}
-              onSolve={kinematics.placeTarget}
-              onClear={kinematics.clearTarget}
-            />
-          </section>
-          <section
-            aria-label="Trajectory recording and playback"
-            data-brand-surface-id="surface:flat"
-            className="rounded-sm border border-border bg-surface p-4 lg:col-span-2"
-          >
-            <TrajectoryPanel controller={trajectory} />
-          </section>
+      {webgl !== false ? (
+        <div className="pg-deck">
+          {ready ? (
+            <>
+              <JointControls
+                joints={kinematics.joints}
+                angles={kinematics.angles}
+                onChange={setJointManual}
+                onReset={resetPoseManual}
+                activeJoint={activeJoint}
+                onActiveJoint={setActiveJoint}
+              />
+              <IkTargetForm
+                defaultTarget={kinematics.targetScene ?? homeHand}
+                hasTarget={kinematics.targetScene !== null}
+                onSolve={kinematics.placeTarget}
+                onClear={kinematics.clearTarget}
+                status={reachText(reach, kinematics.iterations, kinematics.residualMm) || null}
+              />
+              <TrajectoryPanel controller={trajectory} />
+              <TechnicalNames
+                joints={kinematics.joints}
+                angles={kinematics.angles}
+                eeLink={loaded.info.eeLink}
+                hand={hand}
+                handAngles={kinematics.eePose?.base ?? null}
+                target={kinematics.targetScene}
+                iterations={kinematics.iterations}
+                residualMm={kinematics.residualMm}
+              />
+            </>
+          ) : (
+            <>
+              <JointControlsPlaceholder />
+              <section className="pg-section" aria-busy="true">
+                <div className="pg-head">
+                  <h2>Reach</h2>
+                </div>
+                <p className="pg-note">
+                  Click the floor to set a target, or type one in centimetres
+                  from the base.
+                </p>
+              </section>
+              <section className="pg-section" aria-busy="true">
+                <div className="pg-head">
+                  <h2>Motion</h2>
+                </div>
+                <p className="pg-note">
+                  Record a few poses, then play them back as one smooth motion.
+                </p>
+              </section>
+            </>
+          )}
         </div>
       ) : null}
     </div>

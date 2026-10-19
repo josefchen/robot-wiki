@@ -7,10 +7,13 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * Deep-link robustness on the shipped artifact: filter params the dataset
  * does not know are dropped rather than applied, and a #company-<id> hash
  * whose filters exclude the named company relaxes those filters so the
- * card is visible, highlighted, and scrolled into view. jsdom cannot prove
- * any of this: it has no layout, so only a real browser can show the card
- * landed in the viewport.
+ * company's tile is visible, marked, and scrolled into view, with its
+ * details open. jsdom cannot prove any of this: it has no layout, so only a
+ * real browser can show the tile landed in the viewport.
  */
+
+/** The accent, --color-signal #3B6EA8. */
+const ACCENT = 'rgb(59, 110, 168)';
 
 let server: StaticExportServer | null = null;
 let BASE: string;
@@ -40,14 +43,18 @@ test.describe('market-map deep links on the static export', () => {
     // Figure AI is US and private: both filters exclude it.
     await page.goto(`${BASE}/market-map/?country=CN&status=ipo#company-figure-ai`);
 
-    const card = page.locator('article[data-company-id="figure-ai"]');
+    const card = page.locator('button[data-map-tile="figure-ai"]');
     await expect(card).toBeVisible();
-    // Highlighted: the flat accent left rule only renders on the hashed card.
+    // Marked: the flat accent left rule only renders on the open company.
     await expect(card).toHaveCSS('border-left-width', '2px');
-    await expect(card).toHaveCSS('border-left-color', 'rgb(36, 95, 255)');
+    await expect(card).toHaveCSS('border-left-color', ACCENT);
     await expect(card).toHaveCSS('box-shadow', 'none');
+    await expect(card).toHaveAttribute('aria-expanded', 'true');
     // The scroll actually landed (what jsdom cannot prove).
     await expect(card).toBeInViewport({ ratio: 0.5 });
+    // Its details are open, without taking focus from the page.
+    await expect(page.getByRole('dialog', { name: 'Figure AI' })).toBeVisible();
+    expect(await page.evaluate(() => document.activeElement === document.body)).toBe(true);
     // Filters relaxed to the defaults; the explicit hash request survives.
     await expect(page).toHaveURL(/\/market-map\/#company-figure-ai$/);
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
@@ -60,11 +67,11 @@ test.describe('market-map deep links on the static export', () => {
     // Figure AI is a humanoid (segment passes) but US (country fails).
     await page.goto(`${BASE}/market-map/?segment=humanoids&country=CN#company-figure-ai`);
 
-    const card = page.locator('article[data-company-id="figure-ai"]');
+    const card = page.locator('button[data-map-tile="figure-ai"]');
     await expect(card).toBeVisible();
-    // Highlighted: the flat accent left rule only renders on the hashed card.
+    // Marked: the flat accent left rule only renders on the open company.
     await expect(card).toHaveCSS('border-left-width', '2px');
-    await expect(card).toHaveCSS('border-left-color', 'rgb(36, 95, 255)');
+    await expect(card).toHaveCSS('border-left-color', ACCENT);
     await expect(card).toHaveCSS('box-shadow', 'none');
     await expect(card).toBeInViewport({ ratio: 0.5 });
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
@@ -85,12 +92,13 @@ test.describe('market-map deep links on the static export', () => {
     // 21 CN-headquartered rows: the figure-corrections pass moved PaXini's
     // HQ back to Shenzhen per fetched reporting (2026-08-18), CN 20 -> 21.
     await expect(page.getByText('21 of 111 companies')).toBeVisible();
-    expect(await page.locator('article[data-company-id]').count()).toBe(21);
+    expect(await page.locator('button[data-map-tile]').count()).toBe(21);
     await expect(page.locator('#company-ghost')).toHaveCount(0);
+    await expect(page.getByRole('dialog')).toHaveCount(0);
     expect(errors).toEqual([]);
   });
 
-  test('a bubble-view hash naming an unplotted company selects nothing', async ({
+  test('a bubble-view hash naming an unplotted company marks no point', async ({
     page,
   }) => {
     const errors: string[] = [];
@@ -98,16 +106,17 @@ test.describe('market-map deep links on the static export', () => {
       if (msg.type() === 'error') errors.push(msg.text());
     });
     // Covariant exists in the dataset but has no disclosed valuation or
-    // total raised, so the bubble view never plots it. The deep link must
-    // not leave an inert selection: no mark, no detail panel, no
-    // data-bubble-selected state, and the roving fallback keeps exactly
-    // one tab stop so the chart stays keyboard-reachable.
+    // total raised, so the bubble view never plots it. The deep link opens
+    // its details (the company is real) but no mark pretends to be it: no
+    // data-bubble-selected state, and the roving fallback keeps exactly one
+    // tab stop so the chart stays keyboard-reachable.
     await page.goto(`${BASE}/market-map/?view=bubble#company-covariant`);
 
     const chart = page.getByRole('group', { name: /bubble chart/i });
     await expect(chart).toBeVisible();
     await expect(page.locator('circle[data-company-id="covariant"]')).toHaveCount(0);
-    await expect(page.locator('[data-bubble-detail]')).toHaveCount(0);
+    await expect(page.getByRole('dialog', { name: 'Covariant' })).toBeVisible();
+    await expect(page.locator('[data-mark-ink].fill-accent')).toHaveCount(0);
     // The chart exposes its selection state as data-bubble-selected: the
     // attribute is absent when nothing is selected (the honest state).
     expect(await chart.getAttribute('data-bubble-selected')).toBeNull();
@@ -129,7 +138,7 @@ test.describe('market-map deep links on the static export', () => {
     );
 
     await expect(page.getByText('63 of 111 companies')).toBeVisible();
-    expect(await page.locator('article[data-company-id]').count()).toBe(63);
+    expect(await page.locator('button[data-map-tile]').count()).toBe(63);
     await expect(page.locator('#filter-subsegment')).toHaveValue('');
     await expect(page.locator('#filter-approach')).toHaveValue('');
     await expect(page.locator('#filter-country')).toHaveValue('US');
@@ -146,7 +155,7 @@ test.describe('market-map deep links on the static export', () => {
       'industrial-humanoids',
     );
     await expect(page.locator('#filter-approach')).toHaveValue('vla');
-    const shown = await page.locator('article[data-company-id]').count();
+    const shown = await page.locator('button[data-map-tile]').count();
     expect(shown).toBeGreaterThan(0);
     expect(shown).toBeLessThan(111);
   });

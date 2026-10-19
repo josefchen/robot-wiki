@@ -110,11 +110,22 @@ describe('the article evidence reader', () => {
     ).toThrow(/stale/);
   });
 
-  it('refuses an artifact that is not an object or not version 1', () => {
+  // Successor of the version-1 case: version 2 added the planted registration label.
+  it('refuses an artifact that is not an object or not version 2', () => {
     expect(() => accept(null)).toThrow(/not an object/);
-    expect(() => accept(mutate((e) => Object.assign(e, { version: 2 })))).toThrow(
-      /version 2 is not 1/,
+    expect(() => accept(mutate((e) => Object.assign(e, { version: 1 })))).toThrow(
+      /version 1 is not 2/,
     );
+  });
+
+  it('refuses a planted registration label on a page the sweep never read', () => {
+    expect(() =>
+      accept(
+        mutate((e) => {
+          e.registrationLabelProbe.route = '/not-a-swept-route/';
+        }),
+      ),
+    ).toThrow(/planted its registration-label probe on \/not-a-swept-route\//);
   });
 
   it('refuses a sweep taken at viewports other than the declared two', () => {
@@ -597,12 +608,13 @@ describe('the article verdict families', () => {
   });
 
   it('moves the compared tracking ratio when a second ratio appears, rather than exempting it', () => {
+    // The site renders no registration label, so the labels are planted rather than retracked.
     const evidence = accept(
       mutate((e) => {
         for (const observation of e.observations) {
-          for (const label of observation.registrationLabels) {
-            label.trackingEm = 0.02;
-          }
+          observation.registrationLabels.push({
+            text: 'Planted', familyHead: 'geist mono', sizePx: 10, trackingEm: 0.02,
+          });
         }
       }),
     );
@@ -629,7 +641,10 @@ describe('the article verdict families', () => {
     expect(failures.join('\n')).toMatch(/no registry owns/);
   });
 
-  it('refuses to decide a family whose population emptied', () => {
+  // Successor of "refuses to decide a family whose population emptied": the
+  // standard permits a site with no registration label, so an empty population
+  // passes only while the collector finds the label the sweep planted.
+  it('decides an empty registration-label population once the collector found the planted label', () => {
     const evidence = accept(
       mutate((e) => {
         for (const observation of e.observations) {
@@ -637,9 +652,56 @@ describe('the article verdict families', () => {
         }
       }),
     );
-    expect(() => registrationTrackingVerdicts(evidence)).toThrow(
-      /found no registration label/,
+    const tracking = [...registrationTrackingVerdicts(evidence).values()];
+    expect(tracking.map(({ observed }) => observed.labelCount)).toEqual(
+      tracking.map(() => 0),
     );
+    expect(tracking.flatMap(({ failures }) => failures)).toEqual([]);
+    expect([...roleFaceVerdicts(evidence, ROOT).values()].flatMap(({ failures }) => failures)).toEqual([]);
+  });
+
+  it('refuses to decide the registration-label families when the collector missed or mismeasured the planted label', () => {
+    const missed = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          observation.registrationLabels = [];
+        }
+        e.registrationLabelProbe.collected = [];
+      }),
+    );
+    expect(() => registrationTrackingVerdicts(missed)).toThrow(
+      /found 0 copies of the registration label it planted/,
+    );
+    expect(() => roleFaceVerdicts(missed, ROOT)).toThrow(
+      /found 0 copies of the registration label it planted/,
+    );
+
+    // Real labels do not stand in for a collector that missed the planted one.
+    const missedBesideReal = accept(
+      mutate((e) => {
+        e.observations[0]!.registrationLabels.push({
+          text: 'Planted', familyHead: 'geist mono', sizePx: 10, trackingEm: 0.1,
+        });
+        e.registrationLabelProbe.collected = [];
+      }),
+    );
+    expect(() => registrationTrackingVerdicts(missedBesideReal)).toThrow(/found 0 copies/);
+
+    for (const [change, reading] of [
+      [{ trackingEm: 0.2 }, /at 10px and 0.2em, not Geist Mono at 10px and 0.1em/],
+      [{ sizePx: 12 }, /at 12px and 0.1em, not Geist Mono at 10px and 0.1em/],
+      [{ familyHead: 'ibm plex mono' }, /as ibm plex mono at 10px/],
+    ] as const) {
+      const mismeasured = accept(
+        mutate((e) => {
+          const probe = e.registrationLabelProbe;
+          probe.collected = probe.collected.map((label) =>
+            label.text === probe.text ? { ...label, ...change } : label,
+          );
+        }),
+      );
+      expect(() => registrationTrackingVerdicts(mismeasured)).toThrow(reading);
+    }
   });
 
   it('names every addressable heading as a member, not only the linked ones', () => {

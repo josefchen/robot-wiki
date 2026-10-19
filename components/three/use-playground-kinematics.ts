@@ -31,6 +31,8 @@ export interface EePose {
   roll: number;
   pitch: number;
   yaw: number;
+  /** The same frame's ZYX Euler angles in the arm's base frame (URDF, Z up), radians. */
+  base: { roll: number; pitch: number; yaw: number };
 }
 
 export interface PlaygroundKinematics {
@@ -172,6 +174,7 @@ export function usePlaygroundKinematics(
       roll: euler.roll,
       pitch: euler.pitch,
       yaw: euler.yaw,
+      base: mat3ToEulerZYX(fk.rotation),
     };
   }, [chain, chainRevolute, angles]);
 

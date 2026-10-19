@@ -9,6 +9,7 @@ import {
 } from './az-index.ts';
 import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
+import { withheldMark } from './market-map-marks.ts';
 
 /**
  * Evidence for the discovery-index assertions this feature owns
@@ -362,7 +363,7 @@ export function expectedRowCounts(): Record<string, number> {
     ...expectedDomainInventory(),
     '/a-z/': azEntries.length,
     '/glossary/': GLOSSARY.length,
-    '/credits/': IMAGES.length,
+    '/credits/': IMAGES.filter(({ id }) => !withheldMark(id)).length,
   };
 }
 

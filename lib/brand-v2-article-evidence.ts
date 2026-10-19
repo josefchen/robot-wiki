@@ -374,6 +374,20 @@ const registrationLabelSchema = z.object({
   trackingEm: z.number(),
 });
 
+/**
+ * One registration label the sweep planted on a swept page, set in the site's
+ * own data face at a stated size and tracking, and every registration label
+ * the collector then found on that page.
+ */
+const registrationLabelProbeSchema = z.object({
+  route: z.string(),
+  viewport: z.string(),
+  text: z.string(),
+  sizePx: z.number(),
+  trackingEm: z.number(),
+  collected: z.array(registrationLabelSchema),
+});
+
 const ruleSchema = z.object({
   tag: z.string(),
   outline: z.string(),
@@ -461,12 +475,13 @@ const observationSchema = z.object({
 });
 
 export const articleRuntimeEvidenceSchema = z.object({
-  version: z.literal(1),
+  version: z.literal(2),
   fingerprint: z.string(),
   viewports: z.array(z.string()),
   routes: z.array(z.string()),
   articleRoutes: z.array(z.string()),
   observations: z.array(observationSchema),
+  registrationLabelProbe: registrationLabelProbeSchema,
 });
 
 export type ArticleRuntimeEvidence = z.infer<
@@ -505,9 +520,9 @@ export function readArticleRuntimeEvidence(input: {
     version?: unknown;
     fingerprint?: unknown;
   };
-  if (version !== 1) {
+  if (version !== 2) {
     throw new Error(
-      `article runtime evidence version ${String(version)} is not 1`,
+      `article runtime evidence version ${String(version)} is not 2`,
     );
   }
   if (fingerprint !== input.fingerprint) {
@@ -600,7 +615,47 @@ export function readArticleRuntimeEvidence(input: {
       `article runtime evidence is missing ${missing.length} route/viewport reading(s), starting with ${missing[0]}`,
     );
   }
+  const probe = artifact.registrationLabelProbe;
+  if (!seen.has(`${probe.route}|${probe.viewport}`)) {
+    throw new Error(
+      `article runtime evidence planted its registration-label probe on ${probe.route} at ${probe.viewport}, which the sweep never read`,
+    );
+  }
   return artifact;
+}
+
+/**
+ * Proves the registration-label collector on the label the sweep planted.
+ *
+ * The research-page standard permits registration labels without requiring
+ * any, and none renders since the playground landing of 19 Oct 2026 retired
+ * the last ones. An empty population therefore cannot mean the collector went
+ * quiet, so the readers no longer refuse it. They refuse a collector that
+ * missed the planted label or measured it at another face, size or tracking
+ * instead, which also catches a collector that breaks while real labels still
+ * render.
+ */
+export function assertRegistrationLabelProbe(
+  evidence: ArticleRuntimeEvidence,
+): void {
+  const probe = evidence.registrationLabelProbe;
+  const where = `${probe.route} at ${probe.viewport}`;
+  const found = probe.collected.filter(({ text }) => text === probe.text);
+  if (found.length !== 1) {
+    throw new Error(
+      `the sweep found ${found.length} copies of the registration label it planted on ${where}, not 1, so the registration-label clauses check nothing`,
+    );
+  }
+  const [label] = found;
+  if (
+    !isMonoFace(label.familyHead) ||
+    label.sizePx !== probe.sizePx ||
+    label.trackingEm !== probe.trackingEm
+  ) {
+    throw new Error(
+      `the sweep measured the registration label it planted on ${where} as ${label.familyHead} at ${label.sizePx}px and ${label.trackingEm}em, not Geist Mono at ${probe.sizePx}px and ${probe.trackingEm}em, so its readings of real labels cannot be trusted`,
+    );
+  }
 }
 
 function observationsBy(
@@ -1393,7 +1448,9 @@ export function roleFaceVerdicts(
   // separately for the same reason on the other axis: the split between
   // them is what decides which face a control answers to, so a collector
   // that stopped reading `data-brand-control-id` would move every control
-  // to one side and silently retire the other clause.
+  // to one side and silently retire the other clause. Registration labels
+  // may all be absent by design, so the planted label proves their collector.
+  assertRegistrationLabelProbe(evidence);
   const totals = evidence.observations.reduce(
     (sum, observation) => ({
       mono: sum.mono + observation.monoRequired.length,
@@ -1411,7 +1468,6 @@ export function roleFaceVerdicts(
         observation.interfaceControls.filter(
           ({ controlId }) => controlId !== '' && !instructionIds.has(controlId),
         ).length,
-      labels: sum.labels + observation.registrationLabels.length,
     }),
     {
       mono: 0,
@@ -1419,7 +1475,6 @@ export function roleFaceVerdicts(
       controlsInProse: 0,
       instructionControls: 0,
       valueControls: 0,
-      labels: 0,
     },
   );
   for (const [name, total] of Object.entries(totals)) {
@@ -1755,7 +1810,8 @@ export function sectionHeadingMembers(
 export type TrackingObservation = {
   labelCount: number;
   trackingEm: number[];
-  siteWideTrackingEm: number;
+  /** `null` when no route renders a registration label. */
+  siteWideTrackingEm: number | null;
   spreadEm: number;
 };
 
@@ -1765,9 +1821,11 @@ export type TrackingObservation = {
  *
  * Derived from every label the sweep found rather than declared, so a second
  * ratio appearing anywhere moves the number every route is compared with.
+ * A sweep that found no label has no ratio, once the planted label proves the
+ * collector would have found one.
  */
 export function siteWideTracking(evidence: ArticleRuntimeEvidence): {
-  ratio: number;
+  ratio: number | null;
   spread: number;
   ratios: number[];
 } {
@@ -1775,9 +1833,8 @@ export function siteWideTracking(evidence: ArticleRuntimeEvidence): {
     .flatMap(({ registrationLabels }) => registrationLabels)
     .map(({ trackingEm }) => trackingEm);
   if (ratios.length === 0) {
-    throw new Error(
-      'the sweep found no registration label, so there is no site-wide tracking ratio to hold anything to',
-    );
+    assertRegistrationLabelProbe(evidence);
+    return { ratio: null, spread: 0, ratios: [] };
   }
   const counts = new Map<number, number>();
   for (const ratio of ratios) counts.set(ratio, (counts.get(ratio) ?? 0) + 1);
@@ -1798,6 +1855,7 @@ export function siteWideTracking(evidence: ArticleRuntimeEvidence): {
 export function registrationTrackingVerdicts(
   evidence: ArticleRuntimeEvidence,
 ): Map<string, Verdict<TrackingObservation>> {
+  assertRegistrationLabelProbe(evidence);
   const site = siteWideTracking(evidence);
   const verdicts = new Map<string, Verdict<TrackingObservation>>();
   for (const route of evidence.routes) {
@@ -1806,7 +1864,10 @@ export function registrationTrackingVerdicts(
     );
     const failures: string[] = [];
     for (const label of labels) {
-      if (Math.abs(label.trackingEm - site.ratio) > REGISTRATION_TRACKING_SPREAD_EM) {
+      if (
+        site.ratio !== null &&
+        Math.abs(label.trackingEm - site.ratio) > REGISTRATION_TRACKING_SPREAD_EM
+      ) {
         failures.push(
           `${route} tracks the label "${label.text}" at ${label.trackingEm}em, more than ${REGISTRATION_TRACKING_SPREAD_EM}em from the site-wide ${site.ratio}em`,
         );
@@ -1827,13 +1888,6 @@ export function registrationTrackingVerdicts(
       },
       failures,
     });
-  }
-  const measured = [...verdicts.values()].reduce(
-    (sum, { observed }) => sum + observed.labelCount,
-    0,
-  );
-  if (measured === 0) {
-    throw new Error('no route in the sweep renders a registration label');
   }
   return verdicts;
 }

@@ -3,7 +3,7 @@
   "name": "reskin-site-foundation-20261010",
   "reviewedBy": "implementation worker for the site-foundation re-skin of 2026-10-10 (not independent acceptance)",
   "rationale": "On 2026-10-10 the owner replaced the brand-v2 visual identity with the Pantheon research-page standard (PANTHEON-SPEC.md): paper and ink tokens, DM Sans, Geist and Geist Mono, a single top bar, and an article template with an eyebrow, a display title, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables, carried to the home, hub, glossary, A-Z and search pages. The change is presentation only. Each presentation source it touched is recorded here as exact edits over the bytes it had before, and the earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-16T16:29:24Z",
+  "observedAt": "2026-10-19T04:10:10Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -246,10 +246,14 @@
       },
       "after": {
         "path": "app/credits/page.tsx",
-        "bytes": 8310,
-        "sha256": "3a6551f0c4085b228f49679d08f094b8913656c0f019f4655ec29b69a6000010"
+        "bytes": 8636,
+        "sha256": "ea2aab600e7f32601568cc05ceb29e0fa78431a9add556351582aafe7813b32a"
       },
       "edits": [
+        {
+          "before": "import { referencedImageIds } from '@/lib/images';\n",
+          "after": "import { referencedImageIds } from '@/lib/images';\nimport { withheldMark } from '@/lib/market-map-marks';\n"
+        },
         {
           "before": "          {PUBLIC_IDENTITY} uses real photographs and diagrams, and every one of\n          them is listed here with its creator, the page it came from, and\n          the licence that permits its reuse. Article images stay under\n          CC0, CC BY, CC BY-SA, public domain, or a documented reuse\n          permission. Market-map logos also include official company marks\n          recorded as unlicensed or unknown when no reuse grant is named.\n          No image is AI-generated. The site&apos;s own text and original\n          diagrams are available under CC BY 4.0.\n",
           "after": "          Every photograph and diagram on {PUBLIC_IDENTITY} is listed here\n          with its creator, source page and licence. Article images are CC0,\n          CC BY, CC BY-SA, public domain or used under a documented reuse\n          permission. No image is AI-generated.\n        </p>\n        <p className=\"mt-4 font-serif text-[1.0625rem] leading-relaxed text-text\">\n          Market-map logos include official company marks, recorded as\n          unlicensed or unknown where no reuse grant is named. The\n          site&apos;s own text and original diagrams are licensed CC BY 4.0.\n"
@@ -277,6 +281,10 @@
         {
           "before": "            rel=\"noopener\"\n            className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",
           "after": "            rel=\"noopener\"\n            className=\"ink-link\"\n"
+        },
+        {
+          "before": "        {IMAGES.map((image) => {\n",
+          "after": "        {/* A withheld company mark (lib/market-map-marks.ts: the registered\n            file shows another company's artwork) is drawn nowhere, so it\n            has no credit to give; audit/market-map.md records each one. */}\n        {IMAGES.filter((image) => !withheldMark(image.id)).map((image) => {\n"
         },
         {
           "before": "                        className=\"text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent\"\n",

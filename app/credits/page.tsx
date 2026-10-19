@@ -7,6 +7,7 @@ import { COMPANIES } from '@/data/companies';
 import { IMAGES } from '@/data/images';
 import { getModule } from '@/data/modules';
 import { referencedImageIds } from '@/lib/images';
+import { withheldMark } from '@/lib/market-map-marks';
 import {
   AUTHOR_BIO,
   AUTHOR_HANDLE,
@@ -194,7 +195,10 @@ export default function CreditsPage() {
       </section>
 
       <ol className="mt-10 list-none border-t border-border">
-        {IMAGES.map((image) => {
+        {/* A withheld company mark (lib/market-map-marks.ts: the registered
+            file shows another company's artwork) is drawn nowhere, so it
+            has no credit to give; audit/market-map.md records each one. */}
+        {IMAGES.filter((image) => !withheldMark(image.id)).map((image) => {
           const appearsOn = usage.get(image.id) ?? [];
           return (
             <li

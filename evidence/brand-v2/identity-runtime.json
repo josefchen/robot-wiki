@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9506bc3d2103ddcb95d378f5f627138497dfb039280c7b1a058fe2e01d99906f",
+  "fingerprint": "cae4593f6d5f1b0fca1a2e381e6cc45b8d031b97f98efd79787ea748da9ebd82",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -2369,7 +2369,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "route": "/credits/",
       "viewport": "1440x900"
     },
@@ -6499,7 +6499,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 54520,
+      "visibleTextLength": 2771,
       "route": "/market-map/",
       "viewport": "1440x900"
     },
@@ -6617,7 +6617,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 867,
+      "visibleTextLength": 781,
       "route": "/playground/",
       "viewport": "1440x900"
     },
@@ -11265,7 +11265,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "route": "/credits/",
       "viewport": "375x812"
     },
@@ -15395,7 +15395,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 50129,
+      "visibleTextLength": 2771,
       "route": "/market-map/",
       "viewport": "375x812"
     },
@@ -15513,7 +15513,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 867,
+      "visibleTextLength": 781,
       "route": "/playground/",
       "viewport": "375x812"
     },
@@ -17993,12 +17993,12 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1126,
+      "visibleTextLength": 758,
       "route": "/playground/",
       "viewport": "1440x900",
       "state": "webgl-unavailable-fallback",
       "provokedBy": "HTMLCanvasElement.prototype.getContext returns null before any script runs, so the playground takes its no-WebGL branch",
-      "renderedText": "Skip to content\nRobot Wiki\nArticles\nHow robots work\n3D Kinematics Playground\n\nA SO-101 follower arm loaded from its URDF and rendered client-side with WebGL. Move each joint with the sliders, click the ground to set a target for the damped-least-squares solver, or record a sequence of poses and play it back as an eased trajectory. Nothing here touches a server.\n\n3D UNAVAILABLE\n\nWebGL is not available\n\nThe playground renders the robot with WebGL, and this browser refused to create a WebGL context. That usually means hardware acceleration is disabled or the GPU driver is blocked. The rest of Robot Wiki is static HTML and works without it.\n\nDrag to orbit. Scroll to zoom. Right-drag to pan. Click the ground to set an IK target, or type one into the target form. In the trajectory panel, Record arms keyframe capture and Play eases between the saved poses. Model: SO-101 from TheRobotStudio/SO-ARM100 (Apache-2.0), meshes converted to GLB with Draco compression.\n\nRobot Wiki\nA-Z index\nGlossary\nSearch\nMarket map\nPlayground\nCredits\n\nWritten and maintained by Josef Chen. Source on GitHub. About. Editorial policy. Privacy.",
+      "renderedText": "Skip to content\nRobot Wiki\nArticles\nHow robots work\n3D Kinematics Playground\n\nPose the SO-101, a small open-source robot arm, one joint at a time, or click the floor and watch it work out how to reach. Record a few poses and play them back as one smooth motion.\n\nWebGL is not available\n\nThe 3D arm needs WebGL, and this browser did not start it. Turning on hardware acceleration in the browser's settings and reloading usually fixes it. The rest of Robot Wiki works without it.\n\nModel: the SO-101 arm from TheRobotStudio/SO-ARM100 (Apache-2.0), loaded from its URDF. Everything runs in your browser.\n\nRobot Wiki\nA-Z index\nGlossary\nSearch\nMarket map\nPlayground\nCredits\n\nWritten and maintained by Josef Chen. Source on GitHub. About. Editorial policy. Privacy.",
       "controlValues": []
     },
     {
@@ -18115,12 +18115,12 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 1787,
+      "visibleTextLength": 1025,
       "route": "/playground/",
       "viewport": "1440x900",
       "state": "trajectory-export-format-discriminator",
-      "provokedBy": "the trajectory instrument is driven Record then Add keyframe then Export JSON, which renders the exported document into a visible readonly textarea",
-      "renderedText": "Skip to content\nRobot Wiki\nArticles\nHow robots work\n3D Kinematics Playground\n\nA SO-101 follower arm loaded from its URDF and rendered client-side with WebGL. Move each joint with the sliders, click the ground to set a target for the damped-least-squares solver, or record a sequence of poses and play it back as an eased trajectory. Nothing here touches a server.\n\nshoulder_pan\n+0.0°\nshoulder_lift\n+0.0°\nelbow_flex\n+0.0°\nwrist_flex\n+0.0°\nwrist_roll\n+0.0°\ngripper\n+0.0°\n\nee x +0.391 y +0.226 z +0.000\n\nr -0.0° p +2.8° y -90.0°\n\ntgt none\n\nik n/a iter n/a idle\n\nso-101 · 6 joints\n\nJOINT ANGLES\nReset pose\nshoulder_pan\n+0.0°\n\nlimits -110° to +110°\n\nshoulder_lift\n+0.0°\n\nlimits -100° to +100°\n\nelbow_flex\n+0.0°\n\nlimits -97° to +97°\n\nwrist_flex\n+0.0°\n\nlimits -95° to +95°\n\nwrist_roll\n+0.0°\n\nlimits -157° to +163°\n\ngripper\n+0.0°\n\nlimits -10° to +100°\n\nIK TARGET\n\nClick the ground in the scene, or type a target here. Scene coordinates in meters; y is up.\n\nTarget x (m)\nTarget y (m)\nTarget z (m)\nSolve to target\nClear target\nTRAJECTORY\n1 keyframe\n\nRecord poses as keyframes, then play them back with eased interpolation. Trajectories export and import as JSON.\n\nStop recording\nAdd keyframe\nPlay\nStop\nClear\nkf 1 · 0.0 s\n\nExported 1 keyframe as JSON.\n\nExport\nExport JSON\nDownload so101-trajectory.json\nImport\nImport\n\nDrag to orbit. Scroll to zoom. Right-drag to pan. Click the ground to set an IK target, or type one into the target form. In the trajectory panel, Record arms keyframe capture and Play eases between the saved poses. Model: SO-101 from TheRobotStudio/SO-ARM100 (Apache-2.0), meshes converted to GLB with Draco compression.\n\nRobot Wiki\nA-Z index\nGlossary\nSearch\nMarket map\nPlayground\nCredits\n\nWritten and maintained by Josef Chen. Source on GitHub. About. Editorial policy. Privacy.",
+      "provokedBy": "once the playground reads data-playground-state=\"ready\", the trajectory instrument is driven Record pose then Export, which renders the exported document into a visible readonly textarea",
+      "renderedText": "Skip to content\nRobot Wiki\nArticles\nHow robots work\n3D Kinematics Playground\n\nPose the SO-101, a small open-source robot arm, one joint at a time, or click the floor and watch it work out how to reach. Record a few poses and play them back as one smooth motion.\n\nDrag to turn. Click the floor to set a target.\n\nHand 39 cm forward, 0 cm left, 23 cm up\n\nSO-101 · 6 joints, from its URDF\n\nJoints\nReset pose\nBase turn\n0°\nShoulder\n0°\nElbow\n0°\nWrist bend\n0°\nWrist turn\n0°\nGripper open\n0%\nReach\n\nClick the floor to set a target, or type one in centimetres from the base.\n\nForward\ncm\nLeft\ncm\nUp\ncm\nReach\nClear target\nMotion\n1 pose\nRecord pose\nPlay\nClear\nExport\n1\n\nExported 1 pose as JSON.\n\nDownload so101-trajectory.json\nImport a motion\nTechnical names\n\nModel: the SO-101 arm from TheRobotStudio/SO-ARM100 (Apache-2.0), loaded from its URDF. Everything runs in your browser.\n\nRobot Wiki\nA-Z index\nGlossary\nSearch\nMarket map\nPlayground\nCredits\n\nWritten and maintained by Josef Chen. Source on GitHub. About. Editorial policy. Privacy.",
       "controlValues": [
         {
           "selector": "input[data-testid=\"joint-slider-shoulder_pan\"]",
@@ -18147,16 +18147,16 @@
           "value": "0"
         },
         {
-          "selector": "input[data-testid=\"ik-input-x\"]",
-          "value": "0.391"
+          "selector": "input[data-testid=\"reach-input-forward\"]",
+          "value": "39.1"
         },
         {
-          "selector": "input[data-testid=\"ik-input-y\"]",
-          "value": "0.226"
-        },
-        {
-          "selector": "input[data-testid=\"ik-input-z\"]",
+          "selector": "input[data-testid=\"reach-input-left\"]",
           "value": "0"
+        },
+        {
+          "selector": "input[data-testid=\"reach-input-up\"]",
+          "value": "22.6"
         },
         {
           "selector": "textarea[data-testid=\"trajectory-export-json\"]",

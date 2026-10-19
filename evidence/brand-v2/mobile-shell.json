@@ -2990,7 +2990,7 @@
     },
     {
       "route": "/credits/",
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "header": {
         "present": true,
         "display": "flex",
@@ -8652,7 +8652,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 50129,
+      "visibleTextLength": 2771,
       "header": {
         "present": true,
         "display": "flex",
@@ -8814,7 +8814,7 @@
     },
     {
       "route": "/playground/",
-      "visibleTextLength": 1745,
+      "visibleTextLength": 1042,
       "header": {
         "present": true,
         "display": "flex",

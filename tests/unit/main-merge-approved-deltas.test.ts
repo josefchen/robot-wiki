@@ -945,6 +945,23 @@ const anatomyDhNew20261019Appends = merged
 // beside its first and rebuilds its earlier bytes.
 const anatomyAdjacentNew20261019Appends = merged
   .filter(x => x.id.startsWith('anatomy-adjacent-new-figures-20261019-')).map(x => x.id);
+// The market-map redesign of 2026-10-19 (the owner's request of that day:
+// the map's views, selection, history and mobile, and the data provenance
+// and logo policy) lands after the adjacent figure and appends its block
+// last: one edge per accessible name and value-state member the map's
+// components moved, each from its last approved endpoint, the seal, or an
+// absent seal. No article, record or asset member moves.
+const marketMap20261019Appends = merged
+  .filter(x => x.id.startsWith('market-map-redesign-20261019-')).map(x => x.id);
+// The playground redesign of 2026-10-19 (the same request, its playground
+// half: the light clay look of the /how-robots-work/ explainers, a
+// plain-language readout and one control deck) lands after the market map
+// and appends its block last: one edge per playground source, accessible
+// name, behavioural default and value-state site it moved, from the member's
+// approved endpoint at the head, the seal, or an absent seal for a new
+// member.
+const playgroundRedesign20261019Appends = merged
+  .filter(x => x.id.startsWith('playground-redesign-20261019-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -957,7 +974,8 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends,
   ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends,
   ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends,
-  ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends];
+  ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends,
+  ...playgroundRedesign20261019Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -1079,7 +1097,15 @@ const anatomyDhNew20261019Edges = (manifest: string, memberId: string) => merged
 const anatomyAdjacentNew20261019Edges = (manifest: string, memberId: string) => merged
   .filter(x => anatomyAdjacentNew20261019Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterAnatomyDhNew20261019 = merged.length - anatomyAdjacentNew20261019Appends.length;
+const marketMap20261019Edges = (manifest: string, memberId: string) => merged
+  .filter(x => marketMap20261019Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const playgroundRedesign20261019Edges = (manifest: string, memberId: string) => merged
+  .filter(x => playgroundRedesign20261019Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterMarketMap20261019 = merged.length - playgroundRedesign20261019Appends.length;
+const afterAnatomyAdjacentNew20261019 = afterMarketMap20261019 - marketMap20261019Appends.length;
+const afterAnatomyDhNew20261019 = afterAnatomyAdjacentNew20261019 - anatomyAdjacentNew20261019Appends.length;
 const afterAnatomyManipB0420261015 = afterAnatomyDhNew20261019 - anatomyDhNew20261019Appends.length;
 const afterAnatomyWmB0320261015 = afterAnatomyManipB0420261015 - anatomyManipB0420261015Appends.length;
 const afterA11yGate20261017 = afterAnatomyWmB0320261015 - anatomyWmB0320261015Appends.length;
@@ -1197,11 +1223,12 @@ describe('two-parent exact approval reconciliation', () => {
         + anatomyManipB0320261015Appends.length + anatomyFrontierB0220261015Appends.length
         + qaSweep20261015Appends.length + homeHubs20261016Appends.length + a11yGate20261017Appends.length
         + anatomyWmB0320261015Appends.length + anatomyManipB0420261015Appends.length
-        + anatomyDhNew20261019Appends.length + anatomyAdjacentNew20261019Appends.length]);
+        + anatomyDhNew20261019Appends.length + anatomyAdjacentNew20261019Appends.length
+        + marketMap20261019Appends.length + playgroundRedesign20261019Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -3730,7 +3757,8 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-19 adjacent figure edge to an absent seal, or the article to one plain edge', () => {
-    expect(merged.slice(afterAnatomyDhNew20261019).map(x => x.id)).toEqual(anatomyAdjacentNew20261019Appends);
+    expect(merged.slice(afterAnatomyDhNew20261019, afterAnatomyAdjacentNew20261019).map(x => x.id))
+      .toEqual(anatomyAdjacentNew20261019Appends);
     expect(anatomyAdjacentNew20261019Appends).toEqual([
       'interactive-sources-mounts-source-scope-follow',
       'interactive-sources-mounts-mount-surgical-scope-follow-1',
@@ -3781,6 +3809,125 @@ describe('two-parent exact approval reconciliation', () => {
         expect(source).toContain('const drawingId = `${useId()}-drawing`;');
         expect(source.split('id={drawingId}').length - 1).toBe(1);
       }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-19 market-map edge to its last approved endpoint, the seal or an absent seal', () => {
+    expect(merged.slice(afterAnatomyAdjacentNew20261019, afterMarketMap20261019).map(x => x.id))
+      .toEqual(marketMap20261019Appends);
+    const prefix = 'market-map-redesign-20261019-';
+    // Exactly the members the map's components moved: the detail sheet's
+    // names, the map's and the controls' group names, and the value-state
+    // sites of the file that now holds the detail sheet.
+    expect(marketMap20261019Appends.map(id => id.slice(prefix.length))).toEqual([
+      'accessible-names-expression-company-card-aria-label-2',
+      'accessible-names-expression-company-card-aria-labelledby-1',
+      'accessible-names-expression-company-card-aria-labelledby-3',
+      'accessible-names-expression-company-card-aria-labelledby-4',
+      'accessible-names-expression-company-card-aria-labelledby-5',
+      'accessible-names-expression-company-sheet-aria-labelledby-1',
+      'accessible-names-expression-company-sheet-aria-labelledby-2',
+      'accessible-names-expression-grid-view-aria-label-2',
+      'accessible-names-literal-company-card-aria-label-1',
+      'accessible-names-literal-company-card-aria-label-2',
+      'accessible-names-literal-filter-bar-aria-label-1',
+      'accessible-names-literal-filter-bar-aria-label-2',
+      'accessible-names-literal-funding-timeline-aria-label-1',
+      'accessible-names-literal-grid-view-aria-label-1',
+      'value-states-state-site-company-card-not-applicable-3',
+      'value-states-state-site-company-card-not-applicable-4',
+      'value-states-state-source-company-card',
+    ]);
+    for (const id of marketMap20261019Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      expect(entry.memberId).toMatch(/components\/market-map\//);
+      expect(['accessible-names', 'value-states']).toContain(entry.manifest);
+      // Approved by the owner's request of the day, and not a release approval.
+      expect(entry.ownerApproval).toContain('"start the market map and playground"');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      expect(entry.affectedAssertions).toContain(
+        entry.manifest === 'value-states' ? 'VAL-B2-BASE-013' : 'VAL-B2-MAP-006');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(marketMap20261019Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      expect(entry.reconciles).toBeUndefined();
+      expect(entry.oldHash).toBe(previous);
+      // A member the redesign removed ends at the absent hash; one it added
+      // starts there, and no earlier edge names it.
+      if (entry.oldHash === MISSING_MEMBER) {
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(entry.reason).toContain('the member is new');
+      }
+      if (entry.newHash === MISSING_MEMBER) expect(entry.reason).toContain('the site is gone');
+      if (entry.manifest === 'value-states') {
+        // The two value states stay apart in the detail sheet.
+        expect(entry.reason).toContain('"not disclosed"');
+        expect(entry.reason).toContain('"n/a"');
+      }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+    // The sheet that holds the details is a dialog named by its heading.
+    const sheet = readFileSync('components/market-map/company-sheet.tsx', 'utf8');
+    expect(sheet.match(/^\s+role="dialog"$/gm)).toHaveLength(2);
+    expect(sheet.match(/^\s+aria-labelledby=\{headingId\}$/gm)).toHaveLength(2);
+  });
+
+  it('binds each 2026-10-19 playground edge to the member\'s approved head endpoint, or to an absent seal', () => {
+    expect(merged.slice(afterMarketMap20261019).map(x => x.id)).toEqual(playgroundRedesign20261019Appends);
+    expect(playgroundRedesign20261019Appends).toHaveLength(48);
+    // Every moved member is a playground file's, and none is article prose.
+    const manifests = new Set(['interactive-sources-mounts', 'market-playground', 'accessible-names',
+      'behavioral-defaults', 'value-states']);
+    // The successor rows the approval names are in the contract.
+    const contract = readFileSync('contract/design-integrity.md', 'utf8');
+    expect(contract).toContain('Owner decision of 19 October 2026');
+    for (const row of ['VAL-B2-PLAY-001', 'VAL-B2-PLAY-003', 'VAL-B2-PLAY-004', 'VAL-B2-PLAY-013']) {
+      expect(contract).toMatch(new RegExp(`\\| \`${row}\` \\| [^\\n]*\\(Owner decisions? of [^)]*19 October 2026`));
+    }
+    for (const id of playgroundRedesign20261019Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      expect(manifests.has(entry.manifest)).toBe(true);
+      expect(entry.memberId).toMatch(/components\/three\//);
+      // Approved by the owner's request, not as release approval.
+      expect(entry.ownerApproval).toContain('"start the market map and playground"');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      expect(entry.reason).toContain('lib/ik.ts and the trajectory file format in lib/trajectory.ts are unchanged');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(playgroundRedesign20261019Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      expect(entry.reconciles).toBeUndefined();
+      expect(entry.newHash).not.toBe(entry.oldHash);
+      if (prior.length === 0) {
+        // No earlier edge: the edge starts at the seal, or at an absent seal
+        // for a member the seal never held.
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reason).toContain(sealed === MISSING_MEMBER ? 'absent seal' : 'from the sealed hash');
+      } else {
+        // An edge from the endpoint the head approved: the last earlier edge
+        // that ends there, named in the reason.
+        const endpoint = [...prior].reverse().find(x => x.newHash === entry.oldHash)!;
+        expect(endpoint).toBeDefined();
+        expect(entry.reason).toContain(endpoint.id);
+      }
+      if (entry.newHash === MISSING_MEMBER) expect(entry.reason).toContain('The member is removed');
       const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
       expect(path.status).toBe('approved');
       expect(path.path.at(-1)).toBe(entry);

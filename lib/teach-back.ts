@@ -1,13 +1,20 @@
 /**
  * The teach-back records of the 3D explainers (VAL-OPUS-044).
  *
- * Each explainer has one record under `evidence/teach-back/`, written after a
- * reviewer acting as a curious non-engineer saw only screenshots of every
- * step at 1280 and 390 px (the guess and its reveal, and the self-check
- * question without its answer). The record keeps the reviewer's own
- * takeaway, self-check answer and unclear words, the noise audit of every
- * step, and a digest of the explainer's scene module, the model files it
- * imports and its words. A record is current while that digest matches.
+ * Each explainer has one record under `evidence/teach-back/`, carrying the
+ * latest completed round as measured: a reviewer acting as a curious
+ * non-engineer saw only screenshots of every step at 1280 and 390 px (the
+ * guess and its reveal, and the self-check question without its answer).
+ * The record keeps the reviewer's own takeaway, self-check answer and
+ * unclear words, the noise audit of every step, the verdict those answers
+ * give, and a digest of the explainer's scene module and the model files it
+ * imports. A record is current while that digest matches and its registered
+ * takeaway is still the explainer's.
+ *
+ * The owner accepted the explainers as they are on 12 Oct 2026, so no round
+ * runs after round 2. A failing record from a round before that date stands
+ * only with a line citing that acceptance and listing the residual unclear
+ * words; a changed explainer needs a fresh round that passes.
  */
 import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
@@ -18,6 +25,8 @@ export const TEACH_BACK_DIR = 'evidence/teach-back';
 export const TEACH_BACK_WIDTHS = [1280, 390] as const;
 export const SCENE_DIR = 'components/explainers/scenes';
 export const WORDS_FILE = 'components/explainers/words.ts';
+export const OWNER_ACCEPTANCE_DATE = '2026-10-12';
+export const OWNER_ACCEPTANCE = 'Owner acceptance of 12 Oct 2026';
 
 export type NoiseRow = {
   width: number;
@@ -29,13 +38,17 @@ export type NoiseRow = {
 };
 
 export type TeachBackRecord = {
-  schemaVersion: 'teach-back-record-v1';
+  schemaVersion: 'teach-back-record-v2';
   explainer: string;
+  /** The teach-back round whose results the record carries. */
+  round: number;
   screenshots: string[];
+  /** The registered takeaway. */
   takeaway: string;
+  /** The self-check as the reviewer saw it, and the reviewer's answer. */
   selfCheck: { question: string; answer: string; correct: boolean };
   sentence: string;
-  /** The words the reviewer did not understand that count against a pass. */
+  /** The words the reviewer did not understand that count against a pass, each with the reviewer's note. */
   unclearTerms: string[];
   /** Words the reviewer also listed that the test does not count, each with the rule that lets it go. */
   uncountedTerms?: { term: string; why: string }[];
@@ -44,6 +57,10 @@ export type TeachBackRecord = {
   noiseAudit: NoiseRow[];
   noiseClean: boolean;
   verdict: 'pass' | 'fail';
+  /** On a failing record: the owner acceptance of 12 Oct 2026 and the residual unclear words. */
+  ownerAcceptance?: string;
+  /** Where the screenshots and noise audit come from, when not from the round's own run. */
+  provenance?: string;
   screenshotCommit: string;
   date: string;
   reviewerSession: string;
@@ -79,17 +96,29 @@ export async function explainerWords(root: string, id: string): Promise<Record<s
   return words.EXPLAINER_WORDS[id] ?? null;
 }
 
-/** SHA-256 over each source's path and bytes, in path order, then the explainer's words. */
-export async function explainerDigest(root: string, id: string): Promise<string> {
+/** SHA-256 over the scene module's and model files' paths and bytes, in path order. */
+export function explainerDigest(root: string, id: string): string {
   const hash = createHash('sha256');
   for (const path of explainerSources(root, id)) {
     const file = join(root, path);
     const bytes = existsSync(file) ? readFileSync(file) : Buffer.from('(missing)');
     hash.update(`${path}\0${createHash('sha256').update(bytes).digest('hex')}\n`);
   }
-  hash.update(`words\0${JSON.stringify(await explainerWords(root, id))}\n`);
   return hash.digest('hex');
 }
+
+/** The verdict a record's measured answers give: a pass needs every part of the test. */
+export function measuredVerdict(record: Pick<TeachBackRecord, 'samePoint' | 'selfCheck' | 'unclearTerms' | 'noiseClean'>): 'pass' | 'fail' {
+  const pass = record.samePoint === 'yes' && record.selfCheck?.correct === true && (record.unclearTerms ?? []).length === 0 && record.noiseClean === true;
+  return pass ? 'pass' : 'fail';
+}
+
+/** An unclear-word entry without the reviewer's closing note: `"full strength" (of what)` gives `"full strength"`. */
+export const residualTerm = (entry: string) => entry.replace(/\s*\([^()]*\)\s*$/, '').trim();
+
+/** The line a failing record carries: the owner acceptance and its residual unclear words. */
+export const ownerAcceptanceLine = (unclearTerms: readonly string[]) =>
+  `${OWNER_ACCEPTANCE}: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: ${unclearTerms.map(residualTerm).join('; ')}.`;
 
 // Lower case, punctuation dropped and plurals folded, so "Degrees of freedom" finds "degree of freedom".
 const plain = (text: string) =>
@@ -112,7 +141,8 @@ export function uncountedReason(words: ReviewedWords, term: string): string | nu
 }
 
 const NAMED_TOOL = /\b(claude|opus|sonnet|haiku|anthropic|openai|gpt|gemini|grok|llm|chatgpt|droid|playwright|chromium)\b/i;
-const NEUTRAL_SESSION = /^reader-session-[0-9a-z-]+$/;
+// A short neutral id; a full session UUID is a tooling trace (check:neutral-tooling).
+const NEUTRAL_SESSION = /^reader-session-(?![0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-)[0-9a-z-]+$/;
 
 /** Problems with one explainer's record, each naming the explainer. */
 export async function teachBackProblems(root: string, id: string): Promise<string[]> {
@@ -127,12 +157,24 @@ export async function teachBackProblems(root: string, id: string): Promise<strin
   }
   const problems: string[] = [];
   const words = await explainerWords(root, id);
-  if (record.schemaVersion !== 'teach-back-record-v1') problems.push(`${name}: record schema ${record.schemaVersion}`);
+  if (record.schemaVersion !== 'teach-back-record-v2') problems.push(`${name}: record schema ${record.schemaVersion}`);
   if (record.explainer !== id) problems.push(`${name}: record names #${record.explainer}`);
+  if (!Number.isInteger(record.round) || record.round < 1) problems.push(`${name}: record does not name its teach-back round`);
   if (!words || record.takeaway !== words.takeaway) problems.push(`${name}: record was tested against another takeaway`);
-  if (record.verdict !== 'pass') problems.push(`${name}: teach-back verdict is ${record.verdict}`);
-  if (record.samePoint !== 'yes' || !record.selfCheck?.correct || (record.unclearTerms ?? []).length > 0 || !record.noiseClean) {
-    problems.push(`${name}: teach-back record does not support a pass`);
+  const measured = measuredVerdict(record);
+  if (record.verdict !== measured) problems.push(`${name}: record says ${record.verdict}, but its measured answers give ${measured}`);
+  if (record.verdict !== 'pass') {
+    const line = record.ownerAcceptance ?? '';
+    if (!line.startsWith(`${OWNER_ACCEPTANCE}:`)) {
+      problems.push(`${name}: failing teach-back record lacks the line citing the owner acceptance of 12 Oct 2026`);
+    } else {
+      for (const term of record.unclearTerms ?? []) {
+        if (!line.includes(residualTerm(term))) problems.push(`${name}: the owner-acceptance line does not list the residual unclear word ${residualTerm(term)}`);
+      }
+    }
+    if (!(String(record.date) <= OWNER_ACCEPTANCE_DATE)) {
+      problems.push(`${name}: a teach-back that fails after the owner acceptance of 12 Oct 2026 needs a fresh round that passes`);
+    }
   }
   for (const { term } of record.uncountedTerms ?? []) {
     if (!words || !uncountedReason(words as ReviewedWords, term)) problems.push(`${name}: the record lets "${term}" go, but it counts as an unclear word`);
@@ -151,7 +193,7 @@ export async function teachBackProblems(root: string, id: string): Promise<strin
     problems.push(`${name}: record lacks its commit, date or neutral reviewer session`);
   }
   if (NAMED_TOOL.test(JSON.stringify(record))) problems.push(`${name}: record names a tool, model or vendor`);
-  const digest = await explainerDigest(root, id);
+  const digest = explainerDigest(root, id);
   if (record.sourceDigest !== digest) {
     problems.push(`${name}: scene or model files changed since the teach-back (digest ${digest.slice(0, 12)}, record ${String(record.sourceDigest).slice(0, 12)})`);
   }

@@ -1,11 +1,21 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import type { Company } from '@/data/schemas/company.ts';
 import { formatLongDate } from '@/lib/dates';
+import { cx } from '@/lib/utils';
+import { parseEntityAnchor } from '@/lib/entity-anchor';
 import {
   DEFAULT_MARKET_MAP_FILTERS,
   MARKET_MAP_AS_OF,
+  SEGMENT_LABELS,
   SEGMENT_ORDER,
   approachOptions,
   countryOptions,
@@ -13,14 +23,13 @@ import {
   hasActiveFilters,
   parseMarketMapSearch,
   relaxFiltersForCompany,
-  segmentCounts,
   serializeMarketMapSearch,
   subSegmentOptions,
   type MarketMapFilters,
   type MarketMapViewId,
 } from '@/lib/market-map';
-import { useEntityAnchor } from '@/lib/use-entity-anchor';
 import { BubbleView } from './bubble-view';
+import { CompanySheet } from './company-sheet';
 import { FilterBar } from './filter-bar';
 import { FundingTimeline } from './funding-timeline';
 import { GridView } from './grid-view';
@@ -29,158 +38,306 @@ type MarketMapProps = {
   companies: readonly Company[];
 };
 
-const searchListeners = new Set<() => void>();
+/*
+ * The URL is the state: filters and the view live in the query (written
+ * with replaceState, so they never stack history), and the open company is
+ * the #company-<id> hash, the same anchor site search links to. Opening a
+ * company pushes one history entry, so the browser's Back button closes the
+ * details; switching to another company while they are open replaces it.
+ */
+const urlListeners = new Set<() => void>();
 
-function subscribeSearch(onStoreChange: () => void) {
-  searchListeners.add(onStoreChange);
+function subscribeUrl(onStoreChange: () => void) {
+  urlListeners.add(onStoreChange);
   window.addEventListener('popstate', onStoreChange);
+  window.addEventListener('hashchange', onStoreChange);
   return () => {
-    searchListeners.delete(onStoreChange);
+    urlListeners.delete(onStoreChange);
     window.removeEventListener('popstate', onStoreChange);
+    window.removeEventListener('hashchange', onStoreChange);
   };
 }
 
-function getSearchSnapshot() {
-  return window.location.search;
+function getUrlSnapshot() {
+  return `${window.location.search}${window.location.hash}`;
 }
 
-function getServerSearchSnapshot() {
+function getServerUrlSnapshot() {
   return '';
 }
 
-function writeSearch(view: MarketMapViewId, filters: MarketMapFilters) {
-  if (typeof window === 'undefined') return;
+function notifyUrl() {
+  urlListeners.forEach((listener) => listener());
+}
+
+function marketMapUrl(view: MarketMapViewId, filters: MarketMapFilters, hash: string) {
   const query = serializeMarketMapSearch({ view, filters });
-  // Filter writes own the query string; a #company-<id> anchor is a
-  // separate request and survives them (replaceState would otherwise
-  // silently drop it from the URL).
-  const hash = window.location.hash;
-  const next = query ? `/market-map/?${query}${hash}` : `/market-map/${hash}`;
-  window.history.replaceState(null, '', next);
-  searchListeners.forEach((listener) => listener());
+  return query ? `/market-map/?${query}${hash}` : `/market-map/${hash}`;
+}
+
+function isTextEntry(target: EventTarget | null): boolean {
+  return (
+    target instanceof HTMLInputElement ||
+    target instanceof HTMLTextAreaElement ||
+    target instanceof HTMLSelectElement
+  );
 }
 
 export function MarketMap({ companies }: MarketMapProps) {
-  const search = useSyncExternalStore(
-    subscribeSearch,
-    getSearchSnapshot,
-    getServerSearchSnapshot,
-  );
+  const url = useSyncExternalStore(subscribeUrl, getUrlSnapshot, getServerUrlSnapshot);
+  const hashAt = url.indexOf('#');
+  const search = hashAt === -1 ? url : url.slice(0, hashAt);
+  const hash = hashAt === -1 ? '' : url.slice(hashAt);
+
   const parsed = parseMarketMapSearch(search, companies);
   const view = parsed.view;
   const filters = parsed.filters;
 
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [filtersOpen, setFiltersOpen] = useState(false);
-  const highlightedId = useEntityAnchor('company');
-  const seenAnchorRef = useRef<string | null>(null);
+  const anchor = parseEntityAnchor(hash);
+  const selected =
+    anchor?.kind === 'company'
+      ? (companies.find((company) => company.id === anchor.id) ?? null)
+      : null;
+  const selectedId = selected?.id ?? null;
 
-  const visible = useMemo(
-    () => filterCompanies(companies, filters),
-    [companies, filters],
+  const visible = useMemo(() => filterCompanies(companies, filters), [companies, filters]);
+
+  const [focusRequest, setFocusRequest] = useState(0);
+  const [moreOpen, setMoreOpen] = useState<boolean | null>(null);
+  // The element that opened the details, so closing can hand focus back.
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const seenSelectionRef = useRef<string | null>(null);
+  const pendingScrollRef = useRef<string | null>(null);
+  const previousSelectionRef = useRef<string | null>(null);
+  // The history entry this map pushed for the open company, with the query
+  // it was pushed under. Closing goes Back over it only while the query is
+  // unchanged; after a filter change the entry below holds older filters,
+  // so closing then drops the hash in place instead of undoing that change.
+  // A selection that arrived with the page (a link, Back, Forward) has no
+  // pushed entry and also closes in place.
+  const pushedRef = useRef<{ search: string } | null>(null);
+
+  const writeFilters = useCallback(
+    (nextView: MarketMapViewId, next: MarketMapFilters) => {
+      // Filter writes own the query; the open company's hash survives them.
+      window.history.replaceState(null, '', marketMapUrl(nextView, next, window.location.hash));
+      notifyUrl();
+    },
+    [],
   );
 
+  // A company named in the URL is an explicit request. When it arrives
+  // (a deep link, a search result, Back or Forward) and the URL's filters
+  // exclude it, the filters it fails are dropped so its tile shows and is
+  // scrolled to. Once seen, later filter changes may exclude it again.
   useEffect(() => {
-    if (!highlightedId) return;
-    const company = companies.find((entry) => entry.id === highlightedId);
-    if (!company) return;
-    const included = visible.some((entry) => entry.id === highlightedId);
-    // A deep link names one company explicitly. On arrival, when the URL's
-    // filters exclude that company, the explicit request wins: relax the
-    // filters it fails so the card can render, be highlighted, and scroll
-    // into view below. Once the hash has been seen, manual filter changes
-    // may exclude the company again without being reverted.
-    if (seenAnchorRef.current !== highlightedId) {
-      seenAnchorRef.current = highlightedId;
-      if (!included) {
-        writeSearch(view, relaxFiltersForCompany(filters, company));
+    if (!selected) {
+      seenSelectionRef.current = null;
+      return;
+    }
+    if (seenSelectionRef.current === selected.id) return;
+    const arrived = returnFocusRef.current === null;
+    seenSelectionRef.current = selected.id;
+    if (arrived) pendingScrollRef.current = selected.id;
+    if (!visible.some((company) => company.id === selected.id)) {
+      writeFilters(view, relaxFiltersForCompany(filters, selected));
+    }
+  }, [selected, visible, view, filters, writeFilters]);
+
+  // Scroll an arriving company's tile or row into view once it renders.
+  useEffect(() => {
+    const id = pendingScrollRef.current;
+    if (!id) return;
+    // The chart has no element per company to scroll to; bring the chart
+    // itself into view (the server-rendered page may have scrolled to the
+    // grid tile of the same id before the chart replaced it).
+    const target =
+      view === 'bubble'
+        ? document.querySelector<Element>('svg[data-bubble-selected], [data-bubble-chart]')
+        : document.getElementById(`company-${id}`);
+    if (!target) return;
+    pendingScrollRef.current = null;
+    if (typeof target.scrollIntoView === 'function') {
+      target.scrollIntoView({ block: 'center', inline: 'nearest' });
+    }
+  });
+
+  const closeSelection = useCallback(() => {
+    const pushed = pushedRef.current;
+    pushedRef.current = null;
+    if (pushed && pushed.search === window.location.search) {
+      window.history.back();
+      return;
+    }
+    window.history.replaceState(null, '', marketMapUrl(view, filters, ''));
+    notifyUrl();
+  }, [view, filters]);
+
+  const select = useCallback(
+    (id: string, trigger: HTMLElement | null) => {
+      if (id === selectedId) {
+        closeSelection();
         return;
       }
+      returnFocusRef.current = trigger;
+      const target = marketMapUrl(view, filters, `#company-${id}`);
+      if (selectedId === null) {
+        pushedRef.current = { search: new URL(target, window.location.href).search };
+        window.history.pushState(null, '', target);
+      } else {
+        window.history.replaceState(null, '', target);
+      }
+      notifyUrl();
+      setFocusRequest((count) => count + 1);
+    },
+    [selectedId, view, filters, closeSelection],
+  );
+
+  // Escape closes the details from anywhere on the page, except inside a
+  // field, where it keeps its own meaning (clearing a search).
+  useEffect(() => {
+    if (!selectedId) return;
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key !== 'Escape' || event.defaultPrevented) return;
+      if (isTextEntry(event.target)) return;
+      event.preventDefault();
+      closeSelection();
     }
-    const target = document.getElementById(`company-${highlightedId}`);
-    if (!target || typeof target.scrollIntoView !== 'function') return;
-    target.scrollIntoView({ block: 'center', inline: 'nearest' });
-  }, [highlightedId, view, visible, filters, companies]);
-  const counts = useMemo(() => segmentCounts(companies), [companies]);
-  const segments = SEGMENT_ORDER.map((value) => ({
-    value,
-    count: counts[value],
-  }));
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [selectedId, closeSelection]);
+
+  // When the details close (Escape, Close, Back), focus goes back to what
+  // opened them, or to the company's tile, row or mark if that is gone, but
+  // only when the closing left focus nowhere.
+  useEffect(() => {
+    const previous = previousSelectionRef.current;
+    previousSelectionRef.current = selectedId;
+    if (selectedId !== null || previous === null) return;
+    // However it closed, no pushed entry is open any more.
+    pushedRef.current = null;
+    const opener = returnFocusRef.current;
+    returnFocusRef.current = null;
+    const active = document.activeElement;
+    if (active && active !== document.body) return;
+    const fallback = document.querySelector<HTMLElement>(
+      `[data-map-tile="${previous}"], [data-company-id="${previous}"] > button, circle[data-company-id="${previous}"]`,
+    );
+    const target = opener?.isConnected ? opener : fallback;
+    target?.focus({ preventScroll: true });
+  }, [selectedId]);
+
+  // Segment counts under every other active filter, so a segment shows how
+  // many companies choosing it would leave.
+  const segments = useMemo(() => {
+    const pool = filterCompanies(companies, { ...filters, segment: null, subSegment: null });
+    return SEGMENT_ORDER.map((value) => ({
+      value,
+      label: SEGMENT_LABELS[value],
+      count: pool.filter((company) => company.segment === value).length,
+    }));
+  }, [companies, filters]);
   const subSegments = useMemo(
     () => subSegmentOptions(companies, filters.segment),
     [companies, filters.segment],
   );
   const countries = useMemo(() => countryOptions(companies), [companies]);
   const approaches = useMemo(() => approachOptions(companies), [companies]);
-  const canClear = hasActiveFilters(filters);
-
-  function applyFilters(next: MarketMapFilters) {
-    writeSearch(view, next);
-  }
-
-  function patchFilters(patch: Partial<MarketMapFilters>) {
-    applyFilters({ ...filters, ...patch });
-  }
-
-  function changeView(next: MarketMapViewId) {
-    writeSearch(next, filters);
-  }
+  const moreActive = [
+    filters.subSegment,
+    filters.country,
+    filters.status,
+    filters.approach,
+    filters.openSource,
+    filters.confidence,
+  ].filter((value) => value !== null).length;
 
   function clearFilters() {
-    writeSearch(view, DEFAULT_MARKET_MAP_FILTERS);
+    writeFilters(view, DEFAULT_MARKET_MAP_FILTERS);
   }
+
+  const onSelect = (id: string, trigger: HTMLElement | null) => select(id, trigger);
+
+  // Beside an open side sheet the controls and the chart views narrow to
+  // the space left of it (charts redraw at any width); the map keeps its
+  // columns and the sheet sits over its right edge.
+  const besideSheet =
+    'lg:max-w-[calc(100vw_-_440px_-_max(24px,(100vw_-_84rem)/2_+_24px)_-_32px)]';
 
   return (
     <div>
-      <FilterBar
-        filters={filters}
-        view={view}
-        resultCount={visible.length}
-        totalCount={companies.length}
-        segments={segments}
-        subSegments={subSegments}
-        countries={countries}
-        approaches={approaches}
-        filtersOpen={filtersOpen}
-        onFiltersOpenChange={setFiltersOpen}
-        onFilterChange={patchFilters}
-        onViewChange={changeView}
-        onClear={clearFilters}
-        canClear={canClear}
-      />
-
-      <p className="mt-4 font-sans text-sm text-text-dim">
-        Funding figures are as of {formatLongDate(MARKET_MAP_AS_OF)}.
-      </p>
-
-      {visible.length === 0 ? (
-        <div role="status" className="mt-8 border-t border-border pt-8">
-          <p className="font-sans text-sm text-text">
-            No companies match these filters.
-          </p>
-          <button
-            data-brand-control-id="control:secondary-action"
-            type="button"
-            onClick={clearFilters}
-            className="mt-3 cursor-pointer font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
-          >
-            Clear filters
-          </button>
-        </div>
-      ) : view === 'grid' ? (
-        <GridView
-          companies={visible}
-          expandedId={expandedId}
-          highlightedId={highlightedId}
-          onToggle={(id) =>
-            setExpandedId((current) => (current === id ? null : id))
-          }
+      <div className={cx(selected && besideSheet)}>
+        <FilterBar
+          filters={filters}
+          view={view}
+          resultCount={visible.length}
+          totalCount={companies.length}
+          segments={segments}
+          subSegments={subSegments}
+          countries={countries}
+          approaches={approaches}
+          moreOpen={moreOpen ?? moreActive > 0}
+          moreActive={moreActive}
+          onMoreOpenChange={setMoreOpen}
+          onFilterChange={(patch) => writeFilters(view, { ...filters, ...patch })}
+          onViewChange={(next) => writeFilters(next, filters)}
+          onClear={clearFilters}
+          canClear={hasActiveFilters(filters)}
         />
-      ) : view === 'bubble' ? (
-        <BubbleView companies={visible} highlightedId={highlightedId} />
-      ) : (
-        <FundingTimeline companies={visible} highlightedId={highlightedId} />
-      )}
+
+        <p
+          data-as-of
+          className="mt-6 max-w-[62ch] font-sans text-[13px] leading-5 text-text-dim"
+        >
+          Funding figures are as of {formatLongDate(MARKET_MAP_AS_OF)}.
+          {view === 'grid'
+            ? ' A tile shows the latest disclosed round, or its status once a company is no longer private.'
+            : null}
+        </p>
+      </div>
+
+      <div className={cx('mt-5', selected && view !== 'grid' && besideSheet)}>
+        {visible.length === 0 ? (
+          <EmptyState filters={filters} onClear={clearFilters} />
+        ) : view === 'grid' ? (
+          <GridView companies={visible} selectedId={selectedId} onSelect={onSelect} />
+        ) : view === 'bubble' ? (
+          <BubbleView companies={visible} selectedId={selectedId} onSelect={onSelect} />
+        ) : (
+          <FundingTimeline companies={visible} selectedId={selectedId} onSelect={onSelect} />
+        )}
+      </div>
+
+      {selected ? (
+        <CompanySheet company={selected} focusRequest={focusRequest} onClose={closeSelection} />
+      ) : null}
+    </div>
+  );
+}
+
+function EmptyState({
+  filters,
+  onClear,
+}: {
+  filters: MarketMapFilters;
+  onClear: () => void;
+}) {
+  const scope = filters.segment ? ` in ${SEGMENT_LABELS[filters.segment]}` : '';
+  const hint = filters.query
+    ? `No company name${scope} starts with “${filters.query}”.`
+    : `Nothing${scope} matches every filter at once.`;
+  return (
+    <div role="status" data-market-map-empty className="border-t border-border-strong pt-8 pb-16">
+      <p className="font-display text-[18px] leading-6 text-text">No companies match these filters.</p>
+      <p className="mt-1 font-sans text-[14px] leading-5 text-text-dim">{hint}</p>
+      <button
+        data-brand-control-id="control:secondary-action"
+        type="button"
+        onClick={onClear}
+        className="mt-4 cursor-pointer border-b border-ink pt-1.5 pb-1 font-sans text-[14px] leading-5 text-text transition-colors hover:border-text-dim hover:text-text-dim"
+      >
+        Clear filters
+      </button>
     </div>
   );
 }

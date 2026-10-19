@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { LOGO_IMAGES } from '../../data/logo-images';
 import { companyLogoIds } from '../../data/logos';
+import { WITHHELD_MARKS } from '../../lib/market-map-marks';
 import { tileSheet } from '../../lib/visual-capture';
 import { mapInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
@@ -121,13 +122,25 @@ test('every company mark sits on one tile and clears 3:1 against it (VAL-OPUS-01
     credits, marketMap: market,
   });
 
-  expect(credits.map((r) => r.key).sort()).toEqual(LOGO_IMAGES.map((i) => i.id).sort());
-  expect(market).toHaveLength(companyLogoIds().length);
+  // A withheld file (it shows another company's artwork) is drawn on
+  // neither page: /credits leaves it out, the map shows the name.
+  const withheld = Object.keys(WITHHELD_MARKS);
+  expect(credits.map((r) => r.key).sort()).toEqual(
+    LOGO_IMAGES.map((i) => i.id).filter((id) => !withheld.includes(id)).sort(),
+  );
+  expect(market).toHaveLength(companyLogoIds().length - withheld.length);
+  await page.goto(`http://localhost:${server.port}/credits/`, { waitUntil: 'networkidle' });
+  for (const id of withheld) {
+    await expect(page.locator(`[data-credits-entry="${id}"]`)).toHaveCount(0);
+    const file = LOGO_IMAGES.find((image) => image.id === id)!.file;
+    await expect(page.locator(`img[src="${file}"]`)).toHaveCount(0);
+  }
   expect(new Set(market.map((r) => r.file))).toEqual(new Set(credits.map((r) => r.file)));
   expect([...treatments], 'one tile treatment on both pages').toHaveLength(1);
-  // A square tile drew the widest wordmarks 2 px high.
-  const thin = market.filter((r) => Number(r.rendered.split('x')[1]) < 6).map((r) => `${r.key} ${r.rendered}`);
-  expect(thin, 'market-map marks drawn under 6 px high').toEqual([]);
+  // A square tile drew the widest wordmarks 2 px high, the fixed 96 x 36
+  // tile Apptronik's 7 px high; every image now draws at least 10 px.
+  const thin = market.filter((r) => Number(r.rendered.split('x')[1]) < 10).map((r) => `${r.key} ${r.rendered}`);
+  expect(thin, 'market-map marks drawn under 10 px high').toEqual([]);
 
   const low = [...credits.map((r) => ['/credits/', r] as const), ...market.map((r) => ['/market-map/', r] as const)]
     .filter(([, r]) => r.opaque === 0 || r.share < 0.5)

@@ -13,6 +13,7 @@ function fallbackLoaded(): LoadedRobot {
       jointCount: 3,
       eeLink: 'tool_tip',
     },
+    motors: {},
   };
 }
 

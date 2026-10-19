@@ -2232,11 +2232,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|assured-robot-intelligence-logo#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|astribot-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -2503,11 +2498,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|engineai-logo#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|farm-ng-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -2863,11 +2853,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|neura-robotics-logo#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|1440x900|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -3427,11 +3412,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|assured-robot-intelligence-logo#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|astribot-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -3698,11 +3678,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|engineai-logo#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|farm-ng-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -4058,11 +4033,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|neura-robotics-logo#0",
-          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-ART-005:/credits/|375x812|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -5643,7 +5613,7 @@
         "statement": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 762,
+        "populationSize": 756,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -5735,7 +5705,6 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|applied-intuition-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|apptronik-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|asimo-miraikan-2016#0",
-          "result:VAL-B2-ART-005:/credits/|1440x900|assured-robot-intelligence-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|astribot-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|atlas-darpa-testing-2013#0",
@@ -5790,7 +5759,6 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|emergency-stop-siemens-2006#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|encord-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|engineai-logo#0",
-          "result:VAL-B2-ART-005:/credits/|1440x900|farm-ng-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|field-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|figure-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|fingr-cube-layer-turn-2026#0",
@@ -5862,7 +5830,6 @@
           "result:VAL-B2-ART-005:/credits/|1440x900|nabtesco-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|neura-robotics-logo#0",
-          "result:VAL-B2-ART-005:/credits/|1440x900|nimble-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nuro-logo#0",
           "result:VAL-B2-ART-005:/credits/|1440x900|nvidia-logo#0",
@@ -5974,7 +5941,6 @@
           "result:VAL-B2-ART-005:/credits/|375x812|applied-intuition-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|apptronik-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|asimo-miraikan-2016#0",
-          "result:VAL-B2-ART-005:/credits/|375x812|assured-robot-intelligence-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|astribot-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-ART-005:/credits/|375x812|atlas-darpa-testing-2013#0",
@@ -6029,7 +5995,6 @@
           "result:VAL-B2-ART-005:/credits/|375x812|emergency-stop-siemens-2006#0",
           "result:VAL-B2-ART-005:/credits/|375x812|encord-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|engineai-logo#0",
-          "result:VAL-B2-ART-005:/credits/|375x812|farm-ng-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|field-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|figure-ai-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|fingr-cube-layer-turn-2026#0",
@@ -6101,7 +6066,6 @@
           "result:VAL-B2-ART-005:/credits/|375x812|nabtesco-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-ART-005:/credits/|375x812|neura-robotics-logo#0",
-          "result:VAL-B2-ART-005:/credits/|375x812|nimble-robotics-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nuro-logo#0",
           "result:VAL-B2-ART-005:/credits/|375x812|nvidia-logo#0",
@@ -11987,12 +11951,47 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:3",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:4",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:5",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-logo.tsx:alt:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/grid-view.tsx:aria-label:2",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12083,11 +12082,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/search/results-group.tsx:aria-labelledby:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/three/joint-controls.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12487,17 +12481,22 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/company-card.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/company-card.tsx:aria-label:2",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/funding-timeline.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/grid-view.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12627,32 +12626,17 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:1",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/ik-target-form.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:2",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:3",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:4",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-hud.tsx:aria-label:1",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:1",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:2",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12668,6 +12652,21 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:4",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:5",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:6",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-labelledby:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21122,7 +21121,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1961,
+        "populationSize": 1968,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21267,8 +21266,15 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/interactive/wm-disambiguator.tsx:aria-label:3",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/iso/react/draw.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/bubble-view.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:3",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:4",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-card.tsx:aria-labelledby:5",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-logo.tsx:alt:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/company-sheet.tsx:aria-labelledby:2",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/grid-view.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/market-map/grid-view.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/mdx/cite-ref.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/mdx/image-ref.tsx:alt:1",
@@ -21287,7 +21293,6 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/motion/scene-player.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/nav/nav-tree.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/search/results-group.tsx:aria-labelledby:1",
-          "result:VAL-B2-BASE-002:accessible-names:expression:components/three/joint-controls.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/three/trajectory-panel.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/aside.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/ui/callout.tsx:aria-label:1",
@@ -21367,9 +21372,10 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wm-disambiguator.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wm-disambiguator.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/bubble-view.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/company-card.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/company-card.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/filter-bar.tsx:aria-label:2",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/funding-timeline.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/grid-view.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/mdx/av-stack-table.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/mdx/dh-parameter-table.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/mdx/gr2-results-table.tsx:aria-label:1",
@@ -21395,15 +21401,15 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/search/search-interface.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/search/search-interface.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/search/type-facet-bar.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:2",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:3",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-canvas.tsx:aria-label:4",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/playground-hud.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/ik-target-form.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/joint-controls.tsx:aria-labelledby:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:4",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:5",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-label:6",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/three/trajectory-panel.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/ui/copy-button.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:content/manipulation/action-chunking.mdx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:content/manipulation/action-chunking.mdx:title:2",
@@ -26211,17 +26217,7 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#error",
-          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#ok",
-          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#warn",
+          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-renderer:components/three/stage-look.ts#error",
           "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
@@ -26292,26 +26288,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/search/search-interface.tsx#error",
-          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
-          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#error",
-          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#ok",
-          "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-012:semantic-use:components/three/trajectory-panel.tsx#error",
           "mechanism": "VAL-B2-COMP-012 per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over app/globals.css#semantic-tokens-and-use-sites"
         },
         {
@@ -26398,7 +26374,7 @@
         "statement": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
         "expected": "Semantic tokens `ok`, `warn`, `error`, and `destructive` exist separately from brand accents; each has distinct meaning, text/icon/shape cue, measured contrast, and renderer parity wherever used.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 27,
+        "populationSize": 21,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -26407,9 +26383,7 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#error",
-          "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#ok",
-          "result:VAL-B2-COMP-012:semantic-renderer:components/three/robot-scene.tsx#warn",
+          "result:VAL-B2-COMP-012:semantic-renderer:components/three/stage-look.ts#error",
           "result:VAL-B2-COMP-012:semantic-token:destructive",
           "result:VAL-B2-COMP-012:semantic-token:error",
           "result:VAL-B2-COMP-012:semantic-token:ok",
@@ -26424,10 +26398,6 @@
           "result:VAL-B2-COMP-012:semantic-use:components/mdx/term-ref.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/search/results-group.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/search/search-interface.tsx#error",
-          "result:VAL-B2-COMP-012:semantic-use:components/three/ik-target-form.tsx#error",
-          "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#error",
-          "result:VAL-B2-COMP-012:semantic-use:components/three/playground-hud.tsx#ok",
-          "result:VAL-B2-COMP-012:semantic-use:components/three/trajectory-panel.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#error",
           "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#ok",
           "result:VAL-B2-COMP-012:semantic-use:components/ui/badge.tsx#warn",
@@ -34688,11 +34658,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|assured-robot-intelligence-logo#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|astribot-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -34959,11 +34924,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|engineai-logo#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|farm-ng-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35319,11 +35279,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|neura-robotics-logo#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|1440x900|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -35883,11 +35838,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|assured-robot-intelligence-logo#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|astribot-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
@@ -36154,11 +36104,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|engineai-logo#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|farm-ng-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -36514,11 +36459,6 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|neura-robotics-logo#0",
-          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
-        },
-        {
-          "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-IMG-005:/credits/|375x812|nimble-robotics-logo#0",
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
@@ -38099,7 +38039,7 @@
         "statement": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 762,
+        "populationSize": 756,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -38191,7 +38131,6 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|applied-intuition-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|apptronik-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|asimo-miraikan-2016#0",
-          "result:VAL-B2-IMG-005:/credits/|1440x900|assured-robot-intelligence-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|astribot-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|atlas-darpa-testing-2013#0",
@@ -38246,7 +38185,6 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|emergency-stop-siemens-2006#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|encord-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|engineai-logo#0",
-          "result:VAL-B2-IMG-005:/credits/|1440x900|farm-ng-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|field-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|figure-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|fingr-cube-layer-turn-2026#0",
@@ -38318,7 +38256,6 @@
           "result:VAL-B2-IMG-005:/credits/|1440x900|nabtesco-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|neura-robotics-logo#0",
-          "result:VAL-B2-IMG-005:/credits/|1440x900|nimble-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nuro-logo#0",
           "result:VAL-B2-IMG-005:/credits/|1440x900|nvidia-logo#0",
@@ -38430,7 +38367,6 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|applied-intuition-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|apptronik-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|asimo-miraikan-2016#0",
-          "result:VAL-B2-IMG-005:/credits/|375x812|assured-robot-intelligence-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|astribot-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|atlas-darpa-frontview-2013#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|atlas-darpa-testing-2013#0",
@@ -38485,7 +38421,6 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|emergency-stop-siemens-2006#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|encord-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|engineai-logo#0",
-          "result:VAL-B2-IMG-005:/credits/|375x812|farm-ng-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|field-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|figure-ai-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|fingr-cube-layer-turn-2026#0",
@@ -38557,7 +38492,6 @@
           "result:VAL-B2-IMG-005:/credits/|375x812|nabtesco-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|navlab-1-5-cmu-2017#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|neura-robotics-logo#0",
-          "result:VAL-B2-IMG-005:/credits/|375x812|nimble-robotics-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nist-dexterous-manipulation-testbed-2013#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nuro-logo#0",
           "result:VAL-B2-IMG-005:/credits/|375x812|nvidia-logo#0",
@@ -45135,8 +45069,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "The 3D canvas is a bounded ink/graphite instrument inside a light shell; body and shell do not become full-page dark UI.",
-        "expected": "The 3D canvas is a bounded ink/graphite instrument inside a light shell; body and shell do not become full-page dark UI.",
+        "statement": "The 3D canvas is a bounded light stage on the page ground: it clears to exactly the runtime paper token, sits between the page's 1 px rules with no dark panel and no full-page dark UI, and draws the arm in the explainers' clay and motor greys; the light-stage sweep probes it with every other figure. (Owner decision of 19 October 2026; the brand-v2 row required a bounded ink/graphite instrument inside a light shell.)",
+        "expected": "The 3D canvas is a bounded light stage on the page ground: it clears to exactly the runtime paper token, sits between the page's 1 px rules with no dark panel and no full-page dark UI, and draws the arm in the explainers' clay and motor greys; the light-stage sweep probes it with every other figure. (Owner decision of 19 October 2026; the brand-v2 row required a bounded ink/graphite instrument inside a light shell.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -45215,8 +45149,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Passive geometry uses concrete/neutral tones, active path/focus uses signal blue, and selected joint/target uses lime plus a non-colour marker.",
-        "expected": "Passive geometry uses concrete/neutral tones, active path/focus uses signal blue, and selected joint/target uses lime plus a non-colour marker.",
+        "statement": "Passive geometry uses the clay and motor greys mixed from concrete and graphite; the joint being worked and the reach target use the one muted accent plus a non-colour marker (the joint row's bold label and square, the target's dot and ring, a dashed gap line when it is out of reach). (Owner decision of 19 October 2026; the brand-v2 row used signal blue for focus and lime for selection.)",
+        "expected": "Passive geometry uses the clay and motor greys mixed from concrete and graphite; the joint being worked and the reach target use the one muted accent plus a non-colour marker (the joint row's bold label and square, the target's dot and ring, a dashed gap line when it is out of reach). (Owner decision of 19 October 2026; the brand-v2 row used signal blue for focus and lime for selection.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -45255,8 +45189,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Controls use the shared black/lime/outlined hierarchy, persistent labels, semantic values, visible focus, and keyboard operation.",
-        "expected": "Controls use the shared black/lime/outlined hierarchy, persistent labels, semantic values, visible focus, and keyboard operation.",
+        "statement": "Controls use the site's ink, outlined and text-action hierarchy, persistent plain-language labels, semantic values, visible focus, and keyboard operation, the canvas included (arrow keys turn it, + and - zoom). (Owner decisions of 10 and 19 October 2026; the brand-v2 row named a black/lime/outlined hierarchy.)",
+        "expected": "Controls use the site's ink, outlined and text-action hierarchy, persistent plain-language labels, semantic values, visible focus, and keyboard operation, the canvas included (arrow keys turn it, + and - zoom). (Owner decisions of 10 and 19 October 2026; the brand-v2 row named a black/lime/outlined hierarchy.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -45615,8 +45549,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics.",
-        "expected": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear trajectory` removes keyframes/path without changing the reset/default semantics.",
+        "statement": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear` (named \"Clear the recorded poses\") removes keyframes/path without changing the reset/default semantics. (Owner decision of 19 October 2026: the control is labelled in plain words; the brand-v2 row named it `Clear trajectory`.)",
+        "expected": "The canonical two-keyframe trajectory fixture imports and plays through intermediate state; `Reset pose` restores pose/camera while preserving trajectory, and `Clear` (named \"Clear the recorded poses\") removes keyframes/path without changing the reset/default semantics. (Owner decision of 19 October 2026: the control is labelled in plain words; the brand-v2 row named it `Clear trajectory`.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {

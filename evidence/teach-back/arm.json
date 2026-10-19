@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "teach-back-record-v2",
+  "explainer": "arm",
+  "round": 2,
+  "screenshots": [
+    "evidence/teach-back/arm/1280-s1.jpg",
+    "evidence/teach-back/arm/1280-s2.jpg",
+    "evidence/teach-back/arm/1280-s3-guess.jpg",
+    "evidence/teach-back/arm/1280-s3-reveal.jpg",
+    "evidence/teach-back/arm/1280-s4.jpg",
+    "evidence/teach-back/arm/390-s1.jpg",
+    "evidence/teach-back/arm/390-s2.jpg",
+    "evidence/teach-back/arm/390-s3-guess.jpg",
+    "evidence/teach-back/arm/390-s3-reveal.jpg",
+    "evidence/teach-back/arm/390-s4.jpg"
+  ],
+  "takeaway": "A robot arm is a chain: each motor moves everything after it, so the motors nearest the base work hardest.",
+  "selfCheck": {
+    "question": "Which motor would you make the strongest, and why?",
+    "answer": "I would make the shoulder lift the strongest. It holds up everything after it: the elbow, both wrist motors, the gripper and whatever the gripper carries. When the arm reaches out, all that weight is far from the shoulder, so the shoulder has to work hardest just to keep the arm still. Step 3 shows this with numbers: the shoulder lift uses 31%, compared with 24% for the elbow and 6% for the wrist bend.",
+    "correct": true
+  },
+  "sentence": "A robot arm is a row of rigid plastic parts joined by motors, one motor at each joint. Each motor has to hold up every part beyond it, and the motor nearest the base holds up the most. That is why the strongest motors go near the base, and why the tip of the arm can only lift light things.",
+  "unclearTerms": [
+    "\"shoulder lift\" versus \"base\" (which motor is which in the picture)",
+    "\"wrist bend\" versus \"wrist turn\" (difference; wrist turn never gets a number)",
+    "\"31%\", \"24%\", \"6%\" (guessed share of each motor's own full strength; don't add to 100)",
+    "\"full strength\" (of what: force, power?)",
+    "\"hold it still\" (why a motor uses strength when nothing moves)",
+    "\"carries every part after it\" (after = further out, had to work out)",
+    "\"far out from its joint\" (it = load or arm?)",
+    "\"the tip can lift only a little\" (compared with what, how much)",
+    "\"3D-printed\" (roughly known, why it matters)",
+    "\"The unlabelled motors hold almost nothing\" (which motors)"
+  ],
+  "uncountedTerms": [
+    {
+      "term": "kinematic chain",
+      "why": "the concept the last step introduces"
+    }
+  ],
+  "samePoint": "yes",
+  "reason": "My takeaway has the same subject (an arm of linked parts and motors) and the same effect (each motor holds up every part beyond it), and it reaches the same conclusion that the motors nearest the base work hardest; the registered sentence has no number to check.",
+  "noiseAudit": [
+    {
+      "width": 1280,
+      "step": "1",
+      "words": 21,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "2",
+      "words": 23,
+      "labels": 0,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "3 guess",
+      "words": 23,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 1280,
+      "step": "3 reveal",
+      "words": 23,
+      "labels": 3,
+      "controls": 1,
+      "colours": [
+        "act"
+      ]
+    },
+    {
+      "width": 1280,
+      "step": "4",
+      "words": 25,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "1",
+      "words": 21,
+      "labels": 0,
+      "controls": 0,
+      "colours": [
+        "focus"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "2",
+      "words": 23,
+      "labels": 0,
+      "controls": 1,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "3 guess",
+      "words": 23,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    },
+    {
+      "width": 390,
+      "step": "3 reveal",
+      "words": 23,
+      "labels": 3,
+      "controls": 1,
+      "colours": [
+        "act"
+      ]
+    },
+    {
+      "width": 390,
+      "step": "4",
+      "words": 25,
+      "labels": 0,
+      "controls": 0,
+      "colours": []
+    }
+  ],
+  "noiseClean": true,
+  "verdict": "fail",
+  "ownerAcceptance": "Owner acceptance of 12 Oct 2026: the explainers stay as they are, so no further teach-back round runs. Residual unclear words: \"shoulder lift\" versus \"base\"; \"wrist bend\" versus \"wrist turn\"; \"31%\", \"24%\", \"6%\"; \"full strength\"; \"hold it still\"; \"carries every part after it\"; \"far out from its joint\"; \"the tip can lift only a little\"; \"3D-printed\"; \"The unlabelled motors hold almost nothing\".",
+  "provenance": "Round 2 ran on 6 Oct 2026 on a static export of commit dd79fd5c. Its screenshot files were kept only in temporary storage and were lost, so these screenshots and the noise audit were captured again on 19 Oct 2026 from a static export of the same commit with the same step sweep. The scene module and model files are unchanged since that commit. The step wording and the self-check question were revised in a8e577cf after this round and have not been retested.",
+  "screenshotCommit": "dd79fd5c",
+  "date": "2026-10-06",
+  "reviewerSession": "reader-session-8fd703ce",
+  "sourceDigest": "45f293ddd71ed689cbff233362648d3b11f4d525d5932011e0b87975c4536374"
+}

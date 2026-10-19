@@ -91,50 +91,52 @@ function setup() {
   };
 }
 
+/** Moves the stand-in arm to a pose, then presses Record pose. */
 function recordPose(testId: string) {
   fireEvent.click(screen.getByTestId(testId));
-  fireEvent.click(screen.getByTestId('trajectory-add'));
+  fireEvent.click(screen.getByTestId('trajectory-record'));
 }
 
 describe('trajectory recording', () => {
   beforeEach(() => mockReducedMotion(false));
   afterEach(() => vi.restoreAllMocks());
 
-  it('gates keyframe capture behind the record control', () => {
-    setup();
+  it('records the current pose each time Record pose is pressed', () => {
+    const ctx = setup();
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-      'no keyframes',
+      'No poses yet',
     );
-    expect(screen.getByTestId('trajectory-add')).toBeDisabled();
+    expect(screen.getByTestId('trajectory-play')).toBeDisabled();
+    fireEvent.click(screen.getByTestId('pose-a'));
     fireEvent.click(screen.getByTestId('trajectory-record'));
-    expect(screen.getByTestId('trajectory-record')).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
-    expect(screen.getByTestId('trajectory-add')).toBeEnabled();
+    expect(screen.getByTestId('trajectory-count')).toHaveTextContent('1 pose');
+    // The recorded keyframe is the pose the arm held when the button was pressed.
+    expect(ctx.controller.keyframes.map((k) => k.angles)).toEqual([POSE_A]);
+    expect(screen.getByTestId('trajectory-message')).toHaveTextContent(/recorded pose 1/i);
+    expect(screen.getByTestId('trajectory-play')).toBeEnabled();
   });
 
-  it('accumulates keyframes as poses are captured', () => {
-    setup();
-    fireEvent.click(screen.getByTestId('trajectory-record'));
+  it('accumulates poses, each listed with its playback time', () => {
+    const ctx = setup();
     recordPose('pose-home');
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-      '1 keyframe',
+      '1 pose',
     );
     recordPose('pose-a');
     recordPose('pose-b');
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-      '3 keyframes',
+      '3 poses',
     );
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
       `${(2 * SEGMENT_SECONDS).toFixed(1)} s`,
     );
-    // Each keyframe is listed with its playback time.
-    expect(screen.getByTestId('trajectory-keyframe-0')).toHaveTextContent(
-      '0.0 s',
+    expect(ctx.controller.keyframes.map((k) => k.angles)).toEqual([HOME, POSE_A, POSE_B]);
+    // Each pose is listed with its playback time.
+    expect(screen.getByTestId('trajectory-keyframe-0')).toHaveAccessibleName(
+      /pose 1, at 0\.0 s/i,
     );
-    expect(screen.getByTestId('trajectory-keyframe-2')).toHaveTextContent(
-      `${(2 * SEGMENT_SECONDS).toFixed(1)} s`,
+    expect(screen.getByTestId('trajectory-keyframe-2')).toHaveAccessibleName(
+      new RegExp(`pose 3, at ${(2 * SEGMENT_SECONDS).toFixed(1).replace('.', '\\.')} s`, 'i'),
     );
   });
 });
@@ -151,7 +153,6 @@ describe('trajectory playback', () => {
 
   function setupTwoKeyframes() {
     const ctx = setup();
-    fireEvent.click(screen.getByTestId('trajectory-record'));
     recordPose('pose-home');
     recordPose('pose-a');
     ctx.setPoseSpy.mockClear();
@@ -195,14 +196,13 @@ describe('trajectory playback', () => {
 
   it('moves to a single recorded keyframe without error', () => {
     const { setPoseSpy, controller } = setup();
-    fireEvent.click(screen.getByTestId('trajectory-record'));
     recordPose('pose-a');
     setPoseSpy.mockClear();
     fireEvent.click(screen.getByTestId('trajectory-play'));
     expect(controller.playing).toBe(false);
     expect(setPoseSpy.mock.lastCall![0]).toEqual(POSE_A);
     expect(screen.getByTestId('trajectory-message')).toHaveTextContent(
-      /single keyframe/i,
+      /only one pose/i,
     );
   });
 
@@ -255,7 +255,6 @@ describe('trajectory clear and empty states', () => {
   it('clear removes keyframes, stops playback, and re-disables play', () => {
     vi.useFakeTimers();
     const ctx = setup();
-    fireEvent.click(screen.getByTestId('trajectory-record'));
     recordPose('pose-home');
     recordPose('pose-a');
     fireEvent.click(screen.getByTestId('trajectory-play'));
@@ -265,7 +264,7 @@ describe('trajectory clear and empty states', () => {
     fireEvent.click(screen.getByTestId('trajectory-clear'));
     expect(ctx.controller.playing).toBe(false);
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-      'no keyframes',
+      'No poses yet',
     );
     expect(screen.getByTestId('trajectory-play')).toBeDisabled();
     expect(screen.getByTestId('trajectory-message')).toHaveTextContent(
@@ -281,7 +280,6 @@ describe('trajectory export and import', () => {
 
   function setupThreeKeyframes() {
     const ctx = setup();
-    fireEvent.click(screen.getByTestId('trajectory-record'));
     recordPose('pose-home');
     recordPose('pose-a');
     recordPose('pose-b');
@@ -311,7 +309,7 @@ describe('trajectory export and import', () => {
     ).value;
     fireEvent.click(screen.getByTestId('trajectory-clear'));
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-      'no keyframes',
+      'No poses yet',
     );
 
     fireEvent.change(screen.getByTestId('trajectory-import-json'), {
@@ -319,10 +317,10 @@ describe('trajectory export and import', () => {
     });
     fireEvent.click(screen.getByTestId('trajectory-import'));
     expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-      '3 keyframes',
+      '3 poses',
     );
     expect(screen.getByTestId('trajectory-message')).toHaveTextContent(
-      /imported 3 keyframes/i,
+      /imported 3 poses/i,
     );
 
     // Jumping to the final keyframe reproduces the original final pose.
@@ -377,7 +375,7 @@ describe('trajectory export and import', () => {
       expect(message).toHaveAttribute('role', 'alert');
       // Existing keyframes survive the failed import.
       expect(screen.getByTestId('trajectory-count')).toHaveTextContent(
-        '3 keyframes',
+        '3 poses',
       );
     });
   }

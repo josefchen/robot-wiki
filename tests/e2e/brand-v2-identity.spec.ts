@@ -413,10 +413,17 @@ async function sweepRequiredStates(
     await statePage.evaluate(() => document.fonts.ready);
 
     if (required.state === 'trajectory-export-format-discriminator') {
+      // Under load the controls can still be hydrating when the document is
+      // ready; a click before then lands on server HTML and times out. The
+      // root reads data-playground-state="ready" once they are live.
+      await expect(statePage.getByTestId('playground')).toHaveAttribute(
+        'data-playground-state',
+        'ready',
+        { timeout: 60_000 },
+      );
       await statePage.getByTestId('trajectory-record').click();
-      await statePage.getByTestId('trajectory-add').click();
       await expect(statePage.getByTestId('trajectory-count')).toHaveText(
-        /keyframe/,
+        '1 pose',
       );
       await statePage.getByTestId('trajectory-export').click();
       await expect(

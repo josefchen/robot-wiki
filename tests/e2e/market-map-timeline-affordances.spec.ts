@@ -161,28 +161,32 @@ test.describe('timeline view roving keyboard affordances', () => {
     expect(await focusedRowId(page)).toBe(movedId);
   });
 
-  test('Enter activates the focused row and Space toggles it closed', async ({
+  test('Enter opens the focused row, Escape closes it and Space opens another', async ({
     page,
   }) => {
     await openTimeline(page);
     const figure = page.locator('[data-company-id="figure-ai"] > button');
     await figure.focus();
     await page.keyboard.press('Enter');
-    const detail = page.locator('[data-timeline-detail]');
+    const detail = page.locator('[data-company-detail]');
     await expect(detail).toHaveCount(1);
-    await expect(detail).toContainText('$39B');
-    await page.keyboard.press('Enter');
+    await expect(detail.locator('[data-field="valuation"]')).toHaveText('$39B');
+    await expect(figure).toHaveAttribute('aria-expanded', 'true');
+    await page.keyboard.press('Escape');
     await expect(detail).toHaveCount(0);
+    // Focus returns to the row, which is still the list's one tab stop.
+    await expect(figure).toBeFocused();
+    await expect(figure).toHaveAttribute('tabindex', '0');
 
     const pi = page.locator(
       '[data-company-id="physical-intelligence"] > button',
     );
     await pi.focus();
     await pi.press(' ');
-    await expect(page.locator('[data-timeline-detail]')).toHaveCount(1);
+    await expect(page.locator('[data-company-detail]')).toHaveCount(1);
     await expect(
-      page.locator('[data-timeline-detail]'),
-    ).toContainText('$5.6B');
+      page.locator('[data-company-detail] [data-field="valuation"]'),
+    ).toHaveText('$5.6B');
   });
 
   test('corrected round figures cite their explicit supporting sources', async ({
@@ -237,7 +241,7 @@ test.describe('timeline view roving keyboard affordances', () => {
       await page
         .locator(`[data-company-id="${source.id}"] > button`)
         .click();
-      const link = page.locator('[data-timeline-detail] a');
+      const link = page.locator('[data-company-detail] [data-round-source] a');
       await expect(link).toHaveAttribute('href', source.href);
       await expect(link).toContainText(source.title);
     }
@@ -273,7 +277,10 @@ test.describe('timeline view roving keyboard affordances', () => {
     page,
   }) => {
     await openTimeline(page);
-    await page.locator('#filter-segment').selectOption('humanoids');
+    await page
+      .getByRole('group', { name: 'Segment' })
+      .getByRole('button', { name: /^Humanoids/ })
+      .click();
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
     const rows = rowButtons(page);
     expect(await rows.count()).toBeGreaterThan(1);
@@ -305,7 +312,10 @@ test.describe('timeline view roving keyboard affordances', () => {
     );
     await figure.focus();
     await expect(figure).toHaveAttribute('tabindex', '0');
-    await page.locator('#filter-segment').selectOption('foundation-models');
+    await page
+      .getByRole('group', { name: 'Segment' })
+      .getByRole('button', { name: /^Foundation models/ })
+      .click();
     await expect(page.getByText('12 of 111 companies')).toBeVisible();
     await expect(
       page.locator('[data-company-id="figure-ai"]'),

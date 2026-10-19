@@ -391,11 +391,22 @@ test.describe('classical kinematics module', () => {
     // The playground renders its canvas and the SO-101 arm with joint controls.
     const canvas = page.locator('canvas');
     await expect(canvas).toBeVisible({ timeout: 20_000 });
+    await expect(page.getByTestId('playground')).toHaveAttribute(
+      'data-playground-state',
+      'ready',
+      { timeout: 20_000 },
+    );
     const status = page.getByTestId('robot-status');
-    await expect(status).not.toHaveText(/loading/i, { timeout: 20_000 });
     await expect(status).toContainText(/so-101/i);
-    const sliders = page.getByRole('slider', { name: /joint angle, degrees/ });
+    // One slider per joint, each named in plain words and spoken in degrees.
+    const sliders = page.getByTestId('playground').getByRole('slider');
     expect(await sliders.count()).toBeGreaterThanOrEqual(6);
+    for (const name of ['Base turn', 'Shoulder', 'Elbow', 'Wrist bend', 'Wrist turn']) {
+      await expect(page.getByRole('slider', { name, exact: true })).toHaveAttribute(
+        'aria-valuetext',
+        /^-?\d+ degrees$/,
+      );
+    }
     expect(errors).toEqual([]);
   });
 

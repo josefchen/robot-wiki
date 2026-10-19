@@ -21,7 +21,10 @@ const badge = read('components/ui/badge.tsx');
 const callout = read('components/ui/callout.tsx');
 const globals = read('app/globals.css');
 const ogArtwork = read('lib/og-card-artwork.ts');
-const robotScene = read('components/three/robot-scene.tsx');
+// The playground's WebGL palette lives in its stage-look module (owner
+// request of 2026-10-19: the playground takes the light clay look of the
+// /how-robots-work/ explainers); robot-scene.tsx paints from it.
+const playgroundLook = read('components/three/stage-look.ts');
 const nextEnv = read('next-env.d.ts');
 
 // Owner-approved successor (Josef, 2026-10-10, the Pantheon standard): the
@@ -193,15 +196,14 @@ describe('design tokens stay aligned', () => {
     ]) {
       expect(ogArtwork).toContain(`BRAND_COLORS.${token}`);
     }
-    for (const token of [
-      'paper',
-      'concrete',
-      'graphite',
-      'ok',
-      'warn',
-      'error',
-    ]) {
-      expect(robotScene).toContain(`BRAND_COLORS.${token}`);
+    // The WebGL scene reads every colour it paints from the renderer
+    // mirror: the paper it clears to, the concrete and graphite its clay and
+    // motor greys mix, the signal accent of the target and the active
+    // motor, and the error token of the dashed gap when a target is out of
+    // reach. tests/unit/playground-stage-look.test.ts compares the resolved
+    // values with app/globals.css and explainers.css.
+    for (const token of ['paper', 'concrete', 'graphite', 'signal', 'error']) {
+      expect(playgroundLook).toContain(`BRAND_COLORS.${token}`);
     }
   });
 

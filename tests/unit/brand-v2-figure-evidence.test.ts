@@ -30,6 +30,8 @@ import {
   type MaterialRow,
 } from '@/lib/brand-v2-image-record';
 import type { ApprovedDelta } from '@/lib/brand-v2-baseline';
+import { IMAGES } from '@/data/images';
+import { WITHHELD_MARKS } from '@/lib/market-map-marks';
 
 /**
  * The figure lane's own gate (VAL-B2-ART-004/005/006, VAL-B2-IMG-001 to 008,
@@ -152,6 +154,18 @@ describe('the committed figure sweep', () => {
     // record a member the wider population does not hold.
     expect(schematics.every((id) => all.includes(id))).toBe(true);
     expect(new Set(all).size).toBe(all.length);
+  });
+});
+
+describe('the figures /credits/ is expected to render', () => {
+  it('are every registered image except a withheld company mark, as the page draws them', () => {
+    const credits = expectedFigureGraph(ROOT).get('/credits/') ?? [];
+    const withheld = Object.keys(WITHHELD_MARKS);
+    expect(withheld.length).toBeGreaterThan(0);
+    for (const id of withheld) expect(credits, id).not.toContain(id);
+    expect([...credits].sort()).toEqual(
+      IMAGES.map(({ id }) => id).filter((id) => !withheld.includes(id)).sort(),
+    );
   });
 });
 

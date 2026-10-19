@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "61b7032b1082b1fb642e2beaf3c6eb5da335994305e139e92c93ee4524cc9a7d",
+  "fingerprint": "65f0f843176df87c850574b791c6ee205b60ce6594e60d77bec8ac735de062cd",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1488,7 +1488,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -9673,48 +9673,6 @@
           "labelContrast": null
         },
         {
-          "imageId": "nimble-robotics-logo",
-          "index": 0,
-          "figureKind": "official-mark",
-          "src": "/images/logos/nimble-robotics.svg",
-          "alt": "Nimble company mark from the official website",
-          "declaredWidth": "583",
-          "declaredHeight": "125",
-          "loading": "lazy",
-          "naturalWidth": 777,
-          "naturalHeight": 167,
-          "complete": true,
-          "renderedWidth": 287,
-          "renderedHeight": 90,
-          "overflowPx": 0,
-          "caption": "Nimble logo from the official website, used on the market map.",
-          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "captionContrast": 5.11,
-          "credit": "Logo: Nimble / Nimble official website. Licence: Unlicensed.",
-          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "creditContrast": 5.11,
-          "creditLinks": [
-            {
-              "href": "https://nimble.ai/",
-              "text": "Nimble official website"
-            },
-            {
-              "href": "https://nimble.ai/",
-              "text": "Unlicensed"
-            }
-          ],
-          "surfaceId": null,
-          "surfaceBackground": null,
-          "surfaceLuminance": null,
-          "surfaceBorderWidth": 0,
-          "surfaceBorderStyle": null,
-          "surroundLuminance": null,
-          "boundaryContrast": 0,
-          "label": null,
-          "labelFontFamily": null,
-          "labelContrast": null
-        },
-        {
           "imageId": "locus-robotics-logo",
           "index": 0,
           "figureKind": "official-mark",
@@ -9952,48 +9910,6 @@
             },
             {
               "href": "https://carbonrobotics.com/",
-              "text": "Unlicensed"
-            }
-          ],
-          "surfaceId": null,
-          "surfaceBackground": null,
-          "surfaceLuminance": null,
-          "surfaceBorderWidth": 0,
-          "surfaceBorderStyle": null,
-          "surroundLuminance": null,
-          "boundaryContrast": 0,
-          "label": null,
-          "labelFontFamily": null,
-          "labelContrast": null
-        },
-        {
-          "imageId": "farm-ng-logo",
-          "index": 0,
-          "figureKind": "official-mark",
-          "src": "/images/logos/farm-ng.svg",
-          "alt": "Farm-ng company mark from the official website",
-          "declaredWidth": "168",
-          "declaredHeight": "39",
-          "loading": "lazy",
-          "naturalWidth": 168,
-          "naturalHeight": 39,
-          "complete": true,
-          "renderedWidth": 287,
-          "renderedHeight": 90,
-          "overflowPx": 0,
-          "caption": "Farm-ng logo from the official website, used on the market map.",
-          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "captionContrast": 5.11,
-          "credit": "Logo: Bonsai Robotics / Bonsai Robotics official website. Licence: Unlicensed.",
-          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "creditContrast": 5.11,
-          "creditLinks": [
-            {
-              "href": "https://bonsairobotics.ai/",
-              "text": "Bonsai Robotics official website"
-            },
-            {
-              "href": "https://bonsairobotics.ai/",
               "text": "Unlicensed"
             }
           ],
@@ -10750,48 +10666,6 @@
             },
             {
               "href": "https://xelarobotics.com/",
-              "text": "Unlicensed"
-            }
-          ],
-          "surfaceId": null,
-          "surfaceBackground": null,
-          "surfaceLuminance": null,
-          "surfaceBorderWidth": 0,
-          "surfaceBorderStyle": null,
-          "surroundLuminance": null,
-          "boundaryContrast": 0,
-          "label": null,
-          "labelFontFamily": null,
-          "labelContrast": null
-        },
-        {
-          "imageId": "assured-robot-intelligence-logo",
-          "index": 0,
-          "figureKind": "official-mark",
-          "src": "/images/logos/assured-robot-intelligence.png",
-          "alt": "Assured Robot Intelligence company mark from the official website",
-          "declaredWidth": "512",
-          "declaredHeight": "512",
-          "loading": "lazy",
-          "naturalWidth": 512,
-          "naturalHeight": 512,
-          "complete": true,
-          "renderedWidth": 90,
-          "renderedHeight": 90,
-          "overflowPx": 0,
-          "caption": "Assured Robot Intelligence logo from the official website, used on the market map.",
-          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "captionContrast": 5.11,
-          "credit": "Logo: Assured Robot Intelligence / Assured Robot Intelligence official website. Licence: Unlicensed.",
-          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "creditContrast": 5.11,
-          "creditLinks": [
-            {
-              "href": "https://ari.bot/",
-              "text": "Assured Robot Intelligence official website"
-            },
-            {
-              "href": "https://ari.bot/",
               "text": "Unlicensed"
             }
           ],
@@ -17996,7 +17870,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 57325,
+      "visibleTextLength": 56799,
       "figures": [
         {
           "imageId": "atlas-darpa-frontview-2013",
@@ -26181,48 +26055,6 @@
           "labelContrast": null
         },
         {
-          "imageId": "nimble-robotics-logo",
-          "index": 0,
-          "figureKind": "official-mark",
-          "src": "/images/logos/nimble-robotics.svg",
-          "alt": "Nimble company mark from the official website",
-          "declaredWidth": "583",
-          "declaredHeight": "125",
-          "loading": "lazy",
-          "naturalWidth": 777,
-          "naturalHeight": 167,
-          "complete": true,
-          "renderedWidth": 419.75,
-          "renderedHeight": 90,
-          "overflowPx": 0,
-          "caption": "Nimble logo from the official website, used on the market map.",
-          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "captionContrast": 5.11,
-          "credit": "Logo: Nimble / Nimble official website. Licence: Unlicensed.",
-          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "creditContrast": 5.11,
-          "creditLinks": [
-            {
-              "href": "https://nimble.ai/",
-              "text": "Nimble official website"
-            },
-            {
-              "href": "https://nimble.ai/",
-              "text": "Unlicensed"
-            }
-          ],
-          "surfaceId": null,
-          "surfaceBackground": null,
-          "surfaceLuminance": null,
-          "surfaceBorderWidth": 0,
-          "surfaceBorderStyle": null,
-          "surroundLuminance": null,
-          "boundaryContrast": 0,
-          "label": null,
-          "labelFontFamily": null,
-          "labelContrast": null
-        },
-        {
           "imageId": "locus-robotics-logo",
           "index": 0,
           "figureKind": "official-mark",
@@ -26460,48 +26292,6 @@
             },
             {
               "href": "https://carbonrobotics.com/",
-              "text": "Unlicensed"
-            }
-          ],
-          "surfaceId": null,
-          "surfaceBackground": null,
-          "surfaceLuminance": null,
-          "surfaceBorderWidth": 0,
-          "surfaceBorderStyle": null,
-          "surroundLuminance": null,
-          "boundaryContrast": 0,
-          "label": null,
-          "labelFontFamily": null,
-          "labelContrast": null
-        },
-        {
-          "imageId": "farm-ng-logo",
-          "index": 0,
-          "figureKind": "official-mark",
-          "src": "/images/logos/farm-ng.svg",
-          "alt": "Farm-ng company mark from the official website",
-          "declaredWidth": "168",
-          "declaredHeight": "39",
-          "loading": "lazy",
-          "naturalWidth": 168,
-          "naturalHeight": 39,
-          "complete": true,
-          "renderedWidth": 387.69,
-          "renderedHeight": 90,
-          "overflowPx": 0,
-          "caption": "Farm-ng logo from the official website, used on the market map.",
-          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "captionContrast": 5.11,
-          "credit": "Logo: Bonsai Robotics / Bonsai Robotics official website. Licence: Unlicensed.",
-          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "creditContrast": 5.11,
-          "creditLinks": [
-            {
-              "href": "https://bonsairobotics.ai/",
-              "text": "Bonsai Robotics official website"
-            },
-            {
-              "href": "https://bonsairobotics.ai/",
               "text": "Unlicensed"
             }
           ],
@@ -27258,48 +27048,6 @@
             },
             {
               "href": "https://xelarobotics.com/",
-              "text": "Unlicensed"
-            }
-          ],
-          "surfaceId": null,
-          "surfaceBackground": null,
-          "surfaceLuminance": null,
-          "surfaceBorderWidth": 0,
-          "surfaceBorderStyle": null,
-          "surroundLuminance": null,
-          "boundaryContrast": 0,
-          "label": null,
-          "labelFontFamily": null,
-          "labelContrast": null
-        },
-        {
-          "imageId": "assured-robot-intelligence-logo",
-          "index": 0,
-          "figureKind": "official-mark",
-          "src": "/images/logos/assured-robot-intelligence.png",
-          "alt": "Assured Robot Intelligence company mark from the official website",
-          "declaredWidth": "512",
-          "declaredHeight": "512",
-          "loading": "lazy",
-          "naturalWidth": 512,
-          "naturalHeight": 512,
-          "complete": true,
-          "renderedWidth": 90,
-          "renderedHeight": 90,
-          "overflowPx": 0,
-          "caption": "Assured Robot Intelligence logo from the official website, used on the market map.",
-          "captionFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "captionContrast": 5.11,
-          "credit": "Logo: Assured Robot Intelligence / Assured Robot Intelligence official website. Licence: Unlicensed.",
-          "creditFontFamily": "Geist, \"Geist Fallback\", Arial, Helvetica, sans-serif",
-          "creditContrast": 5.11,
-          "creditLinks": [
-            {
-              "href": "https://ari.bot/",
-              "text": "Assured Robot Intelligence official website"
-            },
-            {
-              "href": "https://ari.bot/",
               "text": "Unlicensed"
             }
           ],

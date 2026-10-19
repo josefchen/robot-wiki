@@ -19,12 +19,15 @@ export function HowRobotsWork() {
   useEffect(() => {
     let stop: (() => void) | null = null;
     let cancelled = false;
-    void import('./viewer').then(({ startExplainers }) =>
-      startExplainers(root.current!).then((dispose) => {
+    void import('./viewer').then(({ startExplainers }) => {
+      // Unmounted, or cleaned up by StrictMode, before the viewer loaded: the ref may be gone and a
+      // started viewer would ask for a second WebGL context, so start none.
+      if (cancelled) return;
+      return startExplainers(root.current!).then((dispose) => {
         if (cancelled) dispose();
         else stop = dispose;
-      }),
-    );
+      });
+    });
     return () => {
       cancelled = true;
       stop?.();

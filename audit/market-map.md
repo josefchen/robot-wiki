@@ -1034,3 +1034,72 @@ was last read.
 | Record | Field | Old URL (live 2026-10-15: 308 then 404) | New URL | Note |
 |---|---|---|---|---|
 | mentee-robotics | sources[3] | https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/ | https://web.archive.org/web/20250724144907/https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/ | edited in research/04-market-map-companies.json, data/companies.ts regenerated with `npm run generate:companies`; no value, status or count moves |
+
+## Market-map redesign: source dates, unknown values and the logo policy (2026-10-19)
+
+Owner request of 2026-10-19: "start the market map and playground". The page
+now shows the 111 companies as a map of tiles in the six segments, and one
+company at a time in a detail view. No record, value, status, source or count
+moves: `data/companies.ts`, `data/logos.ts`, `data/logo-images.ts` and
+`public/images/logos` are unchanged. What changed is how the records are read
+and drawn.
+
+**Round dates.** A record's latest-round figures are now dated by the source
+the round itself cites (`latestRound.sourceUrl`, `lib/market-map.ts`
+`roundSource`), the same source the timeline already cited. The old card
+printed `sources[0].asOf` beside them. The two differ for two records:
+
+| Record | `sources[0].asOf` (old label) | Round source `asOf` (now) | Round source |
+|---|---|---|---|
+| tars-robotics | 2026-08-18 | 2026-08-25 | Pandaily, "TARS Raises $455M Pre-A Round" |
+| nimble-robotics | 2026-08-18 | 2026-08-24 | Nimble, "Nimble Closes $106 Million Series C at $1B Valuation" |
+
+Five more records (unitree-robotics, spirit-ai, limx-dynamics,
+carbon-robotics, standard-bots) cite a round source other than `sources[0]`
+with the same date, so only the cited title changed.
+
+**Unknown values.** Unchanged in meaning and now pinned on every surface: a
+figure no fetched source states reads "not disclosed" and is never drawn at
+zero (a map tile leaves its figure blank and says so to a screen reader; the
+bubble chart and the timeline plot leave such records off the axis, the
+timeline on a separate "Undisclosed" lane); an empty list or missing website
+reads "n/a". A tile shows the status of a company that is no longer private
+(Acquired, Public, IPO, Shut down) instead of a round amount, so an
+acquisition is never read as current funding.
+
+**Logo policy.** Every mark keeps the one logo tile (plate, 3 px padding, the
+registered threshold). Two rendering changes, no file edited:
+
+- *Placement by artwork.* `scripts/measure-logo-marks.ts` drew every file in
+  Chromium and recorded the box of every pixel with any opacity
+  (`lib/market-map-marks.ts`, keyed to each file's SHA-256, checked by
+  `tests/unit/market-map-marks.test.ts`). 44 files carry fully transparent
+  margin outside that box; the tile is sized to the box, so only empty margin
+  falls outside it and no artwork pixel is cut. The square Boston Dynamics
+  file holds its wordmark in the middle 24% of its height, which drew it
+  7.1 px high in the old tile; it now fills its plate at 11.1 px. Files
+  with their own opaque background are placed whole, as before.
+- *Legible size.* Each mark gets about the same area within a 10 to 16 px
+  height range. Apptronik's 12:1 wordmark drew 7.4 px high in the old fixed
+  96 x 36 tile; it now draws 10.8 px.
+
+**Withheld marks (gaps to fix in the data).** Three registered files do not
+show the company's own mark. They are withheld by file hash
+(`WITHHELD_MARKS`): no page draws the file. The map shows the name as text,
+the detail view says why no logo is shown, and /credits, which credits what
+the site shows, leaves the three out. The registry entries stay because the
+data is locked; each needs a correct official mark with recorded provenance,
+after which the withholding must be removed (the unit test fails once the
+file changes).
+
+| Logo id | What the file shows | Checked |
+|---|---|---|
+| nimble-robotics-logo | The "Lisa Says Gah" wordmark, another company's | 2026-10-19 |
+| assured-robot-intelligence-logo | "TD.", the icon of the domain-sale page now at ari.bot (page title "Ari.bot – Domain Showcase – TopDomains") | 2026-10-19, ari.bot fetched |
+| farm-ng-logo | The Bonsai Robotics wordmark; farm-ng.com now redirects to bonsairobotics.ai | 2026-10-19, farm-ng.com fetched |
+
+Follow-ups for the dataset, not made here because the records are locked: the
+assured-robot-intelligence `website` (https://ari.bot) now serves a domain-sale
+page; farm-ng.com redirects to Bonsai Robotics, so the Farm-ng record's status
+needs a sourced review; the Harmonic Drive Systems and Wonik Robotics marks are
+their group companies' marks ("Harmonic Drive AG", "WONIK Corporation USA").

@@ -75,6 +75,11 @@ export const CONFIDENCE_LEVELS = ['high', 'medium', 'low'] as const;
 
 export interface MarketMapFilters {
   segment: MarketMapSegment | null;
+  /**
+   * Free-text name search (the `q` param), trimmed. Matches a company's
+   * name or any of its other names, case-insensitively.
+   */
+  query: string | null;
   subSegment: string | null;
   country: string | null;
   status: StatusFilter | null;
@@ -85,6 +90,7 @@ export interface MarketMapFilters {
 
 export const DEFAULT_MARKET_MAP_FILTERS: MarketMapFilters = {
   segment: null,
+  query: null,
   subSegment: null,
   country: null,
   status: null,
@@ -146,6 +152,7 @@ export function defaultMarketMapFilters(): MarketMapFilters {
 export function hasActiveFilters(filters: MarketMapFilters): boolean {
   return (
     filters.segment !== null ||
+    filters.query !== null ||
     filters.subSegment !== null ||
     filters.country !== null ||
     filters.status !== null ||
@@ -198,8 +205,41 @@ export function companyStatusLabel(company: Company): string {
   return 'Private';
 }
 
+/** Longest search text the URL keeps; anything longer is cut, not refused. */
+export const MARKET_MAP_QUERY_MAX = 60;
+
+function searchable(value: string): string {
+  return value
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+/**
+ * Name search: every word of the query must start a word of the company's
+ * name or of one of its other names, so "robo" finds "Rainbow Robotics"
+ * and "dyn" finds "Boston Dynamics" without "ai" matching every name that
+ * merely contains the letters.
+ */
+export function matchesQuery(company: Company, query: string): boolean {
+  const terms = searchable(query).split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  if (terms.length === 0) return true;
+  const words = [company.name, ...company.aka].flatMap((name) =>
+    searchable(name).split(/[^\p{L}\p{N}]+/u).filter(Boolean),
+  );
+  const joined = [company.name, ...company.aka].map(searchable);
+  return terms.every(
+    (term) =>
+      words.some((word) => word.startsWith(term)) ||
+      // A query typed with its own spacing ("deepmind", "1x") still finds
+      // the name it spells.
+      joined.some((name) => name.replace(/[^\p{L}\p{N}]+/gu, '').startsWith(term)),
+  );
+}
+
 function matchesFilters(company: Company, filters: MarketMapFilters): boolean {
   if (filters.segment && company.segment !== filters.segment) return false;
+  if (filters.query && !matchesQuery(company, filters.query)) return false;
   if (filters.subSegment && company.subSegment !== filters.subSegment) {
     return false;
   }
@@ -290,6 +330,13 @@ function isOpenSource(value: string): value is OpenSourceFilter {
   return value === 'yes' || value === 'no';
 }
 
+/** The query as the URL keeps it: trimmed, inner spaces collapsed, capped. */
+export function normalizeQuery(raw: string | null | undefined): string | null {
+  if (raw == null) return null;
+  const text = raw.replace(/\s+/g, ' ').trim().slice(0, MARKET_MAP_QUERY_MAX).trim();
+  return text === '' ? null : text;
+}
+
 export function parseMarketMapSearch(
   search: string,
   companies: readonly Company[],
@@ -301,6 +348,8 @@ export function parseMarketMapSearch(
 
   const segment = params.get('segment');
   if (segment && isSegment(segment)) filters.segment = segment;
+
+  filters.query = normalizeQuery(params.get('q'));
 
   // subSegment, country, and approach name values drawn from the dataset
   // rather than fixed enums, so they are validated against it: a
@@ -355,6 +404,10 @@ export function relaxFiltersForCompany(
       filters.segment !== null && company.segment === filters.segment
         ? filters.segment
         : null,
+    query:
+      filters.query !== null && matchesQuery(company, filters.query)
+        ? filters.query
+        : null,
     subSegment:
       filters.subSegment !== null &&
       company.subSegment === filters.subSegment
@@ -397,6 +450,7 @@ export function serializeMarketMapSearch(
   const params = new URLSearchParams();
   const { filters, view } = parsed;
   if (filters.segment) params.set('segment', filters.segment);
+  if (filters.query) params.set('q', filters.query);
   if (filters.subSegment) params.set('subSegment', filters.subSegment);
   if (filters.country) params.set('country', filters.country);
   if (filters.status) params.set('status', filters.status);
@@ -451,6 +505,68 @@ export function formatShortDate(iso: string): string {
   return `${dayNumber} ${MONTH_SHORT[monthIndex]} ${year}`;
 }
 
+/**
+ * The source a company's latest-round figures rest on: the round's own
+ * pointer when it names one of the company's sources, otherwise the first
+ * source. sources[] is append-ordered provenance, so after an audit appends
+ * a corrected source the first entry can describe a superseded round; the
+ * pointer is the truth whenever it is set (data/schemas/company.ts). Its
+ * asOf is the date the round's figures were last read, which is the date
+ * a reader should see next to them.
+ */
+export function roundSource(company: Company): Company['sources'][number] | null {
+  const pointer = company.latestRound?.sourceUrl;
+  if (pointer) {
+    const linked = company.sources.find((candidate) => candidate.url === pointer);
+    if (linked) return linked;
+  }
+  return company.sources[0] ?? null;
+}
+
+/**
+ * The name a map tile shows: the registry name without the parenthetical
+ * division or product line ("Google DeepMind (Robotics)" is listed under
+ * Google DeepMind). The full name stays in the tile's accessible name and
+ * in the detail view.
+ */
+export function companyShortName(name: string): string {
+  const short = name.replace(/\s*\([^)]*\)/g, '').replace(/\s+/g, ' ').trim();
+  return short === '' ? name : short;
+}
+
+export type TileFact =
+  | { kind: 'status'; text: string; label: string }
+  | { kind: 'round'; text: string; label: string }
+  | { kind: 'none'; text: ''; label: string };
+
+/**
+ * The one quiet fact a map tile carries. A company that is no longer
+ * private shows that status (listed, acquired, shut down), because a round
+ * amount next to an acquired company would read as current funding. A
+ * private company shows the amount of its latest disclosed round. Nothing
+ * else is ever shown: an undisclosed amount leaves the slot empty instead of
+ * printing a zero, and the label (read by screen readers) says so.
+ */
+export function tileFact(company: Company): TileFact {
+  const status = companyStatusLabel(company);
+  if (status !== 'Private') {
+    // "Acquired (bankruptcy)" keeps its qualifier in the label and the
+    // detail view; the tile has room for the status word alone.
+    const text = status.replace(/\s*\(.*\)$/, '');
+    return { kind: 'status', text, label: status.toLowerCase() };
+  }
+  const amount = company.latestRound?.amountUsd ?? null;
+  if (amount !== null) {
+    const round = company.latestRound?.type;
+    return {
+      kind: 'round',
+      text: formatUsd(amount),
+      label: `latest round ${formatUsd(amount)}${round ? `, ${round}` : ''}`,
+    };
+  }
+  return { kind: 'none', text: '', label: `latest round amount ${unknownFigure()}` };
+}
+
 export function timelineEvents(
   companies: readonly Company[],
 ): TimelineEvent[] {
@@ -459,11 +575,7 @@ export function timelineEvents(
     const round = company.latestRound;
     if (!round?.date) continue;
     if (round.date < '2023-01-01' || round.date > '2026-12-31') continue;
-    const source = round.sourceUrl
-      ? (company.sources.find(
-          (candidate) => candidate.url === round.sourceUrl,
-        ) ?? company.sources[0])
-      : company.sources[0];
+    const source = roundSource(company);
     if (!source) continue;
     events.push({
       id: `${company.id}-${round.date}`,
@@ -624,4 +736,120 @@ export function formatSubSegment(value: string): string {
 
 export function formatApproach(value: string): string {
   return value.replace(/-/g, ' ');
+}
+
+/** One column of the wide map: one segment across `span` grid tracks, or a stack. */
+export interface MapColumn {
+  /** Indexes into the segment list, top to bottom. */
+  segments: number[];
+  /** Grid tracks the column spans; a stack of segments always takes one. */
+  span: number;
+}
+
+/** A segment heading's height, in tile rows. */
+const MAP_HEADER_ROWS = 1;
+
+/**
+ * Lays the visible segments out as the columns of the wide map, in their
+ * order, over exactly `tracks` grid tracks, so the tallest column is as
+ * short as possible. A segment can take several tracks (its tiles then run
+ * that many abreast), and neighbouring segments can share one track as a
+ * stack. With all six segments over seven tracks: humanoids and vertical
+ * applications take two each, and simulation/tooling sits above components,
+ * so no column is deeper than 20 rows where one column per segment would
+ * run humanoids 34 deep. Ties go to fewer stacks, then to the more even
+ * layout. Segments with no visible company are skipped.
+ */
+export function planMapColumns(counts: readonly number[], tracks: number): MapColumn[] {
+  const visible = counts.flatMap((count, index) => (count > 0 ? [index] : []));
+  if (visible.length === 0 || tracks < 1) return [];
+  type Plan = { columns: MapColumn[]; tallest: number; stacks: number; spread: number };
+  const memo = new Map<string, Plan | null>();
+  const height = (column: MapColumn) =>
+    column.segments.length > 1
+      ? column.segments.reduce((sum, index) => sum + counts[index] + MAP_HEADER_ROWS, 0)
+      : Math.ceil(counts[column.segments[0]] / column.span) + MAP_HEADER_ROWS;
+  const better = (a: Plan, b: Plan | null) =>
+    !b ||
+    a.tallest < b.tallest ||
+    (a.tallest === b.tallest &&
+      (a.stacks < b.stacks || (a.stacks === b.stacks && a.spread < b.spread)));
+  function plan(from: number, left: number): Plan | null {
+    if (from === visible.length) return left === 0 ? { columns: [], tallest: 0, stacks: 0, spread: 0 } : null;
+    if (left <= 0) return null;
+    const key = `${from}:${left}`;
+    if (memo.has(key)) return memo.get(key)!;
+    let best: Plan | null = null;
+    const consider = (column: MapColumn, rest: Plan | null) => {
+      if (!rest) return;
+      const h = height(column);
+      const candidate: Plan = {
+        columns: [column, ...rest.columns],
+        tallest: Math.max(h, rest.tallest),
+        stacks: rest.stacks + (column.segments.length > 1 ? 1 : 0),
+        spread: rest.spread + h * h,
+      };
+      if (better(candidate, best)) best = candidate;
+    };
+    for (let span = 1; span <= left; span += 1) {
+      consider({ segments: [visible[from]], span }, plan(from + 1, left - span));
+    }
+    for (let end = from + 2; end <= visible.length; end += 1) {
+      consider({ segments: visible.slice(from, end), span: 1 }, plan(end, left - 1));
+    }
+    memo.set(key, best);
+    return best;
+  }
+  // Fewer segments than tracks never strands a track: spans absorb them.
+  return plan(0, tracks)?.columns ?? visible.map((index) => ({ segments: [index], span: 1 }));
+}
+
+export const MAP_ARROW_KEYS = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'] as const;
+
+export type MapArrowKey = (typeof MAP_ARROW_KEYS)[number];
+
+export function isMapArrowKey(key: string): key is MapArrowKey {
+  return (MAP_ARROW_KEYS as readonly string[]).includes(key);
+}
+
+/** A map tile's identity and on-screen box, in reading order. */
+export interface MapTileBox {
+  id: string;
+  left: number;
+  top: number;
+  width: number;
+  height: number;
+}
+
+/**
+ * Roving movement over the map's tiles, which form one tab stop. Left and
+ * Right step through the tiles in reading order (segment by segment, row by
+ * row inside a segment) and wrap at the ends, like a list. Up and Down stay
+ * in the column under the focused tile and stop at its ends, so they never
+ * jump sideways into another segment. Home and End go to the first and last
+ * tile. Unknown ids return the current id.
+ */
+export function stepTile(
+  tiles: readonly MapTileBox[],
+  currentId: string,
+  key: MapArrowKey,
+): string {
+  const index = tiles.findIndex((tile) => tile.id === currentId);
+  if (index === -1 || tiles.length === 0) return currentId;
+  if (key === 'Home') return tiles[0].id;
+  if (key === 'End') return tiles[tiles.length - 1].id;
+  if (key === 'ArrowRight') return tiles[(index + 1) % tiles.length].id;
+  if (key === 'ArrowLeft') return tiles[(index - 1 + tiles.length) % tiles.length].id;
+  const current = tiles[index];
+  const centre = current.left + current.width / 2;
+  const below = key === 'ArrowDown';
+  const sameColumn = tiles.filter(
+    (tile) =>
+      tile.id !== current.id &&
+      Math.abs(tile.left + tile.width / 2 - centre) < current.width / 2 &&
+      (below ? tile.top > current.top + 1 : tile.top < current.top - 1),
+  );
+  if (sameColumn.length === 0) return currentId;
+  sameColumn.sort((a, b) => (below ? a.top - b.top : b.top - a.top));
+  return sameColumn[0].id;
 }

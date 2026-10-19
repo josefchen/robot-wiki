@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { IMAGES } from '@/data/images';
 import { publishedModules } from '@/data/modules';
+import { WITHHELD_MARKS } from '@/lib/market-map-marks';
 import {
   DISCOVERY_ANCHORS,
   DISCOVERY_ROUTES,
@@ -135,6 +137,9 @@ describe('index-rows evidence', () => {
       publishedModules().length + expectedGlossaryIds().length,
     );
     expect(counts['/glossary/']).toBe(expectedGlossaryIds().length);
+    // A withheld company mark is drawn nowhere and has no credits row.
+    expect(Object.keys(WITHHELD_MARKS).length).toBeGreaterThan(0);
+    expect(counts['/credits/']).toBe(IMAGES.length - Object.keys(WITHHELD_MARKS).length);
   });
 
   it('fails the members its predicates exist to catch, and only those', () => {

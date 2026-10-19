@@ -5860,13 +5860,11 @@
       "viewportId": "375px",
       "heads": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ],
       "headsOutsideMath": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ]
     },
     {
@@ -5874,13 +5872,11 @@
       "viewportId": "768px",
       "heads": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ],
       "headsOutsideMath": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ]
     },
     {
@@ -5888,13 +5884,11 @@
       "viewportId": "1024px",
       "heads": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ],
       "headsOutsideMath": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ]
     },
     {
@@ -5902,13 +5896,11 @@
       "viewportId": "1440px",
       "heads": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ],
       "headsOutsideMath": [
         "DM Sans",
-        "Geist",
-        "Geist Mono"
+        "Geist"
       ]
     },
     {

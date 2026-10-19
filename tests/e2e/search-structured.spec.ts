@@ -83,7 +83,7 @@ test.describe('structured search on the static export', () => {
     await expect(structured.getByText(/^method$/i).first()).toBeVisible();
   });
 
-  test('clicking a company result lands on that card (VAL-SEARCH-006)', async ({
+  test('clicking a company result lands on that company (VAL-SEARCH-006)', async ({
     page,
   }) => {
     await page.goto(`${BASE}/search`);
@@ -94,9 +94,13 @@ test.describe('structured search on the static export', () => {
       .getByRole('link', { name: /^Figure AI/ })
       .click();
     await expect(page).toHaveURL(/\/market-map\/#company-figure-ai/);
+    // The company's tile is on the map and marked, and its details are open.
     const card = page.locator('[data-company-id="figure-ai"]');
     await expect(card).toBeVisible();
-    await expect(card.getByRole('heading', { name: 'Figure AI' })).toBeVisible();
+    await expect(card.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
+    await expect(
+      page.getByRole('dialog', { name: 'Figure AI' }).getByRole('heading', { name: 'Figure AI' }),
+    ).toBeVisible();
   });
 
   test('clicking a method result lands on that row (VAL-SEARCH-006)', async ({

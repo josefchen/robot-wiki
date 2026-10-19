@@ -1,9 +1,36 @@
 import { fireEvent, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { afterEach, describe, expect, it } from 'vitest';
+import { useState } from 'react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { COMPANIES } from '@/data/companies';
 import { bubblePoints } from '@/lib/market-map';
 import { BubbleView } from '@/components/market-map/bubble-view';
+
+/**
+ * The chart is controlled: the open company is the URL hash, owned by
+ * MarketMap. This harness stands in for it, toggling like MarketMap does
+ * (choosing the open company again closes it).
+ */
+function Chart({ initial = null }: { initial?: string | null }) {
+  const [selectedId, setSelectedId] = useState<string | null>(initial);
+  return (
+    <BubbleView
+      companies={COMPANIES}
+      selectedId={selectedId}
+      onSelect={(id) => setSelectedId((current) => (current === id ? null : id))}
+    />
+  );
+}
+
+function selectedOnChart() {
+  return document.querySelector('svg[role="group"]')?.getAttribute('data-bubble-selected') ?? null;
+}
+
+function inkOf(id: string) {
+  return document
+    .querySelector(`circle[data-company-id="${id}"]`)
+    ?.parentElement?.querySelector('[data-mark-ink]');
+}
 
 afterEach(() => {
   window.history.replaceState(null, '', '/');
@@ -27,10 +54,6 @@ function labelEl() {
   return document.querySelector('[data-bubble-label]');
 }
 
-function detailEl() {
-  return document.querySelector('[data-bubble-detail]');
-}
-
 function bubblePointsById() {
   return new Map(bubblePoints(COMPANIES).map((point) => [point.id, point]));
 }
@@ -38,7 +61,7 @@ function bubblePointsById() {
 describe('BubbleView hover, focus, and roving keyboard access', () => {
   it('reveals name and plotted value on hover and clears on leave', async () => {
     const user = userEvent.setup();
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     const figure = mark('figure-ai');
     await user.hover(figure);
     const label = labelEl();
@@ -50,7 +73,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
   }, TIMEOUT);
 
   it('reveals the same label on keyboard focus (hover/focus parity)', () => {
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     // Focus a mark directly: focus reveal must not depend on the tab order.
     fireEvent.focus(mark('physical-intelligence'));
     const label = labelEl();
@@ -63,7 +86,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
 
   it('marks the chart a single tab stop with a roving tabindex', () => {
     const points = bubblePointsById();
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     const focusable = COMPANIES.filter((company) =>
       points.has(company.id),
     ).map((company) => mark(company.id));
@@ -102,7 +125,7 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
   it('moves between marks spatially with the arrow keys', async () => {
     const user = userEvent.setup();
     const points = bubblePointsById();
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     await user.tab();
     const active = () => document.activeElement?.getAttribute('data-company-id');
     expect(typeof active()).toBe('string');
@@ -125,27 +148,49 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
   }, TIMEOUT);
 
   it('keeps Enter and Space selection working (VAL-MKT-023 regression)', () => {
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     const figure = mark('figure-ai');
     // jsdom has no focus management, so key events are dispatched on the
     // mark itself; e2e proves the real keyboard path.
     fireEvent.keyDown(figure, { key: 'Enter' });
-    expect(detailEl()).not.toBeNull();
-    expect(detailEl()).toHaveTextContent('Figure AI');
-    expect(detailEl()).toHaveTextContent('$39B');
+    expect(selectedOnChart()).toBe('figure-ai');
+    expect(figure.getAttribute('aria-expanded')).toBe('true');
+    expect(figure.getAttribute('aria-controls')).toBe('market-map-company');
+    expect(inkOf('figure-ai')!.getAttribute('class')).toContain('fill-accent');
     fireEvent.keyDown(figure, { key: 'Enter' });
-    expect(detailEl()).toBeNull();
+    expect(selectedOnChart()).toBeNull();
+    expect(figure.getAttribute('aria-expanded')).toBe('false');
 
     const pi = mark('physical-intelligence');
     fireEvent.keyDown(pi, { key: ' ' });
-    expect(detailEl()).not.toBeNull();
-    expect(detailEl()).toHaveTextContent('Physical Intelligence');
+    expect(selectedOnChart()).toBe('physical-intelligence');
+  }, TIMEOUT);
+
+  it('hands the opening mark to the selection callback', () => {
+    const onSelect = vi.fn();
+    render(<BubbleView companies={COMPANIES} selectedId={null} onSelect={onSelect} />);
+    fireEvent.click(mark('skild-ai'));
+    expect(onSelect).toHaveBeenCalledWith('skild-ai', mark('skild-ai'));
+  }, TIMEOUT);
+
+  it('draws a valuation filled and a total raised open, and says how many of each', () => {
+    render(<Chart />);
+    const inks = Array.from(document.querySelectorAll('[data-mark-ink]'));
+    const filled = inks.filter((el) => el.getAttribute('data-mark-kind') === 'valuation');
+    const open = inks.filter((el) => el.getAttribute('data-mark-kind') === 'totalRaised');
+    expect(filled.length + open.length).toBe(28);
+    expect(open.length).toBeGreaterThan(0);
+    expect(filled.every((el) => el.getAttribute('class') === 'fill-graphite')).toBe(true);
+    expect(open.every((el) => el.getAttribute('class') === 'fill-paper stroke-graphite')).toBe(true);
+    expect(document.querySelector('figcaption')).toHaveTextContent(
+      `28 of 111 companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
+    );
   }, TIMEOUT);
 });
 
 describe('BubbleView deep-link highlight parity', () => {
-  it('treats the hashed company as selected: accent mark plus detail panel', () => {
-    render(<BubbleView companies={COMPANIES} highlightedId="figure-ai" />);
+  it('marks the open company: accent mark and its label', () => {
+    render(<Chart initial="figure-ai" />);
     const figure = mark('figure-ai');
     // The same treatment a click produces: the selected mark's decorative
     // dot grows to r=6 and takes the accent fill. The control circle
@@ -155,10 +200,9 @@ describe('BubbleView deep-link highlight parity', () => {
     expect(figureInk).not.toBeNull();
     expect(figureInk!.getAttribute('class')).toContain('fill-accent');
     expect(figureInk!.getAttribute('r')).toBe('6');
-    const detail = detailEl();
-    expect(detail).not.toBeNull();
-    expect(detail).toHaveTextContent('Figure AI');
-    expect(detail).toHaveTextContent('$39B');
+    // With nothing hovered or focused, the label names the open company.
+    expect(labelEl()).toHaveTextContent('Figure AI');
+    expect(labelEl()).toHaveTextContent('$39B');
     // Other marks are not highlighted.
     const piInk = mark('physical-intelligence').parentElement?.querySelector(
       '[data-mark-ink]',
@@ -166,21 +210,21 @@ describe('BubbleView deep-link highlight parity', () => {
     expect(piInk!.getAttribute('class')).not.toContain('fill-accent');
   }, TIMEOUT);
 
-  it('keeps a manual selection after the highlight changes', () => {
+  it('puts the tab stop on the open company and follows a new selection', () => {
     const { rerender } = render(
-      <BubbleView companies={COMPANIES} highlightedId="figure-ai" />,
+      <BubbleView companies={COMPANIES} selectedId="figure-ai" onSelect={() => {}} />,
     );
-    rerender(<BubbleView companies={COMPANIES} highlightedId={null} />);
-    // The user selected Figure AI via the deep link; removing the hash id
-    // must not silently deselect it.
-    expect(detailEl()).not.toBeNull();
-    expect(detailEl()).toHaveTextContent('Figure AI');
+    expect(mark('figure-ai').tabIndex).toBe(0);
+    rerender(<BubbleView companies={COMPANIES} selectedId="skild-ai" onSelect={() => {}} />);
+    expect(selectedOnChart()).toBe('skild-ai');
+    expect(mark('skild-ai').tabIndex).toBe(0);
+    expect(mark('figure-ai').tabIndex).toBe(-1);
   }, TIMEOUT);
 
   it('keeps exactly one tab stop when the hash names an unplotted company', () => {
     // Covariant has no disclosed valuation or total raised, so it is
     // never plotted; the hash must not strand the chart with no tab stop.
-    render(<BubbleView companies={COMPANIES} highlightedId="covariant" />);
+    render(<Chart initial="covariant" />);
     const tabbable = COMPANIES.filter(
       (company) => company.id !== 'covariant',
     )
@@ -191,7 +235,7 @@ describe('BubbleView deep-link highlight parity', () => {
   }, TIMEOUT);
 
   it('exposes the selected mark id on the chart root (plotted deep link)', () => {
-    render(<BubbleView companies={COMPANIES} highlightedId="figure-ai" />);
+    render(<Chart initial="figure-ai" />);
     const svg = document.querySelector('svg[role="group"]');
     expect(svg).not.toBeNull();
     expect(svg!.getAttribute('data-bubble-selected')).toBe('figure-ai');
@@ -201,13 +245,12 @@ describe('BubbleView deep-link highlight parity', () => {
     // A hash naming an unplotted company (covariant: no disclosed
     // valuation or total raised) must not leave an inert selectedId
     // pointing at a mark that does not exist. No attribute on the chart
-    // root, no detail panel, and the roving fallback keeps exactly one
-    // tab stop.
-    render(<BubbleView companies={COMPANIES} highlightedId="covariant" />);
+    // root, no label, and the roving fallback keeps exactly one tab stop.
+    render(<Chart initial="covariant" />);
     const svg = document.querySelector('svg[role="group"]');
     expect(svg).not.toBeNull();
     expect(svg!.getAttribute('data-bubble-selected')).toBeNull();
-    expect(detailEl()).toBeNull();
+    expect(labelEl()).toBeNull();
     expect(
       document.querySelectorAll('circle[data-company-id][tabindex="0"]'),
     ).toHaveLength(1);
@@ -216,7 +259,7 @@ describe('BubbleView deep-link highlight parity', () => {
 
 describe('BubbleView focus ring', () => {
   it('renders an explicit focus ring element around the focused mark', () => {
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     const figure = mark('figure-ai');
     fireEvent.focus(figure);
     const svg = document.querySelector('svg[role="group"]');
@@ -228,7 +271,7 @@ describe('BubbleView focus ring', () => {
   }, TIMEOUT);
 
   it('keeps the aria-label contract of the marks unchanged', () => {
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     const figure = mark('figure-ai');
     expect(figure.getAttribute('role')).toBe('button');
     expect(figure.getAttribute('aria-label')).toBe(
@@ -237,7 +280,7 @@ describe('BubbleView focus ring', () => {
   }, TIMEOUT);
 
   it('keeps the last-focused mark as the tab stop after blur (roving tabindex)', () => {
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     // physical-intelligence is the first plotted mark, so it holds the
     // tab stop before any interaction. Arrow right moves focus to a
     // different mark; blurring the chart must keep the stop there
@@ -259,7 +302,7 @@ describe('BubbleView focus ring', () => {
   }, TIMEOUT);
 
   it('renders the focus ring outside the clip group so extreme marks are never clipped', () => {
-    render(<BubbleView companies={COMPANIES} />);
+    render(<Chart />);
     const svg = document.querySelector('svg[role="group"]');
     expect(svg).not.toBeNull();
     fireEvent.focus(mark('figure-ai'));

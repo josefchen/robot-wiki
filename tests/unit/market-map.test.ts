@@ -6,14 +6,22 @@ import {
   MARKET_MAP_AS_OF,
   SEGMENT_ORDER,
   bubblePoints,
+  companyShortName,
   countryOptions,
   filterCompanies,
   formatShortDate,
   formatUsd,
   hasActiveFilters,
   companyInitials,
+  matchesQuery,
+  normalizeQuery,
   parseMarketMapSearch,
+  planMapColumns,
   relaxFiltersForCompany,
+  roundSource,
+  stepTile,
+  tileFact,
+  type MapTileBox,
   serializeMarketMapSearch,
   subSegmentOptions,
   timelineEvents,
@@ -479,5 +487,168 @@ describe('companyInitials', () => {
     expect(companyInitials('Tesla (Optimus)')).toBe('TE');
     expect(companyInitials('Hugging Face (LeRobot)')).toBe('HF');
     expect(companyInitials('Google DeepMind (Robotics)')).toBe('GD');
+  });
+});
+
+describe('name search (the q param)', () => {
+  const byId = (id: string) => COMPANIES.find((company) => company.id === id)!;
+
+  it('matches word starts of the name and other names, case- and accent-blind', () => {
+    expect(matchesQuery(byId('boston-dynamics'), 'dyn')).toBe(true);
+    expect(matchesQuery(byId('boston-dynamics'), 'Boston DYN')).toBe(true);
+    expect(matchesQuery(byId('google-deepmind-robotics'), 'deepmind')).toBe(true);
+    expect(matchesQuery(byId('figure-ai'), 'figureai')).toBe(true);
+    // Other names count: Unitree is also listed as Yushu Technology, and
+    // Physical Intelligence as Pi and π.
+    expect(matchesQuery(byId('unitree-robotics'), 'yushu')).toBe(true);
+    expect(matchesQuery(byId('physical-intelligence'), 'π')).toBe(true);
+    // Letters inside a word do not match: "ai" is not a word start of
+    // "Physical Intelligence".
+    expect(matchesQuery(byId('physical-intelligence'), 'ai')).toBe(false);
+    expect(matchesQuery(byId('figure-ai'), 'gure')).toBe(false);
+  });
+
+  it('filters the population and intersects with the other filters', () => {
+    expect(filterCompanies(COMPANIES, filters({ query: 'dyn' })).map((c) => c.id)).toEqual([
+      'dyna-robotics',
+      'boston-dynamics',
+      'limx-dynamics',
+    ]);
+    expect(filterCompanies(COMPANIES, filters({ query: 'zzz' }))).toHaveLength(0);
+    const humanoidsRo = filterCompanies(COMPANIES, filters({ segment: 'humanoids', query: 'ro' }));
+    expect(humanoidsRo).toHaveLength(18);
+    expect(humanoidsRo.every((company) => company.segment === 'humanoids')).toBe(true);
+    expect(hasActiveFilters(filters({ query: 'ro' }))).toBe(true);
+  });
+
+  it('round-trips through the URL as q, normalized, and drops an empty one', () => {
+    const parsed = parseMarketMapSearch('?segment=humanoids&q=%20%20Boston%20%20dyn%20', COMPANIES);
+    expect(parsed.filters).toEqual(filters({ segment: 'humanoids', query: 'Boston dyn' }));
+    expect(serializeMarketMapSearch(parsed)).toBe('segment=humanoids&q=Boston+dyn');
+    expect(parseMarketMapSearch('?q=%20%20', COMPANIES).filters).toEqual(DEFAULT_MARKET_MAP_FILTERS);
+    expect(normalizeQuery('x'.repeat(200))).toHaveLength(60);
+    expect(normalizeQuery(null)).toBeNull();
+  });
+
+  it('is relaxed like any filter when a named company fails it', () => {
+    const figure = byId('figure-ai');
+    expect(relaxFiltersForCompany(filters({ query: 'fig', country: 'CN' }), figure)).toEqual(
+      filters({ query: 'fig' }),
+    );
+    expect(relaxFiltersForCompany(filters({ query: 'agility' }), figure)).toEqual(
+      DEFAULT_MARKET_MAP_FILTERS,
+    );
+  });
+});
+
+describe('round source and tile facts', () => {
+  const byId = (id: string) => COMPANIES.find((company) => company.id === id)!;
+
+  it('dates round figures by the round\'s own source, not the first source', () => {
+    // The audit appended corrected sources without reordering sources[];
+    // the round pointer names the one its figures were read from, and that
+    // source's asOf is the date shown next to them.
+    const tars = byId('tars-robotics');
+    expect(tars.sources[0].asOf).toBe('2026-08-18');
+    expect(roundSource(tars)).toMatchObject({ asOf: '2026-08-25' });
+    expect(roundSource(tars)?.title).toContain('TARS Raises $455M Pre-A Round');
+    const nimble = byId('nimble-robotics');
+    expect(roundSource(nimble)).toMatchObject({
+      url: nimble.latestRound?.sourceUrl,
+      asOf: '2026-08-24',
+    });
+    // Without a pointer the first source stands.
+    const covariant = byId('covariant');
+    expect(covariant.latestRound?.sourceUrl).toBeUndefined();
+    expect(roundSource(covariant)).toBe(covariant.sources[0]);
+    // The timeline cites the same source.
+    const events = Object.fromEntries(timelineEvents(COMPANIES).map((e) => [e.companyId, e]));
+    expect(events['tars-robotics'].asOf).toBe('2026-08-25');
+  });
+
+  it('shows status for a company no longer private, else the latest disclosed amount', () => {
+    expect(tileFact(byId('figure-ai'))).toEqual({
+      kind: 'round',
+      text: '$1B',
+      label: 'latest round $1B, Series C',
+    });
+    expect(tileFact(byId('unitree-robotics'))).toMatchObject({ kind: 'status', text: 'IPO' });
+    expect(tileFact(byId('covariant'))).toMatchObject({ kind: 'status', text: 'Acquired' });
+    expect(tileFact(byId('k-scale-labs'))).toMatchObject({ kind: 'status', text: 'Shut down' });
+    // An undisclosed amount leaves the tile blank and says so to a screen
+    // reader; it is never printed as zero.
+    const blank = COMPANIES.map(tileFact).filter((fact) => fact.kind === 'none');
+    expect(blank.length).toBeGreaterThan(0);
+    expect(blank.every((fact) => fact.text === '' && fact.label.endsWith(unknownFigure()))).toBe(true);
+    expect(COMPANIES.map(tileFact).some((fact) => /\$0\b/.test(fact.text))).toBe(false);
+    // Every tile carries exactly one of the three.
+    const kinds = COMPANIES.map((company) => tileFact(company).kind);
+    expect(kinds.filter((kind) => kind === 'round').length + kinds.filter((kind) => kind === 'status').length + blank.length).toBe(111);
+  });
+
+  it('drops the parenthetical division from tile names', () => {
+    expect(companyShortName('Google DeepMind (Robotics)')).toBe('Google DeepMind');
+    expect(companyShortName('Zebra Technologies (Robotics Automation)')).toBe('Zebra Technologies');
+    expect(companyShortName('Figure AI')).toBe('Figure AI');
+  });
+});
+
+describe('map layout', () => {
+  it('lays all six segments over seven tracks with no column deeper than 20 rows', () => {
+    const counts = SEGMENT_ORDER.map(
+      (segment) => COMPANIES.filter((company) => company.segment === segment).length,
+    );
+    const columns = planMapColumns(counts, 7);
+    expect(columns).toEqual([
+      { segments: [0], span: 1 },
+      { segments: [1], span: 2 },
+      { segments: [2], span: 1 },
+      { segments: [3], span: 2 },
+      { segments: [4, 5], span: 1 },
+    ]);
+    // Exactly the seven tracks, every segment once, in order.
+    expect(columns.reduce((sum, column) => sum + column.span, 0)).toBe(7);
+    expect(columns.flatMap((column) => column.segments)).toEqual([0, 1, 2, 3, 4, 5]);
+  });
+
+  it('gives a lone segment every track and skips empty segments', () => {
+    expect(planMapColumns([0, 34, 0, 0, 0, 0], 7)).toEqual([{ segments: [1], span: 7 }]);
+    const columns = planMapColumns([3, 6, 0, 5, 0, 2], 7);
+    expect(columns.flatMap((column) => column.segments)).toEqual([0, 1, 3, 5]);
+    expect(columns.reduce((sum, column) => sum + column.span, 0)).toBe(7);
+    expect(planMapColumns([0, 0, 0, 0, 0, 0], 7)).toEqual([]);
+  });
+});
+
+describe('stepTile', () => {
+  // Two columns of two tiles, then a third column of one, in reading order.
+  const tiles: MapTileBox[] = [
+    { id: 'a', left: 0, top: 0, width: 100, height: 40 },
+    { id: 'b', left: 120, top: 0, width: 100, height: 40 },
+    { id: 'c', left: 0, top: 50, width: 100, height: 40 },
+    { id: 'd', left: 120, top: 50, width: 100, height: 40 },
+    { id: 'e', left: 240, top: 0, width: 100, height: 40 },
+  ];
+
+  it('steps through reading order with Left and Right, wrapping', () => {
+    expect(stepTile(tiles, 'a', 'ArrowRight')).toBe('b');
+    expect(stepTile(tiles, 'd', 'ArrowRight')).toBe('e');
+    expect(stepTile(tiles, 'e', 'ArrowRight')).toBe('a');
+    expect(stepTile(tiles, 'a', 'ArrowLeft')).toBe('e');
+  });
+
+  it('keeps Up and Down in the column and stops at its ends', () => {
+    expect(stepTile(tiles, 'a', 'ArrowDown')).toBe('c');
+    expect(stepTile(tiles, 'b', 'ArrowDown')).toBe('d');
+    expect(stepTile(tiles, 'd', 'ArrowUp')).toBe('b');
+    expect(stepTile(tiles, 'c', 'ArrowDown')).toBe('c');
+    // Nothing under e in its own column: no sideways jump.
+    expect(stepTile(tiles, 'e', 'ArrowDown')).toBe('e');
+  });
+
+  it('jumps to the ends with Home and End and ignores unknown ids', () => {
+    expect(stepTile(tiles, 'c', 'Home')).toBe('a');
+    expect(stepTile(tiles, 'c', 'End')).toBe('e');
+    expect(stepTile(tiles, 'zz', 'ArrowDown')).toBe('zz');
   });
 });

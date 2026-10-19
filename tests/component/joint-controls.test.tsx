@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { JointControls } from '@/components/three/joint-controls';
+import { SO101_JOINT_LABELS } from '@/components/three/joint-labels';
 import type { JointControl } from '@/components/three/use-playground-kinematics';
 
 const JOINTS: JointControl[] = [
@@ -14,7 +15,7 @@ function zeroAngles() {
 }
 
 describe('JointControls', () => {
-  it('renders exactly one labeled slider per joint with degree readouts', () => {
+  it('renders exactly one slider per joint, named in plain words, with its value', () => {
     render(
       <JointControls
         joints={JOINTS}
@@ -25,11 +26,18 @@ describe('JointControls', () => {
     );
     for (const joint of JOINTS) {
       const slider = screen.getByTestId(`joint-slider-${joint.name}`);
-      expect(slider).toHaveAccessibleName(new RegExp(joint.name));
+      expect(slider).toHaveAccessibleName(SO101_JOINT_LABELS[joint.name].name);
       expect(slider).toHaveAttribute('type', 'range');
+      expect(slider).toHaveAttribute('aria-valuetext', '0 degrees');
+      // Slider min/max are the joint's limits, in degrees.
+      expect(Number(slider.getAttribute('min'))).toBeCloseTo((joint.lower * 180) / Math.PI, 6);
+      expect(Number(slider.getAttribute('max'))).toBeCloseTo((joint.upper * 180) / Math.PI, 6);
       const readout = screen.getByTestId(`joint-readout-${joint.name}`);
-      expect(readout).toHaveTextContent('0.0°');
+      expect(readout).toHaveTextContent('0°');
     }
+    expect(screen.getByRole('slider', { name: 'Base turn' })).toBeInTheDocument();
+    expect(screen.getByRole('slider', { name: 'Shoulder' })).toBeInTheDocument();
+    expect(screen.getByRole('slider', { name: 'Elbow' })).toBeInTheDocument();
     expect(screen.getAllByRole('slider')).toHaveLength(3);
   });
 
@@ -65,12 +73,61 @@ describe('JointControls', () => {
         onReset={() => {}}
       />,
     );
-    expect(screen.getByTestId('joint-readout-shoulder_pan')).toHaveTextContent(
-      '+90.0°',
+    expect(screen.getByTestId('joint-readout-shoulder_pan')).toHaveTextContent('90°');
+    expect(screen.getByTestId('joint-readout-shoulder_lift')).toHaveTextContent('−29°');
+    expect(screen.getByTestId('joint-slider-shoulder_lift')).toHaveAttribute(
+      'aria-valuetext',
+      '-29 degrees',
     );
-    expect(screen.getByTestId('joint-readout-shoulder_lift')).toHaveTextContent(
-      '-28.6°',
+    expect(Number((screen.getByTestId('joint-slider-shoulder_pan') as HTMLInputElement).value)).toBeCloseTo(90, 6);
+  });
+
+  it('reads the gripper as how far it is open', () => {
+    render(
+      <JointControls
+        joints={[{ name: 'gripper', lower: -0.174533, upper: 1.74533 }]}
+        angles={{ gripper: 1.74533 * 0.4 }}
+        onChange={() => {}}
+        onReset={() => {}}
+      />,
     );
+    const slider = screen.getByRole('slider', { name: 'Gripper open' });
+    expect(slider).toHaveAttribute('aria-valuetext', '40 percent open');
+    expect(screen.getByTestId('joint-readout-gripper')).toHaveTextContent('40%');
+  });
+
+  it('marks the joint being worked and reports it, by pointer and by focus', () => {
+    const onActiveJoint = vi.fn();
+    const { rerender } = render(
+      <JointControls
+        joints={JOINTS}
+        angles={zeroAngles()}
+        onChange={() => {}}
+        onReset={() => {}}
+        onActiveJoint={onActiveJoint}
+      />,
+    );
+    const slider = screen.getByTestId('joint-slider-elbow_flex');
+    fireEvent.focus(slider);
+    expect(onActiveJoint).toHaveBeenLastCalledWith('elbow_flex');
+    fireEvent.blur(slider);
+    expect(onActiveJoint).toHaveBeenLastCalledWith(null);
+    fireEvent.pointerEnter(slider.closest('li')!);
+    expect(onActiveJoint).toHaveBeenLastCalledWith('elbow_flex');
+
+    rerender(
+      <JointControls
+        joints={JOINTS}
+        angles={zeroAngles()}
+        onChange={() => {}}
+        onReset={() => {}}
+        activeJoint="elbow_flex"
+        onActiveJoint={onActiveJoint}
+      />,
+    );
+    // A non-colour marker: the row carries data-active (bold label and a square).
+    expect(slider.closest('li')).toHaveAttribute('data-active');
+    expect(screen.getByTestId('joint-slider-shoulder_pan').closest('li')).not.toHaveAttribute('data-active');
   });
 
   it('exposes a reset control', () => {

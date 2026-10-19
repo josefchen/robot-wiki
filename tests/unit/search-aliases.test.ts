@@ -134,11 +134,22 @@ describe('aliases are search-only (VAL-SEARCH-020c)', () => {
     }
     // company-card.tsx is the one rendering surface that legitimately shows
     // aliases: the market map presented Company.aka before this change, and
-    // VAL-SEARCH-020(c) exempts what a route already presented.
+    // VAL-SEARCH-020(c) exempts what a route already presented. The market
+    // map's own name search (lib/market-map.ts, 2026-10-19) is a second
+    // search reader: it matches a typed name against the aliases and never
+    // prints them, which the next check holds it to.
     expect(readers.sort()).toEqual([
       'components/market-map/company-card.tsx',
+      'lib/market-map.ts',
       'lib/structured-search.ts',
     ]);
+    const marketMap = await readFile(join('lib', 'market-map.ts'), 'utf8');
+    const matcher = /export function matchesQuery\([^)]*\): boolean \{[\s\S]*?\n\}\n/.exec(marketMap)?.[0] ?? '';
+    expect(matcher).not.toBe('');
+    // Every alias read in that module sits inside the matcher, which
+    // returns a boolean: no alias text can leave it.
+    expect(marketMap.match(/\.aka\b/g)?.length).toBe(matcher.match(/\.aka\b/g)?.length);
+    expect(marketMap).not.toMatch(/['"`]aka['"`]/);
   });
 });
 

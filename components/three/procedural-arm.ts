@@ -10,18 +10,22 @@ import {
 // the fallback from the real classes keeps its API identical to a loaded
 // URDFRobot: .joints, .links, setJointValue(name, angle), joint limits.
 import { URDFJoint, URDFLink, URDFRobot } from 'urdf-loader/src/URDFClasses.js';
+import { PLAYGROUND_COLORS, STAGE_LIGHTS, srgbColor } from './stage-look';
 
-// Matches the baked SO-101 GLB materials: amber 3D-printed shell, dark servos.
+// Named like the SO-101 URDF's two materials, so the stage look paints the
+// fallback the same way: clay printed parts, grey motors.
 const SHELL_MATERIAL = new MeshStandardMaterial({
-  color: 0xffd11f,
-  roughness: 0.65,
-  metalness: 0.05,
+  color: srgbColor(PLAYGROUND_COLORS.clay),
+  roughness: STAGE_LIGHTS.material.roughness,
+  metalness: STAGE_LIGHTS.material.metalness,
 });
+SHELL_MATERIAL.name = '3d_printed';
 const SERVO_MATERIAL = new MeshStandardMaterial({
-  color: 0x1a1a1a,
-  roughness: 0.5,
-  metalness: 0.2,
+  color: srgbColor(PLAYGROUND_COLORS.dark),
+  roughness: STAGE_LIGHTS.material.roughness,
+  metalness: STAGE_LIGHTS.material.metalness,
 });
+SERVO_MATERIAL.name = 'sts3215';
 
 function makeJoint(
   name: string,

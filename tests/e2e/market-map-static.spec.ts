@@ -8,8 +8,8 @@ import {
 
 /**
  * Static-export contract for /market-map (VAL-MKT-001, VAL-MKT-007, VAL-MKT-021).
- * Filtering, view switching, and card expand must work on the shipped
- * artifact with no runtime data fetch.
+ * Filtering, view switching, and the company details must work on the
+ * shipped artifact with no runtime data fetch.
  */
 
 const OUT = join(process.cwd(), 'out');
@@ -30,7 +30,7 @@ test.afterAll(async () => {
   await server?.stop();
 });
 
-test('static export prerenders 111 cards and filters client-side (VAL-MKT-001, VAL-MKT-021)', async ({
+test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, VAL-MKT-021)', async ({
   page,
 }) => {
   const apiRequests: string[] = [];
@@ -41,15 +41,22 @@ test('static export prerenders 111 cards and filters client-side (VAL-MKT-001, V
     }
   });
 
+  // The served HTML already holds every tile, before any script runs.
+  const html = await (await page.request.get(`${BASE}/market-map/`)).text();
+  expect(html.match(/data-map-tile="/g)).toHaveLength(111);
+
   await page.goto(`${BASE}/market-map/`);
   await expect(page.getByText('111 of 111 companies')).toBeVisible();
-  await expect(page.locator('article[data-company-id]')).toHaveCount(111);
+  await expect(page.locator('button[data-map-tile]')).toHaveCount(111);
 
-  await page.locator('#filter-segment').selectOption('humanoids');
+  await page
+    .getByRole('group', { name: 'Segment' })
+    .getByRole('button', { name: /^Humanoids/ })
+    .click();
   await expect(page.getByText('34 of 111 companies')).toBeVisible();
-  // 34 cards for the 34-row humanoids segment (the duplicate
+  // 34 tiles for the 34-row humanoids segment (the duplicate
   // galaxea-ai-robot removal took the segment 35 -> 34).
-  await expect(page.locator('article[data-company-id]')).toHaveCount(34);
+  await expect(page.locator('button[data-map-tile]')).toHaveCount(34);
   expect(page.url()).toContain('segment=humanoids');
 
   await page.getByRole('button', { name: 'Timeline' }).click();
@@ -58,8 +65,8 @@ test('static export prerenders 111 cards and filters client-side (VAL-MKT-001, V
   await page.getByRole('button', { name: 'Grid' }).click();
   await page.getByRole('button', { name: 'Clear filters' }).click();
   await expect(page.getByText('111 of 111 companies')).toBeVisible();
-  const pi = page.locator('article[data-company-id="physical-intelligence"]');
-  await pi.getByRole('button', { name: 'Expand' }).click();
+  await page.locator('button[data-map-tile="physical-intelligence"]').click();
+  const pi = page.getByRole('dialog', { name: 'Physical Intelligence' });
   await expect(pi.getByText('openpi')).toBeVisible();
 
   // VAL-MKT-021: no runtime data/API fetch. Next.js still prefetches
@@ -79,5 +86,5 @@ test('static export prerenders 111 cards and filters client-side (VAL-MKT-001, V
 test('deep links apply on the static export (VAL-MKT-007)', async ({ page }) => {
   await page.goto(`${BASE}/market-map/?segment=humanoids&country=US`);
   await expect(page.getByText('6 of 111 companies')).toBeVisible();
-  await expect(page.locator('article[data-company-id]')).toHaveCount(6);
+  await expect(page.locator('button[data-map-tile]')).toHaveCount(6);
 });
