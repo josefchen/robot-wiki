@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { closeCiteNote, citeParts, revealCiteNote } from './helpers/citation-note';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { openAdjustMore } from './helpers/figure-fold';
 
 const ROUTE = '/rl-sim2real/legged-locomotion/';
@@ -51,11 +52,16 @@ for (const width of [375, 1440]) {
     await expect(paragraph).not.toContainText('scaling the duty cycle with speed');
     const chip = paragraph.locator('[data-cite-id="park-2017-bounding"]');
     await expect(chip).toHaveCount(1);
-    await expect(chip.locator('a').first()).toHaveAttribute(
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip became a numbered sidenote whose number points at
+    // the References entry; the source link the chip carried is the note's
+    // author-year link (helpers/citation-note.ts).
+    const { mark, source } = citeParts(chip);
+    await expect(source).toHaveAttribute(
       'href',
       'https://journals.sagepub.com/doi/10.1177/0278364917694244',
     );
-    await chip.locator('a').first().scrollIntoViewIfNeeded();
+    await mark.scrollIntoViewIfNeeded();
     await page.screenshot({ path: `${process.env.DR_READER_OUT ?? 'test-results'}/park-timing-${process.env.DR_READER_RUN ?? 'test'}-${width}.png` });
   });
 }
@@ -75,12 +81,17 @@ test.describe('legged-locomotion module', () => {
       /beach sand at 3\.03/,
       /retargeted human motion/,
       /450M-parameter diffusion transformer/,
-      /MIT humanoid/,
+      // The article names the robot as its paper does: the MIT Humanoid.
+      /MIT Humanoid/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
+    // Owner-approved successor (Josef, 2026-10-10): the persistent sidebar
+    // is gone; the taxonomy and its current-route state live in the panel
+    // the top bar's "Articles" button opens (helpers/articles-panel.ts).
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Legged Locomotion Lineage' }),

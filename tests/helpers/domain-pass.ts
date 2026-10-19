@@ -351,6 +351,31 @@ export function anatomyManipB0420261015Endpoint(
   return edge.newHash;
 }
 
+/**
+ * Edges queue item 4q, polish-1019 (the owner session of 2026-10-19),
+ * appended as one block after the playground framing fix: two headline edges
+ * on figure sources, one edge on the playground scene and one prose edge on
+ * the perception article (its phone-only breaks before citation chips).
+ */
+export const isPolish1019Edge = (entry: Pick<ApprovedDelta, 'id'>) => entry.id.startsWith('polish-1019-');
+
+/**
+ * The hash polish-1019 leaves on a member whose chain ends at `from`: its one
+ * edge on the member must continue `from` as a plain edge; an untouched member
+ * stays at `from`.
+ */
+export function polish1019Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isPolish1019Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-19 polish-1019 edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from) throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  return edge.newHash;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

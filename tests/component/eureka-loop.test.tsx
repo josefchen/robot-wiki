@@ -10,12 +10,15 @@ const outcome = (container: HTMLElement) =>
   container.querySelector('[data-outcome]')?.getAttribute('data-outcome');
 
 describe('EurekaLoop', () => {
-  it('opens on round 1 with the robot, the plain-words round and the method behind it', () => {
+  it('opens on round 1 with the robot, the round in four short steps and the method behind it', () => {
     const { container } = render(<EurekaLoop />);
     expect(screen.getByTestId('round-readout').textContent).toBe('Round 1 of 3');
     expect(outcome(container)).toBe('falls');
-    expect(screen.getByTestId('eureka-rules').textContent).toBe('Points for speed, and nothing else.');
+    expect(screen.getByTestId('eureka-rules').textContent).toBe('Speed only');
     expect(screen.getByTestId('eureka-results').textContent).toContain('2.8 metres a second');
+    // The loop's score step: the task score of the round, the generation's own fitness.
+    expect(screen.getByTestId('eureka-score').textContent).toBe(`${EUREKA_GENERATIONS[0].fitness.toFixed(2)} of 1`);
+    expect(screen.getByTestId('eureka-note').textContent).toBe('Reward staying up, and make a fall cost points');
     expect(screen.getByTestId('generation-readout').textContent).toContain('Generation 0');
     expect(screen.getByTestId('eureka-code')).toBeInTheDocument();
     expect(screen.getByTestId('eureka-stats')).toBeInTheDocument();
@@ -94,6 +97,7 @@ describe('EurekaLoop', () => {
     expect(outcome(container)).toBe('walks');
     // The time at the target speed sits with the statistics in "How this was made".
     expect(screen.getByTestId('eureka-results').textContent).not.toContain('target speed');
+    expect(screen.getByTestId('eureka-score').textContent).toBe(`${EUREKA_GENERATIONS[2].fitness.toFixed(2)} of 1`);
     expect(screen.getByTestId('eureka-stats').textContent).toContain('time at target speed81%');
     // Unavailable at the last round but still focusable, so the last press keeps keyboard focus.
     expect(nextButton()).toHaveAttribute('aria-disabled', 'true');

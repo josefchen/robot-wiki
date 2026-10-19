@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176288, sha256: '56cf61d00f223c22721dbd997c6402694aea33f72555c9faa543232b666f898b' };
+const reviewPin = { bytes: 176288, sha256: 'cf13e0243bf239997324cab4d03ed2dcfb62398654324dd9e3f6d6196449e67b' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -183,7 +183,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/grasp-planning.mdx', [12638, '319462256bce91bc457ae3ce5a91bd36f7b8418244a4e0ea331438e4167cf00c']],
   ['content/classical/kinematics.mdx', [10771, 'ba9f8e122801d873d4b13b4ee118a6166a976a9420f84c485e614e04716c81f6']],
   ['content/classical/motion-planning.mdx', [18261, 'b9bf3ac50a85dbe34c942f6a7df3490ab044570e9e30a71ae4cd9cfeac65f3cc']],
-  ['content/classical/perception.mdx', [21933, '3f47f5ff52ace5772fa6edd3dda752423aeda591f8ef91a484e730e75f5001c9']],
+  ['content/classical/perception.mdx', [21653, '5377e9b86f325dcf85a1655d9fde3d05be3636fd9c3ac5e31fce1f364599ce82']],
   ['content/classical/ros2-for-ml-engineers.mdx', [8903, '676d1a3e723e9478440dba49b0e10f70bd4f37e5b68bea5d1c8daa2d6730a520']],
   ['content/classical/scene-representation.mdx', [16376, '6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc']],
   ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],

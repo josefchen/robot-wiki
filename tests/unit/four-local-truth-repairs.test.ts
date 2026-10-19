@@ -3,6 +3,7 @@ import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, pres
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import {
   classicalPassEndpoint, humanize20261012Endpoint, imagesA20261013Endpoint, kolQueue20261012Endpoint,
+  polish1019Endpoint,
 } from '../helpers/domain-pass';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
@@ -372,12 +373,14 @@ describe('four bounded local truth repairs without completion credit', { timeout
         expect(classicalPass.length).toBeLessThanOrEqual(1);
         if (classicalPass[0]) expect(classicalPass[0].oldHash).toBe(domainEndpoint);
         // The 2026-10-12 KOL triage batch may add one more edge after that,
-        // the 2026-10-12 humanize pass one more after it, and images bundle A
-        // of 2026-10-13 one more after that.
-        expect(imagesA20261013Endpoint(entries, 'prose', delta.memberId,
-          humanize20261012Endpoint(entries, 'prose', delta.memberId,
-            kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
-              classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint))))).toBe(memberHash(read(path)));
+        // the 2026-10-12 humanize pass one more after it, images bundle A of
+        // 2026-10-13 one more after that, and polish-1019 of 2026-10-19 one
+        // more after that.
+        expect(polish1019Endpoint(entries, 'prose', delta.memberId,
+          imagesA20261013Endpoint(entries, 'prose', delta.memberId,
+            humanize20261012Endpoint(entries, 'prose', delta.memberId,
+              kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
+                classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint)))))).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }

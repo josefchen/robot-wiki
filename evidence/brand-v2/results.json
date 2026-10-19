@@ -172280,7 +172280,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 3c491757f19964f5f8068c4a24ed3886bbb7504335539a961f0a42638cad81f1 exactly as approved delta images-a-20261013-prose-classical-perception permits: Images bundle A of 2026-10-13 (the manipulation, world-models, classical and rl-sim2real image batches, integrated on the length-cut articles), as one plain edge from the member's last approved endpoint (humanize-20261012-classical-prose-perception). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: realsense-d435-depth-camera after the lead paragraph and kinect-xbox-one-sensor in \"Depth sensing: what fails, and on what\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to f8b22d2a92e33b375f3744de072ee5e5c28cb65f042d5d074ee8ef9b6242ddb2 exactly as approved delta polish-1019-prose-article-classical-perception permits: Polish of 2026-10-19 (queue item 4q, polish-1019, built by the owner session), as one plain edge from the member's last approved endpoint (images-a-20261013-prose-classical-perception). The article had ten `<br className=\"lg:hidden\" />` breaks written directly before a citation chip (since 2026-09-09), so below 1024 px nine of those citation numbers stood alone at the start of a line at 390 px. Each break is removed and the chip is written after its word with one space, the corpus's form, which lib/rehype-cite-punctuation.mjs binds to the preceding word and its trailing punctuation. No prose, number, citation, link target, glossary id, frontmatter field, import or mount changes. The length-cut review (audit/evidence/length-cut-20261012/source-transition.json) records the break-free text as the article's successor bytes, and the image-mount review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds them from the live file by taking out exactly its two image mounts.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -172292,9 +172292,9 @@
           "manifest": "prose",
           "member": "article:classical/perception",
           "baselineHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
-          "currentHash": "3c491757f19964f5f8068c4a24ed3886bbb7504335539a961f0a42638cad81f1",
+          "currentHash": "f8b22d2a92e33b375f3744de072ee5e5c28cb65f042d5d074ee8ef9b6242ddb2",
           "status": "approved-delta",
-          "approvedDelta": "images-a-20261013-prose-classical-perception"
+          "approvedDelta": "polish-1019-prose-article-classical-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -189997,7 +189997,7 @@
           "authored": "#A52A1E",
           "marks": [
             {
-              "id": "components/interactive/eureka-loop.tsx#394:InstrumentFigure:error",
+              "id": "components/interactive/eureka-loop.tsx#382:InstrumentFigure:error",
               "element": "InstrumentFigure",
               "binding": "class-constant",
               "via": "DIFF_STYLE",
@@ -190009,7 +190009,7 @@
               ]
             },
             {
-              "id": "components/interactive/eureka-loop.tsx#508:span:error",
+              "id": "components/interactive/eureka-loop.tsx#496:span:error",
               "element": "span",
               "binding": "class-constant",
               "via": "DIFF_STYLE",
@@ -190057,7 +190057,7 @@
           "authored": "#1A6F45",
           "marks": [
             {
-              "id": "components/interactive/eureka-loop.tsx#394:InstrumentFigure:ok",
+              "id": "components/interactive/eureka-loop.tsx#382:InstrumentFigure:ok",
               "element": "InstrumentFigure",
               "binding": "class-constant",
               "via": "DIFF_STYLE",
@@ -190069,7 +190069,7 @@
               ]
             },
             {
-              "id": "components/interactive/eureka-loop.tsx#508:span:ok",
+              "id": "components/interactive/eureka-loop.tsx#496:span:ok",
               "element": "span",
               "binding": "class-constant",
               "via": "DIFF_STYLE",
@@ -199873,7 +199873,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6047 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6055 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -200534,7 +200534,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 76554 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 76534 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -202743,7 +202743,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 57270 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/reward-design-mpc/ rendered no v1 identity spelling and no v1 descriptor in 56946 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -352088,7 +352088,7 @@
               "id": "/rl-sim2real/reward-design-mpc/",
               "observed": {
                 "paragraphCount": 42,
-                "registeredFrameParagraphCount": 44,
+                "registeredFrameParagraphCount": 40,
                 "offendingFamilies": []
               }
             }
@@ -381249,7 +381249,7 @@
         "interactive:WmDisambiguator"
       ],
       "coverageKind": "population-wide",
-      "expected": "Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series.",
+      "expected": "The one muted accent (`#3B6EA8`) marks the lead active path/series or the one lit part of a figure and reaches a figure geometry only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); any other accent paint on a figure geometry fails, a retired signal blue (`#245FFF`, or `#245EDB` of `VAL-B2-RES-003`) appears on no figure geometry, links included, and selection is ink weight, never a colour fill or an unlabeled second series. (Owner decisions of 10 October 2026 and 19 October 2026; the brand-v2 row made signal blue the lead active path/series and lime the selection/highlight.)",
       "actual": "awaiting responsible rollout milestone",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.sources",
       "exceptionVerdict": "none",

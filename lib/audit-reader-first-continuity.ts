@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2698744, sha256: 'e4de67a5fb2af72b46c56cbe44dea7b24dc7c2dabfa57cd9064d082d20b5cb79' };
+const reviewPin = { bytes: 2724351, sha256: '6c170867520a43bf1b8eb190fac29c3504ee6290d2e2b0d92e5bfd0b962a67d5' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -58,7 +58,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/deployment-dashboard.tsx', [15636, '4915dc96bb7363b63528087612458a146e2900de999137db1e1e09325255d2c9']],
   ['components/interactive/deployment-economics.tsx', [24357, '84f2139b78c93a7bc292047dc8c6887c0f59912c82e6bf35477c43cdd6f24602']],
   ['components/interactive/egoscale-scaling.tsx', [27149, '479b378d3741841069f42d5b2769dbc483ed8cb1eb0e9499743641d6f0b58fe8']],
-  ['components/interactive/eureka-loop.tsx', [22378, 'f69358d571655bc001ff0394bce617a7d9b08ef8fc472e27f1b63938d4dc44ac']],
+  ['components/interactive/eureka-loop.tsx', [21905, '9d034c14f1866c094a1af0dfb4fa552163d534dcbb1f46b38caed23d34039451']],
   ['components/interactive/execution-modes.tsx', [21040, '3e15e6b4c94ad13665451b4890257146c65d5fb5056a3cbab1143106e9a18755']],
   ['components/interactive/expo-ft-results.tsx', [12226, '932dd331c03fc13d370797ca308bd4b94f90fc32e65746fdf8f56270abeefc6a']],
   ['components/interactive/flow-matching-trajectory.tsx', [25224, '249161838d7c7c606711664f1ac2e9533399cc44f273dc1631925cae89fe945a']],
@@ -117,7 +117,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/motion/scenes/kalman-predict-update.tsx', [23962, 'dc30bbc875832a9ebd62219356052d7e4335e1f51288191d59c37aafea41d7df']],
   ['components/motion/scenes/sense-avoid.tsx', [17530, '35401bd3937aba29a94966fda192f755324edec8776f1e5dbd6b52b0b23eb2e6']],
   ['components/motion/scenes/tactile-slip.tsx', [16435, 'b7dee782ece5274bf08d6aa466c9bff021c9b8d541f9861a03c60c8afbd21f1e']],
-  ['components/motion/stage.css', [15511, 'a5decb53f128ea393d09e2e13877bd0a55f37ac3060aba50ff1fa1960bd4ed2e']],
+  ['components/motion/stage.css', [16031, 'b0eb1ada96813ecda93a3101c50b93d9356f3c48bdccc133959e183424c20f1e']],
   ['components/ui/chart-description.tsx', [7860, 'e4b15bd32ef9dd83d63c4a05b593cab3c94d53bc049146f13ee93a545b5beb93']],
   ['components/ui/figure.tsx', [8156, '668bbbade6b4097cdaea3522ccc2b1de7ab712bf16fecfe5f922915588701535']],
   ['components/ui/instrument.tsx', [14528, 'e09cf2576c438c4b2ea45aca57034cab50c9c3e233f73d23a6bc5c1ef2586610']],
@@ -155,7 +155,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['lib/figure-system-check.ts', [13863, '841692b9d7c3513cef690188b1e7df639565b3b09164fc78acc154716f8cb2da']],
   ['lib/figure-system-paint.ts', [5408, 'aea5c837e3c35e6328fd0bb54840a5c2be63288219e538e5ade0d7d642192bc8']],
   ['lib/motion-tokens.ts', [4241, '5ba0b718d8260b189acc6c3f1f2a5c7d0ea1f466d5074adb2360c38ee0d6f846']],
-  ['library/design-system.md', [64037, '7c4cee14d76318a05b76bbc5698796fe4459e707bb797d83f354dbf3dfa666ec']],
+  ['library/design-system.md', [64312, '7bf93e0490d13de595078a6ad9b2920dde71c7e10d289716ef913b71621bd581']],
   ['motion-tokens.json', [4797, 'c5d58f5adc79d9dbd965a3b7cae308f21b26185a2be147e93738a743836ef583']],
   ['scripts/brand-v2-census.ts', [48819, 'b7e45b4400d0bafe77131c014821e60e7a625abdf89eaa76c4a16c2e61ad68ec']],
   ['scripts/brand-v2-enforcement.ts', [204068, '1711311dfea29daac713ac933b97215ed7bb5581b92d46ab58312a9a278ead04']],
@@ -172,7 +172,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/component/contact-geometry.test.tsx', [8336, '5722a594e2bb89fc804c8714f823ccfa7cd8c50099b206b8c01340a58607cc57']],
   ['tests/component/data-scale-chart.test.tsx', [8929, '226c4e5e053bf62161919b170ea24036f91ad01d4dc1ef452ff6f1a60b4bb688']],
   ['tests/component/egoscale-scaling.test.tsx', [9578, 'ab09fc12b101d882dcafa4a250e580c7bab03fec71663da59baf6cb1870f6bf1']],
-  ['tests/component/eureka-loop.test.tsx', [7249, 'da1716b9b58605277c2e7d325cd1c9a72734c4418df9ada3c1844f16246d0f43']],
+  ['tests/component/eureka-loop.test.tsx', [7669, '4cf9fddd104ee1471f16cb6e24297b6d72fe4fc2d6d5ded76a4315584a71a25e']],
   ['tests/component/figure-system-check.test.tsx', [8310, '9d7ef4bc81256981b3be21ce1719481b6a2fe834ddc55a3258e34002a82a46f2']],
   ['tests/component/friction-transfer.test.tsx', [8938, '36e371cd5087c4d956b9df3260474ae21df0079dde84beed950486a7bcfe15c5']],
   ['tests/component/hand-comparison.test.tsx', [10123, 'b9e57e72d9104930792df48851dee4161bb1b1a7f77102fdaa82cb155ec8ccf0']],
@@ -210,14 +210,14 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/evaluation-benchmark-readers.spec.ts', [12783, '37e2ec6263e97693ac45ae792e43c4d95f85262f91769866d4bcea205cd1eb42']],
   ['tests/e2e/evaluation-crisis.spec.ts', [11644, 'a58376a7e2a1ec4bc9ad32d3ad1c27f2482e29f086511f363608fa68d797b834']],
   ['tests/e2e/evaluation-statistics-originals.spec.ts', [14690, '0c06fa22c8a5bb1bd78c521237f58f036dec8711de1766276179b39b3c454d69']],
-  ['tests/e2e/figure-light-stage.spec.ts', [7354, 'd397dcd3f8401fbabd9ef30e0fc0291ba9a6a05726353c90b9c8e1d252e98433']],
+  ['tests/e2e/figure-light-stage.spec.ts', [11291, '78e8e774caf3946c76c57057ee0e99077acb0b51b9eb367df24f1d235a2dfaf4']],
   ['tests/e2e/final-seven-closure-evidence.spec.ts', [7904, '5ef9167e6772d7edc8273a148aa758593d8a4f754838e2ff553d4ee91fc0385c']],
   ['tests/e2e/generalization.spec.ts', [10493, '5013f229702cddf7b77a66149f1c901bfa935423036468ce3d52bae46ca447d7']],
   ['tests/e2e/generative-sim.spec.ts', [11083, '8d354604933c818d14e8f9c79ae044daa9621ff3cea412ab788f5ae321f9ad68']],
   ['tests/e2e/generative-video.spec.ts', [13277, '925f409f8c48d83f2e28ca6c3537bfe32febb4bd1d8d1402faada4d1e0d912ca']],
   ['tests/e2e/grasp-planning.spec.ts', [18927, '849bc7524782c660211c06576ae2ca9b4a68542178a867f6c5baff01c65f46e4']],
   ['tests/e2e/hardware-taxonomy.spec.ts', [8324, '5751695cc0d14c7505e430be1d5c819904dc11efe908f396361efd67924dab06']],
-  ['tests/e2e/helpers/figure-light-stage.ts', [9812, '01df856c192d4c742e2355936c7428537b35949cf2eabc8ece245f9d64d0161d']],
+  ['tests/e2e/helpers/figure-light-stage.ts', [12780, '45b77548e31f22bb089f740b72cf3b760a6c3b843fbec5762a511525d41fb4f1']],
   ['tests/e2e/humanoid-tracking-source-audit.spec.ts', [7610, '4b11b637ba3b540238bad3db72c8cfea986d0d9fbb112b63b8ab375017b3969e']],
   ['tests/e2e/imagery.spec.ts', [17727, 'fd651ca5e5ecd4eb91d261219d77e7d77683b1f2c704d02cc9d0922a464dd053']],
   ['tests/e2e/industrial-citation-refresh.spec.ts', [7938, '2f5e5c8b54561e7fd2b61faa6fed469e99c5e2d40e186f3f32cbce2c6a639a6e']],
@@ -229,7 +229,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/keyboard-only-navigation.spec.ts', [7487, '4e1739c438566529233ec54203df637fc0ba17341b43c75dddf8e56c35dfc752']],
   ['tests/e2e/kinematics.spec.ts', [23071, '84df12905b97d1d05413292c6e5ecc85fe96e5c871044cc996725d2a6d087008']],
   ['tests/e2e/latent-dynamics.spec.ts', [6987, '9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2']],
-  ['tests/e2e/legged-locomotion.spec.ts', [7769, 'a51f62c715f375401b90dfb7c0ea3c2ac80c7f71ee76b8a80ad5de183dd1f0b2']],
+  ['tests/e2e/legged-locomotion.spec.ts', [8446, '606c308142f369bc1824f9b1376d505e7f952c581946c67f2ec529fea511b698']],
   ['tests/e2e/market-map.spec.ts', [22524, '5657a32c761d996450d1a01f7aab1b181ec303a6a92be67e6bd8f0b4d2c0444f']],
   ['tests/e2e/motion-data-hardware.spec.ts', [9809, 'fca2c759ec055977bf434738ab6efcb49e6f1685bd2d661aba4ecbb88fc42e60']],
   ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [10322, 'bb0f752f75a3e77928a1078f1e8d90c672d6362d210b709c77f27068fed5a665']],
@@ -266,7 +266,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [33552, '01ed0e3b977509ab2d5d4d2bf1e333573b08b862af223a8a13cf24ac39bc2460']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [267610, 'ca255ab885943c8f4ccdcf13219d619cdd8354bea32f39cb2594c4567c4a49d4']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [279593, 'cfe4f7084b5922f6252e8f29a79bd1ce0ca4e3dc98cbed860fb7f1c9df7d6189']],
   ['tests/unit/motion-data-hardware.test.ts', [11831, 'a440e874d11c87a0c6657331f72be47dacc2e432aaf680f4a1956896369f741a']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],

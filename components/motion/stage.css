@@ -541,3 +541,16 @@ details[data-figure-fold='method']:not([open])::details-content {
 .figure-action.figure-action-primary {
   color: var(--ink);
 }
+
+/*
+ * A clip keeps the browser's own controls (VAL-MOTION-018), drawn on the
+ * light stage like the figure's other quiet controls. Chromium paints its
+ * control strip as a dark gradient band with white glyphs across the
+ * bottom of the clip, the one dark surface on the page's light stage; here
+ * the band goes and the glyphs turn ink. Other engines keep their own.
+ */
+[data-motion-clip-stage] video::-webkit-media-controls-panel {
+  background-image: none;
+  background-color: transparent;
+  filter: invert(1);
+}

@@ -265,11 +265,13 @@ Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): selected facets move fro
 
 ## 11. Visualizations and interactives
 
+Owner decision of 19 October 2026 (owner session, queue item polish-1019), on the research-page standard of 10 October 2026 (`PANTHEON-SPEC.md`: one muted blue accent, `#3B6EA8`, for the one highlighted series of a figure, which is the runtime signal token of `VAL-B2-COL-002`) and the isometric figure directive of 12 October 2026 (each isometric figure has one lit part): the brand-v2 rule that kept the bright signal blue off figure marks moves to the accent. `VAL-B2-VIZ-003` below moved at the same strength or stronger, and the light-stage sweep (`tests/e2e/figure-light-stage.spec.ts`) enforces it on every figure at 375 and 1440 px, with planted marks that prove each clause fails.
+
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-VIZ-001` | Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description. |
 | `VAL-B2-VIZ-002` | Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position. |
-| `VAL-B2-VIZ-003` | Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series. |
+| `VAL-B2-VIZ-003` | The one muted accent (`#3B6EA8`) marks the lead active path/series or the one lit part of a figure and reaches a figure geometry only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); any other accent paint on a figure geometry fails, a retired signal blue (`#245FFF`, or `#245EDB` of `VAL-B2-RES-003`) appears on no figure geometry, links included, and selection is ink weight, never a colour fill or an unlabeled second series. (Owner decisions of 10 October 2026 and 19 October 2026; the brand-v2 row made signal blue the lead active path/series and lime the selection/highlight.) |
 | `VAL-B2-VIZ-004` | Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone. |
 | `VAL-B2-VIZ-005` | Source values remain source-backed and unknowns remain explicitly unknown. |
 | `VAL-B2-VIZ-006` | Every schematic labels itself and every generated/non-source signal labels its generative status. |

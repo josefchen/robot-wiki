@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "04270b60a6c3ce763a5446eca29b0f65ce077a453b613f32ac7d7f910320c2f5",
+  "fingerprint": "630a1e999015c57ed3ed83b1f3d348eb5097803457b637ab93c7bfdec545367e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2777,7 +2777,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 33358,
+      "visibleTextLength": 33348,
       "tables": [],
       "equations": [
         {
@@ -7304,7 +7304,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24603,
       "tables": [
         {
           "index": 0,
@@ -10762,7 +10762,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 43196,
+      "visibleTextLength": 43186,
       "tables": [],
       "equations": [
         {
@@ -15289,7 +15289,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 32505,
+      "visibleTextLength": 32343,
       "tables": [
         {
           "index": 0,

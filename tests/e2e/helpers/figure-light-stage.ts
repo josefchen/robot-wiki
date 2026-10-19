@@ -8,9 +8,23 @@ export type StageRow = {
   dark: StagePaint | null;
   /** The largest dark data mark in its role colour; allowed, recorded for review. */
   mark: StagePaint | null;
-  signal: string[];
+  /** Geometry painted in a retired signal blue: never allowed. */
+  retired: string[];
+  /** Geometry painted in the one muted accent outside the highlight role and the isometric kit's lit part: never allowed. */
+  offRoleAccent: string[];
+  /** Geometry painted in the accent through the highlight role or the lit part: allowed, counted for review. */
+  roleAccent: number;
   rasters: { id: string; area: number; dark?: number | null }[];
 };
+
+/**
+ * The paints that may carry the one muted accent inside a figure (owner
+ * decisions of 10 and 19 October 2026, contract/design-integrity.md
+ * VAL-B2-VIZ-003): the highlight role and the isometric kit's one lit part.
+ */
+export const ACCENT_ROLE_PROPERTIES = [
+  '--role-highlight-stage', '--role-highlight-text', '--role-highlight-graphic', '--anatomy-lit',
+] as const;
 
 /**
  * Runs in the page. The figures are the ones lib/figure-system-check.ts finds
@@ -20,7 +34,14 @@ export type StageRow = {
  * opacity, has a WCAG relative luminance at or below 0.1: graphite reads
  * 0.023 and ink 0.004, while every role colour on paper reads about 0.15.
  */
-export function readStages({ limit, roles }: { limit: number; roles: string[] }): StageRow[] {
+export function readStages({ limit, roles, retired, accentRoles }: {
+  limit: number;
+  roles: string[];
+  /** Retired signal blues, as #RRGGBB. */
+  retired: string[];
+  /** ACCENT_ROLE_PROPERTIES, passed in because this function runs in the page. */
+  accentRoles: readonly string[];
+}): StageRow[] {
   const main = document.querySelector('main') ?? document.body;
   const pixel = document.createElement('canvas').getContext('2d', { willReadFrequently: true })!;
   const rgba = (colour: string): number[] | null => {
@@ -49,7 +70,38 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
     return colour ? hex(colour) : null;
   };
   const LIGHT = new Set(['--color-paper', '--color-white', '--color-bg', '--color-surface', '--color-surface-2', '--color-concrete'].map(token).filter(Boolean));
-  const SIGNAL = token('--color-signal') ?? '#245FFF';
+  // The one muted accent is the runtime signal token (VAL-B2-COL-002).
+  const ACCENT = token('--color-signal');
+  if (!ACCENT) throw new Error('--color-signal does not resolve');
+  const RETIRED = new Set(retired.map((colour) => colour.toUpperCase()));
+  /**
+   * Which accent-painted geometry takes its paint from an allowed role: each
+   * allowed property is set, inline on every element of the figure (so no
+   * nearer declaration can shadow it), to a sentinel colour no figure uses;
+   * a paint that follows it came through that property. Everything is put
+   * back before the figure is read.
+   */
+  const SENTINEL = 'rgb(1, 2, 3)';
+  const onRole = (figure: Element): Set<string> => {
+    const elements = [figure, ...figure.querySelectorAll('*')] as (HTMLElement | SVGElement)[];
+    const set: [HTMLElement | SVGElement, string][] = [];
+    for (const el of elements) {
+      for (const name of accentRoles) {
+        if (el.style.getPropertyValue(name)) continue;
+        el.style.setProperty(name, SENTINEL);
+        set.push([el, name]);
+      }
+    }
+    const paints = new Set<string>();
+    figure.querySelectorAll('*').forEach((el, index) => {
+      if (!(el instanceof SVGGeometryElement)) return;
+      const style = getComputedStyle(el);
+      if (style.fill === SENTINEL) paints.add(`${index}:fill`);
+      if (style.stroke === SENTINEL) paints.add(`${index}:stroke`);
+    });
+    for (const [el, name] of set) el.style.removeProperty(name);
+    return paints;
+  };
   const DARK = 0.1;
   const backdrop = (el: Element) => {
     const chain: number[][] = [];
@@ -109,7 +161,7 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
     const name = figure.getAttribute('data-figure-frame') ?? figure.getAttribute('data-motion-scene') ?? describe(figure);
     // A canvas, video or image that is its own stage paints pixels no computed style sees.
     const raster = /^(img|canvas|video)$/i.test(stage.tagName);
-    const row: StageRow = { figure: name, stage: area > 0 ? (raster ? 'raster' : hex(ground)) : null, stageArea: Math.round(area), dark: null, mark: null, signal: [], rasters: [] };
+    const row: StageRow = { figure: name, stage: area > 0 ? (raster ? 'raster' : hex(ground)) : null, stageArea: Math.round(area), dark: null, mark: null, retired: [], offRoleAccent: [], roleAccent: 0, rasters: [] };
     if (!area) return row;
     if (raster) {
       stage.setAttribute('data-light-probe', `${index}-stage`);
@@ -119,8 +171,24 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
     const keep = (slot: 'dark' | 'mark', share: number, colour: number[], at: string) => {
       if (share > (row[slot]?.share ?? 0)) row[slot] = { share: Math.round(share * 1000) / 1000, colour: hex(colour), at };
     };
-    for (const el of figure.querySelectorAll('*')) {
+    const allowed = onRole(figure);
+    const all = [...figure.querySelectorAll('*')];
+    for (const [index, el] of all.entries()) {
       if ((raster && el === stage) || el.closest('.sr-only, defs, pattern, clipPath, mask') || !el.checkVisibility({ opacityProperty: true, visibilityProperty: true })) continue;
+      if (el instanceof SVGGeometryElement) {
+        // Every visible figure geometry, links included, and before the area
+        // clip below, so a hairline (a box with no area) is read too.
+        const paints = getComputedStyle(el);
+        for (const [kind, paint] of [['fill', paints.fill], ['stroke', paints.stroke]] as const) {
+          const colour = rgba(paint);
+          if (!colour) continue;
+          if (RETIRED.has(hex(colour))) row.retired.push(`${describe(el)} ${kind} ${hex(colour)}`);
+          if (hex(colour) === ACCENT) {
+            if (allowed.has(`${index}:${kind}`)) row.roleAccent++;
+            else row.offRoleAccent.push(`${describe(el)} ${kind}`);
+          }
+        }
+      }
       const svg = el instanceof SVGElement ? el.closest('svg') : null;
       const visible = clip(el.getBoundingClientRect(), svg && svg !== el ? [frameBox, svg.getBoundingClientRect()] : [frameBox]);
       if (!visible) continue;
@@ -136,12 +204,6 @@ export function readStages({ limit, roles }: { limit: number; roles: string[] })
       }
       const geometry = el instanceof SVGGeometryElement;
       const mark = !!el.closest('[data-chart-mark], [data-scene-mark]');
-      if (geometry && !el.closest('a[href]')) {
-        for (const paint of [style.fill, style.stroke]) {
-          const colour = rgba(paint);
-          if (colour && hex(colour) === SIGNAL) row.signal.push(describe(el));
-        }
-      }
       if (share < limit) continue;
       const paints: [string, number][] = el instanceof SVGSVGElement
         ? boxPaints(style, 1)

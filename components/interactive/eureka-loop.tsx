@@ -52,11 +52,11 @@ import { cx } from '@/lib/utils';
  * treadmill's rear, whose pins drop into the notches. The robot runs under
  * those rules, and the logger at the front writes its speed on a paper
  * ribbon that feeds back into the writer, which reads it and punches the
- * next card. "Next round" plays that lap; under the drawing sit the
- * plain-words rules, results and the note the next reward follows from. The
- * reward code, the statistics as the language model saw them (time at the
- * target speed among them), its full reflection and the line diff sit in
- * "How this was made".
+ * next card. "Next round" plays that lap; under the drawing sit the loop's
+ * four steps in one short line each: the rules, what the robot did in
+ * practice, the task score and the fix. The reward code, the statistics as
+ * the language model saw them (time at the target speed among them), its
+ * full reflection and the line diff sit in "How this was made".
  *
  * The generations are a scripted illustration of the mechanism, labeled
  * as such, not a recording of a real Eureka run.
@@ -67,44 +67,39 @@ import { cx } from '@/lib/utils';
  * only on "Next round"; reduced motion shows each round's end at once.
  */
 
-/** Each generation's reward, results and reflection in plain words; the numbers are lib/eureka's. */
+/**
+ * Each round as the four steps of the loop, one short line each: the rules
+ * (the reward the language model wrote), what the robot did in simulated
+ * practice, the task score, and the fix its reflection proposes. The numbers
+ * are lib/eureka's.
+ */
 const PLAIN: readonly {
   outcome: Outcome;
   note: readonly string[];
   rules: string;
-  results: readonly (readonly [string, string])[];
-  next: string;
+  practice: string;
+  fix: string;
 }[] = [
   {
     outcome: 'falls',
     note: ['Points only for speed:', 'it runs too fast and falls'],
-    rules: 'Points for speed, and nothing else.',
-    results: [
-      ['Speed', '2.8 metres a second (target: 1.0 metres a second)'],
-      ['Falls', 'in every practice run, within half a second'],
-    ],
-    next: 'Only speed earns points, so it sprints into a fall. Next: points for staying up, and a fall costs points.',
+    rules: 'Speed only',
+    practice: 'Sprints at 2.8 metres a second, then falls',
+    fix: 'Reward staying up, and make a fall cost points',
   },
   {
     outcome: 'stands',
     note: ['Points for staying up too:', 'it stands still and never walks'],
-    rules: 'Points for speed and for staying up; a fall costs 5 points.',
-    results: [
-      ['Speed', 'almost zero (target: 1.0 metres a second)'],
-      ['Falls', 'none; every practice run lasts the full 20 seconds'],
-    ],
-    next: 'Standing still now scores best. Next: points for moving at the target speed, smoothly.',
+    rules: 'Speed and staying up; a fall costs 5 points',
+    practice: 'Never falls, but barely moves',
+    fix: 'Reward the target speed and smooth moves',
   },
   {
     outcome: 'walks',
     note: ['Points for the right speed:', 'it walks at the target speed'],
-    rules:
-      'Points for staying near the target speed and for staying up; a fall costs 5 points, and jerky moves cost a little.',
-    results: [
-      ['Speed', 'off the target by 0.12 metres a second on average'],
-      ['Falls', 'in 2% of practice runs; the rest last the full 20 seconds'],
-    ],
-    next: 'Close to the target speed. Only small fixes are left.',
+    rules: 'Target speed, staying up, smooth moves; a fall costs 5 points',
+    practice: 'Walks, off the target by 0.12 metres a second on average',
+    fix: 'Only fine tuning left, no new rules',
   },
 ];
 
@@ -122,31 +117,24 @@ const TONE_WORD: Record<'ok' | 'warn' | 'err', string> = { ok: 'ok', warn: 'watc
 const CODE_BLOCK_CLASS =
   'm-0! overflow-x-auto rounded-[7px] border-0 bg-[var(--paper-deep,var(--color-surface-2))] px-4 py-3.5 font-mono text-[13px] leading-relaxed text-text';
 
-/** The round in plain words: the rules the AI wrote, what the robot did, and the AI's note. */
+/** The round as the loop's four steps: label and line, side by side on a phone, four columns from sm. */
 function RoundStory({ gen }: { gen: number }) {
-  const { rules, results, next } = PLAIN[gen];
+  const { rules, practice, fix } = PLAIN[gen];
+  const steps: readonly (readonly [string, string, string])[] = [
+    ['Rules', rules, 'eureka-rules'],
+    ['In practice', practice, 'eureka-results'],
+    ['Task score', `${EUREKA_GENERATIONS[gen].fitness.toFixed(2)} of 1`, 'eureka-score'],
+    ['Fix', fix, 'eureka-note'],
+  ];
   return (
-    <div className="grid basis-full gap-x-6 gap-y-3 font-sans text-sm leading-snug text-text sm:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)_minmax(0,1fr)]">
-      <div>
-        <div className="text-text-dim">Rules the AI wrote</div>
-        <p data-testid="eureka-rules" className="m-0 mt-1">{rules}</p>
-      </div>
-      <div>
-        <div className="text-text-dim">What the robot did</div>
-        <dl data-testid="eureka-results" className="m-0 mt-1 grid gap-0.5">
-          {results.map(([label, value]) => (
-            <div key={label}>
-              <dt className="inline text-text-dim">{label}: </dt>
-              <dd className="m-0 inline">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-      <div>
-        <div className="text-text-dim">The AI&apos;s note</div>
-        <p data-testid="eureka-note" className="m-0 mt-1">{next}</p>
-      </div>
-    </div>
+    <dl className="m-0 grid basis-full grid-cols-[auto_minmax(0,1fr)] gap-x-4 gap-y-1.5 font-sans text-sm leading-snug text-text sm:grid-cols-[minmax(0,1.2fr)_minmax(0,1.3fr)_auto_minmax(0,1.2fr)] sm:gap-x-6">
+      {steps.map(([label, value, testId]) => (
+        <div key={label} className="contents sm:block">
+          <dt className="text-text-dim">{label}</dt>
+          <dd data-testid={testId} className="m-0 text-pretty sm:mt-0.5">{value}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 

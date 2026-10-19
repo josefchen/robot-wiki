@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "cae4593f6d5f1b0fca1a2e381e6cc45b8d031b97f98efd79787ea748da9ebd82",
+  "fingerprint": "08af6db41f17d63ab66358d385dd26b1eb2a4d2d7d948c06667a132a87d0830d",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3011,
+      "visibleTextLength": 3015,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1897,7 +1897,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 43196,
+      "visibleTextLength": 43186,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -7443,7 +7443,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32505,
+      "visibleTextLength": 32343,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3036,
+      "visibleTextLength": 3040,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10793,7 +10793,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33358,
+      "visibleTextLength": 33348,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -16339,7 +16339,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24603,
       "route": "/rl-sim2real/reward-design-mpc/",
       "viewport": "375x812"
     },

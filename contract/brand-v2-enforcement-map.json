@@ -55845,8 +55845,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series.",
-        "expected": "Signal blue is the lead active path/series; lime is selection/highlight and is not an unlabeled second series.",
+        "statement": "The one muted accent (`#3B6EA8`) marks the lead active path/series or the one lit part of a figure and reaches a figure geometry only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); any other accent paint on a figure geometry fails, a retired signal blue (`#245FFF`, or `#245EDB` of `VAL-B2-RES-003`) appears on no figure geometry, links included, and selection is ink weight, never a colour fill or an unlabeled second series. (Owner decisions of 10 October 2026 and 19 October 2026; the brand-v2 row made signal blue the lead active path/series and lime the selection/highlight.)",
+        "expected": "The one muted accent (`#3B6EA8`) marks the lead active path/series or the one lit part of a figure and reaches a figure geometry only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); any other accent paint on a figure geometry fails, a retired signal blue (`#245FFF`, or `#245EDB` of `VAL-B2-RES-003`) appears on no figure geometry, links included, and selection is ink weight, never a colour fill or an unlabeled second series. (Owner decisions of 10 October 2026 and 19 October 2026; the brand-v2 row made signal blue the lead active path/series and lime the selection/highlight.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 83,
         "omissionProof": {

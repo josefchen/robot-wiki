@@ -48,6 +48,12 @@ export function srgbColor([r, g, b]: SrgbTriplet): Color {
 /** The explainers' `--clay` and `--dark` mixes, as fractions. */
 export const CLAY_MIX = { graphiteInClay: 0.09, concreteInDark: 0.22 } as const;
 
+/** The table disc and its rings, mixed toward the page's own concrete and graphite. */
+export const FLOOR_MIX = { concreteInFloor: 0.26, graphiteInRing: 0.16 } as const;
+
+/** The table disc: its radius and the spacing of its rings, metres. */
+export const FLOOR = { radius: 0.4, ringStep: 0.1 } as const;
+
 export const PLAYGROUND_COLORS = {
   /** The canvas clears to the page ground, so the arm sits on the page. */
   paper: hexToSrgb(BRAND_COLORS.paper),
@@ -62,6 +68,13 @@ export const PLAYGROUND_COLORS = {
    * carry the same verdict, so colour is never the only cue.
    */
   miss: hexToSrgb(BRAND_COLORS.error),
+  /**
+   * The table under the arm: a disc one step darker than the paper, the way
+   * the site separates surfaces by a tone step, with faint rings every 10 cm
+   * so a reader sees where to click and how far the hand is from the base.
+   */
+  floor: mixSrgb(BRAND_COLORS.paper, BRAND_COLORS.concrete, FLOOR_MIX.concreteInFloor),
+  floorRing: mixSrgb(BRAND_COLORS.paper, BRAND_COLORS.graphite, FLOOR_MIX.graphiteInRing),
   /** The one accent: the motor being moved and the reach target (`--accent`). */
   accent: hexToSrgb(BRAND_COLORS.signal),
 } as const;

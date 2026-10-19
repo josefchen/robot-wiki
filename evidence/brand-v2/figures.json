@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "65f0f843176df87c850574b791c6ee205b60ce6594e60d77bec8ac735de062cd",
+  "fingerprint": "a5179c1a37d751b5dfcf0fa135165406b062bced19c9148cc0f97f5150e9603c",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1074,7 +1074,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 33358,
+      "visibleTextLength": 33348,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -15167,7 +15167,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24603,
       "figures": [
         {
           "imageId": "mini-cheetah-spin-rapid-locomotion-2022",
@@ -17456,7 +17456,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 43196,
+      "visibleTextLength": 43186,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -31549,7 +31549,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32505,
+      "visibleTextLength": 32343,
       "figures": [
         {
           "imageId": "mini-cheetah-spin-rapid-locomotion-2022",

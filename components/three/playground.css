@@ -30,22 +30,21 @@
   }
 }
 
-/* The stage. */
+/* The stage: on a phone or tablet the arm's width sets its size, so the
+   stage is only as tall as the arm needs, with room above it to move. */
 .playground .pg-stage {
   position: relative;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 3 / 2;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
   background: var(--paper);
 }
-@media (min-width: 640px) {
-  .playground .pg-stage { aspect-ratio: 4 / 3; }
-}
+/* Beside the deck: the explainers' 16:10 stage, no taller than the screen allows. */
 @media (min-width: 1024px) {
   .playground .pg-stage {
-    aspect-ratio: auto;
-    height: clamp(400px, calc(100dvh - var(--topbar-height, 72px) - 140px), 600px);
+    aspect-ratio: 16 / 10;
+    max-height: calc(100dvh - var(--topbar-height, 72px) - 140px);
   }
 }
 .playground .pg-stage canvas { display: block; outline: none; }

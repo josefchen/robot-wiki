@@ -14,6 +14,7 @@ import { findProseCitationYearDisagreements } from '../lib/prose-citation-years.
 import { GLOSSARY } from '../data/glossary.ts';
 import { IMAGES } from '../data/images.ts';
 import { COMPANIES } from '../data/companies.ts';
+import { companyPopulationIssues } from '../lib/company-population.ts';
 import { roundSourceMembershipIssues } from '../lib/company-source-provenance.ts';
 import { validateClientRegistries } from '../lib/registry-validation.ts';
 
@@ -124,6 +125,17 @@ for (const message of roundSourceMembershipIssues(COMPANIES)) {
     file: 'data/companies.ts',
     message,
   });
+}
+
+// The counts above are remembered tripwires. This derives the population
+// from the research file the registry is generated from, so an omitted,
+// extra, repeated or re-segmented company, or an empty population on either
+// side, fails by name even if a count happened to come out right.
+const companyManifest = JSON.parse(
+  readFileSync(join(root, 'research', '04-market-map-companies.json'), 'utf8'),
+) as Array<{ id: string; segment: string }>;
+for (const message of companyPopulationIssues(COMPANIES, companyManifest)) {
+  issues.push({ file: 'data/companies.ts', message });
 }
 
 // The registries client widgets import are plain typed rows, so zod stays

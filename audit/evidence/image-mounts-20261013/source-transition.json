@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T21:09:33Z",
+  "observedAt": "2026-10-19T07:26:40Z",
   "sources": [
     {
       "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
@@ -265,16 +265,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "5ad6d6c364eb4b0ea930ea4124f17c4445319a94",
       "before": {
         "path": "content/classical/perception.mdx",
-        "bytes": 21850,
-        "sha256": "1241535c427647a1aaae3b5d48d487f688215bfc5b89125b4cf2a138a3f7454e"
+        "bytes": 21570,
+        "sha256": "8249636c985991580da6988301c71e99e18e48db73998a82dda89c1335d0440c"
       },
       "after": {
         "path": "content/classical/perception.mdx",
-        "bytes": 21933,
-        "sha256": "3f47f5ff52ace5772fa6edd3dda752423aeda591f8ef91a484e730e75f5001c9"
+        "bytes": 21653,
+        "sha256": "5377e9b86f325dcf85a1655d9fde3d05be3636fd9c3ac5e31fce1f364599ce82"
       },
       "mounts": [
         "realsense-d435-depth-camera",

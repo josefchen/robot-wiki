@@ -167,14 +167,14 @@ Dense Object Nets learns a descriptor for each RGB pixel, self-supervised by mat
 
 Category-level methods such as NOCS estimate the pose and size of unseen instances in known categories with no exact CAD model at training or test time <Cite id="nocs-2019" />. Novel-object methods drop per-object training. MegaPose uses render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose works from a CAD model or a few reference images and reports results comparable to instance-level methods <Cite id="foundationpose-2024" />.
 
-To read a pose result, check its evaluation protocol. Hinterstoisser and colleagues evaluate a model $\mathcal M$ with ground-truth pose $(R,T)$ and estimate $(\tilde R,\tilde T)$ by averaging distances between corresponding transformed model points <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
+To read a pose result, check its evaluation protocol. Hinterstoisser and colleagues evaluate a model $\mathcal M$ with ground-truth pose $(R,T)$ and estimate $(\tilde R,\tilde T)$ by averaging distances between corresponding transformed model points <Cite id="hinterstoisser-2012" />:
 
 $$
 m = \operatorname{avg}_{x \in \mathcal M}
 \lVert (Rx+T)-(\tilde R x+\tilde T) \rVert
 $$
 
-An estimate is correct when $m \leq k_m d$, where $d$ is the model's diameter and $k_m$ a chosen coefficient; their LINEMOD evaluation uses $k_m=0.1$ <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />. For the <Term id="add-s-metric">symmetry-aware pose error</Term>, each ground-truth-transformed point is matched to its nearest estimated-pose point before averaging <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
+An estimate is correct when $m \leq k_m d$, where $d$ is the model's diameter and $k_m$ a chosen coefficient; their LINEMOD evaluation uses $k_m=0.1$ <Cite id="hinterstoisser-2012" />. For the <Term id="add-s-metric">symmetry-aware pose error</Term>, each ground-truth-transformed point is matched to its nearest estimated-pose point before averaging <Cite id="hinterstoisser-2012" />:
 
 $$
 m = \operatorname{avg}_{x_1 \in \mathcal M}
@@ -182,13 +182,13 @@ m = \operatorname{avg}_{x_1 \in \mathcal M}
 \lVert (Rx_1+T)-(\tilde R x_2+\tilde T) \rVert
 $$
 
-They apply this rule to objects that are ambiguous, or look ambiguous from some views, naming "cup", "bowl", "box" and "glue" <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />.
+They apply this rule to objects that are ambiguous, or look ambiguous from some views, naming "cup", "bowl", "box" and "glue" <Cite id="hinterstoisser-2012" />.
 
-The BOP Challenge 2023 report scores 6-DoF localization differently: each dataset score averages the VSD, MSSD and MSPD recalls, each over several thresholds with a strict test $e < \theta_e$, and $AR_C$ averages seven core datasets (LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L, IC-BIN) on a 0 to 100 scale. Seen and unseen tracks share the method, with object identities and instance counts supplied at test time, and the 2D-detection $AP_C$ averages over objects first <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+The BOP Challenge 2023 report scores 6-DoF localization differently: each dataset score averages the VSD, MSSD and MSPD recalls, each over several thresholds with a strict test $e < \theta_e$, and $AR_C$ averages seven core datasets (LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L, IC-BIN) on a 0 to 100 scale. Seen and unseen tracks share the method, with object identities and instance counts supplied at test time, and the 2D-detection $AP_C$ averages over objects first <Cite id="bop-challenge-2023" />.
 
-From 2017 to 2023, seen-object accuracy rose from 56.9 to 85.6 $AR_C$, a relative gain of over 50 percent. The endpoints are Vidal's point-pair-feature method with ICP and no training images, and GPose2023 with object-specific networks trained on PBR and real images <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+From 2017 to 2023, seen-object accuracy rose from 56.9 to 85.6 $AR_C$, a relative gain of over 50 percent. The endpoints are Vidal's point-pair-feature method with ICP and no training images, and GPose2023 with object-specific networks trained on PBR and real images <Cite id="bop-challenge-2023" />.
 
-For unseen objects, GenFlow-MultiHypo16 led 2023's Task 4 with 67.4 $AR_C$, against 69.8 for the best 2020 seen-object entry, CosyPose, and the report calls these comparable across distinct tracks; average image times were 34.58 and 13.74 seconds on unmatched hardware. Task 4 still supplies mesh models for onboarding, capped at 5 minutes per object on one GPU with no real images of the objects, and GenFlow fails under heavy occlusion <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+For unseen objects, GenFlow-MultiHypo16 led 2023's Task 4 with 67.4 $AR_C$, against 69.8 for the best 2020 seen-object entry, CosyPose, and the report calls these comparable across distinct tracks; average image times were 34.58 and 13.74 seconds on unmatched hardware. Task 4 still supplies mesh models for onboarding, capped at 5 minutes per object on one GPU with no real images of the objects, and GenFlow fails under heavy occlusion <Cite id="bop-challenge-2023" />.
 
 In the BOP 2024 report, the best unseen-object method, FreeZeV2.1, is 22% more accurate on BOP-Classic-Core than GenFlow and 4% behind GPose2023, but takes 24.9 against 2.7 seconds per image, and the report names 2D detection as the main bottleneck for unseen objects <Cite id="bop-2024" />.
 
@@ -196,11 +196,11 @@ In the BOP 2024 report, the best unseen-object method, FreeZeV2.1, is 22% more a
 
 <Term id="visual-servoing">Visual servoing</Term> uses vision inside the control loop, and Hutchinson, Hager and Corke's 1996 tutorial divides such systems into position-based and image-based classes <Cite id="hutchinson-hager-corke-1996" />. Espiau, Chaumette and Rives's 1992 paper applies a task-function framework to image-based control, with a task function designed for regulation that need not be the raw feature difference. Its interaction matrix relates feature rates to the camera's translational and rotational velocity in the camera frame. Convergence depends on task and model conditions, and neglecting target motion can leave a tracking error <Cite id="espiau-1992" />.
 
-For a fixed goal and motionless target, Chaumette and Hutchinson's Part I writes $\dot{s} = L_s v_c$, with $v_c$ the camera's six-component spatial velocity. Image-based visual servoing (IBVS) uses image features, and position-based visual servoing (PBVS) uses estimated pose. The IBVS point-feature interaction matrix still uses depth and camera intrinsics, estimated from current depths or depths at the desired pose <br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+For a fixed goal and motionless target, Chaumette and Hutchinson's Part I writes $\dot{s} = L_s v_c$, with $v_c$ the camera's six-component spatial velocity. Image-based visual servoing (IBVS) uses image features, and position-based visual servoing (PBVS) uses estimated pose. The IBVS point-feature interaction matrix still uses depth and camera intrinsics, estimated from current depths or depths at the desired pose <Cite id="chaumette-hutchinson-2006" />.
 
-Redundant-feature IBVS is locally asymptotically stable when the interaction matrices have full rank and the estimated pseudoinverse times the true matrix meets a positivity condition; coarse estimates can change the camera path, while poor ones can make the system unstable. Large displacements can meet local minima or singularities, PBVS points can leave the field of view, and in PBVS pose-estimation errors affect final accuracy <br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+Redundant-feature IBVS is locally asymptotically stable when the interaction matrices have full rank and the estimated pseudoinverse times the true matrix meets a positivity condition; coarse estimates can change the camera path, while poor ones can make the system unstable. Large displacements can meet local minima or singularities, PBVS points can leave the field of view, and in PBVS pose-estimation errors affect final accuracy <Cite id="chaumette-hutchinson-2006" />.
 
-Part II (2007) adds switching and planning methods that address visibility, occlusions and joint limits, for eye-in-hand and eye-to-hand systems <br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />. Bateux and colleagues fine-tuned a CNN to estimate the relative pose between current and desired images and kept a pose-based control law <Cite id="bateux-2018" />.
+Part II (2007) adds switching and planning methods that address visibility, occlusions and joint limits, for eye-in-hand and eye-to-hand systems <Cite id="chaumette-hutchinson-2007" />. Bateux and colleagues fine-tuned a CNN to estimate the relative pose between current and desired images and kept a pose-based control law <Cite id="bateux-2018" />.
 
 Learned servoing can also aim the camera. EyeRobot 2.0, from Ken Goldberg (UC Berkeley) and colleagues (October 2026), swivels the two eye viewpoints of a single stereo camera to fixate a 3D point, with a gaze-servoing policy and a fixation selector both trained with RL on real data. It beat passive stereo by 40% in real trials and, when a grasped object hid the wrist views, more than doubled the success of policies that had them, 48% against 22% <Cite id="eyerobot-2-2026" />.
 

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3036,
+      "visibleTextLength": 3040,
       "header": {
         "present": true,
         "display": "flex",
@@ -2342,7 +2342,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 33358,
+      "visibleTextLength": 33348,
       "header": {
         "present": true,
         "display": "flex",
@@ -9940,7 +9940,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24603,
       "header": {
         "present": true,
         "display": "flex",

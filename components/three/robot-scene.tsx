@@ -3,7 +3,7 @@
 import { Line, OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
-import { Spherical, TOUCH, Vector3, type Mesh, type PerspectiveCamera } from 'three';
+import { Box3, PerspectiveCamera, Spherical, TOUCH, Vector3, type Mesh, type Object3D } from 'three';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import type { URDFRobot } from 'urdf-loader';
 import { smooth } from '@/components/motion/easing';
@@ -11,6 +11,7 @@ import type { Vec3 } from '@/lib/ik';
 import type { LoadedRobot } from './load-robot';
 import { RobotArm } from './robot-arm';
 import {
+  FLOOR,
   PLAYGROUND_COLORS,
   PLAYGROUND_MATERIALS,
   STAGE_LIGHTS,
@@ -51,25 +52,147 @@ export interface RenderedFrameSnapshot {
 }
 
 /**
- * The home view: the whole arm from the front right and a little above,
- * with room around it to turn the base and reach out. Reset returns here.
+ * The home view: the whole arm from the front right and a little above. The
+ * camera is fitted to the arm at its zero pose so the arm spans most of the
+ * stage's height, centred, with the stage's sides left for it to turn and
+ * reach into. On a short stage (a phone's) the arm also keeps clear of the
+ * hint line at the stage's top: it moves down, and gives up a little height
+ * if it must, but never below minFill. Reset returns here. The position and
+ * target below stand in only until the arm has loaded.
  */
 export const HOME_VIEW = {
   target: [0.15, 0.14, 0.0] as const,
   position: [0.6, 0.48, 0.59] as const,
-  /** A phone-sized stage starts this much closer, so the arm is not a speck. */
-  narrowCloser: 0.86,
-  narrowBelowPx: 600,
+  /** The direction the camera looks from, toward the arm. */
+  direction: [0.45, 0.34, 0.59] as const,
+  /** The arm spans this share of the stage's height... */
+  heightFill: 0.7,
+  /** ...and at most this share of its width. */
+  widthFill: 0.84,
+  /**
+   * The stage's top kept clear of the arm, in CSS px: the hint line's box
+   * ends about 37 px down (12 px under the 1 px rule, one 13 px line at 1.5
+   * with 2 px padding; playground.css) and its text about 31 px down, so the
+   * arm starts about 20 px under the words.
+   */
+  topClearPx: 52,
+  /** Moved down, the arm keeps at least this share of the height under it... */
+  floorRoom: 0.06,
+  /** ...and its band never spans less than this share of the height (the fit lands about 0.01 inside it). */
+  minFill: 0.68,
 };
 
-/** The home camera position for a stage of this width. */
-export function homePosition(stageWidth: number): Vector3 {
-  const target = new Vector3(...HOME_VIEW.target);
-  const offset = new Vector3(...HOME_VIEW.position).sub(target);
-  if (stageWidth > 0 && stageWidth < HOME_VIEW.narrowBelowPx) {
-    offset.multiplyScalar(HOME_VIEW.narrowCloser);
+/**
+ * The vertical band of the frame the arm is fitted into, in normalised
+ * device units (-1 is the stage's bottom, 1 its top), for a stage this many
+ * CSS px tall. A tall stage keeps the centred band of heightFill; a short
+ * one lowers its top below the hint line's clear room, as far as the floor
+ * room and minFill allow.
+ */
+export function homeBand(stageHeightPx: number): { top: number; bottom: number } {
+  const clear = stageHeightPx > 0 ? HOME_VIEW.topClearPx / stageHeightPx : 0;
+  let top = Math.min(HOME_VIEW.heightFill, 1 - 2 * clear);
+  let bottom = Math.max(-1 + 2 * HOME_VIEW.floorRoom, top - 2 * HOME_VIEW.heightFill);
+  if (top - bottom < 2 * HOME_VIEW.minFill) {
+    bottom = Math.max(-1, top - 2 * HOME_VIEW.minFill);
+    top = bottom + 2 * HOME_VIEW.minFill;
   }
-  return target.add(offset);
+  return { top, bottom };
+}
+
+export interface HomeView {
+  position: Vector3;
+  target: Vector3;
+}
+
+/**
+ * World-space points on the arm's visible surface, at the pose the arm holds
+ * now: an even sample of every visible mesh's vertices, at most `budget` of
+ * them. The fit then frames the arm the reader sees, not the looser boxes
+ * around its parts.
+ */
+export function framePoints(subject: Object3D, budget = 4000): Vector3[] {
+  subject.updateWorldMatrix(true, true);
+  const meshes: Mesh[] = [];
+  let total = 0;
+  subject.traverseVisible((object) => {
+    const mesh = object as Mesh;
+    const position = mesh.isMesh ? mesh.geometry?.getAttribute('position') : undefined;
+    if (!position) return;
+    meshes.push(mesh);
+    total += position.count;
+  });
+  const stride = Math.max(1, Math.ceil(total / budget));
+  const points: Vector3[] = [];
+  for (const mesh of meshes) {
+    const position = mesh.geometry.getAttribute('position');
+    for (let i = 0; i < position.count; i += stride) {
+      points.push(new Vector3().fromBufferAttribute(position, i).applyMatrix4(mesh.matrixWorld));
+    }
+  }
+  return points;
+}
+
+/**
+ * The home view for a stage of this shape: looking along HOME_VIEW.direction,
+ * the distance at which the points span the height of the stage's band (or
+ * widthFill of its width, whichever binds first), re-centred on their
+ * projected box in that band. Bisection, then re-centring, three passes (the
+ * explainer stage's fit). Without a stage height the band is the centred
+ * heightFill.
+ */
+export function fitHome(points: Vector3[], aspect: number, stageHeightPx = 0): HomeView {
+  const lens = new PerspectiveCamera(stageFov(aspect), aspect, 0.01, 50);
+  const direction = new Vector3(...HOME_VIEW.direction).normalize();
+  const target = new Box3().setFromPoints(points).getCenter(new Vector3());
+  const band = homeBand(stageHeightPx);
+  const middle = (band.top + band.bottom) / 2;
+  const half = (band.top - band.bottom) / 2;
+  const v = new Vector3();
+  const place = (distance: number) => {
+    lens.position.copy(target).addScaledVector(direction, distance);
+    lens.lookAt(target);
+    lens.updateMatrixWorld();
+  };
+  const overflow = (distance: number) => {
+    place(distance);
+    let worst = 0;
+    for (const p of points) {
+      v.copy(p).project(lens);
+      if (v.z > 1) return Infinity;
+      worst = Math.max(worst, Math.abs(v.y - middle) / half, Math.abs(v.x) / HOME_VIEW.widthFill);
+    }
+    return worst;
+  };
+  let distance = 1;
+  for (let pass = 0; pass < 3; pass += 1) {
+    let lo = 0.05;
+    let hi = 20;
+    for (let i = 0; i < 32; i += 1) {
+      const mid = (lo + hi) / 2;
+      if (overflow(mid) > 1) lo = mid;
+      else hi = mid;
+    }
+    distance = hi;
+    place(distance);
+    let x0 = Infinity;
+    let x1 = -Infinity;
+    let y0 = Infinity;
+    let y1 = -Infinity;
+    for (const p of points) {
+      v.copy(p).project(lens);
+      x0 = Math.min(x0, v.x);
+      x1 = Math.max(x1, v.x);
+      y0 = Math.min(y0, v.y);
+      y1 = Math.max(y1, v.y);
+    }
+    const halfHeight = Math.tan((lens.fov * Math.PI) / 360) * distance;
+    const halfWidth = halfHeight * lens.aspect;
+    target.addScaledVector(v.setFromMatrixColumn(lens.matrixWorld, 0), ((x0 + x1) / 2) * halfWidth);
+    target.addScaledVector(v.setFromMatrixColumn(lens.matrixWorld, 1), ((y0 + y1) / 2 - middle) * halfHeight);
+  }
+  place(distance);
+  return { position: lens.position.clone(), target: target.clone() };
 }
 
 /** Where the camera may go: never under the table, never inside or far from the arm. */
@@ -163,9 +286,12 @@ function SceneTelemetry({
  * to the home view.
  */
 function CameraRig({
+  subject,
   viewResetToken,
   reducedMotion,
 }: {
+  /** The arm, framed by the home view once it has loaded. */
+  subject: Object3D | null;
   viewResetToken: number;
   reducedMotion: boolean;
 }) {
@@ -186,15 +312,23 @@ function CameraRig({
     fromPosition: Vector3;
     fromTarget: Vector3;
     toPosition: Vector3;
+    toTarget: Vector3;
     timer: number;
   } | null>(null);
 
-  // Only a new reset token starts a move home; the stage width it reads is
-  // the latest, without a resize starting one.
-  const widthRef = useRef(width);
-  useEffect(() => {
-    widthRef.current = width;
-  }, [width]);
+  // The arm's frame points at its zero pose, read once when it loads; the
+  // home view is fitted to them for the stage's current shape.
+  const framed = useRef<Vector3[] | null>(null);
+  const aspectRef = useRef(width && height ? width / height : 1.6);
+  const heightRef = useRef(height);
+  const homeFor = useCallback((aspect: number): HomeView => (
+    framed.current
+      ? fitHome(framed.current, aspect, heightRef.current)
+      : { position: new Vector3(...HOME_VIEW.position), target: new Vector3(...HOME_VIEW.target) }
+  ), []);
+  // Once the reader turns the view it is theirs: a resize no longer refits it
+  // until Reset pose brings it home.
+  const moved = useRef(false);
 
   // Field of view follows the stage's shape, so a phone sees the whole arm.
   useLayoutEffect(() => {
@@ -205,16 +339,20 @@ function CameraRig({
     invalidate();
   }, [getState, width, height, invalidate]);
 
-  // The home view on mount, for the stage's first width.
-  const homed = useRef(false);
+  // The home view when the arm arrives, and again on a resize while the
+  // reader has not turned the view, so the arm stays framed whole.
   useLayoutEffect(() => {
-    if (!controls || !width || homed.current) return;
-    homed.current = true;
-    camera.position.copy(homePosition(width));
-    controls.target.set(...HOME_VIEW.target);
+    if (!controls || !width || !height) return;
+    aspectRef.current = width / height;
+    heightRef.current = height;
+    if (subject && !framed.current) framed.current = framePoints(subject);
+    if (moved.current || tween.current) return;
+    const home = homeFor(aspectRef.current);
+    camera.position.copy(home.position);
+    controls.target.copy(home.target);
     controls.update();
     invalidate();
-  }, [camera, controls, width, invalidate]);
+  }, [camera, controls, subject, width, height, homeFor, invalidate]);
 
   // OrbitControls keeps a drag's inertia privately; one update with damping
   // off spends it and zeroes it. Damping stays off for the move home.
@@ -231,6 +369,7 @@ function CameraRig({
 
   // A reader who turns the view during the move home takes over from it.
   const cancelMove = useCallback(() => {
+    moved.current = true;
     if (!tween.current) return;
     window.clearTimeout(tween.current.timer);
     tween.current = null;
@@ -245,11 +384,13 @@ function CameraRig({
   useEffect(() => {
     if (!controls || viewResetToken === handledToken.current) return;
     handledToken.current = viewResetToken;
+    const home = homeFor(aspectRef.current);
     if (reducedMotion) {
       cancelMove();
+      moved.current = false;
       settleInertia();
-      camera.position.copy(homePosition(widthRef.current));
-      controls.target.set(...HOME_VIEW.target);
+      camera.position.copy(home.position);
+      controls.target.copy(home.target);
       controls.update();
       restoreDamping();
       invalidate();
@@ -257,12 +398,14 @@ function CameraRig({
     }
     // Drop any drag inertia first, so the move ends exactly at home.
     cancelMove();
+    moved.current = false;
     settleInertia();
     const move = {
       start: performance.now(),
       fromPosition: camera.position.clone(),
       fromTarget: controls.target.clone(),
-      toPosition: homePosition(widthRef.current),
+      toPosition: home.position,
+      toTarget: home.target,
       timer: 0,
     };
     tween.current = move;
@@ -276,11 +419,11 @@ function CameraRig({
       if (t >= 1) {
         tween.current = null;
         lens.position.copy(move.toPosition);
-        target.set(...HOME_VIEW.target);
+        target.copy(move.toTarget);
       } else {
         const k = smooth(t);
         lens.position.lerpVectors(move.fromPosition, move.toPosition, k);
-        target.lerpVectors(move.fromTarget, new Vector3(...HOME_VIEW.target), k);
+        target.lerpVectors(move.fromTarget, move.toTarget, k);
         move.timer = window.setTimeout(step, 16);
       }
       (orbit as OrbitControlsImpl).update();
@@ -288,7 +431,7 @@ function CameraRig({
       invalidate();
     };
     step();
-  }, [viewResetToken, reducedMotion, camera, controls, invalidate, getState, settleInertia, restoreDamping, cancelMove]);
+  }, [viewResetToken, reducedMotion, camera, controls, invalidate, getState, settleInertia, restoreDamping, cancelMove, homeFor]);
 
   // Keyboard: the arrow keys turn the view and + or - zoom, as in the explainers.
   useEffect(() => {
@@ -471,15 +614,51 @@ function TargetGizmo({
 }
 
 /**
+ * The table: a flat disc around the base, one tone step darker than the
+ * page, with faint rings every 10 cm. It shows where the floor is, so "click
+ * the floor" has a place, and the rings give the hand readout a scale. The
+ * key-light shadow falls on it from the shadow-only plane just above.
+ */
+function FloorDisc() {
+  const disc = useMemo(() => srgbColor(PLAYGROUND_COLORS.floor), []);
+  const ring = useMemo(() => srgbColor(PLAYGROUND_COLORS.floorRing), []);
+  const rings = useMemo(() => {
+    const out: number[] = [];
+    for (let r = FLOOR.ringStep; r < FLOOR.radius - 0.001; r += FLOOR.ringStep) out.push(r);
+    return out;
+  }, []);
+  return (
+    <group rotation-x={-Math.PI / 2}>
+      <mesh position={[0, 0, -0.0004]}>
+        <circleGeometry args={[FLOOR.radius, 96]} />
+        <meshBasicMaterial color={disc} />
+      </mesh>
+      {rings.map((r) => (
+        <mesh key={r} position={[0, 0, -0.0002]}>
+          <ringGeometry args={[r - 0.0009, r + 0.0009, 128]} />
+          <meshBasicMaterial color={ring} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+/**
  * Invisible ground plane that catches click-to-reach input. A click only
  * counts when the pointer barely moved between press and release
- * (event.delta, pixels), so orbit and pan drags never place a target.
+ * (event.delta, pixels), so orbit and pan drags never place a target. Over
+ * the floor the pointer becomes a crosshair, so the floor reads as a place
+ * to click.
  */
 function ClickPlane({
   onPlaceTarget,
 }: {
   onPlaceTarget: (targetScene: Vec3) => void;
 }) {
+  const getState = useThree((state) => state.get);
+  const cursor = (value: string) => {
+    getState().gl.domElement.style.cursor = value;
+  };
   const handleClick = (event: ThreeEvent<MouseEvent>) => {
     if (event.delta > 6) return;
     event.stopPropagation();
@@ -490,7 +669,12 @@ function ClickPlane({
     });
   };
   return (
-    <mesh rotation-x={-Math.PI / 2} onClick={handleClick}>
+    <mesh
+      rotation-x={-Math.PI / 2}
+      onClick={handleClick}
+      onPointerOver={() => cursor('crosshair')}
+      onPointerOut={() => cursor('')}
+    >
       <planeGeometry args={[4, 4]} />
       <meshBasicMaterial transparent opacity={0} depthWrite={false} />
     </mesh>
@@ -577,6 +761,7 @@ export default function RobotScene({
       }}
     >
       <primitive attach="background" object={paper} />
+      <FloorDisc />
       <StageLights />
       {robot ? <RobotArm robot={robot.robot} /> : null}
       <ApplyPose robot={robot?.robot ?? null} angles={angles} />
@@ -584,7 +769,11 @@ export default function RobotScene({
       <SceneTelemetry ready={robot !== null} onRenderedFrame={onRenderedFrame} />
       {target ? <TargetGizmo target={target} state={targetState} hand={hand} /> : null}
       <ClickPlane onPlaceTarget={onPlaceTarget} />
-      <CameraRig viewResetToken={viewResetToken} reducedMotion={reducedMotion} />
+      <CameraRig
+        subject={robot?.robot ?? null}
+        viewResetToken={viewResetToken}
+        reducedMotion={reducedMotion}
+      />
     </Canvas>
   );
 }

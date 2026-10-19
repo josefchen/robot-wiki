@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import sharp from 'sharp';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
-import { readStages, type StageRow } from './helpers/figure-light-stage';
+import { ACCENT_ROLE_PROPERTIES, readStages, type StageRow } from './helpers/figure-light-stage';
 
 /**
  * Every figure belongs to the page (owner decision 2026-10-02, which replaced
@@ -15,7 +15,18 @@ import { readStages, type StageRow } from './helpers/figure-light-stage';
  * a dark surface, unless it is a data mark in its role colour. The JSDOM
  * figure-system check cannot see a panel painted with a token, so this reads
  * computed styles and boxes in the browser and screenshots any image, canvas
- * or video that large. Rows go to FIGURE_SYSTEM_EVIDENCE_OUT, or the test's
+ * or video that large.
+ *
+ * Accent marks (successor of 19 October 2026 to the 1 to 2 October check
+ * that kept the bright signal blue off data marks; contract/design-integrity.md
+ * VAL-B2-VIZ-003): the owner decision of 10 October made #3B6EA8 the one muted
+ * accent, the runtime signal token, and the isometric directive of 12 October
+ * gives each such figure one lit part. So no figure geometry, links included,
+ * may paint a retired signal blue (#245FFF of the brand-v2 palette, #245EDB of
+ * VAL-B2-RES-003), and the accent may reach a figure geometry only through
+ * the highlight role (--role-highlight-*) or the kit's lit part
+ * (--anatomy-lit). The planted test at the end proves each clause fails when
+ * a mark breaks it. Rows go to FIGURE_SYSTEM_EVIDENCE_OUT, or the test's
  * output folder, before the assertions run, so a run over an older export
  * (FIGURE_SYSTEM_EXPORT_ROOT) still records them.
  */
@@ -27,6 +38,9 @@ const tokens = JSON.parse(readFileSync('motion-tokens.json', 'utf8')) as {
 };
 const PAPER = tokens.stage.background.toUpperCase();
 const ROLES = Object.values(tokens.roles).map((role) => role.stage.toUpperCase());
+/** The retired signal blues: the brand-v2 signal and the earlier value VAL-B2-RES-003 retires. */
+const RETIRED = ['#245FFF', '#245EDB'];
+const STAGE_ARGS = { limit: LIMIT, roles: ROLES, retired: RETIRED, accentRoles: ACCENT_ROLE_PROPERTIES };
 /**
  * The page's own paper, from app/globals.css. The research-page standard of
  * 2026-10-10 made it #FAFAF8 while the motion stage stayed white, and a
@@ -91,7 +105,7 @@ for (const width of [375, 1440]) {
           await expect(page.getByTestId('playground-viewport')).toHaveAttribute('data-scene-ready', 'true', { timeout: 30_000 });
         }
         await settle(page);
-        const found = await page.evaluate(readStages, { limit: LIMIT, roles: ROLES });
+        const found = await page.evaluate(readStages, STAGE_ARGS);
         for (const row of found) {
           for (const raster of row.rasters) raster.dark = await rasterShare(page, raster.id, raster.area);
           rows.push({ route, ...row });
@@ -120,6 +134,45 @@ for (const width of [375, 1440]) {
       return found.length ? [{ key: `${row.route} ${row.figure}`, found }] : [];
     });
     expect(problems.map(({ key, found }) => `${key}: ${found.join('; ')}`), 'stages off the page ground, and dark areas of a tenth of the stage or more').toEqual([]);
-    expect(shown.flatMap((row) => row.signal.map((at) => `${row.route} ${row.figure} ${at}`)), 'signal blue on a data mark').toEqual([]);
+    expect(shown.flatMap((row) => row.retired.map((at) => `${row.route} ${row.figure} ${at}`)), 'a retired signal blue on a figure mark').toEqual([]);
+    expect(shown.flatMap((row) => row.offRoleAccent.map((at) => `${row.route} ${row.figure} ${at}`)), 'the accent outside the highlight role and the lit part').toEqual([]);
   });
 }
+
+test('a planted retired blue and a planted off-role accent each fail, and the two allowed accent paints pass', async ({ browser }) => {
+  for (const width of [375, 1440]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
+    const page = await context.newPage();
+    await page.goto(`http://localhost:${server.port}/rl-sim2real/reward-design-mpc/`, { waitUntil: 'networkidle', timeout: 60_000 });
+    // One drawing in a real figure frame: the retired blue, the accent as a
+    // literal, the accent through the alias the signal token feeds, and the
+    // two allowed paints, each mark named by its data attribute.
+    const planted = await page.evaluate(() => {
+      const frame = document.querySelector('main [data-figure-frame]');
+      const stage = frame?.querySelector('[data-figure-stage]') ?? frame;
+      if (!stage) return false;
+      stage.insertAdjacentHTML('beforeend', `
+        <svg data-planted="drawing" viewBox="0 0 200 100" width="200" height="100" role="img" aria-label="planted marks">
+          <rect data-planted="retired-fill" x="0" y="0" width="20" height="20" fill="#245FFF" />
+          <line data-planted="retired-stroke" x1="0" y1="30" x2="40" y2="30" stroke="#245EDB" />
+          <rect data-planted="literal-accent" x="30" y="0" width="20" height="20" fill="#3B6EA8" />
+          <rect data-planted="alias-accent" x="60" y="0" width="20" height="20" style="fill: var(--color-accent)" />
+          <rect data-planted="highlight-role" x="90" y="0" width="20" height="20" style="fill: var(--role-highlight-stage)" />
+          <g class="iso"><path data-planted="lit-part" d="M120 0 L140 0 L140 20 Z" style="fill: none; stroke: var(--anatomy-lit)" /></g>
+        </svg>`);
+      return true;
+    });
+    expect(planted, 'a figure frame to plant into').toBe(true);
+    const rows = await page.evaluate(readStages, STAGE_ARGS);
+    const row = rows.find((candidate) => candidate.retired.some((at) => at.includes('data-planted')) || candidate.offRoleAccent.some((at) => at.includes('data-planted')));
+    expect(row, 'the frame holding the planted drawing was read').toBeDefined();
+    const named = (list: string[]) => list.filter((at) => at.includes('data-planted')).map((at) => at.match(/data-planted="([^"]+)"/)![1]).sort();
+    // Clause (a): both retired blues fail, as fill and as stroke.
+    expect(named(row!.retired)).toEqual(['retired-fill', 'retired-stroke']);
+    // Clause (b): the accent as a literal and through the signal alias fails;
+    // the highlight role and the lit part are the only paints that pass.
+    expect(named(row!.offRoleAccent)).toEqual(['alias-accent', 'literal-accent']);
+    expect(row!.roleAccent).toBeGreaterThanOrEqual(2);
+    await context.close();
+  }
+});

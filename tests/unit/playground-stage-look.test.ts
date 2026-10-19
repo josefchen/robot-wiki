@@ -1,10 +1,12 @@
 import { readFileSync } from 'node:fs';
-import { Mesh, SRGBColorSpace } from 'three';
+import { Mesh, PerspectiveCamera, SRGBColorSpace, Vector3 } from 'three';
 import { describe, expect, it } from 'vitest';
 import { applyStageLook } from '@/components/three/load-robot';
 import { createProceduralArm } from '@/components/three/procedural-arm';
+import { HOME_VIEW, fitHome, framePoints, homeBand } from '@/components/three/robot-scene';
 import {
   CLAY_MIX,
+  FLOOR_MIX,
   PLAYGROUND_COLORS,
   PLAYGROUND_MATERIALS,
   STAGE_LIGHTS,
@@ -73,6 +75,22 @@ describe('playground colours resolve to the runtime tokens', () => {
       PLAYGROUND_COLORS.dark,
       mixSrgb(hex('--color-graphite'), hex('--color-concrete'), Number(dark![1]) / 100),
     );
+  });
+
+  it('draws the table one tone step off the page paper, its rings toward graphite', () => {
+    close(
+      PLAYGROUND_COLORS.floor,
+      mixSrgb(hex('--color-paper'), hex('--color-concrete'), FLOOR_MIX.concreteInFloor),
+    );
+    close(
+      PLAYGROUND_COLORS.floorRing,
+      mixSrgb(hex('--color-paper'), hex('--color-graphite'), FLOOR_MIX.graphiteInRing),
+    );
+    // A quiet step: lighter than the clay, so the arm stands off the table,
+    // and darker than the paper, so the table reads as a place.
+    const lum = ([r, g, b]: readonly number[]) => 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    expect(lum(PLAYGROUND_COLORS.floor)).toBeLessThan(lum(PLAYGROUND_COLORS.paper));
+    expect(lum(PLAYGROUND_COLORS.floor)).toBeGreaterThan(lum(PLAYGROUND_COLORS.clay));
   });
 
   it('hands three.js those colours as sRGB, so they render unchanged', () => {
@@ -149,5 +167,53 @@ describe('applyStageLook', () => {
       for (const mesh of list) expect(mesh.material).toBe(PLAYGROUND_MATERIALS.dark);
     }
     expect(meshes.some((mesh) => mesh.material === PLAYGROUND_MATERIALS.clay)).toBe(true);
+  });
+});
+
+describe('the home view keeps the arm clear of the hint line', () => {
+  /** The fitted arm's projected box, as shares of the stage from its top (0) to its bottom (1). */
+  function fitted(aspect: number, heightPx: number) {
+    const points = framePoints(createProceduralArm());
+    const home = fitHome(points, aspect, heightPx);
+    const lens = new PerspectiveCamera(stageFov(aspect), aspect, 0.01, 50);
+    lens.position.copy(home.position);
+    lens.lookAt(home.target);
+    lens.updateMatrixWorld();
+    let top = Infinity;
+    let bottom = -Infinity;
+    const v = new Vector3();
+    for (const p of points) {
+      v.copy(p).project(lens);
+      top = Math.min(top, (1 - v.y) / 2);
+      bottom = Math.max(bottom, (1 - v.y) / 2);
+    }
+    return { top, bottom, fill: bottom - top };
+  }
+
+  it('keeps the centred 70 % band on a tall stage', () => {
+    expect(homeBand(560)).toEqual({ top: HOME_VIEW.heightFill, bottom: -HOME_VIEW.heightFill });
+    expect(homeBand(0)).toEqual({ top: HOME_VIEW.heightFill, bottom: -HOME_VIEW.heightFill });
+    const desk = fitted(1.6, 560);
+    expect(desk.fill).toBeGreaterThan(HOME_VIEW.heightFill - 0.02);
+    expect(desk.fill).toBeLessThanOrEqual(HOME_VIEW.heightFill + 0.001);
+    expect((desk.top + desk.bottom) / 2).toBeCloseTo(0.5, 2);
+  });
+
+  it('on a phone stage puts the arm about 20 px under the hint\'s words and keeps it at least 65 % of the height', () => {
+    // The hint line's box, from playground.css: 1 px rule, 12 px down, one 13 px line at 1.5, 2 px padding.
+    const css = readFileSync('components/three/playground.css', 'utf8');
+    const hint = css.match(/\.playground \.pg-hint \{([^}]*)\}/)?.[1] ?? '';
+    expect(hint).toMatch(/top: 12px;/);
+    expect(hint).toMatch(/padding: 2px 6px 2px 0;/);
+    expect(hint).toMatch(/font-size: 13px;/);
+    // Clear of the whole box, with room under it.
+    expect(HOME_VIEW.topClearPx).toBeGreaterThanOrEqual(Math.ceil(1 + 12 + 2 + 13 * 1.5 + 2) + 14);
+    // 390 and 360 px phones: a 3:2 stage 228 and 208 px tall.
+    for (const [width, height] of [[342, 228], [312, 208]]) {
+      const arm = fitted(width / height, height);
+      expect(arm.top * height).toBeGreaterThanOrEqual(HOME_VIEW.topClearPx - 0.5);
+      expect(arm.fill).toBeGreaterThanOrEqual(0.65);
+      expect(arm.bottom).toBeLessThan(1);
+    }
   });
 });

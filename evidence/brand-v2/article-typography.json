@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "7a7aa0f701bcc6abd7cd9ec8d86b5b270306dd8f240d80ac4b5dcb8770124053",
+  "fingerprint": "6c6085590e43464b1979286e52e7c2bf1c394352c9063e8838e803cd7db58b4b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3036,
+      "visibleTextLength": 3040,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8764,7 +8764,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33358,
+      "visibleTextLength": 33348,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45494,7 +45494,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24765,
+      "visibleTextLength": 24603,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -45747,24 +45747,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The evaluation covers 29 simulated tasks, and the headline i"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 14,
-          "lineHeightRatio": 1.38,
-          "widthPx": 293,
-          "zeroAdvancePx": 10,
-          "insideRegisteredFrame": true,
-          "text": "Points for speed, and nothing else."
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 14,
-          "lineHeightRatio": 1.38,
-          "widthPx": 293,
-          "zeroAdvancePx": 10,
-          "insideRegisteredFrame": true,
-          "text": "Only speed earns points, so it sprints into a fall. Next: po"
         },
         {
           "familyHead": "geist",
@@ -56476,7 +56458,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3036,
+      "visibleTextLength": 3040,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -64998,7 +64980,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 43196,
+      "visibleTextLength": 43186,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101332,7 +101314,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32505,
+      "visibleTextLength": 32343,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -101585,24 +101567,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The evaluation covers 29 simulated tasks, and the headline i"
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 14,
-          "lineHeightRatio": 1.38,
-          "widthPx": 247.05,
-          "zeroAdvancePx": 10,
-          "insideRegisteredFrame": true,
-          "text": "Points for speed, and nothing else."
-        },
-        {
-          "familyHead": "geist",
-          "sizePx": 14,
-          "lineHeightRatio": 1.38,
-          "widthPx": 247.06,
-          "zeroAdvancePx": 10,
-          "insideRegisteredFrame": true,
-          "text": "Only speed earns points, so it sprints into a fall. Next: po"
         },
         {
           "familyHead": "geist",

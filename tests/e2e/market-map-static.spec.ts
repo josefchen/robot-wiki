@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { COMPANIES } from '../../data/companies';
+import { companyIdSetIssues } from '../../lib/company-population';
 import {
   startStaticExportServer,
   type StaticExportServer,
@@ -13,6 +15,7 @@ import {
  */
 
 const OUT = join(process.cwd(), 'out');
+const REGISTRY_IDS = COMPANIES.map(({ id }) => id);
 
 let server: StaticExportServer | null = null;
 let BASE = '';
@@ -44,10 +47,28 @@ test('static export prerenders 111 tiles and filters client-side (VAL-MKT-001, V
   // The served HTML already holds every tile, before any script runs.
   const html = await (await page.request.get(`${BASE}/market-map/`)).text();
   expect(html.match(/data-map-tile="/g)).toHaveLength(111);
+  // The count above is the dataset tripwire; the ids must also be exactly
+  // the registry's (tests/unit/company-population.test.ts plants each miss).
+  const prerendered = [...html.matchAll(/data-map-tile="([^"]+)"/g)].map(([, id]) => id);
+  expect(
+    companyIdSetIssues(REGISTRY_IDS, prerendered, {
+      expected: 'the company registry',
+      observed: 'the prerendered map',
+    }),
+  ).toEqual([]);
 
   await page.goto(`${BASE}/market-map/`);
   await expect(page.getByText('111 of 111 companies')).toBeVisible();
   await expect(page.locator('button[data-map-tile]')).toHaveCount(111);
+  const hydrated = await page
+    .locator('button[data-map-tile]')
+    .evaluateAll((tiles) => tiles.map((tile) => tile.getAttribute('data-map-tile') ?? ''));
+  expect(
+    companyIdSetIssues(REGISTRY_IDS, hydrated, {
+      expected: 'the company registry',
+      observed: 'the hydrated map',
+    }),
+  ).toEqual([]);
 
   await page
     .getByRole('group', { name: 'Segment' })

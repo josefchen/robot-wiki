@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "862ca74565184f4ccea5c23f2c7a744523a7434ed687664981a1fe0e75941ccd",
+  "fingerprint": "26168eaea2c24d2c4426875086a62064e09abd4c4aaba7b98608ba53c5182f64",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2802,
+  "visibleTextLength": 2806,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Surgical Robotics",
-      "href": "/adjacent/surgical/",
+      "accessibleName": "Perception for Manipulation",
+      "href": "/classical/perception/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Teleoperation Rigs",
-      "href": "/data-hardware/teleop-rigs/",
+      "accessibleName": "Surgical Robotics",
+      "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Action Spaces for Robot Learning",
-      "href": "/manipulation/action-spaces/",
+      "accessibleName": "Teleoperation Rigs",
+      "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Comparison Matrix",
-      "href": "/manipulation/comparison-matrix/",
+      "accessibleName": "Action Spaces for Robot Learning",
+      "href": "/manipulation/action-spaces/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Hierarchical Approaches",
-      "href": "/manipulation/hierarchical/",
+      "accessibleName": "Comparison Matrix",
+      "href": "/manipulation/comparison-matrix/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-19 Surgical Robotics 2026-10-19 Teleoperation Rigs 2026-10-19 Action Spaces for Robot Learning 2026-10-19 Comparison Matrix 2026-10-19 Hierarchical Approaches"
+      "text": "RECENTLY UPDATED 2026-10-19 Perception for Manipulation 2026-10-19 Surgical Robotics 2026-10-19 Teleoperation Rigs 2026-10-19 Action Spaces for Robot Learning 2026-10-19 Comparison Matrix"
     },
     {
       "label": "Tools",
