@@ -7520,6 +7520,57 @@
         "fingerprint": "475ecca5972c12cee32e4af8959f5167137ff6bbda81114128d94ea48467a677"
       },
       {
+        "id": "interactive:ChunkBuffer",
+        "component": "ChunkBuffer",
+        "sourcePath": "components/interactive/chunk-buffer.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "912d66bf3ce16e629949f3d99edfe3cc804c59a949d73300c117b0fb669d2778"
+      },
+      {
         "id": "interactive:ChunkSizeCurve",
         "component": "ChunkSizeCurve",
         "sourcePath": "components/interactive/chunk-size-curve.tsx",
@@ -8427,6 +8478,61 @@
         "fingerprint": "b9dc9660af41b5f5433b3efc089c9358fd0561bdc31ebea703dc01d750dccb98"
       },
       {
+        "id": "interactive:ExcavatorPractice",
+        "component": "ExcavatorPractice",
+        "sourcePath": "components/interactive/excavator-practice.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "68e35f13a828a9cdec51ed6fca90536e92d94c57b236a9b583c023ada2d5738f"
+      },
+      {
         "id": "interactive:ExecutionModes",
         "component": "ExecutionModes",
         "sourcePath": "components/interactive/execution-modes.tsx",
@@ -9287,6 +9393,72 @@
         "fingerprint": "dd252f855f4fabf46d2f5021687aeda34143d247ada4954f928907f5d2b0c5da"
       },
       {
+        "id": "interactive:ImpedancePress",
+        "component": "ImpedancePress",
+        "sourcePath": "components/interactive/impedance-press.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "e2bfdb4be1922a405b37af87b0d226a1de01b8bd281d0a522f1337472a0a8cfd"
+      },
+      {
         "id": "interactive:JepaPlanning",
         "component": "JepaPlanning",
         "sourcePath": "components/interactive/jepa-planning.tsx",
@@ -9351,6 +9523,108 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "2d44b1958597533aa868d0e2958ac66e400e74dadd10bd3a9a4e2e1a50970ba4"
+      },
+      {
+        "id": "interactive:KeypointString",
+        "component": "KeypointString",
+        "sourcePath": "components/interactive/keypoint-string.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "cddc4f6a481039e332f9c92966a592849a687dc6a8d99db37a174b1eb6137ee7"
+      },
+      {
+        "id": "interactive:KinematicTwin",
+        "component": "KinematicTwin",
+        "sourcePath": "components/interactive/kinematic-twin.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "66ed33e91c14b07ea1a502bac1707f8d1f10587fd81975bcf8d82e50b9e7f25e"
       },
       {
         "id": "interactive:LatencyComparison",
@@ -10134,6 +10408,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "888b116aa9ab7d00274e7a27468c08dd2ee685046610b52e0b859099319bc451"
+      },
+      {
+        "id": "interactive:PlannerExploit",
+        "component": "PlannerExploit",
+        "sourcePath": "components/interactive/planner-exploit.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "df3ce58f35c66463a3dd6506f9af923df5a4a0fb6a9dc0bd30d17bd001968869"
       },
       {
         "id": "interactive:QosQueueAge",
@@ -11040,6 +11369,61 @@
         "fingerprint": "3fd231b9de53b3a463ca6ea7cf2d4f15afa942847c19cec323db483b244b9584"
       },
       {
+        "id": "interactive:ScopeFollow",
+        "component": "ScopeFollow",
+        "sourcePath": "components/interactive/scope-follow.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "8435953edd3c882bba27f2d353ce250cdbe0acbff1f105b2fc49d97a951b5871"
+      },
+      {
         "id": "interactive:TeacherStudent",
         "component": "TeacherStudent",
         "sourcePath": "components/interactive/teacher-student.tsx",
@@ -11672,6 +12056,65 @@
         ],
         "expectedCaseCount": 8,
         "fingerprint": "622de12cb947c7dbded1e97c222afa210c0544e32e2aa04369877e441326dbbe"
+      },
+      {
+        "id": "mount:/adjacent/surgical/:ScopeFollow:1",
+        "sourceId": "interactive:ScopeFollow",
+        "route": "/adjacent/surgical/",
+        "ownerPath": "content/adjacent/surgical.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "982d675ed8620028c003f012e03e81782b6dc308774f5e780005766d4bd568ae"
       },
       {
         "id": "mount:/classical/calibration/:CalibrationChain:1",
@@ -12876,6 +13319,61 @@
         "fingerprint": "bf9c3861fb3311141dbfaa7aa9577745b656e3ea55ba98ff2aaf62db931c44b5"
       },
       {
+        "id": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
+        "sourceId": "interactive:KinematicTwin",
+        "route": "/data-hardware/teleop-rigs/",
+        "ownerPath": "content/data-hardware/teleop-rigs.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "ad791957dfac3ec1612cb2476bcc0c48c63d0ac5a4657c09523dc61ca7dcc14b"
+      },
+      {
         "id": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
         "sourceId": "interactive:TeleopRigMatrix",
         "route": "/data-hardware/teleop-rigs/",
@@ -13698,6 +14196,76 @@
         "fingerprint": "9226b32631a9532ac633dd10c58ea1a77ae3083c0f1c0e4b7535c075ec9b4db9"
       },
       {
+        "id": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "sourceId": "interactive:ImpedancePress",
+        "route": "/manipulation/action-spaces/",
+        "ownerPath": "content/manipulation/action-spaces.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "40dbe02df8c6b26cfa15c976c95587bd3a48a571ae1aea5e20167167e528b5c9"
+      },
+      {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
         "sourceId": "interactive:CompoundingError",
         "route": "/manipulation/bc-foundations/",
@@ -13774,6 +14342,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "2e57f3ca00d11797b53c5ec9dd7abcab52c95ff25f1690b04301a16ae2d18bcc"
+      },
+      {
+        "id": "mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
+        "sourceId": "interactive:ChunkBuffer",
+        "route": "/manipulation/comparison-matrix/",
+        "ownerPath": "content/manipulation/comparison-matrix.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "4f69a4cd076647771d83c63e33d2d292dc15e97828d115aa18b890a28d7eac43"
       },
       {
         "id": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
@@ -14091,6 +14714,61 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "f0205437f109d1786e3a622ef7ac646bc959e02c1ca000160c8a24806b32756f"
+      },
+      {
+        "id": "mount:/manipulation/hierarchical/:KeypointString:1",
+        "sourceId": "interactive:KeypointString",
+        "route": "/manipulation/hierarchical/",
+        "ownerPath": "content/manipulation/hierarchical.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "e575b2b00262501ea099aa73bddf099feb72e6e048b347d9687d96a56a44d987"
       },
       {
         "id": "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
@@ -16198,6 +16876,65 @@
         "fingerprint": "a82134d61bbd611feb396cd1b8f629f5c5b24c100b20bf42c2d013c4c1b7a746"
       },
       {
+        "id": "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
+        "sourceId": "interactive:ExcavatorPractice",
+        "route": "/world-models/model-based-robot-learning/",
+        "ownerPath": "content/world-models/model-based-robot-learning.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "3248e1e71c84c028d8a729d1aced94d4f9af2bd7bac2752ceb6c750998d490cd"
+      },
+      {
         "id": "mount:/world-models/taxonomy/:WmDisambiguator:1",
         "sourceId": "interactive:WmDisambiguator",
         "route": "/world-models/taxonomy/",
@@ -16255,6 +16992,65 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "989a89220f19a1652f49c54f31770f12a2528b1fdeee01d1308fa50ad6eea4ff"
+      },
+      {
+        "id": "mount:/world-models/world-models-vs-simulators/:PlannerExploit:1",
+        "sourceId": "interactive:PlannerExploit",
+        "route": "/world-models/world-models-vs-simulators/",
+        "ownerPath": "content/world-models/world-models-vs-simulators.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "1ba5e4f70b7e6129b9fdfcc28392f4bde284214185029cc72add3964b36e14ea"
       }
     ]
   },
@@ -16836,11 +17632,13 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-buffer.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
+        "components/interactive/excavator-practice.tsx",
         "components/interactive/execution-modes.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/gait-diagram.tsx",
@@ -16849,12 +17647,16 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-press.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/keypoint-string.tsx",
+        "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-latency.tsx",
+        "components/interactive/planner-exploit.tsx",
         "components/interactive/qos-queue-age.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reliability-compounding.tsx",
@@ -16863,6 +17665,7 @@
         "components/interactive/rrt-explorer.tsx",
         "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
+        "components/interactive/scope-follow.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
@@ -16894,11 +17697,13 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-buffer.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/eureka-loop.tsx",
+        "components/interactive/excavator-practice.tsx",
         "components/interactive/execution-modes.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
@@ -16906,12 +17711,16 @@
         "components/interactive/hardware-guide.tsx",
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
+        "components/interactive/impedance-press.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/keypoint-string.tsx",
+        "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-latency.tsx",
+        "components/interactive/planner-exploit.tsx",
         "components/interactive/qos-queue-age.tsx",
         "components/interactive/receding-horizon.tsx",
         "components/interactive/reliability-compounding.tsx",
@@ -16920,6 +17729,7 @@
         "components/interactive/rrt-explorer.tsx",
         "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
+        "components/interactive/scope-follow.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
@@ -16953,7 +17763,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "deb0c3a1f299a45c5a4c60da0ffce96909f7266eee53aee8fb7ff5208ec056fc"
+      "fingerprint": "f0c7244ad5b672017e6a3ab0f907dbad25b7d43bc066cf2eb82521163355c9f0"
     },
     {
       "id": "control:selection",
@@ -17280,6 +18090,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-buffer.tsx",
         "components/interactive/chunk-size-curve.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
@@ -17298,7 +18109,10 @@
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/impedance-press.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/keypoint-string.tsx",
+        "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -17333,6 +18147,7 @@
         "components/interactive/action-tokenization.tsx",
         "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
+        "components/interactive/chunk-buffer.tsx",
         "components/interactive/chunk-size-curve.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
         "components/interactive/comparison-matrix.tsx",
@@ -17350,7 +18165,10 @@
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/impedance-contact-lab.tsx",
+        "components/interactive/impedance-press.tsx",
         "components/interactive/jepa-planning.tsx",
+        "components/interactive/keypoint-string.tsx",
+        "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/mot-insulation.tsx",
@@ -17392,7 +18210,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "6dfd79014dda2f9c551b3a219d2f3bd45572d33ffedea2f2c9caf8c3078b7808"
+      "fingerprint": "f132730fffe5f0930c86dd048e8de1d4d5a3db46770606256d5d0b8abf79c72e"
     },
     {
       "id": "control:disabled",
@@ -17432,5 +18250,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "279b085b0e70aaebe61be17e1569a1a01462e488d6ba7992c30feefa5557f08b"
+  "rootFingerprint": "4f288f80db754b81b43c15e3b112e105f50bd16503eef4cf7f3c0102207a057a"
 }

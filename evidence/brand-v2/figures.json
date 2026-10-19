@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "51e511121da3bfdc6fb55586b75e89acb8766afdf2913c65e0ad4a8c11092471",
+  "fingerprint": "61b7032b1082b1fb642e2beaf3c6eb5da335994305e139e92c93ee4524cc9a7d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -474,7 +474,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21443,
+      "visibleTextLength": 21944,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -12211,7 +12211,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17736,
+      "visibleTextLength": 18247,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -13119,7 +13119,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16329,
+      "visibleTextLength": 16813,
       "figures": [
         {
           "imageId": "action-space-study-platforms-2026",
@@ -13343,7 +13343,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18585,
+      "visibleTextLength": 19102,
       "figures": [
         {
           "imageId": "octo-evaluation-setups-2024",
@@ -13976,7 +13976,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21690,
+      "visibleTextLength": 22151,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -15200,7 +15200,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17093,
+      "visibleTextLength": 17092,
       "figures": [
         {
           "imageId": "isaac-gym-shadow-hand-envs-2021",
@@ -16214,7 +16214,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14262,
+      "visibleTextLength": 14816,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -16442,7 +16442,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20735,
+      "visibleTextLength": 21240,
       "figures": [
         {
           "imageId": "isaac-lab-assembly-sim-2025",
@@ -16982,7 +16982,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 31910,
+      "visibleTextLength": 32411,
       "figures": [
         {
           "imageId": "da-vinci-xi-patient-cart-2018",
@@ -28719,7 +28719,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23136,
+      "visibleTextLength": 23647,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -29627,7 +29627,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21093,
+      "visibleTextLength": 21577,
       "figures": [
         {
           "imageId": "action-space-study-platforms-2026",
@@ -29851,7 +29851,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25017,
+      "visibleTextLength": 25534,
       "figures": [
         {
           "imageId": "octo-evaluation-setups-2024",
@@ -30484,7 +30484,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27470,
+      "visibleTextLength": 27931,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -31708,7 +31708,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23846,
+      "visibleTextLength": 23845,
       "figures": [
         {
           "imageId": "isaac-gym-shadow-hand-envs-2021",
@@ -32722,7 +32722,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 19101,
+      "visibleTextLength": 19655,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -32950,7 +32950,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26212,
+      "visibleTextLength": 26717,
       "figures": [
         {
           "imageId": "isaac-lab-assembly-sim-2025",

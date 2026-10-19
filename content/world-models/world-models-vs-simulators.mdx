@@ -48,6 +48,8 @@ seeAlso:
   - "world-models/latent-dynamics"
   - "classical/control"
 ---
+import { PlannerExploit } from '@/components/interactive/planner-exploit';
+
 import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tables';
 
 Learned <Term id="world-model">world models</Term> and physics simulators both predict what an action does: MuJoCo computes it from explicit geometry, dynamics and contact rules <Cite id="mujoco-2012" />, while a learned model predicts it from data. Physics suits mechanics that can be specified and actions no dataset covers, learning suits appearance and contact that are costly to model, and many systems combine the two.
@@ -116,6 +118,8 @@ DeepMind reports that Genie 3 runs at 24 fps and 720p <Cite id="genie-3-2025" />
 ## Physics stays ahead for untried actions and checkable safety limits
 
 Planning, as in [model-based RL](/world-models/model-based-robot-learning/), queries actions the dataset did not take. A physics engine integrates them while its modeled regime holds; a learned model must extrapolate, and a planner can exploit its errors by picking actions with spuriously high predicted reward. Across six video generators, physical understanding was "severely limited, and unrelated to visual realism" <Cite id="physics-iq-2025" />. Safety constraints also favor explicit state: joint limits, collision geometry, force bounds and signed distances can be checked directly, while a predicted video may imply a collision without the quantity a monitor needs.
+
+<PlannerExploit className="my-6" />
 
 <span id="where-learning-has-the-advantage" />
 ## Learning captures appearance and contact that are costly to model

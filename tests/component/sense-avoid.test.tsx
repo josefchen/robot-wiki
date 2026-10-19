@@ -75,4 +75,12 @@ describe('SenseAvoid stage (the twin flight-test corridor)', () => {
     expect(html).toContain('data-scene-mark="latency-budget"');
     expect(html).not.toContain('<text');
   });
+
+  it('gives the flagship a stable anchor that clears the sticky header', () => {
+    const html = renderToString(<SenseAvoid />);
+    const root = html.match(/<div[^>]*data-motion-scene="sense-avoid"[^>]*>/)?.[0] ?? '';
+    expect(root).toContain('id="sense-avoid"');
+    expect(root).toContain('scroll-mt-16');
+    expect([...html.matchAll(/\bid="sense-avoid"/g)]).toHaveLength(1);
+  });
 });

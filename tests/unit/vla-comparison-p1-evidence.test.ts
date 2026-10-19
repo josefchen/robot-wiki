@@ -93,8 +93,14 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
       .find((a: { id: string }) => a.id === 'images-a-20261013-prose-manipulation-comparison-matrix');
     expect(imagesEntry.oldHash).toBe(humanizeEntry.newHash);
     expect(imagesEntry.reconciles).toBeUndefined();
+    // The manipulation isometric figures of 2026-10-15 then mount ChunkBuffer:
+    // one plain edge from the images' endpoint, which ends at the live article.
+    const figureEntry = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries
+      .find((a: { id: string }) => a.id === 'anatomy-manip-b04-figures-20261015-prose-comparison-matrix');
+    expect(figureEntry.oldHash).toBe(imagesEntry.newHash);
+    expect(figureEntry.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/comparison-matrix')?.hash)
-      .toBe(imagesEntry.newHash);
+      .toBe(figureEntry.newHash);
     expect(article).toContain(currentIntro);
     expect(article).not.toContain(oldIntro);
     expect({ ...matter(article).data, seeAlso: undefined })

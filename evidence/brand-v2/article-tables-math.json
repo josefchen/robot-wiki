@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "af5706c38094249d90976ebf3f111f6dc7268df49945f4890254f4b7d7132b7a",
+  "fingerprint": "2621a1fa75d00bfa2b803ca4aba2eb03ce83dceb37fe09f70c1db83d3f81c912",
   "viewports": [
     "375x812",
     "1440x900"
@@ -322,7 +322,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21443,
+      "visibleTextLength": 21944,
       "tables": [
         {
           "index": 0,
@@ -4467,7 +4467,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17736,
+      "visibleTextLength": 18247,
       "tables": [
         {
           "index": 0,
@@ -5259,7 +5259,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16329,
+      "visibleTextLength": 16813,
       "tables": [
         {
           "index": 0,
@@ -5779,7 +5779,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 18585,
+      "visibleTextLength": 19102,
       "tables": [
         {
           "index": 0,
@@ -6289,7 +6289,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21690,
+      "visibleTextLength": 22151,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7218,7 +7218,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17093,
+      "visibleTextLength": 17092,
       "tables": [
         {
           "index": 0,
@@ -7906,7 +7906,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 14262,
+      "visibleTextLength": 14816,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7971,7 +7971,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20735,
+      "visibleTextLength": 21240,
       "tables": [
         {
           "index": 0,
@@ -8307,7 +8307,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 31910,
+      "visibleTextLength": 32411,
       "tables": [
         {
           "index": 0,
@@ -12452,7 +12452,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23136,
+      "visibleTextLength": 23647,
       "tables": [
         {
           "index": 0,
@@ -13244,7 +13244,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21093,
+      "visibleTextLength": 21577,
       "tables": [
         {
           "index": 0,
@@ -13764,7 +13764,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 25017,
+      "visibleTextLength": 25534,
       "tables": [
         {
           "index": 0,
@@ -14274,7 +14274,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27470,
+      "visibleTextLength": 27931,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -15203,7 +15203,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23846,
+      "visibleTextLength": 23845,
       "tables": [
         {
           "index": 0,
@@ -15891,7 +15891,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19101,
+      "visibleTextLength": 19655,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -15956,7 +15956,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 929.63,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26212,
+      "visibleTextLength": 26717,
       "tables": [
         {
           "index": 0,

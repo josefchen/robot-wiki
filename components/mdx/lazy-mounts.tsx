@@ -47,6 +47,9 @@ export const BearCaseLock = dynamic(() =>
 export const CalibrationChain = dynamic(() =>
   import('@/components/interactive/calibration-chain').then((m) => m.CalibrationChain),
 );
+export const ChunkBuffer = dynamic(() =>
+  import('@/components/interactive/chunk-buffer').then((m) => m.ChunkBuffer),
+);
 export const ChunkSizeCurve = dynamic(() =>
   import('@/components/interactive/chunk-size-curve').then((m) => m.ChunkSizeCurve),
 );
@@ -91,6 +94,9 @@ export const EgoScaleScaling = dynamic(() =>
 export const EurekaLoop = dynamic(() =>
   import('@/components/interactive/eureka-loop').then((m) => m.EurekaLoop),
 );
+export const ExcavatorPractice = dynamic(() =>
+  import('@/components/interactive/excavator-practice').then((m) => m.ExcavatorPractice),
+);
 export const ExecutionModes = dynamic(() =>
   import('@/components/interactive/execution-modes').then((m) => m.ExecutionModes),
 );
@@ -133,11 +139,17 @@ export const HindsightRelabel = dynamic(() =>
 export const HumanoidPickHeight = dynamic(() =>
   import('@/components/interactive/humanoid-pick-height').then((m) => m.HumanoidPickHeight),
 );
+export const ImpedancePress = dynamic(() =>
+  import('@/components/interactive/impedance-press').then((m) => m.ImpedancePress),
+);
 export const ImpedanceContactLab = dynamic(() =>
   import('@/components/interactive/impedance-contact-lab').then((m) => m.ImpedanceContactLab),
 );
 export const JepaPlanning = dynamic(() =>
   import('@/components/interactive/jepa-planning').then((m) => m.JepaPlanning),
+);
+export const KinematicTwin = dynamic(() =>
+  import('@/components/interactive/kinematic-twin').then((m) => m.KinematicTwin),
 );
 export const LatencyComparison = dynamic(() =>
   import('@/components/interactive/latency-comparison').then((m) => m.LatencyComparison),
@@ -177,6 +189,9 @@ export const PiGenerationTimeline = dynamic(() =>
 );
 export const PlanarFkArm = dynamic(() =>
   import('@/components/interactive/planar-fk-arm').then((m) => m.PlanarFkArm),
+);
+export const PlannerExploit = dynamic(() =>
+  import('@/components/interactive/planner-exploit').then((m) => m.PlannerExploit),
 );
 export const QosQueueAge = dynamic(() =>
   import('@/components/interactive/qos-queue-age').then((m) => m.QosQueueAge),
@@ -219,6 +234,9 @@ export const SafetyFilterFence = dynamic(() =>
 );
 export const ScannedTwinCheck = dynamic(() =>
   import('@/components/interactive/scanned-twin-check').then((m) => m.ScannedTwinCheck),
+);
+export const ScopeFollow = dynamic(() =>
+  import('@/components/interactive/scope-follow').then((m) => m.ScopeFollow),
 );
 export const SceneRepresentationLadder = dynamic(() =>
   import('@/components/interactive/scene-representation-ladder').then((m) => m.SceneRepresentationLadder),
@@ -263,6 +281,9 @@ export const RlMethodsTable = dynamic(() =>
 // Motion-language scenes: client components outside components/interactive/
 // that articles import directly; each splits into its own chunk and keeps
 // its server-rendered poster (same markup as an eager import).
+export const KeypointString = dynamic(() =>
+  import('@/components/interactive/keypoint-string').then((m) => m.KeypointString),
+);
 export const KalmanPredictUpdate = dynamic(() =>
   import('@/components/motion/scenes/kalman-predict-update').then((m) => m.KalmanPredictUpdate),
 );

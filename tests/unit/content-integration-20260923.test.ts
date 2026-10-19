@@ -102,9 +102,11 @@ describe('content integration of 2026-09-23', () => {
         // from the humanizer endpoint with exactly one plain edge, the
         // 2026-10-02 SEO pass continues both with one more, the 2026-10-10
         // world-models pass with one more, the 2026-10-12 world-models length
-        // cut with one more, and images bundle A of 2026-10-13 moves them to
-        // the live body with one more, plain or as a resolution that
-        // reconciles the cut.
+        // cut with one more, and images bundle A of 2026-10-13 with one
+        // more, plain or as a resolution that reconciles the cut. For the
+        // two articles that gained a figure mount on 2026-10-15 (batch
+        // world-models-b03), one more plain edge from the images endpoint
+        // moves them to the live body.
         const slug = entry.memberId.slice('article:world-models/'.length);
         const later = approvals.find(a => a.id === `kol-backlog-20261001-world-models-prose-${slug}`);
         if (later) expect(later.oldHash).toBe(next?.newHash);
@@ -117,7 +119,9 @@ describe('content integration of 2026-09-23', () => {
         const images = approvals.find(a => a.id === `images-a-20261013-prose-world-models-${slug}`)!;
         expect(images.oldHash === lengthCut.newHash
           || (images.reconciles ?? []).some(binding => binding.newHash === lengthCut.newHash)).toBe(true);
-        expect(images.newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        const figures = approvals.find(a => a.id === `anatomy-wm-b03-figures-20261015-prose-${slug}`);
+        if (figures) expect(figures.oldHash).toBe(images.newHash);
+        expect((figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }

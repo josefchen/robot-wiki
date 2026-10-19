@@ -115,4 +115,12 @@ describe('TactileSlip stage (the slip test stand)', () => {
     expect(html).toContain('data-scene-mark="left-touch"');
     expect(html).not.toContain('<text');
   });
+
+  it('gives the flagship a stable anchor that clears the sticky header', () => {
+    const html = renderToString(<TactileSlip />);
+    const root = html.match(/<div[^>]*data-motion-scene="tactile-slip"[^>]*>/)?.[0] ?? '';
+    expect(root).toContain('id="tactile-slip"');
+    expect(root).toContain('scroll-mt-16');
+    expect([...html.matchAll(/\bid="tactile-slip"/g)]).toHaveLength(1);
+  });
 });

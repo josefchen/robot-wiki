@@ -172,7 +172,7 @@ test.describe('how robots work: robustness', () => {
     await context.close();
   });
 
-  test('Tab reaches Back, Next, every control, the guess and the self-check, each with a blue ring', async ({ page }) => {
+  test('Tab reaches Back, Next, every control, the guess and the self-check, each with an ink ring', async ({ page }) => {
     test.setTimeout(120_000);
     await page.goto(`${ROUTE}#grip`);
     const reached = new Set<string>();
@@ -211,7 +211,9 @@ test.describe('how robots work: robustness', () => {
       await tabAround();
     }
     for (const name of ['prev', 'next', 'dot', 'control', 'guess', 'self-check']) expect(reached, `Tab reaches ${name}`).toContain(name);
-    expect([...rings]).toEqual(['solid rgb(36, 95, 255)']);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the focus ring
+    // moved from the brand-v2 signal blue to ink, still one ring style for every stop.
+    expect([...rings]).toEqual(['solid rgb(28, 28, 26)']);
   });
 
   test('each explainer keeps to its code, asset, main-thread and layout budget', async ({ page }) => {
@@ -244,7 +246,13 @@ test.describe('how robots work: robustness', () => {
       await page.waitForFunction(() => (window as unknown as { __explainer?: Hook }).__explainer?.ready === true);
       const initial = new Set(await page.evaluate(() => [...document.scripts].map((s) => s.src).filter(Boolean)));
       const stage = page.locator('[data-x="stage"]');
-      const before = await stage.boundingBox();
+      // In page coordinates: the click scrolls the start button into view when it sits below the
+      // fold, which moves the viewport box without moving the stage.
+      const stageBox = () => stage.evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        return { x: r.x + window.scrollX, y: r.y + window.scrollY, width: r.width, height: r.height };
+      });
+      const before = await stageBox();
       page.on('response', onResponse);
       const t0 = await page.evaluate(() => performance.now());
       await page.locator('[data-x="start"]').click();
@@ -263,7 +271,7 @@ test.describe('how robots work: robustness', () => {
       const code = loads.filter((l) => l.url.endsWith('.js') && !initial.has(l.url));
       const sceneCode = code.filter((l) => !l.three).reduce((sum, l) => sum + l.gzip, 0);
       const assets = loads.filter((l) => l.url.includes('/explainers/')).reduce((sum, l) => sum + l.bytes, 0);
-      const after = await stage.boundingBox();
+      const after = await stageBox();
       rows.push(`${id}: scene code ${(sceneCode / 1024).toFixed(1)} KB gzipped in ${code.length - code.filter((l) => l.three).length} chunks, `
         + `assets ${(assets / 1024).toFixed(0)} KB, longest task ${long.toFixed(0)} ms, layout shift ${shift.toFixed(4)}, pixel ratio ${ratio}`);
       if (sceneCode > 250 * 1024) over.push(`#${id} scene code ${sceneCode} B gzipped`);

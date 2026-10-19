@@ -321,6 +321,36 @@ export function imagesDh20261015Endpoint(
   return edge.newHash;
 }
 
+/**
+ * Edges the manipulation isometric figures of 2026-10-15 (batch
+ * manipulation-b04) appended as one block after the data-hardware images: one
+ * prose edge per article that gained a figure mount (action spaces, the
+ * comparison matrix, hierarchical policies) and one edge from an absent seal
+ * per new figure source and mount.
+ */
+export const isAnatomyManipB0420261015Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('anatomy-manip-b04-figures-20261015-');
+
+/**
+ * The hash the manipulation isometric figures leave on a member whose chain
+ * ends at `from`: their one edge on the member must continue `from`, as a
+ * plain edge or as a resolution that reconciles it; an untouched member stays
+ * at `from`.
+ */
+export function anatomyManipB0420261015Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isAnatomyManipB0420261015Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-15 manipulation figure edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
 /** The citation list a frontmatter P1 row declared for `content/<domain>/<slug>.mdx`. */
 export const preDomainPassCitations = (domain: string, slug: string, citations: readonly string[]) =>
   preDomainPassCitationList(root, `content/${domain}/${slug}.mdx`, citations);

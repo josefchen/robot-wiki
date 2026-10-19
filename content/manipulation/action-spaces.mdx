@@ -50,6 +50,8 @@ seeAlso:
   - "frontier/dexterity"
   - "manipulation/realtime-execution"
 ---
+import { ImpedancePress } from '@/components/interactive/impedance-press';
+
 import { ActionSpaceTable } from '@/components/mdx/text-tables';
 
 An action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id="open-x-embodiment-2023" />.
@@ -104,6 +106,8 @@ Torque actions expose dynamics and contact; Levine et al. mapped raw images to m
 <Image id="adaptive-compliance-tasks-2024" />
 
 Impedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id="hogan-1985" />. Task-space impedance references needed the fewest samples against torque, joint PD and inverse dynamics <Cite id="varin-action-spaces-2019" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id="acp-2024" />.
+
+<ImpedancePress className="my-6" />
 
 ## Chunks change the time axis
 

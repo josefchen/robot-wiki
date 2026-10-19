@@ -17,8 +17,9 @@ import {
 /**
  * Batch scale: the same amount of practice, run by more virtual robots at
  * once. A square of dots grows with the robot count (one dot per 64 robots)
- * while a lime dot slides down the training-time curve; the dashed curve
- * adds the assumed per-robot work on the main computer and flattens.
+ * while the highlighted dot slides down the training-time curve; then a
+ * dashed copy of that curve peels off it and bends up as the assumed
+ * per-robot work on the main computer is added, flattening it.
  */
 export const BATCH_SCALE_SCENE: SceneDefinition = {
   id: 'batch-scale',
@@ -48,11 +49,16 @@ export function batchScaleFrame(t: number) {
           (Math.log2(DEFAULT_ENVS) - Math.log2(MIN_ENVS)) * linear(t, 1)))
       : Math.round(2 ** (Math.log2(DEFAULT_ENVS) +
           (Math.log2(MAX_ENVS) - Math.log2(DEFAULT_ENVS)) * eased(t, 3)));
+  const overheadLift = eased(t, 2);
   return {
     environments,
     wallSeconds: wallClockSeconds(environments, false),
     cpuSeconds: wallClockSeconds(environments, true),
-    cpuVisible: eased(t, 2),
+    /** 0: the dashed copy lies on the solid curve; 1: it carries the main-computer cost. */
+    overheadLift,
+    // The copy shows over the first fifth of the beat, while the eased lift has barely begun.
+    overheadOpacity: clamp01(linear(t, 2) * 5),
+    overheadLabel: smooth(2 * overheadLift - 1),
     recap: eased(t, 3),
   };
 }
@@ -90,22 +96,55 @@ const ENV_TICKS = [MIN_ENVS, 1024, MAX_ENVS];
  * unbroken across the joins.
  */
 const SEGMENTS = 32;
-function segments(cpuBound: boolean): { d: string; offset: number }[] {
-  const at = (i: number) => {
-    const envs = MIN_ENVS * (MAX_ENVS / MIN_ENVS) ** (i / SEGMENTS);
-    return [x(envs), y(wallClockSeconds(envs, cpuBound))] as const;
-  };
+const SEGMENT_INDEXES = Array.from({ length: SEGMENTS }, (_, i) => i);
+const curvePoints = (cpuBound: boolean) => Array.from({ length: SEGMENTS + 1 }, (_, i) => {
+  const envs = MIN_ENVS * (MAX_ENVS / MIN_ENVS) ** (i / SEGMENTS);
+  return [x(envs), y(wallClockSeconds(envs, cpuBound))] as const;
+});
+const SOLID_POINTS = curvePoints(false);
+const OVERHEAD_POINTS = curvePoints(true);
+
+type CurveSegment = { d: string; offset: number };
+let lastCurve: { lift: number; segments: CurveSegment[] } | null = null;
+/**
+ * The dashed overhead curve partway through its lift, each vertex moved
+ * straight up from the solid curve: lift 0 lies on the solid curve, lift 1
+ * is the curve with the main-computer cost. Every segment binds to the same
+ * lift in a frame, so the last result is kept.
+ */
+export function overheadCurve(lift: number): CurveSegment[] {
+  if (lastCurve?.lift === lift) return lastCurve.segments;
+  const points = SOLID_POINTS.map(([px, from], i) => [px, r(from + (OVERHEAD_POINTS[i][1] - from) * lift)] as const);
   let travelled = 0;
-  return Array.from({ length: SEGMENTS }, (_, i) => {
-    const [x0, y0] = at(i);
-    const [x1, y1] = at(i + 1);
-    const segment = { d: `M${x0} ${y0} L${x1} ${y1}`, offset: r(-travelled) };
+  const segments = SEGMENT_INDEXES.map((i) => {
+    const [x0, y0] = points[i];
+    const [x1, y1] = points[i + 1];
+    // A positive dash offset starts the pattern that far in, where the previous segment left it.
+    const segment = { d: `M${x0} ${y0} L${x1} ${y1}`, offset: r(travelled) };
     travelled += Math.hypot(x1 - x0, y1 - y0);
     return segment;
   });
+  lastCurve = { lift, segments };
+  return segments;
 }
-const gpuSegments = segments(false);
-const cpuSegments = segments(true);
+const gpuSegments = overheadCurve(0);
+
+/**
+ * Other stage strokes keep a fixed CSS-pixel width and so dash in CSS pixels,
+ * which stage-unit offsets cannot continue across joins. These segments
+ * scale with the stage instead, and the width and dashes are divided back by
+ * the drawing's scale (its width over the viewBox width, as stage.css sizes
+ * it) to the usual 1.5 px line and 5 px dash. The type scale is not used: it
+ * stops following the container on narrow phones.
+ */
+const STAGE_SCALE = 'tan(atan2(min(100cqw, var(--motion-stage-view-width, 340px) * var(--motion-stage-max-scale, 1.6)), '
+  + 'var(--motion-stage-view-width, 340px)))';
+const STAGE_PX = (px: number) => `calc(${px}px / ${STAGE_SCALE})`;
+const DASHED_SEGMENT_STYLE = {
+  vectorEffect: 'none',
+  strokeWidth: STAGE_PX(1.5),
+  strokeDasharray: `${STAGE_PX(5)} ${STAGE_PX(4)}`,
+} as const;
 
 /** One dot per 64 robots, filled in growing squares: 1 dot, then 8 by 8, then 16 by 16. */
 const DOT_PITCH = 4;
@@ -128,6 +167,7 @@ const finalSeconds = wallClockSeconds(MAX_ENVS, false);
 
 function BatchScaleStage() {
   const gpuEnd = y(finalSeconds);
+  const cpuEnd = y(wallClockSeconds(MAX_ENVS, true));
   return (
     <StageSvg viewBox="0 0 340 240">
       <text data-scene-stage-label="time-axis" data-scene-axis x={8} y={20} fontSize={14} fill={INK}>training time</text>
@@ -157,12 +197,21 @@ function BatchScaleStage() {
         {gpuSegments.map(({ d }) => <path key={d} d={d} />)}
       </g>
       <AnimatedGroup data-scene-mark="cpu-cost-time" fill="none" stroke="var(--role-constraint-stage)" strokeWidth={1.5}
-        strokeDasharray="5 4" bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>
-        {cpuSegments.map(({ d, offset }) => <path key={d} d={d} strokeDashoffset={offset} />)}
+        strokeDasharray="5 4" bindings={{ opacity: (t) => batchScaleFrame(t).overheadOpacity }}>
+        {SEGMENT_INDEXES.map((i) => (
+          <AnimatedPath key={i} bindings={{
+            d: (t) => overheadCurve(batchScaleFrame(t).overheadLift)[i].d,
+            strokeDashoffset: (t) => overheadCurve(batchScaleFrame(t).overheadLift)[i].offset,
+          }} style={DASHED_SEGMENT_STYLE} />
+        ))}
       </AnimatedGroup>
-      <AnimatedGroup bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>
-        <text data-scene-stage-label="cpu-label" x={RIGHT + 6} y={116} fontSize={14} fill={INK}>with computer</text>
-        <text data-scene-stage-label="cpu-label" x={RIGHT + 6} y={138} fontSize={14} fill={INK}>overhead</text>
+      {/* Label type is sized in CSS pixels, so the two lines step in em: a step in stage units widens with
+          the stage until the lines sit as far apart as "no overhead". The pair is centred on the dashed end. */}
+      <AnimatedGroup bindings={{ opacity: (t) => batchScaleFrame(t).overheadLabel }}>
+        <text data-scene-stage-label="cpu-label" x={RIGHT + 6} y={r(cpuEnd)} fontSize={14} fill={INK}>
+          <tspan x={RIGHT + 6} dy="-0.275em">with computer</tspan>
+          <tspan x={RIGHT + 6} dy="1.25em">overhead</tspan>
+        </text>
       </AnimatedGroup>
       <text data-scene-stage-label="gpu-label" x={RIGHT + 6} y={160} fontSize={14} fill={INK}>no overhead</text>
 
@@ -177,7 +226,7 @@ function BatchScaleStage() {
           opacity: (t) => eased(t, 0),
         }} />
 
-      {/* The settle note sits in the empty corner under the curves, led to the lime dot. */}
+      {/* The settle note sits in the empty corner under the curves, led to the highlighted dot. */}
       <AnimatedGroup data-figure-annotation="" bindings={{ opacity: (t) => batchScaleFrame(t).recap }}>
         <text data-scene-stage-label="annotation" x={68} y={136} fontSize={14} fill={INK}>
           16,384 at once:

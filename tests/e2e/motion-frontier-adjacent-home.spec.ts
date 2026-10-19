@@ -49,6 +49,8 @@ for (const { id, route, captions } of scenes) {
         }
         const alternative = page.locator(`#${await scene.getAttribute('aria-describedby')}`);
         for (const caption of captions) await expect(alternative).toContainText(caption);
+        // Each scene here is its domain's flagship and keeps its anchor once the player replaces the poster.
+        await expect(page.locator(`#${id}`)).toHaveAttribute('data-motion-scene', id);
       } finally {
         await context.close();
       }

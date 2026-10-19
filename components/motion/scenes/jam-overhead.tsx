@@ -346,6 +346,7 @@ export function JamOverhead({ className }: { className?: string }) {
     <SceneMount
       scene={JAM_OVERHEAD_SCENE}
       stage={<JamOverheadStage />}
+      anchorId="jam-overhead"
       className={className}
       legend={<>
         <LegendItem series="cell-productive" swatch={<RingSwatch level={0} role="var(--role-value-graphic)" />}>outer ring: robot picking</LegendItem>

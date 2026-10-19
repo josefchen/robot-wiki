@@ -311,6 +311,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Deployment claims with issuer/as-of scope, verified vs claimed.
     kind: 'source-data',
   },
+  'interactive:ExcavatorPractice': {
+    // Canales and colleagues' published checkpoints (the Fig. 5 snapshots, Table II) on a drawn excavator; the path and the models' spread self-label as illustrative.
+    kind: 'source-data',
+  },
   'interactive:ExpoFtResults': {
     // Every plotted count comes from the EXPO-FT paper's own table.
     kind: 'source-data',
@@ -373,6 +377,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:AdvantageScrubber': {
     // "Deterministic teaching toy" over the Recap portafilter illustration.
+    kind: 'authored-model',
+  },
+  'interactive:ChunkBuffer': {
+    // Gemini Robotics' 250 ms and 50 Hz with the reader's chunk size; the ticks it fills are this wiki's arithmetic, slowed and labelled.
     kind: 'authored-model',
   },
   'interactive:ChunkSizeCurve': {
@@ -504,6 +512,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // per-environment CPU cost"). Audit-frozen, so no lead series ships.
     kind: 'authored-model',
   },
+  'interactive:ImpedancePress': {
+    // Hogan's impedance law on a spring press with illustrative springs (1, 2 and 4 marks of push per mark of gap), labelled.
+    kind: 'authored-model',
+  },
   'interactive:WbcDecomposition': {
     // Decomposition comparison with published loop rates; the stack
     // drawing is schematic. Treated as authored for labelling.
@@ -513,6 +525,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   // --- schematic: mechanism illustrations
   'interactive:BearCaseLock': {
     // The article's four falsifying results on an illustrative pin-tumbler lock, each pin set by the watchlist's August 2026 call; "illustrative" status line.
+    kind: 'schematic',
+  },
+  'interactive:KinematicTwin': {
+    // The article's GELLO rule (joint readings map one to one onto robot commands) on an illustrative leader and robot; "Schematic" status line.
     kind: 'schematic',
   },
   'interactive:HelixClockwork': {
@@ -559,6 +575,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // "Deterministic two-dimensional teaching model".
     kind: 'schematic',
   },
+  'interactive:KeypointString': {
+    // A picked image point lifted to a target along its camera ray by a depth reading, on an illustrative perspective frame; "Schematic" status line.
+    kind: 'schematic',
+  },
   'interactive:MotInsulation': {
     // Layer-by-layer Mixture-of-Transformers architecture view.
     kind: 'schematic',
@@ -573,6 +593,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:PlanarFkArm': {
     // 2D forward-kinematics visualizer.
+    kind: 'schematic',
+  },
+  'interactive:PlannerExploit': {
+    // The article's extrapolation argument on an illustrative fairing bench (one action, a schematic reward and model); "Schematic" status line.
     kind: 'schematic',
   },
   'interactive:RecedingHorizon': {
@@ -605,6 +629,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:SceneSplit': {
     // The article's split rule on twenty illustrative episodes and one seeded random draw; "Schematic" status line.
+    kind: 'schematic',
+  },
+  'interactive:ScopeFollow': {
+    // ScoPilot's camera following (Level 1 on Yang's scale) on an illustrative box trainer and peg drill; "Schematic" status line.
     kind: 'schematic',
   },
   'interactive:TrajectoryStitching': {

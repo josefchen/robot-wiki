@@ -749,7 +749,7 @@
     {
       "id": "batch-scale",
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "sourceSha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5",
+      "sourceSha256": "ddc578f22a4d9ca09a1c37b267e4541d9f7125c2ad0d6f02bd8da4d62ae4a2c4",
       "marks": [
         {
           "mark": "cpu-cost-time",
@@ -914,7 +914,7 @@
     {
       "id": "jam-overhead",
       "route": "/data-hardware/industrial-deployment/",
-      "sourceSha256": "7f94ab682a10e2571bf9d66ebf37d6bba7e6a3247775836ff3ca252dcaf0d239",
+      "sourceSha256": "8463d39ea9f802a68129d0a0b2a2de86ac1e2948b48c85220961efbeebe63a85",
       "marks": [
         {
           "mark": "clearing-time",
@@ -967,7 +967,7 @@
     {
       "id": "tactile-slip",
       "route": "/frontier/dexterity/",
-      "sourceSha256": "cae57d8ffdd91c8efca1712b9f179c0ef91383be13c0fa8fe9f959a780a84504",
+      "sourceSha256": "b7dee782ece5274bf08d6aa466c9bff021c9b8d541f9861a03c60c8afbd21f1e",
       "marks": [
         {
           "mark": "held-object",
@@ -1007,7 +1007,7 @@
     {
       "id": "sense-avoid",
       "route": "/adjacent/drones/",
-      "sourceSha256": "b80468ebc9c82eb6240e8fc63861af9d549cb6fdf99c9351381d79ce43127c01",
+      "sourceSha256": "35401bd3937aba29a94966fda192f755324edec8776f1e5dbd6b52b0b23eb2e6",
       "marks": [
         {
           "mark": "avoidance-budget",

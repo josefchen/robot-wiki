@@ -49,6 +49,8 @@ seeAlso:
   - "world-models/generative-video"
 ---
 
+import { ExcavatorPractice } from '@/components/interactive/excavator-practice';
+
 Model-based robot learning is the family of methods that learn how the world responds to actions and use that model to plan, to train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
 
 <Image id="daydreamer-a1-rollover-2022" />
@@ -105,6 +107,8 @@ A robot observation is partial: cameras miss forces, friction and compliance, an
 PDDM learned contact-rich manipulation on a 24-DoF hand from 4 real hours <Cite id="pddm-2019" />. DayDreamer ran Dreamer online on 4 robots without simulators; a quadruped learned to stand up and walk in 1 hour <Cite id="daydreamer-2022" />. SSRL adds a learned force ensemble to known Lagrangian dynamics and learned Go1 gaits from a few minutes of data <Cite id="ssrl-2024" />.
 
 In September 2026, Claudio Canales, Marco Hutter and colleagues learned a probabilistic dynamics ensemble from scratch on an 11.5-ton hydraulic excavator. After 20 minutes, their sampling-based MPC tracked comparably to learned controllers trained on 100 to 150 minutes; after 40 it held sub-centimeter mean path error at high speed <Cite id="excavator-mbrl-2026" />. Hansen, Fox and colleagues trained one TD-MPC2 model in simulation on up to 90 insertion tasks, with 56% zero-shot success on unseen objects against 7% model-free <Cite id="insertion-world-models-2026" />.
+
+<ExcavatorPractice className="my-6" />
 
 ## Model error is task-weighted
 

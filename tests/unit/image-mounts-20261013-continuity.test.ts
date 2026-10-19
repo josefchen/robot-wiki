@@ -22,7 +22,7 @@ import {
 import { preLateFigureMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-// The newer figure-mount layer (the two frontier mounts of 2026-10-15) hands back the image-mount successor first.
+// The newer figure-mount layer (the frontier, world-models and manipulation mounts of 2026-10-15) hands back the image-mount successor first.
 const read = (path: string) => preLateFigureMounts(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /image mount continuity drift/;

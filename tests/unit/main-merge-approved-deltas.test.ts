@@ -907,6 +907,44 @@ const homeHubs20261016Appends = merged
 // gained an accessible description for its drawing.
 const a11yGate20261017Appends = merged
   .filter(x => x.id.startsWith('a11y-gate-20261017-')).map(x => x.id);
+// The world-models isometric figures of 2026-10-15 (batch world-models-b03,
+// under the owner's directive of 2026-10-12: ExcavatorPractice in
+// model-based robot learning and PlannerExploit in world models versus
+// simulators) land after the accessibility gate of 2026-10-17 and append
+// their block last: one edge from an absent seal per new source and mount,
+// and one plain edge per article whose prose gained a mount, from the
+// member's last approved endpoint (images bundle A). The figure-mount
+// continuity review rebuilds each article's earlier bytes.
+const anatomyWmB0320261015Appends = merged
+  .filter(x => x.id.startsWith('anatomy-wm-b03-figures-20261015-')).map(x => x.id);
+// The manipulation isometric figures of 2026-10-15 (batch manipulation-b04,
+// under the same directive: ImpedancePress in action spaces, ChunkBuffer in
+// the comparison matrix and KeypointString in hierarchical policies) land in
+// the same landing after the world-models figures and append their block
+// last: one edge from an absent seal per new source and mount, and one edge
+// per article prose member from its last approved endpoint, or one
+// resolution from the seal where its chain already holds one. The
+// figure-mount continuity review rebuilds each article's earlier bytes.
+const anatomyManipB0420261015Appends = merged
+  .filter(x => x.id.startsWith('anatomy-manip-b04-figures-20261015-')).map(x => x.id);
+// The data-hardware isometric figure of 2026-10-19 (batch data-hardware-new,
+// under the owner's directive of 2026-10-12: KinematicTwin in teleoperation
+// rigs) lands after the manipulation figures of 2026-10-15 and appends its
+// block last: one edge from an absent seal for the new source and its mount,
+// and one resolution from the seal for the article's prose, whose chain
+// already holds one. The figure-mount continuity review rebuilds the
+// article's earlier bytes.
+const anatomyDhNew20261019Appends = merged
+  .filter(x => x.id.startsWith('anatomy-dh-new-figures-20261019-')).map(x => x.id);
+// The adjacent isometric figure of 2026-10-19 (batch adjacent-new, under the
+// owner's directive of 2026-10-12: ScopeFollow in surgical robotics) lands
+// after the data-hardware figure of the same day and appends its block last:
+// one edge from an absent seal for the new source and mount, and one plain
+// edge for the article's prose from its last approved endpoint. The
+// figure-mount continuity review holds the article's second, later mount
+// beside its first and rebuilds its earlier bytes.
+const anatomyAdjacentNew20261019Appends = merged
+  .filter(x => x.id.startsWith('anatomy-adjacent-new-figures-20261019-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -918,7 +956,8 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends,
   ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends,
   ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends,
-  ...a11yGate20261017Appends];
+  ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends,
+  ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -1028,7 +1067,23 @@ const homeHubs20261016Edges = (manifest: string, memberId: string) => merged
 const a11yGate20261017Edges = (manifest: string, memberId: string) => merged
   .filter(x => a11yGate20261017Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterHomeHubs20261016 = merged.length - a11yGate20261017Appends.length;
+const anatomyWmB0320261015Edges = (manifest: string, memberId: string) => merged
+  .filter(x => anatomyWmB0320261015Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const anatomyManipB0420261015Edges = (manifest: string, memberId: string) => merged
+  .filter(x => anatomyManipB0420261015Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const anatomyDhNew20261019Edges = (manifest: string, memberId: string) => merged
+  .filter(x => anatomyDhNew20261019Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const anatomyAdjacentNew20261019Edges = (manifest: string, memberId: string) => merged
+  .filter(x => anatomyAdjacentNew20261019Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterAnatomyDhNew20261019 = merged.length - anatomyAdjacentNew20261019Appends.length;
+const afterAnatomyManipB0420261015 = afterAnatomyDhNew20261019 - anatomyDhNew20261019Appends.length;
+const afterAnatomyWmB0320261015 = afterAnatomyManipB0420261015 - anatomyManipB0420261015Appends.length;
+const afterA11yGate20261017 = afterAnatomyWmB0320261015 - anatomyWmB0320261015Appends.length;
+const afterHomeHubs20261016 = afterA11yGate20261017 - a11yGate20261017Appends.length;
 const afterQaSweep20261015 = afterHomeHubs20261016 - homeHubs20261016Appends.length;
 const afterAnatomyFrontierB0220261015 = afterQaSweep20261015 - qaSweep20261015Appends.length;
 const afterAnatomyManipB0320261015 = afterAnatomyFrontierB0220261015 - anatomyFrontierB0220261015Appends.length;
@@ -1140,11 +1195,13 @@ describe('two-parent exact approval reconciliation', () => {
         + homeHubs20261014Appends.length + anatomyB0620261015Appends.length
         + imagesDh20261015Appends.length + anatomyClassicalB0320261015Appends.length
         + anatomyManipB0320261015Appends.length + anatomyFrontierB0220261015Appends.length
-        + qaSweep20261015Appends.length + homeHubs20261016Appends.length + a11yGate20261017Appends.length]);
+        + qaSweep20261015Appends.length + homeHubs20261016Appends.length + a11yGate20261017Appends.length
+        + anatomyWmB0320261015Appends.length + anatomyManipB0420261015Appends.length
+        + anatomyDhNew20261019Appends.length + anatomyAdjacentNew20261019Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -1992,9 +2049,9 @@ describe('two-parent exact approval reconciliation', () => {
       // Only the 2026-10-12 KOL triage batch, the frontier pass that landed
       // after it, then the world-models length cut, images bundle A and the
       // data-hardware cut of 2026-10-13, the frontier images of 2026-10-15,
-      // the adjacent cut of 2026-10-14 and the adjacent images of bundle B may
-      // move a member after this pass, in
-      // that order.
+      // the adjacent cut of 2026-10-14 and the adjacent images of bundle B,
+      // then the world-models isometric figures of 2026-10-15 (batch
+      // world-models-b03), may move a member after this pass, in that order.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...kolQueue20261012Edges(entry.manifest, entry.memberId),
         ...frontierPass20261010Edges(entry.manifest, entry.memberId),
@@ -2004,7 +2061,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
         ...adjacentCut20261014Edges(entry.manifest, entry.memberId),
         ...imagesBAdjacent20261015Edges(entry.manifest, entry.memberId),
-        ...homeHubs20261014Edges(entry.manifest, entry.memberId)]);
+        ...homeHubs20261014Edges(entry.manifest, entry.memberId),
+        ...anatomyWmB0320261015Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2050,8 +2108,10 @@ describe('two-parent exact approval reconciliation', () => {
       // 2026-10-13, the 2026-10-14 frontier length cut (dexterity), the
       // data-hardware cut of 2026-10-13, the frontier images of 2026-10-15,
       // the adjacent cut of 2026-10-14, the adjacent images of bundle B, the
-      // discovery pass and the data-hardware images of 2026-10-15 may move a
-      // member after it, in that order.
+      // discovery pass and the data-hardware images of 2026-10-15, then the
+      // world-models and manipulation isometric figures of the same day
+      // (batches world-models-b03 and manipulation-b04), may move a member
+      // after it, in that order.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...frontierPass20261010Edges(entry.manifest, entry.memberId),
         ...worldModelsLengthCut20261012Edges(entry.manifest, entry.memberId),
@@ -2066,7 +2126,9 @@ describe('two-parent exact approval reconciliation', () => {
         ...imagesBAdjacent20261015Edges(entry.manifest, entry.memberId),
         ...homeHubs20261014Edges(entry.manifest, entry.memberId),
         ...imagesDh20261015Edges(entry.manifest, entry.memberId),
-        ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId)]);
+        ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
+        ...anatomyWmB0320261015Edges(entry.manifest, entry.memberId),
+        ...anatomyManipB0420261015Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2238,9 +2300,12 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // Only images bundle A of 2026-10-13 may move the member after the cut.
+      // Only images bundle A of 2026-10-13, then the world-models isometric
+      // figures of 2026-10-15 (batch world-models-b03), may move the member
+      // after the cut.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
-        .toEqual(imagesA20261013Edges(entry.manifest, entry.memberId));
+        .toEqual([...imagesA20261013Edges(entry.manifest, entry.memberId),
+          ...anatomyWmB0320261015Edges(entry.manifest, entry.memberId)]);
       expect(worldModelsLengthCut20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2300,8 +2365,10 @@ describe('two-parent exact approval reconciliation', () => {
       // mount in the robot-learning stack), then the frontier images of
       // 2026-10-15, the adjacent cut, the adjacent images of bundle B, the
       // discovery pass, the data-hardware images, the frontier figures and the
-      // accessibility gate (two figure sources), which landed after this
-      // landing, may move a member after it, in that order.
+      // accessibility gate (two figure sources), then the adjacent figure of
+      // 2026-10-19 (surgical robotics' prose, which gained a second mount),
+      // which landed after this landing, may move a member after it, in that
+      // order.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...frontierLengthCut20261013Edges(entry.manifest, entry.memberId),
         ...dataHardwareCut20261013Edges(entry.manifest, entry.memberId),
@@ -2311,7 +2378,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...homeHubs20261014Edges(entry.manifest, entry.memberId),
         ...imagesDh20261015Edges(entry.manifest, entry.memberId),
         ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
-        ...a11yGate20261017Edges(entry.manifest, entry.memberId)]);
+        ...a11yGate20261017Edges(entry.manifest, entry.memberId),
+        ...anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId)]);
       expect(anatomy2Figures20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2460,9 +2528,12 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // Only images bundle A of 2026-10-13 may move the member after the cut.
+      // Only images bundle A of 2026-10-13, then the manipulation isometric
+      // figures of 2026-10-15 (batch manipulation-b04), may move the member
+      // after the cut.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
-        .toEqual(imagesA20261013Edges(entry.manifest, entry.memberId));
+        .toEqual([...imagesA20261013Edges(entry.manifest, entry.memberId),
+          ...anatomyManipB0420261015Edges(entry.manifest, entry.memberId)]);
       expect(humanize20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2570,11 +2641,15 @@ describe('two-parent exact approval reconciliation', () => {
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
       // Only the data-hardware images of 2026-10-15, which landed after this
       // landing, may move a member after it (the caption of the DROID figure
-      // they reuse).
+      // they reuse), then the frontier, world-models and manipulation
+      // isometric figures of the same day (the prose of each article that
+      // gained a mount).
       expect(edges).toContain(entry);
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...imagesDh20261015Edges(entry.manifest, entry.memberId),
-          ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId)]);
+          ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
+          ...anatomyWmB0320261015Edges(entry.manifest, entry.memberId),
+          ...anatomyManipB0420261015Edges(entry.manifest, entry.memberId)]);
       expect(imagesA20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2709,14 +2784,16 @@ describe('two-parent exact approval reconciliation', () => {
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
       // Only the frontier images of 2026-10-15, the adjacent cut of 2026-10-14
       // and the data-hardware images of 2026-10-15, which landed after this
-      // pass, may move a member after it (the citation rendering record and
-      // the article prose).
+      // pass, then the data-hardware isometric figure of 2026-10-19 (batch
+      // data-hardware-new), may move a member after it (the citation
+      // rendering record and the article prose).
       expect(edges).toContain(entry);
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
         ...adjacentCut20261014Edges(entry.manifest, entry.memberId),
         ...imagesDh20261015Edges(entry.manifest, entry.memberId),
-        ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId)]);
+        ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
+        ...anatomyDhNew20261019Edges(entry.manifest, entry.memberId)]);
       expect(dataHardwareCut20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2856,11 +2933,13 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // Only the adjacent images of bundle B, which landed after this pass,
-      // may move a member after it (the article prose).
+      // Only the adjacent images of bundle B, then the adjacent figure of
+      // 2026-10-19 (surgical robotics' prose), which landed after this pass,
+      // may move a member after it (the article prose), in that order.
       expect(edges).toContain(entry);
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
-        .toEqual(imagesBAdjacent20261015Edges(entry.manifest, entry.memberId));
+        .toEqual([...imagesBAdjacent20261015Edges(entry.manifest, entry.memberId),
+          ...anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId)]);
       expect(adjacentCut20261014Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2927,7 +3006,11 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      expect(edges.at(-1)).toBe(entry);
+      // Only the adjacent figure of 2026-10-19, which landed after these
+      // images, may move a member after them (surgical robotics' prose).
+      expect(edges).toContain(entry);
+      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
+        .toEqual(anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId));
       expect(imagesBAdjacent20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3135,7 +3218,12 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      expect(edges.at(-1)).toBe(entry);
+      // Only the data-hardware isometric figure of 2026-10-19 (batch
+      // data-hardware-new), which landed after this landing, may move a member
+      // after it: the teleoperation rigs prose, which gained a figure mount.
+      expect(edges).toContain(entry);
+      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
+        .toEqual(anatomyDhNew20261019Edges(entry.manifest, entry.memberId));
       expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3403,7 +3491,7 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-17 accessibility-gate edge to the figure source\'s last approved endpoint', () => {
-    expect(merged.slice(afterHomeHubs20261016).map(x => x.id)).toEqual(a11yGate20261017Appends);
+    expect(merged.slice(afterHomeHubs20261016, afterA11yGate20261017).map(x => x.id)).toEqual(a11yGate20261017Appends);
     const figures = ['bear-case-lock', 'helix-clockwork', 'motion-pantograph', 'safety-filter-fence'];
     expect(a11yGate20261017Appends)
       .toEqual(figures.map(name => `a11y-gate-20261017-interactive-sources-mounts-source-${name}`));
@@ -3440,6 +3528,262 @@ describe('two-parent exact approval reconciliation', () => {
       const approved = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
       expect(approved.status).toBe('approved');
       expect(approved.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-15 world-models figure edge to an absent seal, or each article to one plain edge', () => {
+    expect(merged.slice(afterA11yGate20261017, afterAnatomyWmB0320261015).map(x => x.id))
+      .toEqual(anatomyWmB0320261015Appends);
+    expect(anatomyWmB0320261015Appends).toEqual([
+      'interactive-sources-mounts-source-excavator-practice',
+      'interactive-sources-mounts-source-planner-exploit',
+      'interactive-sources-mounts-mount-model-based-robot-learning-excavator-practice-1',
+      'interactive-sources-mounts-mount-world-models-vs-simulators-planner-exploit-1',
+      'prose-model-based-robot-learning',
+      'prose-world-models-vs-simulators',
+    ].map(suffix => `anatomy-wm-b03-figures-20261015-${suffix}`));
+    // The figure-mount continuity review holds both articles, each rebuilt from
+    // the live bytes by taking out exactly its admitted import and mount.
+    const review: { sources: Array<{ after: { path: string } }> } = JSON.parse(
+      readFileSync('audit/evidence/figure-mounts-20261007/source-transition.json', 'utf8'));
+    const mounted = review.sources.map(({ after }) => after.path);
+    expect(mounted).toContain('content/world-models/model-based-robot-learning.mdx');
+    expect(mounted).toContain('content/world-models/world-models-vs-simulators.mdx');
+    for (const id of anatomyWmB0320261015Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the owner's directive, and not a release approval.
+      expect(entry.ownerApproval).toContain(
+        '"Redo all of the animations and stuff like that with this type of animation and with this skill');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(anatomyWmB0320261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      if (entry.manifest === 'prose') {
+        // An article edge names the figure-mount review and follows images
+        // bundle A's edge on the same member, as one plain edge.
+        expect(['article:world-models/model-based-robot-learning', 'article:world-models/world-models-vs-simulators'])
+          .toContain(entry.memberId);
+        expect(entry.reason).toContain('figure-mount continuity layer');
+        expect(imagesA20261013Edges(entry.manifest, entry.memberId)).toHaveLength(1);
+        expect(prior.at(-1)!.id).toBe(imagesA20261013Edges(entry.manifest, entry.memberId)[0]);
+      } else {
+        // A new figure's source or mount: the seal never held it and no
+        // earlier edge names it.
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(entry.reason).toMatch(/ExcavatorPractice|PlannerExploit/);
+      }
+      if (entry.memberId.startsWith('source:')) {
+        // A new figure source describes its drawing by the method paragraph that explains it.
+        expect(entry.reason).toContain('aria-describedby');
+        const source = readFileSync(entry.memberId.slice('source:'.length), 'utf8');
+        expect(source).toContain('const drawingId = `${useId()}-drawing`;');
+        expect(source.split('id={drawingId}').length - 1).toBe(1);
+      }
+      expect(entry.reconciles).toBeUndefined();
+      expect(entry.oldHash).toBe(previous);
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-15 manipulation figure edge to an absent seal, or each article to its next edge', () => {
+    expect(merged.slice(afterAnatomyWmB0320261015, afterAnatomyManipB0420261015).map(x => x.id))
+      .toEqual(anatomyManipB0420261015Appends);
+    expect(anatomyManipB0420261015Appends).toEqual([
+      'interactive-sources-mounts-source-chunk-buffer',
+      'interactive-sources-mounts-source-impedance-press',
+      'interactive-sources-mounts-source-keypoint-string',
+      'interactive-sources-mounts-mount-action-spaces-impedance-press-1',
+      'interactive-sources-mounts-mount-comparison-matrix-chunk-buffer-1',
+      'interactive-sources-mounts-mount-hierarchical-keypoint-string-1',
+      'prose-action-spaces',
+      'prose-comparison-matrix',
+      'prose-hierarchical',
+    ].map(suffix => `anatomy-manip-b04-figures-20261015-${suffix}`));
+    // The figure-mount continuity review holds the three articles, each rebuilt
+    // from the live bytes by taking out exactly its admitted import and mount.
+    const review: { sources: Array<{ after: { path: string } }> } = JSON.parse(
+      readFileSync('audit/evidence/figure-mounts-20261007/source-transition.json', 'utf8'));
+    const mounted = review.sources.map(({ after }) => after.path);
+    for (const slug of ['action-spaces', 'comparison-matrix', 'hierarchical']) {
+      expect(mounted).toContain(`content/manipulation/${slug}.mdx`);
+    }
+    for (const id of anatomyManipB0420261015Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the owner's directive, and not a release approval.
+      expect(entry.ownerApproval).toContain(
+        '"Redo all of the animations and stuff like that with this type of animation and with this skill');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(anatomyManipB0420261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      if (entry.manifest === 'prose') {
+        // An article edge names the figure-mount review and follows the image
+        // mounts' edge on the same member.
+        expect(['article:manipulation/action-spaces', 'article:manipulation/comparison-matrix',
+          'article:manipulation/hierarchical']).toContain(entry.memberId);
+        expect(entry.reason).toContain('figure-mount continuity layer');
+        expect(imagesA20261013Edges(entry.manifest, entry.memberId)).toHaveLength(1);
+      } else {
+        // A new figure's source or mount: the seal never held it and no earlier
+        // edge names it.
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(entry.reason).toMatch(/ImpedancePress|ChunkBuffer|KeypointString/);
+      }
+      if (entry.memberId.startsWith('source:')) {
+        // A new figure source describes its drawing by the method paragraph that explains it.
+        expect(entry.reason).toContain('aria-describedby');
+        const source = readFileSync(entry.memberId.slice('source:'.length), 'utf8');
+        expect(source).toContain('const drawingId = `${useId()}-drawing`;');
+        expect(source.split('id={drawingId}').length - 1).toBe(1);
+      }
+      if (prior.some(x => x.reconciles !== undefined)) {
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+      }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-19 data-hardware figure edge to an absent seal, or the article to one resolution', () => {
+    expect(merged.slice(afterAnatomyManipB0420261015, afterAnatomyDhNew20261019).map(x => x.id))
+      .toEqual(anatomyDhNew20261019Appends);
+    expect(anatomyDhNew20261019Appends).toEqual([
+      'interactive-sources-mounts-source-kinematic-twin',
+      'interactive-sources-mounts-mount-teleop-rigs-kinematic-twin-1',
+      'prose-teleop-rigs',
+    ].map(suffix => `anatomy-dh-new-figures-20261019-${suffix}`));
+    // The figure-mount continuity review holds the article, rebuilt from the
+    // live bytes by taking out exactly its admitted import and mount.
+    const review: { sources: Array<{ after: { path: string } }> } = JSON.parse(
+      readFileSync('audit/evidence/figure-mounts-20261007/source-transition.json', 'utf8'));
+    expect(review.sources.map(({ after }) => after.path)).toContain('content/data-hardware/teleop-rigs.mdx');
+    for (const id of anatomyDhNew20261019Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the owner's directive, and not a release approval.
+      expect(entry.ownerApproval).toContain(
+        '"Redo all of the animations and stuff like that with this type of animation and with this skill');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(anatomyDhNew20261019Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      if (entry.manifest === 'prose') {
+        // The article edge names the figure-mount review and follows the
+        // data-hardware images' resolution on the same member, as one
+        // resolution from the seal that reconciles every earlier edge.
+        expect(entry.memberId).toBe('article:data-hardware/teleop-rigs');
+        expect(entry.reason).toContain('figure-mount continuity layer');
+        expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toHaveLength(1);
+        expect(prior.at(-1)!.id).toBe(imagesDh20261015Edges(entry.manifest, entry.memberId)[0]);
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+      } else {
+        // A new figure's source or mount: the seal never held it and no
+        // earlier edge names it.
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(entry.reason).toMatch(/KinematicTwin/);
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+      }
+      if (entry.memberId.startsWith('source:')) {
+        // A new figure source describes its drawing by the method paragraph that explains it.
+        expect(entry.reason).toContain('aria-describedby');
+        const source = readFileSync(entry.memberId.slice('source:'.length), 'utf8');
+        expect(source).toContain('const drawingId = `${useId()}-drawing`;');
+        expect(source.split('id={drawingId}').length - 1).toBe(1);
+      }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-19 adjacent figure edge to an absent seal, or the article to one plain edge', () => {
+    expect(merged.slice(afterAnatomyDhNew20261019).map(x => x.id)).toEqual(anatomyAdjacentNew20261019Appends);
+    expect(anatomyAdjacentNew20261019Appends).toEqual([
+      'interactive-sources-mounts-source-scope-follow',
+      'interactive-sources-mounts-mount-surgical-scope-follow-1',
+      'prose-surgical',
+    ].map(suffix => `anatomy-adjacent-new-figures-20261019-${suffix}`));
+    // The figure-mount continuity review holds surgical robotics twice: its
+    // first mount (MotionPantograph) and, last, this second one.
+    const review: { sources: Array<{ after: { path: string }; edits: Array<{ after: string }> }> } = JSON.parse(
+      readFileSync('audit/evidence/figure-mounts-20261007/source-transition.json', 'utf8'));
+    const surgical = review.sources.filter(({ after }) => after.path === 'content/adjacent/surgical.mdx');
+    expect(surgical).toHaveLength(2);
+    expect(surgical[1]!.edits.every(({ after }) => after.includes('ScopeFollow'))).toBe(true);
+    const source = readFileSync('components/interactive/scope-follow.tsx', 'utf8');
+    for (const id of anatomyAdjacentNew20261019Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the owner's directive, and not a release approval.
+      expect(entry.ownerApproval).toContain(
+        '"Redo all of the animations and stuff like that with this type of animation and with this skill');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      expect(entry.reconciles).toBeUndefined();
+      expect(entry.oldHash).toBe(previous);
+      if (entry.manifest === 'prose') {
+        // The article edge names the figure-mount review and follows the
+        // adjacent images' edge on the same member, as one plain edge.
+        expect(entry.memberId).toBe('article:adjacent/surgical');
+        expect(prior.at(-1)!.id).toBe('images-b-adjacent-20261015-prose-adjacent-surgical');
+        expect(entry.reason).toContain(prior.at(-1)!.id);
+        expect(entry.reason).toContain('figure-mount continuity layer');
+      } else {
+        // The new source and its one mount: the seal never held either, and no earlier edge names them.
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(['source:components/interactive/scope-follow.tsx', 'mount:content/adjacent/surgical.mdx:ScopeFollow:1'])
+          .toContain(entry.memberId);
+      }
+      if (entry.memberId.startsWith('source:')) {
+        // The drawing is described by the method paragraph that explains it.
+        expect(entry.reason).toContain('aria-describedby');
+        expect(source).toContain('const drawingId = `${useId()}-drawing`;');
+        expect(source.split('id={drawingId}').length - 1).toBe(1);
+      }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
       expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
     }
   });

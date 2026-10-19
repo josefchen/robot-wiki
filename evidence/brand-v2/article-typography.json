@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "31c2179764936082b25ef52b5ae0f79d0b51807c82bc7eebbea270b4263753f6",
+  "fingerprint": "fe30afc89021e5ef44f889ff92573812dd15d19f0e24f652622612617fa6f61a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3036,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3576,7 +3576,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21443,
+      "visibleTextLength": 21944,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3836,6 +3836,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The commercial system was cleared in June 2024Source 88 FDA "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: an illustrative trainer and drill"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Yang and colleagues place a robot that assists under the sur"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a box trainer on a bench. Two instruments, th"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the trainer, the drill and the arm are illustrati"
         },
         {
           "familyHead": "geist",
@@ -4159,6 +4195,38 @@
         {
           "tag": "button",
           "text": "Trace the stroke",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Surgeon places it",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Follows the tip",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the drill",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -18310,7 +18378,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17736,
+      "visibleTextLength": 18247,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18362,11 +18430,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "34 sources",
         "bibliographyIds": [
           "act-aloha-2023",
@@ -18473,6 +18541,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "GELLO is a scaled replica of the target arm built from 3D-pr"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the copy is exact; sizes, stops and the run are i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "GELLO is a scaled replica of the arm it drives, built from 3"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a leader and its robot on one bench. Both hav"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: a real arm has six or seven joints, and the drawi"
         },
         {
           "familyHead": "geist",
@@ -18949,6 +19053,22 @@
         {
           "tag": "button",
           "text": "Embodiment gap",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Move the leader",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -26696,7 +26816,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16329,
+      "visibleTextLength": 16813,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26907,6 +27027,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Impedance actions sit between: the policy picks a pose targe"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative springs: 1, 2 and 4 marks of push per mark of g"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "An impedance action is a target pose plus a stiffness and a "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The press is that law made of parts. The crosshead and its d"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the three springs push 1, 2 and 4 dial marks p"
         },
         {
           "familyHead": "geist",
@@ -27250,6 +27406,46 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Soft",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Medium",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Stiff",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the press",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -28234,7 +28430,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18585,
+      "visibleTextLength": 19102,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -28427,6 +28623,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Gemini Robotics turns about 250 ms of end-to-end latency int"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "250 ms and 50 Hz from Gemini Robotics; chunk sizes illustrat"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Gemini Robotics runs about 250 ms from camera to action, yet"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The feeder is that arithmetic made of parts. Each answer is "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Assumed: one request at a time, the next sent when an answer"
         },
         {
           "familyHead": "geist",
@@ -28935,6 +29167,22 @@
         {
           "tag": "button",
           "text": "Weights",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run the clock",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -32567,7 +32815,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21690,
+      "visibleTextLength": 22151,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -32619,11 +32867,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "42 sources",
         "bibliographyIds": [
           "saycan-2022",
@@ -32864,6 +33112,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RoboPoint instruction-tunes a VLM to predict image-space aff"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: an illustrative camera, image and toolbox"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A vision-language model that points answers in the image: MO"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The frame is that geometry made of parts, after Dürer's draw"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the camera, the frame and the toolbox are illustr"
         },
         {
           "familyHead": "geist",
@@ -33316,6 +33600,22 @@
           "text": "Current timescale playhead",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Lift the point",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43604,7 +43904,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17093,
+      "visibleTextLength": 17092,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52767,7 +53067,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14262,
+      "visibleTextLength": 14816,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52985,6 +53285,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "In September 2026, Claudio Canales, Marco Hutter and colleag"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Checkpoints from the paper; the path and the guesses' spread"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Canales, Nan, Hutter and Ruiz-del-Solar learned a model of a"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that loop on a practice yard. A stylus on the"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the path, the misses drawn at 3 and 10 minutes"
         },
         {
           "familyHead": "geist",
@@ -53319,6 +53655,54 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "3 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "10 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "20 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "40 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Trace the path",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -54415,7 +54799,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20735,
+      "visibleTextLength": 21240,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -54467,11 +54851,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "mujoco-2012",
@@ -54642,6 +55026,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Planning, as in model-based RL, queries actions the dataset "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one action, an illustrative reward and model"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Planning asks a model about actions the dataset never took. "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that search on a fairing bench. The template'"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one action, an illustrative reward curve and a mo"
         },
         {
           "familyHead": "geist",
@@ -55134,6 +55554,38 @@
         },
         {
           "tag": "button",
+          "text": "Everywhere",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Only inside the data",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the planner",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 106 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -55258,7 +55710,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3036,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58658,7 +59110,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31910,
+      "visibleTextLength": 32411,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -58918,6 +59370,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The commercial system was cleared in June 2024Source 88 FDA "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: an illustrative trainer and drill"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Yang and colleagues place a robot that assists under the sur"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a box trainer on a bench. Two instruments, th"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the trainer, the drill and the arm are illustrati"
         },
         {
           "familyHead": "geist",
@@ -59241,6 +59729,38 @@
         {
           "tag": "button",
           "text": "Trace the stroke",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Surgeon places it",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Follows the tip",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the drill",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -73216,7 +73736,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23136,
+      "visibleTextLength": 23647,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -73268,11 +73788,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 7,
+        "readingMinutes": 8,
         "citationCount": 34,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "7 min read",
+        "readingTimeText": "8 min read",
         "citationCountText": "34 sources",
         "bibliographyIds": [
           "act-aloha-2023",
@@ -73379,6 +73899,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "GELLO is a scaled replica of the target arm built from 3D-pr"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the copy is exact; sizes, stops and the run are i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "GELLO is a scaled replica of the arm it drives, built from 3"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a leader and its robot on one bench. Both hav"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: a real arm has six or seven joints, and the drawi"
         },
         {
           "familyHead": "geist",
@@ -73855,6 +74411,22 @@
         {
           "tag": "button",
           "text": "Embodiment gap",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Move the leader",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -81514,7 +82086,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21093,
+      "visibleTextLength": 21577,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81725,6 +82297,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Impedance actions sit between: the policy picks a pose targe"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative springs: 1, 2 and 4 marks of push per mark of g"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "An impedance action is a target pose plus a stiffness and a "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The press is that law made of parts. The crosshead and its d"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the three springs push 1, 2 and 4 dial marks p"
         },
         {
           "familyHead": "geist",
@@ -82068,6 +82676,46 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Soft",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Medium",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Stiff",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the press",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -83030,7 +83678,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25017,
+      "visibleTextLength": 25534,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83223,6 +83871,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Gemini Robotics turns about 250 ms of end-to-end latency int"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "250 ms and 50 Hz from Gemini Robotics; chunk sizes illustrat"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Gemini Robotics runs about 250 ms from camera to action, yet"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The feeder is that arithmetic made of parts. Each answer is "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Assumed: one request at a time, the next sent when an answer"
         },
         {
           "familyHead": "geist",
@@ -83731,6 +84415,22 @@
         {
           "tag": "button",
           "text": "Weights",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Run the clock",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -87308,7 +88008,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27470,
+      "visibleTextLength": 27931,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87360,11 +88060,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 42,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "42 sources",
         "bibliographyIds": [
           "saycan-2022",
@@ -87605,6 +88305,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "RoboPoint instruction-tunes a VLM to predict image-space aff"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: an illustrative camera, image and toolbox"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A vision-language model that points answers in the image: MO"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The frame is that geometry made of parts, after Dürer's draw"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: the camera, the frame and the toolbox are illustr"
         },
         {
           "familyHead": "geist",
@@ -88057,6 +88793,22 @@
           "text": "Current timescale playhead",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Lift the point",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -98235,7 +98987,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23846,
+      "visibleTextLength": 23845,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -107288,7 +108040,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19101,
+      "visibleTextLength": 19655,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -107506,6 +108258,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "In September 2026, Claudio Canales, Marco Hutter and colleag"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Checkpoints from the paper; the path and the guesses' spread"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Canales, Nan, Hutter and Ruiz-del-Solar learned a model of a"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that loop on a practice yard. A stylus on the"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: the path, the misses drawn at 3 and 10 minutes"
         },
         {
           "familyHead": "geist",
@@ -107840,6 +108628,54 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "3 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "10 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "20 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "40 min",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Trace the path",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -108914,7 +109750,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26212,
+      "visibleTextLength": 26717,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -108966,11 +109802,11 @@
           "World Models"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 35,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "35 sources",
         "bibliographyIds": [
           "mujoco-2012",
@@ -109141,6 +109977,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Planning, as in model-based RL, queries actions the dataset "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one action, an illustrative reward and model"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Planning asks a model about actions the dataset never took. "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that search on a fairing bench. The template'"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one action, an illustrative reward curve and a mo"
         },
         {
           "familyHead": "geist",
@@ -109628,6 +110500,38 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Everywhere",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Only inside the data",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the planner",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

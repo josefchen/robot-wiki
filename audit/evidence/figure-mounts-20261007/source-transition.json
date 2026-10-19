@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T18:59:20Z",
+  "observedAt": "2026-10-18T23:47:40Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -25,6 +25,29 @@
         {
           "before": "The da Vinci architecture is the pattern the whole field inherited. A surgeon sits at a console away from the table and manipulates hand controllers; a patient-side cart holds three or four articulated arms carrying wristed instruments and an endoscope; a vision stack delivers a magnified stereoscopic view. The machine contributes what a hand holding a laparoscopic stick cannot: motion scaling that divides hand movement into finer instrument movement, tremor filtering, and wrists that articulate inside the body, beyond the wall. The surgeon remains the planner and the controller. In the framework Yang and colleagues proposed for the field, that is Level 0 autonomy, no autonomy, and the framework's authors are explicit that a surgical robot with motion scaling still belongs there because the output represents the surgeon's desired motion <Cite id=\"yang-autonomy-2017\" />.\n",
           "after": "The da Vinci architecture is the pattern the whole field inherited. A surgeon sits at a console away from the table and manipulates hand controllers; a patient-side cart holds three or four articulated arms carrying wristed instruments and an endoscope; a vision stack delivers a magnified stereoscopic view. The machine contributes what a hand holding a laparoscopic stick cannot: motion scaling that divides hand movement into finer instrument movement, tremor filtering, and wrists that articulate inside the body, beyond the wall. The surgeon remains the planner and the controller. In the framework Yang and colleagues proposed for the field, that is Level 0 autonomy, no autonomy, and the framework's authors are explicit that a surgical robot with motion scaling still belongs there because the output represents the surgeon's desired motion <Cite id=\"yang-autonomy-2017\" />.\n\n<MotionPantograph className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "f213325c13d4cce4b47b2c887d6167dffe5bbf8d",
+      "before": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 12431,
+        "sha256": "af0187f6b73b19cf8f85c772672725687f36788afaf090ea1ba3893ada5cf7e3"
+      },
+      "after": {
+        "path": "content/adjacent/surgical.mdx",
+        "bytes": 12535,
+        "sha256": "b229640fa753e33d14441269b9fd68424f6775ffaa6dc5ac6e35143c125937f3"
+      },
+      "edits": [
+        {
+          "before": "import { MotionPantograph } from '@/components/interactive/motion-pantograph';\n\n",
+          "after": "import { MotionPantograph } from '@/components/interactive/motion-pantograph';\n\nimport { ScopeFollow } from '@/components/interactive/scope-follow';\n\n"
+        },
+        {
+          "before": "The commercial system was cleared in June 2024 <Cite id=\"maestro-commercial-510k-2024\" />. ScoPilot, cleared in March 2025, runs on NVIDIA Holoscan on the robot and lets the laparoscope follow the instrument tip on demand <Cite id=\"scopilot-clearance-2025\" />, Level 1 assistance on the Yang scale <Cite id=\"yang-autonomy-2017\" />.\n",
+          "after": "The commercial system was cleared in June 2024 <Cite id=\"maestro-commercial-510k-2024\" />. ScoPilot, cleared in March 2025, runs on NVIDIA Holoscan on the robot and lets the laparoscope follow the instrument tip on demand <Cite id=\"scopilot-clearance-2025\" />, Level 1 assistance on the Yang scale <Cite id=\"yang-autonomy-2017\" />.\n\n<ScopeFollow className=\"my-6\" />\n"
         }
       ]
     },
@@ -114,6 +137,29 @@
       ]
     },
     {
+      "archivedFrom": "f213325c13d4cce4b47b2c887d6167dffe5bbf8d",
+      "before": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 8874,
+        "sha256": "ddf115791949d04f844312d78797864dfd4d0b88fff8bdd3ba29fb41c3c513ab"
+      },
+      "after": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 8984,
+        "sha256": "52175be276d9fa16f7accbf7657c95d158561663f729f3792979560fa03bd471"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { KinematicTwin } from '@/components/interactive/kinematic-twin';\n\n"
+        },
+        {
+          "before": "GELLO is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so joint readings map one-to-one onto robot commands. Parts cost under \\$300; the published designs cover Franka, UR5 and xArm. In its user study, 12 participants ran five tasks on a bimanual pair of UR5 arms, and GELLO was more reliable and faster than VR controllers or a 3D spacemouse. The \\$300 buys a controller only, and every new arm needs its own design <Cite id=\"gello-2023\" />.\n",
+          "after": "GELLO is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so joint readings map one-to-one onto robot commands. Parts cost under \\$300; the published designs cover Franka, UR5 and xArm. In its user study, 12 participants ran five tasks on a bimanual pair of UR5 arms, and GELLO was more reliable and faster than VR controllers or a 3D spacemouse. The \\$300 buys a controller only, and every new arm needs its own design <Cite id=\"gello-2023\" />.\n\n<KinematicTwin className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "22834d4c52068fba27177a08ac04b95bfc0163c8",
       "before": {
         "path": "content/frontier/bear-case.mdx",
@@ -179,6 +225,75 @@
         {
           "before": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id=\"wabersich-safety-filters-2023\" />.\n",
           "after": "The formal instance is the safety filter. A <Term id=\"control-barrier-function\">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id=\"ames-cbf-2019\" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id=\"wabersich-safety-filters-2023\" />.\n\n<SafetyFilterFence className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "before": {
+        "path": "content/manipulation/action-spaces.mdx",
+        "bytes": 8989,
+        "sha256": "62fe978b227865f84c69a7e1008bf7df558019ae5f17f21ecc349e9782d9c361"
+      },
+      "after": {
+        "path": "content/manipulation/action-spaces.mdx",
+        "bytes": 9102,
+        "sha256": "73e527d6c46472d025e3840f75c70cf8f388422d5f29efcf0cd9e19c46d13d8a"
+      },
+      "edits": [
+        {
+          "before": "  - \"manipulation/realtime-execution\"\n---\n",
+          "after": "  - \"manipulation/realtime-execution\"\n---\nimport { ImpedancePress } from '@/components/interactive/impedance-press';\n\n"
+        },
+        {
+          "before": "Impedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id=\"hogan-1985\" />. Task-space impedance references needed the fewest samples against torque, joint PD and inverse dynamics <Cite id=\"varin-action-spaces-2019\" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id=\"acp-2024\" />.\n",
+          "after": "Impedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id=\"hogan-1985\" />. Task-space impedance references needed the fewest samples against torque, joint PD and inverse dynamics <Cite id=\"varin-action-spaces-2019\" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id=\"acp-2024\" />.\n\n<ImpedancePress className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "before": {
+        "path": "content/manipulation/comparison-matrix.mdx",
+        "bytes": 9382,
+        "sha256": "ebdc0ce5e86afca1edc616ca74bcb19ac47b488866ea5ce714f896181ce824ee"
+      },
+      "after": {
+        "path": "content/manipulation/comparison-matrix.mdx",
+        "bytes": 9486,
+        "sha256": "29f74c7b927967f87763dbccc9e39236825addd0464b401d06a0fc08d4db85a2"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { ChunkBuffer } from '@/components/interactive/chunk-buffer';\n\n"
+        },
+        {
+          "before": "Gemini Robotics turns about 250 ms of end-to-end latency into a 50 Hz effective control frequency with multi-action chunks <Cite id=\"gemini-robotics-2025\" />, GR00T N1 samples a 16-action chunk in 63.9 ms on an L40 <Cite id=\"gr00t-n1-2025\" />, the π0.6 card reports 63 ms per chunk on one H100 <Cite id=\"pi06-model-card-2025\" />, and Generalist says GEN-1.5 produces 100 Hz action trajectories <Cite id=\"gen-1-5-2026\" />.\n",
+          "after": "Gemini Robotics turns about 250 ms of end-to-end latency into a 50 Hz effective control frequency with multi-action chunks <Cite id=\"gemini-robotics-2025\" />, GR00T N1 samples a 16-action chunk in 63.9 ms on an L40 <Cite id=\"gr00t-n1-2025\" />, the π0.6 card reports 63 ms per chunk on one H100 <Cite id=\"pi06-model-card-2025\" />, and Generalist says GEN-1.5 produces 100 Hz action trajectories <Cite id=\"gen-1-5-2026\" />.\n\n<ChunkBuffer className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "before": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 11881,
+        "sha256": "8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691"
+      },
+      "after": {
+        "path": "content/manipulation/hierarchical.mdx",
+        "bytes": 11994,
+        "sha256": "315d07be25045cccbb4a4ff863b545be417ee198b7ff55263f650b4ec8579b19"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { KeypointString } from '@/components/interactive/keypoint-string';\n\n"
+        },
+        {
+          "before": "RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id=\"robopoint-2024\" />.\n",
+          "after": "RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id=\"robopoint-2024\" />.\n\n<KeypointString className=\"my-6\" />\n"
         }
       ]
     },
@@ -368,6 +483,52 @@
         {
           "before": "OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cite id=\"openai-dactyl-2018\" />. Its Rubik's-cube policy, trained with automatic domain randomization for a modified Shadow hand, completed one fixed 43-subgoal scramble in two of ten trials with a sensor cube, and zero of ten with vision for face angles <Cite id=\"openai-rubiks-cube-2019\" />. Visual Dexterity reorients novel shapes in a median of about seven seconds on hardware under \\$5,000 <Cite id=\"visual-dexterity-2022\" />. DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) an end-to-end RGB grasping policy <Cite id=\"dextrah-rgb-2024\" />, distilled from a privileged teacher into a stereo-RGB student for a KUKA arm and Allegro hand <Cite id=\"isaac-lab-2025\" />.\n",
           "after": "OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cite id=\"openai-dactyl-2018\" />. Its Rubik's-cube policy, trained with automatic domain randomization for a modified Shadow hand, completed one fixed 43-subgoal scramble in two of ten trials with a sensor cube, and zero of ten with vision for face angles <Cite id=\"openai-rubiks-cube-2019\" />. Visual Dexterity reorients novel shapes in a median of about seven seconds on hardware under \\$5,000 <Cite id=\"visual-dexterity-2022\" />. DextrAH-RGB [transfers](/rl-sim2real/sim2real-transfer/) an end-to-end RGB grasping policy <Cite id=\"dextrah-rgb-2024\" />, distilled from a privileged teacher into a stereo-RGB student for a KUKA arm and Allegro hand <Cite id=\"isaac-lab-2025\" />.\n\n<CubeTrials className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "before": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 8954,
+        "sha256": "5da85a65adb26741b0560410aea79520f7e8ed3d504eb69eb6e9bdce9b7a57e5"
+      },
+      "after": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 9076,
+        "sha256": "0ea0f60d5f11bfc29db4fa4b14a2e519c893ad23d0038ada0049f0e0b20f4d07"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { ExcavatorPractice } from '@/components/interactive/excavator-practice';\n\n"
+        },
+        {
+          "before": "In September 2026, Claudio Canales, Marco Hutter and colleagues learned a probabilistic dynamics ensemble from scratch on an 11.5-ton hydraulic excavator. After 20 minutes, their sampling-based MPC tracked comparably to learned controllers trained on 100 to 150 minutes; after 40 it held sub-centimeter mean path error at high speed <Cite id=\"excavator-mbrl-2026\" />. Hansen, Fox and colleagues trained one TD-MPC2 model in simulation on up to 90 insertion tasks, with 56% zero-shot success on unseen objects against 7% model-free <Cite id=\"insertion-world-models-2026\" />.\n",
+          "after": "In September 2026, Claudio Canales, Marco Hutter and colleagues learned a probabilistic dynamics ensemble from scratch on an 11.5-ton hydraulic excavator. After 20 minutes, their sampling-based MPC tracked comparably to learned controllers trained on 100 to 150 minutes; after 40 it held sub-centimeter mean path error at high speed <Cite id=\"excavator-mbrl-2026\" />. Hansen, Fox and colleagues trained one TD-MPC2 model in simulation on up to 90 insertion tasks, with 56% zero-shot success on unseen objects against 7% model-free <Cite id=\"insertion-world-models-2026\" />.\n\n<ExcavatorPractice className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "before": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 11462,
+        "sha256": "203db84ca9cf49e7c66583aff74cb5b47ba285eb5884d099ed89a2a09ec69ddf"
+      },
+      "after": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 11575,
+        "sha256": "6df3698ece3b73c20a741500c0daf5545c08c49420ccc46b178c5e103de641b5"
+      },
+      "edits": [
+        {
+          "before": "  - \"classical/control\"\n---\n",
+          "after": "  - \"classical/control\"\n---\nimport { PlannerExploit } from '@/components/interactive/planner-exploit';\n\n"
+        },
+        {
+          "before": "Planning, as in [model-based RL](/world-models/model-based-robot-learning/), queries actions the dataset did not take. A physics engine integrates them while its modeled regime holds; a learned model must extrapolate, and a planner can exploit its errors by picking actions with spuriously high predicted reward. Across six video generators, physical understanding was \"severely limited, and unrelated to visual realism\" <Cite id=\"physics-iq-2025\" />. Safety constraints also favor explicit state: joint limits, collision geometry, force bounds and signed distances can be checked directly, while a predicted video may imply a collision without the quantity a monitor needs.\n",
+          "after": "Planning, as in [model-based RL](/world-models/model-based-robot-learning/), queries actions the dataset did not take. A physics engine integrates them while its modeled regime holds; a learned model must extrapolate, and a planner can exploit its errors by picking actions with spuriously high predicted reward. Across six video generators, physical understanding was \"severely limited, and unrelated to visual realism\" <Cite id=\"physics-iq-2025\" />. Safety constraints also favor explicit state: joint limits, collision geometry, force bounds and signed distances can be checked directly, while a predicted video may imply a collision without the quantity a monitor needs.\n\n<PlannerExploit className=\"my-6\" />\n"
         }
       ]
     }

@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "1f55f46255ad71e498ad8c39ec573f1b80fcce582bb5b69c868e0924514fd4a4",
+  "fingerprint": "0df5a34fc6487fb06c9ff004f01b9363f897594f5d3b5a75ec2552ee0fb08a33",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2787,
+  "visibleTextLength": 2802,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Bear Case",
-      "href": "/frontier/bear-case/",
+      "accessibleName": "Surgical Robotics",
+      "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Safety and Assurance",
-      "href": "/frontier/safety-and-assurance/",
+      "accessibleName": "Teleoperation Rigs",
+      "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Drones and Aerial Robotics",
-      "href": "/adjacent/drones/",
+      "accessibleName": "Action Spaces for Robot Learning",
+      "href": "/manipulation/action-spaces/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Space Robotics",
-      "href": "/adjacent/space/",
+      "accessibleName": "Comparison Matrix",
+      "href": "/manipulation/comparison-matrix/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "Hierarchical Approaches",
+      "href": "/manipulation/hierarchical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-16 The Bear Case 2026-10-16 Safety and Assurance 2026-10-15 Drones and Aerial Robotics 2026-10-15 Space Robotics 2026-10-15 The Data Bottleneck"
+      "text": "RECENTLY UPDATED 2026-10-19 Surgical Robotics 2026-10-19 Teleoperation Rigs 2026-10-19 Action Spaces for Robot Learning 2026-10-19 Comparison Matrix 2026-10-19 Hierarchical Approaches"
     },
     {
       "label": "Tools",

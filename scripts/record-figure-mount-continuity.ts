@@ -7,8 +7,11 @@
  *   node scripts/record-figure-mount-continuity.ts <path>...
  *
  * A path recorded before keeps its predecessor and is re-recorded against
- * it; a new path takes HEAD as its predecessor. Every recorded successor is
- * read back through the written layer before the script exits.
+ * it; a new path takes HEAD as its predecessor. A path whose recorded
+ * successor newer layers have since rewritten (HEAD holds neither that
+ * successor nor its predecessor) keeps that record as it is and gains a
+ * second one over HEAD: its newest mount. Every recorded successor is read
+ * back through the written layer before the script exits.
  */
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -38,7 +41,11 @@ function main(paths: string[]): void {
   const head = git('rev-parse', 'HEAD').toString().trim();
   for (const path of paths) {
     const live = readFileSync(join(root, path));
-    const index = review.sources.findIndex(({ after }) => after.path === path);
+    const atHead = digest(git('show', `${head}:${path}`));
+    // The record this change re-records: one over HEAD (a later mount recorded before), or the one whose successor
+    // HEAD still holds. A path with only older records, which newer layers rewrote since, gains a record over HEAD.
+    let index = review.sources.findIndex(({ after, before }) => after.path === path && before.sha256 === atHead);
+    if (index < 0) index = review.sources.findIndex(({ after }) => after.path === path && after.sha256 === atHead);
     const archivedFrom = index >= 0 ? review.sources[index].archivedFrom : head;
     const prior = git('show', `${archivedFrom}:${path}`);
     if (index >= 0 && digest(prior) !== review.sources[index].before.sha256) {
@@ -57,6 +64,7 @@ function main(paths: string[]): void {
     else review.sources.push(source);
     console.log(`${path}: ${source.edits.length} edit(s) over ${archivedFrom.slice(0, 8)}`);
   }
+  // Sorted by path; a path's records keep their order, oldest first (the sort is stable).
   review.sources.sort((x, y) => x.after.path.localeCompare(y.after.path));
   review.observedAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   const bytes = Buffer.from(`${JSON.stringify(review, null, 2)}\n`);
@@ -67,9 +75,10 @@ function main(paths: string[]): void {
     '/** The reviewed evidence file; a changed review needs a reviewed code change too. */',
     `const reviewPin = { bytes: ${bytes.length}, sha256: '${digest(bytes)}' };`,
     '',
-    '/** Reviewed successor bytes per path, so other bytes pass through without reading the review. */',
-    'const successors: ReadonlyMap<string, readonly [number, string]> = new Map([',
-    ...review.sources.map(({ after }) => `  ['${after.path}', [${after.bytes}, '${after.sha256}']],`),
+    '/** Reviewed successor bytes per path (one per mount change, oldest first), so other bytes pass through without reading the review. */',
+    'const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = new Map([',
+    ...[...new Set(review.sources.map(({ after }) => after.path))].map((path) => `  ['${path}', [${review.sources
+      .filter(({ after }) => after.path === path).map(({ after }) => `[${after.bytes}, '${after.sha256}']`).join(', ')}]],`),
     ']);',
     '// END figure-mount pins',
   ].join('\n');
@@ -95,11 +104,12 @@ async function verify(): Promise<boolean> {
     try {
       // The newer image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
       // rl-sim2real), world-models length-cut and word-budget trim layers hand back the figure-mount successor first. The
-      // 2026-10-15 frontier mounts came after the image mounts, so their live bytes pass every one of those layers
-      // unchanged and this same read lands on them too.
-      const prior = layer.figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
+      // 2026-10-15 frontier mounts and the 2026-10-19 surgical mount came after the image mounts, so the late read on
+      // the live bytes rebuilds their predecessor; for an article with no late mount it hands the live bytes on.
+      const late = layer.figureMountPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, readFileSync(join(root, source.after.path)));
+      const prior = digest(late) === source.before.sha256 ? late : layer.figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
         worldModelsLengthCutPredecessor(root, source.before, lengthCutPredecessor(root, source.before,
-          frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))));
+          frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, late))))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
       ok = false;

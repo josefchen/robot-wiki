@@ -55,6 +55,8 @@ seeAlso:
   - "manipulation/generalist-policies"
 ---
 
+import { KeypointString } from '@/components/interactive/keypoint-string';
+
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
 
 Hierarchical approaches are robot architectures in which one level decides *what* to do next and another decides *how* to move. In 2022 the high level was a separate planner choosing from a skill library <Cite id="saycan-2022" />.
@@ -97,6 +99,8 @@ MOKA marks candidate points with GroundedSAM masks and prompts a pretrained VLM 
 ReKep proposes keypoints from DINOv2 features within SAM masks and calibrated RGB-D. GPT-4o writes stage-wise Python sub-goal and path constraints over them, and a hierarchical solver replans end-effector motion while penalizing violations. Results rest on tracking and rigidity assumptions, and some evaluations use human annotations or disable tracking <Cite id="rekep-2024" />.
 
 RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id="robopoint-2024" />.
+
+<KeypointString className="my-6" />
 
 HAMSTER fine-tunes a high-level VLM to draw a coarse 2D end-effector path, averaging a 20-point success gain over OpenVLA across seven generalization axes <Cite id="hamster-2025" />, and Gemini Robotics-ER predicts points, trajectories and grasps <Cite id="gemini-robotics-2025" />.
 

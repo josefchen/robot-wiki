@@ -1019,6 +1019,97 @@
         "components/iso/figures/guide-fence.ts"
       ],
       "takeaway": "A safety filter leaves a learned policy's proposal alone wherever it is safe and, where it is not, changes it by the least amount that keeps the robot out, so the simple filter is what gets checked."
+    },
+    {
+      "id": "world-models--model-based-robot-learning--excavator-practice",
+      "route": "/world-models/model-based-robot-learning/",
+      "mount": "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
+      "figure": "excavator-practice",
+      "audit": null,
+      "sources": [
+        "components/interactive/excavator-practice.tsx",
+        "components/iso/figures/practice-excavator.ts",
+        "lib/excavator-practice.ts"
+      ],
+      "takeaway": "An excavator that learned a model of its own arm from its own moves tracked paths after 20 minutes as well as earlier controllers trained for 100 to 150."
+    },
+    {
+      "id": "world-models--world-models-vs-simulators--planner-exploit",
+      "route": "/world-models/world-models-vs-simulators/",
+      "mount": "mount:/world-models/world-models-vs-simulators/:PlannerExploit:1",
+      "figure": "planner-exploit",
+      "audit": null,
+      "sources": [
+        "components/interactive/planner-exploit.tsx",
+        "components/iso/figures/fairing-bench.ts",
+        "components/iso/figures/edge-plate.ts",
+        "lib/planner-exploit.ts"
+      ],
+      "takeaway": "A planner picks the action its learned model scores highest, so it lands past the data, where the model only extrapolates and its score is wrong."
+    },
+    {
+      "id": "manipulation--action-spaces--impedance-press",
+      "route": "/manipulation/action-spaces/",
+      "mount": "mount:/manipulation/action-spaces/:ImpedancePress:1",
+      "figure": "impedance-press",
+      "audit": null,
+      "sources": [
+        "components/interactive/impedance-press.tsx",
+        "components/iso/figures/spring-press.ts",
+        "lib/impedance-press.ts"
+      ],
+      "takeaway": "An impedance action sends a target and a stiffness: past a surface the tool stops, and the push is the stiffness times how far the target sits past it."
+    },
+    {
+      "id": "manipulation--comparison-matrix--chunk-buffer",
+      "route": "/manipulation/comparison-matrix/",
+      "mount": "mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
+      "figure": "chunk-buffer",
+      "audit": null,
+      "sources": [
+        "components/interactive/chunk-buffer.tsx",
+        "components/iso/figures/card-feeder.ts",
+        "lib/chunk-buffer.ts"
+      ],
+      "takeaway": "Gemini Robotics answers in about 250 ms yet controls at 50 Hz because each answer carries a chunk of actions; 13 or more cover the wait, fewer leave the arm idle."
+    },
+    {
+      "id": "manipulation--hierarchical--keypoint-string",
+      "route": "/manipulation/hierarchical/",
+      "mount": "mount:/manipulation/hierarchical/:KeypointString:1",
+      "figure": "keypoint-string",
+      "audit": null,
+      "sources": [
+        "components/interactive/keypoint-string.tsx",
+        "components/iso/figures/perspective-frame.ts",
+        "lib/keypoint-lift.ts"
+      ],
+      "takeaway": "A point a model picks in an image fixes only a line from the camera; a depth reading picks the spot on that line the arm should reach."
+    },
+    {
+      "id": "data-hardware--teleop-rigs--kinematic-twin",
+      "route": "/data-hardware/teleop-rigs/",
+      "mount": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
+      "figure": "kinematic-twin",
+      "audit": null,
+      "sources": [
+        "components/interactive/kinematic-twin.tsx",
+        "components/iso/figures/twin-arm-bench.ts",
+        "lib/kinematic-twin.ts"
+      ],
+      "takeaway": "A leader arm built as a smaller twin of the robot sends each joint's reading to the robot's same joint unchanged, so the robot copies the operator joint for joint and the demonstration is already in the robot's joint space."
+    },
+    {
+      "id": "adjacent--surgical--scope-follow",
+      "route": "/adjacent/surgical/",
+      "mount": "mount:/adjacent/surgical/:ScopeFollow:1",
+      "figure": "scope-follow",
+      "audit": null,
+      "sources": [
+        "components/interactive/scope-follow.tsx",
+        "components/iso/figures/lap-trainer.ts"
+      ],
+      "takeaway": "At Level 1 the robot takes over one supervised task: with ScoPilot on, Maestro's arm keeps the laparoscope aimed at the instrument tip, while the surgeon still moves every instrument."
     }
   ]
 }

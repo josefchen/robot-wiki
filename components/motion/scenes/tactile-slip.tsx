@@ -345,6 +345,7 @@ export function TactileSlip({ className }: { className?: string }) {
     <SceneMount
       scene={TACTILE_SLIP_SCENE}
       stage={<TactileSlipStage />}
+      anchorId="tactile-slip"
       className={className}
       legend={<>
         <LegendItem series="held-object" swatch={<span aria-hidden className="inline-block h-2.5 w-3 border"

@@ -29,6 +29,12 @@ const articles: ReadonlyArray<readonly [string, readonly string[]]> = [
     'rl-for-robotics', 'sim2real-transfer', 'why-rl-locomotion']],
 ];
 const paths = articles.flatMap(([domain, slugs]) => slugs.map((slug) => `content/${domain}/${slug}.mdx`));
+// A figure mount recorded over the live article (the three manipulation mounts of 2026-10-15, after the image
+// mounts) sits above this layer, not under it: the layer rebuilds the live bytes themselves.
+const mountedOnTop = (path: string) => {
+  const live = readFileSync(join(root, path));
+  return !figureMountPredecessor(root, { path, ...blank }, live).equals(live);
+};
 
 const scratchRoots: string[] = [];
 afterEach(() => {
@@ -54,7 +60,7 @@ describe('length cut 2026-10-12 article successors', () => {
       if (wordBudgetTrimSuccessorPaths().includes(source.after.path)) {
         // The word-budget trim of 2026-10-10 is the next layer down for its two articles.
         expect(wordBudgetTrimPredecessor(root, { path: source.after.path, ...blank }, prior)).not.toEqual(prior);
-      } else if (figureMountSuccessorPaths().includes(source.after.path)) {
+      } else if (figureMountSuccessorPaths().includes(source.after.path) && !mountedOnTop(source.after.path)) {
         expect(figureMountPredecessor(root, { path: source.after.path, ...blank }, prior)).not.toEqual(prior);
       } else if (domainPassSuccessorPaths().includes(source.after.path)) {
         expect(domainPassSuccessorPaths()).toContain(source.after.path);

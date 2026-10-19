@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2640879, sha256: 'f191a59abd43cbe613bb9f3a6de92c5d397eeeae5f5961ac09e0c4049349f6ac' };
+const reviewPin = { bytes: 2666781, sha256: 'f32669a12729a10b1cbdf4118c1fcc5a24663b26aca13f46c9b15534015483f7' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -113,10 +113,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/motion/scene-player.tsx', [13445, '38246aa84d7b3f9ac2eaa8de44e9941a7ae5b53d36df553fa2b394d6fe9a72e3']],
   ['components/motion/scenes/batch-scale.tsx', [12298, '07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5']],
   ['components/motion/scenes/diffusion-denoising.tsx', [23356, 'ad3dd59c07e323e39eca5b3e9286ccb156b1e1c32816e963b9ba5cb974950e18']],
-  ['components/motion/scenes/jam-overhead.tsx', [17345, '7f94ab682a10e2571bf9d66ebf37d6bba7e6a3247775836ff3ca252dcaf0d239']],
+  ['components/motion/scenes/jam-overhead.tsx', [17375, '8463d39ea9f802a68129d0a0b2a2de86ac1e2948b48c85220961efbeebe63a85']],
   ['components/motion/scenes/kalman-predict-update.tsx', [23962, 'dc30bbc875832a9ebd62219356052d7e4335e1f51288191d59c37aafea41d7df']],
-  ['components/motion/scenes/sense-avoid.tsx', [17526, 'b80468ebc9c82eb6240e8fc63861af9d549cb6fdf99c9351381d79ce43127c01']],
-  ['components/motion/scenes/tactile-slip.tsx', [16405, 'cae57d8ffdd91c8efca1712b9f179c0ef91383be13c0fa8fe9f959a780a84504']],
+  ['components/motion/scenes/sense-avoid.tsx', [17530, '35401bd3937aba29a94966fda192f755324edec8776f1e5dbd6b52b0b23eb2e6']],
+  ['components/motion/scenes/tactile-slip.tsx', [16435, 'b7dee782ece5274bf08d6aa466c9bff021c9b8d541f9861a03c60c8afbd21f1e']],
   ['components/motion/stage.css', [15511, 'a5decb53f128ea393d09e2e13877bd0a55f37ac3060aba50ff1fa1960bd4ed2e']],
   ['components/ui/chart-description.tsx', [7860, 'e4b15bd32ef9dd83d63c4a05b593cab3c94d53bc049146f13ee93a545b5beb93']],
   ['components/ui/figure.tsx', [8156, '668bbbade6b4097cdaea3522ccc2b1de7ab712bf16fecfe5f922915588701535']],
@@ -231,8 +231,8 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/latent-dynamics.spec.ts', [6987, '9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2']],
   ['tests/e2e/legged-locomotion.spec.ts', [7769, 'a51f62c715f375401b90dfb7c0ea3c2ac80c7f71ee76b8a80ad5de183dd1f0b2']],
   ['tests/e2e/market-map.spec.ts', [16946, 'eee9bc3d893a4ea45834eb7b79efbfab3501d80c377fefe57a186603ce56dc04']],
-  ['tests/e2e/motion-data-hardware.spec.ts', [9635, 'c6f08b2d9bba36cdcb89b02a89e80067e21b0755432d0c314169105f226da57c']],
-  ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [10125, '48ef70a9c3960f4cab1dd97fec9ead50e39db15e2084eb2dc5bc2d9e3f0dcd17']],
+  ['tests/e2e/motion-data-hardware.spec.ts', [9809, 'fca2c759ec055977bf434738ab6efcb49e6f1685bd2d661aba4ecbb88fc42e60']],
+  ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [10322, 'bb0f752f75a3e77928a1078f1e8d90c672d6362d210b709c77f27068fed5a665']],
   ['tests/e2e/motion-manipulation.spec.ts', [8124, '77ce3e65b32092ca67ecc6d31828e3ab942239e1ffec68ee55eb4bef0c693282']],
   ['tests/e2e/motion-planning.spec.ts', [17893, '7552079a8db4715813e28ffbd42e9a3abd7fea819eaf698a751f5cc1e3eb1d2b']],
   ['tests/e2e/motion-world-models.spec.ts', [15319, 'c85f58f94a781b67d8cd1848aff986809c31969b988e314354a17b861403221f']],
@@ -266,12 +266,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [32916, 'f0f5ea49951c939dc67090ed351f69482ed6c3bbe44e21ecc48b38abad99fbf7']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [235366, '04e10affc8d88585cb84132e45b1a47e3380a308e400ea684a557719abe2992c']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [258116, 'e0656001f70ae702838c8038ff660e829440e03fd9ea66bffde48d28d69f5f7d']],
   ['tests/unit/motion-data-hardware.test.ts', [11831, 'a440e874d11c87a0c6657331f72be47dacc2e432aaf680f4a1956896369f741a']],
-  ['tests/unit/motion-frontier-adjacent-home.test.ts', [10127, '4076049105b4ba02bd5459b55604e6cbce8497ca17a0e0632f53ac27c37f10a5']],
+  ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
-  ['tests/unit/reader-release-integration.test.ts', [28900, '8b1f44fa45d6e60afc07f31b5544d70ad623dd6577d12269686428d39ceae39f']],
+  ['tests/unit/reader-release-integration.test.ts', [30105, 'd6bb0e450c212fd0b54fb686e7352627e3a8a3301265cb472f7faa8774dacb29']],
   ['tests/unit/reward-local-evidence.test.ts', [9001, 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12']],
   ['tests/unit/robomind-hours-evidence.test.ts', [26456, 'f6edeb92026f085f5021428a88e94147f5b5d4f33464ffd50645d14012a47928']],
   ['tests/unit/sim2real-local-evidence.test.ts', [9669, '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a']],

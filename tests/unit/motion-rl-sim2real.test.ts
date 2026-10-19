@@ -5,7 +5,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { beatSpans, posterTime } from '@/components/motion/timeline';
-import { BatchScale, BATCH_SCALE_SCENE, batchScaleFrame } from '@/components/motion/scenes/batch-scale';
+import { BatchScale, BATCH_SCALE_SCENE, batchScaleFrame, overheadCurve } from '@/components/motion/scenes/batch-scale';
 import {
   GaitSupport,
   GAIT_SUPPORT_SAMPLES,
@@ -94,6 +94,59 @@ describe('RL and sim-to-real scene models', () => {
     expect(final.wallSeconds).toBe(wallClockSeconds(MAX_ENVS, false));
     expect(spans[1].linear).toBe(true);
     expect(batchScaleFrame(posterTime(spans))).toEqual(final);
+  });
+
+  it('morphs the dashed overhead curve out of the solid curve across the cpu beat', () => {
+    const spans = beatSpans(BATCH_SCALE_SCENE.beats);
+    const numbers = (d: string) => d.match(/-?\d+(?:\.\d+)?/g)!.map(Number);
+    const vertices = (lift: number) => overheadCurve(lift).map(({ d }) => numbers(d));
+    // The stage's log time axis, recomputed: one minute at y 160 up to four hours at y 36.
+    const y = (seconds: number) => Number((160 - (Math.log10(seconds / 60) / Math.log10(240)) * 124).toFixed(2));
+    const solid = vertices(0);
+    const bound = vertices(1);
+    const solidFrom = (envs: number) => y(wallClockSeconds(envs, false));
+    expect(solid).toHaveLength(32);
+    // At lift 0 the copy is the solid curve; at lift 1 it is the CPU-bound curve.
+    expect(solid[0].slice(0, 2)).toEqual([62, solidFrom(MIN_ENVS)]);
+    expect(solid[31].slice(2)).toEqual([234, solidFrom(MAX_ENVS)]);
+    expect(bound[31].slice(2)).toEqual([234, y(wallClockSeconds(MAX_ENVS, true))]);
+    // The overhead lifts the right end most, which is what flattens the curve.
+    expect(solid[31][3] - bound[31][3]).toBeGreaterThan(20);
+    expect(solid[0][1] - bound[0][1]).toBeLessThan(1);
+
+    // Hidden on the solid curve through beat 2; on the CPU-bound curve, label shown, from beat 3 into the recap.
+    expect(batchScaleFrame(spans[1].end)).toMatchObject({ overheadLift: 0, overheadOpacity: 0, overheadLabel: 0 });
+    for (const t of [spans[2].end, spans[3].end, posterTime(spans)]) {
+      expect(batchScaleFrame(t)).toMatchObject({ overheadLift: 1, overheadOpacity: 1, overheadLabel: 1 });
+    }
+    // The label lands with the curve: still hidden halfway through the lift.
+    expect(batchScaleFrame(spans[2].start + spans[2].duration / 2).overheadLabel).toBe(0);
+
+    // At 60 frames a second every vertex rises in small steps and never passes the CPU-bound curve.
+    let previous = solid;
+    let frames = 0;
+    for (let t = spans[2].start; t <= spans[2].end; t += 1000 / 60, frames += 1) {
+      const now = vertices(batchScaleFrame(t).overheadLift);
+      for (const [i, segment] of now.entries()) {
+        for (const k of [1, 3]) {
+          expect(segment[k]).toBeLessThanOrEqual(previous[i][k]);
+          expect(previous[i][k] - segment[k]).toBeLessThan(2);
+          expect(segment[k]).toBeGreaterThanOrEqual(bound[i][k]);
+        }
+      }
+      previous = now;
+    }
+    expect(frames).toBeGreaterThan(60);
+
+    // Each segment's dash offset is the curve length before it, so the dashes run on across the joins.
+    for (const lift of [0, 0.37, 1]) {
+      let travelled = 0;
+      for (const { d, offset } of overheadCurve(lift)) {
+        expect(offset).toBeCloseTo(travelled, 1);
+        const [x0, y0, x1, y1] = numbers(d);
+        travelled += Math.hypot(x1 - x0, y1 - y0);
+      }
+    }
   });
 
   it('uses the authored gait definitions without presenting a measured footfall trace', () => {

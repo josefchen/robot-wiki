@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "scene-craft-continuity-v1",
+  "name": "scene-craft-20261018",
+  "reviewedBy": "implementation worker for the scene-craft pass of 2026-10-18 (not independent acceptance)",
+  "rationale": "The scene-craft pass of 2026-10-18 gives the BatchScale scene a continuous change at the boundary between its scale and cpu beats (VAL-OPUS-072). The dashed \"with computer overhead\" curve used to fade in already bent; it now appears as a copy lying on the solid training-time curve and is lifted vertex by vertex onto the curve with the main-computer cost, its label fading in over the second half of the lift, and its dashes are drawn at a fixed on-screen size so they stay even across the segment joins. The two lines of that label are now one text stepped by the 1.25 em line step of the kit and centred on the end of the dashed curve, so they read as one label apart from \"no overhead\" at every width; its words are unchanged. The caption, readout, marker, robot dots and curve visibility at every beat end, the curve vertices at the poster and the method note are unchanged. The parallel-local proofs, receipts and browser run of 2026-10-09 pin the scene as it was, so the change is recorded here as exact edits over those bytes. The earlier bytes stand in for the live scene only while it is exactly the reviewed successor and keeps every data attribute, beat id, caption and exported name the earlier scene had, so older checks still read the bytes they recorded.",
+  "observedAt": "2026-10-18T23:23:01Z",
+  "sources": [
+    {
+      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "before": {
+        "path": "components/motion/scenes/batch-scale.tsx",
+        "bytes": 12298,
+        "sha256": "07bd9e9882c36047595cc4d91c6bdb2db4ef069bfbbbd2c1aaf9d9e7db6e7be5"
+      },
+      "after": {
+        "path": "components/motion/scenes/batch-scale.tsx",
+        "bytes": 14926,
+        "sha256": "ddc578f22a4d9ca09a1c37b267e4541d9f7125c2ad0d6f02bd8da4d62ae4a2c4"
+      },
+      "edits": [
+        {
+          "before": " * while a lime dot slides down the training-time curve; the dashed curve\n * adds the assumed per-robot work on the main computer and flattens.\n",
+          "after": " * while the highlighted dot slides down the training-time curve; then a\n * dashed copy of that curve peels off it and bends up as the assumed\n * per-robot work on the main computer is added, flattening it.\n"
+        },
+        {
+          "before": "          (Math.log2(MAX_ENVS) - Math.log2(DEFAULT_ENVS)) * eased(t, 3)));\n",
+          "after": "          (Math.log2(MAX_ENVS) - Math.log2(DEFAULT_ENVS)) * eased(t, 3)));\n  const overheadLift = eased(t, 2);\n"
+        },
+        {
+          "before": "    cpuVisible: eased(t, 2),\n",
+          "after": "    /** 0: the dashed copy lies on the solid curve; 1: it carries the main-computer cost. */\n    overheadLift,\n    // The copy shows over the first fifth of the beat, while the eased lift has barely begun.\n    overheadOpacity: clamp01(linear(t, 2) * 5),\n    overheadLabel: smooth(2 * overheadLift - 1),\n"
+        },
+        {
+          "before": "function segments(cpuBound: boolean): { d: string; offset: number }[] {\n  const at = (i: number) => {\n    const envs = MIN_ENVS * (MAX_ENVS / MIN_ENVS) ** (i / SEGMENTS);\n    return [x(envs), y(wallClockSeconds(envs, cpuBound))] as const;\n  };\n",
+          "after": "const SEGMENT_INDEXES = Array.from({ length: SEGMENTS }, (_, i) => i);\nconst curvePoints = (cpuBound: boolean) => Array.from({ length: SEGMENTS + 1 }, (_, i) => {\n  const envs = MIN_ENVS * (MAX_ENVS / MIN_ENVS) ** (i / SEGMENTS);\n  return [x(envs), y(wallClockSeconds(envs, cpuBound))] as const;\n});\nconst SOLID_POINTS = curvePoints(false);\nconst OVERHEAD_POINTS = curvePoints(true);\n\ntype CurveSegment = { d: string; offset: number };\nlet lastCurve: { lift: number; segments: CurveSegment[] } | null = null;\n/**\n * The dashed overhead curve partway through its lift, each vertex moved\n * straight up from the solid curve: lift 0 lies on the solid curve, lift 1\n * is the curve with the main-computer cost. Every segment binds to the same\n * lift in a frame, so the last result is kept.\n */\nexport function overheadCurve(lift: number): CurveSegment[] {\n  if (lastCurve?.lift === lift) return lastCurve.segments;\n  const points = SOLID_POINTS.map(([px, from], i) => [px, r(from + (OVERHEAD_POINTS[i][1] - from) * lift)] as const);\n"
+        },
+        {
+          "before": "  return Array.from({ length: SEGMENTS }, (_, i) => {\n    const [x0, y0] = at(i);\n    const [x1, y1] = at(i + 1);\n    const segment = { d: `M${x0} ${y0} L${x1} ${y1}`, offset: r(-travelled) };\n",
+          "after": "  const segments = SEGMENT_INDEXES.map((i) => {\n    const [x0, y0] = points[i];\n    const [x1, y1] = points[i + 1];\n    // A positive dash offset starts the pattern that far in, where the previous segment left it.\n    const segment = { d: `M${x0} ${y0} L${x1} ${y1}`, offset: r(travelled) };\n"
+        },
+        {
+          "before": "  });\n",
+          "after": "  });\n  lastCurve = { lift, segments };\n  return segments;\n"
+        },
+        {
+          "before": "const gpuSegments = segments(false);\nconst cpuSegments = segments(true);\n",
+          "after": "const gpuSegments = overheadCurve(0);\n\n/**\n * Other stage strokes keep a fixed CSS-pixel width and so dash in CSS pixels,\n * which stage-unit offsets cannot continue across joins. These segments\n * scale with the stage instead, and the width and dashes are divided back by\n * the drawing's scale (its width over the viewBox width, as stage.css sizes\n * it) to the usual 1.5 px line and 5 px dash. The type scale is not used: it\n * stops following the container on narrow phones.\n */\nconst STAGE_SCALE = 'tan(atan2(min(100cqw, var(--motion-stage-view-width, 340px) * var(--motion-stage-max-scale, 1.6)), '\n  + 'var(--motion-stage-view-width, 340px)))';\nconst STAGE_PX = (px: number) => `calc(${px}px / ${STAGE_SCALE})`;\nconst DASHED_SEGMENT_STYLE = {\n  vectorEffect: 'none',\n  strokeWidth: STAGE_PX(1.5),\n  strokeDasharray: `${STAGE_PX(5)} ${STAGE_PX(4)}`,\n} as const;\n"
+        },
+        {
+          "before": "  const gpuEnd = y(finalSeconds);\n",
+          "after": "  const gpuEnd = y(finalSeconds);\n  const cpuEnd = y(wallClockSeconds(MAX_ENVS, true));\n"
+        },
+        {
+          "before": "        strokeDasharray=\"5 4\" bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>\n        {cpuSegments.map(({ d, offset }) => <path key={d} d={d} strokeDashoffset={offset} />)}\n",
+          "after": "        strokeDasharray=\"5 4\" bindings={{ opacity: (t) => batchScaleFrame(t).overheadOpacity }}>\n        {SEGMENT_INDEXES.map((i) => (\n          <AnimatedPath key={i} bindings={{\n            d: (t) => overheadCurve(batchScaleFrame(t).overheadLift)[i].d,\n            strokeDashoffset: (t) => overheadCurve(batchScaleFrame(t).overheadLift)[i].offset,\n          }} style={DASHED_SEGMENT_STYLE} />\n        ))}\n"
+        },
+        {
+          "before": "      <AnimatedGroup bindings={{ opacity: (t) => batchScaleFrame(t).cpuVisible }}>\n        <text data-scene-stage-label=\"cpu-label\" x={RIGHT + 6} y={116} fontSize={14} fill={INK}>with computer</text>\n        <text data-scene-stage-label=\"cpu-label\" x={RIGHT + 6} y={138} fontSize={14} fill={INK}>overhead</text>\n",
+          "after": "      {/* Label type is sized in CSS pixels, so the two lines step in em: a step in stage units widens with\n          the stage until the lines sit as far apart as \"no overhead\". The pair is centred on the dashed end. */}\n      <AnimatedGroup bindings={{ opacity: (t) => batchScaleFrame(t).overheadLabel }}>\n        <text data-scene-stage-label=\"cpu-label\" x={RIGHT + 6} y={r(cpuEnd)} fontSize={14} fill={INK}>\n          <tspan x={RIGHT + 6} dy=\"-0.275em\">with computer</tspan>\n          <tspan x={RIGHT + 6} dy=\"1.25em\">overhead</tspan>\n        </text>\n"
+        },
+        {
+          "before": "      {/* The settle note sits in the empty corner under the curves, led to the lime dot. */}\n",
+          "after": "      {/* The settle note sits in the empty corner under the curves, led to the highlighted dot. */}\n"
+        }
+      ]
+    }
+  ]
+}

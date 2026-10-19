@@ -105,7 +105,7 @@ export function senseAvoidDistances(latencyS: number) {
 const QUICK_DIST = senseAvoidDistances(STEREO.latencyS);
 
 /** The method note: the model and what is authored rather than measured. */
-export const SENSE_AVOID_METHOD_NOTE = `The starting model is Falanga, Kim and Scaramuzza's: an ${STEREO.rangeM} m sensing range, ${DEFAULT_AGILITY} m/s² of sideways agility and the stereo camera's ${formatSeconds(STEREO.latencyS)} latency, which give ${formatSpeed(QUICK.maxSpeedMs)}. The slow camera's ${INTERACTIVE_MAX_LATENCY_MS} ms is an authored setting, not a published camera measurement; it gives ${formatSpeed(SLOW.maxSpeedMs)}. Both drones swerve for the same fixed avoidance duration of about ${formatSeconds(QUICK.avoidanceTimeS)}, which depends only on the agility and the ${OBSTACLE_RADIUS_M} m it must move sideways. The figure above lets you set the delay directly, under "Adjust more".`;
+export const SENSE_AVOID_METHOD_NOTE = `The starting model is Falanga, Kim and Scaramuzza's: an ${STEREO.rangeM} m sensing range, ${DEFAULT_AGILITY} m/s² of sideways agility and the stereo camera's ${formatSeconds(STEREO.latencyS)} latency, which give ${formatSpeed(QUICK.maxSpeedMs)}. The slow camera's ${INTERACTIVE_MAX_LATENCY_MS} ms is a delay chosen for this figure; it gives ${formatSpeed(SLOW.maxSpeedMs)}. Both drones swerve for the same fixed avoidance duration of about ${formatSeconds(QUICK.avoidanceTimeS)}, which depends only on the agility and the ${OBSTACLE_RADIUS_M} m it must move sideways. The figure above lets you set the delay directly, under "Adjust more".`;
 
 // ------------------------------------------------------------------ the rig
 const RIG = buildCorridor({ tracks: 2 });
@@ -359,6 +359,7 @@ export function SenseAvoid({ className }: { className?: string }) {
     <SceneMount
       scene={SENSE_AVOID_SCENE}
       stage={<SenseAvoidStage />}
+      anchorId="sense-avoid"
       className={className}
       legend={<>
         <LegendItem series="perception-delay" swatch={<span aria-hidden className="inline-block h-1.5 w-3"

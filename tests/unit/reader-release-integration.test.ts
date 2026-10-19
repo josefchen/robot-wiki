@@ -257,6 +257,28 @@ function throughSeoPass(path: string) {
     expect(continues(figures, end)).toBe(true);
     end = figures.newHash;
   }
+  // The world-models isometric figures of 2026-10-15 (batch world-models-b03)
+  // landed after the data-hardware images; their one edge on a world-models
+  // article that gained a figure mount continues the previous endpoint the
+  // same way.
+  const worldModelsFigureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('anatomy-wm-b03-figures-20261015-'));
+  expect(worldModelsFigureEdges.length).toBeLessThanOrEqual(1);
+  for (const figures of worldModelsFigureEdges) {
+    expect(continues(figures, end)).toBe(true);
+    end = figures.newHash;
+  }
+  // The data-hardware isometric figure of 2026-10-19 (batch data-hardware-new)
+  // landed after the world-models figures; its one edge on the data-hardware
+  // article that gained a figure mount continues the previous endpoint the
+  // same way.
+  const dataHardwareFigureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('anatomy-dh-new-figures-20261019-'));
+  expect(dataHardwareFigureEdges.length).toBeLessThanOrEqual(1);
+  for (const figures of dataHardwareFigureEdges) {
+    expect(continues(figures, end)).toBe(true);
+    end = figures.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

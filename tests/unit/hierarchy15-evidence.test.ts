@@ -4,7 +4,9 @@ import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
-import { humanize20261012Endpoint, imagesA20261013Endpoint, kolQueue20261012Endpoint } from '../helpers/domain-pass';
+import {
+  anatomyManipB0420261015Endpoint, humanize20261012Endpoint, imagesA20261013Endpoint, kolQueue20261012Endpoint,
+} from '../helpers/domain-pass';
 import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest, parseLedger,
   type CompoundPlan,
@@ -355,10 +357,12 @@ describe('hierarchy original 15 bounded synthesis correction', () => {
     }
     // The 2026-10-12 KOL triage batch then adds one dated paragraph, and the
     // 2026-10-12 manipulation humanize pass tightens the prose after it;
-    // images bundle A of 2026-10-13 then mounts the article's images.
+    // images bundle A of 2026-10-13 then mounts the article's images, and the
+    // manipulation isometric figures of 2026-10-15 mount KeypointString.
     expect(prose(readFileSync(articlePath, 'utf8')).members[0].hash)
-      .toBe(imagesA20261013Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
-        humanize20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
-          kolQueue20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical', previous.newHash))));
+      .toBe(anatomyManipB0420261015Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
+        imagesA20261013Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
+          humanize20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical',
+            kolQueue20261012Endpoint(approvals, 'prose', 'article:manipulation/hierarchical', previous.newHash)))));
   });
 });

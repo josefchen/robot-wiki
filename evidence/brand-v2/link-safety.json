@@ -937,7 +937,7 @@
       "reachedByTab": 95,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 213
     },
     {
       "route": "/classical/",
@@ -1089,7 +1089,7 @@
       "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 202
+      "tabStops": 206
     },
     {
       "route": "/editorial-policy/",
@@ -1193,7 +1193,7 @@
       "reachedByTab": 75,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 185
+      "tabStops": 191
     },
     {
       "route": "/manipulation/bc-foundations/",
@@ -1209,7 +1209,7 @@
       "reachedByTab": 114,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 252
+      "tabStops": 255
     },
     {
       "route": "/manipulation/cross-embodiment/",
@@ -1249,7 +1249,7 @@
       "reachedByTab": 89,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 210
+      "tabStops": 213
     },
     {
       "route": "/manipulation/knowledge-insulation/",
@@ -1457,7 +1457,7 @@
       "reachedByTab": 72,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 170
+      "tabStops": 176
     },
     {
       "route": "/world-models/taxonomy/",
@@ -1473,7 +1473,7 @@
       "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 204
+      "tabStops": 208
     }
   ]
 }

@@ -14,7 +14,7 @@
     },
     "adjacent/surgical": {
       "published": "2026-08-15T17:23:56+01:00",
-      "modified": "2026-10-15T17:10:10+02:00"
+      "modified": "2026-10-19T02:01:29+02:00"
     },
     "classical/calibration": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -78,7 +78,7 @@
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:30:31+01:00",
-      "modified": "2026-10-15T19:03:39+02:00"
+      "modified": "2026-10-19T02:01:29+02:00"
     },
     "frontier/bear-case": {
       "published": "2026-08-12T17:20:13+01:00",
@@ -110,7 +110,7 @@
     },
     "manipulation/action-spaces": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-19T01:08:39+02:00"
     },
     "manipulation/bc-foundations": {
       "published": "2026-08-08T02:18:37+01:00",
@@ -118,7 +118,7 @@
     },
     "manipulation/comparison-matrix": {
       "published": "2026-08-08T06:52:08+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-19T01:08:39+02:00"
     },
     "manipulation/cross-embodiment": {
       "published": "2026-08-08T15:31:40+01:00",
@@ -138,7 +138,7 @@
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T07:15:55+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-19T01:08:39+02:00"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T15:56:20+01:00",
@@ -218,7 +218,7 @@
     },
     "world-models/model-based-robot-learning": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-19T01:08:39+02:00"
     },
     "world-models/taxonomy": {
       "published": "2026-08-08T20:49:46+01:00",
@@ -226,12 +226,12 @@
     },
     "world-models/world-models-vs-simulators": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-19T01:08:39+02:00"
     }
   },
   "routes": {
     "/": {
-      "modified": "2026-10-16T11:54:38+02:00"
+      "modified": "2026-10-19T02:01:29+02:00"
     },
     "/manipulation/": {
       "modified": "2026-10-16T12:11:50+02:00"

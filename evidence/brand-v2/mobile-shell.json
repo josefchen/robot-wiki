@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3036,
       "header": {
         "present": true,
         "display": "flex",
@@ -1208,7 +1208,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 21443,
+      "visibleTextLength": 21944,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 17736,
+      "visibleTextLength": 18247,
       "header": {
         "present": true,
         "display": "flex",
@@ -6384,7 +6384,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 16329,
+      "visibleTextLength": 16813,
       "header": {
         "present": true,
         "display": "flex",
@@ -6708,7 +6708,7 @@
     },
     {
       "route": "/manipulation/comparison-matrix/",
-      "visibleTextLength": 18585,
+      "visibleTextLength": 19102,
       "header": {
         "present": true,
         "display": "flex",
@@ -7518,7 +7518,7 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "visibleTextLength": 21690,
+      "visibleTextLength": 22151,
       "header": {
         "present": true,
         "display": "flex",
@@ -9778,7 +9778,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 17093,
+      "visibleTextLength": 17092,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 14262,
+      "visibleTextLength": 14816,
       "header": {
         "present": true,
         "display": "flex",
@@ -12038,7 +12038,7 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "visibleTextLength": 20735,
+      "visibleTextLength": 21240,
       "header": {
         "present": true,
         "display": "flex",

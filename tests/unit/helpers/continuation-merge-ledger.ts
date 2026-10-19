@@ -382,6 +382,12 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   record and registered its 108 new records, each member with one edge
  *   from its last approved endpoint, or one resolution from the sealed hash
  *   where its chain already holds one.
+ * - `anatomy-manip-b04-figures-20261015-prose-`: the manipulation isometric
+ *   figures of 2026-10-15 mounted one figure each in action spaces, the
+ *   comparison matrix and hierarchical policies, each prose member with one
+ *   edge that continues its images bundle A endpoint, plain or as a
+ *   resolution from the sealed hash where its chain already holds one. Its
+ *   source and mount edges start from an absent seal and re-anchor nothing.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -431,6 +437,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'images-a-20261013-prose-classical-state-estimation',
   'length-cut-20261013-data-hardware-',
   'length-cut-20261014-adjacent-',
+  'anatomy-manip-b04-figures-20261015-prose-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

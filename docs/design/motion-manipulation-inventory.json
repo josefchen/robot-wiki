@@ -57,6 +57,13 @@
   },
   {
     "article": "action-spaces",
+    "element": "ImpedancePress",
+    "decision": "keep",
+    "teachingGoal": "Show that an impedance action sends a target and a stiffness, and that past a surface the push is the stiffness times the gap.",
+    "reason": "A new isometric spring press (2026-10-15): the reader moves the target past the scale's pan and swaps springs, and the dial reads the push from the same model."
+  },
+  {
+    "article": "action-spaces",
     "element": "ActionSpaceTable",
     "decision": "keep",
     "teachingGoal": "Compare representation conventions while retaining the separate assumptions and limitations of each action space.",
@@ -110,6 +117,13 @@
     "decision": "keep",
     "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
     "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "comparison-matrix",
+    "element": "ChunkBuffer",
+    "decision": "keep",
+    "teachingGoal": "Show why about 250 ms answers still give 50 Hz control: each chunk must hold enough actions to last until the next answer lands.",
+    "reason": "A new isometric card feeder (2026-10-15): decks in flight for the whole wait, a Geneva clock indexing once every 20 ms, and empty belt slots where a chunk runs dry."
   },
   {
     "article": "comparison-matrix",
@@ -251,6 +265,13 @@
     "decision": "keep",
     "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
     "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "hierarchical",
+    "element": "KeypointString",
+    "decision": "keep",
+    "teachingGoal": "Show that a point picked in a camera image fixes only a line from the camera, and that a depth reading picks the target on it.",
+    "reason": "A new isometric perspective frame (2026-10-15): the string through the picked pixel is the line, and paying it out to the depth reading puts the arm's target on the handle."
   },
   {
     "article": "hierarchical",

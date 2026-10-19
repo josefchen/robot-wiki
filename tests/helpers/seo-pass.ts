@@ -13,6 +13,7 @@ import { lengthCutPredecessor } from '../../lib/audit-length-cut-continuity.ts';
 import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { reskinPredecessor } from '../../lib/audit-reskin-site-foundation-continuity.ts';
+import { sceneCraftPredecessor } from '../../lib/audit-scene-craft-continuity.ts';
 import { seoPassCheckerPredecessor, seoPassPredecessor } from '../../lib/audit-seo-pass-continuity.ts';
 import { wordBudgetTrimPredecessor } from '../../lib/audit-word-budget-trim-continuity.ts';
 
@@ -148,11 +149,21 @@ export function preImageMounts(path: string): Buffer {
  * frontier figures it admitted on 2026-10-15 after the image mounts
  * (BearCaseLock in the bear case, SafetyFilterFence in safety and
  * assurance): the rebuilt pre-mount article while the live article is the
- * reviewed successor, otherwise the live bytes. The same layer is read again
- * in its original place, under the word-budget trim (preFigureMounts).
+ * reviewed successor, otherwise the bytes the newer scene-craft read hands
+ * on. The same layer is read again in its original place, under the
+ * word-budget trim (preFigureMounts).
  */
 export function preLateFigureMounts(path: string): Buffer {
-  return figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return figureMountPredecessor(root, { path, bytes: 0, sha256: '' }, preSceneCraft(path));
+}
+
+/**
+ * The bytes the scene-craft layer of 2026-10-18 hands every check older than
+ * that pass: the rebuilt pre-pass scene source while the live scene is the
+ * reviewed successor, otherwise the live bytes.
+ */
+export function preSceneCraft(path: string): Buffer {
+  return sceneCraftPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

@@ -47,6 +47,8 @@ seeAlso:
 
 import { MotionPantograph } from '@/components/interactive/motion-pantograph';
 
+import { ScopeFollow } from '@/components/interactive/scope-follow';
+
 import { SurgicalSystemsTable } from '@/components/mdx/surgical-systems-table';
 
 Surgical robotics is the use of robots to position or move surgical instruments, today mostly teleoperated systems for <Term id="minimally-invasive-surgery">minimally invasive surgery</Term> that scale and filter a surgeon's hand motion. Intuitive had 11,710 da Vinci systems installed by June 30, 2026 <Cite id="intuitive-q2-2026" />, and most commercial platforms sit at level 0, with no decision autonomy <Cite id="attanasio-autonomy-2021" />.
@@ -86,6 +88,8 @@ Johnson & Johnson's OTTAVA, a table-integrated soft-tissue robot, received De No
 Moon Surgical's Maestro is a two-armed assistant that holds and positions the laparoscopic camera and instruments, using the cameras and graspers a hospital already owns. Its first 510(k), in December 2022, rested on substantial equivalence to a 1990s endoscope positioner <Cite id="maestro-tavac-2023" />. A single surgeon used it without an assistant in a 30-patient series <Cite id="maestro-tavac-2023" />.
 
 The commercial system was cleared in June 2024 <Cite id="maestro-commercial-510k-2024" />. ScoPilot, cleared in March 2025, runs on NVIDIA Holoscan on the robot and lets the laparoscope follow the instrument tip on demand <Cite id="scopilot-clearance-2025" />, Level 1 assistance on the Yang scale <Cite id="yang-autonomy-2017" />.
+
+<ScopeFollow className="my-6" />
 
 ## The precision and reliability bar
 

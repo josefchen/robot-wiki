@@ -128,4 +128,12 @@ describe('JamOverhead stage', () => {
     expect(html).toContain('data-recorder="slow"');
     expect(html).not.toContain('<text');
   });
+
+  it('gives the flagship a stable anchor that clears the sticky header', () => {
+    const html = renderToString(<JamOverhead />);
+    const root = html.match(/<div[^>]*data-motion-scene="jam-overhead"[^>]*>/)?.[0] ?? '';
+    expect(root).toContain('id="jam-overhead"');
+    expect(root).toContain('scroll-mt-16');
+    expect([...html.matchAll(/\bid="jam-overhead"/g)]).toHaveLength(1);
+  });
 });

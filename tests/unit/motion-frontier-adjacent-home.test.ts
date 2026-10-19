@@ -142,7 +142,10 @@ describe('frontier and adjacent scene truth', () => {
     expect(slow.blindM).toBeCloseTo(2.93, 1);
     expect(quick.blindM + quick.swerveM).toBeCloseTo(SENSORS[0].rangeM);
     expect([quick.speedKmh, slow.speedKmh]).toEqual([69, 53]);
-    expect(SENSE_AVOID_METHOD_NOTE).toMatch(/authored setting, not a published camera measurement/);
+    // 200 ms is the figure's own choice; the study's stereo camera is the
+    // 70 ms datasheet bound it adopted, so nothing here was "measured".
+    expect(SENSE_AVOID_METHOD_NOTE).toMatch(/slow camera's 200 ms is a delay chosen for this figure/);
+    expect(SENSE_AVOID_METHOD_NOTE).not.toMatch(/measured/);
     expect(SENSE_AVOID_METHOD_NOTE).toMatch(/about 346 ms/);
   });
 

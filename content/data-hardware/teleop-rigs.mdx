@@ -47,6 +47,8 @@ seeAlso:
   - "rl-sim2real/humanoid-wbc"
 ---
 
+import { KinematicTwin } from '@/components/interactive/kinematic-twin';
+
 import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
 
 <Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Leader-follower arms, GELLO replicas, UMI handheld grippers and VR headsets trade cost and collection speed against the embodiment gap, and the largest corpora reported by 2026, 100,000 hours and more, came from wearable and handheld devices <Cite id="generalist-gen1-2026" /> <Cite id="xiaomi-robotics-1-2026" />.
@@ -77,6 +79,8 @@ Each extra collector needs another workstation. In ALOHA Unleashed, 35 operators
 ## GELLO: the kinematic twin
 
 GELLO is a scaled replica of the target arm built from 3D-printed links and off-the-shelf motors, so joint readings map one-to-one onto robot commands. Parts cost under \$300; the published designs cover Franka, UR5 and xArm. In its user study, 12 participants ran five tasks on a bimanual pair of UR5 arms, and GELLO was more reliable and faster than VR controllers or a 3D spacemouse. The \$300 buys a controller only, and every new arm needs its own design <Cite id="gello-2023" />.
+
+<KinematicTwin className="my-6" />
 
 A policy trained only on adapted AirExo-2 data performed comparably to one trained on teleoperated data <Cite id="airexo-2-2025" />. HOMIE's \$500 humanoid cockpit pairs an exoskeleton arm and motion-sensing gloves with a pedal-driven locomotion policy, finishing tasks in half the time of earlier systems <Cite id="homie-2025" />.
 

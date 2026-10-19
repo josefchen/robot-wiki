@@ -24,12 +24,12 @@
     "minutes": 7
   },
   "manipulation/comparison-matrix": {
-    "words": 1541,
+    "words": 1637,
     "minutes": 8
   },
   "manipulation/hierarchical": {
-    "words": 1688,
-    "minutes": 8
+    "words": 1774,
+    "minutes": 9
   },
   "manipulation/rl-finetuning": {
     "words": 3272,
@@ -52,7 +52,7 @@
     "minutes": 5
   },
   "manipulation/action-spaces": {
-    "words": 990,
+    "words": 1081,
     "minutes": 5
   },
   "manipulation/foundation-models": {
@@ -112,7 +112,7 @@
     "minutes": 8
   },
   "world-models/model-based-robot-learning": {
-    "words": 961,
+    "words": 1058,
     "minutes": 5
   },
   "world-models/evaluation": {
@@ -120,8 +120,8 @@
     "minutes": 5
   },
   "world-models/world-models-vs-simulators": {
-    "words": 1862,
-    "minutes": 9
+    "words": 1947,
+    "minutes": 10
   },
   "data-hardware/data-bottleneck": {
     "words": 1755,
@@ -136,8 +136,8 @@
     "minutes": 14
   },
   "data-hardware/teleop-rigs": {
-    "words": 1458,
-    "minutes": 7
+    "words": 1545,
+    "minutes": 8
   },
   "data-hardware/evaluation-crisis": {
     "words": 1684,
@@ -220,7 +220,7 @@
     "minutes": 10
   },
   "adjacent/surgical": {
-    "words": 1794,
+    "words": 1878,
     "minutes": 9
   },
   "adjacent/space": {

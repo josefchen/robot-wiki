@@ -50,6 +50,8 @@ seeAlso:
   - "manipulation/realtime-execution"
 ---
 
+import { ChunkBuffer } from '@/components/interactive/chunk-buffer';
+
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
 The comparison matrix is a table of major robot policies, from RT-1 (2022) to π0.7 (2026), compared on eight architectural axes: action representation, horizon, control frequency, backbone, conditioning, cross-embodiment, hierarchy and weights <Cite id="rt1-2022" /> <Cite id="pi07-2026" />. Each cell records what its named source discloses.
@@ -77,6 +79,8 @@ Horizon separates the planned chunk length $H$, the <Term id="predicted-horizon"
 Control frequency needs a named measurement setting. ACT's ALOHA setup runs at 50 Hz with <Term id="temporal-ensembling">temporal ensembling</Term> <Cite id="act-aloha-2023" />, RT-1 commands the Everyday Robots platform at 3 Hz <Cite id="rt1-2022" />, and RT-2's multi-TPU cloud service runs PaLI-X-55B at 1 to 3 Hz <Cite id="rt2-2023" />. OpenVLA reaches about 6 Hz on one RTX 4090, and its Franka fine-tuning setups use 5 Hz and 15 Hz controllers <Cite id="openvla-2024" />.
 
 Gemini Robotics turns about 250 ms of end-to-end latency into a 50 Hz effective control frequency with multi-action chunks <Cite id="gemini-robotics-2025" />, GR00T N1 samples a 16-action chunk in 63.9 ms on an L40 <Cite id="gr00t-n1-2025" />, the π0.6 card reports 63 ms per chunk on one H100 <Cite id="pi06-model-card-2025" />, and Generalist says GEN-1.5 produces 100 Hz action trajectories <Cite id="gen-1-5-2026" />.
+
+<ChunkBuffer className="my-6" />
 
 Backbone, conditioning and cross-embodiment describe model components, inputs and the scope of robot-body transfer. Mixed-embodiment training, one checkpoint on several bodies and fine-tuning on a new body are different evidence; CrossFormer shows the strongest kind, with the same weights controlling very different robots after training on 900K trajectories from 20 embodiments <Cite id="crossformer-2024" />. Skild says S1 executes a task shown in one video <Cite id="skild-s1-2026" />, which adds demonstration video as a conditioning input.
 
