@@ -74,6 +74,13 @@ test.describe('timeline view roving keyboard affordances', () => {
     // 75 -> 76 the same day (market-map field audit): Plug and Play's
     // strategic investment in XELA Robotics, announced on 29 April 2026
     // (XELA's release), is a dated event in the window.
+    // 76 -> 77 the same day (market-map field audit): Formic's latest round
+    // is now its $27.4 million Series A extension of 25 June 2024 (The Robot
+    // Report), a dated event in the window; its January 2022 round was not.
+    // 77 -> 76 the same day (market-map field audit): Leju Robotics' and Coco
+    // Robotics' round dates were cut (The Robot Report says only that each
+    // raised "this week"), and Starship Technologies' Series C of 15 October
+    // 2025 (its Business Wire release) is a dated event in the window.
     await expect(rowButtons(page)).toHaveCount(76);
     await expect(page.locator('[data-timeline-id][data-company-id="symbotic"]')).toHaveCount(1);
     await expect(page.locator('[data-timeline-id][data-company-id="locus-robotics"]')).toHaveCount(1);

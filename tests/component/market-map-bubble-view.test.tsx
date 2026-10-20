@@ -128,6 +128,10 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     // states its founding year, which places a mark on the x axis.
     // 28 -> 30 the same day, both by total raised: Lila Sciences (founded
     // 2023, its own about page) and K-Scale Labs ($6.25M in total, 36Kr).
+    // 30 -> 31 the same day, by total raised: Mytra ($200M in total, its
+    // own company page).
+    // 31 -> 30 the same day: PaXini left, because its sources state its
+    // August 2026 round only in yuan and give no valuation.
     expect(focusable.length).toBe(30);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);

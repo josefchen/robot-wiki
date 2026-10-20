@@ -132,7 +132,12 @@ describe('COMPANIES data', () => {
     // (Wikipedia) and Moon Surgical's founding name MastOR (its own page).
     // 45 -> 46 on 2026-10-20: Automata's registered name, Automata
     // Technologies (Companies House).
-    expect(withAka.length).toBe(46);
+    // 46 -> 47 on 2026-10-20: Astribot's Chinese name 星尘智能 (its own
+    // site).
+    // 47 -> 49 on 2026-10-20: Leju Robotics' registered name, Leju
+    // (Shenzhen) Robotics Co., Ltd. (its own site), and the names PaXini Tech
+    // and 帕西尼感知科技 (CnEVPost and EqualOcean).
+    expect(withAka.length).toBe(49);
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
     // (audit/market-map-ledger.json) found its sources use "Pi" only for the

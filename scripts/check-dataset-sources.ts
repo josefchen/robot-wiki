@@ -6,7 +6,8 @@
  * the citation link-liveness sweep (scripts/check-citation-links.ts): a real
  * browser user agent, redirects followed, GET fallback for HEAD-hostile
  * servers, one retry with backoff for 5xx/transient failures, and a
- * documented-exception path for bot-walls.
+ * documented-exception path for bot-walls. It also asks GET to confirm a
+ * HEAD 404/410 before it calls a URL dead.
  *
  * What counts as a failure here mirrors the market-map audit's own published
  * convention ("every row carries at least one live or live-but-bot-walled
@@ -143,7 +144,9 @@ async function checkOne(source: DatasetSource, timeoutMs: number): Promise<LinkC
   const attempt = async (): Promise<{ status: number; finalUrl: string; error?: string }> => {
     try {
       let result = await fetchStatus(source.url, 'HEAD', timeoutMs);
-      if (shouldFallbackToGet(result.status)) {
+      // Some publishers (The Next Web among them) answer HEAD with 404 for an
+      // article they serve on GET, so a dead verdict needs a GET to agree.
+      if (shouldFallbackToGet(result.status) || classifyStatus(result.status) === 'dead') {
         result = await fetchStatus(source.url, 'GET', timeoutMs);
       }
       return result;

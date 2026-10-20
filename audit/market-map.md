@@ -1244,10 +1244,10 @@ floor ("more than $1B") is never promoted to an amount or a total. A description
 say. Where the sources disagree about the same round, or state only a floor, the card shows a caveat that cites
 the sources instead of dropping either figure.
 
-**Progress.** 84 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics, ubtech-robotics, fourier-intelligence, galbot, agibot, sanctuary-ai, neura-robotics, humanoid-uk, spirit-ai, galaxea-ai, engineai, robot-era, tars-robotics, x-square-robot, deep-robotics, kepler-robot, limx-dynamics, wandercraft, clone-robotics, mentee-robotics, persona-ai, rainbow-robotics, symbotic, dexterity, berkshire-grey, amazon-robotics, nimble-robotics, locus-robotics, mujin, righthand-robotics, ambirobotics, plus-one-robotics, carbon-robotics, monarch-tractor, farm-ng, bedrock-robotics, chef-robotics, simbe-robotics, intuitive-surgical, cmr-surgical, moon-surgical, nuro, serve-robotics, gecko-robotics, standard-bots, collaborative-robotics, the-bot-company, weave-robotics, irobot, k-scale-labs, automata, lila-sciences, avidbots, harmonic-drive-systems, nabtesco, leaderdrive, sanhua, shadow-robot, sharpa, wonik-robotics, xela-robotics.
-The other 27 still rest on the evidence of the earlier passes until their batch lands.
+**Progress.** 102 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics, ubtech-robotics, fourier-intelligence, galbot, agibot, sanctuary-ai, neura-robotics, humanoid-uk, spirit-ai, galaxea-ai, engineai, robot-era, tars-robotics, x-square-robot, deep-robotics, kepler-robot, limx-dynamics, wandercraft, clone-robotics, mentee-robotics, persona-ai, rainbow-robotics, symbotic, dexterity, berkshire-grey, amazon-robotics, nimble-robotics, locus-robotics, mujin, righthand-robotics, ambirobotics, plus-one-robotics, carbon-robotics, monarch-tractor, farm-ng, bedrock-robotics, chef-robotics, simbe-robotics, intuitive-surgical, cmr-surgical, moon-surgical, nuro, serve-robotics, gecko-robotics, standard-bots, collaborative-robotics, the-bot-company, weave-robotics, irobot, k-scale-labs, automata, lila-sciences, avidbots, harmonic-drive-systems, nabtesco, leaderdrive, sanhua, shadow-robot, sharpa, wonik-robotics, xela-robotics, openai-robotics, meta-robotics, assured-robot-intelligence, saronic, eka-robotics, foundry-robotics, mytra, formic, astribot, booster-robotics, leju-robotics, switchbot, hanson-robotics, paxini, miso-robotics, starship-technologies, coco-robotics, knightscope.
+The other 9 still rest on the evidence of the earlier passes until their batch lands.
 
-**Ledger rows.** 1237 rows: 658 verified, 387 corrected, 126 added and 66 cut. The quoted passages come from a body fetched directly (733 rows), a page rendered in a headless browser (8) and a follow-up fetch (438).
+**Ledger rows.** 1456 rows: 760 verified, 461 corrected, 154 added and 81 cut. The quoted passages come from a body fetched directly (843 rows), a page rendered in a headless browser (23) and a follow-up fetch (517).
 
 **Empty fields.** Every rendered field a record leaves empty now carries a recorded disposition in the registry
 (`absent` in `research/04-market-map-companies.json`). `not-disclosed` means a value exists but no source
@@ -1260,18 +1260,18 @@ above, under which every empty list and a missing website read "n/a" whatever th
 
 | Field | not disclosed | n/a |
 |---|---:|---:|
-| HQ city | 12 | 0 |
-| founded | 19 | 0 |
-| website | 2 | 2 |
-| aka | 4 | 61 |
+| HQ city | 9 | 0 |
+| founded | 17 | 0 |
+| website | 1 | 3 |
+| aka | 2 | 60 |
 | deployments | 27 | 0 |
 | open source | 0 | 96 |
-| total raised | 92 | 8 |
+| total raised | 91 | 8 |
 | round type | 32 | 7 |
-| round amount | 46 | 7 |
-| round date | 24 | 7 |
-| round valuation | 71 | 11 |
-| lead investors | 38 | 11 |
+| round amount | 47 | 7 |
+| round date | 25 | 7 |
+| round valuation | 73 | 11 |
+| lead investors | 39 | 11 |
 
 **Round caveats.** A caveat shows under the round on the card, with links to the sources it cites:
 
@@ -1303,6 +1303,10 @@ above, under which every empty list and a missing website read "n/a" whatever th
 | Lila Sciences | Series A | Reuters reported in October 2025 that new Nvidia backing valued Lila at more than $1.3 billion; Lila has not published a valuation. | https://www.lila.ai/news/exclusive-ai-lab-lila-sciences-tops-1-3-billion-valuation-with-new-nvidia-backing, https://www.lila.ai/news/announcing-the-close-of-our-series-a |
 | Avidbots | Series C | Avidbots said the Series C took its total raised to more than $107 million; it has published no exact total. | https://avidbots.com/news/avidbots-raises-70m-in-series-c-funding/ |
 | Sanhua | type not disclosed | Reports in October 2025 said Tesla had ordered Optimus actuators from Sanhua worth about $685 million (over 5 billion yuan); the company declined to comment on market rumors and has never confirmed it supplies Optimus. | https://eu.36kr.com/en/p/3510288514980998, https://news.metal.com/newscontent/103570985-sanhua-intelligent-control-lands-over-5-billion-yuan-tesla-humanoid-robot-order |
+| Astribot | Series B | Pandaily reports that the Series B pushed Astribot's valuation past 10 billion yuan (about $1.4 billion) and that its three rounds in three months raised over 1 billion yuan; no exact amount or valuation is given. | https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/ |
+| Booster Robotics | type not disclosed | Booster says its April 2026 round raised nearly $150 million; it gives no exact amount. | https://www.booster.tech/about-us?target=en |
+| PaXini | Strategic | PaXini says its August 2026 strategic round raised RMB1 billion, taking its total to RMB3.5 billion, and that an unnamed consumer-electronics and semiconductor group co-led it; no dollar figures are given. | https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ |
+| Starship Technologies | Series C | Starship says it has raised more than $280 million in total; it gives no exact figure. | https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
 
 ### Changes, by record
 
@@ -1718,6 +1722,91 @@ Every value the ledger does not mark verified, against the record at the audit's
 | XELA Robotics | deployments | Humanoid and industrial robot tactile sensing | More than 170 clients (2026) | stated by https://www.xelarobotics.com |
 | XELA Robotics | deployments |  | uSkin integrations for robot hands and grippers from Wonik Robotics, Sake Robotics, Weiss Robotics and Robotiq | stated by https://xelarobotics.com/press-release/xela-robotics-unlocks-enhanced-automation-for-humanoid-and-industrial |
 | XELA Robotics | lead investors |  | Plug and Play | stated by https://sg.finance.yahoo.com/news/xela-robotics-deepens-u-market-123000348.html |
+| OpenAI (Robotics) | description | Re-entered robotics field with hiring push across hardware, simulation, data, and ML roles to develop robots for physical tasks. | Shut its first robotics effort in 2021 and is building a new robotics team: it has hired researchers who work on AI for humanoid and other robots, and its job listings seek teleoperation, simulation and robot-hardware skills. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Meta (Robotics) | description | Entered humanoid robotics by acquiring Assured Robot Intelligence, folding team into Superintelligence Labs to build foundational physical AI models. | Bought the humanoid-robot AI startup Assured Robot Intelligence in May 2026 to build up its AI models for robots; ARI's team joined Meta's Superintelligence Labs. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Meta (Robotics) | aka | Meta Superintelligence Labs | Meta Platforms | its registered name; Meta Superintelligence Labs is a division of Meta, not another name for it (https://en.wikipedia.org/wiki/Meta_Platforms) |
+| Meta (Robotics) | aka |  | Facebook | its name from 2005 until 2021 (https://en.wikipedia.org/wiki/Meta_Platforms) |
+| Meta (Robotics) | deployments | Acquired Assured Robot Intelligence (May 2026) | not disclosed | an acquisition, not a deployment; the round and the description carry it |
+| Assured Robot Intelligence | description | Built AI models for robots to address critical challenges in high-value labor markets; acquired by Meta for Superintelligence Labs. | Built foundation models for humanoid robots to do physical labor such as household chores; Meta bought it in May 2026 and its team joined Meta's Superintelligence Labs. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Saronic | description | Designs and manufactures autonomous unmanned surface vehicles (USVs) for maritime security and domain awareness. | Designs and builds autonomous surface vessels for defense and commercial use, from the 24-foot Corsair to the 180-foot Marauder, in its own shipyards. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Saronic | deployments | Maritime security | U.S. Navy production contract for its vessels, worth $392 million (2025) | "maritime security" is a use, not a deployment (https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html) |
+| Eka Robotics | description | Builds robot foundation models for dexterous manipulation, co-founded by MIT professor Pulkit Agrawal and DeepMind researcher Tuomas Haarnoja. | Teaches robots dexterous manipulation by having them practise in simulation and carry the skill to real robots; co-founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Eka Robotics | HQ city |  | Cambridge | stated by https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different |
+| Eka Robotics | lead investors | Obvious Ventures | not disclosed | Business Insider says Obvious Ventures' Kahini Shah invested in Eka; no fetched source says the firm led a round |
+| Foundry Robotics | round type |  | Seed | stated by https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/ |
+| Foundry Robotics | round amount |  | $19M | its seed funding in total (https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/) |
+| Foundry Robotics | lead investors | Red Glass Ventures | not disclosed | Remix Reality lists Red Glass Ventures among its seed investors with Khosla Ventures, Hanabi Capital and Zero Shot Fund; no fetched source names a lead |
+| Mytra | description | Builds warehouse robots that move goods across a modular 3D storage system without requiring facility rebuilds. | Builds software-defined warehouse automation: a pallet-size robot that moves goods through a matrix of three-dimensional storage cells. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Mytra | HQ city |  | Brisbane | Brisbane, California (https://mytra.ai/news/mytra-raises-120m-series-c) |
+| Mytra | total raised |  | $200M | its company page; its releases give $78 million through the Series B and the $120 million Series C (https://mytra.ai/company/) |
+| Mytra | deployments |  | Customers include a Fortune 100 food company and a Fortune 500 industrial-supply distributor (January 2026) | stated by https://mytra.ai/news/mytra-raises-120m-series-c |
+| Mytra | deployments |  | Albertsons Companies, among the grocers and retailers it serves | stated by https://mytra.ai/news/mytra-announces-expansion-and-new-headquarters-with-brisbane-california-campus |
+| Formic | HQ city |  | Chicago | stated by https://formic.co/about |
+| Formic | founded |  | 2020 | stated by https://formic.co/about |
+| Formic | round type | Series A | Series A extension | it builds on the January 2022 round; together they make a $52 million Series A (https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/) |
+| Formic | round amount | $26.5M | $27.4M | stated by https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/ |
+| Formic | round date | 2022-01-18 | 2024-06-25 | stated by https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/ |
+| Formic | deployments | Manufacturing deployments | not disclosed | no fetched source names a customer, site or fleet size; its site names sectors only |
+| Formic | lead investors | Lux Capital | Blackhorn Ventures | stated by https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/ |
+| Astribot | description | Cable-driven AI robotics company building humanoid robots. | Builds cable-driven humanoid robots, the Astribot S1 and T1, which run its own Lumo AI foundation model. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Astribot | HQ city | Munich | Shenzhen | no fetched source puts it in Munich (https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/) |
+| Astribot | HQ country | DE | CN | stated by https://www.astribot.com |
+| Astribot | founded |  | 2022 | stated by https://www.astribot.com |
+| Astribot | round amount | $138M | not disclosed | Pandaily gives no amount for the Series B; "over 1 billion RMB" is a floor for three rounds together |
+| Astribot | round valuation | $1.38B | not disclosed | "past the 10 billion RMB (≈$1.4 billion) mark" is a floor |
+| Astribot | aka |  | 星尘智能 | its Chinese name, on its own site (https://www.astribot.com) |
+| Astribot | deployments |  | Deliveries in the thousands by the end of 2025 | stated by https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/ |
+| Booster Robotics | description | Builds humanoid robots for commercial deployment. | Builds humanoid robots, the K1 and T2 among them, for developers, schools, research labs and robot-soccer teams; teams using its robots won RoboCup humanoid titles in 2025 and 2026. | rewritten to what its sources state; each clause quoted from 3 sources in the ledger |
+| Booster Robotics | round type | Series A+ | not disclosed | no fetched page names the type of its April 2026 round; "Series A+" was the name of an earlier round |
+| Booster Robotics | round amount | $14M | not disclosed | "nearly $150 million" is a bound, not an amount; the caveat carries it |
+| Booster Robotics | round date | 2026-01-12 | 2026-04-17 | the date of its news post "Booster Robotics Raises Nearly $150M" (https://www.booster.tech/news?target=en) |
+| Booster Robotics | deployments |  | More than 700 humanoid robots delivered to more than 200 customers, over half of them outside China (November 2025) | stated by https://www.booster.tech/about-us?target=en |
+| Booster Robotics | lead investors | IDG Capital | Beijing High-Tech Industries Investment Fund | stated by https://www.booster.tech/about-us?target=en |
+| Booster Robotics | lead investors |  | Jingguosheng Fund | stated by https://www.booster.tech/about-us?target=en |
+| Booster Robotics | lead investors |  | Huakong Fund | stated by https://www.booster.tech/about-us?target=en |
+| Leju Robotics | description | Builds humanoid and educational robots for commercial and research applications. | Builds humanoid robots, from the small AELOS and ROBAN models to the full-size KUAVO, as well as robots for education; it was spun out of the Harbin Institute of Technology in 2016. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Leju Robotics | round type | Pre-IPO | not disclosed | The Robot Report says only that it raised funding "toward an IPO"; no fetched page names the round |
+| Leju Robotics | round date | 2025-10-22 | not disclosed | The Robot Report of 25 October 2025 says it raised the money "this week"; no fetched page states the day |
+| Leju Robotics | aka |  | Leju (Shenzhen) Robotics Co., Ltd. | its company name, in its own site's footer (https://www.lejurobot.com) |
+| SwitchBot | description | Builds smart home robots and devices for home automation. | Makes the SwitchBot line of home-automation gadgets, such as curtain openers and door locks, and has added AI home robots, among them a wheeled humanoid for household tasks. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| SwitchBot | aka | OneRobotics (Shenzhen) Co. | OneRobotics (Shenzhen) Co., Ltd. | the full name of the company behind the SwitchBot brand (https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html) |
+| Hanson Robotics | description | Builds expressive humanoid robots like Sophia for research, entertainment, and human-robot interaction studies. | Builds expressive humanoid robots for research, demonstrations and public engagement with AI; its best-known robot is Sophia. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Hanson Robotics | founded | 2003 | 2007 | it moved to Hong Kong Science Park in 2013; its own site: "Pioneering Human-Robot Interaction Since 2007"; no fetched source gives 2003 (https://en.wikipedia.org/wiki/Hanson_Robotics) |
+| Hanson Robotics | deployments | Sophia robot demonstrations | not disclosed | Sophia's demonstrations are appearances of its own robot, not a customer deployment |
+| PaXini | round type | Series B | Strategic | its latest round; the March 2026 Series B came before it (https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/) |
+| PaXini | round amount | $148M | not disclosed | RMB1 billion, with no dollar figure or exchange rate in the source; the caveat carries it |
+| PaXini | round date | 2026-03-09 | 2026-08-03 | stated by https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ |
+| PaXini | round valuation | $1.4B | not disclosed | no fetched source gives a valuation for the August round; the March figure, "above 10 billion yuan", is a floor with no dollar figure |
+| PaXini | aka |  | PaXini Tech | stated by https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/ |
+| PaXini | aka |  | 帕西尼感知科技 | its Chinese name (https://equalocean.com/news/2026030921782-pacini-completes-rmb-1-billion-series-b-financing) |
+| PaXini | deployments | Nearly 1 million tactile-sensing chips shipped in the year to Aug 2026; BYD strategic investment (Apr 2025) | Nearly 1 million tactile-sensing chips shipped in the year to August 2026 | BYD's 2025 investment is an investment, not a deployment (https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/) |
+| PaXini | deployments |  | Tora-One humanoid deployed at Geely's Qiantang plant on wiring-harness assembly (2026) | stated by https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/ |
+| PaXini | lead investors | Whampoa Capital | BOC International Investment | stated by https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ |
+| PaXini | lead investors | Caitai Capital | Kunpeng Fund | stated by https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ |
+| PaXini | lead investors | Xin'an Capital | Hexin Fangce | stated by https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ |
+| Miso Robotics | description | Builds autonomous robotic kitchen assistants like Flippy for fast-food and commercial kitchen automation. | Makes Flippy, an AI-powered robotic arm that cooks fried food in fast-food kitchens, and Zippy, a restaurant operations dashboard built from Zignyl, which it bought in 2026. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Miso Robotics | HQ city | Atlanta | Los Angeles | no fetched source puts it in Atlanta (https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl) |
+| Miso Robotics | deployments | Fast-food brand partnerships | Flippy working in seven US states after about a dozen installations in a year (February 2026) | "fast-food brand partnerships" named none (https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl) |
+| Miso Robotics | deployments | Acquired restaurant-operations app Zignyl (2026-02-26, per Fortune) | removed | buying Zignyl is an acquisition, not a deployment, and Restaurant Business, not Fortune, reported it |
+| Starship Technologies | description | Builds autonomous sidewalk delivery robots for food and package delivery. | Builds and runs sidewalk robots for last-mile delivery of food and groceries; Skype co-founders Ahti Heinla and Janus Friis founded it in Tallinn in 2014. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Starship Technologies | HQ city | London | San Francisco | its first headquarters, in London, moved to San Francisco in 2018 (Wikipedia) (https://en.wikipedia.org/wiki/Starship_Technologies) |
+| Starship Technologies | HQ country | UK | US | stated by https://en.wikipedia.org/wiki/Starship_Technologies |
+| Starship Technologies | round type |  | Series C | stated by https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Starship Technologies | round amount |  | $50M | stated by https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Starship Technologies | round date |  | 2025-10-15 | stated by https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Starship Technologies | deployments | Food and package delivery across multiple cities | More than 2,700 robots at more than 270 locations in seven countries, with over 9 million deliveries (October 2025) | stated by https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Starship Technologies | deployments |  | Delivery partnerships with Grubhub in the US and with Bolt, Wolt and Foodora in Europe | stated by https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Starship Technologies | lead investors |  | Plural | stated by https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Coco | description | Builds autonomous delivery robots for last-mile food and goods delivery. | Runs a fleet of sidewalk delivery robots that drive themselves under remote human supervision, carrying orders for platforms such as Uber and DoorDash. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Coco | HQ city | Los Angeles | Santa Monica | stated by https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/ |
+| Coco | round type | Series B | Strategic | no fetched source calls it a Series B (https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/) |
+| Coco | round date | 2025-06-11 | not disclosed | The Robot Report of 13 June 2025 says it raised the money "this week"; no fetched page states the day |
+| Coco | deployments | Food delivery in multiple US cities | More than 500,000 deliveries in Los Angeles, Chicago, Miami and Helsinki (June 2025) | stated by https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/ |
+| Coco | deployments |  | Its robots take DoorDash orders in Los Angeles and Chicago (2025) | stated by https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/ |
+| Knightscope | description | Builds autonomous security robots for patrolling and monitoring public and private spaces. | Builds autonomous security robots, such as the K5, and runs them with software and human agents to patrol sites such as retail lots, hospital campuses and casinos. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Knightscope | deployments | Security patrolling at malls, hospitals, corporate campuses | Deployed in 42 U.S. states | stated by https://www.knightscope.com/ |
+| Knightscope | deployments |  | Sites include retail lots, hospital campuses, residential communities, casinos and utility sites | stated by https://www.knightscope.com/ |
+| Knightscope | deployments |  | Clients have included Microsoft, Uber, Juniper Networks, the Sacramento Kings, LaGuardia Airport and NBC Universal (as of 2017) | stated by https://en.wikipedia.org/wiki/Knightscope |
 
 ## /credits marks as their registered images (2026-10-19, market-data-1019c)
 

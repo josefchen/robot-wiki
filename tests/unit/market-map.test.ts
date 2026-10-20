@@ -57,7 +57,10 @@ describe('filterCompanies', () => {
 
   it('filters country=US to US-headquartered companies only (VAL-MKT-005)', () => {
     const rows = filterCompanies(COMPANIES, filters({ country: 'US' }));
-    expect(rows).toHaveLength(63);
+    // 63 -> 64 on 2026-10-20: the field audit moved Starship Technologies'
+    // headquarters from London to San Francisco (Wikipedia and its Business
+    // Wire release).
+    expect(rows).toHaveLength(64);
     expect(rows.every((row) => row.hq.country === 'US')).toBe(true);
   });
 
@@ -384,7 +387,17 @@ describe('timelineEvents', () => {
     // 75 -> 76 the same day: the field audit gave XELA Robotics Plug and
     // Play's strategic investment, announced on 29 April 2026 (XELA's
     // release); the amount was not disclosed.
+    // 76 -> 77 the same day: the field audit moved Formic's latest round
+    // from its January 2022 Series A to the $27.4 million extension of
+    // 25 June 2024 (The Robot Report), which falls in the window.
+    // 77 -> 76 the same day: the field audit cut the round dates of Leju
+    // Robotics and Coco Robotics (The Robot Report says only that each raised
+    // "this week") and gave Starship Technologies its $50 million Series C of
+    // 15 October 2025 (its Business Wire release).
     expect(events).toHaveLength(76);
+    expect(events.some((event) => event.companyId === 'leju-robotics')).toBe(false);
+    expect(events.some((event) => event.companyId === 'coco-robotics')).toBe(false);
+    expect(events.find((event) => event.companyId === 'starship-technologies')?.date).toBe('2025-10-15');
     expect(events.some((event) => event.companyId === 'physical-intelligence')).toBe(false);
     expect(events.find((event) => event.companyId === 'symbotic')?.date).toBe('2025-12-04');
     expect(events.find((event) => event.companyId === 'locus-robotics')?.date).toBe('2026-09-01');

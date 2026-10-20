@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d8236a579f75ecb71278784d65c63a7014a0c867662fc491f582ba41fa39a888",
+  "fingerprint": "53dbd53974214a0f085b7af0625a68fc60e7ee6c6b0a0a416a6fbdb410278056",
   "desktopViewport": "1440x900",
   "mobileViewport": "375x812",
   "states": [
@@ -740,8 +740,8 @@
           "dataset": false
         },
         "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
-        "selectedColourRgb": "rgb(105, 104, 99)",
-        "selectedRuleRgb": "rgba(28, 28, 26, 0.03)",
+        "selectedColourRgb": "rgb(94, 93, 89)",
+        "selectedRuleRgb": "rgba(28, 28, 26, 0.176)",
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [

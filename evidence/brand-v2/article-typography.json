@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "826991e8e8d6cc55626102e1715c64c9397029a96ad67962e820da8bdf662bb4",
+  "fingerprint": "a39d1b3bb344d3041dcad65b12e9cdbecaf20b385c7aa9e21a1b90fc827e2a83",
   "viewports": [
     "375x812",
     "1440x900"
@@ -39510,7 +39510,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2777,
+      "visibleTextLength": 2770,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40097,23 +40097,7 @@
         },
         {
           "tag": "button",
-          "text": "$138M",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
           "text": "Booster Robotics",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$14M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40322,14 +40306,6 @@
         {
           "tag": "button",
           "text": "PaXini",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$148M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40913,6 +40889,14 @@
         },
         {
           "tag": "button",
+          "text": "$19M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Gecko Robotics",
           "familyHead": "geist",
           "sizePx": 13,
@@ -41130,6 +41114,14 @@
         {
           "tag": "button",
           "text": "Starship Technologies",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$50M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -95630,7 +95622,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2777,
+      "visibleTextLength": 2770,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96217,23 +96209,7 @@
         },
         {
           "tag": "button",
-          "text": "$138M",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
           "text": "Booster Robotics",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$14M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96442,14 +96418,6 @@
         {
           "tag": "button",
           "text": "PaXini",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$148M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -97033,6 +97001,14 @@
         },
         {
           "tag": "button",
+          "text": "$19M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Gecko Robotics",
           "familyHead": "geist",
           "sizePx": 13,
@@ -97250,6 +97226,14 @@
         {
           "tag": "button",
           "text": "Starship Technologies",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$50M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

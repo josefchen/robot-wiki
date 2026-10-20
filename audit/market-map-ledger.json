@@ -15717,6 +15717,2797 @@
           "passage": "Founded in 2018 in Tokyo as a spin-out from Waseda University , our team combines 70+ years of research experience in robotics and tactile sensing."
         }
       ]
+    },
+    {
+      "id": "openai-robotics",
+      "name": "OpenAI (Robotics)",
+      "confidence": "medium",
+      "confidenceBasis": "Wired on its robotics hiring, with Wikipedia for OpenAI's identity facts.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "San Francisco",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/OpenAI",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:08:23.674Z"
+          },
+          "passage": "Headquarters 1455 and 1515 Third Street , San Francisco , California, U.S. [ 2 ]"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/OpenAI",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:08:23.674Z"
+          },
+          "passage": "Headquarters 1455 and 1515 Third Street , San Francisco , California, U.S. [ 2 ]"
+        },
+        {
+          "field": "founded",
+          "value": 2015,
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/OpenAI",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:08:23.674Z"
+          },
+          "passage": "Founded December 8, 2015 (10 years ago) ( 2015-12-08 ) [ 1 ]"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/OpenAI",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:08:23.674Z"
+          },
+          "passage": "Type Private"
+        },
+        {
+          "field": "website",
+          "value": "https://openai.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://openai.com",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:43:33.799Z"
+          },
+          "passage": "[title] OpenAI | Research & Deployment"
+        },
+        {
+          "field": "description",
+          "value": "Shut its first robotics effort in 2021 and is building a new robotics team: it has hired researchers who work on AI for humanoid and other robots, and its job listings seek teleoperation, simulation and robot-hardware skills.",
+          "verdict": "corrected",
+          "was": "Re-entered robotics field with hiring push across hardware, simulation, data, and ML roles to develop robots for physical tasks.",
+          "source": {
+            "url": "https://www.wired.com/story/openai-ramps-up-robotics-work-in-race-toward-agi/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:17.580Z"
+          },
+          "passage": "OpenAI did notable robotics research in its early years, including developing an algorithm capable of solving a Rubik's cube using a humanlike hand in 2019. The company shuttered its robotics effort in 2021, however, to focus on algorithms including the large language models that have driven recent breakthroughs such as ChatGPT.…"
+        },
+        {
+          "field": "description",
+          "value": "Shut its first robotics effort in 2021 and is building a new robotics team: it has hired researchers who work on AI for humanoid and other robots, and its job listings seek teleoperation, simulation and robot-hardware skills.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.wired.com/story/openai-ramps-up-robotics-work-in-race-toward-agi/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:17.580Z"
+          },
+          "passage": "[ld:articleBody] The company has recently recruited a number of researchers with expertise in developing AI algorithms for controlling humanoid and other types of robots. Job listings show that the company is putting together a team capable of creating systems that can be trained through teleoperation and simulation."
+        },
+        {
+          "field": "description",
+          "value": "Shut its first robotics effort in 2021 and is building a new robotics team: it has hired researchers who work on AI for humanoid and other robots, and its job listings seek teleoperation, simulation and robot-hardware skills.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.wired.com/story/openai-ramps-up-robotics-work-in-race-toward-agi/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:17.580Z"
+          },
+          "passage": "…However, OpenAI has recently posted a number of revealing job listings related to robotics research on its site. One opening requires expertise in teleoperation and simulation.…"
+        },
+        {
+          "field": "description",
+          "value": "Shut its first robotics effort in 2021 and is building a new robotics team: it has hired researchers who work on AI for humanoid and other robots, and its job listings seek teleoperation, simulation and robot-hardware skills.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.wired.com/story/openai-ramps-up-robotics-work-in-race-toward-agi/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:17.580Z"
+          },
+          "passage": "…However, another job posted in the past few weeks called for a mechanical engineer with expertise in prototyping and building robot systems with sensors for touch and motion.…"
+        }
+      ]
+    },
+    {
+      "id": "meta-robotics",
+      "name": "Meta (Robotics)",
+      "confidence": "medium",
+      "confidenceBasis": "TechCrunch on the acquisition, quoting Meta, with Wikipedia for Meta's identity facts.",
+      "confidenceWas": "high",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Menlo Park",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Meta_Platforms",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:09:56.820Z"
+          },
+          "passage": "Headquarters in Menlo Park, California"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Meta_Platforms",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:09:56.820Z"
+          },
+          "passage": "Headquarters in Menlo Park, California"
+        },
+        {
+          "field": "founded",
+          "value": 2004,
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Meta_Platforms",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:09:56.820Z"
+          },
+          "passage": "The company was established in 2004 as TheFacebook, Inc. , [ 10 ] and was renamed Facebook, Inc. in 2005. [ 11 ] In 2021, it rebranded as Meta Platforms, Inc. to reflect a strategic shift toward developing the metaverse —an interconnected digital ecosystem spanning virtual and augmented reality technologies. [ 12 ] [ 13 ] [ 14 ] [ 15 ]"
+        },
+        {
+          "field": "status",
+          "value": "public",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Meta_Platforms",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:09:56.820Z"
+          },
+          "passage": "Nasdaq : META (Class A)"
+        },
+        {
+          "field": "website",
+          "value": "https://www.meta.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.meta.com",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:43:48.859Z"
+          },
+          "passage": "[title] Meta: Shop AI Glasses, Meta Glasses & Quest Headsets (en-GB)"
+        },
+        {
+          "field": "round.type",
+          "value": "Acquisition",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said."
+        },
+        {
+          "field": "round.date",
+          "value": "2026-05-01",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "3:13 PM PDT · May 1, 2026",
+          "note": "the article's date; it reports the deal as done"
+        },
+        {
+          "field": "aka",
+          "value": "Meta Platforms",
+          "verdict": "corrected",
+          "was": "Meta Superintelligence Labs",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Meta_Platforms",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:09:56.820Z"
+          },
+          "passage": "The company was established in 2004 as TheFacebook, Inc. , [ 10 ] and was renamed Facebook, Inc. in 2005. [ 11 ] In 2021, it rebranded as Meta Platforms, Inc. to reflect a strategic shift toward developing the metaverse —an interconnected digital ecosystem spanning virtual and augmented reality technologies. [ 12 ] [ 13 ] [ 14 ] [ 15 ]",
+          "note": "its registered name; Meta Superintelligence Labs is a division of Meta, not another name for it"
+        },
+        {
+          "field": "aka",
+          "value": "Facebook",
+          "verdict": "added",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Meta_Platforms",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:09:56.820Z"
+          },
+          "passage": "The company was established in 2004 as TheFacebook, Inc. , [ 10 ] and was renamed Facebook, Inc. in 2005. [ 11 ] In 2021, it rebranded as Meta Platforms, Inc. to reflect a strategic shift toward developing the metaverse —an interconnected digital ecosystem spanning virtual and augmented reality technologies. [ 12 ] [ 13 ] [ 14 ] [ 15 ]",
+          "note": "its name from 2005 until 2021"
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "Acquired Assured Robot Intelligence (May 2026)",
+          "note": "an acquisition, not a deployment; the round and the description carry it"
+        },
+        {
+          "field": "description",
+          "value": "Bought the humanoid-robot AI startup Assured Robot Intelligence in May 2026 to build up its AI models for robots; ARI's team joined Meta's Superintelligence Labs.",
+          "verdict": "corrected",
+          "was": "Entered humanoid robotics by acquiring Assured Robot Intelligence, folding team into Superintelligence Labs to build foundational physical AI models.",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "[meta:og:description] Meta bought humanoid startup Assured Robot Intelligence to beef up its AI models for robots, the company said."
+        },
+        {
+          "field": "description",
+          "value": "Bought the humanoid-robot AI startup Assured Robot Intelligence in May 2026 to build up its AI models for robots; ARI's team joined Meta's Superintelligence Labs.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "ARI’s team, including its co-founders, will join Meta’s AI unit, the Superintelligence Labs research division. ARI had raised an undisclosed seed round from AI seed firm AIX Ventures."
+        }
+      ]
+    },
+    {
+      "id": "assured-robot-intelligence",
+      "name": "Assured Robot Intelligence",
+      "confidence": "medium",
+      "confidenceBasis": "TechCrunch and SiliconANGLE on the acquisition, its work and its location; its own site was a single page with no detail.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "San Diego",
+          "verdict": "verified",
+          "source": {
+            "url": "https://siliconangle.com/2026/05/01/meta-acquires-robot-software-startup-assured-robot-intelligence/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:12.295Z"
+          },
+          "passage": "Assured Robot Intelligence’s single-page website doesn’t provide information about its AI software. The San Diego-based company was founded by prominent AI researchers Lerrel Pinto and Xiaolong Wang.…"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://siliconangle.com/2026/05/01/meta-acquires-robot-software-startup-assured-robot-intelligence/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:12.295Z"
+          },
+          "passage": "Assured Robot Intelligence’s single-page website doesn’t provide information about its AI software. The San Diego-based company was founded by prominent AI researchers Lerrel Pinto and Xiaolong Wang.…",
+          "note": "San Diego, California"
+        },
+        {
+          "field": "status",
+          "value": "acquired",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said."
+        },
+        {
+          "field": "round.type",
+          "value": "Acquisition",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said."
+        },
+        {
+          "field": "round.date",
+          "value": "2026-05-01",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "3:13 PM PDT · May 1, 2026",
+          "note": "the article's date; it reports the deal as done"
+        },
+        {
+          "field": "aka",
+          "value": "ARI",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Meta",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said.",
+          "note": "the buyer"
+        },
+        {
+          "field": "description",
+          "value": "Built foundation models for humanoid robots to do physical labor such as household chores; Meta bought it in May 2026 and its team joined Meta's Superintelligence Labs.",
+          "verdict": "corrected",
+          "was": "Built AI models for robots to address critical challenges in high-value labor markets; acquired by Meta for Superintelligence Labs.",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "The startup was building foundation models for humanoid robots to perform all types of physical labor such as household chores.…"
+        },
+        {
+          "field": "description",
+          "value": "Built foundation models for humanoid robots to do physical labor such as household chores; Meta bought it in May 2026 and its team joined Meta's Superintelligence Labs.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "Meta has acquired humanoid robotics startup Assured Robot Intelligence (ARI) for an undisclosed sum, the social media giant said."
+        },
+        {
+          "field": "description",
+          "value": "Built foundation models for humanoid robots to do physical labor such as household chores; Meta bought it in May 2026 and its team joined Meta's Superintelligence Labs.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/01/meta-buys-robotics-startup-to-bolster-its-humanoid-ai-ambitions/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.354Z"
+          },
+          "passage": "ARI’s team, including its co-founders, will join Meta’s AI unit, the Superintelligence Labs research division. ARI had raised an undisclosed seed round from AI seed firm AIX Ventures."
+        }
+      ]
+    },
+    {
+      "id": "saronic",
+      "name": "Saronic",
+      "confidence": "high",
+      "confidenceBasis": "The company's own Series D release and site, GovConWire on the round and its Austin headquarters, and its investor Opulentia's portfolio page for its founding.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Austin",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.govconwire.com/articles/saronic-1-75b-series-d-maritime-autonomy",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:43:39.351Z"
+          },
+          "passage": "Saronic said it has expanded its operations with a Louisiana shipyard acquisition and a $300 million facility expansion, as well as growth in its Austin headquarters and new locations in San Diego, Washington, D.C., Australia and the U.K. Its workforce has grown to more than 1,300 employees."
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "founded",
+          "value": 2022,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.opulentia.vc/portfolio/saronic/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:13.385Z"
+          },
+          "passage": "Saronic Technologies is an Austin, Texas-based defense tech company founded in 2022 that builds autonomous surface vessels (ASVs) for the U.S.…",
+          "note": "its investor Opulentia's portfolio page"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "website",
+          "value": "https://www.saronic.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.saronic.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.853Z"
+          },
+          "passage": "[title] Home | Saronic Technologies"
+        },
+        {
+          "field": "round.type",
+          "value": "Series D",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 1750000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "round.date",
+          "value": "2026-03-31",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "round.valuationUsd",
+          "value": 9250000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "deployments",
+          "value": "U.S. Navy production contract for its vessels, worth $392 million (2025)",
+          "verdict": "corrected",
+          "was": "Maritime security",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "…The company raised a $600M Series C at a $4B valuation, generated significant growth with the US government including a $392M production contract with the US Navy, and unveiled its inaugural 180-ft autonomous ship, Marauder, with the first hull completed in less than six months, and less than eight months after acquiring the facility to build…",
+          "note": "\"maritime security\" is a use, not a deployment"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Kleiner Perkins",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "AUSTIN, Texas , March 31, 2026 /PRNewswire/ -- Saronic Technologies today announced it has closed $1.75 billion in Series D funding to advance its mission of ensuring maritime superiority for the U.S. and its allies by delivering autonomous platforms at scale across defense and commercial sectors. The round was led by Kleiner Perkins and values the company at $9.25 billion."
+        },
+        {
+          "field": "description",
+          "value": "Designs and builds autonomous surface vessels for defense and commercial use, from the 24-foot Corsair to the 180-foot Marauder, in its own shipyards.",
+          "verdict": "corrected",
+          "was": "Designs and manufactures autonomous unmanned surface vehicles (USVs) for maritime security and domain awareness.",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "…In response to growing demand from U.S. and allied customers for platforms with greater range, endurance, and payload capacity, Saronic will rapidly scale its family of vessels—from the 24-foot Corsair to the 180-foot Marauder and beyond."
+        },
+        {
+          "field": "description",
+          "value": "Designs and builds autonomous surface vessels for defense and commercial use, from the 24-foot Corsair to the 180-foot Marauder, in its own shipyards.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "This new capital will also support the continued advancement, expansion, and scaled production of Saronic's portfolio of autonomous surface vessels and AI-driven maritime capabilities.…"
+        },
+        {
+          "field": "description",
+          "value": "Designs and builds autonomous surface vessels for defense and commercial use, from the 24-foot Corsair to the 180-foot Marauder, in its own shipyards.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.govconwire.com/articles/saronic-1-75b-series-d-maritime-autonomy",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:43:39.351Z"
+          },
+          "passage": "Saronic Technologies develops autonomous maritime platforms and manufacturing infrastructure for defense and commercial applications."
+        },
+        {
+          "field": "description",
+          "value": "Designs and builds autonomous surface vessels for defense and commercial use, from the 24-foot Corsair to the 180-foot Marauder, in its own shipyards.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:11:42.016Z"
+          },
+          "passage": "Two Marauder hulls at Saronic's Franklin, Louisiana shipyard, where the company is scaling its MUSV fleet and expanding U.S. shipbuilding capacity at a pace not seen since World War II."
+        }
+      ]
+    },
+    {
+      "id": "eka-robotics",
+      "name": "Eka Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "Business Insider and WIRED on its founders, approach and location, with its own site.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Cambridge",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:15:04.253Z"
+          },
+          "passage": "I have come to visit Eka, a startup located in Kendall Square, Cambridge, Massachusetts, a short walk from MIT and a slightly longer bike ride from my home. The company’s office is a few floors above one of my favourite restaurants, called Shy Bird, a place I often come to work with my own pincers – typing out stories for WIRED ."
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:15:04.253Z"
+          },
+          "passage": "I have come to visit Eka, a startup located in Kendall Square, Cambridge, Massachusetts, a short walk from MIT and a slightly longer bike ride from my home. The company’s office is a few floors above one of my favourite restaurants, called Shy Bird, a place I often come to work with my own pincers – typing out stories for WIRED ."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:05.146Z"
+          },
+          "passage": "…The \"hands problem,\" as it is often called in robotics, remains one of the field's hardest bottlenecks. That led to her investment in Eka Robotics, cofounded by MIT professor Pulkit Agrawal and former Google DeepMind robotics researcher Tuomas Haarnoja.",
+          "note": "venture-backed: Obvious Ventures invested"
+        },
+        {
+          "field": "website",
+          "value": "https://www.ekarobotics.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.ekarobotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:18.988Z"
+          },
+          "passage": "[title] Eka Robotics"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": null,
+          "verdict": "cut",
+          "was": "Obvious Ventures",
+          "note": "Business Insider says Obvious Ventures' Kahini Shah invested in Eka; no fetched source says the firm led a round"
+        },
+        {
+          "field": "description",
+          "value": "Teaches robots dexterous manipulation by having them practise in simulation and carry the skill to real robots; co-founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja.",
+          "verdict": "corrected",
+          "was": "Builds robot foundation models for dexterous manipulation, co-founded by MIT professor Pulkit Agrawal and DeepMind researcher Tuomas Haarnoja.",
+          "source": {
+            "url": "https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:15:04.253Z"
+          },
+          "passage": "…Rather than having humans provide training data, the company wants robots to learn how to do things for themselves. They spend thousands of computer hours practising movements inside simulated worlds and inventing their own solutions.…"
+        },
+        {
+          "field": "description",
+          "value": "Teaches robots dexterous manipulation by having them practise in simulation and carry the skill to real robots; co-founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:15:04.253Z"
+          },
+          "passage": "Eka’s founders say their robots can transfer learning from a simulator to the real world more reliably than anyone else’s – though they won’t say exactly how. Agrawal seems optimistic that their approach could lead to greater and greater capabilities. “Some people want robots to be human-level,” Agrawal says. “For us the goal is superhuman.”"
+        },
+        {
+          "field": "description",
+          "value": "Teaches robots dexterous manipulation by having them practise in simulation and carry the skill to real robots; co-founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:15:04.253Z"
+          },
+          "passage": "…“A couple of years ago, we realised that dexterity can finally be cracked,” Agrawal says.…"
+        },
+        {
+          "field": "description",
+          "value": "Teaches robots dexterous manipulation by having them practise in simulation and carry the skill to real robots; co-founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:05.146Z"
+          },
+          "passage": "…The \"hands problem,\" as it is often called in robotics, remains one of the field's hardest bottlenecks. That led to her investment in Eka Robotics, cofounded by MIT professor Pulkit Agrawal and former Google DeepMind robotics researcher Tuomas Haarnoja."
+        }
+      ]
+    },
+    {
+      "id": "foundry-robotics",
+      "name": "Foundry Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "Remix Reality on its seed funding, from the company's own post; Business Insider and its investor Garuda Ventures on what it builds; and its own site.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://foundryrobotics.ai/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-20T07:10:28.117Z"
+          },
+          "passage": "EMERYVILLE, CA",
+          "note": "its careers listings place its engineering roles in Emeryville, California"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:13:56.027Z"
+          },
+          "passage": "Foundry Robotics has raised $19 million in total seed funding to expand its robotics-driven manufacturing platform."
+        },
+        {
+          "field": "website",
+          "value": "https://foundryrobotics.ai",
+          "verdict": "verified",
+          "source": {
+            "url": "https://foundryrobotics.ai",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-20T07:14:47.111Z"
+          },
+          "passage": "[title] Foundry Robotics"
+        },
+        {
+          "field": "round.type",
+          "value": "Seed",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:13:56.027Z"
+          },
+          "passage": "Foundry Robotics announced that it has secured $19 million in seed funding from investors including Khosla Ventures, Hanabi Capital, Red Glass Ventures, Zero Shot Fund, and other backers. The company said in a LinkedIn post that the financing will support its effort to rethink manufacturing through advanced robotics."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 19000000,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:13:56.027Z"
+          },
+          "passage": "Foundry Robotics has raised $19 million in total seed funding to expand its robotics-driven manufacturing platform.",
+          "note": "its seed funding in total"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": null,
+          "verdict": "cut",
+          "was": "Red Glass Ventures",
+          "note": "Remix Reality lists Red Glass Ventures among its seed investors with Khosla Ventures, Hanabi Capital and Zero Shot Fund; no fetched source names a lead"
+        },
+        {
+          "field": "description",
+          "value": "Develops robots to automate factory assembly tasks.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:05.146Z"
+          },
+          "passage": "Zuberi's robotics investments include a foundation model startup, a robotics data training startup, and Foundry Robotics, his only public robotics investment so far. Foundry is developing robots to automate factory assembly."
+        },
+        {
+          "field": "description",
+          "value": "Develops robots to automate factory assembly tasks.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://garuda.substack.com/p/foundry",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:13:36.313Z"
+          },
+          "passage": "Today we’re thrilled to announce our partnership with Adarsh Kulkarni and the Foundry Robotics team as they build the “Everything Factory”- an AI+robotics first, assembly-focused, dual-use contract manufacturer to power the next century of American manufacturing."
+        }
+      ]
+    },
+    {
+      "id": "mytra",
+      "name": "Mytra",
+      "confidence": "medium",
+      "confidenceBasis": "The company's own Series C release (also on PR Newswire), company page and headquarters release; no independent report was fetched.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Brisbane",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "BRISBANE, Calif., January 15, 2026 - Mytra, the company building the operating system for supply chains, today announced its closure of a $120M Series C round led by Avenir Growth.…",
+          "note": "Brisbane, California"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-announces-expansion-and-new-headquarters-with-brisbane-california-campus",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.940Z"
+          },
+          "passage": "Brisbane, CA June 26, 2025 - Mytra , the company supercharging industrial productivity with first-of-its-kind three-dimensional robotics, today announced its new headquarters in Brisbane, CA, with a 100,000 square-foot factory to support growing customer demands and the 100-person team. The space will serve as the company’s new headquarters and aid in new product development for its robots."
+        },
+        {
+          "field": "founded",
+          "value": 2022,
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "Founded in 2022, Mytra hit an inflection point in 2025: Signing contracts with some of the world’s largest organizations.…"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "BRISBANE, Calif., January 15, 2026 - Mytra, the company building the operating system for supply chains, today announced its closure of a $120M Series C round led by Avenir Growth.…"
+        },
+        {
+          "field": "website",
+          "value": "https://mytra.ai",
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.417Z"
+          },
+          "passage": "[title] Home - Mytra"
+        },
+        {
+          "field": "totalRaisedUsd",
+          "value": 200000000,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://mytra.ai/company/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:13.622Z"
+          },
+          "passage": "Funding ¶ $200M",
+          "note": "its company page; its releases give $78 million through the Series B and the $120 million Series C"
+        },
+        {
+          "field": "round.type",
+          "value": "Series C",
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "BRISBANE, Calif., January 15, 2026 - Mytra, the company building the operating system for supply chains, today announced its closure of a $120M Series C round led by Avenir Growth.…"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 120000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "BRISBANE, Calif., January 15, 2026 - Mytra, the company building the operating system for supply chains, today announced its closure of a $120M Series C round led by Avenir Growth.…"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-01-15",
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "BRISBANE, Calif., January 15, 2026 - Mytra, the company building the operating system for supply chains, today announced its closure of a $120M Series C round led by Avenir Growth.…"
+        },
+        {
+          "field": "deployments",
+          "value": "Customers include a Fortune 100 food company and a Fortune 500 industrial-supply distributor (January 2026)",
+          "verdict": "added",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "Founded in 2022, Mytra hit an inflection point in 2025: Signing contracts with some of the world’s largest organizations. Mytra now counts a Fortune 100 food company and a Fortune 500 industrial-supply distribution company as customers.…"
+        },
+        {
+          "field": "deployments",
+          "value": "Albertsons Companies, among the grocers and retailers it serves",
+          "verdict": "added",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-announces-expansion-and-new-headquarters-with-brisbane-california-campus",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.940Z"
+          },
+          "passage": "…Mytra solves critical bottlenecks for grocers, retailers, and other warehouse-dependent organizations, including Albertsons Cos., so they can increase supply chain resiliency and throughput and drive new innovations forward. Headquartered in Brisbane, CA, the company is backed by investors like Greenoaks and Eclipse."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Avenir Growth",
+          "verdict": "verified",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-raises-120m-series-c",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.277Z"
+          },
+          "passage": "BRISBANE, Calif., January 15, 2026 - Mytra, the company building the operating system for supply chains, today announced its closure of a $120M Series C round led by Avenir Growth.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds software-defined warehouse automation: a pallet-size robot that moves goods through a matrix of three-dimensional storage cells.",
+          "verdict": "corrected",
+          "was": "Builds warehouse robots that move goods across a modular 3D storage system without requiring facility rebuilds.",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-announces-expansion-and-new-headquarters-with-brisbane-california-campus",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.940Z"
+          },
+          "passage": "Mytra builds software-defined warehouse robotics solutions designed to automate the most common industrial task in logistics – moving and storing material.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds software-defined warehouse automation: a pallet-size robot that moves goods through a matrix of three-dimensional storage cells.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://mytra.ai/news/mytra-announces-expansion-and-new-headquarters-with-brisbane-california-campus",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.940Z"
+          },
+          "passage": "…The new warehouse space will allow for further build-outs, research and development of the company’s pallet-size robot and matrix of three-dimensional Storage Cells, while also operating as a showcase location of live demos for its enterprise customers."
+        }
+      ]
+    },
+    {
+      "id": "formic",
+      "name": "Formic",
+      "confidence": "medium",
+      "confidenceBasis": "The Robot Report on its June 2024 round, Business Insider on its model, and its own site and about page.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Chicago",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://formic.co/about",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:15.239Z"
+          },
+          "passage": "Founded 2020 in Chicago, IL."
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.478Z"
+          },
+          "passage": "The Chicago-based company offers its systems to U.S. manufacturers through a robots-as-a-service ( RaaS ) model, in which it delivers support for automation at an hourly rate. This support includes deploying the systems and providing continuous monitoring and maintenance throughout the engagement to ensure success."
+        },
+        {
+          "field": "founded",
+          "value": 2020,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://formic.co/about",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:15.239Z"
+          },
+          "passage": "Founded 2020 in Chicago, IL."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.478Z"
+          },
+          "passage": "Formic Technologies Inc. today announced that it raised another $27.4 million in Series A funding. This builds on the company&#8217;s January 2022 funding round , bringing the company&#8217;s total Series A funding to $52 million."
+        },
+        {
+          "field": "website",
+          "value": "https://formic.co",
+          "verdict": "verified",
+          "source": {
+            "url": "https://formic.co",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.543Z"
+          },
+          "passage": "[title] Formic | Full Service Automation for Manufacturers"
+        },
+        {
+          "field": "round.type",
+          "value": "Series A extension",
+          "verdict": "corrected",
+          "was": "Series A",
+          "source": {
+            "url": "https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.478Z"
+          },
+          "passage": "Formic Technologies Inc. today announced that it raised another $27.4 million in Series A funding. This builds on the company&#8217;s January 2022 funding round , bringing the company&#8217;s total Series A funding to $52 million.",
+          "note": "it builds on the January 2022 round; together they make a $52 million Series A"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 27400000,
+          "verdict": "corrected",
+          "was": 26500000,
+          "source": {
+            "url": "https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.478Z"
+          },
+          "passage": "Formic Technologies Inc. today announced that it raised another $27.4 million in Series A funding. This builds on the company&#8217;s January 2022 funding round , bringing the company&#8217;s total Series A funding to $52 million."
+        },
+        {
+          "field": "round.date",
+          "value": "2024-06-25",
+          "verdict": "corrected",
+          "was": "2022-01-18",
+          "source": {
+            "url": "https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.478Z"
+          },
+          "passage": "By Brianna Wessling | June 25, 2024"
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "Manufacturing deployments",
+          "note": "no fetched source names a customer, site or fleet size; its site names sectors only"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Blackhorn Ventures",
+          "verdict": "corrected",
+          "was": "Lux Capital",
+          "source": {
+            "url": "https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T07:12:24.478Z"
+          },
+          "passage": "Blackhorn Ventures led Formic&#8217;s funding round, which also included participation from Mitsubishi HC Capital America, NEC, Translink Capital, Alumni Ventures, FJ Labs, Lux Capital, Initialized Capital, and Lorimer Ventures."
+        },
+        {
+          "field": "description",
+          "value": "Provides robotics-as-a-service for manufacturers to deploy automation without upfront equipment costs.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:05.146Z"
+          },
+          "passage": "…Both were later acquired by Amazon, in 2020 and 2024, respectively. He also backed Formic, a robotics-as-a-service startup that helps manufacturers deploy automation without paying for the equipment upfront."
+        },
+        {
+          "field": "description",
+          "value": "Provides robotics-as-a-service for manufacturers to deploy automation without upfront equipment costs.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://formic.co",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.543Z"
+          },
+          "passage": "[ld:description] Full Service Automation for mid-market manufacturers — robotics deployed for one flat monthly rate, with no CapEx and everything included."
+        }
+      ]
+    },
+    {
+      "id": "astribot",
+      "name": "Astribot",
+      "confidence": "medium",
+      "confidenceBasis": "Pandaily on its Series B, founding and products, with its own site for its founding and Chinese name.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Shenzhen",
+          "verdict": "corrected",
+          "was": "Munich",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.725Z"
+          },
+          "passage": "[meta:description] Shenzhen-based embodied AI startup Astribot has become the latest Chinese robotics company to achieve unicorn status, closing a Series B financing round that pushes its valuation past the 10 billion RMB (≈$1.4 billion) mark. The company completed ...",
+          "note": "no fetched source puts it in Munich"
+        },
+        {
+          "field": "hq.country",
+          "value": "CN",
+          "verdict": "corrected",
+          "was": "DE",
+          "source": {
+            "url": "https://www.astribot.com",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:45:35.971Z"
+          },
+          "passage": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with AI robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots."
+        },
+        {
+          "field": "founded",
+          "value": 2022,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://www.astribot.com",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:45:35.971Z"
+          },
+          "passage": "Astribot was founded in Shenzhen in December 2022. As a leading AI robotics company, our vision is to empower billions of people with AI robotic partners, and our mission is to promote co-existence, co-creation and co-prosperity between humans and robots."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.725Z"
+          },
+          "passage": "[meta:description] Shenzhen-based embodied AI startup Astribot has become the latest Chinese robotics company to achieve unicorn status, closing a Series B financing round that pushes its valuation past the 10 billion RMB (≈$1.4 billion) mark. The company completed ..."
+        },
+        {
+          "field": "website",
+          "value": "https://www.astribot.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.astribot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.858Z"
+          },
+          "passage": "[title] 星尘智能"
+        },
+        {
+          "field": "round.type",
+          "value": "Series B",
+          "verdict": "verified",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.725Z"
+          },
+          "passage": "[meta:description] Shenzhen-based embodied AI startup Astribot has become the latest Chinese robotics company to achieve unicorn status, closing a Series B financing round that pushes its valuation past the 10 billion RMB (≈$1.4 billion) mark. The company completed ..."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": null,
+          "verdict": "cut",
+          "was": 138000000,
+          "note": "Pandaily gives no amount for the Series B; \"over 1 billion RMB\" is a floor for three rounds together"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-06-03",
+          "verdict": "verified",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:19.925Z"
+          },
+          "passage": "Published: ¶ June 3, 2026",
+          "note": "the article's date"
+        },
+        {
+          "field": "round.valuationUsd",
+          "value": null,
+          "verdict": "cut",
+          "was": 1380000000,
+          "note": "\"past the 10 billion RMB (≈$1.4 billion) mark\" is a floor"
+        },
+        {
+          "field": "aka",
+          "value": "星尘智能",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.astribot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.858Z"
+          },
+          "passage": "[meta:og:description] 星尘智能（Astribot）于2022年底在深圳成立，我们的愿景是让数十亿人拥有AI机器人助理，我们的使命是推动人机共存、共创、共赢。",
+          "note": "its Chinese name, on its own site"
+        },
+        {
+          "field": "deployments",
+          "value": "Deliveries in the thousands by the end of 2025",
+          "verdict": "added",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:19.925Z"
+          },
+          "passage": "By the end of 2025, Astribot had already begun thousand-level deliveries, signaling early manufacturing traction in a sector where many competitors remain in the prototype phase."
+        },
+        {
+          "field": "description",
+          "value": "Builds cable-driven humanoid robots, the Astribot S1 and T1, which run its own Lumo AI foundation model.",
+          "verdict": "corrected",
+          "was": "Cable-driven AI robotics company building humanoid robots.",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:19.925Z"
+          },
+          "passage": "Astribot's technical architecture rests on three pillars: a proprietary AI foundation model called Lumo, an embodied operating system, and a cable-driven mechanical body. The company claims to be the world's first and only mass producer of cable-driven AI robots, a design choice that enables precise, human-like motion with high safety margins."
+        },
+        {
+          "field": "description",
+          "value": "Builds cable-driven humanoid robots, the Astribot S1 and T1, which run its own Lumo AI foundation model.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:19.925Z"
+          },
+          "passage": "The company's product lineup now includes two humanoid robots.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds cable-driven humanoid robots, the Astribot S1 and T1, which run its own Lumo AI foundation model.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:19.925Z"
+          },
+          "passage": "The company's product lineup now includes two humanoid robots. The Astribot S1, an early-generation model, was followed by the new Astribot T1, unveiled on May 27.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds cable-driven humanoid robots, the Astribot S1 and T1, which run its own Lumo AI foundation model.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:19.925Z"
+          },
+          "passage": "Astribot's technical architecture rests on three pillars: a proprietary AI foundation model called Lumo, an embodied operating system, and a cable-driven mechanical body. The company claims to be the world's first and only mass producer of cable-driven AI robots, a design choice that enables precise, human-like motion with high safety margins."
+        }
+      ]
+    },
+    {
+      "id": "booster-robotics",
+      "name": "Booster Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "Its own about and news pages on its founding, latest round and deliveries, with TMTPost on its earlier round and RoboCup results.",
+      "rows": [
+        {
+          "field": "hq.country",
+          "value": "CN",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.sohu.com/a/975073436_116132",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.946Z"
+          },
+          "passage": "Booster Robotics, a Chinese developer of humanoid robots, has raised more than 100 million yuan ($14 million) in a new funding round as investors step up bets on the commercialization of embodied artificial intelligence, the company said."
+        },
+        {
+          "field": "founded",
+          "value": 2023,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster Robotics was founded in 2023. We hope to promote productivity change by creating humanoid robot products and uniting global developers. Our early strategy is oriented towards scientific research and education scenarios."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster Robotics completed a financing round of nearly $150 million, jointly led by the Beijing High-Tech Industries Investment Fund, Jingguosheng Fund, and Huakong Fund, with multiple existing investors increasing their commitments.…"
+        },
+        {
+          "field": "website",
+          "value": "https://www.booster.tech",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.booster.tech",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.100Z"
+          },
+          "passage": "[title] Booster Robotics | Humanoid Robots for Developers"
+        },
+        {
+          "field": "round.type",
+          "value": null,
+          "verdict": "cut",
+          "was": "Series A+",
+          "note": "no fetched page names the type of its April 2026 round; \"Series A+\" was the name of an earlier round"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": null,
+          "verdict": "cut",
+          "was": 14000000,
+          "note": "\"nearly $150 million\" is a bound, not an amount; the caveat carries it"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-04-17",
+          "verdict": "corrected",
+          "was": "2026-01-12",
+          "source": {
+            "url": "https://www.booster.tech/news?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:24.646Z"
+          },
+          "passage": "Booster Robotics Raises Nearly $150M, Leads Industry Growth ¶ ¶ Nearly $150M Round, Backed by Leading Funds, Accelerates Global Delivery ¶ ¶ Booster Robotics · 04/17/2026",
+          "note": "the date of its news post \"Booster Robotics Raises Nearly $150M\""
+        },
+        {
+          "field": "deployments",
+          "value": "More than 700 humanoid robots delivered to more than 200 customers, over half of them outside China (November 2025)",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster Robotics surpassed 700 humanoid robot deliveries worldwide, serving more than 200 customers. More than half of all units were delivered internationally, further validating the company's scaled production and global fulfillment capabilities and marking a new stage in its commercial growth."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Beijing High-Tech Industries Investment Fund",
+          "verdict": "corrected",
+          "was": "IDG Capital",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster Robotics completed a financing round of nearly $150 million, jointly led by the Beijing High-Tech Industries Investment Fund, Jingguosheng Fund, and Huakong Fund, with multiple existing investors increasing their commitments.…"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Jingguosheng Fund",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster Robotics completed a financing round of nearly $150 million, jointly led by the Beijing High-Tech Industries Investment Fund, Jingguosheng Fund, and Huakong Fund, with multiple existing investors increasing their commitments.…"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Huakong Fund",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster Robotics completed a financing round of nearly $150 million, jointly led by the Beijing High-Tech Industries Investment Fund, Jingguosheng Fund, and Huakong Fund, with multiple existing investors increasing their commitments.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds humanoid robots, the K1 and T2 among them, for developers, schools, research labs and robot-soccer teams; teams using its robots won RoboCup humanoid titles in 2025 and 2026.",
+          "verdict": "corrected",
+          "was": "Builds humanoid robots for commercial deployment.",
+          "source": {
+            "url": "https://www.booster.tech",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.100Z"
+          },
+          "passage": "[ld:description] Booster Robotics develops humanoid robots for developers, researchers, education, and competitions, including Booster T2 and K1."
+        },
+        {
+          "field": "description",
+          "value": "Builds humanoid robots, the K1 and T2 among them, for developers, schools, research labs and robot-soccer teams; teams using its robots won RoboCup humanoid titles in 2025 and 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.sohu.com/a/975073436_116132",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:19.946Z"
+          },
+          "passage": "At the 2025 RoboCup World Championship, a team from Tsinghua University using Booster’s robots won the adult humanoid division — the first Chinese team to win the category in the competition’s 28-year history."
+        },
+        {
+          "field": "description",
+          "value": "Builds humanoid robots, the K1 and T2 among them, for developers, schools, research labs and robot-soccer teams; teams using its robots won RoboCup humanoid titles in 2025 and 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.booster.tech/about-us?target=en",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:05:18.534Z"
+          },
+          "passage": "Booster-powered teams won three gold, two silver, and three bronze medals at RoboCup 2026, sweeping every bipedal humanoid division. Tsinghua Hephaestus, powered by Booster T1, successfully defended its Large division title, while teams using Booster K1 and Booster K1 Air won the Middle and Small divisions, respectively. A total of 38 teams competed using Booster robots."
+        }
+      ]
+    },
+    {
+      "id": "leju-robotics",
+      "name": "Leju Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "The Robot Report on its funding, founding and products, with its own site.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Shenzhen",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.605Z"
+          },
+          "passage": "The Shenzhen-based startup‘s product line includes the AELOS and ROBAN small and medium-size humanoid robots, as well as the KUAVO-MY and KUAVO 3.0 full-size humanoids. AELOS participated in the closing ceremonies at the 2018 Winter Olympic Games in South Korea."
+        },
+        {
+          "field": "hq.country",
+          "value": "CN",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.lejurobot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.082Z"
+          },
+          "passage": "Copyright@2016-2026 Leju（Shenzhen）Robotics Co.Ltd."
+        },
+        {
+          "field": "founded",
+          "value": 2016,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.605Z"
+          },
+          "passage": "Spun out of the Harbin Institute of Technology (HIT) in 2016, Leju has been developing robots for education, healthcare, heavy load transport, and elder care. It has established research and development centers around China and opened an innovation center in Shenzhen, China, with Huawei a year ago."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.605Z"
+          },
+          "passage": "[meta:og:description] Leju Robotics has raised funding toward an IPO, while fellow Chinese humanoid developer Unitree showed its latest model."
+        },
+        {
+          "field": "website",
+          "value": "https://www.lejurobot.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.lejurobot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.082Z"
+          },
+          "passage": "[title] Leju - Leader in the industrialization of humanoid robots"
+        },
+        {
+          "field": "round.type",
+          "value": null,
+          "verdict": "cut",
+          "was": "Pre-IPO",
+          "note": "The Robot Report says only that it raised funding \"toward an IPO\"; no fetched page names the round"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 200000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.605Z"
+          },
+          "passage": "The race for commercially viable humanoid robots continues, with Chinese companies making moves. Leju Robotics Technology Co. this week reportedly raised 1.5 billion yuan, or about $200 million U.S. Meanwhile, Unitree Robotics showed its agile H2 Destiny humanoid, which it claimed is designed for service use.",
+          "note": "a report; the source gives the dollar figure"
+        },
+        {
+          "field": "round.date",
+          "value": null,
+          "verdict": "cut",
+          "was": "2025-10-22",
+          "note": "The Robot Report of 25 October 2025 says it raised the money \"this week\"; no fetched page states the day"
+        },
+        {
+          "field": "aka",
+          "value": "Leju (Shenzhen) Robotics Co., Ltd.",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.lejurobot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.082Z"
+          },
+          "passage": "Copyright@2016-2026 Leju（Shenzhen）Robotics Co.Ltd.",
+          "note": "its company name, in its own site's footer"
+        },
+        {
+          "field": "description",
+          "value": "Builds humanoid robots, from the small AELOS and ROBAN models to the full-size KUAVO, as well as robots for education; it was spun out of the Harbin Institute of Technology in 2016.",
+          "verdict": "corrected",
+          "was": "Builds humanoid and educational robots for commercial and research applications.",
+          "source": {
+            "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.605Z"
+          },
+          "passage": "The Shenzhen-based startup‘s product line includes the AELOS and ROBAN small and medium-size humanoid robots, as well as the KUAVO-MY and KUAVO 3.0 full-size humanoids. AELOS participated in the closing ceremonies at the 2018 Winter Olympic Games in South Korea."
+        },
+        {
+          "field": "description",
+          "value": "Builds humanoid robots, from the small AELOS and ROBAN models to the full-size KUAVO, as well as robots for education; it was spun out of the Harbin Institute of Technology in 2016.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.lejurobot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.082Z"
+          },
+          "passage": "General-Purpose Humanoid RobotSmall/Medium Biped Humanoid RobotEducational Programming Robot Series"
+        },
+        {
+          "field": "description",
+          "value": "Builds humanoid robots, from the small AELOS and ROBAN models to the full-size KUAVO, as well as robots for education; it was spun out of the Harbin Institute of Technology in 2016.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:20.605Z"
+          },
+          "passage": "Spun out of the Harbin Institute of Technology (HIT) in 2016, Leju has been developing robots for education, healthcare, heavy load transport, and elder care. It has established research and development centers around China and opened an innovation center in Shenzhen, China, with Huawei a year ago."
+        }
+      ]
+    },
+    {
+      "id": "switchbot",
+      "name": "SwitchBot",
+      "confidence": "medium",
+      "confidenceBasis": "Caixin on its Hong Kong listing and its founding, with its own site.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Shenzhen",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering.",
+          "note": "its registered name; no fetched page gives a headquarters address"
+        },
+        {
+          "field": "hq.country",
+          "value": "CN",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering."
+        },
+        {
+          "field": "founded",
+          "value": 2015,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "Founded in 2015 by two graduates of the Harbin Institute of Technology, OneRobotics is best known for its SwitchBot line of home-automation gadgets, including smart curtain openers and door locks. More recently, it has expanded into AI-driven home assistants, unveiling a plush robotic companion, a wheeled humanoid robot for household tasks, and a robot capable of playing tennis."
+        },
+        {
+          "field": "status",
+          "value": "public",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering."
+        },
+        {
+          "field": "website",
+          "value": "https://www.switch-bot.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.switch-bot.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.517Z"
+          },
+          "passage": "[title] SwitchBot Official Website - Your Simple Switch to a Smart Home"
+        },
+        {
+          "field": "round.type",
+          "value": "IPO",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 206000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering."
+        },
+        {
+          "field": "round.date",
+          "value": "2025-12-30",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering.",
+          "note": "Tuesday 30 December 2025; the article is dated 31 December 2025, 1:26 a.m. GMT+8"
+        },
+        {
+          "field": "aka",
+          "value": "OneRobotics (Shenzhen) Co., Ltd.",
+          "verdict": "corrected",
+          "was": "OneRobotics (Shenzhen) Co.",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "OneRobotics (Shenzhen) Co., Ltd., a smart-home device maker, debuted flat in Hong Kong trading on Tuesday after raising HK$1.64 billion ($206 million) in its initial public offering.",
+          "note": "the full name of the company behind the SwitchBot brand"
+        },
+        {
+          "field": "description",
+          "value": "Makes the SwitchBot line of home-automation gadgets, such as curtain openers and door locks, and has added AI home robots, among them a wheeled humanoid for household tasks.",
+          "verdict": "corrected",
+          "was": "Builds smart home robots and devices for home automation.",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "Founded in 2015 by two graduates of the Harbin Institute of Technology, OneRobotics is best known for its SwitchBot line of home-automation gadgets, including smart curtain openers and door locks. More recently, it has expanded into AI-driven home assistants, unveiling a plush robotic companion, a wheeled humanoid robot for household tasks, and a robot capable of playing tennis."
+        },
+        {
+          "field": "description",
+          "value": "Makes the SwitchBot line of home-automation gadgets, such as curtain openers and door locks, and has added AI home robots, among them a wheeled humanoid for household tasks.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:21.108Z"
+          },
+          "passage": "Founded in 2015 by two graduates of the Harbin Institute of Technology, OneRobotics is best known for its SwitchBot line of home-automation gadgets, including smart curtain openers and door locks. More recently, it has expanded into AI-driven home assistants, unveiling a plush robotic companion, a wheeled humanoid robot for household tasks, and a robot capable of playing tennis."
+        }
+      ]
+    },
+    {
+      "id": "hanson-robotics",
+      "name": "Hanson Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "Wikipedia and its own site agree on its founding, base and robots.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Hong Kong",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.hansonrobotics.com",
+            "route": "rendered",
+            "status": 200,
+            "retrieved": "2026-10-19T11:44:51.652Z"
+          },
+          "passage": "Founded by David Hanson, Ph.D., we are a Hong Kong-based AI and robotics company dedicated to creating socially intelligent machines. Our robots combine artistry, science, and engineering to forge genuine human connections."
+        },
+        {
+          "field": "hq.country",
+          "value": "HK",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hanson_Robotics",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:06:51.783Z"
+          },
+          "passage": "Hanson Robotics Limited is a Hong Kong –based engineering and robotics company founded in 2007 by robotics designer David Hanson . The company develops humanoid robots designed for research, demonstrations, and public engagement with artificial intelligence (AI), human–robot interaction, and expressive robotics. Its best-known robots include Sophia , BINA48 , and Albert HUBO . [ 3 ]"
+        },
+        {
+          "field": "founded",
+          "value": 2007,
+          "verdict": "corrected",
+          "was": 2003,
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hanson_Robotics",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:06:51.783Z"
+          },
+          "passage": "Hanson Robotics was founded in 2007 in Dallas, Texas. In 2013, the company relocated to Hong Kong Science Park . [ 6 ] Media reports at the time described plans to expand robotics research and development in Hong Kong. [ 7 ] [ 8 ]",
+          "note": "it moved to Hong Kong Science Park in 2013; its own site: \"Pioneering Human-Robot Interaction Since 2007\"; no fetched source gives 2003"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hanson_Robotics",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:06:51.783Z"
+          },
+          "passage": "Type Private"
+        },
+        {
+          "field": "website",
+          "value": "https://www.hansonrobotics.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.hansonrobotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:22.714Z"
+          },
+          "passage": "[title] Hanson Robotics — Relatable Robots"
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "Sophia robot demonstrations",
+          "note": "Sophia's demonstrations are appearances of its own robot, not a customer deployment"
+        },
+        {
+          "field": "description",
+          "value": "Builds expressive humanoid robots for research, demonstrations and public engagement with AI; its best-known robot is Sophia.",
+          "verdict": "corrected",
+          "was": "Builds expressive humanoid robots like Sophia for research, entertainment, and human-robot interaction studies.",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hanson_Robotics",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:06:51.783Z"
+          },
+          "passage": "Hanson Robotics Limited is a Hong Kong –based engineering and robotics company founded in 2007 by robotics designer David Hanson . The company develops humanoid robots designed for research, demonstrations, and public engagement with artificial intelligence (AI), human–robot interaction, and expressive robotics. Its best-known robots include Sophia , BINA48 , and Albert HUBO . [ 3 ]"
+        },
+        {
+          "field": "description",
+          "value": "Builds expressive humanoid robots for research, demonstrations and public engagement with AI; its best-known robot is Sophia.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Hanson_Robotics",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:06:51.783Z"
+          },
+          "passage": "Hanson Robotics Limited is a Hong Kong –based engineering and robotics company founded in 2007 by robotics designer David Hanson . The company develops humanoid robots designed for research, demonstrations, and public engagement with artificial intelligence (AI), human–robot interaction, and expressive robotics. Its best-known robots include Sophia , BINA48 , and Albert HUBO . [ 3 ]"
+        }
+      ]
+    },
+    {
+      "id": "paxini",
+      "name": "PaXini",
+      "confidence": "medium",
+      "confidenceBasis": "TechNode on its latest round and chip shipments, CnEVPost on its founding, base and Geely deployment, and EqualOcean on its Series B.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Shenzhen",
+          "verdict": "verified",
+          "source": {
+            "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.664Z"
+          },
+          "passage": "The Shenzhen-based company raised more than 1 billion yuan ($148 million) in a funding round in March, which pushed its valuation above 10 billion yuan."
+        },
+        {
+          "field": "hq.country",
+          "value": "CN",
+          "verdict": "verified",
+          "source": {
+            "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.664Z"
+          },
+          "passage": "Chinese robotics startup PaXini Tech, backed by new energy vehicle (NEV) giant BYD (HKEX: 1211) and e-commerce giant JD.com, is considering a Hong Kong initial public offering (IPO), Bloomberg reported Wednesday."
+        },
+        {
+          "field": "founded",
+          "value": 2021,
+          "verdict": "verified",
+          "source": {
+            "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.664Z"
+          },
+          "passage": "The company was founded in June 2021, and its core products include high-precision tactile sensors, dexterous grippers, and humanoid robot Tora."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "[meta:og:description] PaXini has completed a RMB1 billion strategic funding round, bringing its cumulative fundraising to RMB3.5 billion, the company said on Aug. 3. The new"
+        },
+        {
+          "field": "website",
+          "value": "https://www.paxini.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.paxini.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.162Z"
+          },
+          "passage": "[title] PaXini AI 帕西尼 - 官方网站 | PaXini"
+        },
+        {
+          "field": "round.type",
+          "value": "Strategic",
+          "verdict": "corrected",
+          "was": "Series B",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "[meta:og:description] PaXini has completed a RMB1 billion strategic funding round, bringing its cumulative fundraising to RMB3.5 billion, the company said on Aug. 3. The new",
+          "note": "its latest round; the March 2026 Series B came before it"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": null,
+          "verdict": "cut",
+          "was": 148000000,
+          "note": "RMB1 billion, with no dollar figure or exchange rate in the source; the caveat carries it"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-08-03",
+          "verdict": "corrected",
+          "was": "2026-03-09",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "[meta:og:description] PaXini has completed a RMB1 billion strategic funding round, bringing its cumulative fundraising to RMB3.5 billion, the company said on Aug. 3. The new"
+        },
+        {
+          "field": "round.valuationUsd",
+          "value": null,
+          "verdict": "cut",
+          "was": 1400000000,
+          "note": "no fetched source gives a valuation for the August round; the March figure, \"above 10 billion yuan\", is a floor with no dollar figure"
+        },
+        {
+          "field": "aka",
+          "value": "PaXini Tech",
+          "verdict": "added",
+          "source": {
+            "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.664Z"
+          },
+          "passage": "Chinese robotics startup PaXini Tech, backed by new energy vehicle (NEV) giant BYD (HKEX: 1211) and e-commerce giant JD.com, is considering a Hong Kong initial public offering (IPO), Bloomberg reported Wednesday."
+        },
+        {
+          "field": "aka",
+          "value": "帕西尼感知科技",
+          "verdict": "added",
+          "source": {
+            "url": "https://equalocean.com/news/2026030921782-pacini-completes-rmb-1-billion-series-b-financing",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:22.735Z"
+          },
+          "passage": "[meta:og:description] Recently, PaXini Tech (帕西尼感知科技), a global leader in embodied perception-driven general intelligence, announced that it has completed a Series B financing round exceeding RMB 1 billion, bringing the company’s valuation to over RMB 10 billion.",
+          "note": "its Chinese name"
+        },
+        {
+          "field": "deployments",
+          "value": "Nearly 1 million tactile-sensing chips shipped in the year to August 2026",
+          "verdict": "corrected",
+          "was": "Nearly 1 million tactile-sensing chips shipped in the year to Aug 2026; BYD strategic investment (Apr 2025)",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "Other participants included Dinghui Baifu, Chengdu Jiazi AI Fund, Jingming Capital and Tianjin Rongguo Sheng, while existing investor Zhílai Capital also increased its investment. PaXini said its tactile-sensing chips shipped nearly 1 million units over the past year, with the new funds to support R&D, capacity expansion and overseas growth. [21st Century Business Herald, in Chinese]",
+          "note": "BYD's 2025 investment is an investment, not a deployment"
+        },
+        {
+          "field": "deployments",
+          "value": "Tora-One humanoid deployed at Geely's Qiantang plant on wiring-harness assembly (2026)",
+          "verdict": "added",
+          "source": {
+            "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.664Z"
+          },
+          "passage": "Its multi-dimensional tactile humanoid robot Tora-One has been deployed at Geely's Qiantang manufacturing base, executing highly difficult flexible procedures such as automotive wiring harness assembly and pasting, according to a statement last month."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "BOC International Investment",
+          "verdict": "corrected",
+          "was": "Whampoa Capital",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "PaXini has completed a RMB1 billion strategic funding round, bringing its cumulative fundraising to RMB3.5 billion, the company said on Aug. 3. The new round was jointly led by an unnamed global consumer electronics and semiconductor group, BOC International Investment, Kunpeng Fund and Hexin Fangce."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Kunpeng Fund",
+          "verdict": "corrected",
+          "was": "Caitai Capital",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "PaXini has completed a RMB1 billion strategic funding round, bringing its cumulative fundraising to RMB3.5 billion, the company said on Aug. 3. The new round was jointly led by an unnamed global consumer electronics and semiconductor group, BOC International Investment, Kunpeng Fund and Hexin Fangce."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Hexin Fangce",
+          "verdict": "corrected",
+          "was": "Xin'an Capital",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "PaXini has completed a RMB1 billion strategic funding round, bringing its cumulative fundraising to RMB3.5 billion, the company said on Aug. 3. The new round was jointly led by an unnamed global consumer electronics and semiconductor group, BOC International Investment, Kunpeng Fund and Hexin Fangce."
+        },
+        {
+          "field": "description",
+          "value": "Builds tactile-sensing chips, dexterous hands, and the TORA humanoid robot.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://cnevpost.com/2026/06/03/robotics-firm-paxini-weighs-hk-ipo/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.664Z"
+          },
+          "passage": "The company's core products include high-precision tactile sensors, dexterous hands and humanoid robot Tora."
+        },
+        {
+          "field": "description",
+          "value": "Builds tactile-sensing chips, dexterous hands, and the TORA humanoid robot.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:23.423Z"
+          },
+          "passage": "Other participants included Dinghui Baifu, Chengdu Jiazi AI Fund, Jingming Capital and Tianjin Rongguo Sheng, while existing investor Zhílai Capital also increased its investment. PaXini said its tactile-sensing chips shipped nearly 1 million units over the past year, with the new funds to support R&D, capacity expansion and overseas growth. [21st Century Business Herald, in Chinese]"
+        },
+        {
+          "field": "description",
+          "value": "Builds tactile-sensing chips, dexterous hands, and the TORA humanoid robot.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://equalocean.com/news/2026030921782-pacini-completes-rmb-1-billion-series-b-financing",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:22.735Z"
+          },
+          "passage": "PaXini’s TORA humanoid robot integrates advanced tactile perception with high-degree-of-freedom manipulation capabilities and has already demonstrated commercial viability across multiple application scenarios.…"
+        }
+      ]
+    },
+    {
+      "id": "miso-robotics",
+      "name": "Miso Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "Restaurant Business on its Zignyl purchase, products, founding and installations, with its own site.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Los Angeles",
+          "verdict": "corrected",
+          "was": "Atlanta",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "It marks an evolution for LA-based Miso from a primarily robotics company into a more vertically integrated technology supplier. It’s aiming to help fast-food restaurants streamline their operations by offering a “one-stop shop” for tech.",
+          "note": "no fetched source puts it in Atlanta"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "It marks an evolution for LA-based Miso from a primarily robotics company into a more vertically integrated technology supplier. It’s aiming to help fast-food restaurants streamline their operations by offering a “one-stop shop” for tech."
+        },
+        {
+          "field": "founded",
+          "value": 2016,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "Miso was founded in 2016 and last year launched the latest version of Flippy, an AI-powered robotic arm that can prepare a variety of fried food items. Miso is backed by cleaning products supplier Ecolab as well as more than 40,000 crowdfunding investors."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "Miso was founded in 2016 and last year launched the latest version of Flippy, an AI-powered robotic arm that can prepare a variety of fried food items. Miso is backed by cleaning products supplier Ecolab as well as more than 40,000 crowdfunding investors."
+        },
+        {
+          "field": "website",
+          "value": "https://misorobotics.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://misorobotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.261Z"
+          },
+          "passage": "[title] AI Kitchen Automation Platform | Miso"
+        },
+        {
+          "field": "deployments",
+          "value": "Flippy working in seven US states after about a dozen installations in a year (February 2026)",
+          "verdict": "corrected",
+          "was": "Fast-food brand partnerships",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "Miso is not disclosing how many restaurants are using Flippy, but after about a dozen installations over the past year, the bot is now operating in seven states and recently surpassed 5 million baskets fried.",
+          "note": "\"fast-food brand partnerships\" named none"
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "Acquired restaurant-operations app Zignyl (2026-02-26, per Fortune)",
+          "note": "buying Zignyl is an acquisition, not a deployment, and Restaurant Business, not Fortune, reported it"
+        },
+        {
+          "field": "description",
+          "value": "Makes Flippy, an AI-powered robotic arm that cooks fried food in fast-food kitchens, and Zippy, a restaurant operations dashboard built from Zignyl, which it bought in 2026.",
+          "verdict": "corrected",
+          "was": "Builds autonomous robotic kitchen assistants like Flippy for fast-food and commercial kitchen automation.",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "Miso was founded in 2016 and last year launched the latest version of Flippy, an AI-powered robotic arm that can prepare a variety of fried food items. Miso is backed by cleaning products supplier Ecolab as well as more than 40,000 crowdfunding investors."
+        },
+        {
+          "field": "description",
+          "value": "Makes Flippy, an AI-powered robotic arm that cooks fried food in fast-food kitchens, and Zippy, a restaurant operations dashboard built from Zignyl, which it bought in 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "It marks an evolution for LA-based Miso from a primarily robotics company into a more vertically integrated technology supplier. It’s aiming to help fast-food restaurants streamline their operations by offering a “one-stop shop” for tech."
+        },
+        {
+          "field": "description",
+          "value": "Makes Flippy, an AI-powered robotic arm that cooks fried food in fast-food kitchens, and Zippy, a restaurant operations dashboard built from Zignyl, which it bought in 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "Miso has rolled Zignyl into a new product it’s calling Zippy, a data dashboard that operators can talk to like a chatbot."
+        },
+        {
+          "field": "description",
+          "value": "Makes Flippy, an AI-powered robotic arm that cooks fried food in fast-food kitchens, and Zippy, a restaurant operations dashboard built from Zignyl, which it bought in 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:24.241Z"
+          },
+          "passage": "[ld:datePublished] 2026-02-26T12:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "starship-technologies",
+      "name": "Starship Technologies",
+      "confidence": "high",
+      "confidenceBasis": "Its own Series C release and Wikipedia agree on its founding, headquarters and fleet.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "San Francisco",
+          "verdict": "corrected",
+          "was": "London",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Starship Technologies is an autonomous delivery vehicle company. Originally founded in Estonia in 2014, the company is headquartered in San Francisco , California, with engineering operations in Tallinn , Estonia, and Helsinki , Finland. [ 1 ] Starship also has offices in London and Milton Keynes in the United Kingdom and in Hamburg , Germany. [ 2 ]",
+          "note": "its first headquarters, in London, moved to San Francisco in 2018 (Wikipedia)"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "corrected",
+          "was": "UK",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Starship Technologies is an autonomous delivery vehicle company. Originally founded in Estonia in 2014, the company is headquartered in San Francisco , California, with engineering operations in Tallinn , Estonia, and Helsinki , Finland. [ 1 ] Starship also has offices in London and Milton Keynes in the United Kingdom and in Hamburg , Germany. [ 2 ]"
+        },
+        {
+          "field": "founded",
+          "value": 2014,
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Starship Technologies was founded by Skype co-founders Janus Friis and Ahti Heinla in 2014 in Tallinn , Estonia.…"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Type Private"
+        },
+        {
+          "field": "website",
+          "value": "https://www.starship.xyz",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.starship.xyz",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.016Z"
+          },
+          "passage": "[title] Home - Starship Technologies: Autonomous robot delivery - The future of delivery - today!"
+        },
+        {
+          "field": "round.type",
+          "value": "Series C",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:24.145Z"
+          },
+          "passage": "Starship Technologies Raises $50M Series C to Scale Autonomous Delivery Across U.S. Cities"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 50000000,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:24.145Z"
+          },
+          "passage": "…October 15, 2025 --( BUSINESS WIRE )--Starship Technologies, the undisputed global leader in autonomous delivery with over 9 million deliveries across seven nations, today announced the successful completion of a $50 million funding round led by Plural.…"
+        },
+        {
+          "field": "round.date",
+          "value": "2025-10-15",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:24.145Z"
+          },
+          "passage": "SAN FRANCISCO, October 15, 2025 --( BUSINESS WIRE )--Starship Technologies, the undisputed global leader in autonomous delivery with over 9 million deliveries across seven nations, today announced the successful completion of…"
+        },
+        {
+          "field": "deployments",
+          "value": "More than 2,700 robots at more than 270 locations in seven countries, with over 9 million deliveries (October 2025)",
+          "verdict": "corrected",
+          "was": "Food and package delivery across multiple cities",
+          "source": {
+            "url": "https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:24.145Z"
+          },
+          "passage": "About Starship Technologies: Founded in 2014 by Skype co-founders Ahti Heinla and Janus Friis, Starship Technologies is the world's #1 autonomous delivery company. With 9+ million deliveries completed and 2,700+ robots operating across 270+ locations in seven countries, Starship has built the largest autonomous delivery network globally."
+        },
+        {
+          "field": "deployments",
+          "value": "Delivery partnerships with Grubhub in the US and with Bolt, Wolt and Foodora in Europe",
+          "verdict": "added",
+          "source": {
+            "url": "https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:24.145Z"
+          },
+          "passage": "Starship has not only achieved market leadership through its track record, but is taking visionary steps by integrating with the world's largest last-mile delivery providers. The company's partnerships with Grubhub in the U.S., alongside European platforms including Bolt, DoorDash's Wolt and Delivery Hero's Foodora, position Starship as the autonomous delivery backbone that is powering leading apps."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Plural",
+          "verdict": "added",
+          "source": {
+            "url": "https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:24.145Z"
+          },
+          "passage": "…USINESS WIRE )--Starship Technologies, the undisputed global leader in autonomous delivery with over 9 million deliveries across seven nations, today announced the successful completion of a $50 million funding round led by Plural.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds and runs sidewalk robots for last-mile delivery of food and groceries; Skype co-founders Ahti Heinla and Janus Friis founded it in Tallinn in 2014.",
+          "verdict": "corrected",
+          "was": "Builds autonomous sidewalk delivery robots for food and package delivery.",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Starship develops and operates electrically-powered last mile delivery robots. The robots ride on sidewalks with a maximum speed of 6 kilometres per hour (3.7 mph) (pedestrian speed), can be remotely controlled if autonomous operation fails, and are only used for…"
+        },
+        {
+          "field": "description",
+          "value": "Builds and runs sidewalk robots for last-mile delivery of food and groceries; Skype co-founders Ahti Heinla and Janus Friis founded it in Tallinn in 2014.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "In January 2019, Starship partnered with Sodexo to launch robot food delivery services at George Mason University in Virginia, US. With a fleet of 25 robots at launch, this was the largest implementation of autonomous robot food delivery services on a university campus at that time. [ 11 ] [ 12 ] In 2019, it expanded its services to six other US universities. [ a ] [ 13 ]"
+        },
+        {
+          "field": "description",
+          "value": "Builds and runs sidewalk robots for last-mile delivery of food and groceries; Skype co-founders Ahti Heinla and Janus Friis founded it in Tallinn in 2014.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Before operating commercially the service was tested in over 100 cities and 20 countries around the world. [ 34 ] During the COVID-19 pandemic, Starship expanded the number of delivery robots used for grocery in the UK [ 35 ] [ 36 ] and the US to help with the delivery driver shortage.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds and runs sidewalk robots for last-mile delivery of food and groceries; Skype co-founders Ahti Heinla and Janus Friis founded it in Tallinn in 2014.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Starship_Technologies",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:08.017Z"
+          },
+          "passage": "Starship Technologies was founded by Skype co-founders Janus Friis and Ahti Heinla in 2014 in Tallinn , Estonia.…"
+        }
+      ]
+    },
+    {
+      "id": "coco-robotics",
+      "name": "Coco",
+      "confidence": "medium",
+      "confidenceBasis": "The Robot Report on its round, cities and partners, with its own site.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Santa Monica",
+          "verdict": "corrected",
+          "was": "Los Angeles",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco is now expanding to more U.S. markets while continuing to grow its international presence. It said it will deploy thousands of vehicles by the end of 2025. The Santa Monica, Calif.-based company said its mission is to create a more sustainable, reliable, and affordable last-mile logistics solution in cities."
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco is now expanding to more U.S. markets while continuing to grow its international presence. It said it will deploy thousands of vehicles by the end of 2025. The Santa Monica, Calif.-based company said its mission is to create a more sustainable, reliable, and affordable last-mile logistics solution in cities."
+        },
+        {
+          "field": "founded",
+          "value": 2020,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Founded in 2020, Coco Robotics said this capital accelerates its momentum as it builds on a model that already works at scale. The company claimed that it has already completed over 500,000 zero-emission deliveries across major U.S. cities like Los Angeles, Chicago, and Miami, as well as in Helsinki, its first European market."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco Robotics raised $80 million in strategic funding this week. It said the funds will help advance its artificial intelligence platform, scale its fleet, and grow enterprise partnerships."
+        },
+        {
+          "field": "website",
+          "value": "https://www.cocodelivery.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.cocodelivery.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.220Z"
+          },
+          "passage": "[title] Coco Robotics - Home"
+        },
+        {
+          "field": "round.type",
+          "value": "Strategic",
+          "verdict": "corrected",
+          "was": "Series B",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco Robotics raised $80 million in strategic funding this week. It said the funds will help advance its artificial intelligence platform, scale its fleet, and grow enterprise partnerships.",
+          "note": "no fetched source calls it a Series B"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 80000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco Robotics raised $80 million in strategic funding this week. It said the funds will help advance its artificial intelligence platform, scale its fleet, and grow enterprise partnerships."
+        },
+        {
+          "field": "round.date",
+          "value": null,
+          "verdict": "cut",
+          "was": "2025-06-11",
+          "note": "The Robot Report of 13 June 2025 says it raised the money \"this week\"; no fetched page states the day"
+        },
+        {
+          "field": "aka",
+          "value": "Coco Robotics",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.cocodelivery.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.193Z"
+          },
+          "passage": "[title] Coco Robotics - Home"
+        },
+        {
+          "field": "deployments",
+          "value": "More than 500,000 deliveries in Los Angeles, Chicago, Miami and Helsinki (June 2025)",
+          "verdict": "corrected",
+          "was": "Food delivery in multiple US cities",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Founded in 2020, Coco Robotics said this capital accelerates its momentum as it builds on a model that already works at scale. The company claimed that it has already completed over 500,000 zero-emission deliveries across major U.S. cities like Los Angeles, Chicago, and Miami, as well as in Helsinki, its first European market."
+        },
+        {
+          "field": "deployments",
+          "value": "Its robots take DoorDash orders in Los Angeles and Chicago (2025)",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "The U.S. rollout is now live in Los Angeles and Chicago, where eligible customers can see the availability of Coco’s fleet of emissions-free sidewalk robots and may have one assigned to their order from nearly 600 participating merchants through the DoorDash app."
+        },
+        {
+          "field": "description",
+          "value": "Runs a fleet of sidewalk delivery robots that drive themselves under remote human supervision, carrying orders for platforms such as Uber and DoorDash.",
+          "verdict": "corrected",
+          "was": "Builds autonomous delivery robots for last-mile food and goods delivery.",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco Robotics’ delivery robots feature self-driving capabilities that are supervised by remote human operators. | Source: Coco Robotics"
+        },
+        {
+          "field": "description",
+          "value": "Runs a fleet of sidewalk delivery robots that drive themselves under remote human supervision, carrying orders for platforms such as Uber and DoorDash.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "The U.S. rollout is now live in Los Angeles and Chicago, where eligible customers can see the availability of Coco’s fleet of emissions-free sidewalk robots and may have one assigned to their order from nearly 600 participating merchants through the DoorDash app."
+        },
+        {
+          "field": "description",
+          "value": "Runs a fleet of sidewalk delivery robots that drive themselves under remote human supervision, carrying orders for platforms such as Uber and DoorDash.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.040Z"
+          },
+          "passage": "Coco designed its fleet of autonomous robots to make deliveries more efficient, affordable, and reliable, while also cutting down on traffic and emissions. It has established partnerships with platforms such as Uber and DoorDash."
+        }
+      ]
+    },
+    {
+      "id": "knightscope",
+      "name": "Knightscope",
+      "confidence": "medium",
+      "confidenceBasis": "Wikipedia and its own site agree on its base, listing and robots.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Mountain View",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Knightscope",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:49.991Z"
+          },
+          "passage": "Knightscope, Inc. is an American security camera and robotics company headquartered in Mountain View, California .…"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Knightscope",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:49.991Z"
+          },
+          "passage": "Knightscope, Inc. is an American security camera and robotics company headquartered in Mountain View, California .…"
+        },
+        {
+          "field": "founded",
+          "value": 2013,
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Knightscope",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:49.991Z"
+          },
+          "passage": "Knightscope was founded in 2013. Its founders stated that they were motivated to create autonomous security robots following the Sandy Hook School Shooting in 2012.…"
+        },
+        {
+          "field": "status",
+          "value": "public",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Knightscope",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:49.991Z"
+          },
+          "passage": "In December 2021, the company filed the paperwork for an initial public offering . Knightscope listed on the NASDAQ under the ticker symbol \"KSCP\" on January 27, 2022. [ 14 ] [ 15 ] [ 9 ] It was unique in its IPO offering in that it offered its pre-IPO to its equity crowdfunding retail investors first, rather than large investment fi…"
+        },
+        {
+          "field": "website",
+          "value": "https://www.knightscope.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.knightscope.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.890Z"
+          },
+          "passage": "[title] Knightscope — The Nation's First Autonomous Security Force"
+        },
+        {
+          "field": "deployments",
+          "value": "Deployed in 42 U.S. states",
+          "verdict": "corrected",
+          "was": "Security patrolling at malls, hospitals, corporate campuses",
+          "source": {
+            "url": "https://www.knightscope.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.412Z"
+          },
+          "passage": "[meta:og:description] Knightscope combines AI robots, orchestration software, and augmented human agents into one Autonomous Security Force. Deployed across 42 U.S. states. Federal-grade. NASDAQ: KSCP."
+        },
+        {
+          "field": "deployments",
+          "value": "Sites include retail lots, hospital campuses, residential communities, casinos and utility sites",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.knightscope.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.412Z"
+          },
+          "passage": "Across retail lots, hospital campuses, residential communities, casinos, and utility sites, Knightscope deployments have cut crime and nuisance activity — sometimes to zero — and delivered the eye-level, time-stamped evidence that lets police identify suspects, secure confessions, and make arrests."
+        },
+        {
+          "field": "deployments",
+          "value": "Clients have included Microsoft, Uber, Juniper Networks, the Sacramento Kings, LaGuardia Airport and NBC Universal (as of 2017)",
+          "verdict": "added",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Knightscope",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:49.991Z"
+          },
+          "passage": "In 2017, Knightscope raised $20 million and indicated that they were seeking a partnership with Allied Universal . As of 2017, companies that have been confirmed as clients of Knightscope include Microsoft , Uber , Juniper Networks , the Sacramento Kings , LaGuardia Airport and NBC Universal . [ 5 ] [ 10 ] [ 6 ]"
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous security robots, such as the K5, and runs them with software and human agents to patrol sites such as retail lots, hospital campuses and casinos.",
+          "verdict": "corrected",
+          "was": "Builds autonomous security robots for patrolling and monitoring public and private spaces.",
+          "source": {
+            "url": "https://www.knightscope.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.412Z"
+          },
+          "passage": "[meta:og:description] Knightscope combines AI robots, orchestration software, and augmented human agents into one Autonomous Security Force. Deployed across 42 U.S. states. Federal-grade. NASDAQ: KSCP."
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous security robots, such as the K5, and runs them with software and human agents to patrol sites such as retail lots, hospital campuses and casinos.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Knightscope",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:49.991Z"
+          },
+          "passage": "…It has twin panels of lights about two-thirds of the way up its body. There is also a small silver-colored flag of the United States on the left side of its body. [ 23 ] The K5 patrols and charges autonomously and detects crime using a variety of sensors including a video camera , thermal imaging sensors , a laser range finder , radar , air quality sensors, and a detector for suspicious wireless…"
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous security robots, such as the K5, and runs them with software and human agents to patrol sites such as retail lots, hospital campuses and casinos.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.knightscope.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:25.412Z"
+          },
+          "passage": "Across retail lots, hospital campuses, residential communities, casinos, and utility sites, Knightscope deployments have cut crime and nuisance activity — sometimes to zero — and delivered the eye-level, time-stamped evidence that lets police identify suspects, secure confessions, and make arrests."
+        }
+      ]
     }
   ]
 }

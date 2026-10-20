@@ -89,10 +89,12 @@ test.describe('market-map deep links on the static export', () => {
     });
     await page.goto(`${BASE}/market-map/?country=CN#company-ghost`);
 
-    // 21 CN-headquartered rows: the figure-corrections pass moved PaXini's
-    // HQ back to Shenzhen per fetched reporting (2026-08-18), CN 20 -> 21.
-    await expect(page.getByText('21 of 111 companies')).toBeVisible();
-    expect(await page.locator('button[data-map-tile]').count()).toBe(21);
+    // 22 CN-headquartered rows: the figure-corrections pass moved PaXini's
+    // HQ back to Shenzhen per fetched reporting (2026-08-18), CN 20 -> 21,
+    // and the market-map field audit moved Astribot from Munich to Shenzhen
+    // per its own site and Pandaily (2026-10-20), CN 21 -> 22.
+    await expect(page.getByText('22 of 111 companies')).toBeVisible();
+    expect(await page.locator('button[data-map-tile]').count()).toBe(22);
     await expect(page.locator('#company-ghost')).toHaveCount(0);
     await expect(page.getByRole('dialog')).toHaveCount(0);
     expect(errors).toEqual([]);
@@ -137,8 +139,11 @@ test.describe('market-map deep links on the static export', () => {
       `${BASE}/market-map/?subSegment=bogus-subsegment&country=US&approach=not-an-approach`,
     );
 
-    await expect(page.getByText('63 of 111 companies')).toBeVisible();
-    expect(await page.locator('button[data-map-tile]').count()).toBe(63);
+    // 63 -> 64 on 2026-10-20: the field audit moved Starship Technologies'
+    // headquarters from London to San Francisco (Wikipedia and its Business
+    // Wire release).
+    await expect(page.getByText('64 of 111 companies')).toBeVisible();
+    expect(await page.locator('button[data-map-tile]').count()).toBe(64);
     await expect(page.locator('#filter-subsegment')).toHaveValue('');
     await expect(page.locator('#filter-approach')).toHaveValue('');
     await expect(page.locator('#filter-country')).toHaveValue('US');

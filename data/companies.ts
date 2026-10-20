@@ -6618,7 +6618,7 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'simulation-tooling',
     subSegment: 'foundation-models',
-    description: 'Re-entered robotics field with hiring push across hardware, simulation, data, and ML roles to develop robots for physical tasks.',
+    description: 'Shut its first robotics effort in 2021 and is building a new robotics team: it has hired researchers who work on AI for humanoid and other robots, and its job listings seek teleoperation, simulation and robot-hardware skills.',
     approach: [
       'robotics-foundation-models',
       'hardware',
@@ -6641,9 +6641,9 @@ const ROWS: Company[] = [
         asOf: '2026-08-06',
       },
       {
-        url: 'https://humanoid.guide/openai-robotics-hiring-expands-raising-stakes-for-humanoids',
-        title: 'OpenAI robotics hiring expands',
-        asOf: '2026-08-06',
+        url: 'https://en.wikipedia.org/wiki/OpenAI',
+        title: 'OpenAI - Wikipedia',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
@@ -6689,7 +6689,8 @@ const ROWS: Company[] = [
     id: 'meta-robotics',
     name: 'Meta (Robotics)',
     aka: [
-      'Meta Superintelligence Labs',
+      'Meta Platforms',
+      'Facebook',
     ],
     website: 'https://www.meta.com',
     logo: 'meta-logo',
@@ -6700,7 +6701,7 @@ const ROWS: Company[] = [
     founded: 2004,
     segment: 'simulation-tooling',
     subSegment: 'foundation-models',
-    description: 'Entered humanoid robotics by acquiring Assured Robot Intelligence, folding team into Superintelligence Labs to build foundational physical AI models.',
+    description: 'Bought the humanoid-robot AI startup Assured Robot Intelligence in May 2026 to build up its AI models for robots; ARI\'s team joined Meta\'s Superintelligence Labs.',
     approach: [
       'physical-ai-models',
       'acqui-hire',
@@ -6714,9 +6715,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      'Acquired Assured Robot Intelligence (May 2026)',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
       {
@@ -6724,9 +6723,17 @@ const ROWS: Company[] = [
         title: 'Meta buys robotics startup for humanoid AI',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Meta_Platforms',
+        title: 'Meta Platforms - Wikipedia',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'high',
+    confidence: 'medium',
     absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -6762,7 +6769,7 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'foundation-models',
     subSegment: 'generalist-manipulation-policies',
-    description: 'Built AI models for robots to address critical challenges in high-value labor markets; acquired by Meta for Superintelligence Labs.',
+    description: 'Built foundation models for humanoid robots to do physical labor such as household chores; Meta bought it in May 2026 and its team joined Meta\'s Superintelligence Labs.',
     approach: [
       'robot-ai-models',
     ],
@@ -6790,6 +6797,11 @@ const ROWS: Company[] = [
         title: 'ARI - Frontier AI for Robots (the company\'s own site, arirobots.com, in the Wayback Machine capture of 2026-05-05; the domain no longer resolves)',
         asOf: '2026-10-19',
       },
+      {
+        url: 'https://siliconangle.com/2026/05/01/meta-acquires-robot-software-startup-assured-robot-intelligence/',
+        title: 'Meta acquires robot software startup Assured Robot Intelligence (SiliconANGLE, 2026-05-01)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'medium',
     absent: {
@@ -6797,7 +6809,8 @@ const ROWS: Company[] = [
         state: 'not-disclosed',
       },
       'website': {
-        state: 'not-disclosed',
+        state: 'not-applicable',
+        basis: 'Meta bought it in May 2026; arirobots.com, its own site in the Wayback Machine capture of 5 May 2026, no longer resolves (checked 20 October 2026).',
       },
       'deployments': {
         state: 'not-disclosed',
@@ -6830,7 +6843,7 @@ const ROWS: Company[] = [
     founded: 2022,
     segment: 'vertical-applications',
     subSegment: 'defense',
-    description: 'Designs and manufactures autonomous unmanned surface vehicles (USVs) for maritime security and domain awareness.',
+    description: 'Designs and builds autonomous surface vessels for defense and commercial use, from the 24-foot Corsair to the 180-foot Marauder, in its own shipyards.',
     approach: [
       'autonomous-maritime',
       'defense',
@@ -6844,10 +6857,11 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Kleiner Perkins',
       ],
+      sourceUrl: 'https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html',
     },
     status: 'private',
     deployments: [
-      'Maritime security',
+      'U.S. Navy production contract for its vessels, worth $392 million (2025)',
     ],
     openSource: [],
     sources: [
@@ -6857,9 +6871,14 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
-        title: 'Saronic $1.75B Series D, largest robotics round 2026',
-        asOf: '2026-08-18',
+        url: 'https://www.prnewswire.com/news-releases/saronic-closes-1-75b-series-d-at-9-25b-valuation-to-accelerate-a-new-era-of-maritime-autonomy-302729238.html',
+        title: 'Saronic Closes $1.75B Series D at $9.25B Valuation to Accelerate a New Era of Maritime Autonomy (PR Newswire, 2026-03-31)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.opulentia.vc/portfolio/saronic/',
+        title: 'Saronic (Opulentia portfolio page)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
@@ -6884,13 +6903,13 @@ const ROWS: Company[] = [
     website: 'https://www.ekarobotics.com',
     logo: 'eka-robotics-logo',
     hq: {
-      city: null,
+      city: 'Cambridge',
       country: 'US',
     },
     founded: null,
     segment: 'foundation-models',
     subSegment: 'dexterous-manipulation',
-    description: 'Builds robot foundation models for dexterous manipulation, co-founded by MIT professor Pulkit Agrawal and DeepMind researcher Tuomas Haarnoja.',
+    description: 'Teaches robots dexterous manipulation by having them practise in simulation and carry the skill to real robots; co-founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja.',
     approach: [
       'dexterous-manipulation',
       'research-to-commercial',
@@ -6901,9 +6920,7 @@ const ROWS: Company[] = [
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Obvious Ventures',
-      ],
+      leadInvestors: [],
     },
     status: 'private',
     deployments: [],
@@ -6914,12 +6931,14 @@ const ROWS: Company[] = [
         title: 'Obvious Ventures backed Eka Robotics',
         asOf: '2026-08-06',
       },
-    ],
-    confidence: 'low',
-    absent: {
-      'hq.city': {
-        state: 'not-disclosed',
+      {
+        url: 'https://www.wired.me/story/ive-covered-robots-for-years-this-one-is-different',
+        title: 'I\'ve Covered Robots for Years. This One Is Different (WIRED Middle East, 2026-04-30)',
+        asOf: '2026-10-20',
       },
+    ],
+    confidence: 'medium',
+    absent: {
       'founded': {
         state: 'not-disclosed',
       },
@@ -6949,6 +6968,9 @@ const ROWS: Company[] = [
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
     },
   },
   {
@@ -6970,13 +6992,12 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
+      type: 'Seed',
+      amountUsd: 19000000,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Red Glass Ventures',
-      ],
+      leadInvestors: [],
+      sourceUrl: 'https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/',
     },
     status: 'private',
     deployments: [],
@@ -6992,8 +7013,18 @@ const ROWS: Company[] = [
         title: 'Foundry Robotics (company site: AI-first, assembly-focused robotics for American manufacturing)',
         asOf: '2026-10-19',
       },
+      {
+        url: 'https://www.remixreality.com/foundry-robotics-raises-19-million-to-build-ai-first-robotics-for-manufacturing/',
+        title: 'Foundry Robotics Raises $19 Million to Build AI-First Robotics for Manufacturing (Remix Reality, 2026-04-10)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://garuda.substack.com/p/foundry',
+        title: 'Foundry Robotics: Powering American Manufacturing for the Next Century (Garuda Ventures, 2026-03-10)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'hq.city': {
         state: 'not-disclosed',
@@ -7003,28 +7034,25 @@ const ROWS: Company[] = [
       },
       'aka': {
         state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources call it Foundry Robotics and give no other name (its website returned no readable body).',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Foundry Robotics and give no other name.',
       },
       'deployments': {
         state: 'not-disclosed',
       },
       'openSource': {
         state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
-        state: 'not-disclosed',
-      },
-      'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
         state: 'not-disclosed',
       },
       'round.date': {
         state: 'not-disclosed',
       },
       'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -7036,18 +7064,18 @@ const ROWS: Company[] = [
     website: 'https://mytra.ai',
     logo: 'mytra-logo',
     hq: {
-      city: null,
+      city: 'Brisbane',
       country: 'US',
     },
     founded: 2022,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds warehouse robots that move goods across a modular 3D storage system without requiring facility rebuilds.',
+    description: 'Builds software-defined warehouse automation: a pallet-size robot that moves goods through a matrix of three-dimensional storage cells.',
     approach: [
       'modular-3d-storage',
       'warehouse-automation',
     ],
-    totalRaisedUsd: null,
+    totalRaisedUsd: 200000000,
     latestRound: {
       type: 'Series C',
       amountUsd: 120000000,
@@ -7056,9 +7084,13 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Avenir Growth',
       ],
+      sourceUrl: 'https://mytra.ai/news/mytra-raises-120m-series-c',
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Customers include a Fortune 100 food company and a Fortune 500 industrial-supply distributor (January 2026)',
+      'Albertsons Companies, among the grocers and retailers it serves',
+    ],
     openSource: [],
     sources: [
       {
@@ -7071,25 +7103,26 @@ const ROWS: Company[] = [
         title: 'Mytra Raises $120M Series C to Scale Operating System for Supply Chain (PR Newswire)',
         asOf: '2026-08-18',
       },
-    ],
-    confidence: 'low',
-    absent: {
-      'hq.city': {
-        state: 'not-disclosed',
+      {
+        url: 'https://mytra.ai/company/',
+        title: 'Company (Mytra)',
+        asOf: '2026-10-20',
       },
+      {
+        url: 'https://mytra.ai/news/mytra-announces-expansion-and-new-headquarters-with-brisbane-california-campus',
+        title: 'Mytra Announces Expansion and New Headquarters with Brisbane, California Campus (Mytra, 2025-06-26)',
+        asOf: '2026-10-20',
+      },
+    ],
+    confidence: 'medium',
+    absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Mytra and give no other name.',
       },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
-      },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
@@ -7103,10 +7136,10 @@ const ROWS: Company[] = [
     website: 'https://formic.co',
     logo: 'formic-logo',
     hq: {
-      city: null,
+      city: 'Chicago',
       country: 'US',
     },
-    founded: null,
+    founded: 2020,
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
     description: 'Provides robotics-as-a-service for manufacturers to deploy automation without upfront equipment costs.',
@@ -7116,42 +7149,43 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series A',
-      amountUsd: 26500000,
-      date: '2022-01-18',
+      type: 'Series A extension',
+      amountUsd: 27400000,
+      date: '2024-06-25',
       valuationUsd: null,
       leadInvestors: [
-        'Lux Capital',
+        'Blackhorn Ventures',
       ],
+      sourceUrl: 'https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/',
     },
     status: 'private',
-    deployments: [
-      'Manufacturing deployments',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
-      {
-        url: 'https://formic.co/resources/press/formic-technologies-raises-265-million-series-a-led-by-lux-capital',
-        title: 'Formic Technologies Raises $26.5 Million Series A Led By Lux Capital (first-party)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6',
         title: 'Lux Capital backed Formic',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.therobotreport.com/formic-brings-in-27-4m-to-expand-its-global-fleet-increase-support-network/',
+        title: 'Formic brings in $27.4M to expand its global fleet, increase support network (The Robot Report, 2024-06-25)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://formic.co/about',
+        title: 'About (Formic)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
-      'hq.city': {
-        state: 'not-disclosed',
-      },
-      'founded': {
-        state: 'not-disclosed',
-      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Formic and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
       },
       'openSource': {
         state: 'not-applicable',
@@ -7168,17 +7202,19 @@ const ROWS: Company[] = [
   {
     id: 'astribot',
     name: 'Astribot',
-    aka: [],
+    aka: [
+      '星尘智能',
+    ],
     website: 'https://www.astribot.com',
     logo: 'astribot-logo',
     hq: {
-      city: 'Munich',
-      country: 'DE',
+      city: 'Shenzhen',
+      country: 'CN',
     },
-    founded: null,
+    founded: 2022,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Cable-driven AI robotics company building humanoid robots.',
+    description: 'Builds cable-driven humanoid robots, the Astribot S1 and T1, which run its own Lumo AI foundation model.',
     approach: [
       'cable-driven',
       'humanoid',
@@ -7186,13 +7222,21 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Series B',
-      amountUsd: 138000000,
+      amountUsd: null,
       date: '2026-06-03',
-      valuationUsd: 1380000000,
+      valuationUsd: null,
       leadInvestors: [],
+      caveat: {
+        text: 'Pandaily reports that the Series B pushed Astribot\'s valuation past 10 billion yuan (about $1.4 billion) and that its three rounds in three months raised over 1 billion yuan; no exact amount or valuation is given.',
+        sourceUrls: [
+          'https://pandaily.com/astribot-billion-dollar-valuation-series-b-jun2026/',
+        ],
+      },
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Deliveries in the thousands by the end of 2025',
+    ],
     openSource: [],
     sources: [
       {
@@ -7203,21 +7247,17 @@ const ROWS: Company[] = [
     ],
     confidence: 'medium',
     absent: {
-      'founded': {
-        state: 'not-disclosed',
-      },
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Astribot and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
         state: 'not-disclosed',
       },
       'round.leadInvestors': {
@@ -7238,22 +7278,33 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid robots for commercial deployment.',
+    description: 'Builds humanoid robots, the K1 and T2 among them, for developers, schools, research labs and robot-soccer teams; teams using its robots won RoboCup humanoid titles in 2025 and 2026.',
     approach: [
       'humanoid',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series A+',
-      amountUsd: 14000000,
-      date: '2026-01-12',
+      type: null,
+      amountUsd: null,
+      date: '2026-04-17',
       valuationUsd: null,
       leadInvestors: [
-        'IDG Capital',
+        'Beijing High-Tech Industries Investment Fund',
+        'Jingguosheng Fund',
+        'Huakong Fund',
       ],
+      sourceUrl: 'https://www.booster.tech/about-us?target=en',
+      caveat: {
+        text: 'Booster says its April 2026 round raised nearly $150 million; it gives no exact amount.',
+        sourceUrls: [
+          'https://www.booster.tech/about-us?target=en',
+        ],
+      },
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'More than 700 humanoid robots delivered to more than 200 customers, over half of them outside China (November 2025)',
+    ],
     openSource: [],
     sources: [
       {
@@ -7262,9 +7313,14 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://humanoidindex.org/companies/booster-robotics',
-        title: 'Booster Robotics - Humanoid Index',
-        asOf: '2026-08-18',
+        url: 'https://www.booster.tech/about-us?target=en',
+        title: 'About Us (Booster Robotics)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.booster.tech/news?target=en',
+        title: 'News Center (Booster Robotics)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
@@ -7275,14 +7331,17 @@ const ROWS: Company[] = [
       'aka': {
         state: 'not-disclosed',
       },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
         state: 'not-disclosed',
       },
       'round.valuationUsd': {
@@ -7293,7 +7352,9 @@ const ROWS: Company[] = [
   {
     id: 'leju-robotics',
     name: 'Leju Robotics',
-    aka: [],
+    aka: [
+      'Leju (Shenzhen) Robotics Co., Ltd.',
+    ],
     website: 'https://www.lejurobot.com',
     logo: 'leju-robotics-logo',
     hq: {
@@ -7303,17 +7364,18 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'humanoids',
     subSegment: 'research-humanoids',
-    description: 'Builds humanoid and educational robots for commercial and research applications.',
+    description: 'Builds humanoid robots, from the small AELOS and ROBAN models to the full-size KUAVO, as well as robots for education; it was spun out of the Harbin Institute of Technology in 2016.',
     approach: [
       'educational-humanoid',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Pre-IPO',
+      type: null,
       amountUsd: 200000000,
-      date: '2025-10-22',
+      date: null,
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.therobotreport.com/leju-raises-200m-humanoid-production-unitree-unveils-h2/',
     },
     status: 'private',
     deployments: [],
@@ -7324,17 +7386,9 @@ const ROWS: Company[] = [
         title: 'Leju raises $200M for humanoid production',
         asOf: '2026-08-18',
       },
-      {
-        url: 'https://humanoidindex.org/companies/leju-robotics',
-        title: 'Leju Robotics - Humanoid Index',
-        asOf: '2026-08-18',
-      },
     ],
     confidence: 'medium',
     absent: {
-      'aka': {
-        state: 'not-disclosed',
-      },
       'deployments': {
         state: 'not-disclosed',
       },
@@ -7343,6 +7397,12 @@ const ROWS: Company[] = [
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
         state: 'not-disclosed',
       },
       'round.valuationUsd': {
@@ -7357,7 +7417,7 @@ const ROWS: Company[] = [
     id: 'switchbot',
     name: 'SwitchBot',
     aka: [
-      'OneRobotics (Shenzhen) Co.',
+      'OneRobotics (Shenzhen) Co., Ltd.',
     ],
     website: 'https://www.switch-bot.com',
     logo: 'switchbot-logo',
@@ -7368,7 +7428,7 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Builds smart home robots and devices for home automation.',
+    description: 'Makes the SwitchBot line of home-automation gadgets, such as curtain openers and door locks, and has added AI home robots, among them a wheeled humanoid for household tasks.',
     approach: [
       'smart-home',
       'consumer-robotics',
@@ -7380,6 +7440,7 @@ const ROWS: Company[] = [
       date: '2025-12-30',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html',
     },
     status: 'public',
     deployments: [],
@@ -7388,11 +7449,6 @@ const ROWS: Company[] = [
       {
         url: 'https://www.caixinglobal.com/2025-12-31/smart-home-startup-onerobotics-lands-206-million-in-hk-ipo-bets-big-on-ai-bots-102398920.html',
         title: 'Smart-Home Startup OneRobotics Lands $206 Million in HK IPO',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://humanoidindex.org/companies/switchbot',
-        title: 'SwitchBot - Humanoid Index',
         asOf: '2026-08-18',
       },
     ],
@@ -7426,10 +7482,10 @@ const ROWS: Company[] = [
       city: 'Hong Kong',
       country: 'HK',
     },
-    founded: 2003,
+    founded: 2007,
     segment: 'humanoids',
     subSegment: 'research-humanoids',
-    description: 'Builds expressive humanoid robots like Sophia for research, entertainment, and human-robot interaction studies.',
+    description: 'Builds expressive humanoid robots for research, demonstrations and public engagement with AI; its best-known robot is Sophia.',
     approach: [
       'expressive-humanoid',
       'social-robotics',
@@ -7443,27 +7499,23 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'private',
-    deployments: [
-      'Sophia robot demonstrations',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
       {
-        url: 'https://getlatka.com/companies/hanson-robotics-limited',
-        title: 'Hanson Robotics funding profile ($21.7M across 2 rounds, as reported)',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://humanoidindex.org/companies/hanson-robotics',
-        title: 'Hanson Robotics - Humanoid Index',
-        asOf: '2026-08-18',
+        url: 'https://en.wikipedia.org/wiki/Hanson_Robotics',
+        title: 'Hanson Robotics (Wikipedia)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Hanson Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
       },
       'openSource': {
         state: 'not-applicable',
@@ -7492,7 +7544,10 @@ const ROWS: Company[] = [
   {
     id: 'paxini',
     name: 'PaXini',
-    aka: [],
+    aka: [
+      'PaXini Tech',
+      '帕西尼感知科技',
+    ],
     website: 'https://www.paxini.com',
     logo: 'paxini-logo',
     hq: {
@@ -7509,19 +7564,27 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
-      amountUsd: 148000000,
-      date: '2026-03-09',
-      valuationUsd: 1400000000,
+      type: 'Strategic',
+      amountUsd: null,
+      date: '2026-08-03',
+      valuationUsd: null,
       leadInvestors: [
-        'Whampoa Capital',
-        'Caitai Capital',
-        'Xin\'an Capital',
+        'BOC International Investment',
+        'Kunpeng Fund',
+        'Hexin Fangce',
       ],
+      sourceUrl: 'https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/',
+      caveat: {
+        text: 'PaXini says its August 2026 strategic round raised RMB1 billion, taking its total to RMB3.5 billion, and that an unnamed consumer-electronics and semiconductor group co-led it; no dollar figures are given.',
+        sourceUrls: [
+          'https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Nearly 1 million tactile-sensing chips shipped in the year to Aug 2026; BYD strategic investment (Apr 2025)',
+      'Nearly 1 million tactile-sensing chips shipped in the year to August 2026',
+      'Tora-One humanoid deployed at Geely\'s Qiantang plant on wiring-harness assembly (2026)',
     ],
     openSource: [],
     sources: [
@@ -7540,22 +7603,20 @@ const ROWS: Company[] = [
         title: 'BYD-backed PaXini weighs HK IPO ($148M March round)',
         asOf: '2026-08-18',
       },
-      {
-        url: 'https://humanoidindex.org/companies/paxini',
-        title: 'PaXini - Humanoid Index',
-        asOf: '2026-08-18',
-      },
     ],
     confidence: 'medium',
     absent: {
-      'aka': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
         state: 'not-disclosed',
       },
     },
@@ -7567,13 +7628,13 @@ const ROWS: Company[] = [
     website: 'https://misorobotics.com',
     logo: 'miso-robotics-logo',
     hq: {
-      city: 'Atlanta',
+      city: 'Los Angeles',
       country: 'US',
     },
     founded: 2016,
     segment: 'vertical-applications',
     subSegment: 'food-kitchen',
-    description: 'Builds autonomous robotic kitchen assistants like Flippy for fast-food and commercial kitchen automation.',
+    description: 'Makes Flippy, an AI-powered robotic arm that cooks fried food in fast-food kitchens, and Zippy, a restaurant operations dashboard built from Zignyl, which it bought in 2026.',
     approach: [
       'autonomous-kitchen',
       'fast-food-automation',
@@ -7588,23 +7649,17 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Fast-food brand partnerships',
-      'Acquired restaurant-operations app Zignyl (2026-02-26, per Fortune)',
+      'Flippy working in seven US states after about a dozen installations in a year (February 2026)',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://www.therobotreport.com/tag/miso-robotics/',
-        title: 'Miso Robotics coverage hub (The Robot Report; incl. Feb 2026 Zignyl acquisition coverage)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.restaurantbusinessonline.com/technology/flippy-maker-miso-robotics-acquires-operations-app-zignyl',
         title: 'Flippy maker Miso Robotics acquires operations app Zignyl (Restaurant Business, 2026-02-26)',
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -7641,28 +7696,38 @@ const ROWS: Company[] = [
     website: 'https://www.starship.xyz',
     logo: 'starship-logo',
     hq: {
-      city: 'London',
-      country: 'UK',
+      city: 'San Francisco',
+      country: 'US',
     },
     founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous sidewalk delivery robots for food and package delivery.',
+    description: 'Builds and runs sidewalk robots for last-mile delivery of food and groceries; Skype co-founders Ahti Heinla and Janus Friis founded it in Tallinn in 2014.',
     approach: [
       'sidewalk-delivery',
       'autonomous',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series C',
+      amountUsd: 50000000,
+      date: '2025-10-15',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Plural',
+      ],
+      sourceUrl: 'https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html',
+      caveat: {
+        text: 'Starship says it has raised more than $280 million in total; it gives no exact figure.',
+        sourceUrls: [
+          'https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Food and package delivery across multiple cities',
+      'More than 2,700 robots at more than 270 locations in seven countries, with over 9 million deliveries (October 2025)',
+      'Delivery partnerships with Grubhub in the US and with Bolt, Wolt and Foodora in Europe',
     ],
     openSource: [],
     sources: [
@@ -7671,8 +7736,18 @@ const ROWS: Company[] = [
         title: 'Starship Technologies - Autonomous Delivery Robots',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Starship_Technologies',
+        title: 'Starship Technologies (Wikipedia)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html',
+        title: 'Starship Technologies Raises $50M Series C to Scale Autonomous Delivery Across U.S. Cities (its Business Wire release, via Yahoo Finance, 2025-10-15)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -7685,19 +7760,7 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
-        state: 'not-disclosed',
-      },
-      'round.date': {
-        state: 'not-disclosed',
-      },
       'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -7711,28 +7774,30 @@ const ROWS: Company[] = [
     website: 'https://www.cocodelivery.com',
     logo: 'coco-robotics-logo',
     hq: {
-      city: 'Los Angeles',
+      city: 'Santa Monica',
       country: 'US',
     },
     founded: 2020,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous delivery robots for last-mile food and goods delivery.',
+    description: 'Runs a fleet of sidewalk delivery robots that drive themselves under remote human supervision, carrying orders for platforms such as Uber and DoorDash.',
     approach: [
       'autonomous-delivery',
       'last-mile',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
+      type: 'Strategic',
       amountUsd: 80000000,
-      date: '2025-06-11',
+      date: null,
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.therobotreport.com/coco-robotics-raises-80m-to-scale-sidewalk-delivery-robots/',
     },
     status: 'private',
     deployments: [
-      'Food delivery in multiple US cities',
+      'More than 500,000 deliveries in Los Angeles, Chicago, Miami and Helsinki (June 2025)',
+      'Its robots take DoorDash orders in Los Angeles and Chicago (2025)',
     ],
     openSource: [],
     sources: [
@@ -7747,13 +7812,16 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.date': {
         state: 'not-disclosed',
       },
       'round.valuationUsd': {
@@ -7777,7 +7845,7 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'vertical-applications',
     subSegment: 'security',
-    description: 'Builds autonomous security robots for patrolling and monitoring public and private spaces.',
+    description: 'Builds autonomous security robots, such as the K5, and runs them with software and human agents to patrol sites such as retail lots, hospital campuses and casinos.',
     approach: [
       'autonomous-security',
       'patrol-robots',
@@ -7792,7 +7860,9 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      'Security patrolling at malls, hospitals, corporate campuses',
+      'Deployed in 42 U.S. states',
+      'Sites include retail lots, hospital campuses, residential communities, casinos and utility sites',
+      'Clients have included Microsoft, Uber, Juniper Networks, the Sacramento Kings, LaGuardia Airport and NBC Universal (as of 2017)',
     ],
     openSource: [],
     sources: [
@@ -7801,8 +7871,13 @@ const ROWS: Company[] = [
         title: 'Knightscope - Autonomous Security Robots',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Knightscope',
+        title: 'Knightscope (Wikipedia)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'aka': {
         state: 'not-applicable',

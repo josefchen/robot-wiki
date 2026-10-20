@@ -33,22 +33,6 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     verifiedOn: '2026-08-18',
   },
   {
-    url: 'https://www.businesswire.com/news/home/20251202560677/en/Mujin-Raises-US$-233-Million-to-Accelerate-Global-Growth-and-Drive-Industrial-Autonomy',
-    reason:
-      'Businesswire serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
-    verifiedBy:
-      'Web search index (queried 2026-08-18): the release is indexed at the exact URL, dated 2025-12-02, titled "Mujin Raises US$ 233 Million to Accelerate Global Growth and Drive Industrial Autonomy", matching the record; the same announcement is corroborated by the live first-party mirror mujin-corp.com and Pulse2.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://www.businesswire.com/news/home/20250821665495/en/Nuro-Closes-203-Million-Series-E-Financing-to-Advance-Its-AI-First-Autonomy-Platform',
-    reason:
-      'Businesswire serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
-    verifiedBy:
-      'Web search index (queried 2026-08-18): the release is indexed at the exact URL, dated 2025-08-21, titled "Nuro Closes $203 Million Series E Financing to Advance Its AI-First Autonomy Platform" ($6B valuation), matching the record; corroborated by the live Yahoo Finance and Morningstar copies of the same wire.',
-    verifiedOn: '2026-08-18',
-  },
-  {
     url: 'https://www.businesswire.com/news/home/20241021330997/en/Carbon-Robotics-Raises-70-Million-Series-D-Investment-Round',
     reason:
       'Businesswire serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
@@ -57,27 +41,11 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
     verifiedOn: '2026-08-18',
   },
   {
-    url: 'https://www.businesswire.com/news/home/20260129548625/en/Automata-Raises-45M-Series-C-to-Build-the-Operating-System-for-Life-Sciences',
-    reason:
-      'Businesswire serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
-    verifiedBy:
-      'Web search index (queried 2026-08-18): the release is indexed at the exact URL, dated 2026-01-29, titled "Automata Raises 45M Series C to Build the Operating System for Life Sciences", matching the record; the record also carries the live first-party automata.tech announcement.',
-    verifiedOn: '2026-08-18',
-  },
-  {
     url: 'https://www.bloomberg.com/news/articles/2026-03-12/dishwashing-home-robot-maker-sunday-hits-1-15-billion-valuation',
     reason:
       'Bloomberg serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
     verifiedBy:
       'Independent fetch client (web fetch, 2026-08-18): HTTP 200, article text served — "Dishwashing Home Robot Maker Sunday Hits $1.15 Billion Valuation", $165M Series B led by Coatue, March 12 2026, matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://www.bloomberg.com/news/articles/2025-10-28/cruise-founder-kyle-vogt-s-robotics-startup-eyes-4-billion-valuation',
-    reason:
-      'Bloomberg serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
-    verifiedBy:
-      'Independent fetch client (web fetch, 2026-08-18): HTTP 200, article text served — "Cruise Founder Kyle Vogt\'s Robotics Startup Eyes $4 Billion Valuation", The Bot Company raising $250M, Oct 28 2025, matching the record.',
     verifiedOn: '2026-08-18',
   },
   {
@@ -94,14 +62,6 @@ export const DATASET_SOURCE_EXCEPTIONS: DatasetSourceException[] = [
       'kelo.com serves HTTP 403 to every non-browser client we can run (node fetch and curl): a bot-wall, not link rot.',
     verifiedBy:
       'Independent fetch client (web fetch, 2026-08-18): HTTP 200, full Reuters wire text served — "UBTech agrees Airbus deal to expand robot use in aviation manufacturing", Walker S2 purchase and aviation-manufacturing cooperation, Jan 21 2026, matching the record.',
-    verifiedOn: '2026-08-18',
-  },
-  {
-    url: 'https://www.therobotreport.com/tag/miso-robotics/',
-    reason:
-      'The Robot Report tag hubs answer HTTP 403 to node fetch with the sweep user agent (its article pages answer 200): a bot-wall on the hub route, not link rot.',
-    verifiedBy:
-      'Text-extraction proxy fetch (r.jina.ai, 2026-08-18): HTTP 200, page title "Miso Robotics Archives - The Robot Report" — the live coverage hub, including the Feb 2026 Zignyl acquisition coverage the record cites it for.',
     verifiedOn: '2026-08-18',
   },
   {

@@ -344,6 +344,8 @@ describe('MarketMap', () => {
     // 84 -> 82 with the 2026-10-20 field audit (29 plotted).
     // 82 -> 83 the same day: Standard Bots' founding year was cut (28 plotted).
     // 83 -> 81 the same day: Lila Sciences and K-Scale Labs joined (30 plotted).
+    // 81 -> 80 the same day: Mytra joined by its total raised (31 plotted).
+    // 80 -> 81 the same day: PaXini's valuation was cut (30 plotted).
     expect(document.querySelector('[data-bubble-excluded]')).toHaveTextContent(
       /81 are left off, not drawn at zero/,
     );
@@ -480,8 +482,10 @@ describe('MarketMap', () => {
     // relax must not fight that choice.
     await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Country'), 'CN');
+    // 21 -> 22 on 2026-10-20: the field audit moved Astribot from Munich to
+    // Shenzhen, where its own site and Pandaily place it.
     await waitFor(() => {
-      expect(screen.getByText('21 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText('22 of 111 companies')).toBeInTheDocument();
     });
     expect(document.querySelector('button[data-map-tile="figure-ai"]')).toBeNull();
     // The details stay open: the selection is explicit.
@@ -493,7 +497,7 @@ describe('MarketMap', () => {
     window.history.replaceState(null, '', '/market-map/?country=CN#company-ghost');
     render(<MarketMap companies={COMPANIES} />);
     await waitFor(() => {
-      expect(screen.getByText('21 of 111 companies')).toBeInTheDocument();
+      expect(screen.getByText('22 of 111 companies')).toBeInTheDocument();
     });
     expect(document.getElementById('company-ghost')).toBeNull();
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();

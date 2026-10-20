@@ -84,6 +84,11 @@ describe('FundingTimeline roving keyboard access', () => {
     // of 12 October 2026 and Moon Surgical its Series B of 17 May 2023.
     // 75 -> 76 when the same audit gave XELA Robotics Plug and Play's
     // strategic investment of 29 April 2026.
+    // 76 -> 77 when the same audit moved Formic's latest round to its
+    // Series A extension of 25 June 2024.
+    // 77 -> 76 when the same audit cut the round dates of Leju Robotics and
+    // Coco Robotics ("this week" in The Robot Report) and gave Starship
+    // Technologies its Series C of 15 October 2025.
     expect(all.length).toBe(76); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);
