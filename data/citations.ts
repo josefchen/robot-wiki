@@ -20999,6 +20999,56 @@ export const CITATIONS: Citation[] = [
     url: 'https://doi.org/10.1016/j.media.2021.102306',
     type: 'paper',
   },
+  // paxton-iros-2026: domain pass 2026-10-06, KOL intake note of Chris Paxton, added 2026-10-20. Newsletter post dated
+  // 12 October 2026 (datePublished 2026-10-12T14:08:38Z), fetched 2026-10-20 (HTTP 200). The post names his
+  // employer: "My team at Agility Robotics".
+  {
+    id: 'paxton-iros-2026',
+    title: 'Dexterity is the Frontier: Thoughts on IROS 2026',
+    authors: ['Chris Paxton'],
+    year: 2026,
+    venue: 'It Can Think!',
+    url: 'https://itcanthink.substack.com/p/dexterity-is-the-frontier-thoughts',
+    type: 'blog',
+  },
+  // fact-2026: domain pass 2026-10-06, KOL intake note of Jiajun Wu, added 2026-10-20. arXiv abstract page and PDF read
+  // 2026-10-20 (HTTP 200; v1 13 Oct 2026). University of Michigan, Stanford University and Microsoft Research.
+  {
+    id: 'fact-2026',
+    title: 'FACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity',
+    authors: ['Zhi Cao', 'Yining Hong', 'Jiaolong Yang', 'Yejin Choi', 'Li Fei-Fei', 'Jiajun Wu', 'Huang Huang'],
+    year: 2026,
+    arxiv: '2610.19155',
+    url: 'https://arxiv.org/abs/2610.19155',
+    type: 'paper',
+  },
+  // dsp-2026: domain pass 2026-10-06, KOL intake note of Jitendra Malik, added 2026-10-20. arXiv abstract page and
+  // PDF read 2026-10-20 (HTTP 200; v1 15 Oct 2026). Amazon Frontier AI & Robotics (FAR) and the University of
+  // Maryland, College Park.
+  {
+    id: 'dsp-2026',
+    title: 'Dexterity from Supervised Play',
+    authors: ['Botao He', 'Yiming Dou', 'Yiannis Aloimonos', 'Jitendra Malik', 'Akash Sharma', 'Ruoshi Liu'],
+    year: 2026,
+    arxiv: '2610.22340',
+    url: 'https://arxiv.org/abs/2610.22340',
+    type: 'paper',
+  },
+  // pantact-2026: domain pass 2026-10-06, KOL intake note of Shuran Song, added 2026-10-20. arXiv abstract page
+  // and PDF read 2026-10-20 (HTTP 200; v1 8 Oct 2026). Stanford University, Amazon FAR and Carnegie Mellon
+  // University.
+  {
+    id: 'pantact-2026',
+    title: 'PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface',
+    authors: [
+      'Xiaomeng Xu', 'Han Zhang', 'Zhian Ruan', 'Xiaofeng Guo', 'Jinkun Cao', 'Ruihan Yang', 'Carmelo Sferrazza',
+      'Shuran Song', 'Guanya Shi',
+    ],
+    year: 2026,
+    arxiv: '2610.12558',
+    url: 'https://arxiv.org/abs/2610.12558',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

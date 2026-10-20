@@ -37,6 +37,7 @@ citations:
   - seed-umi-2026
   - sunday-act1-2025
   - ditto-x-2026
+  - pantact-2026
   - bd-atlas-hand-2026
   - egomimic-2024
   - egodex-2025
@@ -105,6 +106,8 @@ Human and robot arms share no kinematics; every action passes through <Term id="
 ## Gloves and wearables
 
 DexUMI's hand exoskeleton gives the operator direct haptic feedback and adapts human motion to feasible robot-hand motion, for an 86% average success rate <Cite id="dexumi-2025" />. SEED-UMI collects data 3.0x faster than exoskeleton-based teleoperation <Cite id="seed-umi-2026" />. Sunday's Skill Capture Glove shares its robot hand's geometry and sensor layout; Sunday reports converting glove data to robot data with a 90% success rate <Cite id="sunday-act1-2025" />. DITTO-X, from Stanford and Columbia researchers (September 2026), renders joint-level force and fingertip contacts from the robot hand and improved demonstration quality and throughput over a commercial hand-tracking glove <Cite id="ditto-x-2026" />.
+
+PanTact, from Xiaomeng Xu, Shuran Song, Guanya Shi and colleagues at Stanford, Amazon FAR and Carnegie Mellon (October 2026), pairs bimanual UMI grippers with force-sensing patches on the demonstrator's forearms and knees, so each demonstration records where and when the body touches the scene. A Unitree G1 with no body contact sensors, trained on 100 or 110 such demonstrations per task, grasped a small object and then embraced a bulky one in 17 of 20 trials, and carried a box while pushing another with its legs in 9 of 10. Trained on the same demonstrations, a humanoid UMI baseline that tracked only the grippers consistently failed to support the bulky object <Cite id="pantact-2026" />.
 
 Boston Dynamics argues that wearables capture only proxy signals for controlling a dexterous hand, and that reinforcement learning in simulation is an essential component <Cite id="bd-atlas-hand-2026" />. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />. Apple's EgoDex recorded 829 hours with Vision Pro hand tracking <Cite id="egodex-2025" />; Generalist AI reports over 270,000 hours for GEN-0 <Cite id="generalist-gen0-2025" />.
 

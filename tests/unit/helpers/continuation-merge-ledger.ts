@@ -388,6 +388,13 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   edge that continues its images bundle A endpoint, plain or as a
  *   resolution from the sealed hash where its chain already holds one. Its
  *   source and mount edges start from an absent seal and re-anchor nothing.
+ * - `kol-batch-20261020-`: the KOL triage batch of 2026-10-20 added dated
+ *   paragraphs to the data bottleneck, the hardware taxonomy and the
+ *   teleoperation rigs and registered four records, which moved the three
+ *   articles' prose, relationships and front-matter citation lists and
+ *   `citation-rendering:label-and-meta`, each member with one edge from its
+ *   last approved endpoint, or one resolution from the sealed hash where its
+ *   chain already holds one.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -438,6 +445,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'length-cut-20261013-data-hardware-',
   'length-cut-20261014-adjacent-',
   'anatomy-manip-b04-figures-20261015-prose-',
+  'kol-batch-20261020-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

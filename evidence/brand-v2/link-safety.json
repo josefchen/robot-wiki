@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "339ed0128cfd60aee1ec8762dffd3f4190929eccad1e0861b5699837ec0fd8a4",
+  "fingerprint": "92c32be63f9663eec920eb908a47c21d5f53a2018f5dc97a98dc1e51898d033c",
   "source": "out/ static export",
   "routes": [
     {
@@ -232,8 +232,8 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundAnchors": 88,
-      "distinctHrefs": 41,
+      "outboundAnchors": 92,
+      "distinctHrefs": 43,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -268,8 +268,8 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "outboundAnchors": 152,
-      "distinctHrefs": 67,
+      "outboundAnchors": 154,
+      "distinctHrefs": 68,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -304,8 +304,8 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "outboundAnchors": 86,
-      "distinctHrefs": 42,
+      "outboundAnchors": 88,
+      "distinctHrefs": 43,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -854,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6028,
-  "distinctOutboundHrefs": 1625,
+  "outboundAnchors": 6036,
+  "distinctOutboundHrefs": 1629,
   "anchorsByShape": {
-    "citation-chip": 2514,
+    "citation-chip": 2518,
     "footer": 152,
     "figure-credit": 873,
-    "reference-entry": 2174,
+    "reference-entry": 2178,
     "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5692,
+  "anchorsWithNoreferrer": 5700,
   "keyboard": [
     {
       "route": "/",
@@ -1036,11 +1036,11 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "outboundInDom": 88,
-      "reachedByTab": 88,
+      "outboundInDom": 92,
+      "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 216
+      "tabStops": 225
     },
     {
       "route": "/data-hardware/datasets/",
@@ -1060,11 +1060,11 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "outboundInDom": 152,
-      "reachedByTab": 152,
+      "outboundInDom": 154,
+      "reachedByTab": 154,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 291
+      "tabStops": 294
     },
     {
       "route": "/data-hardware/industrial-deployment/",
@@ -1084,11 +1084,11 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "outboundInDom": 86,
-      "reachedByTab": 86,
+      "outboundInDom": 88,
+      "reachedByTab": 88,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 206
+      "tabStops": 210
     },
     {
       "route": "/editorial-policy/",

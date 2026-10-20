@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-19T07:26:40Z",
+  "observedAt": "2026-10-20T16:50:37Z",
   "sources": [
     {
       "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
@@ -378,16 +378,16 @@
       ]
     },
     {
-      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "archivedFrom": "179f3c66c20e01f2670d1a0c694312cdee845c69",
       "before": {
         "path": "content/data-hardware/data-bottleneck.mdx",
-        "bytes": 13075,
-        "sha256": "adb7afc8bb6914c190fd1ba7b21948c57729daa487e05af716e6ac790244ba08"
+        "bytes": 14175,
+        "sha256": "9104f056f21f19b3c9986260df0caadcaf91dbb3c1fc6b79a51e6f1511f878e0"
       },
       "after": {
         "path": "content/data-hardware/data-bottleneck.mdx",
-        "bytes": 13164,
-        "sha256": "8d7e40d18510d4e932570bc0da38f3a05a452bcb60b41b889296147abff6ae24"
+        "bytes": 14264,
+        "sha256": "0e5457aa30ececce1bc3cba3c5a942c439c8866e879d38c9aa8f2f1c113d4081"
       },
       "mounts": [
         "droid-in-the-wild-scenes-2024",
@@ -459,16 +459,16 @@
       ]
     },
     {
-      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "archivedFrom": "179f3c66c20e01f2670d1a0c694312cdee845c69",
       "before": {
         "path": "content/data-hardware/hardware-taxonomy.mdx",
-        "bytes": 10656,
-        "sha256": "8d68b257c69ade1c696c14c2cb2c8249ee04447dfa6f58ab061518f7b6f9f770"
+        "bytes": 11123,
+        "sha256": "0791f01688e3925c5bf27c667684b984f776801ff5229ad098d1627c6d7195f1"
       },
       "after": {
         "path": "content/data-hardware/hardware-taxonomy.mdx",
-        "bytes": 10758,
-        "sha256": "e88ad6efb97d24537100a0c3fcd5e22163d544bd490ddc5355f0f1bedf0c3e47"
+        "bytes": 11225,
+        "sha256": "01727d1b7c0ddd110bdafd3c957475ab217d338cf71adad943ce4bf76969a180"
       },
       "mounts": [
         "nist-dexterous-manipulation-testbed-2013",
@@ -545,16 +545,16 @@
       ]
     },
     {
-      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "archivedFrom": "8f29baafd2ad0b97114d9c91a842eafdbf00f54f",
       "before": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 8784,
-        "sha256": "cea19803af57601809d29f0e26061bda4ff1226257286b90abcf8470c889e0bc"
+        "bytes": 9499,
+        "sha256": "d3c6abe7ca60488ebe17673d52b6c06812ee9742dd3404901c576c099359b005"
       },
       "after": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 8874,
-        "sha256": "ddf115791949d04f844312d78797864dfd4d0b88fff8bdd3ba29fb41c3c513ab"
+        "bytes": 9589,
+        "sha256": "a3a49cb85b1ef94c4569ae2516102b5aec1aabfbf5b57681d9de9b07e9bc42f3"
       },
       "mounts": [
         "inl-hot-cell-manipulators-2006",

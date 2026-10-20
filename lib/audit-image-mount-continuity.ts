@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176288, sha256: 'cf13e0243bf239997324cab4d03ed2dcfb62398654324dd9e3f6d6196449e67b' };
+const reviewPin = { bytes: 176288, sha256: '09f057b654024e2f8f45f8d7fea918963972837bb07cee7ff55181ce73f18615' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -187,13 +187,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/ros2-for-ml-engineers.mdx', [8903, '676d1a3e723e9478440dba49b0e10f70bd4f37e5b68bea5d1c8daa2d6730a520']],
   ['content/classical/scene-representation.mdx', [16376, '6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc']],
   ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],
-  ['content/data-hardware/data-bottleneck.mdx', [13164, '8d7e40d18510d4e932570bc0da38f3a05a452bcb60b41b889296147abff6ae24']],
+  ['content/data-hardware/data-bottleneck.mdx', [14264, '0e5457aa30ececce1bc3cba3c5a942c439c8866e879d38c9aa8f2f1c113d4081']],
   ['content/data-hardware/datasets.mdx', [12114, '698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51']],
   ['content/data-hardware/evaluation-crisis.mdx', [14999, 'ebdc3f24dcd30fbc4ef0209eabb8dc5d560c79f72d79b330a171dfd3f928369c']],
-  ['content/data-hardware/hardware-taxonomy.mdx', [10758, 'e88ad6efb97d24537100a0c3fcd5e22163d544bd490ddc5355f0f1bedf0c3e47']],
+  ['content/data-hardware/hardware-taxonomy.mdx', [11225, '01727d1b7c0ddd110bdafd3c957475ab217d338cf71adad943ce4bf76969a180']],
   ['content/data-hardware/industrial-deployment.mdx', [16804, '94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b']],
   ['content/data-hardware/robot-learning-stack.mdx', [10400, 'd99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7']],
-  ['content/data-hardware/teleop-rigs.mdx', [8874, 'ddf115791949d04f844312d78797864dfd4d0b88fff8bdd3ba29fb41c3c513ab']],
+  ['content/data-hardware/teleop-rigs.mdx', [9589, 'a3a49cb85b1ef94c4569ae2516102b5aec1aabfbf5b57681d9de9b07e9bc42f3']],
   ['content/frontier/bear-case.mdx', [10119, 'bfac4a48de3b0c71bd41e20e1eb1b7508898fd31d60e904729b50714b073e2a8']],
   ['content/frontier/competing-theses.mdx', [14365, '86e4399da86ea923b7ea52759b903c61deba9df47b5167a6d021429da1d3bec7']],
   ['content/frontier/dexterity.mdx', [17774, '62e378f98f9ae2edaacb5e154f17ab248d5c2afd7e0909174841a6fd3858beeb']],

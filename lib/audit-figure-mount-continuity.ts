@@ -71,7 +71,7 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 62838, sha256: '8a6cb0a505f6057434f764f16bc53632754898c078a47f07693d2dbacd8a3eb3' };
+const reviewPin = { bytes: 62838, sha256: 'c7ccdce0ba7643f779af41e0898123cd350a46231352a15183021073c35e1252' };
 
 /** Reviewed successor bytes per path (one per mount change, oldest first), so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = new Map([
@@ -80,7 +80,7 @@ const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = 
   ['content/classical/ros2-for-ml-engineers.mdx', [[9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']]],
   ['content/classical/state-estimation.mdx', [[14073, 'f4ee9d7b68feee568ecf5b21f95d37bfda3f51443c96533816d9929f214232c1']]],
   ['content/data-hardware/robot-learning-stack.mdx', [[11133, 'd5721a94dca00a2436bd40421cd71a69a0419c87459c160403e2c97141564b39']]],
-  ['content/data-hardware/teleop-rigs.mdx', [[8984, '52175be276d9fa16f7accbf7657c95d158561663f729f3792979560fa03bd471']]],
+  ['content/data-hardware/teleop-rigs.mdx', [[9699, 'f0115721ca4182a93ab1047168171137f738ebb2bc777439a59c0418e42bc5fa']]],
   ['content/frontier/bear-case.mdx', [[10227, '20caa5e4beb5395a272276347a9e9d6a370d7a88a7ec385df815d6e3521de8d4']]],
   ['content/frontier/competing-theses.mdx', [[15754, '265c64148b37d05e0947a6679ab2e9673fe40aa7dc069e8e702b529f86a2627a']]],
   ['content/frontier/safety-and-assurance.mdx', [[18466, '6bca2f2c739c1205b6aba50f63c357c8f2f4ee9c8501dd481e17a8aa8233cde5']]],

@@ -124,19 +124,19 @@
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {
-    "words": 1755,
-    "minutes": 9
+    "words": 1930,
+    "minutes": 10
   },
   "data-hardware/datasets": {
     "words": 1661,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 2782,
+    "words": 2847,
     "minutes": 14
   },
   "data-hardware/teleop-rigs": {
-    "words": 1545,
+    "words": 1658,
     "minutes": 8
   },
   "data-hardware/evaluation-crisis": {

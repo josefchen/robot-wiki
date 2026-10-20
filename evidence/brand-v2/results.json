@@ -2717,12 +2717,12 @@
                   "Data, Hardware & Evaluation"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
-                "citationCount": 36,
+                "readingMinutes": 10,
+                "citationCount": 38,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
-                "citationCountText": "36 sources",
+                "readingTimeText": "10 min read",
+                "citationCountText": "38 sources",
                 "bibliographyIds": [
                   "gpt3-2020",
                   "llama-3-2024",
@@ -2759,7 +2759,9 @@
                   "gr00t-n1-2025",
                   "sim-real-cotraining-2025",
                   "interndata-a1-2025",
-                  "levine-sporks-2025"
+                  "levine-sporks-2025",
+                  "fact-2026",
+                  "dsp-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -2989,11 +2991,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 14,
-                "citationCount": 48,
+                "citationCount": 49,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "14 min read",
-                "citationCountText": "48 sources",
+                "citationCountText": "49 sources",
                 "bibliographyIds": [
                   "so-arm100-repo-2026",
                   "seeed-so-arm101-pro-2026",
@@ -3040,6 +3042,7 @@
                   "nvidia-jetson-faq",
                   "helix-2025",
                   "fcc-covered-list-robots-2026",
+                  "paxton-iros-2026",
                   "lerobot-pricing-2026",
                   "robozaps-humanoids-2026",
                   "1x-world-model-lab-2026"
@@ -3278,11 +3281,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 8,
-                "citationCount": 34,
+                "citationCount": 35,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "8 min read",
-                "citationCountText": "34 sources",
+                "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "act-aloha-2023",
                   "mobile-aloha-2024",
@@ -3313,6 +3316,7 @@
                   "seed-umi-2026",
                   "sunday-act1-2025",
                   "ditto-x-2026",
+                  "pantact-2026",
                   "bd-atlas-hand-2026",
                   "egomimic-2024",
                   "egodex-2025",
@@ -11221,7 +11225,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 36,
+                  "count": 38,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -11231,7 +11235,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-                      "count": 36,
+                      "count": 38,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11243,7 +11247,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 88,
+                  "count": 92,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -11253,7 +11257,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 44,
+                      "count": 46,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -11263,7 +11267,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 44,
+                      "count": 46,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11693,7 +11697,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 48,
+                  "count": 49,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -11703,7 +11707,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-                      "count": 48,
+                      "count": 49,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11715,7 +11719,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 104,
+                  "count": 106,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -11725,7 +11729,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 52,
+                      "count": 53,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -11735,7 +11739,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 52,
+                      "count": 53,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -12165,7 +12169,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 34,
+                  "count": 35,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -12175,7 +12179,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-                      "count": 34,
+                      "count": 35,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -12187,7 +12191,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 72,
+                  "count": 74,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -12197,7 +12201,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 36,
+                      "count": 37,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -12207,7 +12211,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 36,
+                      "count": 37,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -108772,12 +108776,12 @@
                   "Data, Hardware & Evaluation"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
-                "citationCount": 36,
+                "readingMinutes": 10,
+                "citationCount": 38,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
-                "citationCountText": "36 sources",
+                "readingTimeText": "10 min read",
+                "citationCountText": "38 sources",
                 "bibliographyIds": [
                   "gpt3-2020",
                   "llama-3-2024",
@@ -108814,7 +108818,9 @@
                   "gr00t-n1-2025",
                   "sim-real-cotraining-2025",
                   "interndata-a1-2025",
-                  "levine-sporks-2025"
+                  "levine-sporks-2025",
+                  "fact-2026",
+                  "dsp-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -109044,11 +109050,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 14,
-                "citationCount": 48,
+                "citationCount": 49,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "14 min read",
-                "citationCountText": "48 sources",
+                "citationCountText": "49 sources",
                 "bibliographyIds": [
                   "so-arm100-repo-2026",
                   "seeed-so-arm101-pro-2026",
@@ -109095,6 +109101,7 @@
                   "nvidia-jetson-faq",
                   "helix-2025",
                   "fcc-covered-list-robots-2026",
+                  "paxton-iros-2026",
                   "lerobot-pricing-2026",
                   "robozaps-humanoids-2026",
                   "1x-world-model-lab-2026"
@@ -109333,11 +109340,11 @@
                 ],
                 "lastReviewed": "2026-08-17",
                 "readingMinutes": 8,
-                "citationCount": 34,
+                "citationCount": 35,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
                 "readingTimeText": "8 min read",
-                "citationCountText": "34 sources",
+                "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "act-aloha-2023",
                   "mobile-aloha-2024",
@@ -109368,6 +109375,7 @@
                   "seed-umi-2026",
                   "sunday-act1-2025",
                   "ditto-x-2026",
+                  "pantact-2026",
                   "bd-atlas-hand-2026",
                   "egomimic-2024",
                   "egodex-2025",
@@ -114745,7 +114753,9 @@
                   "gr00t-n1-2025",
                   "sim-real-cotraining-2025",
                   "interndata-a1-2025",
-                  "levine-sporks-2025"
+                  "levine-sporks-2025",
+                  "fact-2026",
+                  "dsp-2026"
                 ],
                 "citationMarkers": [
                   "droid-2024",
@@ -114774,6 +114784,7 @@
                   "egocentric-100k-2025",
                   "egoscale-2026",
                   "egomimic-2024",
+                  "fact-2026",
                   "hiphi-2026",
                   "generalist-gen0-2025",
                   "generalist-gen1-2026",
@@ -114785,6 +114796,7 @@
                   "prism-humanoid-2026",
                   "dexagent-2026",
                   "mobilevista-2026",
+                  "dsp-2026",
                   "gr00t-n1-2025",
                   "sim-real-cotraining-2025",
                   "interndata-a1-2025",
@@ -115161,6 +115173,7 @@
                   "nvidia-jetson-faq",
                   "helix-2025",
                   "fcc-covered-list-robots-2026",
+                  "paxton-iros-2026",
                   "lerobot-pricing-2026",
                   "robozaps-humanoids-2026",
                   "1x-world-model-lab-2026"
@@ -115206,6 +115219,7 @@
                   "droid-2024",
                   "agibot-world-2025",
                   "tactile-outlook-2025",
+                  "paxton-iros-2026",
                   "tactile-outlook-2025",
                   "digit-sensor-2020",
                   "digit-360-2024",
@@ -115552,6 +115566,7 @@
                   "seed-umi-2026",
                   "sunday-act1-2025",
                   "ditto-x-2026",
+                  "pantact-2026",
                   "bd-atlas-hand-2026",
                   "egomimic-2024",
                   "egodex-2025",
@@ -115590,6 +115605,7 @@
                   "seed-umi-2026",
                   "sunday-act1-2025",
                   "ditto-x-2026",
+                  "pantact-2026",
                   "bd-atlas-hand-2026",
                   "egomimic-2024",
                   "egodex-2025",
@@ -130772,7 +130788,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/data-bottleneck moved from 799c6d64c521a5fdb696aebe6fd7abb710d0dbb7121cefffe482989e8e10a054 to 4548d837c808554f188541abf7da4fe792b1f41fb4e04b398aada251c28ff39c exactly as approved delta length-cut-20261013-data-hardware-frontmatter-data-bottleneck permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/data-bottleneck, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-frontmatter-data-bottleneck). The front-matter citation list keeps every earlier id in order and appends 17 ids the rewritten body cites (llama-4-model-card-2025, xiaomi-robotics-1-2026, generalist-gen1-2026, qwen3-2025, goldberg-data-gap-2025, pi0-2024, kaplan-scaling-laws-2020, sartor-robotics-scaling-2024, egocentric-100k-2025, egomimic-2024, generalist-gen0-2025, sunday-act1-2025, figure-go-big-2025, gr00t-n1-2025, sim-real-cotraining-2025, interndata-a1-2025, levine-sporks-2025); title, description, dates and every other field are unchanged. Each new registry entry has a row in audit/citations.md, and audit/evidence/length-cut-20261013-data-hardware/source-transition.json records the article's edits.",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/data-bottleneck moved from 799c6d64c521a5fdb696aebe6fd7abb710d0dbb7121cefffe482989e8e10a054 to 297ba113abb3d518fcf9273cff0df87c0be9dc6491b9656f4db2cd07634e525a exactly as approved delta kol-batch-20261020-frontmatter-data-hardware-data-bottleneck permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/data-bottleneck: the front-matter citation list keeps every earlier id in order and appends fact-2026 and dsp-2026, the ids the new paragraphs cite. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-data-bottleneck).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130784,9 +130800,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/data-bottleneck",
           "baselineHash": "799c6d64c521a5fdb696aebe6fd7abb710d0dbb7121cefffe482989e8e10a054",
-          "currentHash": "4548d837c808554f188541abf7da4fe792b1f41fb4e04b398aada251c28ff39c",
+          "currentHash": "297ba113abb3d518fcf9273cff0df87c0be9dc6491b9656f4db2cd07634e525a",
           "status": "approved-delta",
-          "approvedDelta": "length-cut-20261013-data-hardware-frontmatter-data-bottleneck"
+          "approvedDelta": "kol-batch-20261020-frontmatter-data-hardware-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130856,7 +130872,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/hardware-taxonomy moved from f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01 to 989095a9c7ed1a664f395d246a670fe45c73d35a97b0cde595b8c7860626935b exactly as approved delta length-cut-20261013-data-hardware-frontmatter-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one plain edge from the member's last approved endpoint (reader-f20-dates-20260923-1). The front-matter citation list keeps every earlier id in order and appends 25 ids the rewritten body cites (bd-atlas-unveil-2026, noetix-bumi-2025, trossen-widowx-ai-2026, aloha-2-2024, hf-pollen-acquisition-2025, agibot-omdia-2026, ifr-service-robots-2026, unitree-prospectus-2026, unitree-r1-2026, 1x-order-2026, 1x-neo-factory-2026, bd-rmac-2026, figure-botq-2025, agility-digit-5-2026, tesla-q2-2026-update, 1x-neos-hands-2026, bd-atlas-hand-2026, ruka-2025, orca-hand-2025, shadow-dexterous-hand-2026, digit-360-2024, nvidia-jetson-thor-available-2025, nvidia-jetson-faq, helix-2025, fcc-covered-list-robots-2026); title, description, dates and every other field are unchanged. Each new registry entry has a row in audit/citations.md, and audit/evidence/length-cut-20261013-data-hardware/source-transition.json records the article's edits.",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/hardware-taxonomy moved from f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01 to 51622c17ac833cd5353dc77d2d10894d998756cd0d6c6da0da0df0dc356e4e75 exactly as approved delta kol-batch-20261020-frontmatter-data-hardware-hardware-taxonomy permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/hardware-taxonomy: the front-matter citation list keeps every earlier id in order and appends paxton-iros-2026, the id the new paragraph cites. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-hardware-taxonomy).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130868,9 +130884,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
           "baselineHash": "f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01",
-          "currentHash": "989095a9c7ed1a664f395d246a670fe45c73d35a97b0cde595b8c7860626935b",
+          "currentHash": "51622c17ac833cd5353dc77d2d10894d998756cd0d6c6da0da0df0dc356e4e75",
           "status": "approved-delta",
-          "approvedDelta": "length-cut-20261013-data-hardware-frontmatter-hardware-taxonomy"
+          "approvedDelta": "kol-batch-20261020-frontmatter-data-hardware-hardware-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -130940,7 +130956,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/teleop-rigs moved from 18a02d9f4ee613e9b63179d2c733fcfa07bf6877e0c8f215ad4a2356d47f1fec to 5edd45db2bb4a6fb1094359f61d5fb0b5000cf7100ab4a5ee63e3df80d67f8e0 exactly as approved delta length-cut-20261013-data-hardware-frontmatter-teleop-rigs permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/teleop-rigs, as one plain edge from the member's last approved endpoint (round5-closeout-teleop-rigs-frontmatter). The front-matter citation list keeps every earlier id in order and appends 23 ids the rewritten body cites (generalist-gen1-2026, xiaomi-robotics-1-2026, meta-quest-3s-2024, aloha-2-2024, aloha-unleashed-2024, rt1-2022, airexo-2-2025, homie-2025, forcemimic-2024, lin-data-scaling-laws-2024, hifi-umi-2026, roboturk-2018, open-teach-2024, apple-vision-pro-m5-2025, humanplus-2024, dexumi-2025, seed-umi-2026, sunday-act1-2025, ditto-x-2026, bd-atlas-hand-2026, egomimic-2024, egodex-2025, generalist-gen0-2025); title, description, dates and every other field are unchanged. Each new registry entry has a row in audit/citations.md, and audit/evidence/length-cut-20261013-data-hardware/source-transition.json records the article's edits.",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/teleop-rigs moved from 18a02d9f4ee613e9b63179d2c733fcfa07bf6877e0c8f215ad4a2356d47f1fec to 343d3787ffd7cb1efe2dd65a6d374f4be5f87d091ee92112fa5acb67b4567005 exactly as approved delta kol-batch-20261020-frontmatter-data-hardware-teleop-rigs permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/teleop-rigs: the front-matter citation list keeps every earlier id in order and inserts pantact-2026, the id the new paragraph cites, after ditto-x-2026 in reading order. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-teleop-rigs).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130952,9 +130968,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/teleop-rigs",
           "baselineHash": "18a02d9f4ee613e9b63179d2c733fcfa07bf6877e0c8f215ad4a2356d47f1fec",
-          "currentHash": "5edd45db2bb4a6fb1094359f61d5fb0b5000cf7100ab4a5ee63e3df80d67f8e0",
+          "currentHash": "343d3787ffd7cb1efe2dd65a6d374f4be5f87d091ee92112fa5acb67b4567005",
           "status": "approved-delta",
-          "approvedDelta": "length-cut-20261013-data-hardware-frontmatter-teleop-rigs"
+          "approvedDelta": "kol-batch-20261020-frontmatter-data-hardware-teleop-rigs"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -133824,7 +133840,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to c1445dc1508c859643078986a8caf3f1b1a75e552e39398ca3f995b525928296 exactly as approved delta length-cut-20261014-adjacent-citation-rendering permits: Adjacent domain pass and length cut of 2026-10-14, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 73 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-citation-rendering. The citation rendering record changes because the pass adds 108 registry entries, corrects the reynolds-boids-1987 venue to its Crossref record and adds eight organisation chip names in data/citations.ts (Baidu, FAA, NHTSA, Open-H-Embodiment Consortium, Zipline, two Waymo team bylines and Wing); no label, meta or rendering rule changes.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 9d79af3ee4d28de077643253799d9528b5130f54063dfe5d9495496b498b3043 exactly as approved delta kol-batch-20261020-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the KOL triage batch of 2026-10-20 registered 4 citation records (paxton-iros-2026, fact-2026, dsp-2026, pantact-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 74 earlier approved edges exactly, ending with length-cut-20261014-adjacent-citation-rendering.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133836,9 +133852,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "c1445dc1508c859643078986a8caf3f1b1a75e552e39398ca3f995b525928296",
+          "currentHash": "9d79af3ee4d28de077643253799d9528b5130f54063dfe5d9495496b498b3043",
           "status": "approved-addition",
-          "approvedDelta": "length-cut-20261014-adjacent-citation-rendering"
+          "approvedDelta": "kol-batch-20261020-citation-rendering"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -142552,6 +142568,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:dsp-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:dsp-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:dsp-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:dsp-2026 moved from null to 5d59d5eae47c9d2c8618e65f4c98fe3d47e138e86ca2d9626f82fdce911c59d7 exactly as approved delta kol-batch-20261020-citation-dsp-2026 permits: Registers the new citation dsp-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Jitendra Malik on \"Dexterity from Supervised Play\"; arXiv 2610.22340, v1 15 Oct 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:dsp-2026",
+          "baselineHash": null,
+          "currentHash": "5d59d5eae47c9d2c8618e65f4c98fe3d47e138e86ca2d9626f82fdce911c59d7",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261020-citation-dsp-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:dsrl-2025",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:dsrl-2025",
@@ -143975,6 +144019,34 @@
           "currentHash": "1a9dd42c13f088fc436fa9b11fad6c986570aaf5c07391c94480f9b3ffacdf9d",
           "status": "approved-addition",
           "approvedDelta": "length-cut-20261014-adjacent-citation-faa-part-108-reopen-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:fact-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:fact-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:fact-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:fact-2026 moved from null to 8024bc737991886be5278457c704ddc5fbfe69a218cb55960fd9aa183be80436 exactly as approved delta kol-batch-20261020-citation-fact-2026 permits: Registers the new citation fact-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Jiajun Wu on \"FACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity\"; arXiv 2610.19155, v1 13 Oct 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:fact-2026",
+          "baselineHash": null,
+          "currentHash": "8024bc737991886be5278457c704ddc5fbfe69a218cb55960fd9aa183be80436",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261020-citation-fact-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -159268,6 +159340,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:pantact-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:pantact-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:pantact-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:pantact-2026 moved from null to d2920ef9e54bfdc43fd0a69138d30f14af2c02270ff6ad63afce8b15f331b2c0 exactly as approved delta kol-batch-20261020-citation-pantact-2026 permits: Registers the new citation pantact-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Shuran Song on \"PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface\"; arXiv 2610.12558, v1 8 Oct 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:pantact-2026",
+          "baselineHash": null,
+          "currentHash": "d2920ef9e54bfdc43fd0a69138d30f14af2c02270ff6ad63afce8b15f331b2c0",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261020-citation-pantact-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:park-2017-bounding",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:park-2017-bounding",
@@ -159403,6 +159503,34 @@
           "currentHash": "0f78772045bbbf2490a3bbdc1a1ceeaa2b4ce5e1c0bc5d3f7084fe8165c7bfe0",
           "status": "approved-addition",
           "approvedDelta": "kol-backlog-20261001-adjacent-citation-paxton-autonomous-trucks-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:paxton-iros-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:paxton-iros-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:paxton-iros-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:paxton-iros-2026 moved from null to 6f132875f82320894590368e1113dd6c17315ca94a16164a220dbe97bdf5ab10 exactly as approved delta kol-batch-20261020-citation-paxton-iros-2026 permits: Registers the new citation paxton-iros-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Chris Paxton on his Substack post \"Dexterity is the Frontier: Thoughts on IROS 2026\" of 12 October 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:paxton-iros-2026",
+          "baselineHash": null,
+          "currentHash": "6f132875f82320894590368e1113dd6c17315ca94a16164a220dbe97bdf5ab10",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261020-citation-paxton-iros-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -172716,7 +172844,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to ea9eac89dc11bcadc53d0f8e14b39b410c0139173d01ecbf19c8f9d3120097fd exactly as approved delta images-dh-20261015-prose-data-hardware-data-bottleneck permits: The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one plain edge from the member's last approved endpoint (length-cut-20261013-data-hardware-prose-data-bottleneck). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: droid-in-the-wild-scenes-2024 after the lead paragraph and umi-test-environments-2024 in \"What the scaling laws say: diversity beats density\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "actual": "prose member article:data-hardware/data-bottleneck moved from 91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2 to 05c82ef878bcec269d4b023d503487b849ebadfb8d41d3d489d3b0d732a3b67d exactly as approved delta kol-batch-20261020-prose-data-hardware-data-bottleneck permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/data-bottleneck: adds two dated paragraphs in \"Around the bottleneck: data that does not need a robot\": FACT after the EgoMimic paragraph (pretrained mostly on about 2,000 hours of tactile-glove human demonstrations; 41.4% mean success on seven binary tasks against 8.6% for T-Rex and 1.4% for pi0.5 fine-tuned on the same data; test-tube cap 0 of 10 without force pretraining against 8 of 10; fact-2026, arXiv 2610.19155) and Dexterity from Supervised Play after the MobileVISTA paragraph (15 minutes of human play on a 22-joint hand; 91.4% within 0.6 rad on 128 simulated trials, PPO about 490 times the data for 86.7%, 90.0% on the real hand; dsp-2026, arXiv 2610.22340). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (images-dh-20261015-prose-data-hardware-data-bottleneck).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -172728,9 +172856,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
-          "currentHash": "ea9eac89dc11bcadc53d0f8e14b39b410c0139173d01ecbf19c8f9d3120097fd",
+          "currentHash": "05c82ef878bcec269d4b023d503487b849ebadfb8d41d3d489d3b0d732a3b67d",
           "status": "approved-delta",
-          "approvedDelta": "images-dh-20261015-prose-data-hardware-data-bottleneck"
+          "approvedDelta": "kol-batch-20261020-prose-data-hardware-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -172800,7 +172928,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to acfe8dc62f1895ae6e6ecfc148508ce2c8f58c8b853d68748f94c26f05655955 exactly as approved delta images-dh-20261015-prose-data-hardware-hardware-taxonomy permits: The data-hardware images of 2026-10-15 (the data-hardware image batch, integrated on the cut data-hardware articles), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 30 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-prose-hardware-taxonomy. The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: nist-dexterous-manipulation-testbed-2013 after the lead paragraph and jetson-agx-orin-auledas-2024 in \"Compute: closing the loop\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "actual": "prose member article:data-hardware/hardware-taxonomy moved from c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0 to 9950d7013e51cf07ac92763a5bdd58971c5698bf6f2dff4312596162ca674ab2 exactly as approved delta kol-batch-20261020-prose-data-hardware-hardware-taxonomy permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/hardware-taxonomy: adds one dated paragraph in \"Sensors: touch is the missing channel\" after the tactile-outlook paragraph: Chris Paxton of Agility Robotics (12 October 2026) on why multi-fingered hands may need the touch sensing two-finger grippers can do without, and his quoted view that off-the-shelf tendon-driven hands make human-like dexterity \"an intelligence problem, instead of a hardware design problem\" (paxton-iros-2026, Substack post of 12 October 2026). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 31 earlier approved edges exactly, ending with images-dh-20261015-prose-data-hardware-hardware-taxonomy.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -172812,9 +172940,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
-          "currentHash": "acfe8dc62f1895ae6e6ecfc148508ce2c8f58c8b853d68748f94c26f05655955",
+          "currentHash": "9950d7013e51cf07ac92763a5bdd58971c5698bf6f2dff4312596162ca674ab2",
           "status": "approved-delta",
-          "approvedDelta": "images-dh-20261015-prose-data-hardware-hardware-taxonomy"
+          "approvedDelta": "kol-batch-20261020-prose-data-hardware-hardware-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -172884,7 +173012,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to 52c9dde6b9f7943f92d886760a936c4704f3464529164939a682d8a98f189d8c exactly as approved delta anatomy-dh-new-figures-20261019-prose-teleop-rigs permits: Data-hardware isometric figure batch data-hardware-new of 2026-10-19 (one new figure: KinematicTwin in teleoperation rigs, a small printed leader arm and the robot arm it drives on one bench), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 23 earlier approved edges exactly, ending with images-dh-20261015-prose-data-hardware-teleop-rigs. Mounts the new KinematicTwin after the paragraph that introduces GELLO as the kinematic twin, as one import line, on its own line between blank lines after the frontmatter, and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (extended on 2026-10-15 and on 2026-10-19; taking the admitted import and mount out gives the head bytes exactly, and the layer is read before the image-mount layer for this article, whose images landed on 2026-10-15). No prose, number or citation changes; this edge moves the prose member to the mounted text.",
+      "actual": "prose member article:data-hardware/teleop-rigs moved from 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29 to 60a54731fb89110488589ff7a41874ecf2c4834ccc71bdf4103b3b75697fcfca exactly as approved delta kol-batch-20261020-prose-data-hardware-teleop-rigs permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/teleop-rigs: adds one dated paragraph in \"Gloves and wearables\" between the paragraph that ends with DITTO-X and the Boston Dynamics paragraph: PanTact (Xiaomeng Xu, Shuran Song, Guanya Shi and colleagues at Stanford, Amazon FAR and Carnegie Mellon, October 2026) pairs bimanual UMI grippers with force-sensing patches on the demonstrator's forearms and knees; a Unitree G1 without body contact sensors, trained on 100 or 110 demonstrations per task, succeeded in 17 of 20 Grasp-and-Embrace trials and 9 of 10 Carry-and-Push trials, and a humanoid UMI baseline that tracked only the grippers, trained on the same demonstrations, consistently failed to support the bulky object (pantact-2026, arXiv 2610.12558). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 24 earlier approved edges exactly, ending with anatomy-dh-new-figures-20261019-prose-teleop-rigs.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -172896,9 +173024,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/teleop-rigs",
           "baselineHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
-          "currentHash": "52c9dde6b9f7943f92d886760a936c4704f3464529164939a682d8a98f189d8c",
+          "currentHash": "60a54731fb89110488589ff7a41874ecf2c4834ccc71bdf4103b3b75697fcfca",
           "status": "approved-delta",
-          "approvedDelta": "anatomy-dh-new-figures-20261019-prose-teleop-rigs"
+          "approvedDelta": "kol-batch-20261020-prose-data-hardware-teleop-rigs"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -174312,7 +174440,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/data-bottleneck moved from aac9900441fad3288b177a47fc6672bdbf2413156da6345cca2586aa79d17e50 to 1d8fe44311bfc5ef72a403b9b8811a6fae8db4341bf8c6b7aade590b669638e9 exactly as approved delta length-cut-20261013-data-hardware-relationships-data-bottleneck permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/data-bottleneck, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-data-bottleneck). The relationships record follows the inline citations the rewrite changed: 21 sources are newly cited in the body; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
+      "actual": "relationships member article:data-hardware/data-bottleneck moved from aac9900441fad3288b177a47fc6672bdbf2413156da6345cca2586aa79d17e50 to d6d4aa2c3e07dea3d31f55ae41bbb076bb26b4e8b41bb6ee733f746ea434ac60 exactly as approved delta kol-batch-20261020-relationships-data-hardware-data-bottleneck permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/data-bottleneck: the relationships record follows the new inline citations (fact-2026 and dsp-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-relationships-data-bottleneck).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -174324,9 +174452,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/data-bottleneck",
           "baselineHash": "aac9900441fad3288b177a47fc6672bdbf2413156da6345cca2586aa79d17e50",
-          "currentHash": "1d8fe44311bfc5ef72a403b9b8811a6fae8db4341bf8c6b7aade590b669638e9",
+          "currentHash": "d6d4aa2c3e07dea3d31f55ae41bbb076bb26b4e8b41bb6ee733f746ea434ac60",
           "status": "approved-delta",
-          "approvedDelta": "length-cut-20261013-data-hardware-relationships-data-bottleneck"
+          "approvedDelta": "kol-batch-20261020-relationships-data-hardware-data-bottleneck"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -174396,7 +174524,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/hardware-taxonomy moved from 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9 to ad80d48553372e3268b3c39143014e578afb816e40de29361ae282bb826a9aed exactly as approved delta length-cut-20261013-data-hardware-relationships-hardware-taxonomy permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/hardware-taxonomy, as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 5 earlier approved edges exactly, ending with seo-pass-20261002-relationships-data-hardware-hardware-taxonomy. The relationships record follows the inline citations the rewrite changed: 25 sources are newly cited in the body, and no longer cited in the body: 1x-world-model-lab-2026, lerobot-pricing-2026, robozaps-humanoids-2026; seeAlso entries and glossary ids are unchanged, and the internal link targets gain /how-robots-work/: the H2's \"31 DoF\" links to its #humanoid anchor, the Inside a humanoid explainer, as the curriculum link from that explainer's second home article. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
+      "actual": "relationships member article:data-hardware/hardware-taxonomy moved from 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9 to 009480792758b5500e5fc1aa06fadbec7ad43af59a55c8737da94eee2ac71d1e exactly as approved delta kol-batch-20261020-relationships-data-hardware-hardware-taxonomy permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/hardware-taxonomy: the relationships record follows the new inline citation (paxton-iros-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The edge starts from the sealed bytes and reconciles the member's 6 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-relationships-hardware-taxonomy.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -174408,9 +174536,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/hardware-taxonomy",
           "baselineHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
-          "currentHash": "ad80d48553372e3268b3c39143014e578afb816e40de29361ae282bb826a9aed",
+          "currentHash": "009480792758b5500e5fc1aa06fadbec7ad43af59a55c8737da94eee2ac71d1e",
           "status": "approved-delta",
-          "approvedDelta": "length-cut-20261013-data-hardware-relationships-hardware-taxonomy"
+          "approvedDelta": "kol-batch-20261020-relationships-data-hardware-hardware-taxonomy"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -174480,7 +174608,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/teleop-rigs moved from 7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041 to 9cd5743394b2f816d4dac51f893f64f37d2f10b5a66b16a7102bcb472716530b exactly as approved delta length-cut-20261013-data-hardware-relationships-teleop-rigs permits: Data-hardware domain pass and length cut of 2026-10-13 on data-hardware/teleop-rigs, as one plain edge from the member's last approved endpoint (seo-pass-20261002-relationships-data-hardware-teleop-rigs). The relationships record follows the inline citations the rewrite changed: 23 sources are newly cited in the body, and no longer cited in the body: lerobot-pricing-2026; seeAlso entries, glossary ids and internal link targets are unchanged. audit/evidence/length-cut-20261013-data-hardware/source-transition.json lists every citation occurrence that left or entered the body with its sentence.",
+      "actual": "relationships member article:data-hardware/teleop-rigs moved from 7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041 to 3cadb0939a5fd528f6704dc340cd699218cb203e78bb74227494815a23d49f1d exactly as approved delta kol-batch-20261020-relationships-data-hardware-teleop-rigs permits: KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/teleop-rigs: the relationships record follows the new inline citation (pantact-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-relationships-teleop-rigs).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -174492,9 +174620,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/teleop-rigs",
           "baselineHash": "7896402c203a788b3dd91511a92d09dd38cb6825e6ca4aed71fa8f9fe5c53041",
-          "currentHash": "9cd5743394b2f816d4dac51f893f64f37d2f10b5a66b16a7102bcb472716530b",
+          "currentHash": "3cadb0939a5fd528f6704dc340cd699218cb203e78bb74227494815a23d49f1d",
           "status": "approved-delta",
-          "approvedDelta": "length-cut-20261013-data-hardware-relationships-teleop-rigs"
+          "approvedDelta": "kol-batch-20261020-relationships-data-hardware-teleop-rigs"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -176440,7 +176568,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/data-bottleneck/ ships 88 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 88 outbound anchor occurrences on it with a visible focus ring in 216 stops",
+      "actual": "/data-hardware/data-bottleneck/ ships 92 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 92 outbound anchor occurrences on it with a visible focus ring in 225 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -176448,8 +176576,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/data-bottleneck/",
-          "outboundAnchors": 88,
-          "distinctHrefs": 41,
+          "outboundAnchors": 92,
+          "distinctHrefs": 43,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -176458,9 +176586,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 85,
-          "reachedByTab": 88,
-          "tabStops": 216,
+          "anchorsWithNoreferrer": 89,
+          "reachedByTab": 92,
+          "tabStops": 225,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -176554,7 +176682,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/hardware-taxonomy/ ships 152 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 152 outbound anchor occurrences on it with a visible focus ring in 291 stops",
+      "actual": "/data-hardware/hardware-taxonomy/ ships 154 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 154 outbound anchor occurrences on it with a visible focus ring in 294 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -176562,8 +176690,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/hardware-taxonomy/",
-          "outboundAnchors": 152,
-          "distinctHrefs": 67,
+          "outboundAnchors": 154,
+          "distinctHrefs": 68,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -176572,9 +176700,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 108,
-          "reachedByTab": 152,
-          "tabStops": 291,
+          "anchorsWithNoreferrer": 110,
+          "reachedByTab": 154,
+          "tabStops": 294,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -176668,7 +176796,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/teleop-rigs/ ships 86 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 86 outbound anchor occurrences on it with a visible focus ring in 206 stops",
+      "actual": "/data-hardware/teleop-rigs/ ships 88 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 88 outbound anchor occurrences on it with a visible focus ring in 210 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -176676,8 +176804,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/teleop-rigs/",
-          "outboundAnchors": 86,
-          "distinctHrefs": 42,
+          "outboundAnchors": 88,
+          "distinctHrefs": 43,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -176686,9 +176814,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 74,
-          "reachedByTab": 86,
-          "tabStops": 206,
+          "anchorsWithNoreferrer": 76,
+          "reachedByTab": 88,
+          "tabStops": 210,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -200206,7 +200334,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6105 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6023 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -201149,7 +201277,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 46726 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/data-bottleneck/ rendered no v1 identity spelling and no v1 descriptor in 49828 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -201290,7 +201418,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 60605 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 61876 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -201431,7 +201559,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 41894 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 43912 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -216849,7 +216977,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -216918,7 +217046,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -216987,7 +217115,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -294727,7 +294855,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -294796,7 +294924,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -294865,7 +294993,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296052,7 +296180,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/data-hardware/data-bottleneck.png decodes to 1200x630 (1.9047619:1) at 31873 bytes, and out/og/data-hardware/data-bottleneck.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/data-hardware/data-bottleneck.png decodes to 1200x630 (1.9047619:1) at 31908 bytes, and out/og/data-hardware/data-bottleneck.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296061,7 +296189,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296121,7 +296249,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/data-hardware/hardware-taxonomy.png decodes to 1200x630 (1.9047619:1) at 34241 bytes, and out/og/data-hardware/hardware-taxonomy.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/data-hardware/hardware-taxonomy.png decodes to 1200x630 (1.9047619:1) at 34186 bytes, and out/og/data-hardware/hardware-taxonomy.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296130,7 +296258,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -296190,7 +296318,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/data-hardware/teleop-rigs.png decodes to 1200x630 (1.9047619:1) at 31218 bytes, and out/og/data-hardware/teleop-rigs.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/data-hardware/teleop-rigs.png decodes to 1200x630 (1.9047619:1) at 31276 bytes, and out/og/data-hardware/teleop-rigs.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -296199,7 +296327,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297386,7 +297514,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
-      "actual": "data-hardware/data-bottleneck paints its title \"The Data Bottleneck\", domain Data, Hardware & Evaluation, review year 2026 and 36 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
+      "actual": "data-hardware/data-bottleneck paints its title \"The Data Bottleneck\", domain Data, Hardware & Evaluation, review year 2026 and 38 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix:article",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297395,7 +297523,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297455,7 +297583,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
-      "actual": "data-hardware/hardware-taxonomy paints its title \"Hardware Taxonomy\", domain Data, Hardware & Evaluation, review year 2026 and 48 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
+      "actual": "data-hardware/hardware-taxonomy paints its title \"Hardware Taxonomy\", domain Data, Hardware & Evaluation, review year 2026 and 49 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix:article",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297464,7 +297592,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -297524,7 +297652,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
-      "actual": "data-hardware/teleop-rigs paints its title \"Teleoperation Rigs\", domain Data, Hardware & Evaluation, review year 2026 and 34 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
+      "actual": "data-hardware/teleop-rigs paints its title \"Teleoperation Rigs\", domain Data, Hardware & Evaluation, review year 2026 and 35 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix:article",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -297533,7 +297661,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298706,7 +298834,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298775,7 +298903,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -298844,7 +298972,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -300580,7 +300708,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -300649,7 +300777,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -300718,7 +300846,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301914,7 +302042,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -301983,7 +302111,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -302052,7 +302180,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -306989,7 +307117,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of data-hardware/data-bottleneck from identical inputs reproduced the staged bytes exactly (0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of data-hardware/data-bottleneck from identical inputs reproduced the staged bytes exactly (646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -306998,7 +307126,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307058,7 +307186,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of data-hardware/hardware-taxonomy from identical inputs reproduced the staged bytes exactly (a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of data-hardware/hardware-taxonomy from identical inputs reproduced the staged bytes exactly (ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307067,7 +307195,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -307127,7 +307255,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of data-hardware/teleop-rigs from identical inputs reproduced the staged bytes exactly (ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of data-hardware/teleop-rigs from identical inputs reproduced the staged bytes exactly (0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -307136,7 +307264,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308323,7 +308451,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for data-hardware/data-bottleneck, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/data-bottleneck.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/data-bottleneck.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/data-bottleneck.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for data-hardware/data-bottleneck, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/data-bottleneck.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/data-bottleneck.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/data-bottleneck.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308332,7 +308460,7 @@
         "imagePath": "public/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9",
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308392,7 +308520,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for data-hardware/hardware-taxonomy, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/hardware-taxonomy.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/hardware-taxonomy.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/hardware-taxonomy.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for data-hardware/hardware-taxonomy, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/hardware-taxonomy.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/hardware-taxonomy.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/hardware-taxonomy.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308401,7 +308529,7 @@
         "imagePath": "public/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d",
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -308461,7 +308589,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for data-hardware/teleop-rigs, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/teleop-rigs.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/teleop-rigs.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/teleop-rigs.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for data-hardware/teleop-rigs, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/teleop-rigs.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/teleop-rigs.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/teleop-rigs.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash 0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -308470,7 +308598,7 @@
         "imagePath": "public/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e",
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -309461,7 +309589,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"34 REFERENCES\" (13 code points, assigned by card:data-hardware/teleop-rigs, card:manipulation/diffusion-policy, card:rl-sim2real/why-rl-locomotion) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"34 REFERENCES\" (13 code points, assigned by card:manipulation/diffusion-policy, card:rl-sim2real/why-rl-locomotion) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309484,7 +309612,6 @@
           "ownFaceSha256": "eb6c2997b3dcd778d71014b1776f4ff9ad37fca0a7f895afcff043e120b907d0",
           "productionSha256": "eb6c2997b3dcd778d71014b1776f4ff9ad37fca0a7f895afcff043e120b907d0",
           "assignedBy": [
-            "card:data-hardware/teleop-rigs",
             "card:manipulation/diffusion-policy",
             "card:rl-sim2real/why-rl-locomotion"
           ]
@@ -309501,7 +309628,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"35 REFERENCES\" (13 code points, assigned by card:classical/kinematics, card:manipulation/vla-models, card:world-models/model-based-robot-learning, card:world-models/world-models-vs-simulators) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"35 REFERENCES\" (13 code points, assigned by card:classical/kinematics, card:data-hardware/teleop-rigs, card:manipulation/vla-models, card:world-models/model-based-robot-learning, card:world-models/world-models-vs-simulators) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309525,6 +309652,7 @@
           "productionSha256": "975eeb2239274aadf912bc3e5b681edb6737b57a67d8f2da9b3796c45c4cf1da",
           "assignedBy": [
             "card:classical/kinematics",
+            "card:data-hardware/teleop-rigs",
             "card:manipulation/vla-models",
             "card:world-models/model-based-robot-learning",
             "card:world-models/world-models-vs-simulators"
@@ -309542,7 +309670,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"36 REFERENCES\" (13 code points, assigned by card:adjacent/drones, card:data-hardware/data-bottleneck, card:manipulation/bc-foundations, card:world-models/generative-sim, card:world-models/jepa, card:world-models/taxonomy) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"36 REFERENCES\" (13 code points, assigned by card:adjacent/drones, card:manipulation/bc-foundations, card:world-models/generative-sim, card:world-models/jepa, card:world-models/taxonomy) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309566,7 +309694,6 @@
           "productionSha256": "62be2d8842ee02352867f7ee1e9fbe989d93eff51a156b620616863deb0e98ba",
           "assignedBy": [
             "card:adjacent/drones",
-            "card:data-hardware/data-bottleneck",
             "card:manipulation/bc-foundations",
             "card:world-models/generative-sim",
             "card:world-models/jepa",
@@ -309629,7 +309756,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"38 REFERENCES\" (13 code points, assigned by card:classical/calibration, card:data-hardware/datasets, card:manipulation/cross-embodiment) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"38 REFERENCES\" (13 code points, assigned by card:classical/calibration, card:data-hardware/data-bottleneck, card:data-hardware/datasets, card:manipulation/cross-embodiment) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309653,6 +309780,7 @@
           "productionSha256": "6e995b80ad53f7fb06d2320dcba0fc85d099b7bbbf04caa2d3c6cd0eb1ebaed7",
           "assignedBy": [
             "card:classical/calibration",
+            "card:data-hardware/data-bottleneck",
             "card:data-hardware/datasets",
             "card:manipulation/cross-embodiment"
           ]
@@ -309935,15 +310063,15 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-OG-012:probe:og-face:data:60902712206cc914",
+      "resultId": "result:VAL-B2-OG-012:probe:og-face:data:ac3da0a80c24b102",
       "assertionId": "VAL-B2-OG-012",
-      "populationMemberId": "probe:og-face:data:60902712206cc914",
+      "populationMemberId": "probe:og-face:data:ac3da0a80c24b102",
       "coveredPopulationMemberIds": [
-        "probe:og-face:data:60902712206cc914"
+        "probe:og-face:data:ac3da0a80c24b102"
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"48 REFERENCES\" (13 code points, assigned by card:data-hardware/hardware-taxonomy) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"49 REFERENCES\" (13 code points, assigned by card:data-hardware/hardware-taxonomy) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -309952,7 +310080,7 @@
         "sourcePath": "evidence/brand-v2/og-cards/manifest.json",
         "predicate": "the assigned string is in the registered face cmap, the face bytes equal the registered checksum, and its own-face and production probe renders are identical",
         "observed": {
-          "probeId": "probe:og-face:data:60902712206cc914",
+          "probeId": "probe:og-face:data:ac3da0a80c24b102",
           "faceId": "og-face:data",
           "facePath": "assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf",
           "faceSha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
@@ -309963,8 +310091,8 @@
             "width": 1200,
             "height": 109
           },
-          "ownFaceSha256": "482f96f46cf25fc8eef5e0702dc78098ba707683d6f99d07ed0f7d75f491b282",
-          "productionSha256": "482f96f46cf25fc8eef5e0702dc78098ba707683d6f99d07ed0f7d75f491b282",
+          "ownFaceSha256": "87120c61626e428c65f00b07aefaad0d5ca9a02dcc171c8ed9a64748df7a9967",
+          "productionSha256": "87120c61626e428c65f00b07aefaad0d5ca9a02dcc171c8ed9a64748df7a9967",
           "assignedBy": [
             "card:data-hardware/hardware-taxonomy"
           ]
@@ -313204,7 +313332,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "public/og was validated in the clean staging tree and swapped in by the completed journal: its current digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "public/og was validated in the clean staging tree and swapped in by the completed journal: its current digest 9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313217,8 +313345,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
-          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "stagedDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
+          "currentDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313235,7 +313363,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "public/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "public/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest 5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313248,8 +313376,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
-          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "stagedDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
+          "currentDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313266,7 +313394,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "out/og was validated in the clean staging tree and swapped in by the completed journal: its current digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "out/og was validated in the clean staging tree and swapped in by the completed journal: its current digest 9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313279,8 +313407,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
-          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "stagedDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
+          "currentDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313297,7 +313425,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "out/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "out/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest 5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313310,8 +313438,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
-          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "stagedDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
+          "currentDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313328,7 +313456,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "evidence/brand-v2/og-cards was validated in the clean staging tree and swapped in by the completed journal: its current digest f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "evidence/brand-v2/og-cards was validated in the clean staging tree and swapped in by the completed journal: its current digest 062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313341,8 +313469,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
-          "currentDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
+          "stagedDigest": "062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2",
+          "currentDigest": "062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false
@@ -313359,7 +313487,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "public/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "public/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest 9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313372,8 +313500,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
-          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "stagedDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
+          "currentDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313391,7 +313519,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "public/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "public/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest 5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313404,8 +313532,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
-          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "stagedDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
+          "currentDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313423,7 +313551,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "out/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "out/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest 9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313436,8 +313564,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
-          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "stagedDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
+          "currentDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313455,7 +313583,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "out/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "out/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest 5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313468,8 +313596,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
-          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "stagedDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
+          "currentDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313487,7 +313615,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "evidence/brand-v2/og-cards/manifest.json is the manifest the journal validated (digest f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212), and it records the hash of every published file",
+      "actual": "evidence/brand-v2/og-cards/manifest.json is the manifest the journal validated (digest 062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2), and it records the hash of every published file",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313500,8 +313628,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
-          "currentDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
+          "stagedDigest": "062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2",
+          "currentDigest": "062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false,
@@ -313519,7 +313647,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "public/og is the complete tree the journal swapped in (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "public/og is the complete tree the journal swapped in (digest 9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313532,8 +313660,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
-          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "stagedDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
+          "currentDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313550,7 +313678,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "public/structured-images is the complete tree the journal swapped in (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "public/structured-images is the complete tree the journal swapped in (digest 5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313563,8 +313691,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
-          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "stagedDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
+          "currentDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313581,7 +313709,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "out/og is the complete tree the journal swapped in (digest a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "out/og is the complete tree the journal swapped in (digest 9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313594,8 +313722,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
-          "currentDigest": "a69fab36aa7503ea32ae3464ef232ed84498d235fbbc1bd77ceb7a7b13611a0e",
+          "stagedDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
+          "currentDigest": "9621f369e191e45c47f3d7922f1fd42faea59587414d0dce975c2a0a60313e7e",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -313612,7 +313740,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "out/structured-images is the complete tree the journal swapped in (digest f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "out/structured-images is the complete tree the journal swapped in (digest 5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313625,8 +313753,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
-          "currentDigest": "f7aac59a7e8250f9a009cd56f82351ccf944e543dd2c118bde241a1fd5dd859f",
+          "stagedDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
+          "currentDigest": "5ce34d0ecaf74895af7a04225ad8887b708342dfb946d91f48bdfbf9b66bbb3f",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -313643,7 +313771,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "evidence/brand-v2/og-cards is the complete tree the journal swapped in (digest f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "evidence/brand-v2/og-cards is the complete tree the journal swapped in (digest 062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -313656,8 +313784,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
-          "currentDigest": "f327cce667d826997b53dd9b73a9b612762f0f00dea557f2817a24b0b5ca5212",
+          "stagedDigest": "062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2",
+          "currentDigest": "062370b7c965bf1cd6c8dfd0598c5f67c3dc79c302952d2fa82352005e3747d2",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false
@@ -344192,7 +344320,7 @@
             {
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
-                "paragraphCount": 20,
+                "paragraphCount": 22,
                 "familyHeads": [
                   "geist"
                 ],
@@ -344315,7 +344443,7 @@
             {
               "id": "/data-hardware/hardware-taxonomy/",
               "observed": {
-                "paragraphCount": 18,
+                "paragraphCount": 19,
                 "familyHeads": [
                   "geist"
                 ],
@@ -344438,7 +344566,7 @@
             {
               "id": "/data-hardware/teleop-rigs/",
               "observed": {
-                "paragraphCount": 16,
+                "paragraphCount": 17,
                 "familyHeads": [
                   "geist"
                 ],
@@ -346985,7 +347113,7 @@
               "id": "/data-hardware/teleop-rigs/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 21,
+                "interfaceControlCount": 22,
                 "controlsInProse": 13,
                 "registrationLabelCount": 0
               }
@@ -351531,7 +351659,7 @@
             {
               "id": "/data-hardware/data-bottleneck/",
               "observed": {
-                "paragraphCount": 40,
+                "paragraphCount": 44,
                 "registeredFrameParagraphCount": 18,
                 "offendingFamilies": []
               }
@@ -351642,7 +351770,7 @@
             {
               "id": "/data-hardware/hardware-taxonomy/",
               "observed": {
-                "paragraphCount": 36,
+                "paragraphCount": 38,
                 "registeredFrameParagraphCount": 0,
                 "offendingFamilies": []
               }
@@ -351753,7 +351881,7 @@
             {
               "id": "/data-hardware/teleop-rigs/",
               "observed": {
-                "paragraphCount": 32,
+                "paragraphCount": 34,
                 "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }

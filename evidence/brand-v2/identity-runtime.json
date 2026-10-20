@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6a090ae9b3094cdb94500aabcd839e10dfeab9b97e83689fd4854eca8998cda4",
+  "fingerprint": "2ae1da5136a91d6250f04bb34039c1c6f48d7589d5e6e496a035ad8978bc792a",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3040,
+      "visibleTextLength": 2999,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -2605,7 +2605,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26747,
+      "visibleTextLength": 28430,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "1440x900"
     },
@@ -2959,7 +2959,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33690,
+      "visibleTextLength": 34377,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "1440x900"
     },
@@ -3313,7 +3313,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23647,
+      "visibleTextLength": 24728,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3065,
+      "visibleTextLength": 3024,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11501,7 +11501,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19979,
+      "visibleTextLength": 21398,
       "route": "/data-hardware/data-bottleneck/",
       "viewport": "375x812"
     },
@@ -11855,7 +11855,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26915,
+      "visibleTextLength": 27499,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -12209,7 +12209,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18247,
+      "visibleTextLength": 19184,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "375x812"
     },

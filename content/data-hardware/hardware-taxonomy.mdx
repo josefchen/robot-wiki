@@ -55,6 +55,7 @@ citations:
   - nvidia-jetson-faq
   - helix-2025
   - fcc-covered-list-robots-2026
+  - paxton-iros-2026
 seeAlso:
   - "frontier/dexterity"
   - "rl-sim2real/humanoid-wbc"
@@ -112,6 +113,8 @@ The open LEAP Hand has 16 DoF and costs about \$2,000 in catalog parts, roughly 
 ## Sensors: touch is the missing channel
 
 Generalist policies mostly train on vision and <Term id="proprioception">proprioception</Term>, and DROID's Franka rig has three cameras and no touch sensing <Cite id="droid-2024" />. AgiBot World's humanoids add visuo-tactile sensors to the camera rig <Cite id="agibot-world-2025" />. A 2025 outlook in IEEE Transactions on Robotics blames divergent transduction methods with no standardized evaluation, poor durability, hysteresis and temperature sensitivity <Cite id="tactile-outlook-2025" />.
+
+Chris Paxton of Agility Robotics argued on October 12, after IROS 2026, that multi-fingered hands may need the touch sensing two-finger grippers can do without, because their fingers increasingly hide the contacts a camera would need to see. He called tendon-driven hands now sold off the shelf a significant step toward making human-like dexterity "an intelligence problem, instead of a hardware design problem" <Cite id="paxton-iros-2026" />.
 
 The GelSight Mini retails at \$500 and Meta FAIR's open DIGIT fingertip at \$350 <Cite id="tactile-outlook-2025" /> <Cite id="digit-sensor-2020" />. DIGIT's successor, Digit 360, has about 8.3 million taxels and resolves normal and shear forces to 1.01 mN and 1.27 mN <Cite id="digit-360-2024" />. GelSight manufactures it under a partnership Meta announced in October 2024 <Cite id="meta-fair-touch-2024" />. AnySkin, a magnetic skin, is the first uncalibrated tactile sensor reported to carry learned policies across replacement skins <Cite id="anyskin-2024" />.
 

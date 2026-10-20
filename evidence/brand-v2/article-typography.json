@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "b5837cf667cb8f04d0d7ef7f7149e98cf8f5f374255d2dcc26edb351b1093e76",
+  "fingerprint": "507fd57adb3bd9caf2614d1648c0980a3cde0d1ead9384f674dbe229286ced9b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3065,
+      "visibleTextLength": 3024,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12974,7 +12974,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 19979,
+      "visibleTextLength": 21398,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13026,12 +13026,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 36,
+        "readingMinutes": 10,
+        "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "36 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "gpt3-2020",
           "llama-3-2024",
@@ -13068,7 +13068,9 @@
           "gr00t-n1-2025",
           "sim-real-cotraining-2025",
           "interndata-a1-2025",
-          "levine-sporks-2025"
+          "levine-sporks-2025",
+          "fact-2026",
+          "dsp-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -13273,6 +13275,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "FACT, from Zhi Cao, Jiajun Wu and colleagues at Stanford, th"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "HiPHI (CoRL 2026) is a motion-capture dataset from Jiahao Ji"
         },
         {
@@ -13319,6 +13330,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "MobileVISTA, from Suzannah Wistreich, Jiajun Wu and colleagu"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Dexterity from Supervised Play, from Botao He, Jitendra Mali"
         },
         {
           "familyHead": "geist",
@@ -13483,7 +13503,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13493,7 +13513,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13505,7 +13525,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 92,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -13515,7 +13535,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 46,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -13525,7 +13545,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 46,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13581,7 +13601,7 @@
         },
         {
           "kind": "internal",
-          "count": 14,
+          "count": 17,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -13591,7 +13611,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 16,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15716,7 +15736,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26915,
+      "visibleTextLength": 27499,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15769,11 +15789,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 14,
-        "citationCount": 48,
+        "citationCount": 49,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "14 min read",
-        "citationCountText": "48 sources",
+        "citationCountText": "49 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -15820,6 +15840,7 @@
           "nvidia-jetson-faq",
           "helix-2025",
           "fcc-covered-list-robots-2026",
+          "paxton-iros-2026",
           "lerobot-pricing-2026",
           "robozaps-humanoids-2026",
           "1x-world-model-lab-2026"
@@ -15956,6 +15977,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Generalist policies mostly train on vision and proprioceptio"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Chris Paxton of Agility Robotics argued on October 12, after"
         },
         {
           "familyHead": "geist",
@@ -16156,7 +16186,7 @@
         },
         {
           "kind": "reference",
-          "count": 48,
+          "count": 49,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16166,7 +16196,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 48,
+              "count": 49,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16178,7 +16208,7 @@
         },
         {
           "kind": "citation",
-          "count": 104,
+          "count": 106,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -16188,7 +16218,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 52,
+              "count": 53,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -16198,7 +16228,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 52,
+              "count": 53,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18430,7 +18460,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18247,
+      "visibleTextLength": 19184,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18483,11 +18513,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 8,
-        "citationCount": 34,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "8 min read",
-        "citationCountText": "34 sources",
+        "citationCountText": "35 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "mobile-aloha-2024",
@@ -18518,6 +18548,7 @@
           "seed-umi-2026",
           "sunday-act1-2025",
           "ditto-x-2026",
+          "pantact-2026",
           "bd-atlas-hand-2026",
           "egomimic-2024",
           "egodex-2025",
@@ -18709,6 +18740,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "PanTact, from Xiaomeng Xu, Shuran Song, Guanya Shi and colle"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Boston Dynamics argues that wearables capture only proxy sig"
         },
         {
@@ -18874,7 +18914,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 35,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -18884,7 +18924,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18896,7 +18936,7 @@
         },
         {
           "kind": "citation",
-          "count": 72,
+          "count": 74,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -18906,7 +18946,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -18916,7 +18956,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19169,6 +19209,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -56722,7 +56770,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3065,
+      "visibleTextLength": 3024,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69410,7 +69458,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 26747,
+      "visibleTextLength": 28430,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69462,12 +69510,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 36,
+        "readingMinutes": 10,
+        "citationCount": 38,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "36 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "gpt3-2020",
           "llama-3-2024",
@@ -69504,7 +69552,9 @@
           "gr00t-n1-2025",
           "sim-real-cotraining-2025",
           "interndata-a1-2025",
-          "levine-sporks-2025"
+          "levine-sporks-2025",
+          "fact-2026",
+          "dsp-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -69709,6 +69759,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "FACT, from Zhi Cao, Jiajun Wu and colleagues at Stanford, th"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "HiPHI (CoRL 2026) is a motion-capture dataset from Jiahao Ji"
         },
         {
@@ -69755,6 +69814,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "MobileVISTA, from Suzannah Wistreich, Jiajun Wu and colleagu"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Dexterity from Supervised Play, from Botao He, Jitendra Mali"
         },
         {
           "familyHead": "geist",
@@ -69919,7 +69987,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -69929,7 +69997,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -69941,7 +70009,7 @@
         },
         {
           "kind": "citation",
-          "count": 88,
+          "count": 92,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -69951,7 +70019,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 46,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -69961,7 +70029,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 46,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -70017,7 +70085,7 @@
         },
         {
           "kind": "internal",
-          "count": 14,
+          "count": 17,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -70027,7 +70095,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 16,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72119,7 +72187,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33690,
+      "visibleTextLength": 34377,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -72172,11 +72240,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 14,
-        "citationCount": 48,
+        "citationCount": 49,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "14 min read",
-        "citationCountText": "48 sources",
+        "citationCountText": "49 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -72223,6 +72291,7 @@
           "nvidia-jetson-faq",
           "helix-2025",
           "fcc-covered-list-robots-2026",
+          "paxton-iros-2026",
           "lerobot-pricing-2026",
           "robozaps-humanoids-2026",
           "1x-world-model-lab-2026"
@@ -72359,6 +72428,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Generalist policies mostly train on vision and proprioceptio"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Chris Paxton of Agility Robotics argued on October 12, after"
         },
         {
           "familyHead": "geist",
@@ -72559,7 +72637,7 @@
         },
         {
           "kind": "reference",
-          "count": 48,
+          "count": 49,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -72569,7 +72647,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 48,
+              "count": 49,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72581,7 +72659,7 @@
         },
         {
           "kind": "citation",
-          "count": 104,
+          "count": 106,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -72591,7 +72669,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 52,
+              "count": 53,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -72601,7 +72679,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 52,
+              "count": 53,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -74800,7 +74878,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23647,
+      "visibleTextLength": 24728,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74853,11 +74931,11 @@
         ],
         "lastReviewed": "2026-08-17",
         "readingMinutes": 8,
-        "citationCount": 34,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
         "readingTimeText": "8 min read",
-        "citationCountText": "34 sources",
+        "citationCountText": "35 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "mobile-aloha-2024",
@@ -74888,6 +74966,7 @@
           "seed-umi-2026",
           "sunday-act1-2025",
           "ditto-x-2026",
+          "pantact-2026",
           "bd-atlas-hand-2026",
           "egomimic-2024",
           "egodex-2025",
@@ -75079,6 +75158,15 @@
           "widthPx": 929.63,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "PanTact, from Xiaomeng Xu, Shuran Song, Guanya Shi and colle"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 929.63,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Boston Dynamics argues that wearables capture only proxy sig"
         },
         {
@@ -75244,7 +75332,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 35,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -75254,7 +75342,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75266,7 +75354,7 @@
         },
         {
           "kind": "citation",
-          "count": 72,
+          "count": 74,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -75276,7 +75364,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -75286,7 +75374,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75539,6 +75627,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

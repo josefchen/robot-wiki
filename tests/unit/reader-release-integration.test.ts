@@ -289,6 +289,16 @@ function throughSeoPass(path: string) {
     expect(continues(figures, end)).toBe(true);
     end = figures.newHash;
   }
+  // The KOL triage batch of 2026-10-20 landed after the manipulation figures;
+  // its one edge on a data-hardware article that gained dated paragraphs
+  // continues the previous endpoint the same way.
+  const kolBatchEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('kol-batch-20261020-'));
+  expect(kolBatchEdges.length).toBeLessThanOrEqual(1);
+  for (const kol of kolBatchEdges) {
+    expect(continues(kol, end)).toBe(true);
+    end = kol.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

@@ -43,6 +43,8 @@ citations:
   - sim-real-cotraining-2025
   - interndata-a1-2025
   - levine-sporks-2025
+  - fact-2026
+  - dsp-2026
 seeAlso:
   - "data-hardware/datasets"
   - "manipulation/foundation-models"
@@ -121,6 +123,8 @@ UMI collects without a robot: an operator holds a 3D-printed gripper with a GoPr
 
 EgoScale trained a [vision-language-action model](/manipulation/foundation-models) on 20,854 hours of action-labelled egocentric human video, over twenty times prior efforts. It found a log-linear scaling law between human data scale and validation loss, which correlated with real-robot performance <Cite id="egoscale-2026" />. Human pretraining followed by lightweight aligned human-robot mid-training raised average <Term id="success-rate">success rate</Term> by 54% over a no-pretraining baseline on a 22-DoF dexterous hand. EgoMimic found an extra hour of hand data worth more than an extra hour of robot data <Cite id="egomimic-2024" />.
 
+FACT, from Zhi Cao, Jiajun Wu and colleagues at Stanford, the University of Michigan and Microsoft Research (October 2026), was pretrained mostly on about 2,000 hours of human demonstrations recorded with tactile gloves. Fine-tuned on each task, it averaged 41.4% success on seven tasks with two dexterous hands, against 8.6% and 1.4% for T-Rex and π0.5 fine-tuned on the same data. Pretrained without the gloves' force readings, it opened a test-tube cap in none of ten trials instead of eight <Cite id="fact-2026" />.
+
 HiPHI (CoRL 2026) is a motion-capture dataset from Jiahao Ji, Lei Han and colleagues at Noitom Robotics and several universities: 617.5 hours from 132 performers, 245.7 of them with 40 tracked real objects. Retargeted to a Unitree G1, its motions gave the highest simulated tracking success at a matched 3-hour budget against AMASS, LAFAN1, Motion-X++ and BONES-SEED. They led again at 20 hours, a budget LAFAN1 is too short to fill, and policies trained on them ran, crawled and carried a box on a real G1 <Cite id="hiphi-2026" />.
 
 ## Company corpora reach half a million hours
@@ -136,6 +140,8 @@ GRAIL, from Tianyi Xie, Yuke Zhu and colleagues at NVIDIA and UCLA (June 2026), 
 PRISM, from Zihan Wang, Pieter Abbeel, Guanya Shi, Angjoo Kanazawa and colleagues at Amazon FAR, UC Berkeley and Carnegie Mellon (September 2026), turned a few real videos into hundreds of generated variants. Its policy ran on a real humanoid with no real-world fine-tuning <Cite id="prism-humanoid-2026" />. DexAgent, from Li Fei-Fei, Jiajun Wu and colleagues at Stanford and Columbia (September 2026), turns one egocentric human video into simulated trajectories. Across eleven real tasks, its policies reached 3.5 times the success rate of baselines <Cite id="dexagent-2026" />.
 
 MobileVISTA, from Suzannah Wistreich, Jiajun Wu and colleagues at Stanford and the Toyota Research Institute (October 2026), synthesizes images and actions for shifted base poses from demonstrations recorded at one pose. With 50 demonstrations per task and base offsets within 15 cm, its policy stacked a book in 13 of 25 trials, against at most 2 for Canonical-2D, DP3 and a fine-tuned π0.5. At the original pose it stacked 18 of 25, below their 24 and 25 <Cite id="mobilevista-2026" />.
+
+Dexterity from Supervised Play, from Botao He, Jitendra Malik and colleagues at Amazon FAR and the University of Maryland (October 2026), starts from 15 minutes of human play on a 22-joint hand. A policy cloned from that play collects data for a world model, then proposes actions for model-predictive control. Asked to rotate a cube to a goal orientation in simulation, the system came within 0.6 radians in 91.4% of 128 trials, where PPO needed about 490 times the data to reach 86.7%, and on the real hand it reached 90.0% <Cite id="dsp-2026" />.
 
 Simulation compresses months of interaction into hours but brings the <Term id="sim-to-real-gap">sim-to-real gap</Term> covered in [massively parallel sim RL](/rl-sim2real/parallel-sim-rl). GR00T N1 generated simulated trajectories equal to 6,500 hours of human demonstration in 11 hours <Cite id="gr00t-n1-2025" />, and co-training with simulation raised real-world performance by 38% on average <Cite id="sim-real-cotraining-2025" />. A model pretrained only on the synthetic InternData-A1 matched the official π0 on 49 simulated, 5 real-world and 4 long-horizon dexterous tasks <Cite id="interndata-a1-2025" />.
 

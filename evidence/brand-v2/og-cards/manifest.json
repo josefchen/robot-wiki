@@ -3689,7 +3689,7 @@
         "/data-hardware/data-bottleneck/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Data Bottleneck",
-      "treeDigest": "9623f277b3d71d2031800b0bdda168a222e7b30aeb0135efa215f1d973555012",
+      "treeDigest": "72bee767fc0d26e478b43fab41d60a5db48e920af7c660ec8c0d93c307a101f4",
       "strings": [
         {
           "field": "domain",
@@ -3721,10 +3721,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "36 REFERENCES",
+          "text": "38 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/data-bottleneck.mdx#frontmatter.citations",
-          "sourceValue": 36
+          "sourceValue": 38
         }
       ],
       "facts": {
@@ -3732,7 +3732,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 36
+        "referenceCount": 38
       },
       "devices": [
         "device:section-rule#header",
@@ -3757,23 +3757,23 @@
         "path": "/og/data-hardware/data-bottleneck.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31873,
-        "sha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9"
+        "bytes": 31908,
+        "sha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/data-bottleneck-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39556,
-          "sha256": "05beabd520802d50a223beab7626486fdf7aa3b70183d37b702b05cd9001a6f5"
+          "bytes": 39588,
+          "sha256": "00e048186686adac3b6a0941e8860727b2c9bc449c777bf1a7b9c1021e08495c"
         },
         {
           "path": "/structured-images/data-hardware/data-bottleneck-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48062,
-          "sha256": "a0f4f20434ee73a911cfb9d0b5942d5d27676bdee101a67639c3c0623401a5c7"
+          "bytes": 48097,
+          "sha256": "a64dc4cd49246f166a3b5b6d151f6da2f40e8adde056ce374f1f5cad1bdceb48"
         }
       ],
       "pixels": {
@@ -3788,7 +3788,7 @@
           "title": 22230,
           "identity": 1178
         },
-        "secondRenderSha256": "0e99d50543f4646cb2112b21ab8ee9d13817a14722bff3a799a7dac45ef6b3d9"
+        "secondRenderSha256": "646a71f92755d57ce235d1cb3470ba01b4a7afb5d558d0abe001143731a51a88"
       }
     },
     {
@@ -3911,7 +3911,7 @@
         "/data-hardware/hardware-taxonomy/"
       ],
       "alt": "Open graph card for the Robot Wiki article Hardware Taxonomy",
-      "treeDigest": "4cee83783e97c00230e80d92a739145bafc1201f739494f3c53e4b2d7ea202ef",
+      "treeDigest": "4285e278e539bc13934564c86905bdccf962242b07b446e15f44ac17be9f651d",
       "strings": [
         {
           "field": "domain",
@@ -3943,10 +3943,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "48 REFERENCES",
+          "text": "49 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/hardware-taxonomy.mdx#frontmatter.citations",
-          "sourceValue": 48
+          "sourceValue": 49
         }
       ],
       "facts": {
@@ -3954,7 +3954,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 48
+        "referenceCount": 49
       },
       "devices": [
         "device:section-rule#header",
@@ -3979,23 +3979,23 @@
         "path": "/og/data-hardware/hardware-taxonomy.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34241,
-        "sha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d"
+        "bytes": 34186,
+        "sha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/hardware-taxonomy-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41942,
-          "sha256": "9adcdf35ef8a1d930586ab7e5d7344a4bab35b396d53d5d33f574c6bd4f07a94"
+          "bytes": 41888,
+          "sha256": "8246ed8cb379e8bb04389ab4b43e1062e9fdceca2cdf287c1e3265b3ab33e727"
         },
         {
           "path": "/structured-images/data-hardware/hardware-taxonomy-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50504,
-          "sha256": "62ec1a435fdba1063e6aea9ccb4ec6a9210813bf8767cfc17b20b3c37a7c1d36"
+          "bytes": 50449,
+          "sha256": "2cc6c8dd53e6f735395d39feb9289e4ce180dfac2cc82ca4599e952287925dac"
         }
       ],
       "pixels": {
@@ -4010,7 +4010,7 @@
           "title": 22032,
           "identity": 1178
         },
-        "secondRenderSha256": "a1e3987c8e3a8c15656d90d7b970d0f6c08769a916b14df60c2cc0744224c17d"
+        "secondRenderSha256": "ef8f4fd948e184b111532a32bb79c7c6b15334e66ce97bff656f1705f6e4ac97"
       }
     },
     {
@@ -4022,7 +4022,7 @@
         "/data-hardware/teleop-rigs/"
       ],
       "alt": "Open graph card for the Robot Wiki article Teleoperation Rigs",
-      "treeDigest": "9621ae8b8dbc7d13fdacba88732c6d38ec86f2b6abf4e9f143bfee8a10db84e1",
+      "treeDigest": "2906c06bc7efcf6b6d3eeb85a39171f272b881529b235f75796ff87c9fff4adf",
       "strings": [
         {
           "field": "domain",
@@ -4054,10 +4054,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "34 REFERENCES",
+          "text": "35 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/teleop-rigs.mdx#frontmatter.citations",
-          "sourceValue": 34
+          "sourceValue": 35
         }
       ],
       "facts": {
@@ -4065,7 +4065,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 34
+        "referenceCount": 35
       },
       "devices": [
         "device:section-rule#header",
@@ -4090,23 +4090,23 @@
         "path": "/og/data-hardware/teleop-rigs.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31218,
-        "sha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e"
+        "bytes": 31276,
+        "sha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/teleop-rigs-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 38861,
-          "sha256": "44272511c6749e679d62b17a501f7a0e0b42d946a258d5664fb3cc86b703a052"
+          "bytes": 38921,
+          "sha256": "ca5ffe1560be1b13e53c6bafa4e93b924f3e5ca4fd07ef44a9da793d361db878"
         },
         {
           "path": "/structured-images/data-hardware/teleop-rigs-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47372,
-          "sha256": "205f91f110d9b1d22644a73b5d343e6b4e3c1990af90d42801f4a2fae03e7292"
+          "bytes": 47438,
+          "sha256": "bab094451410239306ce5707bc287da7747ab59f69aee1758ed62b6151510404"
         }
       ],
       "pixels": {
@@ -4121,7 +4121,7 @@
           "title": 20973,
           "identity": 1178
         },
-        "secondRenderSha256": "ff060023c8cd0eadcdab70024ef50dd39372738c89b75f22810c07000dc4a84e"
+        "secondRenderSha256": "0b87af8ee570442079303a52c052431241422d5f72c28525df958e165f8da992"
       }
     },
     {
@@ -6640,7 +6640,6 @@
       "family": "IBM Plex Mono",
       "text": "34 REFERENCES",
       "assignedBy": [
-        "card:data-hardware/teleop-rigs",
         "card:manipulation/diffusion-policy",
         "card:rl-sim2real/why-rl-locomotion"
       ],
@@ -6661,6 +6660,7 @@
       "text": "35 REFERENCES",
       "assignedBy": [
         "card:classical/kinematics",
+        "card:data-hardware/teleop-rigs",
         "card:manipulation/vla-models",
         "card:world-models/model-based-robot-learning",
         "card:world-models/world-models-vs-simulators"
@@ -6682,7 +6682,6 @@
       "text": "36 REFERENCES",
       "assignedBy": [
         "card:adjacent/drones",
-        "card:data-hardware/data-bottleneck",
         "card:manipulation/bc-foundations",
         "card:world-models/generative-sim",
         "card:world-models/jepa",
@@ -6729,6 +6728,7 @@
       "text": "38 REFERENCES",
       "assignedBy": [
         "card:classical/calibration",
+        "card:data-hardware/data-bottleneck",
         "card:data-hardware/datasets",
         "card:manipulation/cross-embodiment"
       ],
@@ -6877,10 +6877,10 @@
       "fallbackFree": true
     },
     {
-      "probeId": "probe:og-face:data:60902712206cc914",
+      "probeId": "probe:og-face:data:ac3da0a80c24b102",
       "faceId": "og-face:data",
       "family": "IBM Plex Mono",
-      "text": "48 REFERENCES",
+      "text": "49 REFERENCES",
       "assignedBy": [
         "card:data-hardware/hardware-taxonomy"
       ],
@@ -6890,8 +6890,8 @@
         "width": 1200,
         "height": 109
       },
-      "ownFaceSha256": "482f96f46cf25fc8eef5e0702dc78098ba707683d6f99d07ed0f7d75f491b282",
-      "productionSha256": "482f96f46cf25fc8eef5e0702dc78098ba707683d6f99d07ed0f7d75f491b282",
+      "ownFaceSha256": "87120c61626e428c65f00b07aefaad0d5ca9a02dcc171c8ed9a64748df7a9967",
+      "productionSha256": "87120c61626e428c65f00b07aefaad0d5ca9a02dcc171c8ed9a64748df7a9967",
       "fallbackFree": true
     },
     {
@@ -8538,5 +8538,5 @@
       "fallbackFree": true
     }
   ],
-  "corpusSha256": "ac31e4b0ec18e268b155625c56f568233b664e85ed3a15c8044bb669917e5d92"
+  "corpusSha256": "ad9c93adc07980ca242d7cae23e99fbf4dca203114376e86219db2ea51f70a1b"
 }

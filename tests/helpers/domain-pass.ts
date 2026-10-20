@@ -322,6 +322,35 @@ export function imagesDh20261015Endpoint(
 }
 
 /**
+ * Edges the KOL triage batch of 2026-10-20 appended as one block after the
+ * crda-b01 figures: dated paragraphs on the data bottleneck, the hardware
+ * taxonomy and the teleoperation rigs, four new citation records and one
+ * citation-rendering resolution.
+ */
+export const isKolBatch20261020Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('kol-batch-20261020-');
+
+/**
+ * The hash the 2026-10-20 KOL triage batch leaves on a member whose chain
+ * ends at `from`: its one edge on the member must continue `from`, as a plain
+ * edge or as a resolution that reconciles it; an untouched member stays at
+ * `from`.
+ */
+export function kolBatch20261020Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isKolBatch20261020Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-20 KOL batch edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * Edges the manipulation isometric figures of 2026-10-15 (batch
  * manipulation-b04) appended as one block after the data-hardware images: one
  * prose edge per article that gained a figure mount (action spaces, the

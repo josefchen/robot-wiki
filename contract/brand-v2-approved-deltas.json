@@ -107814,6 +107814,927 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-prose-data-hardware-data-bottleneck",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "ea9eac89dc11bcadc53d0f8e14b39b410c0139173d01ecbf19c8f9d3120097fd",
+      "newHash": "05c82ef878bcec269d4b023d503487b849ebadfb8d41d3d489d3b0d732a3b67d",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/data-bottleneck: adds two dated paragraphs in \"Around the bottleneck: data that does not need a robot\": FACT after the EgoMimic paragraph (pretrained mostly on about 2,000 hours of tactile-glove human demonstrations; 41.4% mean success on seven binary tasks against 8.6% for T-Rex and 1.4% for pi0.5 fine-tuned on the same data; test-tube cap 0 of 10 without force pretraining against 8 of 10; fact-2026, arXiv 2610.19155) and Dexterity from Supervised Play after the MobileVISTA paragraph (15 minutes of human play on a 22-joint hand; 91.4% within 0.6 rad on 128 simulated trials, PPO about 490 times the data for 86.7%, 90.0% on the real hand; dsp-2026, arXiv 2610.22340). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (images-dh-20261015-prose-data-hardware-data-bottleneck).",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-prose-data-hardware-hardware-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "9950d7013e51cf07ac92763a5bdd58971c5698bf6f2dff4312596162ca674ab2",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/hardware-taxonomy: adds one dated paragraph in \"Sensors: touch is the missing channel\" after the tactile-outlook paragraph: Chris Paxton of Agility Robotics (12 October 2026) on why multi-fingered hands may need the touch sensing two-finger grippers can do without, and his quoted view that off-the-shelf tendon-driven hands make human-like dexterity \"an intelligence problem, instead of a hardware design problem\" (paxton-iros-2026, Substack post of 12 October 2026). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 31 earlier approved edges exactly, ending with images-dh-20261015-prose-data-hardware-hardware-taxonomy.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9"
+        },
+        {
+          "id": "pricing-provenance-20260907-9",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20"
+        },
+        {
+          "id": "performance-worldmodels-20260908-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "754695d09e014226b660fab2d3f30997506f223495a06157a752f6306d4c260d"
+        },
+        {
+          "id": "hardware-taxonomy-r1-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r2-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r3-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r4-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r5-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r6-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r7-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r8-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r9-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r10-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r11-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r12-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r13-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r14-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r15-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r16-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r17-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r18-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r19-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r20-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r25-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "reader-f20-dates-20260923-2",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "968143da16731393e77b21d1e27a5e2cb965c1dc86cb08d83f042d97e5d05fec"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "df76d0fb7992a19bed98944b84599efd78eed419c327653146401a3e33357cad"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "acfe8dc62f1895ae6e6ecfc148508ce2c8f58c8b853d68748f94c26f05655955"
+        }
+      ]
+    },
+    {
+      "id": "kol-batch-20261020-prose-data-hardware-teleop-rigs",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "60a54731fb89110488589ff7a41874ecf2c4834ccc71bdf4103b3b75697fcfca",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/teleop-rigs: adds one dated paragraph in \"Gloves and wearables\" between the paragraph that ends with DITTO-X and the Boston Dynamics paragraph: PanTact (Xiaomeng Xu, Shuran Song, Guanya Shi and colleagues at Stanford, Amazon FAR and Carnegie Mellon, October 2026) pairs bimanual UMI grippers with force-sensing patches on the demonstrator's forearms and knees; a Unitree G1 without body contact sensors, trained on 100 or 110 demonstrations per task, succeeded in 17 of 20 Grasp-and-Embrace trials and 9 of 10 Carry-and-Push trials, and a humanoid UMI baseline that tracked only the grippers, trained on the same demonstrations, consistently failed to support the bulky object (pantact-2026, arXiv 2610.12558). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 24 earlier approved edges exactly, ending with anatomy-dh-new-figures-20261019-prose-teleop-rigs.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-2",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c"
+        },
+        {
+          "id": "pricing-provenance-20260907-7",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa"
+        },
+        {
+          "id": "pricing-provenance-20260907-8",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c"
+        },
+        {
+          "id": "tr-r1-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r2-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r3-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r5-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r6-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r7-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r8-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r9-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r10-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r11-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r12-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r13-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "seo-merge-20260916-prose-11",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "round5-closeout-teleop-rigs-prose",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "educational-cue-20260926-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "417fe107f09c07786ae8749eaf8df5d9bf998fe0d82000435fe5636f153d4e28"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "663d4df611a904ab841911959250fd2a4f3966a4357efb66b5d7fde1652b6670"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "68a3411f2c97f7f1992930d36e6e027b6366c012ccf0dc3f24dd4f99784a2b40"
+        },
+        {
+          "id": "anatomy-dh-new-figures-20261019-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "52c9dde6b9f7943f92d886760a936c4704f3464529164939a682d8a98f189d8c"
+        }
+      ]
+    },
+    {
+      "id": "kol-batch-20261020-relationships-data-hardware-data-bottleneck",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/data-bottleneck",
+      "oldHash": "1d8fe44311bfc5ef72a403b9b8811a6fae8db4341bf8c6b7aade590b669638e9",
+      "newHash": "d6d4aa2c3e07dea3d31f55ae41bbb076bb26b4e8b41bb6ee733f746ea434ac60",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/data-bottleneck: the relationships record follows the new inline citations (fact-2026 and dsp-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-relationships-data-bottleneck).",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-relationships-data-hardware-hardware-taxonomy",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+      "newHash": "009480792758b5500e5fc1aa06fadbec7ad43af59a55c8737da94eee2ac71d1e",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/hardware-taxonomy: the relationships record follows the new inline citation (paxton-iros-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The edge starts from the sealed bytes and reconciles the member's 6 earlier approved edges exactly, ending with length-cut-20261013-data-hardware-relationships-hardware-taxonomy.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "performance-worldmodels-20260908-7",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b"
+        },
+        {
+          "id": "reader-f20-dates-20260923-4",
+          "oldHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b",
+          "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-relationships-article-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-relationships-article-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "9562870df49306e75b47084aced85dfa22e01a74800f14cb46e166e684e4c781"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-relationships-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "ad80d48553372e3268b3c39143014e578afb816e40de29361ae282bb826a9aed"
+        }
+      ]
+    },
+    {
+      "id": "kol-batch-20261020-relationships-data-hardware-teleop-rigs",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "9cd5743394b2f816d4dac51f893f64f37d2f10b5a66b16a7102bcb472716530b",
+      "newHash": "3cadb0939a5fd528f6704dc340cd699218cb203e78bb74227494815a23d49f1d",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/teleop-rigs: the relationships record follows the new inline citation (pantact-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-relationships-teleop-rigs).",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-frontmatter-data-hardware-data-bottleneck",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/data-bottleneck",
+      "oldHash": "4548d837c808554f188541abf7da4fe792b1f41fb4e04b398aada251c28ff39c",
+      "newHash": "297ba113abb3d518fcf9273cff0df87c0be9dc6491b9656f4db2cd07634e525a",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/data-bottleneck: the front-matter citation list keeps every earlier id in order and appends fact-2026 and dsp-2026, the ids the new paragraphs cite. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-data-bottleneck).",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-frontmatter-data-hardware-hardware-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
+      "oldHash": "989095a9c7ed1a664f395d246a670fe45c73d35a97b0cde595b8c7860626935b",
+      "newHash": "51622c17ac833cd5353dc77d2d10894d998756cd0d6c6da0da0df0dc356e4e75",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/hardware-taxonomy: the front-matter citation list keeps every earlier id in order and appends paxton-iros-2026, the id the new paragraph cites. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-hardware-taxonomy).",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-frontmatter-data-hardware-teleop-rigs",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/teleop-rigs",
+      "oldHash": "5edd45db2bb4a6fb1094359f61d5fb0b5000cf7100ab4a5ee63e3df80d67f8e0",
+      "newHash": "343d3787ffd7cb1efe2dd65a6d374f4be5f87d091ee92112fa5acb67b4567005",
+      "reason": "KOL triage batch of 2026-10-20 (notes older than 72 hours) on data-hardware/teleop-rigs: the front-matter citation list keeps every earlier id in order and inserts pantact-2026, the id the new paragraph cites, after ditto-x-2026 in reading order. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-teleop-rigs).",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-citation-dsp-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:dsp-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5d59d5eae47c9d2c8618e65f4c98fe3d47e138e86ca2d9626f82fdce911c59d7",
+      "reason": "Registers the new citation dsp-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Jitendra Malik on \"Dexterity from Supervised Play\"; arXiv 2610.22340, v1 15 Oct 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-citation-fact-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:fact-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8024bc737991886be5278457c704ddc5fbfe69a218cb55960fd9aa183be80436",
+      "reason": "Registers the new citation fact-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Jiajun Wu on \"FACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity\"; arXiv 2610.19155, v1 13 Oct 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-citation-pantact-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:pantact-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d2920ef9e54bfdc43fd0a69138d30f14af2c02270ff6ad63afce8b15f331b2c0",
+      "reason": "Registers the new citation pantact-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Shuran Song on \"PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface\"; arXiv 2610.12558, v1 8 Oct 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-citation-paxton-iros-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:paxton-iros-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6f132875f82320894590368e1113dd6c17315ca94a16164a220dbe97bdf5ab10",
+      "reason": "Registers the new citation paxton-iros-2026 for the KOL triage batch of 2026-10-20 (the KOL intake note of Chris Paxton on his Substack post \"Dexterity is the Frontier: Thoughts on IROS 2026\" of 12 October 2026, read 2026-10-20). Its audit row is in audit/citations.md under \"KOL intake: queue notes older than 72 hours, 2026-10-20\". The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kol-batch-20261020-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9d79af3ee4d28de077643253799d9528b5130f54063dfe5d9495496b498b3043",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the KOL triage batch of 2026-10-20 registered 4 citation records (paxton-iros-2026, fact-2026, dsp-2026, pantact-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 74 earlier approved edges exactly, ending with length-cut-20261014-adjacent-citation-rendering.",
+      "ownerApproval": "Owner decision of 2026-10-20 03:05 CEST (owner proxy, delegated; owner-decision-kol-batch-next-dispatch-20261020 under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924): one bounded KOL triage batch over every intake note queued more than 72 hours; each note is integrated onto its best-matching existing article as attributed, dated, linked and cited work, or rejected with a reason. Every reported number is verified against the primary source before it is encoded, and the change is registered in the deltas ledger. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-KOL-001",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        },
+        {
+          "id": "expo-ft-intake-20260925-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f"
+        },
+        {
+          "id": "kol-backlog-20261001-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0f638d06385adacc58d419c23a0fa24860069dd6dfc63a53ec0250766064c5d0"
+        },
+        {
+          "id": "kol-backlog-20261001-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d0708a60d3214684fda52170fcd4447bcd66c56ff7078283c9ab19be9f8ee92d"
+        },
+        {
+          "id": "kol-backlog-20261001-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "86bdaf2aad9c7973398e9465830cfd5b157a4933034ddd17f285ee5e6ff9ab12"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
+        },
+        {
+          "id": "seo-pass-20261002-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4275fce1f2fa6fcab3e9f65b8451c851a1c9000c0ce172fe97ba5e9f46d443b0"
+        },
+        {
+          "id": "kol-backlog-20261005-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d5fa6de0920efb6f604b3adb78671398a2f7315e701b7679c84db792de6ca6c9"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb35cb7a742017f7eb5c1fff3b0002b8a60a6c67776a33db155b0aebe0b4a8f0"
+        },
+        {
+          "id": "kol-backlog-20261005-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ed90498df28ec03385a9fec964589aaf8d39c804f9460765cd315ebf06bea31"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "126e7b445dc19b681249cf921a88515accb5ce3d2ca9014530a39252d7629134"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d88adcb29d51f3923544c1761f138cc80ada2ac4861b0f1f84e0f8ad67319de4"
+        },
+        {
+          "id": "kol-backlog-20261005-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6d7fb89f953cd5806346a46d295a04f6925fd41f3174d80f05f1a812435c81e4"
+        },
+        {
+          "id": "domain-pass-20261006-g1-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3e1ca8a9c5dc154bd815e226b7d53d9527f38e7255f2a3a0dabb7fcf3df91849"
+        },
+        {
+          "id": "domain-pass-20261006-g2-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "912315196c4c4633c733b5e0b53ef0c0c3c8be2237449b78c8652e036210819f"
+        },
+        {
+          "id": "domain-pass-20261006-g3-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7c11f6330dc6494c88e40d10722e448679cc4356022d05e3f8240a41afc671da"
+        },
+        {
+          "id": "domain-pass-20261006-g4-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bf7a5e8a8094ce208c548b783c6a54d45f5a1de61a4d0886bbf2a8928061fa60"
+        },
+        {
+          "id": "domain-pass-20261006-g5-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8e198326a8254e01cbabb3b442d824528d3ab013b1ecba871daf4aecdcc36c80"
+        },
+        {
+          "id": "domain-pass-20261006-g7-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b9884a99b341adbd61edfb1ee0968fafc7071fac3eff926c79a54fbb8e207342"
+        },
+        {
+          "id": "domain-pass-20261006-g8-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b817d91fe450f5361e69424260f9ce9c17683eb871046a99ed68ed8b034c1e46"
+        },
+        {
+          "id": "domain-pass-20261006-g9-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e454bc12da7af25f2f486b8850ef29d126e93f28db7e22323fd1aaf05c6d96ab"
+        },
+        {
+          "id": "domain-pass-20261008-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ecd1cd4d56707722fb52bb3f46671b1a7e0b50bf78ab49a9aa078c8500f8bc4"
+        },
+        {
+          "id": "domain-pass-20261008-sweep-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "284c1d91aa330bf70f66063372c4b6767b211f89b6a42ca0438fde97337c5355"
+        },
+        {
+          "id": "domain-pass-20261009-kol-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cfe62d4fd0a7085eb72e5df25eeae253959b5a5472b2e59a04e274c7f019f5f1"
+        },
+        {
+          "id": "world-models-pass-20261010-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "decf48d442e8a32c2531606aa90ff903e46fd6a48998e7cd1111acd8771fe6db"
+        },
+        {
+          "id": "domain-pass-20261012-kol-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "72aa201802f2689ab7d3c89812de121dd464de5c93e10c0f1fd0d8c0acce8431"
+        },
+        {
+          "id": "frontier-pass-20261010-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "37b45901df39a3d8226c014b0774ef57f2b3fbd8478fcb76dc206d8056e1007f"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "27a0c875d6ff2797cc6807a2fab163ed4d01d3b03e9399eacb469ed1c8fa1ee6"
+        },
+        {
+          "id": "length-cut-20261014-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c1445dc1508c859643078986a8caf3f1b1a75e552e39398ca3f995b525928296"
+        }
+      ]
     }
   ]
 }

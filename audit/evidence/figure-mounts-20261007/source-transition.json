@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-20T05:00:20Z",
+  "observedAt": "2026-10-20T16:50:38Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -160,16 +160,16 @@
       ]
     },
     {
-      "archivedFrom": "f213325c13d4cce4b47b2c887d6167dffe5bbf8d",
+      "archivedFrom": "6cde1a0a315acb6152d660d4e7a85568db33b8aa",
       "before": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 8874,
-        "sha256": "ddf115791949d04f844312d78797864dfd4d0b88fff8bdd3ba29fb41c3c513ab"
+        "bytes": 9589,
+        "sha256": "a3a49cb85b1ef94c4569ae2516102b5aec1aabfbf5b57681d9de9b07e9bc42f3"
       },
       "after": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 8984,
-        "sha256": "52175be276d9fa16f7accbf7657c95d158561663f729f3792979560fa03bd471"
+        "bytes": 9699,
+        "sha256": "f0115721ca4182a93ab1047168171137f738ebb2bc777439a59c0418e42bc5fa"
       },
       "edits": [
         {

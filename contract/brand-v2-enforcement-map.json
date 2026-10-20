@@ -15250,6 +15250,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dsp-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dsrl-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15501,6 +15506,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:faa-part-108-reopen-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:fact-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -18235,6 +18245,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pantact-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:park-2017-bounding",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -18256,6 +18271,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:paxton-autonomous-trucks-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:paxton-iros-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21150,7 +21170,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1969,
+        "populationSize": 1973,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21950,6 +21970,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:droid-slam-2021",
           "result:VAL-B2-BASE-002:article-metadata:citation:droids-optimus-v3-hand-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dso-2018",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dsp-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dsrl-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:dtc-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:dust3r-2024",
@@ -22001,6 +22022,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:f3rm-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:faa-part-108-nprm-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:faa-part-108-reopen-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:fact-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:factory-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:factr-2-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:faessler-flatness-2018",
@@ -22547,11 +22569,13 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:pair-vla-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:paligemma-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:palm-e-2023",
+          "result:VAL-B2-BASE-002:article-metadata:citation:pantact-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:park-2017-bounding",
           "result:VAL-B2-BASE-002:article-metadata:citation:park-bottleneck-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:park-martin-1994",
           "result:VAL-B2-BASE-002:article-metadata:citation:particlesplat-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:paxton-autonomous-trucks-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:paxton-iros-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:paxton-robot-sports-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pd-vla-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pddm-2019",
@@ -44288,7 +44312,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:60902712206cc914",
+          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:ac3da0a80c24b102",
           "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
         },
         {
@@ -44752,7 +44776,7 @@
           "result:VAL-B2-OG-012:probe:og-face:data:552ed2e54a941137",
           "result:VAL-B2-OG-012:probe:og-face:data:25c2fc40eff51fde",
           "result:VAL-B2-OG-012:probe:og-face:data:58858c2d40eb50cb",
-          "result:VAL-B2-OG-012:probe:og-face:data:60902712206cc914",
+          "result:VAL-B2-OG-012:probe:og-face:data:ac3da0a80c24b102",
           "result:VAL-B2-OG-012:probe:og-face:data:76c7a903d3f47a4e",
           "result:VAL-B2-OG-012:probe:og-face:data:108d165c7dc82d62",
           "result:VAL-B2-OG-012:probe:og-face:data:8a138776ed52b97c",

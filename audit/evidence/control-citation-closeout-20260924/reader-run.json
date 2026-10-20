@@ -20,8 +20,8 @@
     },
     {
       "path": "data/citations.ts",
-      "bytes": 968728,
-      "sha256": "a884ebf69603419e8831dc6d79e9933541d8b6ae427995e9ee729ca89b48ea7b"
+      "bytes": 971036,
+      "sha256": "4b386bea40e178e0657881b0935a62c0fc318c80a31fb7587f135d81889fad2a"
     },
     {
       "path": "tests/e2e/control.spec.ts",

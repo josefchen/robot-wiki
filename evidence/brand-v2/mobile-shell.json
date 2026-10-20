@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3065,
+      "visibleTextLength": 3024,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 19979,
+      "visibleTextLength": 21398,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 26915,
+      "visibleTextLength": 27499,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 18247,
+      "visibleTextLength": 19184,
       "header": {
         "present": true,
         "display": "flex",

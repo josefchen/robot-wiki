@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4682541e4989bae66d449985b9f586e4862088b00f411e101efc569cc7e13cf2",
+  "fingerprint": "226e0f1842a38bbe5704323d360871c77a95b60c440e7c01d83196d86c5c82bf",
   "viewports": [
     "375x812",
     "1440x900"
@@ -11485,7 +11485,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19979,
+      "visibleTextLength": 21398,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -11764,7 +11764,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26915,
+      "visibleTextLength": 27499,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -12169,7 +12169,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18247,
+      "visibleTextLength": 19184,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -27951,7 +27951,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26747,
+      "visibleTextLength": 28430,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -28230,7 +28230,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 33690,
+      "visibleTextLength": 34377,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -28635,7 +28635,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23647,
+      "visibleTextLength": 24728,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",

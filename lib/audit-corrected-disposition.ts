@@ -53,7 +53,7 @@ const P4_KROGER_CURRENT = {
   // Re-pinned 2026-09-25 after the EXPO-FT intake additions, on 2026-10-01
   // after the KOL backlog batch additions and on 2026-10-02 after the
   // citation label rewrite: the review binds the live registry bytes.
-  bytes: 2887, sha256: 'a642cf1d5e65df1774411ee7dffbf9401b5f182e4017e7835a58697d94e006cb',
+  bytes: 2887, sha256: 'fa3c18aedb4bfc7ea59f9b5f9315ea3bc2b2d988bbe32714df43e2a918083235',
 };
 /** A mounted reader observation, not an inferred future outcome or copied article claim. */
 export function verifyKrogerReaderObservation(capture: {
