@@ -1,34 +1,35 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
   ControlField,
   ControlLabel,
   INSTRUMENT_SLIDER_CLASS,
   InstrumentFigure,
-  InstrumentLegend,
   InstrumentReadout,
   InstrumentReset,
-  LegendItem,
-  PlotStage,
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
+import { roleColour } from '@/components/motion/chart';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, Line, Solid, Wire } from '@/components/iso/react/draw';
+import { Stage, asksForStillness } from '@/components/iso/react/live';
 import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_VIEW_WIDTH,
-  ConstraintHatch,
-  DirectLabel,
-  LegendSwatch,
-  PointMarker,
-  StageAnnotation,
-  roleColour,
-} from '@/components/motion/chart';
-import { RobotDog, type DogFeet } from '@/components/motion/robot-dog';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
+  CYCLE_SECONDS,
+  FLOOR_UNITS,
+  HEIGHT,
+  HOLE_UNITS,
+  PARTS,
+  WIDTH,
+  clipFor,
+  cycleAt,
+  movingAt,
+  restPose,
+  type BenchPart,
+  type BenchPose,
+} from '@/components/iso/figures/contact-error-bench';
 import {
   DEFAULT_ERROR_MM,
   MAX_ERROR_MM,
@@ -40,84 +41,30 @@ import {
 } from '@/lib/contact-geometry';
 
 /**
- * ContactGeometry: one floor error, two tasks, side by side.
+ * ContactGeometry: one floor error, two tasks, on one test bench
+ * (components/iso/figures/contact-error-bench.ts). One knob at the bench's
+ * front sets the error; its line shaft drives a gearbox at each fixture, so
+ * the same turn lowers the floor at the left and moves the hole at the right.
  *
- * Left, a four-legged robot stands where the simulator thinks the floor
- * is (dashed), above where the floor really is (solid). Feedback on every
- * step absorbs the gap until it passes the gait's 20 mm tolerance.
+ * At the left a four-legged robot stands with its hind feet on a deck, the
+ * floor as the simulator modelled it, and steps its front feet down to a
+ * lift plate, the real floor, which a screw jack lowers by the error. The
+ * legs reach the plate, as a gait's feedback takes up the gap on its next
+ * step, until the drop passes the 20 mm they can absorb; past that the front
+ * feet find nothing and the robot pitches forward onto the plate.
  *
- * Right, a gripper lowers a peg into the hole where the simulator thinks
- * the hole is (dashed walls). The real hole (solid walls) has 0.5 mm of
- * clearance, so the same couple of millimetres lands the peg on the edge.
+ * At the right a gripper lowers a peg, the one lit part, where the simulator
+ * says the hole is, and a cross-slide moves the real hole by the same error.
+ * The hole leaves 0.5 mm of clearance, so the same couple of millimetres
+ * brings the peg down on the rim.
  *
- * Gaps are drawn larger than real so a 2 mm error is visible at all: the
- * floor gap grows with the square root of the error and the peg's offset
- * stops growing at four clearances, past which it carries no information.
- * Every lib contact keeps a marker; only the ones that go wrong (all four
- * feet past the gait's tolerance, the rim and leading corner where a peg
- * binds) are crosses.
- * No JS-driven motion, so reduced-motion safe by construction.
+ * Gaps are drawn larger than real so a 2 mm error shows at all: the floor at
+ * its own scale, the hole at a steeper one that stops at four clearances,
+ * past which the exact shift carries no information. A ruler at each station
+ * reads its gap, its tolerance marked by the longest tick. Each change of
+ * error runs one test: the peg lifts clear, the jack and the slide move, the
+ * peg comes down and the robot settles. Reduced motion jumps to the result.
  */
-
-const WIDTH = CHART_VIEW_WIDTH;
-const HEIGHT = 208;
-
-/** Where the real floor and the hole's base sit. */
-const FLOOR_Y = 176;
-const OUTCOME_Y = 200;
-const DOG_PANEL_RIGHT = 168;
-
-/** The dog's hips and the feet that carry the lib's four foot contacts, in order. */
-const DOG_REAR = 44;
-const DOG_FRONT = 112;
-const DOG_LEG = 22;
-const DOG_FEET_X = [50, 40, 120, 110] as const;
-
-/** Peg scene geometry, in stage units. */
-const PEG_X = 262;
-const PEG_W = 30;
-const PEG_H = 54;
-/** One drawn clearance on each side of the peg, the real 0.5 mm. */
-const CLEARANCE = 4;
-const WALL_W = 16;
-const MOUTH_Y = FLOOR_Y - 48;
-const INSERTED = 30;
-const HOLE_LEFT = PEG_X - PEG_W / 2 - CLEARANCE;
-const HOLE_RIGHT = PEG_X + PEG_W / 2 + CLEARANCE;
-
-const f = (v: number) => Number(v.toFixed(2));
-
-/** Drawn floor gap: grows with the square root so 2 mm still shows. */
-const floorGap = (errorMm: number) => f(5 * Math.sqrt(Math.max(0, errorMm)));
-
-/** Drawn peg offset: one clearance per 0.5 mm, stopping at four clearances. */
-const pegShift = (errorMm: number) => {
-  const spec = SCENARIOS.manipulation;
-  return f((Math.min(errorMm, 4 * spec.toleranceMm) * CLEARANCE) / spec.toleranceMm);
-};
-
-/** Where each of the lib's fourteen insertion contacts sits on the seated peg. */
-const PEG_CONTACT_AT: Record<string, readonly [number, number]> = {
-  'wall-l-1': [-PEG_W / 2, INSERTED - 24],
-  'wall-l-2': [-PEG_W / 2, INSERTED - 15],
-  'wall-l-3': [-PEG_W / 2, INSERTED - 6],
-  'wall-r-1': [PEG_W / 2, INSERTED - 24],
-  'wall-r-2': [PEG_W / 2, INSERTED - 15],
-  'wall-r-3': [PEG_W / 2, INSERTED - 6],
-  'chamfer-l': [-8, INSERTED],
-  'chamfer-r': [8, INSERTED],
-  'finger-l-1': [-PEG_W / 2, INSERTED - PEG_H + 6],
-  'finger-l-2': [-PEG_W / 2, INSERTED - PEG_H + 16],
-  'finger-r-1': [PEG_W / 2, INSERTED - PEG_H + 6],
-  'finger-r-2': [PEG_W / 2, INSERTED - PEG_H + 16],
-};
-
-/** Where a peg that misses binds: the right-hand rim and the peg's leading corner. */
-const JAM_CONTACTS = new Set(['rim-r', 'chamfer-r']);
-
-const ink = CHART_STRUCTURE.label;
-const LINE = { fill: 'none', stroke: ink, strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round' } as const;
-const DASHED = { ...LINE, strokeWidth: 1.25, strokeDasharray: CHART_STROKE.dash } as const;
 
 type PresetId = 'thin' | 'coin' | 'thumb';
 
@@ -133,130 +80,8 @@ const presetFor = (errorMm: number): PresetId | null =>
 /** "2 mm", "0.5 mm", "2.3 mm" for the stage; the fold keeps one decimal. */
 const plainMm = (mm: number) => formatMm(Number(mm.toFixed(1)));
 
-function ContactMarker({ id, x, y, lost }: { id: string; x: number; y: number; lost: boolean }) {
-  // A contact that goes wrong is a red cross; every other contact is a
-  // small grey dot, so the failure is a shape and not only a hue, and it is
-  // the one mark group at full emphasis.
-  return (
-    <g data-testid={`contact-marker-${id}`} data-contact={lost ? 'lost' : 'held'}>
-      {lost ? (
-        <PointMarker x={f(x)} y={f(y)} role="constraint" shape="cross" />
-      ) : (
-        <circle cx={f(x)} cy={f(y)} r={1.5} fill={CHART_STRUCTURE.labelSecondary} opacity={0.7} />
-      )}
-    </g>
-  );
-}
-
-/** A legend swatch in the drawing's own ink, solid or dashed. */
-function InkSwatch({ dashed = false }: { dashed?: boolean }) {
-  return (
-    <svg aria-hidden="true" focusable="false" width={28} height={14} viewBox="0 0 28 14" className="shrink-0">
-      <path d="M1 7 H27" {...(dashed ? DASHED : LINE)} />
-    </svg>
-  );
-}
-
-function DogScene({ errorMm }: { errorMm: number }) {
-  const spec = SCENARIOS.locomotion;
-  const failed = outcomeFor(spec, errorMm) === 'fail';
-  const simFloor = f(FLOOR_Y - floorGap(errorMm));
-  const hipY = simFloor - 38;
-  const feet = DOG_FEET_X.map((x) => [x, simFloor] as const) as unknown as DogFeet;
-  return (
-    <g data-testid="dog-scene">
-      <line data-testid="real-floor" x1={4} x2={DOG_PANEL_RIGHT} y1={FLOOR_Y} y2={FLOOR_Y} {...LINE} />
-      <line data-testid="sim-floor" x1={4} x2={DOG_PANEL_RIGHT} y1={simFloor} y2={simFloor} {...DASHED} />
-      {/* Past its tolerance the robot tips onto its nose. */}
-      <g transform={failed ? `rotate(14 ${DOG_FEET_X[1]} ${simFloor})` : undefined}>
-        <RobotDog rear={DOG_REAR} front={DOG_FRONT} hipY={hipY} feet={feet} segment={DOG_LEG} />
-        {spec.contacts.map((c, i) => (
-          <ContactMarker key={c.id} id={c.id} x={DOG_FEET_X[i]} y={simFloor - 2} lost={failed} />
-        ))}
-      </g>
-      <DirectLabel x={84} y={OUTCOME_Y} anchor="middle" role={failed ? 'constraint' : undefined}>
-        {failed ? 'loses its footing' : 'keeps walking'}
-      </DirectLabel>
-    </g>
-  );
-}
-
-/** A two-finger gripper holding the peg, as a line drawing: wrist, palm and a finger on each side with its pad. */
-function Gripper({ pegLeft, pegTop }: { pegLeft: number; pegTop: number }) {
-  const pegRight = f(pegLeft + PEG_W);
-  const palmY = f(pegTop - 8);
-  const centre = f(pegLeft + PEG_W / 2);
-  const outline = { fill: 'none', stroke: ink, strokeWidth: CHART_STROKE.trace } as const;
-  return (
-    <g data-testid="gripper">
-      <line x1={centre} x2={centre} y1={f(palmY - 18)} y2={palmY} {...outline} />
-      <rect x={f(pegLeft - 10)} y={palmY} width={PEG_W + 20} height={4} {...outline} />
-      {[f(pegLeft - 8), pegRight].map((x) => (
-        <g key={x}>
-          <rect x={x} y={f(palmY + 4)} width={8} height={30} {...outline} fill={MOTION_STAGE.background} />
-          <line
-            x1={x === pegRight ? f(x + 1.5) : f(x + 6.5)}
-            x2={x === pegRight ? f(x + 1.5) : f(x + 6.5)}
-            y1={f(pegTop + 8)}
-            y2={f(pegTop + 20)}
-            {...outline}
-          />
-        </g>
-      ))}
-    </g>
-  );
-}
-
-function PegScene({ errorMm, hatchId }: { errorMm: number; hatchId: string }) {
-  const spec = SCENARIOS.manipulation;
-  const failed = outcomeFor(spec, errorMm) === 'fail';
-  const shift = pegShift(errorMm);
-  // A peg that misses rests on the wall top instead of entering the hole.
-  const bottom = failed ? MOUTH_Y : MOUTH_Y + INSERTED;
-  const lift = bottom - (MOUTH_Y + INSERTED);
-  const pegLeft = f(PEG_X - PEG_W / 2 + shift);
-  const pegRight = f(pegLeft + PEG_W);
-  const pegTop = bottom - PEG_H;
-  const overlap = f(pegRight - HOLE_RIGHT);
-  const wallH = FLOOR_Y - 4 - MOUTH_Y;
-  return (
-    <g data-testid="peg-scene">
-      <g data-testid="real-hole" {...LINE}>
-        <rect x={HOLE_LEFT - WALL_W} y={MOUTH_Y} width={WALL_W} height={wallH} />
-        <rect x={HOLE_RIGHT} y={MOUTH_Y} width={WALL_W} height={wallH} />
-        <rect x={HOLE_LEFT - WALL_W} y={FLOOR_Y - 4} width={HOLE_RIGHT - HOLE_LEFT + 2 * WALL_W} height={4} />
-      </g>
-      {/* Where the simulator believes the hole is. */}
-      <g data-testid="sim-hole" {...DASHED}>
-        <line x1={f(HOLE_LEFT + shift)} x2={f(HOLE_LEFT + shift)} y1={MOUTH_Y - 8} y2={FLOOR_Y - 4} />
-        <line x1={f(HOLE_RIGHT + shift)} x2={f(HOLE_RIGHT + shift)} y1={MOUTH_Y - 8} y2={FLOOR_Y - 4} />
-      </g>
-      {failed && overlap > 0 ? (
-        <ConstraintHatch id={hatchId} x={HOLE_RIGHT} y={MOUTH_Y - 5} width={overlap} height={5} />
-      ) : null}
-      <g data-testid="peg">
-        <path
-          d={`M ${pegLeft} ${pegTop} H ${pegRight} V ${f(bottom - 4)} L ${f(pegRight - 4)} ${bottom} H ${f(pegLeft + 4)} L ${pegLeft} ${f(bottom - 4)} Z`}
-          {...LINE}
-          fill={MOTION_STAGE.background}
-        />
-      </g>
-      <Gripper pegLeft={pegLeft} pegTop={pegTop} />
-      {spec.contacts.map((c) => {
-        const lost = failed && JAM_CONTACTS.has(c.id);
-        // Rim contacts belong to the real hole; the rest ride with the peg.
-        if (c.id === 'rim-l' || c.id === 'rim-r') {
-          return <ContactMarker key={c.id} id={c.id} x={c.id === 'rim-l' ? HOLE_LEFT : HOLE_RIGHT} y={MOUTH_Y} lost={lost} />;
-        }
-        const [dx, dy] = PEG_CONTACT_AT[c.id] ?? [0, 0];
-        return <ContactMarker key={c.id} id={c.id} x={PEG_X + shift + dx} y={MOUTH_Y + dy + lift} lost={lost} />;
-      })}
-      <DirectLabel x={PEG_X} y={OUTCOME_Y} anchor="middle" role={failed ? 'constraint' : undefined}>
-        {failed ? 'jams on the edge' : 'slides into the hole'}
-      </DirectLabel>
-    </g>
-  );
-}
+/** Where each of the lib's contacts goes wrong when its task fails: all four feet, and the rim and leading corner a peg binds on. */
+const JAM_CONTACTS = new Set(['rim-r', 'chamfer-r']);
 
 function annotationLines(errorMm: number, dogOk: boolean, pegOk: boolean): string[] {
   const mm = plainMm(errorMm);
@@ -264,6 +89,48 @@ function annotationLines(errorMm: number, dogOk: boolean, pegOk: boolean): strin
   if (dogOk) return [`Same ${mm} error: the dog keeps walking,`, 'the peg misses the hole'];
   return [`At ${mm} even the dog loses its footing;`, 'the peg missed long before'];
 }
+
+/** The stage's live words: the error the rulers read now, and what each fixture did with it. */
+export function benchReadout(errorMm: number, settled: boolean): string {
+  const mm = `One ${errorMm.toFixed(1)} mm error`;
+  if (!settled) return `${mm} · testing`;
+  const legs = outcomeFor(SCENARIOS.locomotion, errorMm) === 'ok' ? 'legs reach' : 'legs fall short';
+  const peg = outcomeFor(SCENARIOS.manipulation, errorMm) === 'ok' ? 'peg goes in' : 'peg jams';
+  return `${mm} · ${legs} · ${peg}`;
+}
+
+/** The robot's four feet, in the lib's contact order: hind near, hind far, front near, front far. */
+const FOOT_CONTACTS: Record<string, string> = {
+  'foot-hind-near': 'foot-0',
+  'foot-hind-far': 'foot-1',
+  'foot-front-near': 'foot-2',
+  'foot-front-far': 'foot-3',
+};
+
+function PartView({ part, lost }: { part: BenchPart; lost?: (name: string) => boolean | null }): ReactNode {
+  if (part.kind === 'solid') {
+    const solid = (
+      <Solid paths={part.paths} tone={part.tone} lit={part.lit} crease={part.crease} inner={part.inner ? <g dangerouslySetInnerHTML={{ __html: part.inner }} /> : undefined} />
+    );
+    const contact = part.name ? FOOT_CONTACTS[part.name] : undefined;
+    if (!contact || !lost) return solid;
+    return (
+      <g data-testid={`contact-marker-${contact}`} data-contact={lost(contact) ? 'lost' : 'held'}>
+        {solid}
+      </g>
+    );
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  if (part.kind === 'dots') return <Dots points={part.points} size={part.size} tone={part.tone} />;
+  if (part.kind === 'wire') return <Wire from={part.from} to={part.to} via={part.via} tone={part.tone} />;
+  if (part.fill === 'paper') return <path className="iso-fill" d={part.d} />;
+  if (part.fill === 'top') return <path className="iso-top" d={part.d} />;
+  // The dark inside of a bore: deeper than any side shade.
+  if (part.fill === 'void') return <path className="iso-shade" data-shade="0" style={{ fill: 'color-mix(in srgb, var(--anatomy-lo) 55%, var(--anatomy-paper))' }} d={part.d} />;
+  return <path className="iso-shade" data-shade={part.fill} d={part.d} />;
+}
+
+const tenth = (value: number) => Math.round(value * 10) / 10;
 
 export function ContactGeometry({
   defaultErrorMm = DEFAULT_ERROR_MM,
@@ -274,7 +141,7 @@ export function ContactGeometry({
 }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
-  const hatchId = `${uid.replace(/[^a-zA-Z0-9_-]/g, '')}-cg-overlap`;
+  const clipId = `${uid.replace(/[^a-zA-Z0-9_-]/g, '')}-cg-hole`;
   const [errorMm, setErrorMm] = useState(defaultErrorMm);
 
   const loco = SCENARIOS.locomotion;
@@ -288,16 +155,67 @@ export function ContactGeometry({
   const error = `${errorMm.toFixed(1)} mm`;
 
   const locoClause = locoOk
-    ? `Locomotion at ${error} of contact-model error stays stable: all ${nLoco} paws stand on the dashed simulated floor, inside the ${formatMm(loco.toleranceMm)} a gait absorbs, with ${(loco.toleranceMm - errorMm).toFixed(1)} mm of margin left.`
+    ? `Locomotion at ${error} of contact-model error stays stable: all ${nLoco} paws stay loaded as the front pair steps down to the real floor, inside the ${formatMm(loco.toleranceMm)} a gait absorbs, with ${(loco.toleranceMm - errorMm).toFixed(1)} mm of margin left.`
     : `Locomotion at ${error} of contact-model error loses support: the gap to the real floor exceeds the ${formatMm(loco.toleranceMm)} a gait absorbs, so its ${nLoco} near-point contacts have left the recoverable region.`;
   const manipClause = manipOk
     ? `The peg at the same error still seats inside the ${formatMm(manip.toleranceMm)} clearance of the real hole, with all ${nManip} distributed contacts holding.`
     : `The peg at the same error jams on the edge of the real hole, past its ${formatMm(manip.toleranceMm)} clearance, so its ${nManip} distributed contacts cannot absorb millimetres the way a gait can.`;
   const takeaway = `${locoClause} ${manipClause}`;
 
+  // The bench as drawn: a test runs from wherever it stands to the chosen error's rest pose.
+  // Built from the opening error (the state above), so the server and the first client render agree.
+  const [pose, setPose] = useState<BenchPose>(() => restPose(errorMm));
+  const [settled, setSettled] = useState(true);
+  const live = useRef({ pose, from: pose, target: errorMm, start: 0 });
+  const frame = useRef(0);
+  const shown = useRef(errorMm);
+
+  const step = useCallback(function tick(now: number) {
+    const s = live.current;
+    const t = (now - s.start) / 1000;
+    s.pose = cycleAt(s.from, s.target, Math.min(t, CYCLE_SECONDS));
+    setPose(s.pose);
+    if (t >= CYCLE_SECONDS) {
+      frame.current = 0;
+      setSettled(true);
+      return;
+    }
+    frame.current = requestAnimationFrame(tick);
+  }, []);
+
+  useEffect(() => {
+    if (shown.current === errorMm) return;
+    shown.current = errorMm;
+    const s = live.current;
+    s.target = errorMm;
+    if (asksForStillness()) {
+      cancelAnimationFrame(frame.current);
+      frame.current = 0;
+      s.pose = restPose(errorMm);
+      s.from = s.pose;
+      setPose(s.pose);
+      setSettled(true);
+      return;
+    }
+    s.from = s.pose;
+    s.start = performance.now();
+    setSettled(false);
+    if (!frame.current) frame.current = requestAnimationFrame(step);
+  }, [errorMm, step]);
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+
   function reset() {
     setErrorMm(defaultErrorMm);
   }
+
+  const moving = movingAt(pose);
+  const clip = clipFor(pose);
+  const lostFoot = () => !locoOk;
+  const pegContacts = manip.contacts.map((c) => c.id);
+  const pegLost = manipOk ? [] : pegContacts.filter((id) => JAM_CONTACTS.has(id));
+  const slotView = (slot: keyof typeof moving) => moving[slot].map((part, index) => <PartView key={index} part={part} lost={slot === 'robot' ? lostFoot : undefined} />);
+  const shownMm = pose.drop / FLOOR_UNITS;
 
   return (
     <InstrumentFigure
@@ -338,41 +256,91 @@ export function ContactGeometry({
         </>
       }
       stage={
-        <FigureStage
-          footer={
-            <>
-              <InstrumentLegend>
-                <LegendItem swatch={<InkSwatch />}>real surface</LegendItem>
-                <LegendItem swatch={<InkSwatch dashed />}>
-                  where the simulator thinks it is
-                </LegendItem>
-                <LegendItem swatch={<LegendSwatch role="constraint" mark="cross" />}>where it goes wrong</LegendItem>
-              </InstrumentLegend>
-              <StageStatus>Illustrative, not measured; gaps drawn larger than real</StageStatus>
-            </>
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={
+            <span data-figure-annotation="">
+              {annotationLines(errorMm, locoOk, manipOk).join(' ')}
+            </span>
           }
+          readout={benchReadout(settled ? errorMm : shownMm, settled)}
+          status="Illustrative, not measured; gaps drawn larger than real"
+          data-testid="cg-stage"
         >
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Contact-model error of ${errorMm.toFixed(1)} millimetres, side by side. Left, a four-legged robot stands on the simulated floor: ${locoOutcome}. Right, a gripper lowers a peg toward the real hole: ${manipOutcome}.`}
-            aria-describedby={descriptionId}
-          >
-            <StageAnnotation x={8} y={16} lines={annotationLines(errorMm, locoOk, manipOk)} />
-            <DogScene errorMm={errorMm} />
-            <PegScene errorMm={errorMm} hatchId={hatchId} />
-          </PlotStage>
-        </FigureStage>
+          <Stage className="iso-stage">
+            <svg
+              className="iso-svg"
+              viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+              role="img"
+              focusable="false"
+              aria-label={`Contact-model error of ${errorMm.toFixed(1)} millimetres, side by side. Left, a four-legged robot stands on the simulated floor: ${locoOutcome}. Right, a gripper lowers a peg toward the real hole: ${manipOutcome}.`}
+              aria-describedby={descriptionId}
+              data-testid="cg-bench"
+              data-drop={tenth(pose.drop)}
+              data-shift={tenth(pose.shift)}
+              data-tip={tenth(pose.tip)}
+              data-fall={tenth(pose.fall)}
+            >
+              {clip ? (
+                <defs>
+                  <clipPath id={clipId}>
+                    <path d={clip.d} />
+                  </clipPath>
+                </defs>
+              ) : null}
+              {PARTS.map((part, index) => {
+                if (part.kind !== 'slot') return <PartView key={index} part={part} />;
+                if (part.slot === 'robot') {
+                  return (
+                    <g key={part.slot} data-testid="dog-scene" data-outcome={locoOk ? 'ok' : 'fail'}>
+                      <g data-testid="robot-dog">{slotView('robot')}</g>
+                    </g>
+                  );
+                }
+                if (part.slot === 'carriage') {
+                  return (
+                    <g key={part.slot} data-testid="gripper">
+                      {slotView('carriage')}
+                    </g>
+                  );
+                }
+                if (part.slot === 'peg') {
+                  return (
+                    <g
+                      key={part.slot}
+                      data-testid="peg-scene"
+                      data-outcome={manipOk ? 'ok' : 'fail'}
+                      data-contacts-held={pegContacts.filter((id) => !pegLost.includes(id)).join(' ')}
+                      data-contacts-lost={pegLost.join(' ')}
+                      clipPath={clip && clip.slot === 'peg' ? `url(#${clipId})` : undefined}
+                    >
+                      {slotView('peg')}
+                    </g>
+                  );
+                }
+                return <g key={part.slot}>{slotView(part.slot)}</g>;
+              })}
+            </svg>
+          </Stage>
+        </AnatomyStage>
       }
       caption="Simulators never get surfaces exactly right; legs adjust step by step, but a tight-fitting part leaves almost no room for error."
       method={
         <>
           <p>
-            Both scenes take the same contact-model error, epsilon: how far the simulator&rsquo;s idea of a
-            surface is from the real one. The walking robot stands where the simulator puts the floor; the
-            peg is lowered where the simulator puts the hole. Gaps are drawn larger than real so a couple of
-            millimetres shows at all: the floor gap grows with the square root of the error, and the peg&rsquo;s
-            offset stops growing at four clearances. The slider under &ldquo;Adjust more&rdquo; sets any error
-            from {MIN_ERROR_MM} to {MAX_ERROR_MM} mm.
+            Both fixtures take the same contact-model error, epsilon: how far the simulator&rsquo;s idea of a
+            surface is from the real one. The drawing is a test bench. One knob at its front sets the error: its
+            shaft runs along the bench to a gearbox at each fixture, so the same turn lowers the floor and moves the
+            hole. At the left a four-legged robot stands with
+            its hind feet on a deck, where the simulator puts the floor, and steps its front feet down to a lift
+            plate, the real floor, which a screw jack lowers by the error; the legs reach it until the drop passes
+            the {formatMm(loco.toleranceMm)} a gait absorbs, and past that the robot pitches forward onto the
+            plate. At the right a gripper lowers the lit peg where the simulator puts the hole, and a cross-slide
+            moves the real hole by the same error. A ruler at each station reads its gap, the tolerance marked by
+            the longest tick. Gaps are drawn larger than real so a couple of millimetres shows at all: the floor
+            at {FLOOR_UNITS} drawing units a millimetre, the hole at {HOLE_UNITS}, whose shift stops growing at
+            four clearances. The slider under &ldquo;Adjust more&rdquo; sets any error from {MIN_ERROR_MM} to{' '}
+            {MAX_ERROR_MM} mm, and each change runs the test again.
           </p>
           <InstrumentReadout>
             Exact error: <span data-testid="error-readout">{error}</span>

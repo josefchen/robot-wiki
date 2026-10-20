@@ -42,6 +42,11 @@
  * place rebuilds the bytes before the oldest. A later mount's obligation is
  * the same as a first one's: taking out the admitted imports and mounts the
  * prior bytes did not already carry gives the prior bytes exactly.
+ *
+ * Extended on 2026-10-20 by three manipulation figures (NoiseOrEdit in RL
+ * fine-tuning, DeltaFrame in the robot-learning roadmap, HandMotionShare in
+ * cross-embodiment transfer), mounted the same way after the three articles'
+ * image mounts of 2026-10-13, so the same early read rebuilds them.
  */
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
@@ -66,13 +71,14 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 55250, sha256: 'd2175534914520165ee216668c9ee530296c78d05225df4c9b839f54414be079' };
+const reviewPin = { bytes: 62838, sha256: '8a6cb0a505f6057434f764f16bc53632754898c078a47f07693d2dbacd8a3eb3' };
 
 /** Reviewed successor bytes per path (one per mount change, oldest first), so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = new Map([
   ['content/adjacent/surgical.mdx', [[13598, 'cffde9f2ee237da5e27c744f7e62bd8f7ac75a914a27487f3fed2e7a9c7dfdf6'], [12535, 'b229640fa753e33d14441269b9fd68424f6775ffaa6dc5ac6e35143c125937f3']]],
   ['content/classical/calibration.mdx', [[10030, 'ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5']]],
   ['content/classical/ros2-for-ml-engineers.mdx', [[9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']]],
+  ['content/classical/state-estimation.mdx', [[14073, 'f4ee9d7b68feee568ecf5b21f95d37bfda3f51443c96533816d9929f214232c1']]],
   ['content/data-hardware/robot-learning-stack.mdx', [[11133, 'd5721a94dca00a2436bd40421cd71a69a0419c87459c160403e2c97141564b39']]],
   ['content/data-hardware/teleop-rigs.mdx', [[8984, '52175be276d9fa16f7accbf7657c95d158561663f729f3792979560fa03bd471']]],
   ['content/frontier/bear-case.mdx', [[10227, '20caa5e4beb5395a272276347a9e9d6a370d7a88a7ec385df815d6e3521de8d4']]],
@@ -80,7 +86,10 @@ const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = 
   ['content/frontier/safety-and-assurance.mdx', [[18466, '6bca2f2c739c1205b6aba50f63c357c8f2f4ee9c8501dd481e17a8aa8233cde5']]],
   ['content/manipulation/action-spaces.mdx', [[9102, '73e527d6c46472d025e3840f75c70cf8f388422d5f29efcf0cd9e19c46d13d8a']]],
   ['content/manipulation/comparison-matrix.mdx', [[9486, '29f74c7b927967f87763dbccc9e39236825addd0464b401d06a0fc08d4db85a2']]],
+  ['content/manipulation/cross-embodiment.mdx', [[9920, '944ed6bd2a3a9c014498a16f4f0e7e0e06e65650192688ed107e4cc2d7695997']]],
   ['content/manipulation/hierarchical.mdx', [[11994, '315d07be25045cccbb4a4ff863b545be417ee198b7ff55263f650b4ec8579b19']]],
+  ['content/manipulation/rl-finetuning.mdx', [[18253, 'd14cb02e5e38ba1270cecf249a7d4eae0c782ab820787f0891eeb67189f98499']]],
+  ['content/manipulation/robot-learning-roadmap.mdx', [[9031, '8c868d5a44291ee09ecb915dc342a5cb4f5dfeed454c7ead1a0cec5fc6494f8d']]],
   ['content/rl-sim2real/humanoid-wbc.mdx', [[15826, '0286490b18ce62845fa3cb42eeffab3ec64143e1ca3fe10bc4790c177ee3619c']]],
   ['content/rl-sim2real/legged-locomotion.mdx', [[13891, 'b6f9b61a3bac25c098d0e2843780d4780b0ab8b865bfd7b39a273d2ea7f17dc3']]],
   ['content/rl-sim2real/offline-rl.mdx', [[13530, '029b258d5819fa7de1e20f053ae79330426f2243fabfe820c96c1bcaa7677735']]],
@@ -127,6 +136,10 @@ const FIGURE_MOUNTS: Readonly<Record<string, string>> = {
   KeypointString: 'keypoint-string',
   KinematicTwin: 'kinematic-twin',
   ScopeFollow: 'scope-follow',
+  NoiseOrEdit: 'noise-or-edit',
+  DeltaFrame: 'delta-frame',
+  HandMotionShare: 'hand-motion-share',
+  LinearizationGap: 'linearization-gap',
 };
 
 const importLine = (name: string, file: string) => `\nimport { ${name} } from '@/components/interactive/${file}';\n\n`;

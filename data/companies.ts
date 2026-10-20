@@ -2807,6 +2807,7 @@ const ROWS: Company[] = [
     name: 'X Square Robot',
     aka: [
       'X Square',
+      '自变量机器人',
     ],
     website: 'https://x2robot.com',
     logo: 'x-square-robot-logo',
@@ -2817,27 +2818,37 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'home-humanoids',
-    description: 'Builds general-purpose embodied intelligence robots for household and industrial applications, targeting home trials.',
+    description: 'Develops the WALL embodied AI foundation models and QUANTA robots for household, industrial and logistics work; it runs a home-cleaning service with 58.com in Shenzhen and Beijing.',
     approach: [
       'embodied-intelligence',
       'large-operating-model',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series B',
+      type: 'Series C',
       amountUsd: null,
-      date: '2026-04-21',
+      date: '2026-06-30',
       valuationUsd: null,
-      leadInvestors: [
-        'Xiaomi',
-        'HSG',
-      ],
+      leadInvestors: [],
+      sourceUrl: 'https://www.therobotreport.com/x-square-robot-brings-valuation-2-8b-four-consecutive-funding-rounds/',
+      caveat: {
+        text: 'X Square says the four rounds that ended with the Series C value it at more than $2.8 billion; it gives no amount for the round and no exact valuation.',
+        sourceUrls: [
+          'https://www.therobotreport.com/x-square-robot-brings-valuation-2-8b-four-consecutive-funding-rounds/',
+          'https://en.wikipedia.org/wiki/X_Square_Robot',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Home trials targeted by May 2026',
+      '58.com: AI-powered home-cleaning service in Shenzhen and Beijing',
+      'X Family Member Program: robots live with users\' families for up to one month',
     ],
-    openSource: [],
+    openSource: [
+      'WALL-OSS',
+      'WALL-OSS-0.5 and WALL-WM',
+      'XRZero-G0 and the G0-Dataset',
+    ],
     sources: [
       {
         url: 'https://www.cnbc.com/2025/09/08/alibaba-leads-100-million-investment-in-chinese-humanoid-robot-startup.html',
@@ -2859,13 +2870,19 @@ const ROWS: Company[] = [
         title: 'X Square Robot Raises $276M in Series B Funding (The AI Insider, citing China Daily; nearly $276M led by Xiaomi arm)',
         asOf: '2026-08-18',
       },
-    ],
-    confidence: 'medium',
-    absent: {
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      {
+        url: 'https://www.therobotreport.com/x-square-robot-brings-valuation-2-8b-four-consecutive-funding-rounds/',
+        title: 'X Square Robot brings its valuation to $2.8B with four consecutive funding rounds (The Robot Report, 2026-06-30)',
+        asOf: '2026-10-20',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/X_Square_Robot',
+        title: 'X Square Robot - Wikipedia',
+        asOf: '2026-10-19',
+      },
+    ],
+    confidence: 'high',
+    absent: {
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
@@ -2875,12 +2892,17 @@ const ROWS: Company[] = [
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
     },
   },
   {
     id: 'deep-robotics',
     name: 'Deep Robotics',
-    aka: [],
+    aka: [
+      '云深处科技',
+    ],
     website: 'https://www.deeprobotics.cn',
     logo: 'deep-robotics-logo',
     hq: {
@@ -2890,7 +2912,7 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Jueying series quadruped robots and DR02 humanoid for power utility, tunnel, hazard rescue, and industrial applications; IP66-rated humanoid.',
+    description: 'Builds Jueying and Lynx quadruped robots, used in power utility, tunnel and hazard-rescue work, and the DR01 and DR02 humanoid robots.',
     approach: [
       'quadruped-first',
       'all-weather-humanoid',
@@ -2899,16 +2921,25 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Series C',
       amountUsd: 70000000,
-      date: '2025-12-10',
+      date: '2025-12-09',
       valuationUsd: null,
       leadInvestors: [
-        'China Merchants Bank International',
+        'CMB International',
+        'China Asset Management',
+        'China Telecom and China Unicom funds',
       ],
+      caveat: {
+        text: 'Deep Robotics calls the round over 500 million yuan; the South China Morning Post reports 500 million yuan (US$70 million).',
+        sourceUrls: [
+          'https://finance.yahoo.com/news/chinas-deep-robotics-raises-us-093000532.html',
+          'https://www.deeprobotics.cn/en',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Power utility',
-      'Tunnel inspection',
+      'Power utility: fully autonomous substation inspection in China',
+      'Singapore Power Group: X30 inspecting its power tunnels',
       'Hazard rescue',
     ],
     openSource: [],
@@ -2923,12 +2954,14 @@ const ROWS: Company[] = [
         title: 'Deep Robotics - Global Quadruped Robot Leader',
         asOf: '2026-08-06',
       },
-    ],
-    confidence: 'medium',
-    absent: {
-      'aka': {
-        state: 'not-disclosed',
+      {
+        url: 'https://en.wikipedia.org/wiki/Deep_Robotics',
+        title: 'Deep Robotics - Wikipedia',
+        asOf: '2026-10-19',
       },
+    ],
+    confidence: 'high',
+    absent: {
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -2944,17 +2977,20 @@ const ROWS: Company[] = [
   {
     id: 'kepler-robot',
     name: 'Kepler Robot',
-    aka: [],
+    aka: [
+      'Kepler Robotics',
+      '上海开普勒机器人有限公司',
+    ],
     website: 'https://gotokepler.com',
     logo: 'kepler-robot-logo',
     hq: {
-      city: null,
+      city: 'Shanghai',
       country: 'CN',
     },
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid robots for industrial and commercial use.',
+    description: 'Builds full-size industrial humanoid robots, including the K2, for smart manufacturing and warehouse logistics; Kelin Electric agreed in May 2026 to take a 51% controlling stake.',
     approach: [
       'humanoid',
     ],
@@ -2962,111 +2998,42 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Acquisition (controlling stake)',
       amountUsd: null,
-      date: '2026-05-20',
-      valuationUsd: 106300000,
-      leadInvestors: [
-        'Hangzhou Kelin',
-      ],
-    },
-    status: 'private',
-    deployments: [
-      'Hangzhou Kelin agreed in May 2026 to acquire a 51% controlling stake (41.57% for up to CNY 300M)',
-    ],
-    openSource: [],
-    sources: [
-      {
-        url: 'https://finance.biggo.com/news/2jvSSp4BmHHDnbgy1rv1',
-        title: 'Kepler Robot sells 51% stake to Hangzhou Kelin at ~$106.3M valuation',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml',
-        title: 'YICAI: Kelin Electric to buy controlling stake in Kepler (up to USD 44.1M)',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://humanoidindex.org/companies/kepler-robot',
-        title: 'Kepler Robot - Humanoid Index',
-        asOf: '2026-08-18',
-      },
-    ],
-    confidence: 'medium',
-    absent: {
-      'hq.city': {
-        state: 'not-disclosed',
-      },
-      'aka': {
-        state: 'not-disclosed',
-      },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
-      },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
-        state: 'not-disclosed',
-      },
-    },
-  },
-  {
-    id: 'limx-dynamics',
-    name: 'LimX Dynamics',
-    aka: [],
-    website: 'https://www.limxdynamics.com',
-    logo: 'limx-dynamics-logo',
-    hq: {
-      city: 'Shenzhen',
-      country: 'CN',
-    },
-    founded: 2022,
-    segment: 'humanoids',
-    subSegment: 'industrial-humanoids',
-    description: 'Develops humanoid robots and motion control systems.',
-    approach: [
-      'humanoid',
-      'motion-control',
-    ],
-    totalRaisedUsd: null,
-    latestRound: {
-      type: 'Pre-IPO',
-      amountUsd: null,
-      date: '2026-07-14',
+      date: '2026-05-19',
       valuationUsd: null,
-      leadInvestors: [],
-      sourceUrl: 'https://eu.36kr.com/en/p/3893976502287618',
+      leadInvestors: [
+        'Kelin Electric',
+      ],
+      sourceUrl: 'https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml',
+      caveat: {
+        text: 'Kelin Electric will pay up to 300 million yuan (US$44.1 million) for 41.6% of Kepler; Blue Whale News works this out as a valuation of about 722 million yuan. No exact price is given.',
+        sourceUrls: [
+          'https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml',
+          'https://www.lanjinger.com/d/1779274842637520212',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
       {
-        url: 'https://technode.com/2026/02/03/limx-dynamics-raises-200-million-in-series-b-to-scale-humanoid-robotics/',
-        title: 'LimX Dynamics raises $200 million in Series B (Feb 2026 round)',
+        url: 'https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml',
+        title: 'YICAI: Kelin Electric to buy controlling stake in Kepler (up to USD 44.1M)',
         asOf: '2026-08-18',
       },
       {
-        url: 'https://humanoidindex.org/companies/limx-dynamics',
-        title: 'LimX Dynamics - Humanoid Index',
-        asOf: '2026-08-18',
+        url: 'https://www.lanjinger.com/d/1779274842637520212',
+        title: 'Hangzhou Kelin takes control of Kepler Robot at a valuation of about 700 million yuan (Blue Whale News, in Chinese, May 2026)',
+        asOf: '2026-10-20',
       },
       {
-        url: 'https://finance.biggo.com/news/269a54b1-070f-49ab-bce0-ff7a5776dd0f',
-        title: 'LimX Dynamics Raises $400M in Six Months, Hits $2.2B Valuation (BigGo; nearly $200M Pre-IPO completed 2026-07-14, 15B yuan post-money)',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://eu.36kr.com/en/p/3893976502287618',
-        title: 'LimX Dynamics $200M Pre-IPO Financing | 15B Yuan Post-Money Valuation (36Kr)',
-        asOf: '2026-08-18',
+        url: 'https://m.bjnews.com.cn/detail/1779279357129638.html',
+        title: 'After its CEO left, Kepler Robot is sold to a listed company (Beijing News, in Chinese, 2026-05-20)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
     absent: {
-      'aka': {
-        state: 'not-disclosed',
-      },
       'deployments': {
         state: 'not-disclosed',
       },
@@ -3083,7 +3050,85 @@ const ROWS: Company[] = [
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
-      'round.leadInvestors': {
+    },
+  },
+  {
+    id: 'limx-dynamics',
+    name: 'LimX Dynamics',
+    aka: [
+      '逐际动力',
+    ],
+    website: 'https://www.limxdynamics.com',
+    logo: 'limx-dynamics-logo',
+    hq: {
+      city: 'Shenzhen',
+      country: 'CN',
+    },
+    founded: 2022,
+    segment: 'humanoids',
+    subSegment: 'industrial-humanoids',
+    description: 'Builds the Oli and Luna humanoid robots and the modular TRON robots, and open-sources robot-learning software such as its FluxVLA Engine.',
+    approach: [
+      'humanoid',
+      'motion-control',
+    ],
+    totalRaisedUsd: null,
+    latestRound: {
+      type: 'Pre-IPO',
+      amountUsd: 200000000,
+      date: '2026-07-14',
+      valuationUsd: 2210000000,
+      leadInvestors: [
+        'IDG Capital',
+        'Lens Technology',
+        'Stone Venture',
+      ],
+      sourceUrl: 'https://eu.36kr.com/en/p/3893976502287618',
+    },
+    status: 'private',
+    deployments: [
+      'Luna humanoids delivered to customers in South Korea',
+    ],
+    openSource: [
+      'FluxVLA Engine',
+      'Isaac Lab locomotion-training code for TRON 1, TRON 2 and Oli',
+      'MuJoCo simulators and the LimX SDK (limxsdk-lowlevel)',
+    ],
+    sources: [
+      {
+        url: 'https://technode.com/2026/02/03/limx-dynamics-raises-200-million-in-series-b-to-scale-humanoid-robotics/',
+        title: 'LimX Dynamics raises $200 million in Series B (Feb 2026 round)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://eu.36kr.com/en/p/3893976502287618',
+        title: 'LimX Dynamics $200M Pre-IPO Financing | 15B Yuan Post-Money Valuation (36Kr)',
+        asOf: '2026-08-18',
+      },
+      {
+        url: 'https://www.cnbc.com/2026/07/13/chinese-humanoid-startups-ipo-limx-unitree.html',
+        title: 'Chinese humanoid startups are rushing to list (CNBC, 2026-07-13)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://thenextweb.com/news/limx-dynamics-2-2-billion-humanoid-pre-ipo',
+        title: 'Listing is a must: China\'s LimX raises $200m as the humanoid IPO race heats up (TNW, 2026-07-14)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.limxdynamics.com/en/about',
+        title: 'About Us | LimX Dynamics Official Website',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://github.com/limxdynamics',
+        title: 'limxdynamics (LimX Dynamics) on GitHub',
+        asOf: '2026-10-20',
+      },
+    ],
+    confidence: 'high',
+    absent: {
+      'totalRaisedUsd': {
         state: 'not-disclosed',
       },
     },
@@ -3101,7 +3146,7 @@ const ROWS: Company[] = [
     founded: 2012,
     segment: 'humanoids',
     subSegment: 'exoskeleton-mobility',
-    description: 'Builds self-balancing exoskeletons (Eve) for rehabilitation and personal mobility, with Renault partnership for industrial humanoid applications.',
+    description: 'Builds self-balancing exoskeletons, Atalante X for rehabilitation and Eve for home use, and the Calvin-40 humanoid, which works on Renault\'s Douai line; it acquired Ekso Bionics in October 2026.',
     approach: [
       'self-balancing-exoskeleton',
       'rehabilitation',
@@ -3116,8 +3161,8 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Renault Group partnership',
-      'Clinical rehabilitation deployments',
+      'Renault Group: Calvin-40 on the line at its Douai plant, 350 robots committed by 2027',
+      'Atalante X at more than 150 clinical and research sites',
     ],
     openSource: [],
     sources: [
@@ -3127,12 +3172,17 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://techfundingnews.com/wandercraft-snaps-75m-series-d-to-expand-ai-powered-robotics/',
-        title: 'Wandercraft snaps $75M Series D',
-        asOf: '2026-08-06',
+        url: 'https://www.wandercraft.eu/about-us',
+        title: 'About us | Wandercraft',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://fr.wikipedia.org/wiki/Wandercraft',
+        title: 'Wandercraft - Wikipédia',
+        asOf: '2026-10-19',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -3166,7 +3216,7 @@ const ROWS: Company[] = [
     founded: 2021,
     segment: 'humanoids',
     subSegment: 'research-humanoids',
-    description: 'Develops biomimetic humanoid robots with musculoskeletal design and artificial muscles.',
+    description: 'Develops biomimetic, musculoskeletal androids moved by its Myofiber artificial muscles; it takes reservations for the first 279 Clone Alpha units.',
     approach: [
       'biomimetic',
       'musculoskeletal',
@@ -3174,7 +3224,7 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Seed',
+      type: null,
       amountUsd: null,
       date: null,
       valuationUsd: null,
@@ -3185,17 +3235,27 @@ const ROWS: Company[] = [
     openSource: [],
     sources: [
       {
-        url: 'https://www.aparobot.com/companies/clone-robotics',
-        title: 'Clone Robotics profile (seed $6.5M, as reported)',
-        asOf: '2026-08-18',
+        url: 'https://interestingengineering.com/innovation/clone-robotics-technology-revealed',
+        title: 'Technology behind ghostly water-powered humanoid robot revealed (Interesting Engineering, 2025-09-15)',
+        asOf: '2026-10-20',
       },
       {
-        url: 'https://humanoidindex.org/companies/clone-robotics',
-        title: 'Clone Robotics - Humanoid Index',
-        asOf: '2026-08-18',
+        url: 'https://www.yahoo.com/news/alpha-water-powered-humanoid-robot-134132242.html',
+        title: 'Alpha: Water-powered humanoid robot with synthetic organs, muscles unveiled (Interesting Engineering via Yahoo News, 2024-12-06)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.clonerobotics.com/android',
+        title: 'Android - Clone (the company\'s product page)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://robotnews.therundown.ai/p/clone-20k-synthetic-human',
+        title: 'Clone\'s $20K synthetic human (The Rundown Robotics, 2026-04-09)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'hq.city': {
         state: 'not-disclosed',
@@ -3212,6 +3272,9 @@ const ROWS: Company[] = [
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.type': {
         state: 'not-disclosed',
       },
       'round.amountUsd': {
@@ -3231,7 +3294,9 @@ const ROWS: Company[] = [
   {
     id: 'mentee-robotics',
     name: 'Mentee Robotics',
-    aka: [],
+    aka: [
+      'Mentee by Mobileye',
+    ],
     website: 'https://www.menteebot.com',
     logo: 'mentee-robotics-logo',
     hq: {
@@ -3248,16 +3313,16 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
-      amountUsd: 900000000,
+      amountUsd: null,
       date: '2026-02-03',
-      valuationUsd: null,
+      valuationUsd: 900000000,
       leadInvestors: [
         'Mobileye',
       ],
     },
     status: 'acquired',
     deployments: [
-      'Operates as an independent unit within Mobileye; first on-site proof-of-concept deployments targeted 2026, series production 2028',
+      'Customer proof-of-concept deployments expected in 2026; series production targeted for 2028',
     ],
     openSource: [],
     sources: [
@@ -3272,11 +3337,6 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://humanoidindex.org/companies/mentee-robotics',
-        title: 'Mentee Robotics - Humanoid Index',
-        asOf: '2026-08-18',
-      },
-      {
         url: 'https://web.archive.org/web/20250724144907/https://www.startuphub.ai/mentee-robotics-raised-17-million-for-their-humanoid-robot-menteebot/',
         title: 'Mentee Robotics Raised $17 million for their Humanoid Robot, MenteeBot (Startup Hub AI; archived capture of 2025-07-24, the live page is gone)',
         asOf: '2026-08-18',
@@ -3287,10 +3347,6 @@ const ROWS: Company[] = [
       'hq.city': {
         state: 'not-disclosed',
       },
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Mentee Robotics and give no other name.',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -3298,7 +3354,7 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.valuationUsd': {
+      'round.amountUsd': {
         state: 'not-disclosed',
       },
     },
@@ -3316,25 +3372,24 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds purpose-built humanoid robots for shipyards and heavy-duty industrial sites, founded by NASA/Nauticus veterans.',
+    description: 'Builds industrial humanoid robots that weld, fit and fabricate in shipyards, steel shops and energy sites; its founders came from NASA, Nauticus Robotics and Figure AI.',
     approach: [
       'purpose-built-humanoid',
       'heavy-duty',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Pre-seed',
-      amountUsd: 27000000,
-      date: '2025-05-14',
+      type: null,
+      amountUsd: null,
+      date: '2026-10-02',
       valuationUsd: null,
-      leadInvestors: [
-        'Unity Growth',
-        'Tides Ventures',
-      ],
+      leadInvestors: [],
+      sourceUrl: 'https://prtimes.jp/main/html/rd/p/000000087.000097774.html',
     },
     status: 'private',
     deployments: [
       'HD Hyundai shipyard agreement',
+      'POSCO Group: joint development and planned pilot deployments at its sites',
     ],
     openSource: [],
     sources: [
@@ -3353,142 +3408,22 @@ const ROWS: Company[] = [
         title: 'Robotics Experts Found Persona AI Startup',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://prtimes.jp/main/html/rd/p/000000087.000097774.html',
+        title: 'Daiwa House Group Growth Fund invests in industrial humanoid maker Persona AI (Ignition Point Venture Partners release on PR Times, in Japanese, 2026-10-02)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://theaiinsider.tech/2025/12/29/posco-group-invests-3m-in-persona-ai-for-industrial-humanoid-robot-development/',
+        title: 'POSCO Group Invests $3M in Persona AI for Industrial Humanoid Robot Development (The AI Insider, 2025-12-29)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Persona AI and give no other name.',
-      },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
-      },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
-      },
-      'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-    },
-  },
-  {
-    id: 'rainbow-robotics',
-    name: 'Rainbow Robotics',
-    aka: [],
-    website: 'https://www.rainbow-robotics.com',
-    logo: 'rainbow-robotics-logo',
-    hq: {
-      city: 'Seoul',
-      country: 'KR',
-    },
-    founded: 2011,
-    segment: 'humanoids',
-    subSegment: 'industrial-humanoids',
-    description: 'Builds collaborative robots and humanoid robots; became Samsung subsidiary after Samsung exercised call option to 35% stake.',
-    approach: [
-      'cobot',
-      'humanoid',
-      'samsung-subsidiary',
-    ],
-    totalRaisedUsd: null,
-    latestRound: {
-      type: 'Acquisition',
-      amountUsd: 181000000,
-      date: '2024-12-31',
-      valuationUsd: null,
-      leadInvestors: [
-        'Samsung Electronics',
-      ],
-    },
-    status: 'public',
-    deployments: [
-      'Samsung factory automation',
-      '117% revenue surge in Q1 2026',
-      'Samsung Electronics subsidiary (35% target stake via call option); still KOSDAQ-listed (277810)',
-    ],
-    openSource: [],
-    sources: [
-      {
-        url: 'https://news.samsung.com/global/samsung-electronics-to-become-largest-shareholder-in-rainbow-robotics',
-        title: 'Samsung To Become Largest Shareholder in Rainbow Robotics',
-        asOf: '2026-08-06',
-      },
-      {
-        url: 'https://www.techtimes.com/articles/317465/20260531/samsung-lg-robotics-investment-drives-117-revenue-surge.htm',
-        title: 'Samsung LG robotics investment drives 117% revenue surge',
-        asOf: '2026-08-06',
-      },
-    ],
-    confidence: 'high',
-    absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Rainbow Robotics and give no other name.',
-      },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
-      },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
-      },
-      'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-    },
-  },
-  {
-    id: 'symbotic',
-    name: 'Symbotic',
-    aka: [],
-    website: 'https://www.symbotic.com',
-    logo: 'symbotic-logo',
-    hq: {
-      city: 'Wilmington',
-      country: 'US',
-    },
-    founded: 2007,
-    segment: 'industrial-logistics',
-    subSegment: 'warehouse-automation',
-    description: 'Builds AI-driven warehouse automation systems using autonomous mobile robots for case handling and palletization; $22.5B backlog primarily from Walmart.',
-    approach: [
-      'warehouse-automation',
-      'mobile-robots',
-      'ai-palletization',
-    ],
-    totalRaisedUsd: null,
-    latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
-      valuationUsd: null,
-      leadInvestors: [],
-    },
-    status: 'public',
-    deployments: [
-      'Walmart',
-      'Target',
-      'Acquired Fox Robotics (autonomous forklifts, Feb 2026)',
-    ],
-    openSource: [],
-    sources: [
-      {
-        url: 'https://seekingalpha.com/article/4924767-symbotic-compelling-growth-story-but-at-the-wrong-price',
-        title: 'Symbotic: $22.7B backlog with Walmart',
-        asOf: '2026-08-06',
-      },
-      {
-        url: 'https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/',
-        title: 'Symbotic acquires Fox Robotics',
-        asOf: '2026-08-06',
-      },
-    ],
-    confidence: 'high',
-    absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Symbotic and give no other name.',
       },
       'openSource': {
         state: 'not-applicable',
@@ -3503,9 +3438,6 @@ const ROWS: Company[] = [
       'round.amountUsd': {
         state: 'not-disclosed',
       },
-      'round.date': {
-        state: 'not-disclosed',
-      },
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
@@ -3515,16 +3447,167 @@ const ROWS: Company[] = [
     },
   },
   {
+    id: 'rainbow-robotics',
+    name: 'Rainbow Robotics',
+    aka: [
+      '레인보우로보틱스',
+    ],
+    website: 'https://www.rainbow-robotics.com',
+    logo: 'rainbow-robotics-logo',
+    hq: {
+      city: 'Daejeon',
+      country: 'KR',
+    },
+    founded: 2011,
+    segment: 'humanoids',
+    subSegment: 'industrial-humanoids',
+    description: 'Builds collaborative, mobile and humanoid robots and grew out of KAIST\'s HUBO lab; Samsung Electronics raised its stake to 35% in March 2025 and made it a subsidiary.',
+    approach: [
+      'cobot',
+      'humanoid',
+      'samsung-subsidiary',
+    ],
+    totalRaisedUsd: null,
+    latestRound: {
+      type: 'Acquisition (controlling stake)',
+      amountUsd: 181000000,
+      date: '2024-12-31',
+      valuationUsd: null,
+      leadInvestors: [
+        'Samsung Electronics',
+      ],
+    },
+    status: 'public',
+    deployments: [
+      'Samsung Electronics: collaborative, dual-arm and autonomous mobile robots in its production and logistics operations',
+    ],
+    openSource: [],
+    sources: [
+      {
+        url: 'https://news.samsung.com/global/samsung-electronics-to-become-largest-shareholder-in-rainbow-robotics',
+        title: 'Samsung To Become Largest Shareholder in Rainbow Robotics',
+        asOf: '2026-08-06',
+      },
+      {
+        url: 'https://www.techtimes.com/articles/317465/20260531/samsung-lg-robotics-investment-drives-117-revenue-surge.htm',
+        title: 'Samsung LG robotics investment drives 117% revenue surge',
+        asOf: '2026-08-06',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Rainbow_Robotics',
+        title: 'Rainbow Robotics - Wikipedia',
+        asOf: '2026-10-19',
+      },
+    ],
+    confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'A purchase of shares in a listed company, which Samsung paid for per share: the deal sets no valuation of the company.',
+      },
+    },
+  },
+  {
+    id: 'symbotic',
+    name: 'Symbotic',
+    aka: [
+      'CasePick Systems',
+    ],
+    website: 'https://www.symbotic.com',
+    logo: 'symbotic-logo',
+    hq: {
+      city: 'Wilmington',
+      country: 'US',
+    },
+    founded: 2007,
+    segment: 'industrial-logistics',
+    subSegment: 'warehouse-automation',
+    description: 'Builds AI-driven warehouse automation systems in which autonomous robots store and retrieve cases; it bought the autonomous-forklift maker Fox Robotics in 2026.',
+    approach: [
+      'warehouse-automation',
+      'mobile-robots',
+      'ai-palletization',
+    ],
+    totalRaisedUsd: null,
+    latestRound: {
+      type: 'Public offering',
+      amountUsd: null,
+      date: '2025-12-04',
+      valuationUsd: null,
+      leadInvestors: [],
+      sourceUrl: 'https://www.globenewswire.com/news-release/2025/12/05/3200430/0/en/Symbotic-Announces-Pricing-of-Primary-and-Secondary-Offering-of-Class-A-Common-Stock.html',
+      caveat: {
+        text: 'Symbotic sold 6.5 million new shares at $55.00 each and a SoftBank affiliate sold 3.5 million of its own; the release gives no total for the raise.',
+        sourceUrls: [
+          'https://www.globenewswire.com/news-release/2025/12/05/3200430/0/en/Symbotic-Announces-Pricing-of-Primary-and-Secondary-Offering-of-Class-A-Common-Stock.html',
+        ],
+      },
+    },
+    status: 'public',
+    deployments: [
+      'Walmart',
+      'Target',
+    ],
+    openSource: [],
+    sources: [
+      {
+        url: 'https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/',
+        title: 'Symbotic acquires Fox Robotics',
+        asOf: '2026-08-06',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Symbotic',
+        title: 'Symbotic - Wikipedia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.globenewswire.com/news-release/2025/12/05/3200430/0/en/Symbotic-Announces-Pricing-of-Primary-and-Secondary-Offering-of-Class-A-Common-Stock.html',
+        title: 'Symbotic Announces Pricing of Primary and Secondary Offering of Class A Common Stock (GlobeNewswire, 2025-12-04)',
+        asOf: '2026-10-20',
+      },
+    ],
+    confidence: 'high',
+    absent: {
+      'openSource': {
+        state: 'not-applicable',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'A public offering by a listed company: it is priced per share against the market price and sets no valuation of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'An underwritten public offering, sold through Goldman Sachs and Citigroup as lead book-running managers: it has no lead investor.',
+      },
+    },
+  },
+  {
     id: 'dexterity',
     name: 'Dexterity',
-    aka: [],
+    aka: [
+      'Dexterity AI',
+    ],
     website: 'https://www.dexterity.ai',
     logo: 'dexterity-logo',
     hq: {
-      city: 'Dover',
+      city: 'Redwood City',
       country: 'US',
     },
-    founded: 2019,
+    founded: 2017,
     segment: 'industrial-logistics',
     subSegment: 'truck-loading',
     description: 'Builds AI-powered robotic systems (Mech) for truck loading and unloading in logistics and supply chain operations.',
@@ -3532,17 +3615,22 @@ const ROWS: Company[] = [
       'ai-robotic-loading',
       'truck-loading',
     ],
-    totalRaisedUsd: 296000000,
+    totalRaisedUsd: 291000000,
     latestRound: {
       type: null,
       amountUsd: 95000000,
       date: '2025-03-11',
       valuationUsd: 1650000000,
-      leadInvestors: [],
+      leadInvestors: [
+        'Lightspeed Venture Partners',
+        'Sumitomo Corp.',
+      ],
     },
     status: 'private',
     deployments: [
-      'Commercial partners testing trailer unloading',
+      'FedEx, Sagawa Express and GXO Logistics: testing DexR',
+      'Sumitomo: 1,500 robots for Japanese warehouses by 2026 (2022 contract)',
+      'UPS (customer)',
     ],
     openSource: [],
     sources: [
@@ -3556,21 +3644,19 @@ const ROWS: Company[] = [
         title: 'Dexterity picks up $95M in funding',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://finance.yahoo.com/news/yet-another-ai-robotics-firm-175717685.html',
+        title: 'Yet another AI robotics firm lands major funding, as Dexterity closes latest round (TechCrunch via Yahoo Finance, 2025-03-11)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Dexterity and give no other name.',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -3588,7 +3674,7 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Built AI and robotics for supply chain and logistics operations; acquired by SoftBank and taken private.',
+    description: 'Builds robotic picking, sorting and trailer-unloading systems for warehouses, including the Scoop unloader; SoftBank agreed in 2023 to take it private and now owns it.',
     approach: [
       'warehouse-automation',
       'mobile-manipulation',
@@ -3596,17 +3682,17 @@ const ROWS: Company[] = [
     totalRaisedUsd: null,
     latestRound: {
       type: 'Acquisition',
-      amountUsd: 375000000,
+      amountUsd: null,
       date: '2023-03-24',
-      valuationUsd: null,
+      valuationUsd: 375000000,
       leadInvestors: [
         'SoftBank Group',
       ],
     },
     status: 'acquired',
     deployments: [
-      'FedEx partnership (2026)',
-      'Supply chain operations',
+      'FedEx: Scoop bulk unloaders, rolling out to its warehouses in a pilot program',
+      'Walmart and Target (customers)',
     ],
     openSource: [],
     sources: [
@@ -3619,6 +3705,11 @@ const ROWS: Company[] = [
         url: 'https://techcrunch.com/2026/03/31/fedex-chooses-partnerships-over-proprietary-tech-for-its-automation-strategy/',
         title: 'FedEx chooses partnerships, including Berkshire Grey',
         asOf: '2026-08-06',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Berkshire_Grey',
+        title: 'Berkshire Grey - Wikipedia',
+        asOf: '2026-10-19',
       },
     ],
     confidence: 'high',
@@ -3634,7 +3725,7 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.valuationUsd': {
+      'round.amountUsd': {
         state: 'not-disclosed',
       },
     },
@@ -3642,17 +3733,19 @@ const ROWS: Company[] = [
   {
     id: 'amazon-robotics',
     name: 'Amazon Robotics',
-    aka: [],
-    website: 'https://www.amazon.com',
+    aka: [
+      'Kiva Systems',
+    ],
+    website: 'https://amazon.jobs/amazon-robotics',
     logo: 'amazon-robotics-logo',
     hq: {
-      city: 'Seattle',
+      city: 'North Reading',
       country: 'US',
     },
-    founded: 2012,
+    founded: 2003,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Operates 1M+ robot fleet in fulfillment centers; launched Blue Jay multi-arm picking system and Project Eluna agentic AI for operations.',
+    description: 'Amazon\'s robotics business, formerly Kiva Systems: it designs and builds the robots in Amazon\'s fulfillment network, which passed one million robots in July 2025, and pilots the Project Eluna agentic AI for operations.',
     approach: [
       'warehouse-automation',
       'agentic-ai',
@@ -3668,9 +3761,8 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      '1M+ robots in fulfillment centers',
-      'Blue Jay ceiling-mounted picking system',
-      'Project Eluna agentic AI',
+      'More than 1 million robots deployed across Amazon\'s operations since 2012',
+      'Project Eluna agentic AI: pilot at a Tennessee fulfillment center',
     ],
     openSource: [],
     sources: [
@@ -3684,16 +3776,32 @@ const ROWS: Company[] = [
         title: 'The Rise of Amazon AI Robots',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Amazon_Robotics',
+        title: 'Amazon Robotics - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Amazon_(company)',
+        title: 'Amazon (company) - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://amazon.jobs/amazon-robotics',
+        title: 'Amazon Robotics (Amazon Jobs)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.businessinsider.com/amazon-robotics-facilities-show-modern-us-manufacturing-2025-5',
+        title: 'Amazon\'s sprawling warehouse robot factories offer a glimpse into modern US manufacturing (Business Insider, 2025-05-27)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources call it Amazon Robotics and give no other name (its website returned no readable body).',
-      },
       'openSource': {
         state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-applicable',
@@ -3736,7 +3844,7 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds fully autonomous AI robotics fulfillment systems operating as a robotic 3PL; 2025 revenue tripled year-over-year.',
+    description: 'Builds AI robots that run fully autonomous fulfillment centers, sold as a robotic third-party logistics (3PL) service; FedEx led its 2024 Series C and uses it to scale FedEx Fulfillment.',
     approach: [
       'autonomous-fulfillment',
       'robotic-3pl',
@@ -3749,12 +3857,13 @@ const ROWS: Company[] = [
       valuationUsd: 1000000000,
       leadInvestors: [
         'FedEx',
+        'Cedar Pine',
       ],
       sourceUrl: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
     },
     status: 'private',
     deployments: [
-      'FedEx Fulfillment service across North America',
+      'FedEx Fulfillment: Nimble\'s autonomous 3PL model, scaling across North America',
     ],
     openSource: [],
     sources: [
@@ -3777,6 +3886,11 @@ const ROWS: Company[] = [
         url: 'https://nimble.ai/news/nimble-closes-106-million-series-c-funding-round-at-1b-valuation-scales-fully-autonomous-fulfillment-with-fedex',
         title: 'Nimble Closes $106 Million Series C at $1B Valuation, Scales Fully Autonomous Fulfillment with FedEx (first-party, 2024-10-23)',
         asOf: '2026-08-24',
+      },
+      {
+        url: 'https://techcrunch.com/2021/03/11/nimble-robotics-scores-50m-for-its-fulfillment-automation-tech/',
+        title: 'Nimble Robotics scores $50M for its fulfillment automation tech (TechCrunch, 2021-03-11)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
@@ -3803,37 +3917,57 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'industrial-logistics',
     subSegment: 'mobile-robots',
-    description: 'Builds autonomous mobile robots (AMRs) for warehouse fulfillment and distribution; launched Locus Array autonomous fulfillment system.',
+    description: 'Builds autonomous mobile robots for warehouse fulfillment and, since April 2026, the Locus Array robots-to-goods system; it bought the gripper maker Nexera Robotics in May 2026.',
     approach: [
       'amr',
       'warehouse-fulfillment',
     ],
-    totalRaisedUsd: 523000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'Series F',
-      amountUsd: 117000000,
-      date: '2022-12-01',
+      type: 'Series G',
+      amountUsd: 41600000,
+      date: '2026-09-01',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.supplychain247.com/article/locus-robotics-41-million-series-g-funding',
+      caveat: {
+        text: 'The Series G is still open: Locus has raised $41.6 million from existing investors so far, and its Form D reports $41,599,804 sold.',
+        sourceUrls: [
+          'https://www.supplychain247.com/article/locus-robotics-41-million-series-g-funding',
+          'https://www.sec.gov/Archives/edgar/data/1676668/000167666826000004/xslFormDX01/primary_doc.xml',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Acquired Nexera Robotics (May 2026) for grasping technology',
+      'More than 22,000 robots deployed at more than 360 sites worldwide',
+      'DHL Supply Chain: committed to deploying 5,000 Locus robots in its warehouses worldwide',
+      'GEODIS, CEVA Logistics, FedEx and Cardinal Health (customers)',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://aithority.com/technology/locus-robotics-announces-117-million-in-series-f-funding/',
-        title: 'Locus Robotics Announces $117 Million in Series F Funding (AIthority, 2022-11-29)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.dcvelocity.com/editorial/featured/locus-robotics-acquires-nexera-robotics/',
         title: 'Locus Robotics acquires Nexera Robotics',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.supplychain247.com/article/locus-robotics-41-million-series-g-funding',
+        title: 'Locus Robotics Raises $41.6 Million in Series G Funding (Supply Chain 24/7, 2026-09-01)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.sec.gov/Archives/edgar/data/1676668/000167666826000004/xslFormDX01/primary_doc.xml',
+        title: 'Locus Robotics Corp. Form D notice of an exempt offering (SEC EDGAR, first sale 2026-08-10)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://locusrobotics.com/company/about-us/',
+        title: 'About Us - Locus Robotics',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -3842,6 +3976,9 @@ const ROWS: Company[] = [
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
@@ -3864,30 +4001,37 @@ const ROWS: Company[] = [
     founded: 2011,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Builds robot software for factory and logistics automation; plans IPO by 2030, raising Series D extension above $1B valuation.',
+    description: 'Builds MujinOS, software that runs industrial robots loading, unloading and moving goods in factories and warehouses; it plans to go public by 2030.',
     approach: [
       'robot-software',
       'factory-automation',
     ],
-    totalRaisedUsd: 233000000,
+    totalRaisedUsd: 411000000,
     latestRound: {
       type: 'Series D',
       amountUsd: 233000000,
       date: '2025-12-02',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'NTT Group',
+        'Qatar Investment Authority',
+      ],
+      sourceUrl: 'https://mujin-corp.com/resources/news/seriesd-announcement-advancing-industrial-automation-intelligent-robotics',
+      caveat: {
+        text: 'The US$233 million first close is $133 million of equity and $100 million of debt; in June 2026 Mujin\'s CEO said an extension values it at more than $1 billion.',
+        sourceUrls: [
+          'https://finance.yahoo.com/news/mujin-raises-us-233-million-140000051.html',
+          'https://www.ttnews.com/articles/mujin-robot-software-warehouse',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Warehouse and factory automation in Japan',
+      'Toyota Motor Corp. and Fast Retailing (Uniqlo): robots run on Mujin\'s operating systems',
+      'Accenture: joint venture for AI and robotics in manufacturing and logistics (January 2024)',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://www.businesswire.com/news/home/20251202560677/en/Mujin-Raises-US$-233-Million-to-Accelerate-Global-Growth-and-Drive-Industrial-Autonomy',
-        title: 'Mujin Raises US$233 Million Series D, first closing (first-party)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.ttnews.com/articles/mujin-robot-software-warehouse',
         title: 'Mujin Develops Robot Software for Warehouses and Factories (Transport Topics, Bloomberg wire; IPO by 2030)',
@@ -3897,6 +4041,21 @@ const ROWS: Company[] = [
         url: 'https://pulse2.com/mujin-233-million-funding/',
         title: 'Mujin: $233 Million Closed To Scale Its Intelligent Robotics Platform (Pulse2)',
         asOf: '2026-08-18',
+      },
+      {
+        url: 'https://mujin-corp.com/resources/news/seriesd-announcement-advancing-industrial-automation-intelligent-robotics',
+        title: 'Mujin Raises US$233 Million to Accelerate Global Growth and Drive Industrial Autonomy (Mujin, 2025-12-02)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/mujin-raises-us-233-million-140000051.html',
+        title: 'Mujin Raises US$233 Million to Accelerate Global Growth and Drive Industrial Autonomy (Business Wire via Yahoo Finance, 2025-12-02)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://mujin-corp.com/resources/news',
+        title: 'News - Mujin',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
@@ -3912,9 +4071,6 @@ const ROWS: Company[] = [
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
-      'round.leadInvestors': {
-        state: 'not-disclosed',
-      },
     },
   },
   {
@@ -3924,13 +4080,13 @@ const ROWS: Company[] = [
     website: 'https://www.righthandrobotics.com',
     logo: 'righthand-robotics-logo',
     hq: {
-      city: 'Somerville',
+      city: 'Boston',
       country: 'US',
     },
-    founded: 2014,
+    founded: 2015,
     segment: 'industrial-logistics',
     subSegment: 'piece-picking',
-    description: 'Builds RightPick AI-powered piece-picking solution for warehouse order fulfillment using combined suction and gripper technology.',
+    description: 'Builds RightPick, an AI-driven robotic piece-picking system for warehouse order fulfillment; Rockwell Automation made a strategic investment in it in March 2025.',
     approach: [
       'piece-picking',
       'ai-grasping',
@@ -3947,7 +4103,8 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Rockwell Automation partnership (Mar 2025)',
+      'Apotea, PALTAC and Staples (RightPick 4 customers)',
+      'Fleets picking millions of items a month across North America and Eastern Europe',
     ],
     openSource: [],
     sources: [
@@ -3956,8 +4113,18 @@ const ROWS: Company[] = [
         title: 'RightHand Robotics receives strategic investment from Rockwell Automation (2025-03-06)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://righthandrobotics.com/about-us',
+        title: 'RightHand Robotics | About Us',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://righthandrobotics.com/contact-us',
+        title: 'RightHand Robotics | Contact Us',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -3981,31 +4148,40 @@ const ROWS: Company[] = [
   {
     id: 'ambirobotics',
     name: 'Ambi Robotics',
-    aka: [],
+    aka: [
+      'Ambidextrous Laboratories',
+    ],
     website: 'https://www.ambirobotics.com',
     logo: 'ambirobotics-logo',
     hq: {
       city: 'Berkeley',
       country: 'US',
     },
-    founded: 2017,
+    founded: 2019,
     segment: 'industrial-logistics',
     subSegment: 'piece-picking',
-    description: 'Builds AI-powered robotic parcel sorting and picking systems for logistics operations.',
+    description: 'Builds AI-powered AmbiSort parcel-sorting and AmbiStack package-stacking robots, run on its AmbiOS software; Pitney Bowes is a customer and an investor.',
     approach: [
       'piece-picking',
       'parcel-sorting',
     ],
     totalRaisedUsd: 67000000,
     latestRound: {
-      type: 'Series B',
+      type: null,
       amountUsd: 32000000,
       date: '2022-10-17',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Tiger Global',
+        'Bow Capital',
+      ],
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Pitney Bowes: more than 80 AmbiSort A-Series systems across the U.S. ($23 million deal, 2022)',
+      'OSM Worldwide (partnership, 2023)',
+      'More than 100 million packages sorted in commercial operations (2024)',
+    ],
     openSource: [],
     sources: [
       {
@@ -4018,24 +4194,27 @@ const ROWS: Company[] = [
         title: 'Ambi Robotics raises $32M for sorting robots (The Robot Report)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.ambirobotics.com/about/',
+        title: 'About | Ambi Robotics Inc.',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.ambirobotics.com/contact/',
+        title: 'Contact | Ambi Robotics Inc.',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Ambi Robotics and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
-      'round.valuationUsd': {
+      'round.type': {
         state: 'not-disclosed',
       },
-      'round.leadInvestors': {
+      'round.valuationUsd': {
         state: 'not-disclosed',
       },
     },
@@ -4053,12 +4232,12 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'industrial-logistics',
     subSegment: 'piece-picking',
-    description: 'Builds AI-powered piece-picking systems with human-in-the-loop verification for warehouse automation.',
+    description: 'Builds vision-guided robots that pick, induct, depalletize and palletize parcels, with its Yonder platform letting remote people resolve edge cases.',
     approach: [
       'piece-picking',
       'human-in-the-loop',
     ],
-    totalRaisedUsd: null,
+    totalRaisedUsd: 94000000,
     latestRound: {
       type: 'Series C',
       amountUsd: 50000000,
@@ -4069,7 +4248,11 @@ const ROWS: Company[] = [
       ],
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'FedEx and DHL (clients)',
+      'Pitney Bowes (customer, 2023)',
+      'Over 1.5 billion picks across 15 countries',
+    ],
     openSource: [],
     sources: [
       {
@@ -4078,26 +4261,20 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://newmarketpitch.com/blogs/news/warehouse-robotics-top-startups-fundraising',
-        title: 'Top Warehouse Robotics Startups by Fundraising 2026',
-        asOf: '2026-08-06',
+        url: 'https://www.plusonerobotics.com/about',
+        title: 'About Us | Plus One Robotics',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'low',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Plus One Robotics and give no other name.',
       },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
-      },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
@@ -4117,7 +4294,7 @@ const ROWS: Company[] = [
     founded: 2018,
     segment: 'vertical-applications',
     subSegment: 'agriculture',
-    description: 'Builds AI-powered LaserWeeder for chemical-free weed control using computer vision and lasers, plus Carbon Autonomy autonomous farming platform.',
+    description: 'Builds the LaserWeeder, which finds weeds with computer vision and kills them with lasers instead of herbicides, and Carbon Autonomy kits that let existing tractors drive themselves.',
     approach: [
       'laser-weeding',
       'computer-vision',
@@ -4125,18 +4302,18 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series D',
+      type: 'Series D-2 extension',
       amountUsd: 20000000,
       date: '2025-10-23',
       valuationUsd: null,
       leadInvestors: [
-        'NVIDIA NVentures',
+        'Giant Ventures',
       ],
       sourceUrl: 'https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/',
     },
     status: 'private',
     deployments: [
-      'LaserWeeder deployed across North American farms',
+      'LaserWeeder and Carbon Autonomy: more than 200 growers in 15 countries',
     ],
     openSource: [],
     sources: [
@@ -4147,7 +4324,7 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://www.geekwire.com/2025/carbon-robotics-raises-20m-as-laserweeder-maker-plans-secretive-new-ai-robot-for-farms/',
-        title: 'Carbon Robotics raises $20M (GeekWire, 2025-10-23; includes NVIDIA NVentures)',
+        title: 'Carbon Robotics raises $20M as LaserWeeder maker plans secretive new \'AI robot\' for farms (GeekWire, 2025-10-23; Series D-2 extension led by Giant Ventures)',
         asOf: '2026-08-18',
       },
       {
@@ -4155,8 +4332,13 @@ const ROWS: Company[] = [
         title: 'Carbon Robotics brings in $70M to scale LaserWeeder (The Robot Report, 2024-10-21)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://carbonrobotics.com/news',
+        title: 'News | Discover Our Latest Updates - Carbon Robotics',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -4178,16 +4360,16 @@ const ROWS: Company[] = [
     id: 'monarch-tractor',
     name: 'Monarch Tractor',
     aka: [],
-    website: 'https://www.monarchtractor.com',
+    website: null,
     logo: 'monarch-tractor-logo',
     hq: {
       city: 'Livermore',
       country: 'US',
     },
-    founded: 2016,
+    founded: 2018,
     segment: 'vertical-applications',
     subSegment: 'agriculture',
-    description: 'Built fully electric, driver-optional autonomous tractors; had mass layoffs and was acquired by Caterpillar after burning through ~$250M.',
+    description: 'Built the MK-V, a fully electric, driver-optional tractor for farms; after layoffs and dealer lawsuits, Caterpillar acquired its assets in April 2026.',
     approach: [
       'electric-autonomous-tractor',
     ],
@@ -4203,8 +4385,7 @@ const ROWS: Company[] = [
     },
     status: 'acquired',
     deployments: [
-      'Acquired by Caterpillar after mass layoffs',
-      'Collapsed and sold assets to Caterpillar (2026-04)',
+      'Commercial operations across 12 U.S. states at its peak',
     ],
     openSource: [],
     sources: [
@@ -4223,14 +4404,13 @@ const ROWS: Company[] = [
         title: 'Caterpillar Buys Autonomous Electric Tractor Firm Monarch',
         asOf: '2026-08-06',
       },
-      {
-        url: 'https://futurism.com/robots-and-machines/ai-tractor-startup-founders',
-        title: 'AI-Powered Tractor Startup Burns Through Quarter Billion Dollars',
-        asOf: '2026-08-06',
-      },
     ],
-    confidence: 'high',
+    confidence: 'medium',
     absent: {
+      'website': {
+        state: 'not-applicable',
+        basis: 'The company no longer runs a website: after Caterpillar bought its assets, monarchtractor.com serves only "This page is unavailable" (fetched 20 October 2026).',
+      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources call it Monarch Tractor and give no other name (its website returned no readable body).',
@@ -4279,8 +4459,13 @@ const ROWS: Company[] = [
       sourceUrl: 'https://bonsairobotics.ai/news/bonsai-robotics-acquires-farm-ng-to-lead-the-future-of-autonomous-farming/',
     },
     status: 'acquired',
-    deployments: [],
-    openSource: [],
+    deployments: [
+      'Axis Ag, Yuma, Arizona: Amiga data-capture platform characterising lettuce',
+    ],
+    openSource: [
+      'farm-ng-core: C++ and Python library for the farm-ng logging format',
+      'Amiga development kits (amiga-dev-kit, farm-ng-amiga) and an Amiga ROS bridge',
+    ],
     sources: [
       {
         url: 'https://farm-ng.com/',
@@ -4302,19 +4487,22 @@ const ROWS: Company[] = [
         title: 'Bonsai Robotics acquires farm-ng to herald new era of ag robotics (AgFunderNews, 2025-07-24; Watsonville-based, founded 2020)',
         asOf: '2026-10-19',
       },
+      {
+        url: 'https://github.com/farm-ng',
+        title: 'farm-ng on GitHub',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.hortidaily.com/article/9508057/robot-amiga-assists-farms-of-all-sizes/',
+        title: 'Robot Amiga assists farms of all sizes (HortiDaily)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Farm-ng and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
@@ -4334,18 +4522,18 @@ const ROWS: Company[] = [
     website: 'https://www.bedrockrobotics.com',
     logo: 'bedrock-robotics-logo',
     hq: {
-      city: null,
+      city: 'San Francisco',
       country: 'US',
     },
     founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'construction',
-    description: 'Builds autonomous construction technology for heavy equipment like excavators, founded by ex-Waymo engineers.',
+    description: 'Builds autonomy that retrofits existing heavy equipment, starting with excavators, for construction sites; its founders came from Waymo.',
     approach: [
       'autonomous-heavy-equipment',
       'waymo-veterans',
     ],
-    totalRaisedUsd: 350000000,
+    totalRaisedUsd: null,
     latestRound: {
       type: 'Series B',
       amountUsd: 270000000,
@@ -4355,10 +4543,18 @@ const ROWS: Company[] = [
         'CapitalG',
         'Valor Atreides AI Fund',
       ],
+      sourceUrl: 'https://finance.yahoo.com/news/bedrock-robotics-raises-270-million-140000467.html',
+      caveat: {
+        text: 'Bedrock says the Series B brings its total funding to over $350 million; it gives no exact total.',
+        sourceUrls: [
+          'https://finance.yahoo.com/news/bedrock-robotics-raises-270-million-140000467.html',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      '65,000+ cubic yards moved on 130-acre site (supervised autonomy)',
+      'Sundt Construction: supervised-autonomy mass excavation on a 130-acre manufacturing site (November 2025)',
+      'Champion Site Prep: Bedrock Operator on a manufacturing campus in central Texas',
     ],
     openSource: [],
     sources: [
@@ -4372,12 +4568,19 @@ const ROWS: Company[] = [
         title: 'Bedrock Robotics raises $270M Series B (TechFundingNews; ex-Waymo founders, CapitalG and Valor Atreides co-lead)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://finance.yahoo.com/news/bedrock-robotics-raises-270-million-140000467.html',
+        title: 'Bedrock Robotics Raises $270 Million Series B (PR Newswire via Yahoo Finance, 2026-02-04)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://bedrockrobotics.com/about',
+        title: 'About - Bedrock Robotics',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'high',
     absent: {
-      'hq.city': {
-        state: 'not-disclosed',
-      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Bedrock Robotics and give no other name.',
@@ -4385,6 +4588,9 @@ const ROWS: Company[] = [
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+      },
+      'totalRaisedUsd': {
+        state: 'not-disclosed',
       },
     },
   },
@@ -4401,7 +4607,7 @@ const ROWS: Company[] = [
     founded: 2019,
     segment: 'vertical-applications',
     subSegment: 'food-kitchen',
-    description: 'Builds AI-powered robotic arms for assembling cooked, ready-to-eat food on high-volume production lines under RaaS model.',
+    description: 'Builds AI-powered robots that assemble meals on high-volume, high-mix food production lines, leased to food manufacturers as robotics-as-a-service.',
     approach: [
       'food-assembly',
       'raas',
@@ -4432,7 +4638,7 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -4454,13 +4660,13 @@ const ROWS: Company[] = [
     website: 'https://www.simberobotics.com',
     logo: 'simbe-robotics-logo',
     hq: {
-      city: 'Chicago',
+      city: 'Burlingame',
       country: 'US',
     },
-    founded: 2015,
+    founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'retail',
-    description: 'Builds the Tally robot for autonomous shelf auditing and inventory analytics in retail stores.',
+    description: 'Builds Tally, an autonomous shelf-scanning robot, plus fixed and RFID sensors that track inventory, pricing and product location in retail stores.',
     approach: [
       'shelf-auditing',
       'inventory-analytics',
@@ -4474,10 +4680,19 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Growth Equity at Goldman Sachs Alternatives',
       ],
+      caveat: {
+        text: 'The Series C took Simbe\'s total raised to over $100 million; it has published no exact total.',
+        sourceUrls: [
+          'https://www.globenewswire.com/news-release/2024/10/24/2968475/0/en/Simbe-Raises-50-Million-in-Series-C-Funding-Led-by-Growth-Equity-at-Goldman-Sachs-Alternatives.html',
+          'https://www.grocerydive.com/news/simbe-raises-50-million-series-c/731116/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Retail store shelf auditing',
+      'Hundreds of Tally robots in chains including Schnuck Markets, BJ\'s Wholesale Club and Albertsons (2024)',
+      'Wakefern Food Corp. (ShopRite): more than 90 stores',
+      'Tally in stores of 29 retail brands, more than half past the pilot stage (2024)',
     ],
     openSource: [],
     sources: [
@@ -4488,11 +4703,36 @@ const ROWS: Company[] = [
       },
       {
         url: 'https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6',
-        title: 'Eclipse invested in Simbe Robotics',
+        title: 'Investors to know in robotics and physical AI (Business Insider, 2026-06-15; Eclipse\'s Aidan Madigan-Curtis invested in Simbe)',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.simberobotics.com/about/who-we-are',
+        title: 'Who We Are | Simbe',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.simberobotics.com/about/contact-us',
+        title: 'Contact Us | Simbe',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.therobotreport.com/simbe-robotics-raises-26m-series-a-for-tally-retail-robot/',
+        title: 'Simbe Robotics raises $26M Series A for Tally retail robot (The Robot Report, 2019)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/goldman-sachs-backed-simbe-raises-100000154.html',
+        title: 'Goldman Sachs-backed Simbe raises $50M in Series C funding to bolster retail robot business (Fortune via Yahoo Finance, 2024)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.grocerydive.com/news/simbe-raises-50-million-series-c/731116/',
+        title: 'Simbe raises $50M in latest funding round (Grocery Dive, 2024-10-25)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'low',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -4513,7 +4753,9 @@ const ROWS: Company[] = [
   {
     id: 'intuitive-surgical',
     name: 'Intuitive Surgical',
-    aka: [],
+    aka: [
+      'Intuitive',
+    ],
     website: 'https://www.intuitive.com',
     logo: 'intuitive-surgical-logo',
     hq: {
@@ -4523,7 +4765,7 @@ const ROWS: Company[] = [
     founded: 1995,
     segment: 'vertical-applications',
     subSegment: 'surgical',
-    description: 'Builds da Vinci surgical robotic systems for minimally invasive robotic-assisted surgery; da Vinci 5 generation shipping with 100+ improvements.',
+    description: 'Builds the da Vinci robotic systems for minimally invasive surgery and the Ion endoluminal system; it has led the robotic-surgery market for more than two decades.',
     approach: [
       'surgical-robotics',
       'minimally-invasive',
@@ -4538,56 +4780,66 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      'da Vinci 5 shipping',
-      'Dominant surgical robotics market leader',
+      '11,710 da Vinci surgical systems installed (June 30, 2026)',
+      '1,096 Ion endoluminal systems installed (June 30, 2026)',
+      '468 da Vinci systems placed in the second quarter of 2026, 246 of them da Vinci 5',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://isrg.intuitive.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings',
-        title: 'Intuitive Announces Q2 2026 Earnings',
-        asOf: '2026-08-06',
-      },
       {
         url: 'https://www.medtechdive.com/news/5-robotic-surgery-trends-to-watch-2026/810577/',
         title: '5 robotic surgery trends to watch in 2026',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Intuitive_Surgical',
+        title: 'Intuitive Surgical - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.nasdaq.com/press-release/intuitive-announces-second-quarter-earnings-2026-07-16',
+        title: 'Intuitive Announces Second Quarter Earnings (GlobeNewswire via Nasdaq, 2026-07-16)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Intuitive Surgical and give no other name.',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
+        basis: 'A Nasdaq-listed company since a $46 million initial public offering in 2000; no fetched source states its total capital raised.',
       },
       'round.type': {
         state: 'not-disclosed',
+        basis: 'A Nasdaq-listed company since a $46 million initial public offering in 2000; no fetched source states a later financing.',
       },
       'round.amountUsd': {
         state: 'not-disclosed',
+        basis: 'A Nasdaq-listed company since a $46 million initial public offering in 2000; no fetched source states a later financing.',
       },
       'round.date': {
         state: 'not-disclosed',
+        basis: 'A Nasdaq-listed company since a $46 million initial public offering in 2000; no fetched source states a later financing.',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
+        basis: 'A Nasdaq-listed company since a $46 million initial public offering in 2000; no fetched source states a later financing.',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
+        basis: 'A Nasdaq-listed company since a $46 million initial public offering in 2000; no fetched source states a later financing.',
       },
     },
   },
   {
     id: 'cmr-surgical',
     name: 'CMR Surgical',
-    aka: [],
+    aka: [
+      'Cambridge Medical Robotics',
+    ],
     website: 'https://cmrsurgical.com',
     logo: 'cmr-surgical-logo',
     hq: {
@@ -4597,22 +4849,33 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'surgical',
-    description: 'Builds Versius surgical robot system for minimal access surgery, competing with da Vinci.',
+    description: 'Builds Versius, a surgical robot with independent modular arms for keyhole soft-tissue surgery; in October 2026 Stryker agreed to invest about $400 million with an option to buy the company.',
     approach: [
       'surgical-robotics',
       'minimal-access',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Strategic investment',
+      amountUsd: 400000000,
+      date: '2026-10-12',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Stryker',
+      ],
+      sourceUrl: 'https://cmrsurgical.com/news/stryker-and-cmr-surgical-announce-strategic-alliance-to-advance-robotic-assisted-surgery',
+      caveat: {
+        text: 'Stryker\'s investment of about $400 million (£300 million) is preferred equity, subject to closing conditions and regulatory approvals, and gives Stryker an exclusive option to buy all of CMR Surgical.',
+        sourceUrls: [
+          'https://cmrsurgical.com/news/stryker-and-cmr-surgical-announce-strategic-alliance-to-advance-robotic-assisted-surgery',
+          'https://www.therobotreport.com/stryker-invests-400m-into-cmr-surgical/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Versius Plus system',
+      'Versius: adopted in hospitals in more than 30 countries and used in 45,000 cases',
+      '20 NHS hospital partnerships in the UK (October 2023)',
     ],
     openSource: [],
     sources: [
@@ -4622,17 +4885,23 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://pdpspectra.com/blog/surgical-robotics-2026/',
-        title: 'Surgical Robotics in 2026',
-        asOf: '2026-08-06',
+        url: 'https://en.wikipedia.org/wiki/CMR_Surgical',
+        title: 'CMR Surgical - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://cmrsurgical.com/news/stryker-and-cmr-surgical-announce-strategic-alliance-to-advance-robotic-assisted-surgery',
+        title: 'Stryker and CMR Surgical announce strategic alliance to advance robotic-assisted surgery (CMR Surgical, 2026-10-12)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.therobotreport.com/stryker-invests-400m-into-cmr-surgical/',
+        title: 'Stryker invests $400M into CMR Surgical (The Robot Report, 2026-10-15)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it CMR Surgical and give no other name.',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -4640,19 +4909,7 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
-        state: 'not-disclosed',
-      },
-      'round.date': {
-        state: 'not-disclosed',
-      },
       'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -4660,52 +4917,70 @@ const ROWS: Company[] = [
   {
     id: 'moon-surgical',
     name: 'Moon Surgical',
-    aka: [],
+    aka: [
+      'MastOR',
+    ],
     website: 'https://www.moonsurgical.com',
     logo: 'moon-surgical-logo',
     hq: {
       city: 'Paris',
       country: 'FR',
     },
-    founded: 2017,
+    founded: 2019,
     segment: 'vertical-applications',
     subSegment: 'surgical',
-    description: 'Builds Maestro, a surgical assistant robot for laparoscopic surgery.',
+    description: 'Builds Maestro, a robotic system that assists surgeons in laparoscopic surgery; the FDA cleared its ScoPilot AI capability in March 2025.',
     approach: [
       'surgical-assistant',
       'laparoscopic',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series B',
+      amountUsd: 55400000,
+      date: '2023-05-17',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Sofinnova Partners',
+        'NVentures (NVIDIA)',
+      ],
+      sourceUrl: 'https://sofinnovapartners.com/news/moon-surgical-appoints-fred-moll-md-board-chair-raises-usd55-4-million',
     },
     status: 'private',
     deployments: [
-      'Maestro system',
+      'Lee Health\'s Gulf Coast Medical Center, Florida: over 100 procedures (July 2025)',
+      'Over 1,600 Maestro procedures worldwide across 60 types of surgery (July 2025)',
     ],
     openSource: [],
     sources: [
       {
-        url: 'https://moon-medical.com/',
-        title: 'Moon Surgery (company site)',
-        asOf: '2026-08-18',
+        url: 'https://moonsurgical.com/company',
+        title: 'Company | Moon Surgical',
+        asOf: '2026-10-20',
       },
       {
-        url: 'https://pdpspectra.com/blog/surgical-robotics-2026/',
-        title: 'Surgical Robotics in 2026: Maestro',
-        asOf: '2026-08-06',
+        url: 'https://sofinnovapartners.com/portfolio/moon-surgical',
+        title: 'Moon Surgical (Sofinnova Partners portfolio)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://sofinnovapartners.com/news/mastor-secures-seed-funding-from-sofinnova-partners-to-develop-its-laparoscopy-assistance-platform',
+        title: 'MastOR secures seed funding from Sofinnova Partners to develop its laparoscopy assistance platform (Sofinnova Partners, 2020)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://sofinnovapartners.com/news/moon-surgical-appoints-fred-moll-md-board-chair-raises-usd55-4-million',
+        title: 'Moon Surgical appoints Fred Moll, MD, as Board Chair and raises additional $55.4 million (Sofinnova Partners, 2023-05-17)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/moon-surgical-launches-maestro-platform-at-lee-health-302505548.html',
+        title: 'Moon Surgical Launches Maestro Platform at Lee Health (PR Newswire, 2025-07-15)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Moon Surgical and give no other name.',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -4713,19 +4988,7 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
-        state: 'not-disclosed',
-      },
-      'round.date': {
-        state: 'not-disclosed',
-      },
       'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -4743,7 +5006,7 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous vehicle technology for last-mile goods delivery, pivoting from custom delivery robots to AI-first autonomous driving licensing.',
+    description: 'Develops the Nuro Driver, an autonomous driving system it licenses to automakers and mobility providers; it began by testing driverless food delivery and is building a robotaxi service with Uber and Lucid.',
     approach: [
       'autonomous-driving',
       'licensing',
@@ -4756,19 +5019,21 @@ const ROWS: Company[] = [
       date: '2025-08-21',
       valuationUsd: 6000000000,
       leadInvestors: [],
+      sourceUrl: 'https://finance.yahoo.com/news/nuro-closes-203-million-series-123000194.html',
+      caveat: {
+        text: 'The $203 million Series E closed in two tranches: $106 million announced in April 2025 and $97 million in August 2025.',
+        sourceUrls: [
+          'https://finance.yahoo.com/news/nuro-closes-203-million-series-123000194.html',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Lucid Motors robotaxi partnership',
-      'Autonomous delivery pilots',
+      'Uber and Lucid robotaxi partnership: 20,000 or more Lucid vehicles with the Nuro Driver planned',
+      'Houston: second planned market for the Uber and Lucid robotaxi service, expected mid-2027',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://www.businesswire.com/news/home/20250821665495/en/Nuro-Closes-203-Million-Series-E-Financing-to-Advance-Its-AI-First-Autonomy-Platform',
-        title: 'Nuro Closes $203 Million Series E Financing (first-party; $6B valuation)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.builtinsf.com/articles/nuro-secures-203m-6b-valuation-20250825',
         title: 'Nuro Secures $203M at $6B Valuation to Scale Global Robotaxis (Built In SF, 2025-08-25)',
@@ -4778,6 +5043,16 @@ const ROWS: Company[] = [
         url: 'https://tech.yahoo.com/articles/nuro-valued-6-billion-latest-131300388.html',
         title: 'Nuro secures $6 billion valuation in latest funding round (Yahoo Tech, 2025-04-09; the $106M licensing-shift round)',
         asOf: '2026-08-18',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/nuro-closes-203-million-series-123000194.html',
+        title: 'Nuro Closes $203 Million Series E Financing to Advance Its AI-First Autonomy Platform (Business Wire via Yahoo Finance, 2025-08-21)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.nuro.ai/blog/uber-nuro-and-lucid-to-bring-robotaxi-service-to-houston-in-2027',
+        title: 'Uber, Nuro, and Lucid to Bring Robotaxi Service to Houston in 2027 (Nuro, 2026-06-17)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
@@ -4805,13 +5080,13 @@ const ROWS: Company[] = [
     website: 'https://www.serverobotics.com',
     logo: 'serve-robotics-logo',
     hq: {
-      city: 'Los Angeles',
+      city: 'San Carlos',
       country: 'US',
     },
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'delivery',
-    description: 'Builds autonomous sidewalk delivery robots; acquired Diligent Robotics for hospital logistics expansion.',
+    description: 'Builds and operates autonomous sidewalk robots that deliver food in US cities for DoorDash and Grubhub; it bought the hospital-robot maker Diligent Robotics in 2026, the year Uber sold its stake.',
     approach: [
       'sidewalk-delivery',
       'hospital-logistics',
@@ -4826,10 +5101,10 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      'Acquired Diligent Robotics (Jan 2026)',
-      'Moxi hospital robots',
-      'Uber divested its entire stake (Q2 2026); partnership not expected to renew in early 2027',
-      'New Grubhub partnership and DoorDash expansion announced 2026-08-17',
+      'DoorDash: robot deliveries in Chicago, Los Angeles and Miami, expanding to Washington and San Jose (August 2026)',
+      'Diligent Robotics\' Moxi robots in more than 25 hospitals (acquired January 2026)',
+      'About 2,000 sidewalk robots; 792 in daily use on average in the second quarter of 2026',
+      'Grubhub (Wonder): robot deliveries in Los Angeles, Chicago and Alexandria, Virginia (from August 2026)',
     ],
     openSource: [],
     sources: [
@@ -4843,8 +5118,18 @@ const ROWS: Company[] = [
         title: 'Serve Robotics acquires Diligent Robotics (The Robot Report, 2026-01-20)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Serve_Robotics',
+        title: 'Serve Robotics - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.spokesman.com/stories/2026/aug/17/serve-robotics-expands-doordash-deal-adds-grubhub-/',
+        title: 'Serve Robotics expands DoorDash deal, adds Grubhub post-Uber split (Bloomberg via The Spokesman-Review, 2026-08-17)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -4887,23 +5172,26 @@ const ROWS: Company[] = [
     founded: 2013,
     segment: 'vertical-applications',
     subSegment: 'inspection',
-    description: 'Builds climbing, flying, and swimming robots with AI for inspecting and monitoring critical infrastructure like power plants and military facilities.',
+    description: 'Builds robots that climb, fly and swim to inspect critical infrastructure such as Navy warships and power plants, and feeds their data to its Cantilever AI platform.',
     approach: [
       'infrastructure-inspection',
       'climbing-robots',
     ],
-    totalRaisedUsd: null,
+    totalRaisedUsd: 347000000,
     latestRound: {
       type: 'Series D',
       amountUsd: 125000000,
       date: '2025-06-12',
       valuationUsd: 1250000000,
-      leadInvestors: [],
+      leadInvestors: [
+        'Cox Enterprises',
+      ],
     },
     status: 'private',
     deployments: [
-      'Largest-ever Navy contract (2026)',
-      'Power plant inspections',
+      'U.S. Navy: five-year contract with a $71 million ceiling, starting with 18 Pacific Fleet ships (March 2026)',
+      'NAES, the largest US independent power operator: power plant modernization',
+      'Abu Dhabi National Oil Company: robots inspect gas facilities and tanks',
     ],
     openSource: [],
     sources: [
@@ -4918,9 +5206,14 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://tsginvest.com/gecko-robotics/',
-        title: 'Gecko Robotics Stock: $1.25B Valuation',
-        asOf: '2026-08-06',
+        url: 'https://www.geckorobotics.com/about-us',
+        title: 'About Us | Gecko Robotics',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.geckorobotics.com/news/navy-idiq',
+        title: 'Gecko Robotics Announces $71M Deal to Slash U.S. Navy Maintenance Delays and Increase Readiness (Gecko Robotics, 2026-03-17)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
@@ -4933,12 +5226,6 @@ const ROWS: Company[] = [
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
-        state: 'not-disclosed',
-      },
     },
   },
   {
@@ -4948,13 +5235,13 @@ const ROWS: Company[] = [
     website: 'https://standardbots.com',
     logo: 'standard-bots-logo',
     hq: {
-      city: null,
+      city: 'Glen Cove',
       country: 'US',
     },
-    founded: 2016,
+    founded: null,
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
-    description: 'Builds collaborative robot arms designed to be easier to buy and deploy for industrial automation.',
+    description: 'Designs and assembles AI-native industrial robot arms, including the RO1 collaborative arm, and industrial humanoids in Glen Cove, New York; its June 2026 Series C valued it at $1 billion.',
     approach: [
       'cobot',
       'ease-of-deployment',
@@ -4963,13 +5250,18 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Series C',
       amountUsd: 200000000,
-      date: '2026-06-10',
+      date: '2026-06-09',
       valuationUsd: 1000000000,
-      leadInvestors: [],
-      sourceUrl: 'https://www.robotics247.com/article/standard-bots-raises-200-million-series-c-at-1-billion-valuation',
+      leadInvestors: [
+        'RoboStrategy',
+        'General Catalyst',
+      ],
+      sourceUrl: 'https://www.therobotreport.com/standard-bots-raises-200m-expand-u-s-manufacturing-footprint/',
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Users include Sunoco, Lockheed Martin, Amazon, NASA and the U.S. Army',
+    ],
     openSource: [],
     sources: [
       {
@@ -4988,22 +5280,24 @@ const ROWS: Company[] = [
         asOf: '2026-08-06',
       },
       {
-        url: 'https://newmarketpitch.com/blogs/news/robotics-standard-bots-overvalued',
-        title: 'Is Standard Bots really worth $1B?',
-        asOf: '2026-08-06',
+        url: 'https://www.therobotreport.com/standard-bots-raises-200m-expand-u-s-manufacturing-footprint/',
+        title: 'Standard Bots raises $200M to expand U.S. manufacturing footprint (The Robot Report, 2026-06-09)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://pulse2.com/standard-bots-raises-200-million-series-c-at-1-billion-valuation-to-scale-ai-native-american-robotics/',
+        title: 'Standard Bots Raises $200 Million Series C At $1 Billion Valuation To Scale AI-Native American Robotics (Pulse 2.0, 2026-06-11)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
-      'hq.city': {
+      'founded': {
         state: 'not-disclosed',
       },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Standard Bots and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
       },
       'openSource': {
         state: 'not-applicable',
@@ -5012,25 +5306,24 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.leadInvestors': {
-        state: 'not-disclosed',
-      },
     },
   },
   {
     id: 'collaborative-robotics',
     name: 'Collaborative Robotics',
-    aka: [],
+    aka: [
+      'Cobot',
+    ],
     website: 'https://www.co.bot',
     logo: 'collaborative-robotics-logo',
     hq: {
       city: 'Santa Clara',
       country: 'US',
     },
-    founded: 2021,
+    founded: 2022,
     segment: 'vertical-applications',
     subSegment: 'industrial-cobots',
-    description: 'Builds practical collaborative robots (Proxie) for logistics, manufacturing, and healthcare with focus on human-robot interaction.',
+    description: 'Builds Proxie, a wheeled mobile manipulator designed to work alongside people in manufacturing, supply-chain and healthcare settings.',
     approach: [
       'cobot',
       'human-robot-interaction',
@@ -5046,7 +5339,9 @@ const ROWS: Company[] = [
       ],
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Pilot customers including Moderna, Mayo Clinic, Owens & Minor and Tampa General Hospital (November 2024)',
+    ],
     openSource: [],
     sources: [
       {
@@ -5060,20 +5355,13 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://humanoidindex.org/companies/collaborative-robotics',
-        title: 'Collaborative Robotics - Humanoid Index',
-        asOf: '2026-08-06',
+        url: 'https://www.therobotreport.com/collaborative-robotics-unveils-proxie-mobile-manipulator/',
+        title: 'Collaborative Robotics unveils Proxie mobile manipulator (The Robot Report, 2024-11-20)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Collaborative Robotics and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -5096,10 +5384,10 @@ const ROWS: Company[] = [
       city: 'San Francisco',
       country: 'US',
     },
-    founded: null,
+    founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Builds wheeled household robots for everyday chores, founded by Cruise/Twitch co-founder Kyle Vogt.',
+    description: 'Builds robots to do household chores; Cruise founder Kyle Vogt started it in 2024, and it had not shown a prototype publicly as of 2025.',
     approach: [
       'wheeled-home-robot',
       'consumer',
@@ -5109,29 +5397,36 @@ const ROWS: Company[] = [
       type: null,
       amountUsd: 250000000,
       date: '2025-10-28',
-      valuationUsd: 4000000000,
-      leadInvestors: [],
+      valuationUsd: null,
+      leadInvestors: [
+        'Eclipse',
+      ],
+      sourceUrl: 'https://news.bloomberglaw.com/private-equity/cruise-founders-robot-startup-is-in-talks-for-4-billion-value',
+      caveat: {
+        text: 'Bloomberg reported in October 2025 that the round was set to raise $250 million at a valuation of more than $4 billion, citing people familiar; no close has been announced. Its March 2025 round raised $150 million.',
+        sourceUrls: [
+          'https://news.bloomberglaw.com/private-equity/cruise-founders-robot-startup-is-in-talks-for-4-billion-value',
+          'https://www.therobotreport.com/the-bot-company-led-by-kyle-vogt-brings-in-another-150m/',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
     openSource: [],
     sources: [
       {
-        url: 'https://www.bloomberg.com/news/articles/2025-10-28/cruise-founder-kyle-vogt-s-robotics-startup-eyes-4-billion-valuation',
-        title: 'The Bot Company Eyes $4 Billion Valuation',
-        asOf: '2026-08-06',
-      },
-      {
         url: 'https://www.therobotreport.com/the-bot-company-led-by-kyle-vogt-brings-in-another-150m/',
         title: 'The Bot Company brings in another $150M',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://news.bloomberglaw.com/private-equity/cruise-founders-robot-startup-is-in-talks-for-4-billion-value',
+        title: 'Cruise Founder\'s Robot Startup Is in Talks for $4 Billion Value (Bloomberg News via Bloomberg Law, 2025-10-28)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'medium',
     absent: {
-      'founded': {
-        state: 'not-disclosed',
-      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it The Bot Company and give no other name.',
@@ -5149,7 +5444,7 @@ const ROWS: Company[] = [
       'round.type': {
         state: 'not-disclosed',
       },
-      'round.leadInvestors': {
+      'round.valuationUsd': {
         state: 'not-disclosed',
       },
     },
@@ -5161,13 +5456,13 @@ const ROWS: Company[] = [
     website: 'https://www.weaverobotics.com',
     logo: 'weave-robotics-logo',
     hq: {
-      city: null,
+      city: 'San Francisco',
       country: 'US',
     },
-    founded: null,
+    founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Builds Isaac 1, a personal home robot for folding laundry, tidying, and home care tasks; available for preorder at $7,999.',
+    description: 'Builds home robots: Isaac 0, a stationary laundry-folding robot shipping in California, and Isaac 1, a mobile robot for laundry and tidying, on preorder at $7,999 with first shipments planned for fall 2026.',
     approach: [
       'home-robot',
       'consumer',
@@ -5182,7 +5477,8 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Isaac 1 preorders open',
+      'Isaac 0 laundry-folding robot: shipping to homes across California',
+      'Isaac 1: preorders at $7,999 or $449 a month; first shipments planned for fall 2026',
     ],
     openSource: [],
     sources: [
@@ -5191,15 +5487,14 @@ const ROWS: Company[] = [
         title: 'A $7,999 Home Robot Joins the Race',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.ycombinator.com/companies/weave-robotics',
+        title: 'Weave Robotics (Y Combinator company page)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
-      'hq.city': {
-        state: 'not-disclosed',
-      },
-      'founded': {
-        state: 'not-disclosed',
-      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Weave Robotics and give no other name.',
@@ -5241,24 +5536,25 @@ const ROWS: Company[] = [
     founded: 1990,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Pioneer of consumer robot vacuums (Roomba); filed Chapter 11 bankruptcy in Dec 2025, acquired by Picea Robotics (Chinese manufacturer).',
+    description: 'Maker of the Roomba robot vacuum, launched in 2002; after a Chapter 11 filing in December 2025, its contract manufacturer Shenzhen Picea Robotics acquired it in January 2026.',
     approach: [
       'consumer-vacuum',
       'home-cleaning',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Acquisition (bankruptcy)',
+      type: 'Acquisition',
       amountUsd: null,
-      date: '2025-12-14',
+      date: '2026-01-23',
       valuationUsd: null,
       leadInvestors: [
         'Picea Robotics',
       ],
+      sourceUrl: 'https://media.irobot.com/2026-01-23-iRobot-Completes-Court-Supervised-Transaction-with-Picea,-Enabling-the-Next-Chapter-of-Growth',
     },
     status: 'acquired',
     deployments: [
-      'Roomba product line continues post-bankruptcy',
+      'Roomba: about 42% of the US and 65% of the Japanese robot-vacuum market (December 2025)',
     ],
     openSource: [],
     sources: [
@@ -5271,6 +5567,21 @@ const ROWS: Company[] = [
         url: 'https://www.wbur.org/hereandnow/2026/03/17/irobot-bankruptcy',
         title: 'Why iRobot went bankrupt',
         asOf: '2026-08-18',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/IRobot',
+        title: 'iRobot - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://media.irobot.com/2025-12-14-iRobot-Announces-Strategic-Transaction-to-Drive-Long-Term-Growth-Plan',
+        title: 'iRobot Announces Strategic Transaction to Drive Long-Term Growth Plan (iRobot, 2025-12-14)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://media.irobot.com/2026-01-23-iRobot-Completes-Court-Supervised-Transaction-with-Picea,-Enabling-the-Next-Chapter-of-Growth',
+        title: 'iRobot Completes Court-Supervised Transaction with Picea (iRobot, 2026-01-23)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
@@ -5307,25 +5618,26 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'vertical-applications',
     subSegment: 'consumer-home',
-    description: 'Built open-source K-Bot humanoid robot; shut down Nov 2025 after failing to secure funding, open-sourced all IP.',
+    description: 'Built K-Bot, an open-source humanoid robot priced from under $10,000; it shut down in November 2025 after failing to raise enough money, refunding K-Bot deposits and open-sourcing its technology.',
     approach: [
       'open-source-humanoid',
       'low-cost',
     ],
-    totalRaisedUsd: null,
+    totalRaisedUsd: 6250000,
     latestRound: {
-      type: null,
-      amountUsd: null,
+      type: 'Strategic investment',
+      amountUsd: 2000000,
       date: null,
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://eu.36kr.com/en/p/3558501366315912',
     },
     status: 'dead',
     deployments: [
-      'Shut down Nov 2025; CEO announced refunds and liquidation',
+      'At least two K-Bot humanoids shipped before the shutdown; the first preorder batch was limited to 100 units',
     ],
     openSource: [
-      'K-Bot (all IP open-sourced post-shutdown)',
+      'K-Bot humanoid design and the rest of its technology, open-sourced at the November 2025 shutdown',
     ],
     sources: [
       {
@@ -5338,40 +5650,46 @@ const ROWS: Company[] = [
         title: 'Palo Alto Humanoid Startup K-Scale Labs Shuts Down',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.ycombinator.com/companies/k-scale-labs',
+        title: 'K-Scale Labs (Y Combinator company page)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://eu.36kr.com/en/p/3558501366315912',
+        title: 'The First Humanoid Robot Company Collapses During Mass Production (36Kr)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'high',
+    confidence: 'medium',
     absent: {
       'website': {
-        state: 'not-disclosed',
+        state: 'not-applicable',
+        basis: 'It shut down in November 2025; kscale.dev, the website its investor Y Combinator lists, no longer resolves (checked 20 October 2026).',
       },
       'aka': {
         state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources call it K-Scale Labs and give no other name (its website returned no readable body).',
-      },
-      'totalRaisedUsd': {
-        state: 'not-disclosed',
-      },
-      'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
-        state: 'not-disclosed',
+        basis: 'One name: its cited sources call it K-Scale Labs; 36Kr\'s KSL is that outlet\'s abbreviation, not a name the company used.',
       },
       'round.date': {
         state: 'not-disclosed',
+        basis: '36Kr dates the strategic investment only to June 2025.',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
+        basis: '36Kr names the investor only as a subsidiary of Zhejiang Taotao Vehicle Industry.',
       },
     },
   },
   {
     id: 'automata',
     name: 'Automata',
-    aka: [],
+    aka: [
+      'Automata Technologies',
+    ],
     website: 'https://www.automata.tech',
     logo: 'automata-logo',
     hq: {
@@ -5381,7 +5699,7 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'vertical-applications',
     subSegment: 'lab-automation',
-    description: 'Builds fully integrated, AI-ready lab automation platforms for pharma, biotech, and research labs.',
+    description: 'Builds LINQ, a fully integrated, AI-ready lab automation platform of benches and orchestration software for pharma, biotech and research labs; Danaher joined its January 2026 Series C as a strategic partner.',
     approach: [
       'lab-automation',
       'ai-ready',
@@ -5395,30 +5713,32 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Dimension',
       ],
+      sourceUrl: 'https://www.automata.tech/company-news/automata-raises-45m-series-c-funding',
     },
     status: 'private',
     deployments: [
-      'Danaher partnership',
+      'Five top pharma companies among its customers, with repeat deployments (January 2026)',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://www.businesswire.com/news/home/20260129548625/en/Automata-Raises-45M-Series-C-to-Build-the-Operating-System-for-Life-Sciences',
-        title: 'Automata Raises $45M Series C led by Dimension (first-party)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.automata.tech/company-news/automata-raises-45m-series-c-funding',
         title: 'Automata Secures $45M Series C',
         asOf: '2026-08-06',
       },
-    ],
-    confidence: 'medium',
-    absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Automata and give no other name.',
+      {
+        url: 'https://www.automata.tech/about-us',
+        title: 'About Us - Automata',
+        asOf: '2026-10-20',
       },
+      {
+        url: 'https://find-and-update.company-information.service.gov.uk/company/09384597',
+        title: 'AUTOMATA TECHNOLOGIES LIMITED (Companies House)',
+        asOf: '2026-10-20',
+      },
+    ],
+    confidence: 'high',
+    absent: {
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -5438,13 +5758,13 @@ const ROWS: Company[] = [
     website: 'https://www.lila.ai',
     logo: 'lila-sciences-logo',
     hq: {
-      city: 'Boston',
+      city: 'Cambridge',
       country: 'US',
     },
-    founded: null,
+    founded: 2023,
     segment: 'vertical-applications',
     subSegment: 'lab-automation',
-    description: 'Builds scientific \'superintelligence\' through fully autonomous AI-powered labs for scientific discovery.',
+    description: 'Builds what it calls scientific superintelligence: AI models that run autonomous labs, its AI Science Factories, for life, chemical and materials science; Flagship Pioneering founded it in 2023.',
     approach: [
       'autonomous-labs',
       'scientific-ai',
@@ -5454,8 +5774,19 @@ const ROWS: Company[] = [
       type: 'Series A',
       amountUsd: 350000000,
       date: '2025-10-10',
-      valuationUsd: 1300000000,
-      leadInvestors: [],
+      valuationUsd: null,
+      leadInvestors: [
+        'Braidwell',
+        'Collective Global',
+      ],
+      sourceUrl: 'https://www.lila.ai/news/announcing-the-close-of-our-series-a',
+      caveat: {
+        text: 'Reuters reported in October 2025 that new Nvidia backing valued Lila at more than $1.3 billion; Lila has not published a valuation.',
+        sourceUrls: [
+          'https://www.lila.ai/news/exclusive-ai-lab-lila-sciences-tops-1-3-billion-valuation-with-new-nvidia-backing',
+          'https://www.lila.ai/news/announcing-the-close-of-our-series-a',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
@@ -5471,12 +5802,24 @@ const ROWS: Company[] = [
         title: 'Announcing Lila\'s $350M Series A (first-party; total funding to $550M)',
         asOf: '2026-08-18',
       },
-    ],
-    confidence: 'medium',
-    absent: {
-      'founded': {
-        state: 'not-disclosed',
+      {
+        url: 'https://www.lila.ai/about',
+        title: 'About Lila Sciences (LILA)',
+        asOf: '2026-10-20',
       },
+      {
+        url: 'https://www.lila.ai/contact',
+        title: 'Contact (LILA)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.flagshippioneering.com/news/press-release/flagship-pioneering-unveils-lila-sciences-to-build-superintelligence-in-science',
+        title: 'Flagship Pioneering Unveils Lila Sciences to Build Superintelligence in Science (Flagship Pioneering, 2025-03-10)',
+        asOf: '2026-10-20',
+      },
+    ],
+    confidence: 'high',
+    absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Lila Sciences and give no other name.',
@@ -5488,7 +5831,7 @@ const ROWS: Company[] = [
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
-      'round.leadInvestors': {
+      'round.valuationUsd': {
         state: 'not-disclosed',
       },
     },
@@ -5506,7 +5849,7 @@ const ROWS: Company[] = [
     founded: 2014,
     segment: 'vertical-applications',
     subSegment: 'cleaning',
-    description: 'Builds Neo 2 fully autonomous floor cleaning robots for commercial facilities using AI autonomy platform.',
+    description: 'Builds Neo, Neo 2W and Kas, autonomous floor-scrubbing robots for commercial spaces such as airports, warehouses and shopping malls.',
     approach: [
       'autonomous-cleaning',
       'commercial',
@@ -5520,10 +5863,17 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Jeneration Capital',
       ],
+      caveat: {
+        text: 'Avidbots said the Series C took its total raised to more than $107 million; it has published no exact total.',
+        sourceUrls: [
+          'https://avidbots.com/news/avidbots-raises-70m-in-series-c-funding/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Commercial floor cleaning globally',
+      'More than 1,000 robots deployed across North America, Asia, Europe, the Middle East and Australia (September 2022)',
+      'Neo 2 at the Huntsville and Cincinnati/Northern Kentucky airports and with Singapore rail operator SMRT Trains (2022)',
     ],
     openSource: [],
     sources: [
@@ -5538,7 +5888,7 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -5560,9 +5910,9 @@ const ROWS: Company[] = [
     id: 'harmonic-drive-systems',
     name: 'Harmonic Drive Systems',
     aka: [
-      'HDS',
+      'HDSI',
     ],
-    website: 'https://www.harmonicdrive.net',
+    website: 'https://www.hds.co.jp/english/',
     logo: 'harmonic-drive-logo',
     hq: {
       city: 'Tokyo',
@@ -5571,7 +5921,7 @@ const ROWS: Company[] = [
     founded: 1970,
     segment: 'components-hardware',
     subSegment: 'actuators-reducers',
-    description: 'Undisputed global leader in strain wave (harmonic) gearing technology foundational for humanoid robot joints.',
+    description: 'Makes HarmonicDrive strain wave gears and other precision speed reducers, plus actuators and motors, for industrial robots, semiconductor manufacturing equipment and other systems.',
     approach: [
       'strain-wave-gearing',
       'precision-motion',
@@ -5585,45 +5935,58 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      'Supplies harmonic reducers to most major humanoid manufacturers',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
       {
-        url: 'https://topsecretstocks.substack.com/p/harmonic-drive-systems-positioned',
-        title: 'Harmonic Drive Systems: Positioned to 10X?',
-        asOf: '2026-08-06',
+        url: 'https://www.hds.co.jp/english/company/about/',
+        title: 'Corporate Information (Harmonic Drive Systems)',
+        asOf: '2026-10-20',
       },
       {
-        url: 'https://nextfinancial.substack.com/p/the-joint-problem-who-owns-the-most',
-        title: 'The Joint Problem: Who Owns the Most Expensive Part of a Humanoid',
-        asOf: '2026-08-06',
+        url: 'https://www.hds.co.jp/english/ir/stock/information/',
+        title: 'General Stock Information (Harmonic Drive Systems)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.hds.co.jp/english/company/establishment/',
+        title: 'Company Sites (Harmonic Drive Systems)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'high',
     absent: {
+      'deployments': {
+        state: 'not-disclosed',
+        basis: 'Its corporate pages name no customers; they say its speed reducers go into industrial robots, semiconductor manufacturing equipment and other systems.',
+      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on the Prime Market of the Tokyo Stock Exchange; no fetched source states its total capital raised.',
       },
       'round.type': {
         state: 'not-disclosed',
+        basis: 'Listed on the Prime Market of the Tokyo Stock Exchange; no fetched source states a financing round.',
       },
       'round.amountUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on the Prime Market of the Tokyo Stock Exchange; no fetched source states a financing round.',
       },
       'round.date': {
         state: 'not-disclosed',
+        basis: 'Listed on the Prime Market of the Tokyo Stock Exchange; no fetched source states a financing round.',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on the Prime Market of the Tokyo Stock Exchange; no fetched source states a financing round.',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
+        basis: 'Listed on the Prime Market of the Tokyo Stock Exchange; no fetched source states a financing round.',
       },
     },
   },
@@ -5640,7 +6003,7 @@ const ROWS: Company[] = [
     founded: 2003,
     segment: 'components-hardware',
     subSegment: 'actuators-reducers',
-    description: 'Builds precision cycloidal and planetary reducers for industrial and humanoid robot joints.',
+    description: 'Makes precision reduction gears, including its RV line, for the joints of industrial robots, alongside railway, aircraft, marine and commercial-vehicle equipment and automatic doors.',
     approach: [
       'cycloidal-reducers',
       'precision-motion',
@@ -5655,17 +6018,27 @@ const ROWS: Company[] = [
     },
     status: 'public',
     deployments: [
-      'Supplies reducers to major robot manufacturers',
+      'Precision reduction gears in the joints of industrial robots from Japanese and overseas makers: about 60% of the global market for medium-size to large robot joints (Nabtesco\'s estimate)',
     ],
     openSource: [],
     sources: [
       {
-        url: 'https://nextfinancial.substack.com/p/the-joint-problem-who-owns-the-most',
-        title: 'The Joint Problem: Reducer duopoly',
-        asOf: '2026-08-06',
+        url: 'https://en.wikipedia.org/wiki/Nabtesco',
+        title: 'Nabtesco - Wikipedia',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.nabtesco.com/en/about/company/overview/',
+        title: 'Company Overview (Nabtesco)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.nabtesco.com/en/products/robot/',
+        title: 'Precision Reduction Gears (Nabtesco)',
+        asOf: '2026-10-20',
       },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -5677,21 +6050,27 @@ const ROWS: Company[] = [
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on the Tokyo Stock Exchange (6268); no fetched source states its total capital raised.',
       },
       'round.type': {
         state: 'not-disclosed',
+        basis: 'Listed on the Tokyo Stock Exchange (6268); no fetched source states a financing round.',
       },
       'round.amountUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on the Tokyo Stock Exchange (6268); no fetched source states a financing round.',
       },
       'round.date': {
         state: 'not-disclosed',
+        basis: 'Listed on the Tokyo Stock Exchange (6268); no fetched source states a financing round.',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on the Tokyo Stock Exchange (6268); no fetched source states a financing round.',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
+        basis: 'Listed on the Tokyo Stock Exchange (6268); no fetched source states a financing round.',
       },
     },
   },
@@ -5699,8 +6078,7 @@ const ROWS: Company[] = [
     id: 'leaderdrive',
     name: 'Leaderdrive',
     aka: [
-      'Leader Drive',
-      'Lide Drive',
+      'Leader Harmonious Drive Systems',
     ],
     website: 'https://www.leaderdrive.com',
     logo: 'leaderdrive-logo',
@@ -5711,7 +6089,7 @@ const ROWS: Company[] = [
     founded: null,
     segment: 'components-hardware',
     subSegment: 'actuators-reducers',
-    description: 'Chinese manufacturer of harmonic reducers positioned as domestic alternative to Japanese suppliers for humanoid robot joints.',
+    description: 'Makes strain wave gears, rotary actuators, frameless torque motors and rotary tables for robots and automation; it claims more than 60% of China\'s market for its reducers and showed humanoid solutions at iREX 2025.',
     approach: [
       'harmonic-reducers',
       'domestic-substitution',
@@ -5724,22 +6102,29 @@ const ROWS: Company[] = [
       valuationUsd: null,
       leadInvestors: [],
     },
-    status: 'private',
+    status: 'public',
     deployments: [
-      'Supplies harmonic reducers to Chinese humanoid manufacturers',
+      'More than 300,000 strain wave reducers sold in 2025, across 21 series',
+      'More than 1,800 clients worldwide',
     ],
     openSource: [],
     sources: [
       {
-        url: 'https://humanoid.guide/leaderdrive-harmonic-reducers-surge-as-humanoid-demand',
-        title: 'Leaderdrive harmonic reducers rise on humanoid demand',
-        asOf: '2026-08-06',
+        url: 'https://www.leaderdrive.com/about/profile.html',
+        title: 'Company Profile (Leaderdrive)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.leaderdrive.com/contact.html',
+        title: 'Contact Us (Leaderdrive)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
     absent: {
       'founded': {
         state: 'not-disclosed',
+        basis: 'Its site says only that the company has been established for more than 22 years and dates its first strain wave gear development to 2003.',
       },
       'openSource': {
         state: 'not-applicable',
@@ -5747,21 +6132,27 @@ const ROWS: Company[] = [
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on China\'s Sci-Tech Innovation Board since 2020; no fetched source states its total capital raised.',
       },
       'round.type': {
         state: 'not-disclosed',
+        basis: 'Listed on China\'s Sci-Tech Innovation Board since 2020; no fetched source states a later financing round.',
       },
       'round.amountUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on China\'s Sci-Tech Innovation Board since 2020; no fetched source states a later financing round.',
       },
       'round.date': {
         state: 'not-disclosed',
+        basis: 'Listed on China\'s Sci-Tech Innovation Board since 2020; no fetched source states a later financing round.',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
+        basis: 'Listed on China\'s Sci-Tech Innovation Board since 2020; no fetched source states a later financing round.',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
+        basis: 'Listed on China\'s Sci-Tech Innovation Board since 2020; no fetched source states a later financing round.',
       },
     },
   },
@@ -5770,17 +6161,18 @@ const ROWS: Company[] = [
     name: 'Sanhua',
     aka: [
       'Sanhua Intelligent Controls',
+      'Sanhua Holding Group',
     ],
     website: 'https://www.sanhuagroup.com',
     logo: 'sanhua-logo',
     hq: {
-      city: 'Hangzhou',
+      city: null,
       country: 'CN',
     },
     founded: 1984,
     segment: 'components-hardware',
     subSegment: 'actuators-components',
-    description: 'Supplies thermal management and actuator components to Tesla for Optimus; $685M order from Tesla reported.',
+    description: 'Makes refrigeration and air-conditioning control components and automotive thermal-management parts, supplying Tesla\'s cars, and is developing electromechanical actuators for robots.',
     approach: [
       'thermal-management',
       'actuator-components',
@@ -5792,42 +6184,80 @@ const ROWS: Company[] = [
       date: null,
       valuationUsd: null,
       leadInvestors: [],
+      caveat: {
+        text: 'Reports in October 2025 said Tesla had ordered Optimus actuators from Sanhua worth about $685 million (over 5 billion yuan); the company declined to comment on market rumors and has never confirmed it supplies Optimus.',
+        sourceUrls: [
+          'https://eu.36kr.com/en/p/3510288514980998',
+          'https://news.metal.com/newscontent/103570985-sanhua-intelligent-control-lands-over-5-billion-yuan-tesla-humanoid-robot-order',
+        ],
+      },
     },
     status: 'public',
     deployments: [
-      'Tesla Optimus supply chain ($685M order)',
+      'Thermal-management components for Tesla\'s electric cars, as a Tier 1 supplier',
+      'Tier 1 supplier to Mercedes-Benz, BMW, Audi, BYD, Geely, Li Auto and NIO',
     ],
     openSource: [],
     sources: [
       {
         url: 'https://eu.36kr.com/en/p/3510288514980998',
-        title: 'Elon Musk Places $685M Order with Sanhua',
+        title: 'Elon Musk throws a $685 million order to Sanhua, and China becomes an important supplier for Optimus (Zinc Finance via 36Kr, 2025-10-15)',
         asOf: '2026-08-06',
+      },
+      {
+        url: 'https://news.metal.com/newscontent/103570985-sanhua-intelligent-control-lands-over-5-billion-yuan-tesla-humanoid-robot-order',
+        title: 'Recent reports indicate that Sanhua Intelligent Control has secured a large order from Tesla for humanoid robots (Shanghai Metals Market, 2025-10-16)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://eu.36kr.com/en/p/3234007375625857',
+        title: 'Sanhua Intelligent Controls: From a Small Factory in Zhejiang to a Giant Worth Hundreds of Billions (36Kr, 2025-04-03)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.sanhuagroup.com/about.html',
+        title: 'Company introduction (Sanhua Holding Group)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.sanhuagroup.com/en/cy.html',
+        title: 'Zhejiang Sanhua Intelligent Controls (Sanhua Holding Group)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
     absent: {
+      'hq.city': {
+        state: 'not-disclosed',
+        basis: 'No fetched source names its headquarters city; its group site lists production bases and R&D centres in Xinchang and Hangzhou.',
+      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
+        basis: 'Its listed arm has traded on the Shenzhen Stock Exchange since 2005; no fetched source states its total capital raised.',
       },
       'round.type': {
         state: 'not-disclosed',
+        basis: 'Its listed arm has traded on the Shenzhen Stock Exchange since 2005; no fetched source states a later financing round.',
       },
       'round.amountUsd': {
         state: 'not-disclosed',
+        basis: 'Its listed arm has traded on the Shenzhen Stock Exchange since 2005; no fetched source states a later financing round.',
       },
       'round.date': {
         state: 'not-disclosed',
+        basis: 'Its listed arm has traded on the Shenzhen Stock Exchange since 2005; no fetched source states a later financing round.',
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
+        basis: 'Its listed arm has traded on the Shenzhen Stock Exchange since 2005; no fetched source states a later financing round.',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
+        basis: 'Its listed arm has traded on the Shenzhen Stock Exchange since 2005; no fetched source states a later financing round.',
       },
     },
   },
@@ -5843,10 +6273,10 @@ const ROWS: Company[] = [
       city: 'London',
       country: 'UK',
     },
-    founded: 1987,
+    founded: 1997,
     segment: 'components-hardware',
     subSegment: 'dexterous-hands',
-    description: 'Builds dexterous robotic hands and teleoperated robots with advanced dexterity for research and mission-critical applications.',
+    description: 'Builds dexterous robot hands, including the Shadow Dexterous Hand and the DEX-EE hands developed with Google DeepMind, and teleoperated robots for research and mission-critical work.',
     approach: [
       'dexterous-hands',
       'teleoperation',
@@ -5861,8 +6291,9 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Research institutions',
-      'Mission-critical teleoperation',
+      'OpenAI used the Shadow Dexterous Hand to study learning dexterity',
+      'DEX-EE hands built with and for Google DeepMind\'s machine-learning research',
+      'Clients including NASA, GSK, Siemens, Google Brain, Honda, MIT and Qualcomm',
     ],
     openSource: [],
     sources: [
@@ -5871,8 +6302,28 @@ const ROWS: Company[] = [
         title: 'Shadow Robot - Dexterous Robotic Hands',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://shadowrobot.com/our-story/',
+        title: 'Our Story (Shadow Robot)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://shadowrobot.com/contact-us-2/',
+        title: 'Contact Us (Shadow Robot)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://shadowrobot.com/dex-ee_series/',
+        title: 'DEX-EE Series (Shadow Robot)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://find-and-update.company-information.service.gov.uk/company/03308007',
+        title: 'THE SHADOW ROBOT COMPANY LIMITED (Companies House)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'openSource': {
         state: 'not-applicable',
@@ -5908,10 +6359,10 @@ const ROWS: Company[] = [
       city: 'Singapore',
       country: 'SG',
     },
-    founded: null,
+    founded: 2024,
     segment: 'components-hardware',
     subSegment: 'dexterous-hands',
-    description: 'Builds SharpaWave dexterous humanoid hands with 22 DoF and tactile sensing, plus foundation models for contact-rich manipulation; mass production achieved.',
+    description: 'Builds tactile dexterous robot hands, including the 22-degree-of-freedom Wave, in mass production since October 2025, plus dexterous robots and the CraftNet manipulation model; its own release calls it a unicorn.',
     approach: [
       'dexterous-hands',
       'tactile-sensing',
@@ -5927,8 +6378,7 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'NVIDIA Isaac GR00T Reference Robot uses Sharpa hands',
-      'Unveiled North full-body robot at CES 2026',
+      'Wave hands on the NVIDIA Isaac GR00T Reference Humanoid Robot, used by research labs including Ai2, ETH Zurich, Stanford Robotics Center and UC San Diego (2026)',
     ],
     openSource: [],
     sources: [
@@ -5955,9 +6405,6 @@ const ROWS: Company[] = [
     ],
     confidence: 'high',
     absent: {
-      'founded': {
-        state: 'not-disclosed',
-      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Sharpa and give no other name.',
@@ -5980,6 +6427,7 @@ const ROWS: Company[] = [
       },
       'round.valuationUsd': {
         state: 'not-disclosed',
+        basis: 'Its own release calls it a unicorn, a valuation of at least $1 billion; no fetched source states a figure or the round behind it.',
       },
       'round.leadInvestors': {
         state: 'not-disclosed',
@@ -5990,18 +6438,18 @@ const ROWS: Company[] = [
     id: 'wonik-robotics',
     name: 'Wonik Robotics',
     aka: [
-      'Wonik',
+      'SimLab',
     ],
     website: 'https://wonikrobotics.com',
     logo: 'wonik-logo',
     hq: {
-      city: 'Seoul',
+      city: 'Seongnam',
       country: 'KR',
     },
-    founded: 1991,
+    founded: 2004,
     segment: 'components-hardware',
     subSegment: 'dexterous-hands',
-    description: 'Builds Allegro Hand, a high-performance robotic hand optimized for research, automation, and intelligent manipulation.',
+    description: 'Makes the Allegro Hand robotic hand for manipulation research and humanoid development, plus autonomous mobile robots and mobile manipulators for factory automation; it joined the WONIK Group in 2016.',
     approach: [
       'dexterous-hands',
       'research-automation',
@@ -6016,7 +6464,9 @@ const ROWS: Company[] = [
     },
     status: 'private',
     deployments: [
-      'Research institutions worldwide',
+      'Allegro Hand with Meta FAIR\'s Digit Plexus tactile platform, which Wonik manufactures and distributes (announced November 2024)',
+      'Airporter cart robots at Incheon International Airport (2019)',
+      'Allegro Dog quadruped supplied to the U.S. Naval Research Laboratory (2013)',
     ],
     openSource: [],
     sources: [
@@ -6035,12 +6485,32 @@ const ROWS: Company[] = [
         title: 'GelSight, Meta AI release Digit 360 tactile sensor for robotic fingers (The Robot Report)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://wonikrobotics.com/en/',
+        title: 'Wonik Robotics (English site)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://wonikrobotics.com/en/sub/company/overview.php',
+        title: 'Company Overview (Wonik Robotics)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://wonikrobotics.com/en/sub/company/history.php',
+        title: 'Company History (Wonik Robotics)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://wonikrobotics.com/en/sub/company/location.php',
+        title: 'Directions (Wonik Robotics)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'openSource': {
         state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
+        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
@@ -6072,24 +6542,28 @@ const ROWS: Company[] = [
       city: 'Tokyo',
       country: 'JP',
     },
-    founded: null,
+    founded: 2018,
     segment: 'components-hardware',
     subSegment: 'tactile-sensors',
-    description: 'Builds advanced 3D tactile sensors providing human sense of touch for humanoid and industrial robots.',
+    description: 'Builds uSkin 3D tactile sensors and uAi software that give robot hands and grippers a sense of touch, for humanoid and industrial robots; a 2018 spin-out of Waseda University.',
     approach: [
       '3d-tactile-sensors',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Strategic investment',
       amountUsd: null,
-      date: null,
+      date: '2026-04-29',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Plug and Play',
+      ],
+      sourceUrl: 'https://sg.finance.yahoo.com/news/xela-robotics-deepens-u-market-123000348.html',
     },
     status: 'private',
     deployments: [
-      'Humanoid and industrial robot tactile sensing',
+      'More than 170 clients (2026)',
+      'uSkin integrations for robot hands and grippers from Wonik Robotics, Sake Robotics, Weiss Robotics and Robotiq',
     ],
     openSource: [],
     sources: [
@@ -6098,12 +6572,19 @@ const ROWS: Company[] = [
         title: 'XELA Robotics Unlocks Enhanced Automation',
         asOf: '2026-08-06',
       },
-    ],
-    confidence: 'medium',
-    absent: {
-      'founded': {
-        state: 'not-disclosed',
+      {
+        url: 'https://xelarobotics.com/about/',
+        title: 'About Us (XELA Robotics)',
+        asOf: '2026-10-20',
       },
+      {
+        url: 'https://sg.finance.yahoo.com/news/xela-robotics-deepens-u-market-123000348.html',
+        title: 'XELA Robotics Deepens U.S. Market Commitment with Plug and Play Investment (PR Newswire via Yahoo Finance, 2026-04-29)',
+        asOf: '2026-10-20',
+      },
+    ],
+    confidence: 'high',
+    absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it XELA Robotics and give no other name.',
@@ -6115,19 +6596,11 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.type': {
-        state: 'not-disclosed',
-      },
       'round.amountUsd': {
         state: 'not-disclosed',
-      },
-      'round.date': {
-        state: 'not-disclosed',
+        basis: 'Plug and Play did not disclose the amount of its investment.',
       },
       'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },

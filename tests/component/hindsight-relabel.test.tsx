@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
 import { HindsightRelabel, reward } from '@/components/interactive/hindsight-relabel';
 import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
@@ -14,6 +14,12 @@ const Wrapper = ({ children }: { children: ReactNode }) => (
   <CitationRecordsProvider records={records}>{children}</CitationRecordsProvider>
 );
 const renderFigure = () => render(<HindsightRelabel />, { wrapper: Wrapper });
+const still = () => vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} }));
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
 
 describe('HindsightRelabel', () => {
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
@@ -51,6 +57,52 @@ describe('HindsightRelabel', () => {
     expect(document.getElementById(stage.getAttribute('aria-describedby') ?? '')).toHaveTextContent('earns a reward of 0');
     const links = [...screen.getByTestId('her-source').querySelectorAll('a')].map((a) => a.getAttribute('href'));
     expect(links).toEqual(records.map((r) => r.url));
+  });
+
+  it('draws a table with no words and one lit part, the goal ring', () => {
+    renderFigure();
+    const svg = screen.getByTestId('her-stage');
+    expect(svg.querySelectorAll('text, title, desc, foreignObject, tspan')).toHaveLength(0);
+    expect(svg.textContent).toBe('');
+    const lit = [...svg.querySelectorAll('[data-lit], [data-tone="lit"]')];
+    expect(lit).toHaveLength(2);
+    expect(lit.map((part) => part.closest('[data-part]')?.getAttribute('data-part')).sort()).toEqual(['ringBack', 'ringFront']);
+    expect(screen.getByTestId('her-goal-ring')).toBeInTheDocument();
+  });
+
+  it('carries the ring to the puck, then raises the flag; reduced motion jumps there', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    const { unmount } = renderFigure();
+    const svg = screen.getByTestId('her-stage');
+    expect(svg).toHaveAttribute('data-share', '0');
+    expect(svg).toHaveAttribute('data-flag', '0');
+    fireEvent.click(screen.getByTestId('her-goal-reached'));
+    await act(async () => {
+      vi.advanceTimersByTime(450);
+    });
+    const mid = Number(svg.getAttribute('data-share'));
+    expect(mid).toBeGreaterThan(0);
+    expect(mid).toBeLessThan(1);
+    expect(svg).toHaveAttribute('data-flag', '0');
+    await act(async () => {
+      vi.advanceTimersByTime(2000);
+    });
+    expect(svg).toHaveAttribute('data-share', '1');
+    expect(svg).toHaveAttribute('data-flag', '1');
+    // Back to the given goal: the flag drops before the ring leaves the puck.
+    fireEvent.click(screen.getByTestId('her-goal-given'));
+    await act(async () => {
+      vi.advanceTimersByTime(200);
+    });
+    expect(Number(svg.getAttribute('data-flag'))).toBeLessThan(1);
+    expect(svg).toHaveAttribute('data-share', '1');
+    unmount();
+    vi.useRealTimers();
+    still();
+    renderFigure();
+    fireEvent.click(screen.getByTestId('her-goal-reached'));
+    expect(screen.getByTestId('her-stage')).toHaveAttribute('data-share', '1');
+    expect(screen.getByTestId('her-stage')).toHaveAttribute('data-flag', '1');
   });
 });
 

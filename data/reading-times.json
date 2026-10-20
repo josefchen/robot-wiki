@@ -32,15 +32,15 @@
     "minutes": 9
   },
   "manipulation/rl-finetuning": {
-    "words": 3272,
-    "minutes": 16
+    "words": 3372,
+    "minutes": 17
   },
   "manipulation/realtime-execution": {
     "words": 1480,
     "minutes": 7
   },
   "manipulation/cross-embodiment": {
-    "words": 1320,
+    "words": 1415,
     "minutes": 7
   },
   "manipulation/knowledge-insulation": {
@@ -48,7 +48,7 @@
     "minutes": 5
   },
   "manipulation/robot-learning-roadmap": {
-    "words": 921,
+    "words": 1014,
     "minutes": 5
   },
   "manipulation/action-spaces": {
@@ -60,11 +60,11 @@
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 1723,
+    "words": 1720,
     "minutes": 9
   },
   "rl-sim2real/why-rl-locomotion": {
-    "words": 1241,
+    "words": 1233,
     "minutes": 6
   },
   "rl-sim2real/parallel-sim-rl": {
@@ -164,8 +164,8 @@
     "minutes": 11
   },
   "classical/state-estimation": {
-    "words": 2487,
-    "minutes": 12
+    "words": 2584,
+    "minutes": 13
   },
   "classical/grasp-planning": {
     "words": 1748,

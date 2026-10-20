@@ -56,6 +56,8 @@ seeAlso:
   - "manipulation/pi-line"
 ---
 
+import { NoiseOrEdit } from '@/components/interactive/noise-or-edit';
+
 import { AdvantageScrubber } from '@/components/interactive/advantage-scrubber';
 import { ExpoFtResults } from '@/components/interactive/expo-ft-results';
 import { RlMethodsTable } from '@/components/mdx/rl-methods-table';
@@ -152,6 +154,8 @@ EXPO-FT, from Dong, Kuo-Han Hung, Tian Gao, Sadigh and Finn, extends EXPO to VLA
 The paper calls HIL-SERL highly reliable in its original evaluations; this suite randomizes a much larger initial-state space, and the standard budget was too small for learning to start on Cube Pick and Pool Shot. With extra samples, HIL-SERL reaches 27/30 and 13/30 there <Cite id="expo-ft-2026" /> <Cite id="hil-serl-2024" />.
 
 DSRL keeps the base policy frozen and runs RL over its latent-noise space <Cite id="dsrl-2025" />. Dong and Finn argue it has a ceiling: "If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action ...". DSRL averages 19/30 in their comparison <Cite id="perry-dong-post-training-2026" /> <Cite id="expo-ft-2026" />.
+
+<NoiseOrEdit className="my-6" />
 
 Dong and Finn's September 2026 blog post says: "RL shows incredible promise in training frontier robotics models, but it is not yet a recipe. It's a craft." EXPO-FT still needs a human to define success, reset the scene and intervene, longer horizons strain the value function, and "Nineteen minutes of robot interaction is not nineteen minutes of post-training," because gradient updates dominate wall-clock time <Cite id="perry-dong-post-training-2026" />. Real-Time EXPO-FT lets a lightweight edit policy react to the latest observation while a slow VLA proposes chunks, and on four dynamic real tasks average performance rises from 42% to 97% <Cite id="realtime-expo-ft-2026" />; [real-time execution](/manipulation/realtime-execution/) covers the latency budgets.
 

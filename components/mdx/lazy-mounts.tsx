@@ -80,6 +80,9 @@ export const DataScaleChart = dynamic(() =>
 export const DatasetTable = dynamic(() =>
   import('@/components/interactive/dataset-table').then((m) => m.DatasetTable),
 );
+export const DeltaFrame = dynamic(() =>
+  import('@/components/interactive/delta-frame').then((m) => m.DeltaFrame),
+);
 export const DemoOrSim = dynamic(() =>
   import('@/components/interactive/demo-or-sim').then((m) => m.DemoOrSim),
 );
@@ -124,6 +127,9 @@ export const HandComparison = dynamic(() =>
 export const HandEyePoses = dynamic(() =>
   import('@/components/interactive/hand-eye-poses').then((m) => m.HandEyePoses),
 );
+export const HandMotionShare = dynamic(() =>
+  import('@/components/interactive/hand-motion-share').then((m) => m.HandMotionShare),
+);
 export const HardwareGuide = dynamic(() =>
   import('@/components/interactive/hardware-guide').then((m) => m.HardwareGuide),
 );
@@ -157,6 +163,9 @@ export const LatencyComparison = dynamic(() =>
 export const LatentImagination = dynamic(() =>
   import('@/components/interactive/latent-imagination').then((m) => m.LatentImagination),
 );
+export const LinearizationGap = dynamic(() =>
+  import('@/components/interactive/linearization-gap').then((m) => m.LinearizationGap),
+);
 export const MilestonesWatchlist = dynamic(() =>
   import('@/components/interactive/milestones-watchlist').then((m) => m.MilestonesWatchlist),
 );
@@ -171,6 +180,9 @@ export const MpcVsRl = dynamic(() =>
 );
 export const NewtonSolvers = dynamic(() =>
   import('@/components/interactive/newton-solvers').then((m) => m.NewtonSolvers),
+);
+export const NoiseOrEdit = dynamic(() =>
+  import('@/components/interactive/noise-or-edit').then((m) => m.NoiseOrEdit),
 );
 export const OfflineValueOverreach = dynamic(() =>
   import('@/components/interactive/offline-value-overreach').then((m) => m.OfflineValueOverreach),

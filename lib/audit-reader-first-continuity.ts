@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2761684, sha256: 'e1a6ff50d0c57d5d12123ce29898d2fc6a4814c35ebf7058aa13f7ca5ca941ad' };
+const reviewPin = { bytes: 2784992, sha256: 'ee246df2098f65076ef2e774afeecf9a64bc618501ac9bb8db9efa71955221e0' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -50,7 +50,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/collaborative-operation-modes.tsx', [34193, '08a645453bfb4c3107f71f77a92a9fa7099f1aa831fd1e2b67109a08a73ff261']],
   ['components/interactive/comparison-matrix.tsx', [22770, '9f299f07bedd55d4caf4ae83e957ef9ce542825aa87d2a1a8fe461a8a8eb10bc']],
   ['components/interactive/compounding-error.tsx', [30724, '4af94129619482fd805a5cdc971c5a12d16468712a9ffb7ffc4ef3e6734e5f09']],
-  ['components/interactive/contact-geometry.tsx', [18023, 'bb1182075127986b33b234c95ecc7224a6730038f967cb057eaf99bcaa2221cb']],
+  ['components/interactive/contact-geometry.tsx', [17354, '6621fafdf9a31012613ddc8370b1c599b40126b7ea8f6c4854c627492b79a570']],
   ['components/interactive/control-loop-budget.tsx', [18387, '49b9e85ba47fcf24e666459fa6527efad0121a0542c300ceeb2549b3332e079c']],
   ['components/interactive/cross-embodiment-strategies.tsx', [20615, 'f0e4c97877aaa65cfff17b5e291c1316adb670dd9822476def1256033bb8e712']],
   ['components/interactive/data-scale-chart.tsx', [26308, '57cb085733c10105cb0816d425901fbf0f7fba7bc795d2617b1fe7355f00ab57']],
@@ -151,7 +151,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['docs/design/motion-language.md', [10710, '02a652700b7ae8b861ab49d9191f8e4afeb937f09dcd3ea04c447143699c3678']],
   ['lib/appearance-physics-push.ts', [5935, 'a72087e6c3e9dd2927b23f3d5528052e2d7566bdd085dd171161026549cf3320']],
   ['lib/brand-v2-figure-evidence.ts', [31009, '389c1d43294ec043e5542fdf01ca798b34d79d7f3825d68638b5a7e73675a797']],
-  ['lib/chart-descriptions.ts', [34575, '0f7fc1b09df61f8d4305e70bf2785d5da571b84a6d94d5a416ea7b2d24a507b7']],
+  ['lib/chart-descriptions.ts', [34598, '43ed497bfe2e3885adb572fb5c8e8aa2550a4e7adcf602997f9f635c7d3de48e']],
   ['lib/figure-system-check.ts', [14713, 'd70a30d88a88d8f00b5bbabea4854b4067679bf66c5471d738c4773e64763f91']],
   ['lib/figure-system-paint.ts', [5408, 'aea5c837e3c35e6328fd0bb54840a5c2be63288219e538e5ade0d7d642192bc8']],
   ['lib/motion-tokens.ts', [4241, '5ba0b718d8260b189acc6c3f1f2a5c7d0ea1f466d5074adb2360c38ee0d6f846']],
@@ -169,7 +169,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/component/chart-primitives.test.tsx', [8819, 'c2015ebfb22e5113e54fda1be779e68bdb9b6cb94ebcb91a19e1731a2e927af3']],
   ['tests/component/chart-state-descriptions.test.tsx', [19459, 'eeef317e2c116922ff0350348ff7050a2998ba8ade52da8601804f4ca01e5ca1']],
   ['tests/component/collaborative-operation-modes.test.tsx', [15007, '627b57b9cfc229f1a5194095ccbce7e610955c972dbe13ca6f72178ceb0cef34']],
-  ['tests/component/contact-geometry.test.tsx', [8336, '5722a594e2bb89fc804c8714f823ccfa7cd8c50099b206b8c01340a58607cc57']],
+  ['tests/component/contact-geometry.test.tsx', [13181, '5cd1e5e1a6e84860311f12e796248e6dea042809fdffe67bc599f2b4cd37034d']],
   ['tests/component/data-scale-chart.test.tsx', [8929, '226c4e5e053bf62161919b170ea24036f91ad01d4dc1ef452ff6f1a60b4bb688']],
   ['tests/component/egoscale-scaling.test.tsx', [9578, 'ab09fc12b101d882dcafa4a250e580c7bab03fec71663da59baf6cb1870f6bf1']],
   ['tests/component/eureka-loop.test.tsx', [7669, '4cf9fddd104ee1471f16cb6e24297b6d72fe4fc2d6d5ded76a4315584a71a25e']],
@@ -230,7 +230,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/kinematics.spec.ts', [23071, '84df12905b97d1d05413292c6e5ecc85fe96e5c871044cc996725d2a6d087008']],
   ['tests/e2e/latent-dynamics.spec.ts', [6987, '9d3a266fb2364ecef76c20ab45123678900bfe97365504cab8eb457b415c26c2']],
   ['tests/e2e/legged-locomotion.spec.ts', [8446, '606c308142f369bc1824f9b1376d505e7f952c581946c67f2ec529fea511b698']],
-  ['tests/e2e/market-map.spec.ts', [24155, '163cd0a5da79456bd51ede8669ced7f681e7115af99e1b5d85ec84780caaefbe']],
+  ['tests/e2e/market-map.spec.ts', [24351, '85ec65524c610efd2fe259f4636f9d23a2c8043dd22f18bdbffe5e45dd8d6699']],
   ['tests/e2e/motion-data-hardware.spec.ts', [9809, 'fca2c759ec055977bf434738ab6efcb49e6f1685bd2d661aba4ecbb88fc42e60']],
   ['tests/e2e/motion-frontier-adjacent-home.spec.ts', [10322, 'bb0f752f75a3e77928a1078f1e8d90c672d6362d210b709c77f27068fed5a665']],
   ['tests/e2e/motion-manipulation.spec.ts', [8124, '77ce3e65b32092ca67ecc6d31828e3ab942239e1ffec68ee55eb4bef0c693282']],
@@ -266,12 +266,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [33552, '01ed0e3b977509ab2d5d4d2bf1e333573b08b862af223a8a13cf24ac39bc2460']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [300606, '831a12bdb6d9b206147b3dabd1239267b3145224f1c78c24ca4f5c70fefe903d']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [313541, '80a86a002fc32223e6e3ac04b6288d773367d6cbd37e0a1492f7c9f2ca4a5b85']],
   ['tests/unit/motion-data-hardware.test.ts', [11831, 'a440e874d11c87a0c6657331f72be47dacc2e432aaf680f4a1956896369f741a']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
-  ['tests/unit/reader-release-integration.test.ts', [30105, 'd6bb0e450c212fd0b54fb686e7352627e3a8a3301265cb472f7faa8774dacb29']],
+  ['tests/unit/reader-release-integration.test.ts', [30695, 'b0a02010aa81aabb2657ff4ed87540acfb53a2542c3497cf479b2ffd6067f853']],
   ['tests/unit/reward-local-evidence.test.ts', [9001, 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12']],
   ['tests/unit/robomind-hours-evidence.test.ts', [26456, 'f6edeb92026f085f5021428a88e94147f5b5d4f33464ffd50645d14012a47928']],
   ['tests/unit/sim2real-local-evidence.test.ts', [9669, '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a']],

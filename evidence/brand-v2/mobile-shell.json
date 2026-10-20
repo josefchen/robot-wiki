@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3040,
+      "visibleTextLength": 3065,
       "header": {
         "present": true,
         "display": "flex",
@@ -2828,7 +2828,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 22510,
+      "visibleTextLength": 23073,
       "header": {
         "present": true,
         "display": "flex",
@@ -6870,7 +6870,7 @@
     },
     {
       "route": "/manipulation/cross-embodiment/",
-      "visibleTextLength": 18254,
+      "visibleTextLength": 18835,
       "header": {
         "present": true,
         "display": "flex",
@@ -8166,7 +8166,7 @@
     },
     {
       "route": "/manipulation/rl-finetuning/",
-      "visibleTextLength": 31556,
+      "visibleTextLength": 32134,
       "header": {
         "present": true,
         "display": "flex",
@@ -8328,7 +8328,7 @@
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
-      "visibleTextLength": 14673,
+      "visibleTextLength": 15209,
       "header": {
         "present": true,
         "display": "flex",
@@ -8652,7 +8652,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 2759,
+      "visibleTextLength": 2777,
       "header": {
         "present": true,
         "display": "flex",
@@ -10102,7 +10102,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22187,
       "header": {
         "present": true,
         "display": "flex",
@@ -10426,7 +10426,7 @@
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
-      "visibleTextLength": 17142,
+      "visibleTextLength": 17087,
       "header": {
         "present": true,
         "display": "flex",

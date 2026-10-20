@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "9504400c340bd81793df1fefb512586e6156a577326a861c5fda3080f77213e0",
+  "fingerprint": "826991e8e8d6cc55626102e1715c64c9397029a96ad67962e820da8bdf662bb4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3040,
+      "visibleTextLength": 3065,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11761,7 +11761,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22510,
+      "visibleTextLength": 23073,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11813,11 +11813,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 12,
+        "readingMinutes": 13,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "12 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -12082,6 +12082,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Linearization holds near the estimate, which is itself uncer"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative arm and spread; the miss is that arm's exact ge"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Joint angles enter a robot's models through sines and cosine"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a tangent-rule stand. A one-joint arm swings "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a 50 cm arm and spreads from 5 to 40 degrees. "
         },
         {
           "familyHead": "geist",
@@ -12547,6 +12583,22 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Swing the arm",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -29370,7 +29422,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18254,
+      "visibleTextLength": 18835,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -29618,6 +29670,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "GR00T N1 embedded state and action with embodiment-aware enc"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Arm lengths, poses and the stroke are illustrative; the geom"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Robots and people have different joints and different link l"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is two easels on one bench. At the left a manneq"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The arms' lengths, the poses and the stroke are illustrative"
         },
         {
           "familyHead": "geist",
@@ -30045,6 +30133,38 @@
           "text": "Current cross-embodiment mapping",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Joint angles",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hand's motion",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Draw the stroke",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -36529,7 +36649,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31556,
+      "visibleTextLength": 32134,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36581,11 +36701,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min read",
+        "readingTimeText": "17 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "dagger-2011",
@@ -36926,6 +37046,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "DSRL keeps the base policy frozen and runs RL over its laten"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: an illustrative cam, hole and edit; nothing is me"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A diffusion or flow policy turns a noise sample into an acti"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that difference on a cam bench. The frozen ca"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one action, an illustrative cam, hole and edit, a"
         },
         {
           "familyHead": "geist",
@@ -37373,6 +37529,38 @@
         },
         {
           "tag": "button",
+          "text": "Noise only",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Noise and an edit",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the search",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Method",
           "familyHead": "geist",
           "sizePx": 13,
@@ -37561,7 +37749,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14673,
+      "visibleTextLength": 15209,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -37713,6 +37901,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Start with kinematics: which frame an object pose or end-eff"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The move and the angles are illustrative; the geometry is ex"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "An end-effector delta is a few numbers, and numbers alone do"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a pen plotter. The rail along the back and th"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The move's length and the angles are illustrative. The miss "
         },
         {
           "familyHead": "geist",
@@ -38128,6 +38352,38 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "The tool's frame",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "The table's frame",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Replay the move",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -39254,7 +39510,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2759,
+      "visibleTextLength": 2777,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40017,6 +40273,14 @@
         },
         {
           "tag": "button",
+          "text": "$200M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Mentee Robotics",
           "familyHead": "geist",
           "sizePx": 13,
@@ -40074,14 +40338,6 @@
         {
           "tag": "button",
           "text": "Persona AI",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$27M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40329,7 +40585,7 @@
         },
         {
           "tag": "button",
-          "text": "$117M",
+          "text": "$42M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40561,6 +40817,14 @@
         },
         {
           "tag": "button",
+          "text": "$400M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Coco",
           "familyHead": "geist",
           "sizePx": 13,
@@ -40770,6 +41034,14 @@
         {
           "tag": "button",
           "text": "Moon Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$55M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -41050,6 +41322,14 @@
         {
           "tag": "button",
           "text": "Leaderdrive",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -46517,7 +46797,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22187,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48472,7 +48752,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17142,
+      "visibleTextLength": 17087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -48607,7 +48887,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Both scenes take the same contact-model error, epsilon: how "
+          "text": "Both fixtures take the same contact-model error, epsilon: ho"
         },
         {
           "familyHead": "geist",
@@ -56434,7 +56714,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3040,
+      "visibleTextLength": 3065,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67920,7 +68200,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30375,
+      "visibleTextLength": 30938,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67972,11 +68252,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 12,
+        "readingMinutes": 13,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "12 min read",
+        "readingTimeText": "13 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
@@ -68241,6 +68521,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Linearization holds near the estimate, which is itself uncer"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative arm and spread; the miss is that arm's exact ge"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Joint angles enter a robot's models through sines and cosine"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a tangent-rule stand. A one-joint arm swings "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a 50 cm arm and spreads from 5 to 40 degrees. "
         },
         {
           "familyHead": "geist",
@@ -68706,6 +69022,22 @@
           "sizePx": 13,
           "inProse": true,
           "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Swing the arm",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
         },
         {
           "tag": "summary",
@@ -85331,7 +85663,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23861,
+      "visibleTextLength": 24442,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85579,6 +85911,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "GR00T N1 embedded state and action with embodiment-aware enc"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Arm lengths, poses and the stroke are illustrative; the geom"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Robots and people have different joints and different link l"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is two easels on one bench. At the left a manneq"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The arms' lengths, the poses and the stroke are illustrative"
         },
         {
           "familyHead": "geist",
@@ -86006,6 +86374,38 @@
           "text": "Current cross-embodiment mapping",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Joint angles",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Hand's motion",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Draw the stroke",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -92402,7 +92802,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 41342,
+      "visibleTextLength": 41920,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -92454,11 +92854,11 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 16,
+        "readingMinutes": 17,
         "citationCount": 43,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "16 min read",
+        "readingTimeText": "17 min read",
         "citationCountText": "43 sources",
         "bibliographyIds": [
           "dagger-2011",
@@ -92799,6 +93199,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "DSRL keeps the base policy frozen and runs RL over its laten"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: an illustrative cam, hole and edit; nothing is me"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A diffusion or flow policy turns a noise sample into an acti"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is that difference on a cam bench. The frozen ca"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Schematic: one action, an illustrative cam, hole and edit, a"
         },
         {
           "familyHead": "geist",
@@ -93246,6 +93682,38 @@
         },
         {
           "tag": "button",
+          "text": "Noise only",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Noise and an edit",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Run the search",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Method",
           "familyHead": "geist",
           "sizePx": 13,
@@ -93423,7 +93891,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19693,
+      "visibleTextLength": 20229,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -93575,6 +94043,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Start with kinematics: which frame an object pose or end-eff"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The move and the angles are illustrative; the geometry is ex"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "An end-effector delta is a few numbers, and numbers alone do"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a pen plotter. The rail along the back and th"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The move's length and the angles are illustrative. The miss "
         },
         {
           "familyHead": "geist",
@@ -93990,6 +94494,38 @@
           "text": "Read the reasoning",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "The tool's frame",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "The table's frame",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Replay the move",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -95094,7 +95630,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2759,
+      "visibleTextLength": 2777,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95857,6 +96393,14 @@
         },
         {
           "tag": "button",
+          "text": "$200M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Mentee Robotics",
           "familyHead": "geist",
           "sizePx": 13,
@@ -95914,14 +96458,6 @@
         {
           "tag": "button",
           "text": "Persona AI",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$27M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96169,7 +96705,7 @@
         },
         {
           "tag": "button",
-          "text": "$117M",
+          "text": "$42M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96401,6 +96937,14 @@
         },
         {
           "tag": "button",
+          "text": "$400M",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
           "text": "Coco",
           "familyHead": "geist",
           "sizePx": 13,
@@ -96610,6 +97154,14 @@
         {
           "tag": "button",
           "text": "Moon Surgical",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$55M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96890,6 +97442,14 @@
         {
           "tag": "button",
           "text": "Leaderdrive",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Public",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -102302,7 +102862,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28334,
+      "visibleTextLength": 28317,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104235,7 +104795,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22461,
+      "visibleTextLength": 22406,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -104370,7 +104930,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Both scenes take the same contact-model error, epsilon: how "
+          "text": "Both fixtures take the same contact-model error, epsilon: ho"
         },
         {
           "familyHead": "geist",

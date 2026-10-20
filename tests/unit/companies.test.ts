@@ -119,7 +119,20 @@ describe('COMPANIES data', () => {
     // 27 -> 32 on 2026-10-20: the field audit added the names fetched bodies
     // give Sanctuary AI, Neura Robotics, Humanoid, Spirit AI and EngineAI
     // (a legal, former or registered Chinese name each).
-    expect(withAka.length).toBe(32);
+    // 32 -> 39 on 2026-10-20: the registered Chinese or Korean names of Deep
+    // Robotics, Kepler Robot, LimX Dynamics and Rainbow Robotics, Symbotic's
+    // former name CasePick Systems, and "Mentee by Mobileye" and
+    // "Dexterity AI", each from a fetched body.
+    // 39 -> 41 on 2026-10-20: Amazon Robotics' former name Kiva Systems
+    // (Wikipedia) and Ambi Robotics' founding name Ambidextrous Laboratories
+    // (its own about page).
+    // 41 -> 45 on 2026-10-20: the names Intuitive Surgical and Collaborative
+    // Robotics use for themselves, Intuitive and Cobot (their own release
+    // and letter), CMR Surgical's former name Cambridge Medical Robotics
+    // (Wikipedia) and Moon Surgical's founding name MastOR (its own page).
+    // 45 -> 46 on 2026-10-20: Automata's registered name, Automata
+    // Technologies (Companies House).
+    expect(withAka.length).toBe(46);
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
     // (audit/market-map-ledger.json) found its sources use "Pi" only for the
@@ -214,11 +227,16 @@ describe('COMPANIES data', () => {
     // and a parked lander, never the companies' sites, so both websites are
     // null; two more records moved to the domains their companies use
     // (audit/market-map.md, "Market-map marks and company status, sourced").
-    expect(withSite.length).toBe(108);
+    // 108 -> 107 on 2026-10-20: monarchtractor.com now serves only "This
+    // page is unavailable" since Caterpillar bought Monarch's assets, so the
+    // website is cut and recorded n/a.
+    expect(withSite.length).toBe(107);
     const site = (id: string) => COMPANIES.find((company) => company.id === id)?.website;
     expect(site('assured-robot-intelligence')).toBeNull();
     expect(site('tars-robotics')).toBeNull();
     expect(site('k-scale-labs')).toBeNull();
+    expect(site('monarch-tractor')).toBeNull();
+    expect(COMPANIES.find((company) => company.id === 'monarch-tractor')?.absent.website?.state).toBe('not-applicable');
     expect(site('foundry-robotics')).toBe('https://foundryrobotics.ai');
     expect(site('wonik-robotics')).toBe('https://wonikrobotics.com');
     expect(COMPANIES.some((company) => /ari\.bot|tars\.bot|foundryrobotics\.com/.test(company.website ?? ''))).toBe(false);

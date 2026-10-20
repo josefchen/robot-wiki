@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c51c59c70dd818c011da095abf39c577f113fa77d253e0da8c5a407c875d4953",
+  "fingerprint": "45fd9968808ec72abf8aeb65b0be72d34193122d37e9566bb1e70f190bd52a96",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3015,
+      "visibleTextLength": 3040,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -2251,7 +2251,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30375,
+      "visibleTextLength": 30938,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -5201,7 +5201,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23861,
+      "visibleTextLength": 24442,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "1440x900"
     },
@@ -6145,7 +6145,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 41342,
+      "visibleTextLength": 41920,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "1440x900"
     },
@@ -6263,7 +6263,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19693,
+      "visibleTextLength": 20229,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "1440x900"
     },
@@ -6499,7 +6499,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2759,
+      "visibleTextLength": 2777,
       "route": "/market-map/",
       "viewport": "1440x900"
     },
@@ -7561,7 +7561,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28334,
+      "visibleTextLength": 28317,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "1440x900"
     },
@@ -7797,7 +7797,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22461,
+      "visibleTextLength": 22406,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3040,
+      "visibleTextLength": 3065,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11147,7 +11147,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22510,
+      "visibleTextLength": 23073,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },
@@ -14097,7 +14097,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18254,
+      "visibleTextLength": 18835,
       "route": "/manipulation/cross-embodiment/",
       "viewport": "375x812"
     },
@@ -15041,7 +15041,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31556,
+      "visibleTextLength": 32134,
       "route": "/manipulation/rl-finetuning/",
       "viewport": "375x812"
     },
@@ -15159,7 +15159,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14673,
+      "visibleTextLength": 15209,
       "route": "/manipulation/robot-learning-roadmap/",
       "viewport": "375x812"
     },
@@ -15395,7 +15395,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 2759,
+      "visibleTextLength": 2777,
       "route": "/market-map/",
       "viewport": "375x812"
     },
@@ -16457,7 +16457,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22187,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "375x812"
     },
@@ -16693,7 +16693,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17142,
+      "visibleTextLength": 17087,
       "route": "/rl-sim2real/why-rl-locomotion/",
       "viewport": "375x812"
     },
@@ -18183,7 +18183,7 @@
         ".txt",
         ".xml"
       ],
-      "occurrences": 11028
+      "occurrences": 11033
     },
     {
       "literal": "robot-wiki.com",
@@ -18194,7 +18194,7 @@
         ".txt",
         ".xml"
       ],
-      "occurrences": 10465
+      "occurrences": 10470
     }
   ]
 }

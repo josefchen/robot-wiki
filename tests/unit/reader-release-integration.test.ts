@@ -279,6 +279,16 @@ function throughSeoPass(path: string) {
     expect(continues(figures, end)).toBe(true);
     end = figures.newHash;
   }
+  // The manipulation isometric figures of 2026-10-20 (batch mwf-b01) landed
+  // after the data-hardware figure; their one edge on a manipulation article
+  // that gained a figure mount continues the previous endpoint the same way.
+  const manipulationFigureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('anatomy-mwf-b01-figures-20261020-'));
+  expect(manipulationFigureEdges.length).toBeLessThanOrEqual(1);
+  for (const figures of manipulationFigureEdges) {
+    expect(continues(figures, end)).toBe(true);
+    end = figures.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

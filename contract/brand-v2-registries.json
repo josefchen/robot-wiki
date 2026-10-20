@@ -8187,6 +8187,72 @@
         "fingerprint": "2904be3a5b8b7c32c41204db90c163f900733424c27dd4e3753842e690b503ed"
       },
       {
+        "id": "interactive:DeltaFrame",
+        "component": "DeltaFrame",
+        "sourcePath": "components/interactive/delta-frame.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "a33ae5fbaff8b96088c45cf4ee77f37bc878851accadd75d0c1ebf47d2a87237"
+      },
+      {
         "id": "interactive:DemoOrSim",
         "component": "DemoOrSim",
         "sourcePath": "components/interactive/demo-or-sim.tsx",
@@ -9045,6 +9111,61 @@
         "fingerprint": "d14687653cd4a0029a2dd27f4b21c12aeea0c427d9617d5c70e421929e822ed5"
       },
       {
+        "id": "interactive:HandMotionShare",
+        "component": "HandMotionShare",
+        "sourcePath": "components/interactive/hand-motion-share.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "9a806a15e34f0fb10dafbb418b412d7bb055b3331edc967ab54111f3b1b4adbc"
+      },
+      {
         "id": "interactive:HardwareGuide",
         "component": "HardwareGuide",
         "sourcePath": "components/interactive/hardware-guide.tsx",
@@ -9759,6 +9880,57 @@
         "fingerprint": "8c58b469f7d6842b4c031e98f042555da6d798629ae36c74d35d1d7c47c43f0c"
       },
       {
+        "id": "interactive:LinearizationGap",
+        "component": "LinearizationGap",
+        "sourcePath": "components/interactive/linearization-gap.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "e872612245c120e58721cde8b7b77966825f030f141014cc01e09ca3e50d091a"
+      },
+      {
         "id": "interactive:MilestonesWatchlist",
         "component": "MilestonesWatchlist",
         "sourcePath": "components/interactive/milestones-watchlist.tsx",
@@ -10039,6 +10211,61 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "74854eb16e94c74d7595ccba75d87bd50e40da3025f7629358db0a099f55e707"
+      },
+      {
+        "id": "interactive:NoiseOrEdit",
+        "component": "NoiseOrEdit",
+        "sourcePath": "components/interactive/noise-or-edit.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "6f623a831e56df3b7da36ad309cdacdb1b34119dbf7a5cca91255e39d8a06ba4"
       },
       {
         "id": "interactive:OfflineValueOverreach",
@@ -12916,6 +13143,61 @@
         "fingerprint": "c53bf0f85d89e8c1ac9cdf557e2073a3f1745d5b4b2bac75697ece9732e90ce7"
       },
       {
+        "id": "mount:/classical/state-estimation/:LinearizationGap:1",
+        "sourceId": "interactive:LinearizationGap",
+        "route": "/classical/state-estimation/",
+        "ownerPath": "content/classical/state-estimation.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "ef47cb9b0c1ed9b12bf42245d67b28a5d03718aad31f3ad891c79fdb9f530e44"
+      },
+      {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
         "sourceId": "interactive:DataScaleChart",
         "route": "/data-hardware/data-bottleneck/",
@@ -14517,6 +14799,65 @@
         "fingerprint": "d0b83a85528e057be46477b0a14dd473414da476b5279718aa8456980b7593a6"
       },
       {
+        "id": "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
+        "sourceId": "interactive:HandMotionShare",
+        "route": "/manipulation/cross-embodiment/",
+        "ownerPath": "content/manipulation/cross-embodiment.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "86e5f8f7a00de9184a4bf5a4582fab1e857ed4c3ea6b2a37c04eeb4d50fc0bbf"
+      },
+      {
         "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
         "sourceId": "interactive:RecedingHorizon",
         "route": "/manipulation/diffusion-policy/",
@@ -15226,6 +15567,135 @@
         ],
         "expectedCaseCount": 7,
         "fingerprint": "7ad43f5d77c77f659a5ee77ee12e2a700eaf8fa0e395230573f8f028de8dc898"
+      },
+      {
+        "id": "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
+        "sourceId": "interactive:NoiseOrEdit",
+        "route": "/manipulation/rl-finetuning/",
+        "ownerPath": "content/manipulation/rl-finetuning.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 9,
+        "fingerprint": "d5dfa615b47883cba86889d1261ed8a69cea92b300a9df5913e2dd1d6520ba36"
+      },
+      {
+        "id": "mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1",
+        "sourceId": "interactive:DeltaFrame",
+        "route": "/manipulation/robot-learning-roadmap/",
+        "ownerPath": "content/manipulation/robot-learning-roadmap.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "7fb3d6c4ede018fe9cd7cc693120ae577139fb73b7170c7f25749397dc86ebaf"
       },
       {
         "id": "mount:/manipulation/vla-models/:ActionTokenization:1",
@@ -17633,6 +18103,7 @@
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
+        "components/interactive/delta-frame.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/excavator-practice.tsx",
         "components/interactive/execution-modes.tsx",
@@ -17640,6 +18111,7 @@
         "components/interactive/gait-diagram.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
+        "components/interactive/hand-motion-share.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
@@ -17649,7 +18121,9 @@
         "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
+        "components/interactive/linearization-gap.tsx",
         "components/interactive/motion-pantograph.tsx",
+        "components/interactive/noise-or-edit.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-latency.tsx",
         "components/interactive/planner-exploit.tsx",
@@ -17699,12 +18173,14 @@
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/compounding-error.tsx",
         "components/interactive/dataset-table.tsx",
+        "components/interactive/delta-frame.tsx",
         "components/interactive/eureka-loop.tsx",
         "components/interactive/excavator-practice.tsx",
         "components/interactive/execution-modes.tsx",
         "components/interactive/flow-matching-trajectory.tsx",
         "components/interactive/grasp-wrench-lab.tsx",
         "components/interactive/hand-comparison.tsx",
+        "components/interactive/hand-motion-share.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/helix-clockwork.tsx",
         "components/interactive/hierarchy-timescales.tsx",
@@ -17714,7 +18190,9 @@
         "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
+        "components/interactive/linearization-gap.tsx",
         "components/interactive/motion-pantograph.tsx",
+        "components/interactive/noise-or-edit.tsx",
         "components/interactive/pendulum-controller.tsx",
         "components/interactive/perception-latency.tsx",
         "components/interactive/planner-exploit.tsx",
@@ -17761,7 +18239,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "53f3e0fe8f2e757c43aa84d6d30b639d29fc8a0be55febfb6e118d5c172d2f86"
+      "fingerprint": "a1d77826b100f7775b0889bfbfde83612e6639b587d97e31a3df57d78b7d884f"
     },
     {
       "id": "control:selection",
@@ -18094,6 +18572,7 @@
         "components/interactive/contact-geometry.tsx",
         "components/interactive/control-loop-budget.tsx",
         "components/interactive/data-scale-chart.tsx",
+        "components/interactive/delta-frame.tsx",
         "components/interactive/deployment-economics.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/execution-modes.tsx",
@@ -18111,6 +18590,7 @@
         "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
+        "components/interactive/linearization-gap.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -18151,6 +18631,7 @@
         "components/interactive/contact-geometry.tsx",
         "components/interactive/control-loop-budget.tsx",
         "components/interactive/data-scale-chart.tsx",
+        "components/interactive/delta-frame.tsx",
         "components/interactive/deployment-economics.tsx",
         "components/interactive/egoscale-scaling.tsx",
         "components/interactive/execution-modes.tsx",
@@ -18167,6 +18648,7 @@
         "components/interactive/kinematic-twin.tsx",
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
+        "components/interactive/linearization-gap.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -18206,7 +18688,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "f132730fffe5f0930c86dd048e8de1d4d5a3db46770606256d5d0b8abf79c72e"
+      "fingerprint": "776ed0967685b51ea5a940bd078be591feab632e92ab1f0215084d94d3b3bd66"
     },
     {
       "id": "control:disabled",
@@ -18246,5 +18728,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "adaea7898f00bd878a60bafef4a4f2649f961e77ecc27e599686076334a3440a"
+  "rootFingerprint": "c9ad818c19cd0e2eabac51b08636732f1975e695c32e611fab0e49599f3d9238"
 }

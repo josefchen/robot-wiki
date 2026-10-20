@@ -304,6 +304,13 @@
   },
   {
     "article": "state-estimation",
+    "element": "LinearizationGap",
+    "decision": "keep",
+    "teachingGoal": "Show how far the extended Kalman filter's straight-line shortcut misses a swinging arm as the estimate's spread grows, so a reader sees why linearization holds only near the estimate.",
+    "reason": "A new isometric tangent-rule table (2026-10-20): a dial gauge reads the gap between the arm's true arc and the tangent rule at the edge of the spread, small for a tight spread and large for a wide one."
+  },
+  {
+    "article": "state-estimation",
     "element": "Image:apollo-guidance-computer-dsky",
     "decision": "keep",
     "teachingGoal": "Show the real robot, machine or setting in its sourced photograph, with its credit and license.",

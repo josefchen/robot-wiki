@@ -148,6 +148,13 @@
   },
   {
     "article": "cross-embodiment",
+    "element": "HandMotionShare",
+    "decision": "keep",
+    "teachingGoal": "Show why robots and people share actions written as the hand's motion: the same joint angles on an arm of other proportions draw a skewed stroke, while the hand's motion replayed from the robot's own start draws the same one.",
+    "reason": "A new isometric two-easel bench (2026-10-20): a mannequin arm draws a check mark, a robot arm with shorter links copies it through a copy box whose lever sends joint angles or the hand's motion, and the robot's ink lands on the faint check mark only for the hand's motion."
+  },
+  {
+    "article": "cross-embodiment",
     "element": "Image:egoscale-human-to-robot-2026",
     "decision": "keep",
     "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
@@ -387,6 +394,13 @@
   },
   {
     "article": "rl-finetuning",
+    "element": "NoiseOrEdit",
+    "decision": "keep",
+    "teachingGoal": "Show why steering a frozen policy's noise can only reach actions the policy already makes, and how a small edit on its action gets past them.",
+    "reason": "A new isometric cam-and-follower bench (2026-10-20): every dial setting lands the peg on the strip of places the frozen cam can reach, the best one still short of the hole, and a short turn of the micrometer edit drops it in."
+  },
+  {
+    "article": "rl-finetuning",
     "element": "RlMethodsTable",
     "decision": "keep",
     "teachingGoal": "Preserve algorithmic differences, release scope, and explicit unknowns in the method matrix.",
@@ -447,6 +461,13 @@
     "decision": "keep",
     "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
     "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "robot-learning-roadmap",
+    "element": "DeltaFrame",
+    "decision": "keep",
+    "teachingGoal": "Show that an end-effector delta means nothing until its frame is named: read in the table's frame instead of the tool's, the same move misses once the tool is turned.",
+    "reason": "A new isometric turret plotter (2026-10-20): a demonstration's 5 cm stroke along the turned tool, and a replay whose lit ink follows it in the tool's frame or runs along the rail in the table's frame, missing by the chord."
   },
   {
     "article": "robot-learning-roadmap",

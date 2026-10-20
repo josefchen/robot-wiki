@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-18T23:47:40Z",
+  "observedAt": "2026-10-20T05:00:20Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -110,6 +110,29 @@
         {
           "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",
           "after": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n\n<Ros2PolicyLayout className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "ecb4a4a20cd5775a5ee28838fe3c0e50db0598a9",
+      "before": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 13954,
+        "sha256": "4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e"
+      },
+      "after": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 14073,
+        "sha256": "f4ee9d7b68feee568ecf5b21f95d37bfda3f51443c96533816d9929f214232c1"
+      },
+      "edits": [
+        {
+          "before": "import { Clip } from '@/components/motion/clip';\n\n",
+          "after": "import { Clip } from '@/components/motion/clip';\n\nimport { LinearizationGap } from '@/components/interactive/linearization-gap';\n\n"
+        },
+        {
+          "before": "Linearization holds near the estimate, which is itself uncertain, so where the nonlinearity is strong over the region the covariance covers, $\\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id=\"mcgee-schmidt-1985\" /><Cite id=\"dellaert-kaess-2006\" />. Julier and Uhlmann summarize 35 years of experience: the EKF is difficult to implement and tune, and reliable only for systems almost linear on the time scale of the updates <Cite id=\"julier-uhlmann-2004\" />. Li and Mourikis proved that standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id=\"li-mourikis-2013\" />.\n",
+          "after": "Linearization holds near the estimate, which is itself uncertain, so where the nonlinearity is strong over the region the covariance covers, $\\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id=\"mcgee-schmidt-1985\" /><Cite id=\"dellaert-kaess-2006\" />. Julier and Uhlmann summarize 35 years of experience: the EKF is difficult to implement and tune, and reliable only for systems almost linear on the time scale of the updates <Cite id=\"julier-uhlmann-2004\" />. Li and Mourikis proved that standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id=\"li-mourikis-2013\" />.\n\n<LinearizationGap className=\"my-6\" />\n"
         }
       ]
     },
@@ -275,6 +298,29 @@
       ]
     },
     {
+      "archivedFrom": "898e18b2bc4f8d78ec36d1bc487941370bb2a5ad",
+      "before": {
+        "path": "content/manipulation/cross-embodiment.mdx",
+        "bytes": 9803,
+        "sha256": "4cb0ce6f4c00c06f350e83304a3557bd0db30ea2fd542287fbcbccfeccfdefa2"
+      },
+      "after": {
+        "path": "content/manipulation/cross-embodiment.mdx",
+        "bytes": 9920,
+        "sha256": "944ed6bd2a3a9c014498a16f4f0e7e0e06e65650192688ed107e4cc2d7695997"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { HandMotionShare } from '@/components/interactive/hand-motion-share';\n\n"
+        },
+        {
+          "before": "GR00T N1 embedded state and action with embodiment-aware encoders <Cite id=\"gr00t-n1-2025\" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id=\"gr00t-n1-6-2025\" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id=\"isaac-gr00t-repo-2026\" />.\n",
+          "after": "GR00T N1 embedded state and action with embodiment-aware encoders <Cite id=\"gr00t-n1-2025\" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id=\"gr00t-n1-6-2025\" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id=\"isaac-gr00t-repo-2026\" />.\n\n<HandMotionShare className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
       "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
       "before": {
         "path": "content/manipulation/hierarchical.mdx",
@@ -294,6 +340,52 @@
         {
           "before": "RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id=\"robopoint-2024\" />.\n",
           "after": "RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id=\"robopoint-2024\" />.\n\n<KeypointString className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "898e18b2bc4f8d78ec36d1bc487941370bb2a5ad",
+      "before": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 18148,
+        "sha256": "7749de405711f539b2471cf5298bd9d68dd60ed068e846d8a6429fa42a089dd6"
+      },
+      "after": {
+        "path": "content/manipulation/rl-finetuning.mdx",
+        "bytes": 18253,
+        "sha256": "d14cb02e5e38ba1270cecf249a7d4eae0c782ab820787f0891eeb67189f98499"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { NoiseOrEdit } from '@/components/interactive/noise-or-edit';\n\n"
+        },
+        {
+          "before": "DSRL keeps the base policy frozen and runs RL over its latent-noise space <Cite id=\"dsrl-2025\" />. Dong and Finn argue it has a ceiling: \"If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action ...\". DSRL averages 19/30 in their comparison <Cite id=\"perry-dong-post-training-2026\" /> <Cite id=\"expo-ft-2026\" />.\n",
+          "after": "DSRL keeps the base policy frozen and runs RL over its latent-noise space <Cite id=\"dsrl-2025\" />. Dong and Finn argue it has a ceiling: \"If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action ...\". DSRL averages 19/30 in their comparison <Cite id=\"perry-dong-post-training-2026\" /> <Cite id=\"expo-ft-2026\" />.\n\n<NoiseOrEdit className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "898e18b2bc4f8d78ec36d1bc487941370bb2a5ad",
+      "before": {
+        "path": "content/manipulation/robot-learning-roadmap.mdx",
+        "bytes": 8930,
+        "sha256": "186f8f71aa2f8f72939bee3db299c71463ff20303aae669571947433f27f4135"
+      },
+      "after": {
+        "path": "content/manipulation/robot-learning-roadmap.mdx",
+        "bytes": 9031,
+        "sha256": "8c868d5a44291ee09ecb915dc342a5cb4f5dfeed454c7ead1a0cec5fc6494f8d"
+      },
+      "edits": [
+        {
+          "before": "---\n\n",
+          "after": "---\n\nimport { DeltaFrame } from '@/components/interactive/delta-frame';\n\n"
+        },
+        {
+          "before": "Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id=\"modern-robotics-2017\" />, and Tedrake warns that sloppy kinematic notation \"will inevitably lead to confusion and bugs\" <Cite id=\"tedrake-manipulation-2026\" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />.\n",
+          "after": "Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id=\"modern-robotics-2017\" />, and Tedrake warns that sloppy kinematic notation \"will inevitably lead to confusion and bugs\" <Cite id=\"tedrake-manipulation-2026\" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />.\n\n<DeltaFrame className=\"my-6\" />\n"
         }
       ]
     },

@@ -119,7 +119,16 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     // says "more than $14 billion", a floor, not a valuation), 1x left (no
     // fetched source states its $500M valuation), and boston-dynamics
     // joined (its own release says Hyundai's deal valued it at $1.1B).
-    expect(focusable.length).toBe(27);
+    // 27 -> 29 with the 2026-10-20 field audit: LimX Dynamics ($2.21B,
+    // CNBC), Mentee Robotics ($900M, Mobileye's 8-K) and Berkshire Grey
+    // ($375M, its merger release) joined, each a valuation a fetched source
+    // states; Kepler Robot left (its $106.3M valuation was an aggregator's
+    // own conversion).
+    // 29 -> 28 the same day: Standard Bots left, because no fetched source
+    // states its founding year, which places a mark on the x axis.
+    // 28 -> 30 the same day, both by total raised: Lila Sciences (founded
+    // 2023, its own about page) and K-Scale Labs ($6.25M in total, 36Kr).
+    expect(focusable.length).toBe(30);
     const tabbable = focusable.filter((el) => el.tabIndex === 0);
     expect(tabbable).toHaveLength(1);
     const roving = focusable.filter((el) => el.tabIndex === -1);
@@ -182,12 +191,12 @@ describe('BubbleView hover, focus, and roving keyboard access', () => {
     const inks = Array.from(document.querySelectorAll('[data-mark-ink]'));
     const filled = inks.filter((el) => el.getAttribute('data-mark-kind') === 'valuation');
     const open = inks.filter((el) => el.getAttribute('data-mark-kind') === 'totalRaised');
-    expect(filled.length + open.length).toBe(27);
+    expect(filled.length + open.length).toBe(30);
     expect(open.length).toBeGreaterThan(0);
     expect(filled.every((el) => el.getAttribute('class') === 'fill-graphite')).toBe(true);
     expect(open.every((el) => el.getAttribute('class') === 'fill-paper stroke-graphite')).toBe(true);
     expect(document.querySelector('figcaption')).toHaveTextContent(
-      `27 of 111 companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
+      `30 of 111 companies plotted, ${filled.length} by valuation and ${open.length} by total raised.`,
     );
   }, TIMEOUT);
 });

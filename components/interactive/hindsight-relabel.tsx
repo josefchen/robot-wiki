@@ -1,22 +1,14 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
-import { InstrumentFigure, PlotStage, PresetGroup, type Preset } from '@/components/ui/instrument';
-import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
-import {
-  CHART_STROKE,
-  CHART_STRUCTURE,
-  CHART_TYPE,
-  DirectLabel,
-  LineTrace,
-  StageAnnotation,
-  roleColour,
-  type ChartPoint,
-} from '@/components/motion/chart';
-import { useEasedValue } from '@/components/motion/use-eased-value';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
+import { InstrumentFigure, PresetGroup, type Preset } from '@/components/ui/instrument';
+import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { Dots, Line, Solid } from '@/components/iso/react/draw';
+import { Stage, asksForStillness } from '@/components/iso/react/live';
+import { HEIGHT, PARTS, WIDTH, movingAt, poseFrom, type TablePart } from '@/components/iso/figures/puck-push-table';
+import { GIVEN_GOAL, PUCK_END, sparseReward, type TablePoint } from '@/lib/hindsight-push';
 
 /**
  * HindsightRelabel: hindsight experience replay. A robot pushes a puck
@@ -26,10 +18,16 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
  * the reward for that goal, so the same push becomes a success to learn
  * from.
  *
- * The one control picks the goal the push is judged against. The goal
- * ring glides from the goal the robot was given to where the puck ended
- * on the motion curve, and the reward is recomputed; reduced motion jumps.
- * The push is illustrative; the relabelling rule is the paper's.
+ * The stage is a puck-push test table (components/iso/figures/puck-push-
+ * table.ts): a robot arm at one end has pushed a puck across the felt,
+ * leaving a chalk trail; the goal it was given is printed on the felt and
+ * marked by a pin; the goal the push is judged against is a hoop a gantry
+ * holds just above the felt, the one lit part. The one control picks that
+ * goal: the gantry carries the hoop from the pin to where the puck ended,
+ * and the reward flag on its carriage rises once the hoop settles round the
+ * puck.
+ * Reduced motion jumps. The push is illustrative; the relabelling rule is
+ * the paper's.
  */
 
 type GoalId = 'given' | 'reached';
@@ -39,29 +37,10 @@ const GOALS: readonly Preset<GoalId>[] = [
 ];
 export const DEFAULT_GOAL: GoalId = 'given';
 
-const WIDTH = 340;
-const HEIGHT = 186;
-const TABLE = { left: 4, top: 30, right: 336, bottom: 182 } as const;
-const PUCK_START: ChartPoint = [52, 128];
-const PUCK_END: ChartPoint = [196, 112];
-const GIVEN_GOAL: ChartPoint = [292, 68];
-const GOAL_RADIUS = 12;
-const PUCK = 12;
-const f = (v: number) => Number(v.toFixed(2));
-
-/** The recorded push, a gentle curve from the start to where the puck stopped. */
-const PUSH: ChartPoint[] = Array.from({ length: 25 }, (_, k) => {
-  const t = k / 24;
-  const u = 1 - t;
-  const c: ChartPoint = [124, 146];
-  return [f(u * u * PUCK_START[0] + 2 * u * t * c[0] + t * t * PUCK_END[0]), f(u * u * PUCK_START[1] + 2 * u * t * c[1] + t * t * PUCK_END[1])];
-});
-
-const goalAt = (goal: GoalId): ChartPoint => (goal === 'given' ? GIVEN_GOAL : PUCK_END);
+const goalAt = (goal: GoalId): TablePoint => (goal === 'given' ? GIVEN_GOAL : PUCK_END);
 /** The sparse reward: 1 when the puck stopped inside the goal ring, 0 otherwise. */
 export function reward(goal: GoalId): 0 | 1 {
-  const [gx, gy] = goalAt(goal);
-  return Math.hypot(PUCK_END[0] - gx, PUCK_END[1] - gy) <= GOAL_RADIUS ? 1 : 0;
+  return sparseReward(PUCK_END, goalAt(goal));
 }
 
 const STATEMENT: Record<GoalId, string> = {
@@ -75,16 +54,74 @@ function describe(goal: GoalId): string {
     : `Relabelled with the spot where the puck ended, the recorded push earns a reward of ${reward('reached')}; against the goal it was given it earned ${reward('given')}, and hindsight experience replay stores it both ways.`;
 }
 
+/** How long the gantry takes to carry the ring between the two goals, and the flag to swing, seconds. */
+const CARRY_SECONDS = 0.9;
+const FLAG_SECONDS = 0.35;
+const smooth = (t: number) => {
+  const u = Math.max(0, Math.min(1, t));
+  return u * u * (3 - 2 * u);
+};
+
+function PartView({ part }: { part: TablePart }): ReactNode {
+  if (part.kind === 'solid') {
+    return <Solid paths={part.paths} tone={part.tone} lit={part.lit} crease={part.crease} inner={part.inner ? <g dangerouslySetInnerHTML={{ __html: part.inner }} /> : undefined} />;
+  }
+  if (part.kind === 'line') return <Line d={part.d} tone={part.tone} free={part.free} />;
+  // The chalk the push left on the felt: a shade, not a part.
+  if (part.kind === 'face') return <path className="iso-shade" data-shade={part.fill} d={part.d} />;
+  return <Dots points={part.points} size={part.size} tone={part.tone} />;
+}
+
+const tenth = (value: number) => Math.round(value * 10) / 10;
+
 export function HindsightRelabel({ className }: { className?: string }) {
   const uid = useId();
   const descriptionId = `${uid}-description`;
   const citationFor = useCitationLookup();
   const source = citationFor('her-2017');
   const [goal, setGoal] = useState<GoalId>(DEFAULT_GOAL);
-  const t = useEasedValue(goal === 'reached' ? 1 : 0);
-  const accent = roleColour('highlight');
-  const ring: ChartPoint = [f(GIVEN_GOAL[0] + (PUCK_END[0] - GIVEN_GOAL[0]) * t), f(GIVEN_GOAL[1] + (PUCK_END[1] - GIVEN_GOAL[1]) * t)];
   const relabelled = goal === 'reached';
+  /** The table as drawn: how far the ring has come from the given goal (0) to the puck (1), and the flag's rise. */
+  const [shown, setShown] = useState<{ share: number; flag: number }>(() => ({ share: goal === 'reached' ? 1 : 0, flag: reward(goal) }));
+  const live = useRef({ share: shown.share, flag: shown.flag, from: shown.share, fromFlag: shown.flag, target: shown.share, start: 0 });
+  const frame = useRef(0);
+  const settled = useRef(goal);
+
+  const tick = useCallback(function step(now: number) {
+    const s = live.current;
+    const t = (now - s.start) / 1000;
+    // A flag that is up drops first; one that will rise goes up once the ring has settled round the puck.
+    const down = s.fromFlag > 0 && s.target < 1;
+    const carry = smooth((t - (down ? FLAG_SECONDS : 0)) / CARRY_SECONDS);
+    s.share = s.from + (s.target - s.from) * carry;
+    s.flag = down ? s.fromFlag * (1 - smooth(t / FLAG_SECONDS)) : s.target === 1 ? smooth((t - CARRY_SECONDS) / FLAG_SECONDS) : 0;
+    setShown({ share: s.share, flag: s.flag });
+    const total = CARRY_SECONDS + FLAG_SECONDS;
+    frame.current = t < total ? requestAnimationFrame(step) : 0;
+  }, []);
+
+  useEffect(() => {
+    if (settled.current === goal) return;
+    settled.current = goal;
+    const s = live.current;
+    s.target = goal === 'reached' ? 1 : 0;
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function' && asksForStillness()) {
+      cancelAnimationFrame(frame.current);
+      frame.current = 0;
+      s.share = s.target;
+      s.flag = s.target;
+      setShown({ share: s.share, flag: s.flag });
+      return;
+    }
+    s.from = s.share;
+    s.fromFlag = s.flag;
+    s.start = performance.now();
+    if (!frame.current) frame.current = requestAnimationFrame(tick);
+  }, [goal, tick]);
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), []);
+
+  const moving = movingAt(poseFrom({ share: shown.share, flag: shown.flag, relabelled }));
 
   return (
     <InstrumentFigure
@@ -94,90 +131,50 @@ export function HindsightRelabel({ className }: { className?: string }) {
       heading="Relabelled with where it ended, a miss still teaches"
       controls={<PresetGroup label="Judge the push against" presets={GOALS} value={goal} onChange={setGoal} testId="her-goal" />}
       stage={
-        <FigureStage footer={<StageStatus>Illustrative push; rule cited</StageStatus>}>
-          <PlotStage
-            viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Seen from above, a robot pushed a puck that stopped short of its goal. Judged against ${relabelled ? 'the spot where the puck ended' : 'the goal it was given'}, the push earns a reward of ${reward(goal)}.`}
-            aria-describedby={descriptionId}
-            data-testid="her-stage"
-            data-goal={goal}
-            data-reward={reward(goal)}
-          >
-            <StageAnnotation x={TABLE.left} y={16} lines={[STATEMENT[goal]]} />
-            <rect
-              x={TABLE.left}
-              y={TABLE.top}
-              width={TABLE.right - TABLE.left}
-              height={TABLE.bottom - TABLE.top}
-              fill="none"
-              stroke={CHART_STRUCTURE.grid}
-              strokeWidth={CHART_STROKE.structure}
-            />
-            <g data-series="push">
-              <LineTrace points={PUSH} role="reference" />
-            </g>
-            <rect
-              x={PUCK_START[0] - PUCK / 2}
-              y={PUCK_START[1] - PUCK / 2}
-              width={PUCK}
-              height={PUCK}
-              fill="none"
-              stroke={CHART_STRUCTURE.labelSecondary}
-              strokeWidth={CHART_STROKE.structure}
-              strokeDasharray="2 2"
-            />
-            <DirectLabel x={PUCK_START[0] - PUCK / 2} y={PUCK_START[1] - 14}>
-              pushed from here
-            </DirectLabel>
-            <rect
-              data-testid="her-puck"
-              x={PUCK_END[0] - PUCK / 2}
-              y={PUCK_END[1] - PUCK / 2}
-              width={PUCK}
-              height={PUCK}
-              fill={CHART_STRUCTURE.label}
-            />
-            <DirectLabel x={PUCK_END[0]} y={PUCK_END[1] + 32} anchor="middle" role={relabelled ? 'highlight' : undefined}>
-              {relabelled ? 'new goal: where the puck ended' : 'where the puck ended'}
-            </DirectLabel>
-            {relabelled ? (
-              <g data-testid="her-given-goal" data-chart-role="reference">
-                <circle
-                  cx={GIVEN_GOAL[0]}
-                  cy={GIVEN_GOAL[1]}
-                  r={GOAL_RADIUS}
-                  fill="none"
-                  stroke={roleColour('reference')}
-                  strokeWidth={CHART_STROKE.reference}
-                  strokeDasharray={CHART_STROKE.dash}
-                />
-              </g>
-            ) : null}
-            <text
-              x={GIVEN_GOAL[0] + GOAL_RADIUS + 6}
-              y={GIVEN_GOAL[1] - GOAL_RADIUS - 8}
-              textAnchor="end"
-              fontSize={CHART_TYPE.labelPx}
-              fill={relabelled ? 'var(--role-reference-text)' : accent}
+        <AnatomyStage
+          viewWidth={WIDTH}
+          hint={<span data-figure-annotation="">{STATEMENT[goal]}</span>}
+          readout={
+            <>
+              {relabelled ? 'Judged against where the puck ended' : 'Judged against the given goal'} · <span data-testid="her-reward">{`reward ${reward(goal)}`}</span>
+            </>
+          }
+          status="Illustrative push; rule cited"
+          data-testid="her-stage-frame"
+        >
+          <Stage className="iso-stage">
+            <svg
+              className="iso-svg"
+              viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+              role="img"
+              focusable="false"
+              aria-label={`Seen from above, a robot pushed a puck that stopped short of its goal. Judged against ${relabelled ? 'the spot where the puck ended' : 'the goal it was given'}, the push earns a reward of ${reward(goal)}.`}
+              aria-describedby={descriptionId}
+              data-testid="her-stage"
+              data-goal={goal}
+              data-reward={reward(goal)}
+              data-share={tenth(shown.share)}
+              data-flag={tenth(shown.flag)}
             >
-              given goal
-            </text>
-            <g data-testid="her-goal-ring" data-chart-role="highlight" data-at={ring.join(',')}>
-              <circle cx={ring[0]} cy={ring[1]} r={GOAL_RADIUS} fill="none" stroke={accent} strokeWidth={CHART_STROKE.trace} />
-              <circle cx={ring[0]} cy={ring[1]} r={2} fill={accent} stroke={MOTION_STAGE.background} strokeWidth={0.5} />
-            </g>
-            <text
-              data-testid="her-reward"
-              x={TABLE.right - 8}
-              y={TABLE.bottom - 10}
-              textAnchor="end"
-              fontSize={CHART_TYPE.readoutPx}
-              fill={CHART_STRUCTURE.label}
-            >
-              {`reward ${reward(goal)}`}
-            </text>
-          </PlotStage>
-        </FigureStage>
+              {PARTS.map((part, index) => {
+                if (part.kind !== 'slot') return <PartView key={index} part={part} />;
+                const children = moving[part.slot].map((child, n) => <PartView key={n} part={child} />);
+                if (part.slot === 'witness') {
+                  return children.length ? (
+                    <g key={part.slot} data-testid="her-given-goal">
+                      {children}
+                    </g>
+                  ) : null;
+                }
+                return (
+                  <g key={part.slot} data-part={part.slot} data-testid={part.slot === 'ringFront' ? 'her-goal-ring' : undefined}>
+                    {children}
+                  </g>
+                );
+              })}
+            </svg>
+          </Stage>
+        </AnatomyStage>
       }
       caption="Hindsight experience replay relabels a missed push with where the puck stopped, turning reward 0 into a success."
       method={
@@ -194,6 +191,14 @@ export function HindsightRelabel({ className }: { className?: string }) {
             pick-and-place; with the future version it learned all three, where the same learner without
             relabelling did not. Relabelling needs a reward that can be recomputed for any goal. The push drawn here
             is illustrative.
+          </div>
+          <div>
+            The drawing is a push test table. A robot arm at one end has pushed the puck across the felt, leaving a
+            chalk trail from the start mark to where it stopped. The goal the robot was given is printed on the felt
+            and marked by a pin. The goal the push is judged against is the lit hoop a gantry holds just above the
+            felt; the flag on the gantry&apos;s carriage stands up when the puck lies inside the hoop, a reward of 1.
+            Relabelling carries the hoop from the pin to the puck; the pin and its printed circle stay where the
+            given goal was.
           </div>
           <ChartDescription
             id={descriptionId}

@@ -531,6 +531,22 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // The article's GELLO rule (joint readings map one to one onto robot commands) on an illustrative leader and robot; "Schematic" status line.
     kind: 'schematic',
   },
+  'interactive:NoiseOrEdit': {
+    // The article's DSRL ceiling (noise steering reaches only actions a frozen policy makes) and EXPO's small edit on an illustrative cam and hole; "Schematic" status line.
+    kind: 'schematic',
+  },
+  'interactive:DeltaFrame': {
+    // The roadmap's expressed-in frame rule on an illustrative 5 cm move; the chord between the two readings is exact; "illustrative" status line.
+    kind: 'schematic',
+  },
+  'interactive:HandMotionShare': {
+    // The article's relative end-effector rule (GR00T N1.7, EgoScale) on an illustrative person, robot and stroke; the geometry is exact; "illustrative" status line.
+    kind: 'schematic',
+  },
+  'interactive:LinearizationGap': {
+    // The EKF's tangent at the estimate against the curve it replaces, on an illustrative one-joint arm; the miss is that arm's exact geometry; "Illustrative" status line.
+    kind: 'schematic',
+  },
   'interactive:HelixClockwork': {
     // Figure's two Helix 02 rates (200 Hz and 1 kHz) on an illustrative clockwork; "Schematic" status line.
     kind: 'schematic',

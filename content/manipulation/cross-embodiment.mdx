@@ -51,6 +51,8 @@ seeAlso:
   - "data-hardware/data-bottleneck"
 ---
 
+import { HandMotionShare } from '@/components/interactive/hand-motion-share';
+
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
 
 <Term id="cross-embodiment">Cross-embodiment transfer</Term> is training one policy on data from bodies with different joint counts, action dimensions and sensors, or moving a policy to an unseen body. Open X-Embodiment pools data from 22 robot embodiments <Cite id="open-x-embodiment-2023" />, and human video adds a body whose actions are estimated from images <Cite id="egoscale-2026" />.
@@ -89,6 +91,8 @@ DeepMind says On-Device 2, natively multi-embodiment with Motion Transfer, adapt
 ## Relative end-effector actions for robots and humans
 
 GR00T N1 embedded state and action with embodiment-aware encoders <Cite id="gr00t-n1-2025" />; N1.6 moved most embodiments to state-relative action chunks, which NVIDIA found smoother and more accurate than absolute actions <Cite id="gr00t-n1-6-2025" />. N1.7 shares relative end-effector deltas between human and robot embodiments and calls this a key factor in cross-embodiment performance <Cite id="isaac-gr00t-repo-2026" />.
+
+<HandMotionShare className="my-6" />
 
 <Image id="egoscale-human-to-robot-2026" />
 

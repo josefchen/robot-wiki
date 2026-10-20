@@ -428,7 +428,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/contact-geometry.tsx',
     route: '/rl-sim2real/why-rl-locomotion/',
     quantityNames: ['error', 'clearance'],
-    text: 'Locomotion at 2.0 mm of contact-model error stays stable: all 4 paws stand on the dashed simulated floor, inside the 20 mm a gait absorbs, with 18.0 mm of margin left. The peg at the same error jams on the edge of the real hole, past its 0.5 mm clearance, so its 14 distributed contacts cannot absorb millimetres the way a gait can.',
+    text: 'Locomotion at 2.0 mm of contact-model error stays stable: all 4 paws stay loaded as the front pair steps down to the real floor, inside the 20 mm a gait absorbs, with 18.0 mm of margin left. The peg at the same error jams on the edge of the real hole, past its 0.5 mm clearance, so its 14 distributed contacts cannot absorb millimetres the way a gait can.',
   },
   {
     component: 'TeacherStudent',

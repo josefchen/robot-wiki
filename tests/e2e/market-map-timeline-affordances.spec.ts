@@ -61,7 +61,25 @@ test.describe('timeline view roving keyboard affordances', () => {
     // Intelligence's Series B date was cut. The Robot Report (25 Nov 2025)
     // says only that it raised the round "last week", and no fetched source
     // states the 20 Nov 2025 date the record carried.
-    await expect(rowButtons(page)).toHaveCount(71);
+    // 71 -> 72 on 2026-10-20 (market-map field audit): Symbotic's latest
+    // raise, the public offering it priced on 4 December 2025 (its
+    // GlobeNewswire release), is a dated event in the window.
+    // 72 -> 73 the same day (market-map field audit): Locus Robotics' latest
+    // raise, the still-open Series G reported on 1 September 2026, is a
+    // dated event in the window; its 2022 Series F was not.
+    // 73 -> 75 the same day (market-map field audit): CMR Surgical's latest
+    // round, Stryker's investment of 12 October 2026 (its own release), and
+    // Moon Surgical's Series B of 17 May 2023 (Sofinnova Partners' release)
+    // are dated events in the window.
+    // 75 -> 76 the same day (market-map field audit): Plug and Play's
+    // strategic investment in XELA Robotics, announced on 29 April 2026
+    // (XELA's release), is a dated event in the window.
+    await expect(rowButtons(page)).toHaveCount(76);
+    await expect(page.locator('[data-timeline-id][data-company-id="symbotic"]')).toHaveCount(1);
+    await expect(page.locator('[data-timeline-id][data-company-id="locus-robotics"]')).toHaveCount(1);
+    await expect(page.locator('[data-timeline-id][data-company-id="cmr-surgical"]')).toHaveCount(1);
+    await expect(page.locator('[data-timeline-id][data-company-id="moon-surgical"]')).toHaveCount(1);
+    await expect(page.locator('[data-timeline-id][data-company-id="xela-robotics"]')).toHaveCount(1);
     await expect(
       page.locator('[data-timeline-id][data-company-id="physical-intelligence"]'),
     ).toHaveCount(0);
@@ -229,9 +247,11 @@ test.describe('timeline view roving keyboard affordances', () => {
         title: 'Carbon Robotics raises $20M',
       },
       {
+        // The 2026-10-20 field audit took the round's date (9 June 2026) and
+        // its leads from The Robot Report's report of the same round.
         id: 'standard-bots',
-        href: 'https://www.robotics247.com/article/standard-bots-raises-200-million-series-c-at-1-billion-valuation',
-        title: 'Standard Bots raises $200 million Series C',
+        href: 'https://www.therobotreport.com/standard-bots-raises-200m-expand-u-s-manufacturing-footprint/',
+        title: 'Standard Bots raises $200M to expand U.S. manufacturing footprint',
       },
       {
         id: 'limx-dynamics',

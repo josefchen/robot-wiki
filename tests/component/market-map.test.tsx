@@ -70,7 +70,13 @@ describe('MarketMap', () => {
     expect(tile('figure-ai')).toHaveAccessibleName('Figure AI, latest round amount not disclosed');
     expect(tile('covariant')).toHaveAccessibleName('Covariant, latest round amount not disclosed');
     expect(tile('boston-dynamics')).toHaveAccessibleName('Boston Dynamics, acquired');
-    expect(tile('cmr-surgical')).toHaveAccessibleName('CMR Surgical, latest round amount not disclosed');
+    // Since the 2026-10-20 field audit CMR Surgical's latest round is
+    // Stryker's October 2026 investment (its own release); Weave Robotics
+    // has disclosed no round amount.
+    expect(tile('cmr-surgical')).toHaveAccessibleName(
+      'CMR Surgical, latest round $400M, Strategic investment',
+    );
+    expect(tile('weave-robotics')).toHaveAccessibleName('Weave Robotics, latest round amount not disclosed');
     // Farm-ng's acquisition by Bonsai Robotics (2025-07-24) is its status, not a round.
     expect(tile('farm-ng')).toHaveAccessibleName('Farm-ng, acquired');
   }, TIMEOUT);
@@ -122,10 +128,11 @@ describe('MarketMap', () => {
     expect(screen.getByText('7 of 111 companies')).toBeInTheDocument();
     expect(tiles()).toHaveLength(7);
     await user.selectOptions(screen.getByLabelText('Confidence'), 'high');
-    expect(screen.getByText('4 of 111 companies')).toBeInTheDocument();
-    // Segment counts follow the other filters: four US humanoids at high
+    // 4 -> 5 when the 2026-10-20 field audit raised Persona AI to high.
+    expect(screen.getByText('5 of 111 companies')).toBeInTheDocument();
+    // Segment counts follow the other filters: five US humanoids at high
     // confidence, and the tab says so before it is chosen.
-    expect(segmentTab(/^Humanoids/)).toHaveTextContent('4');
+    expect(segmentTab(/^Humanoids/)).toHaveTextContent('5');
     // Choosing the active segment again returns to all segments.
     await user.click(segmentTab(/^Humanoids/));
     expect(segmentTab(/^All/)).toHaveAttribute('aria-pressed', 'true');
@@ -334,8 +341,11 @@ describe('MarketMap', () => {
     expect(screen.getByText('Total raised, where no valuation is disclosed')).toBeInTheDocument();
     // 83 -> 84 with the 2026-10-19 field audit (27 plotted, see
     // market-map-bubble-view.test.tsx for the members that moved).
+    // 84 -> 82 with the 2026-10-20 field audit (29 plotted).
+    // 82 -> 83 the same day: Standard Bots' founding year was cut (28 plotted).
+    // 83 -> 81 the same day: Lila Sciences and K-Scale Labs joined (30 plotted).
     expect(document.querySelector('[data-bubble-excluded]')).toHaveTextContent(
-      /84 are left off, not drawn at zero/,
+      /81 are left off, not drawn at zero/,
     );
     expect(tiles()).toHaveLength(0);
     expect(window.location.search).toBe('?view=bubble');

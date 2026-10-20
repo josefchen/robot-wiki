@@ -46,6 +46,8 @@ seeAlso:
   - "manipulation/bc-foundations"
 ---
 
+import { DeltaFrame } from '@/components/interactive/delta-frame';
+
 The robot learning curriculum for ML engineers is a staged path through the robotics that policy experiments depend on: geometry, data, imitation, action representation, evaluation and deployment, each learned just before an experiment needs it. A 2025 open tutorial runs from behavior cloning and reinforcement learning to generalist policies <Cite id="robot-learning-tutorial-2025" />.
 
 <Image id="droid-in-the-wild-scenes-2024" />
@@ -78,6 +80,8 @@ Try the check below.
 ## Stage 1: coordinates
 
 Start with [kinematics](/classical/kinematics/): which frame an object pose or end-effector delta uses, and where joint limits enter. *Modern Robotics* supplies the vocabulary <Cite id="modern-robotics-2017" />, and Tedrake warns that sloppy kinematic notation "will inevitably lead to confusion and bugs" <Cite id="tedrake-manipulation-2026" />. A drifting camera transform or timestamp mismatch can look like a stochastic policy, so [calibration](/classical/calibration/) and [state estimation](/classical/state-estimation/) come next; Kalibr estimates sensor time offsets to a fraction of the smallest measurement period <Cite id="kalibr-2013" />.
+
+<DeltaFrame className="my-6" />
 
 <Image id="puma-500-deutsches-museum" />
 

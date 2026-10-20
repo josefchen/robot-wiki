@@ -54,6 +54,8 @@ seeAlso:
 import { KalmanPredictUpdate } from '@/components/motion/scenes/kalman-predict-update';
 import { Clip } from '@/components/motion/clip';
 
+import { LinearizationGap } from '@/components/interactive/linearization-gap';
+
 State estimation computes a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id="thrun-2005" />.
 
 <Image id="apollo-imu-draper-2019" />
@@ -126,6 +128,8 @@ $$
 The mean moves through the true maps $g$ and $h$; only the covariance takes the linearized route <Cite id="thrun-2005" />. The Ames group moved from linearizing about a nominal reference trajectory to relinearizing about the *current estimated state*, which they hoped would bring "substantial advantages". An accidentally off-nominal simulation converged after initial overshoots, and the report names this modification the extended Kalman filter. It also discusses instability from round-off, inadequate statistical models and nonlinearities <Cite id="mcgee-schmidt-1985" />.
 
 Linearization holds near the estimate, which is itself uncertain, so where the nonlinearity is strong over the region the covariance covers, $\Sigma$ stops describing the true error, and the filter grows overconfident and can diverge <Cite id="mcgee-schmidt-1985" /><Cite id="dellaert-kaess-2006" />. Julier and Uhlmann summarize 35 years of experience: the EKF is difficult to implement and tune, and reliable only for systems almost linear on the time scale of the updates <Cite id="julier-uhlmann-2004" />. Li and Mourikis proved that standard EKF visual-inertial odometry is inconsistent because of how its Jacobians are computed, so it underestimates its uncertainty <Cite id="li-mourikis-2013" />.
+
+<LinearizationGap className="my-6" />
 
 The unscented Kalman filter of Julier and Uhlmann keeps the Gaussian and pushes deterministically chosen sample points through the true nonlinearity <Cite id="julier-uhlmann-1997" />. Particle filters drop the Gaussian assumption and carry the belief as a set of particles <Cite id="thrun-2005" />.
 

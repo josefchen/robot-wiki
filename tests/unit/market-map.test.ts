@@ -80,7 +80,11 @@ describe('filterCompanies', () => {
       COMPANIES,
       filters({ segment: 'humanoids', country: 'US', confidence: 'high' }),
     );
-    expect(high).toHaveLength(4);
+    // 4 -> 5 on 2026-10-20: the field audit raised Persona AI to high
+    // confidence (its own site, its October 2026 PR Times release and The AI
+    // Insider's POSCO report agree).
+    expect(high).toHaveLength(5);
+    expect(high.map((row) => row.id)).toContain('persona-ai');
     expect(high.every((row) => row.confidence === 'high')).toBe(true);
     expect(high.length).toBeLessThan(humanoidsUs.length);
   });
@@ -129,12 +133,18 @@ describe('filterCompanies', () => {
     // 8 -> 12 on 2026-10-20: AgiBot (its site's Open Source menu and its
     // GitHub), Spirit AI (its Spirit v1.5 release), Galaxea (its OpenGalaxea
     // GitHub) and EngineAI (its PM01, per Wikipedia).
-    expect(open).toHaveLength(12);
+    // 12 -> 14 on 2026-10-20: X Square Robot (its WALL-OSS models, per
+    // Wikipedia and The Robot Report) and LimX Dynamics (its FluxVLA Engine
+    // and robot code, on its GitHub).
+    // 14 -> 15 on 2026-10-20: Farm-ng (its farm-ng-core library and Amiga
+    // development kits, on its GitHub).
+    expect(open).toHaveLength(15);
     expect(open.every((row) => row.openSource.length > 0)).toBe(true);
     expect(open.map((row) => row.id)).toEqual(
       expect.arrayContaining([
         'physical-intelligence', 'k-scale-labs', 'xdof', 'unitree-robotics',
         'agibot', 'spirit-ai', 'galaxea-ai', 'engineai',
+        'x-square-robot', 'limx-dynamics', 'farm-ng',
       ]),
     );
   });
@@ -361,8 +371,26 @@ describe('timelineEvents', () => {
     // 72 -> 71 the same day: the field audit cut Physical Intelligence's
     // round date (The Robot Report says only that it raised "last week"),
     // so its Series B has no place on a dated timeline.
-    expect(events).toHaveLength(71);
+    // 71 -> 72 on 2026-10-20: the field audit gave Symbotic its latest raise,
+    // the public offering it priced on 4 December 2025 (its GlobeNewswire
+    // release).
+    // 72 -> 73 the same day: the field audit gave Locus Robotics its latest
+    // raise, the still-open Series G reported on 1 September 2026; its 2022
+    // Series F was outside the window.
+    // 73 -> 75 the same day: the field audit gave CMR Surgical its latest
+    // round, Stryker's investment announced on 12 October 2026 (its own
+    // release), and Moon Surgical its Series B of 17 May 2023 (its investor
+    // Sofinnova Partners' release).
+    // 75 -> 76 the same day: the field audit gave XELA Robotics Plug and
+    // Play's strategic investment, announced on 29 April 2026 (XELA's
+    // release); the amount was not disclosed.
+    expect(events).toHaveLength(76);
     expect(events.some((event) => event.companyId === 'physical-intelligence')).toBe(false);
+    expect(events.find((event) => event.companyId === 'symbotic')?.date).toBe('2025-12-04');
+    expect(events.find((event) => event.companyId === 'locus-robotics')?.date).toBe('2026-09-01');
+    expect(events.find((event) => event.companyId === 'cmr-surgical')?.date).toBe('2026-10-12');
+    expect(events.find((event) => event.companyId === 'moon-surgical')?.date).toBe('2023-05-17');
+    expect(events.find((event) => event.companyId === 'xela-robotics')?.date).toBe('2026-04-29');
     const farmNg = events.find((event) => event.companyId === 'farm-ng');
     expect(farmNg?.date).toBe('2025-07-24');
     expect(events.every((event) => event.date >= '2023-01-01')).toBe(true);
@@ -434,8 +462,10 @@ describe('timelineEvents', () => {
     expect(byId['carbon-robotics'].sourceTitle).toContain(
       'Carbon Robotics raises $20M',
     );
+    // The Robot Report's report since the 2026-10-20 field audit, which
+    // took the round date (9 June 2026) and its leads from it.
     expect(byId['standard-bots'].sourceTitle).toContain(
-      'Standard Bots raises $200 million Series C',
+      'Standard Bots raises $200M to expand U.S. manufacturing footprint',
     );
     expect(byId['limx-dynamics'].sourceTitle).toContain(
       'LimX Dynamics $200M Pre-IPO Financing',

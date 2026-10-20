@@ -16,14 +16,19 @@ import { preWordBudgetTrim } from '../helpers/seo-pass';
 const root = resolve(import.meta.dirname, '../..');
 /**
  * The mounts that landed after the image mounts, the newest change to their articles: the 2026-10-15 frontier,
- * world-models and manipulation mounts, the 2026-10-19 teleoperation rigs mount, and surgical robotics' second mount of
- * 2026-10-19 (its first, of 2026-10-12, sits under the adjacent cut and the image mounts).
+ * world-models and manipulation mounts, the 2026-10-19 teleoperation rigs mount, surgical robotics' second mount of
+ * 2026-10-19 (its first, of 2026-10-12, sits under the adjacent cut and the image mounts), the 2026-10-20
+ * manipulation mounts in RL fine-tuning, the robot-learning roadmap and cross-embodiment transfer, and the
+ * 2026-10-20 state estimation mount.
  */
 const AFTER_IMAGES = [
   'content/frontier/bear-case.mdx', 'content/frontier/safety-and-assurance.mdx',
   'content/world-models/model-based-robot-learning.mdx', 'content/world-models/world-models-vs-simulators.mdx',
   'content/manipulation/action-spaces.mdx', 'content/manipulation/comparison-matrix.mdx',
   'content/manipulation/hierarchical.mdx', 'content/data-hardware/teleop-rigs.mdx', 'content/adjacent/surgical.mdx',
+  'content/manipulation/rl-finetuning.mdx', 'content/manipulation/robot-learning-roadmap.mdx',
+  'content/manipulation/cross-embodiment.mdx',
+  'content/classical/state-estimation.mdx',
 ];
 /** An article's late record is its last one; its earlier records stay under the newer layers. */
 const isLate = (review: FigureMountReview, source: FigureMountSource) =>
@@ -69,11 +74,19 @@ describe('figure mounts 2026-10-07 article successors', () => {
   // already in the list, gained a second isometric figure (ScopeFollow) the
   // same way, after its adjacent cut and image mounts; the list of articles
   // stays exact and that article holds two records.
+  // Successor (manipulation isometric figures, 2026-10-20): RL fine-tuning,
+  // the robot-learning roadmap and cross-embodiment transfer each gained one
+  // new isometric figure the same way, after their image mounts; the list
+  // stays exact.
+  // Successor (classical isometric figure, 2026-10-20): state estimation
+  // gained one new isometric figure (LinearizationGap) the same way, after
+  // its image mounts; the list stays exact.
   it('reviews exactly the articles that gained admitted figure mounts', () => {
     expect(figureMountSuccessorPaths()).toEqual([
       'content/adjacent/surgical.mdx',
       'content/classical/calibration.mdx',
       'content/classical/ros2-for-ml-engineers.mdx',
+      'content/classical/state-estimation.mdx',
       'content/data-hardware/robot-learning-stack.mdx',
       'content/data-hardware/teleop-rigs.mdx',
       'content/frontier/bear-case.mdx',
@@ -81,7 +94,10 @@ describe('figure mounts 2026-10-07 article successors', () => {
       'content/frontier/safety-and-assurance.mdx',
       'content/manipulation/action-spaces.mdx',
       'content/manipulation/comparison-matrix.mdx',
+      'content/manipulation/cross-embodiment.mdx',
       'content/manipulation/hierarchical.mdx',
+      'content/manipulation/rl-finetuning.mdx',
+      'content/manipulation/robot-learning-roadmap.mdx',
       'content/rl-sim2real/humanoid-wbc.mdx',
       'content/rl-sim2real/legged-locomotion.mdx',
       'content/rl-sim2real/offline-rl.mdx',
@@ -126,9 +142,10 @@ describe('figure mounts 2026-10-07 article successors', () => {
       // The rebuilt bytes are the successor of the next older layer that reviewed the article, which that layer
       // still decides: the domain pass for every article except surgical robotics, whose last reviewed change
       // before its mount is the 2026-10-05 KOL backlog batch, and the 2026-10-15 frontier, world-models and
-      // manipulation mounts and the 2026-10-19 teleoperation rigs and second surgical robotics mounts, whose last
-      // reviewed change before them is an image-mount batch (frontier, manipulation, data-hardware and adjacent of
-      // 2026-10-15, world-models of 2026-10-13).
+      // manipulation mounts, the 2026-10-19 teleoperation rigs and second surgical robotics mounts and the 2026-10-20
+      // manipulation mounts, whose last reviewed change before them is an image-mount batch (frontier, manipulation,
+      // data-hardware and adjacent of 2026-10-15, world-models and the 2026-10-20 manipulation articles' of
+      // 2026-10-13).
       const afterImages = isLate(review, source);
       const kolOnly = source.after.path === 'content/adjacent/surgical.mdx' && !afterImages;
       if (afterImages) expect(source.archivedFrom).toMatch(/^[0-9a-f]{40}$/);

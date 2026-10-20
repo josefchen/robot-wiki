@@ -161,6 +161,7 @@
       "audit": "A13",
       "sources": [
         "components/interactive/contact-geometry.tsx",
+        "components/iso/figures/contact-error-bench.ts",
         "lib/contact-geometry.ts"
       ],
       "takeaway": "Walking legs cope with small errors in the simulated ground, but fitting a tight part leaves almost no room for error."
@@ -735,6 +736,19 @@
       "takeaway": "Even with noisy readings that sometimes drop out, the filter tracks the target, and it grows less sure while readings are missing."
     },
     {
+      "id": "classical--state-estimation--linearization-gap",
+      "route": "/classical/state-estimation/",
+      "mount": "mount:/classical/state-estimation/:LinearizationGap:1",
+      "figure": "linearization-gap",
+      "audit": null,
+      "sources": [
+        "components/interactive/linearization-gap.tsx",
+        "components/iso/figures/tangent-rule-table.ts",
+        "lib/linearization-gap.ts"
+      ],
+      "takeaway": "A straight-line shortcut matches a curved motion only close to the robot's best guess; the less sure the robot is, the further the shortcut drifts from the truth."
+    },
+    {
       "id": "classical--calibration--calibration-chain",
       "route": "/classical/calibration/",
       "mount": "mount:/classical/calibration/:CalibrationChain:1",
@@ -921,7 +935,9 @@
       "figure": "hindsight-relabel",
       "audit": null,
       "sources": [
-        "components/interactive/hindsight-relabel.tsx"
+        "components/interactive/hindsight-relabel.tsx",
+        "components/iso/figures/puck-push-table.ts",
+        "lib/hindsight-push.ts"
       ],
       "takeaway": "A missed goal can still teach a robot once the push is relabelled with the spot it actually reached."
     },
@@ -1110,6 +1126,45 @@
         "components/iso/figures/lap-trainer.ts"
       ],
       "takeaway": "At Level 1 the robot takes over one supervised task: with ScoPilot on, Maestro's arm keeps the laparoscope aimed at the instrument tip, while the surgeon still moves every instrument."
+    },
+    {
+      "id": "manipulation--rl-finetuning--noise-or-edit",
+      "route": "/manipulation/rl-finetuning/",
+      "mount": "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
+      "figure": "noise-or-edit",
+      "audit": null,
+      "sources": [
+        "components/interactive/noise-or-edit.tsx",
+        "components/iso/figures/cam-follower-bench.ts",
+        "lib/noise-or-edit.ts"
+      ],
+      "takeaway": "Steering a frozen policy's noise, as DSRL does, only ever lands on actions the policy already makes, so a skill it never learned stays out of reach; a small edit on the action, as in EXPO, can step past them."
+    },
+    {
+      "id": "manipulation--robot-learning-roadmap--delta-frame",
+      "route": "/manipulation/robot-learning-roadmap/",
+      "mount": "mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1",
+      "figure": "delta-frame",
+      "audit": null,
+      "sources": [
+        "components/interactive/delta-frame.tsx",
+        "components/iso/figures/turret-plotter.ts",
+        "lib/delta-frame.ts"
+      ],
+      "takeaway": "An end-effector delta is only numbers until its frame is named: a move recorded in the tool's frame and replayed in the table's frame lands somewhere else once the tool is turned, and agrees only when the tool is square."
+    },
+    {
+      "id": "manipulation--cross-embodiment--hand-motion-share",
+      "route": "/manipulation/cross-embodiment/",
+      "mount": "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
+      "figure": "hand-motion-share",
+      "audit": null,
+      "sources": [
+        "components/interactive/hand-motion-share.tsx",
+        "components/iso/figures/two-easel-bench.ts",
+        "lib/hand-motion-share.ts"
+      ],
+      "takeaway": "A person's joint angles copied onto a robot of other proportions put its hand on a skewed path, while the hand's own motion, replayed from wherever the robot's hand is, draws the same stroke, which is why human and robot data can share relative end-effector actions."
     }
   ]
 }

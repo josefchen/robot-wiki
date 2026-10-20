@@ -1,8 +1,21 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
-import { ContactGeometry } from '@/components/interactive/contact-geometry';
+import { JSDOM } from 'jsdom';
+import { renderToStaticMarkup, renderToString } from 'react-dom/server';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { ContactGeometry, benchReadout } from '@/components/interactive/contact-geometry';
+import { BLOCK_TOP, CYCLE_SECONDS, dropAt, restPose, shiftAt } from '@/components/iso/figures/contact-error-bench';
+import { formatViolation, inspectFigureDocument } from '@/lib/figure-system-check';
+import { mainViewSymbolHits } from '@/lib/figure-main-view';
 import { SCENARIOS } from '@/lib/contact-geometry';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.useRealTimers();
+});
+
+/** Reduced motion: every test jumps to its result. */
+const still = () => vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} }));
 
 function preset(name: RegExp) {
   return screen.getByRole('button', { name });
@@ -11,6 +24,10 @@ function preset(name: RegExp) {
 function errorSlider() {
   return screen.getByRole('slider', { name: /contact-model error/i });
 }
+
+const bench = () => screen.getByTestId('cg-bench');
+const readout = () => screen.getByTestId('cg-stage').querySelector('[data-readout]');
+const tenth = (value: number) => String(Math.round(value * 10) / 10);
 
 describe('ContactGeometry', () => {
   it('renders the error presets, both scenes, the error slider, readouts, and reset', () => {
@@ -45,8 +62,12 @@ describe('ContactGeometry', () => {
     const note = container.querySelectorAll('[data-figure-annotation]');
     expect(note).toHaveLength(1);
     expect(note[0]).toHaveTextContent(/Same 2 mm error: the dog keeps walking,\s*the peg misses the hole/);
-    expect(screen.getByTestId('dog-scene')).toHaveTextContent('keeps walking');
-    expect(screen.getByTestId('peg-scene')).toHaveTextContent('jams on the edge');
+    // The bench shows it: the robot stands on both floors, the peg rests on the rim.
+    expect(screen.getByTestId('dog-scene')).toHaveAttribute('data-outcome', 'ok');
+    expect(screen.getByTestId('peg-scene')).toHaveAttribute('data-outcome', 'fail');
+    expect(bench()).toHaveAttribute('data-tip', tenth(BLOCK_TOP));
+    expect(bench()).toHaveAttribute('data-fall', '0');
+    expect(readout()).toHaveTextContent('One 2.0 mm error · legs reach · peg jams');
   });
 
   it('defaults to a survivable 2 mm error for locomotion', () => {
@@ -74,16 +95,22 @@ describe('ContactGeometry', () => {
   });
 
   it('the thumb preset makes even the dog lose its footing', async () => {
+    still();
     const user = userEvent.setup();
     const { container } = render(<ContactGeometry />);
     await user.click(preset(/thumb/i));
     expect(screen.getByTestId('error-readout')).toHaveTextContent('25.0 mm');
     expect(screen.getByTestId('outcome-readout-locomotion')).not.toHaveTextContent(/stable/i);
-    expect(screen.getByTestId('dog-scene')).toHaveTextContent('loses its footing');
+    expect(screen.getByTestId('dog-scene')).toHaveAttribute('data-outcome', 'fail');
+    // The plate has gone past the legs' reach and the robot is down on it.
+    expect(bench()).toHaveAttribute('data-drop', tenth(dropAt(25)));
+    expect(bench()).toHaveAttribute('data-fall', '1');
+    expect(readout()).toHaveTextContent('One 25.0 mm error · legs fall short · peg jams');
     expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/even the dog/);
   });
 
   it('manipulation seats the peg when the error is below clearance', async () => {
+    still();
     const user = userEvent.setup();
     render(<ContactGeometry />);
     fireEvent.change(errorSlider(), { target: { value: '0.2' } });
@@ -91,7 +118,11 @@ describe('ContactGeometry', () => {
     await user.click(preset(/card/i));
     expect(screen.getByTestId('error-readout')).toHaveTextContent('0.5 mm');
     expect(screen.getByTestId('outcome-readout-manipulation')).toHaveTextContent(/seats/i);
-    expect(screen.getByTestId('peg-scene')).toHaveTextContent('slides into the hole');
+    expect(screen.getByTestId('peg-scene')).toHaveAttribute('data-outcome', 'ok');
+    // The peg is down in the hole, the only place it may sink below the block's top.
+    expect(Number(bench().getAttribute('data-tip'))).toBeLessThan(BLOCK_TOP);
+    expect(screen.getByTestId('peg-scene')).toHaveAttribute('clip-path');
+    expect(readout()).toHaveTextContent('One 0.5 mm error · legs reach · peg goes in');
   });
 
   it('reset restores the default error', async () => {
@@ -105,16 +136,23 @@ describe('ContactGeometry', () => {
     expect(screen.getByTestId('contact-count-readout-locomotion')).toHaveTextContent('4');
   });
 
-  it('renders one contact marker per scenario contact, crossing only the ones that go wrong', async () => {
+  it('carries every scenario contact on the parts that make it, marking only the ones that go wrong', async () => {
+    still();
     const user = userEvent.setup();
     const { container } = render(<ContactGeometry />);
     const total = SCENARIOS.locomotion.contacts.length + SCENARIOS.manipulation.contacts.length;
-    expect(screen.getAllByTestId(/^contact-marker-/).length).toBe(total);
+    const peg = screen.getByTestId('peg-scene');
+    const pegIds = () => [
+      ...(peg.getAttribute('data-contacts-held') ?? '').split(' ').filter(Boolean),
+      ...(peg.getAttribute('data-contacts-lost') ?? '').split(' ').filter(Boolean),
+    ];
     expect(screen.getAllByTestId(/^contact-marker-foot-/).length).toBe(4);
+    expect(screen.getAllByTestId(/^contact-marker-foot-/).length + pegIds().length).toBe(total);
+    expect(pegIds().sort()).toEqual(SCENARIOS.manipulation.contacts.map((c) => c.id).sort());
     expect(total - 4).toBeGreaterThan(12);
     // At 2 mm the peg binds at the rim and its leading corner; the feet hold.
-    expect([...container.querySelectorAll('[data-contact="lost"]')].map((n) => n.getAttribute('data-testid')))
-      .toEqual(['contact-marker-rim-r', 'contact-marker-chamfer-r']);
+    expect([...container.querySelectorAll('[data-contact="lost"]')]).toHaveLength(0);
+    expect(peg).toHaveAttribute('data-contacts-lost', 'rim-r chamfer-r');
     await user.click(preset(/thumb/i));
     expect(container.querySelectorAll('[data-testid^="contact-marker-foot-"][data-contact="lost"]')).toHaveLength(4);
   });
@@ -126,7 +164,7 @@ describe('ContactGeometry', () => {
     expect(id).toBeTruthy();
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
     expect(desc?.textContent).toMatch(/Locomotion at 2\.0 mm/);
-    expect(desc?.textContent).toMatch(/dashed simulated floor/);
+    expect(desc?.textContent).toMatch(/front pair steps down to the real floor/);
     const details = container.querySelector(
       'details[data-chart-data][data-chart-form="state"]',
     );
@@ -157,5 +195,55 @@ describe('ContactGeometry', () => {
     // State 2: past the band the ok branch, margin clause and all, is gone.
     fireEvent.change(errorSlider(), { target: { value: '25' } });
     expect(read()).not.toMatch(/of margin/);
+  });
+
+  it('draws a bench with no words and one lit part, the peg', () => {
+    render(<ContactGeometry />);
+    const svg = bench();
+    expect(svg.querySelectorAll('text, title, desc, foreignObject, tspan')).toHaveLength(0);
+    expect(svg.textContent).toBe('');
+    const lit = [...svg.querySelectorAll('[data-lit], [data-tone="lit"]')];
+    expect(lit.length).toBeGreaterThan(0);
+    for (const part of lit) expect(part.closest('[data-testid]')).toHaveAttribute('data-testid', 'peg-scene');
+    expect(svg.getAttribute('aria-label')).toMatch(/Left, a four-legged robot stands on the simulated floor: stable: all 4 feet loaded\. Right, a gripper lowers a peg toward the real hole: jammed/);
+  });
+
+  it('runs one test per change: the peg lifts clear, the bench moves, then settles on the new error', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    render(<ContactGeometry />);
+    fireEvent.click(preset(/card/i));
+    expect(readout()).toHaveTextContent(/mm error · testing/);
+    await act(async () => {
+      vi.advanceTimersByTime(500);
+    });
+    // Mid-test the peg is up out of the way and the hole is on its way back.
+    expect(Number(bench().getAttribute('data-tip'))).toBeGreaterThanOrEqual(BLOCK_TOP);
+    const shift = Number(bench().getAttribute('data-shift'));
+    expect(shift).toBeLessThan(shiftAt(2));
+    await act(async () => {
+      vi.advanceTimersByTime(CYCLE_SECONDS * 1000 + 200);
+    });
+    const rest = restPose(0.5);
+    expect(bench()).toHaveAttribute('data-tip', tenth(rest.tip));
+    expect(bench()).toHaveAttribute('data-shift', tenth(rest.shift));
+    expect(readout()).toHaveTextContent(benchReadout(0.5, true));
+  });
+
+  it('server-renders the opening bench it hydrates', () => {
+    const html = renderToString(<ContactGeometry />);
+    expect(html).toContain('data-figure-frame="contact-geometry"');
+    expect(html).toContain('One 2.0 mm error · legs reach · peg jams');
+  });
+});
+
+describe('ContactGeometry served HTML', () => {
+  const html = `<!doctype html><html><body><main>${renderToStaticMarkup(<ContactGeometry />)}</main></body></html>`;
+
+  it('passes the figure-system check and shows no symbol or bare unit in the main view', () => {
+    const { figures, violations } = inspectFigureDocument(html, '/rl-sim2real/why-rl-locomotion/');
+    expect(figures).toEqual(['contact-geometry']);
+    expect(violations.map(formatViolation)).toEqual([]);
+    const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
+    expect(mainViewSymbolHits(frame)).toEqual([]);
   });
 });

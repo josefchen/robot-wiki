@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6e69d421b4277a767a6fd5aa1ba690420b7947a7cffd9735b484a4c3e8bae006",
+  "fingerprint": "62645cc2ffc7c46042e983b7356b1ee7d5be8112fcd1b67036c97fc09d98cb31",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1395,7 +1395,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22510,
+      "visibleTextLength": 23073,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -13436,7 +13436,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18254,
+      "visibleTextLength": 18835,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -14348,7 +14348,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 31556,
+      "visibleTextLength": 32134,
       "figures": [
         {
           "imageId": "hil-serl-tasks-2024",
@@ -14483,7 +14483,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14673,
+      "visibleTextLength": 15209,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -15344,7 +15344,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22204,
+      "visibleTextLength": 22187,
       "figures": [
         {
           "imageId": "daydreamer-a1-push-recovery-2022",
@@ -15530,7 +15530,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17142,
+      "visibleTextLength": 17087,
       "figures": [
         {
           "imageId": "anymal-x-offshore-stairs-2022",
@@ -17861,7 +17861,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30375,
+      "visibleTextLength": 30938,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -29902,7 +29902,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23861,
+      "visibleTextLength": 24442,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -30814,7 +30814,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 41342,
+      "visibleTextLength": 41920,
       "figures": [
         {
           "imageId": "hil-serl-tasks-2024",
@@ -30949,7 +30949,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 19693,
+      "visibleTextLength": 20229,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -31810,7 +31810,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28334,
+      "visibleTextLength": 28317,
       "figures": [
         {
           "imageId": "daydreamer-a1-push-recovery-2022",
@@ -31996,7 +31996,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22461,
+      "visibleTextLength": 22406,
       "figures": [
         {
           "imageId": "anymal-x-offshore-stairs-2022",

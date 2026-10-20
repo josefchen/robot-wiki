@@ -103,21 +103,24 @@ test.describe('market map visualization', () => {
     await expect(page.getByText('7 of 111 companies')).toBeVisible();
 
     await page.getByLabel('Confidence', { exact: true }).selectOption('high');
-    await expect(page.getByText('4 of 111 companies')).toBeVisible();
+    // 4 -> 5 on 2026-10-20 (market-map field audit): Persona AI's confidence
+    // rose to high (its own site, its October 2026 PR Times release and The
+    // AI Insider's POSCO report agree).
+    await expect(page.getByText('5 of 111 companies')).toBeVisible();
 
     const filteredUrl = page.url();
     await page.goto(filteredUrl);
-    await expect(page.getByText('4 of 111 companies')).toBeVisible();
-    await expect(tiles(page)).toHaveCount(4);
+    await expect(page.getByText('5 of 111 companies')).toBeVisible();
+    await expect(tiles(page)).toHaveCount(5);
     // Filters arriving with the URL open the fold that holds them.
     await expect(page.locator('#filter-country')).toHaveValue('US');
 
     await page.getByRole('button', { name: 'Bubble' }).click();
     await expect(page.getByRole('group', { name: /bubble chart/i })).toBeVisible();
-    await expect(page.getByText('4 of 111 companies')).toBeVisible();
+    await expect(page.getByText('5 of 111 companies')).toBeVisible();
 
     await page.getByRole('button', { name: 'Timeline' }).click();
-    await expect(page.getByText('4 of 111 companies')).toBeVisible();
+    await expect(page.getByText('5 of 111 companies')).toBeVisible();
 
     await page.getByRole('button', { name: 'Grid' }).click();
     await page.getByRole('button', { name: 'Clear filters' }).click();

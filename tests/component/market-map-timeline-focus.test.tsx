@@ -76,11 +76,19 @@ describe('FundingTimeline roving keyboard access', () => {
     // release), which is a dated 2023-2026 event.
     // 72 -> 71 when the 2026-10-19 field audit cut Physical Intelligence's
     // round date: The Robot Report says only that it raised "last week".
-    expect(all.length).toBe(71); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
+    // 71 -> 72 when the 2026-10-20 field audit gave Symbotic its latest
+    // raise, the public offering it priced on 4 December 2025.
+    // 72 -> 73 when the same audit gave Locus Robotics its latest raise, the
+    // still-open Series G reported on 1 September 2026.
+    // 73 -> 75 when the same audit gave CMR Surgical Stryker's investment
+    // of 12 October 2026 and Moon Surgical its Series B of 17 May 2023.
+    // 75 -> 76 when the same audit gave XELA Robotics Plug and Play's
+    // strategic investment of 29 April 2026.
+    expect(all.length).toBe(76); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);
     expect(tabbable).toHaveLength(1);
-    expect(roving).toHaveLength(70); // 71 dated rows minus the one tabbable
+    expect(roving).toHaveLength(75); // 76 dated rows minus the one tabbable
   }, TIMEOUT);
 
   it('moves down to the next event chronologically with ArrowDown', () => {
