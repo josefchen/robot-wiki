@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-20T05:01:28Z",
+  "observedAt": "2026-10-20T11:39:00Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -11594,8 +11594,8 @@
       },
       "after": {
         "path": "tests/e2e/market-map.spec.ts",
-        "bytes": 24351,
-        "sha256": "85ec65524c610efd2fe259f4636f9d23a2c8043dd22f18bdbffe5e45dd8d6699"
+        "bytes": 24877,
+        "sha256": "a0001010db4029974ead938cbbdf7d544b407b756713778ae2707be97177832d"
       },
       "edits": [
         {
@@ -11724,7 +11724,7 @@
         },
         {
           "before": "    await expect(\n      page.locator('article[data-company-id=\"covariant\"]'),\n    ).toBeVisible();\n    await expect(page.locator('article[data-company-id=\"irobot\"]')).toBeVisible();\n    await expect(\n      page.locator('article[data-company-id=\"berkshire-grey\"]'),\n    ).toBeVisible();\n    await expect(\n      page.locator('article[data-company-id=\"abb-robotics\"]'),\n    ).toBeVisible();\n",
-          "after": "    await expect(tile(page, 'boston-dynamics')).toBeVisible();\n    await expect(tile(page, 'irobot')).toBeVisible();\n    await expect(tile(page, 'berkshire-grey')).toBeVisible();\n    await expect(tile(page, 'abb-robotics')).toBeVisible();\n"
+          "after": "    await expect(tile(page, 'boston-dynamics')).toBeVisible();\n    await expect(tile(page, 'irobot')).toBeVisible();\n    await expect(tile(page, 'berkshire-grey')).toBeVisible();\n    // pollen-robotics moved private -> acquired on 2026-10-20 (market-map\n    // field audit): Hugging Face announced that it had bought the company on\n    // 14 April 2025 (its blog).\n    await expect(tile(page, 'pollen-robotics')).toBeVisible();\n    // abb-robotics moved acquired -> public the same day: ABB and SoftBank\n    // signed the sale on 8 October 2025 and expected it to close in\n    // mid-to-late 2026, and no fetched source reports that it has closed,\n    // so it is still a division of the listed ABB Ltd.\n    await expect(tile(page, 'abb-robotics')).toHaveCount(0);\n"
         },
         {
           "before": "    await expect(\n      page.locator('article[data-company-id=\"mentee-robotics\"]'),\n    ).toBeVisible();\n",

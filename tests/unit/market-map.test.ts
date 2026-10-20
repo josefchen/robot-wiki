@@ -101,12 +101,17 @@ describe('filterCompanies', () => {
         'boston-dynamics',
         'irobot',
         'berkshire-grey',
-        'abb-robotics',
         'mentee-robotics', // 2026-08-18: Mobileye completed the acquisition on 2026-02-03 (Form 8-K)
+        'pollen-robotics', // 2026-10-20: Hugging Face bought it on 2025-04-14 (its blog)
       ]),
     );
     expect(acquired.every((row) => row.status === 'acquired')).toBe(true);
     expect(acquired.map((row) => row.id)).not.toContain('covariant');
+    // ABB Robotics left on 2026-10-20: ABB and SoftBank signed the sale on
+    // 8 October 2025 and expected it to close in mid-to-late 2026; no fetched
+    // source reports that it has closed, so it is still a division of the
+    // listed ABB Ltd (status public, with a caveat on its card).
+    expect(acquired.map((row) => row.id)).not.toContain('abb-robotics');
 
     const shutDown = filterCompanies(
       COMPANIES,
@@ -394,7 +399,15 @@ describe('timelineEvents', () => {
     // Robotics and Coco Robotics (The Robot Report says only that each raised
     // "this week") and gave Starship Technologies its $50 million Series C of
     // 15 October 2025 (its Business Wire release).
-    expect(events).toHaveLength(76);
+    // 76 -> 77 the same day: the field audit gave Pollen Robotics its
+    // acquisition by Hugging Face (14 April 2025, Hugging Face's blog) and
+    // dated Anduril's $5 billion Series H (13 May 2026, TechCrunch), and cut
+    // the date of Symbotic's purchase of Fox Robotics, which The Robot Report
+    // says was announced on an earnings call without giving a day.
+    expect(events).toHaveLength(77);
+    expect(events.find((event) => event.companyId === 'pollen-robotics')?.date).toBe('2025-04-14');
+    expect(events.find((event) => event.companyId === 'anduril')?.date).toBe('2026-05-13');
+    expect(events.some((event) => event.companyId === 'fox-robotics')).toBe(false);
     expect(events.some((event) => event.companyId === 'leju-robotics')).toBe(false);
     expect(events.some((event) => event.companyId === 'coco-robotics')).toBe(false);
     expect(events.find((event) => event.companyId === 'starship-technologies')?.date).toBe('2025-10-15');

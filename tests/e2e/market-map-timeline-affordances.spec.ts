@@ -81,7 +81,11 @@ test.describe('timeline view roving keyboard affordances', () => {
     // Robotics' round dates were cut (The Robot Report says only that each
     // raised "this week"), and Starship Technologies' Series C of 15 October
     // 2025 (its Business Wire release) is a dated event in the window.
-    await expect(rowButtons(page)).toHaveCount(76);
+    // 76 -> 77 the same day (market-map field audit): Hugging Face's purchase
+    // of Pollen Robotics (14 April 2025, its blog) and Anduril's Series H
+    // (13 May 2026, TechCrunch) are dated events in the window; Symbotic's
+    // purchase of Fox Robotics lost its date, which no source gives.
+    await expect(rowButtons(page)).toHaveCount(77);
     await expect(page.locator('[data-timeline-id][data-company-id="symbotic"]')).toHaveCount(1);
     await expect(page.locator('[data-timeline-id][data-company-id="locus-robotics"]')).toHaveCount(1);
     await expect(page.locator('[data-timeline-id][data-company-id="cmr-surgical"]')).toHaveCount(1);

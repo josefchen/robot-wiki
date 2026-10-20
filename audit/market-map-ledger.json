@@ -18508,6 +18508,1541 @@
           "passage": "Across retail lots, hospital campuses, residential communities, casinos, and utility sites, Knightscope deployments have cut crime and nuisance activity — sometimes to zero — and delivered the eye-level, time-stamped evidence that lets police identify suspects, secure confessions, and make arrests."
         }
       ]
+    },
+    {
+      "id": "brain-corp",
+      "name": "Brain Corp",
+      "confidence": "medium",
+      "confidenceBasis": "Its own site on its founding, platform and fleet, with its 2020 funding release on its base, partners and customers.",
+      "confidenceWas": "low",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "San Diego",
+          "verdict": "verified",
+          "source": {
+            "url": "https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.301Z"
+          },
+          "passage": "Brain Corp is a San Diego-based AI company creating transformative core technology for the robotics industry.…"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.301Z"
+          },
+          "passage": "[meta:description] SAN DIEGO, CA, Brain Corp announced it has raised $36 million in Series D funding led by SoftBank Vision Fund 1."
+        },
+        {
+          "field": "founded",
+          "value": 2009,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.braincorp.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.177Z"
+          },
+          "passage": "Brain Corp has been leading the way in AI robotics since 2009, with the goal of creating a safer and more efficient future through the use of the world's largest fleet of autonomous mobile robots."
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.301Z"
+          },
+          "passage": "…Named the world's top autonomy solution provider by ABI Research, Brain Corp is funded by the SoftBank Vision Fund and Qualcomm Ventures. For more information, please visit www.braincorp.com."
+        },
+        {
+          "field": "website",
+          "value": "https://www.braincorp.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.braincorp.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.652Z"
+          },
+          "passage": "[title] Brain Corp: Robots, AI, and autonomous technology for smarter operations"
+        },
+        {
+          "field": "deployments",
+          "value": "More than 50,000 BrainOS-powered robots worldwide (2026)",
+          "verdict": "corrected",
+          "was": "Commercial floor cleaning robots in retail and warehouse",
+          "source": {
+            "url": "https://www.braincorp.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.177Z"
+          },
+          "passage": "Company surpasses 50,000 BrainOS®-powered robots worldwide as H1 data shows real-world AI scaling across enterprise environments",
+          "note": "\"retail and warehouse\" floor cleaning named no deployment"
+        },
+        {
+          "field": "deployments",
+          "value": "Customers include Walmart and Kroger (2020)",
+          "verdict": "added",
+          "source": {
+            "url": "https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.301Z"
+          },
+          "passage": "Working with OEM partners, Brain Corp has deployed or enabled more than 10,000 robots, one of the largest indoor fleets of its kind operating in public spaces. Customers include several Fortune 500 brands, including Walmart and Kroger, as well as Giant Eagle, C&W Services, Simon Property Group, and dozens of other grocers, retailers, airports, educational institutions, and others."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": null,
+          "verdict": "cut",
+          "was": "Qualcomm Ventures",
+          "note": "SoftBank Vision Fund 1 led its April 2020 Series D, but an aggregator lists a later round (February 2024) that no fetched source states, so no lead of its latest round is known"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": null,
+          "verdict": "cut",
+          "was": "SoftBank",
+          "note": "Qualcomm Ventures made \"an additional investment\" in the 2020 Series D; it led no round a fetched source names"
+        },
+        {
+          "field": "description",
+          "value": "Makes BrainOS, autonomy software that robot makers such as Tennant and Nilfisk license to build floor-cleaning, inventory-scanning and other autonomous robots.",
+          "verdict": "corrected",
+          "was": "Builds AI software platform powering autonomous commercial floor cleaning robots.",
+          "source": {
+            "url": "https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.301Z"
+          },
+          "passage": "Original equipment manufacturing (OEM) partners, such as Tennant Company, Nilfisk, Alfred Kärcher SE & Co.…"
+        },
+        {
+          "field": "description",
+          "value": "Makes BrainOS, autonomy software that robot makers such as Tennant and Nilfisk license to build floor-cleaning, inventory-scanning and other autonomous robots.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.braincorp.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.177Z"
+          },
+          "passage": "Elevate environmental hygiene with intelligent floor cleaning robots for optimized operations and deep insights."
+        },
+        {
+          "field": "description",
+          "value": "Makes BrainOS, autonomy software that robot makers such as Tennant and Nilfisk license to build floor-cleaning, inventory-scanning and other autonomous robots.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.braincorp.com/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.177Z"
+          },
+          "passage": "Collect inventory insights with fully autonomous robots to ensure the right product is on the right shelf at the right price."
+        }
+      ]
+    },
+    {
+      "id": "pollen-robotics",
+      "name": "Pollen Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "Its own site and Hugging Face's announcement that it bought the company.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Bordeaux",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.pollen-robotics.com/about-us/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.063Z"
+          },
+          "passage": "Pollen Robotics is based in the beautiful city of Bordeaux, South-West of France. We are a diverse group of people interested in computing, design, literature, dogs, music, mechatronics, video games and surfing."
+        },
+        {
+          "field": "hq.country",
+          "value": "FR",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.pollen-robotics.com/about-us/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.063Z"
+          },
+          "passage": "Pollen Robotics is based in the beautiful city of Bordeaux, South-West of France. We are a diverse group of people interested in computing, design, literature, dogs, music, mechatronics, video games and surfing."
+        },
+        {
+          "field": "founded",
+          "value": 2016,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.pollen-robotics.com/about-us/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.063Z"
+          },
+          "passage": "Pollen Robotics was founded in 2016 by Matthieu and Pierre, former developmental robotics researchers at Inria’s Flowers team. With over a decade of collaboration, their focus has consistently been on making robots practical and accessible. Notable successes include Poppy, the pioneering 3D printed open-source humanoid robot."
+        },
+        {
+          "field": "status",
+          "value": "acquired",
+          "verdict": "corrected",
+          "was": "private",
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "Today, we’re excited to take it a step further by welcoming Pollen Robotics to Hugging Face, a team that's spent the last 9 years building open-source robots and hardware.",
+          "note": "its own site: \"now part of Hugging Face\""
+        },
+        {
+          "field": "website",
+          "value": "https://www.pollen-robotics.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.pollen-robotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.957Z"
+          },
+          "passage": "[title] Pollen Robotics - Robots for AI builders"
+        },
+        {
+          "field": "round.type",
+          "value": "Acquisition",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "Hugging Face to sell open-source robots thanks to Pollen Robotics acquisition 🤖"
+        },
+        {
+          "field": "round.date",
+          "value": "2025-04-14",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "April 14, 2025"
+        },
+        {
+          "field": "deployments",
+          "value": "More than 10,000 robots shipped worldwide, by its own count (2026)",
+          "verdict": "corrected",
+          "was": "Reachy Mini powered by Hugging Face",
+          "source": {
+            "url": "https://www.pollen-robotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.957Z"
+          },
+          "passage": "10,000+ shipped worldwide",
+          "note": "\"Reachy Mini powered by Hugging Face\" was a product, not a deployment"
+        },
+        {
+          "field": "deployments",
+          "value": "Reachy 2 in use in labs such as Cornell and Carnegie Mellon (2025)",
+          "verdict": "added",
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "The first robot we’re offering is Reachy 2 — your friendly little lab partner for the AI era that is already in use in labs like Cornell or Carnegie Mellon. It’s a state-of-the-art humanoid robot that is open-source & VR-compatible, built for research, education, and embodied AI experiments. You can already order one for $70,000 by emailing sales@pollen-robotics.com ."
+        },
+        {
+          "field": "openSource",
+          "value": "Reachy 2",
+          "verdict": "corrected",
+          "was": "Reachy",
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "The first robot we’re offering is Reachy 2 — your friendly little lab partner for the AI era that is already in use in labs like Cornell or Carnegie Mellon. It’s a state-of-the-art humanoid robot that is open-source & VR-compatible, built for research, education, and embodied AI experiments. You can already order one for $70,000 by emailing sales@pollen-robotics.com .",
+          "note": "the Reachy robot the source names as open source"
+        },
+        {
+          "field": "openSource",
+          "value": "Reachy Mini",
+          "verdict": "verified",
+          "source": {
+            "url": "https://pollen-robotics.com/reachy-mini/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.897Z"
+          },
+          "passage": "[meta:og:description] Reachy Mini is an expressive, open-source companion robot for human interaction, creative coding, and AI experimentation. Built by Pollen Robotics, powered by Hugging Face."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Hugging Face",
+          "verdict": "added",
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "Today, we’re excited to take it a step further by welcoming Pollen Robotics to Hugging Face, a team that's spent the last 9 years building open-source robots and hardware."
+        },
+        {
+          "field": "description",
+          "value": "Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025.",
+          "verdict": "corrected",
+          "was": "Builds Reachy and Reachy Mini open-source humanoid robots for research and education, partnered with Hugging Face.",
+          "source": {
+            "url": "https://www.pollen-robotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.957Z"
+          },
+          "passage": "Expressive, open-source robots for AI builders and makers."
+        },
+        {
+          "field": "description",
+          "value": "Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "The first robot we’re offering is Reachy 2 — your friendly little lab partner for the AI era that is already in use in labs like Cornell or Carnegie Mellon. It’s a state-of-the-art humanoid robot that is open-source & VR-compatible, built for research, education, and embodied AI experiments. You can already order one for $70,000 by emailing sales@pollen-robotics.com ."
+        },
+        {
+          "field": "description",
+          "value": "Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://pollen-robotics.com/reachy-mini/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.897Z"
+          },
+          "passage": "[meta:og:description] Reachy Mini is an expressive, open-source companion robot for human interaction, creative coding, and AI experimentation. Built by Pollen Robotics, powered by Hugging Face."
+        },
+        {
+          "field": "description",
+          "value": "Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.pollen-robotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:26.957Z"
+          },
+          "passage": "Tiny biped for reinforcement learning"
+        },
+        {
+          "field": "description",
+          "value": "Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.499Z"
+          },
+          "passage": "Today, we’re excited to take it a step further by welcoming Pollen Robotics to Hugging Face, a team that's spent the last 9 years building open-source robots and hardware."
+        }
+      ]
+    },
+    {
+      "id": "diligent-robotics",
+      "name": "Diligent Robotics",
+      "confidence": "high",
+      "confidenceBasis": "Serve's release and SEC filing on the deal, with The Robot Report and Diligent's own site.",
+      "confidenceWas": "medium",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Austin",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:07.046Z"
+          },
+          "passage": "With the Diligent acquisition, Serve Robotics is making its first foray into indoor environments, mobile manipulation, and the healthcare industry. Austin, Texas-based Diligent currently currently operates its Moxi robots in more than 25 hospitals, where robots have completed over 1.25 million tasks."
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:07.046Z"
+          },
+          "passage": "With the Diligent acquisition, Serve Robotics is making its first foray into indoor environments, mobile manipulation, and the healthcare industry. Austin, Texas-based Diligent currently currently operates its Moxi robots in more than 25 hospitals, where robots have completed over 1.25 million tasks."
+        },
+        {
+          "field": "founded",
+          "value": 2017,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.sec.gov/Archives/edgar/data/1832483/000121390026005920/ea027345401ex99-1_serve.htm",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:23:45.714Z"
+          },
+          "passage": "Diligent was founded in 2017 by Andrea Thomaz and Vivian Chu, world-renowned"
+        },
+        {
+          "field": "status",
+          "value": "acquired",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:23:47.138Z"
+          },
+          "passage": "On January 27, 2026, Serve Robotics Inc. (the &#8220;Company&#8221;) completed"
+        },
+        {
+          "field": "website",
+          "value": "https://www.diligentrobots.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.diligentrobots.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.384Z"
+          },
+          "passage": "[title] Diligent Robotics | Moxi for Hospital Logistics"
+        },
+        {
+          "field": "round.type",
+          "value": "Acquisition",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:07.046Z"
+          },
+          "passage": "Serve Robotics Inc., a developer of sidewalk delivery robots, today said it is acquiring Diligent Robotics Inc. for $29 million. Diligent is the company behind Moxi, a mobile robot that navigates hospitals to deliver medical supplies."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 29000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:23:47.138Z"
+          },
+          "passage": "with an aggregate value of $29.0 million, subject to a net debt adjustment, networking capital adjustment and such other adjustments as",
+          "note": "paid in Serve stock; the figure includes a potential $5.3 million earnout"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-01-20",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:07.046Z"
+          },
+          "passage": "[meta:article:published_time] 2026-01-20T21:44:36+00:00",
+          "note": "the day Serve announced the deal; it closed on 27 January 2026"
+        },
+        {
+          "field": "deployments",
+          "value": "Nearly 100 Moxi robots in more than 25 hospitals, with over 1.25 million deliveries (January 2026)",
+          "verdict": "corrected",
+          "was": "Moxi robots in 30+ hospitals",
+          "source": {
+            "url": "https://www.sec.gov/Archives/edgar/data/1832483/000121390026005920/ea027345401ex99-1_serve.htm",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:23:45.714Z"
+          },
+          "passage": "completed by nearly 100 robots in over 25 hospital facilities, with annual sales at each hospital expected to range between $200k to $400k",
+          "note": "\"30+ hospitals\" appears in no fetched source"
+        },
+        {
+          "field": "deployments",
+          "value": "Customers include Northwestern Medicine, ChristianaCare and Rochester General Hospital",
+          "verdict": "corrected",
+          "was": "22 health system clients",
+          "source": {
+            "url": "https://www.sec.gov/Archives/edgar/data/1832483/000121390026005920/ea027345401ex99-1_serve.htm",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:23:45.714Z"
+          },
+          "passage": "systems such as Northwestern Medicine, ChristianaCare, and Rochester General Hospital.",
+          "note": "\"22 health system clients\" appears in no fetched source"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Serve Robotics",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:07.046Z"
+          },
+          "passage": "Serve Robotics Inc., a developer of sidewalk delivery robots, today said it is acquiring Diligent Robotics Inc. for $29 million. Diligent is the company behind Moxi, a mobile robot that navigates hospitals to deliver medical supplies."
+        },
+        {
+          "field": "description",
+          "value": "Builds Moxi, a hospital service robot for non-patient-facing tasks like delivering supplies and lab samples; acquired by Serve Robotics.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.diligentrobots.com/moxi",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.096Z"
+          },
+          "passage": "Moxi helps hospitals run 24/7 by assisting clinical staff with non-patient-facing tasks like:"
+        },
+        {
+          "field": "description",
+          "value": "Builds Moxi, a hospital service robot for non-patient-facing tasks like delivering supplies and lab samples; acquired by Serve Robotics.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.diligentrobots.com/moxi",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.096Z"
+          },
+          "passage": "Delivering lab samples"
+        },
+        {
+          "field": "description",
+          "value": "Builds Moxi, a hospital service robot for non-patient-facing tasks like delivering supplies and lab samples; acquired by Serve Robotics.",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:23:47.138Z"
+          },
+          "passage": "On January 27, 2026, Serve Robotics Inc. (the &#8220;Company&#8221;) completed"
+        }
+      ]
+    },
+    {
+      "id": "fox-robotics",
+      "name": "Fox Robotics",
+      "confidence": "medium",
+      "confidenceBasis": "The Robot Report on the acquisition, its founding and its customers, with its own site.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Austin",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "Fox Robotics was founded in 2017 in Austin, Texas. The number of customers it has is unclear. On its own website, Fox Robotics says it “currently has 100+ FoxBot autonomous forklifts installed at 54 customer sites across the U.S. and Canada.” During the Symbotic earnings call, however, Cohen said Fox Robotics has 25 customers and “mostly what they’re doing is pilots.”"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "Fox Robotics was founded in 2017 in Austin, Texas. The number of customers it has is unclear. On its own website, Fox Robotics says it “currently has 100+ FoxBot autonomous forklifts installed at 54 customer sites across the U.S. and Canada.” During the Symbotic earnings call, however, Cohen said Fox Robotics has 25 customers and “mostly what they’re doing is pilots.”"
+        },
+        {
+          "field": "founded",
+          "value": 2017,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "Fox Robotics was founded in 2017 in Austin, Texas. The number of customers it has is unclear. On its own website, Fox Robotics says it “currently has 100+ FoxBot autonomous forklifts installed at 54 customer sites across the U.S. and Canada.” During the Symbotic earnings call, however, Cohen said Fox Robotics has 25 customers and “mostly what they’re doing is pilots.”"
+        },
+        {
+          "field": "status",
+          "value": "acquired",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "[meta:og:description] Symbotic has acquired autonomous forklift developer Fox Robotics in a move that broadens its logistics robotics offerings."
+        },
+        {
+          "field": "website",
+          "value": "https://www.foxrobotics.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.foxrobotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.405Z"
+          },
+          "passage": "[title] Autonomous Forklift Solutions | Increase Efficiency & Safety | Fox Robotics"
+        },
+        {
+          "field": "round.type",
+          "value": "Acquisition",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "[meta:og:description] Symbotic has acquired autonomous forklift developer Fox Robotics in a move that broadens its logistics robotics offerings."
+        },
+        {
+          "field": "round.date",
+          "value": null,
+          "verdict": "cut",
+          "was": "2026-02-10",
+          "note": "The Robot Report of 10 February 2026 says Symbotic announced the deal on its first-quarter earnings call and gives no day; no fetched source dates the deal"
+        },
+        {
+          "field": "deployments",
+          "value": "More than 100 FoxBot forklifts at 54 customer sites in the US and Canada, by its own count; Symbotic's CEO put it at 25 customers, mostly pilots (February 2026)",
+          "verdict": "corrected",
+          "was": "Warehouse dock operations",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "Fox Robotics was founded in 2017 in Austin, Texas. The number of customers it has is unclear. On its own website, Fox Robotics says it “currently has 100+ FoxBot autonomous forklifts installed at 54 customer sites across the U.S. and Canada.” During the Symbotic earnings call, however, Cohen said Fox Robotics has 25 customers and “mostly what they’re doing is pilots.”",
+          "note": "the two counts disagree, and both are given"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Symbotic",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "[meta:og:description] Symbotic has acquired autonomous forklift developer Fox Robotics in a move that broadens its logistics robotics offerings."
+        },
+        {
+          "field": "description",
+          "value": "Builds the FoxBot, an autonomous forklift that loads and unloads trailers at warehouse docks; Symbotic bought it in 2026.",
+          "verdict": "corrected",
+          "was": "Builds autonomous forklifts and lift trucks for warehouse dock operations; acquired by Symbotic.",
+          "source": {
+            "url": "https://www.foxrobotics.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.405Z"
+          },
+          "passage": "Turn labor shortages into a competitive advantage with the FoxBot Autonomous Trailer Loading/Unloading (ATL) Forklift. Run your operation 24 hours a day, 7 days a week, 365 days a year."
+        },
+        {
+          "field": "description",
+          "value": "Builds the FoxBot, an autonomous forklift that loads and unloads trailers at warehouse docks; Symbotic bought it in 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "[meta:og:description] Symbotic has acquired autonomous forklift developer Fox Robotics in a move that broadens its logistics robotics offerings."
+        },
+        {
+          "field": "description",
+          "value": "Builds the FoxBot, an autonomous forklift that loads and unloads trailers at warehouse docks; Symbotic bought it in 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:46:58.199Z"
+          },
+          "passage": "[ld:datePublished] 2026-02-10T21:17:21+00:00"
+        }
+      ]
+    },
+    {
+      "id": "zebra-robotics-automation",
+      "name": "Zebra Technologies (Robotics Automation)",
+      "confidence": "high",
+      "confidenceBasis": "Zebra's own release on the sale, with its own site.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Lincolnshire",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "PITTSBURGH and LINCOLNSHIRE, Ill. – April 15, 2026 – Skild AI, a pioneer in building generalized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and autom…",
+          "note": "the dateline of the joint release; Zebra is its Lincolnshire party"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "PITTSBURGH and LINCOLNSHIRE, Ill. – April 15, 2026 – Skild AI, a pioneer in building generalized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and autom…"
+        },
+        {
+          "field": "founded",
+          "value": 1969,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "[ld:foundingDate] 1969",
+          "note": "Zebra Technologies' founding year"
+        },
+        {
+          "field": "status",
+          "value": "acquired",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "…lized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and automating workflows to deliver intelligent operations, today announced that Skild AI has acquired Zebra’s Robotics Automation business. In addition to receiving cash consideration, Zebra has also received an equity stake in Skild AI."
+        },
+        {
+          "field": "website",
+          "value": "https://www.zebra.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.527Z"
+          },
+          "passage": "[title] Zebra: The World’s Foundation for Intelligent Operations | Zebra"
+        },
+        {
+          "field": "round.type",
+          "value": "Divestiture",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "…lized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and automating workflows to deliver intelligent operations, today announced that Skild AI has acquired Zebra’s Robotics Automation business. In addition to receiving cash consideration, Zebra has also received an equity stake in Skild AI.",
+          "note": "Zebra sold the business: a divestiture on its side"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-04-15",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "PITTSBURGH and LINCOLNSHIRE, Ill. – April 15, 2026 – Skild AI, a pioneer in building generalized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and automating workflows to deliver…"
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "Symmetry Fulfillment platform sold to Skild AI",
+          "note": "selling its Symmetry Fulfillment platform to Skild AI is the deal itself, not a deployment"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Skild AI",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "…lized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and automating workflows to deliver intelligent operations, today announced that Skild AI has acquired Zebra’s Robotics Automation business. In addition to receiving cash consideration, Zebra has also received an equity stake in Skild AI."
+        },
+        {
+          "field": "description",
+          "value": "Zebra's robotics automation business, whose Symmetry Fulfillment platform coordinates tasks between robots and frontline workers using Zebra wearable devices; Skild AI bought it in April 2026.",
+          "verdict": "corrected",
+          "was": "Built robotics automation business including Symmetry Fulfillment orchestration platform; sold to Skild AI in April 2026.",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "With this acquisition, Skild AI aims to accelerate the deployment of robotics automation solutions alongside its general-purpose Skild Brain. A key component of this strategy is to build upon the proven ability of Zebra’s Symmetry Fulfillment orchestration platform to coordinate tasks between robots and frontline workers using Zebra wearable devices."
+        },
+        {
+          "field": "description",
+          "value": "Zebra's robotics automation business, whose Symmetry Fulfillment platform coordinates tasks between robots and frontline workers using Zebra wearable devices; Skild AI bought it in April 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "…lized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and automating workflows to deliver intelligent operations, today announced that Skild AI has acquired Zebra’s Robotics Automation business. In addition to receiving cash consideration, Zebra has also received an equity stake in Skild AI."
+        },
+        {
+          "field": "description",
+          "value": "Zebra's robotics automation business, whose Symmetry Fulfillment platform coordinates tasks between robots and frontline workers using Zebra wearable devices; Skild AI bought it in April 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.zebra.com/us/en/about-zebra/newsroom/press-releases/2026/skild-ai-acquires-zebra-technologies--robotics-automation-busine.html",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.453Z"
+          },
+          "passage": "PITTSBURGH and LINCOLNSHIRE, Ill. – April 15, 2026 – Skild AI, a pioneer in building generalized robot intelligence for any embodiment, and Zebra Technologies Corporation (NASDAQ: ZBRA), a global leader in digitizing and automating workflows to deliver…"
+        }
+      ]
+    },
+    {
+      "id": "anduril",
+      "name": "Anduril",
+      "confidence": "high",
+      "confidenceBasis": "TechCrunch on its Series H, with Wikipedia and its own site on its founding, base and products.",
+      "confidenceWas": "medium",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Costa Mesa",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Anduril_Industries",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:12.197Z"
+          },
+          "passage": "Anduril is headquartered in Costa Mesa, California , with satellite offices in Boston , Atlanta , Seattle , Washington, D.C.…"
+        },
+        {
+          "field": "hq.country",
+          "value": "US",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Anduril_Industries",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:12.197Z"
+          },
+          "passage": "An Anduril Standard Range Sentry Tower in California Anduril Industries, Inc. is an American military technology company specializing in the development of advanced autonomous systems.…"
+        },
+        {
+          "field": "founded",
+          "value": 2017,
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.anduril.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.702Z"
+          },
+          "passage": "[ld:foundingDate] 2017-06-21"
+        },
+        {
+          "field": "status",
+          "value": "private",
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday."
+        },
+        {
+          "field": "website",
+          "value": "https://www.anduril.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.anduril.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.702Z"
+          },
+          "passage": "[title] Transforming U.S. Defense Capabilities with Advanced Technology | Anduril"
+        },
+        {
+          "field": "round.type",
+          "value": "Series H",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 5000000000,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday."
+        },
+        {
+          "field": "round.date",
+          "value": "2026-05-13",
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday.",
+          "note": "TechCrunch's article of Wednesday 13 May 2026"
+        },
+        {
+          "field": "round.valuationUsd",
+          "value": 61000000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday."
+        },
+        {
+          "field": "deployments",
+          "value": "Its president has said it is a heavy participant in the Middle East conflict (2026)",
+          "verdict": "corrected",
+          "was": "Active in Middle East conflict",
+          "source": {
+            "url": "https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:05.146Z"
+          },
+          "passage": "Peter Thiel recruited Stephens to Founders Fund in 2014. At a firm retreat, Stephens met Palmer Luckey, and the two developed the idea behind Anduril: bringing a Silicon Valley approach to advanced autonomous systems for defense. Anduril is now valued at $61 billion, and the company's president has said it is a \"heavy participant\" in the Middle East conflict."
+        },
+        {
+          "field": "deployments",
+          "value": "A U.S. Army contract for Lattice battle-manager software and a Dutch Ministry of Defence contract (May 2026)",
+          "verdict": "corrected",
+          "was": "US military contracts",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "In May it announced it was part of a contract with others to develop a space-based &#8220;golden dome&#8221; defensive system — a missile defense shield designed to protect the continental U.S. — for America. Anduril also announced a contract win from the Dutch Ministry of Defence and a U.S. Army contract for battle manager software, using its Lattice platform to analyze data from joint missile defense systems."
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Thrive Capital",
+          "verdict": "corrected",
+          "was": "Founders Fund",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday.",
+          "note": "Founders Fund led its June 2025 round, not this one"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "Andreessen Horowitz",
+          "verdict": "added",
+          "source": {
+            "url": "https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:30.420Z"
+          },
+          "passage": "Another year, another massive influx of capital for Anduril: The funding round that was rumored to be in process in March has officially closed. Anduril has raised a $5 billion Series H round at a $61 billion valuation, led by returning investors Thrive Capital and Andreessen Horowitz, the company announced Wednesday."
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software.",
+          "verdict": "corrected",
+          "was": "Builds autonomous systems for defense including drones, counter-drone systems, and AI-powered military platforms.",
+          "source": {
+            "url": "https://www.anduril.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:27.702Z"
+          },
+          "passage": "[meta:og:description] Anduril Industries builds advanced autonomous systems and defense technology to protect US and allied forces. Creating the future of national security through AI, robotics, and cutting-edge engineering."
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Anduril_Industries",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:12.197Z"
+          },
+          "passage": "Ghost Shark is an autonomous submarine developed by Anduril Industries. Anduril contracted with the Royal Australian Navy and the Defence Science and Technology Group in May 2022 to produce three prototypes over three years. [ 85 ] The submarine is known as the XL-AUV outside of Australia. [ 86 ]"
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Anduril_Industries",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:12.197Z"
+          },
+          "passage": "Lattice has been used to control Anduril equipment for national border and military base surveillance. [ 90 ] [ 20 ] As of 2023, there are 290 surveillance towers installed by Customs and Border Protection (CBP) along the US border with Mexico. [ 91 ]"
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Anduril_Industries",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:12.197Z"
+          },
+          "passage": "In February 2021, The Times reported that the Royal Marines had been testing Anduril's Ghost drone to provide video of targets for frontline use.…"
+        },
+        {
+          "field": "description",
+          "value": "Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Anduril_Industries",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:25:12.197Z"
+          },
+          "passage": "An Anduril Standard Range Sentry Tower in California Anduril Industries, Inc.…"
+        }
+      ]
+    },
+    {
+      "id": "robotphoenix",
+      "name": "Robotphoenix",
+      "confidence": "medium",
+      "confidenceBasis": "Baker McKenzie, its counsel, and PEdaily on its listing, with its own site on its founding and base.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Yuhuan",
+          "verdict": "corrected",
+          "was": "Shanghai",
+          "source": {
+            "url": "https://www.robotphoenix.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T11:07:04.252Z"
+          },
+          "passage": "翼菲科技成立于2012年6月，总部位于浙江省台州市玉环市，是一家集工业机器人研发和制造、控制系统开发、视觉系统开发、智能制造解决方案和设备提供于一体的国家级高新技术企业。",
+          "note": "Yuhuan, a city in Taizhou, Zhejiang; no fetched source puts it in Shanghai"
+        },
+        {
+          "field": "hq.country",
+          "value": "CN",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.robotphoenix.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T11:07:04.252Z"
+          },
+          "passage": "翼菲科技成立于2012年6月，总部位于浙江省台州市玉环市，是一家集工业机器人研发和制造、控制系统开发、视觉系统开发、智能制造解决方案和设备提供于一体的国家级高新技术企业。"
+        },
+        {
+          "field": "founded",
+          "value": 2012,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://www.robotphoenix.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T11:07:04.252Z"
+          },
+          "passage": "翼菲科技成立于2012年6月，总部位于浙江省台州市玉环市，是一家集工业机器人研发和制造、控制系统开发、视觉系统开发、智能制造解决方案和设备提供于一体的国家级高新技术企业。"
+        },
+        {
+          "field": "status",
+          "value": "public",
+          "verdict": "verified",
+          "source": {
+            "url": "https://news.pedaily.cn/202605/563989.shtml",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:37.665Z"
+          },
+          "passage": "2026 年 5 月 18 日，浙江翼菲智能科技股份有限公司正式在港交所主板挂牌上市（股票代码：6871.HK）。"
+        },
+        {
+          "field": "website",
+          "value": "https://www.robotphoenix.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.robotphoenix.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T11:07:04.252Z"
+          },
+          "passage": "[title] 并联机器人_Scara机器人_六轴机器人_AGV机器人_浙江翼菲智能科技股份有限公司"
+        },
+        {
+          "field": "round.type",
+          "value": "IPO",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:36.935Z"
+          },
+          "passage": "Baker McKenzie has advised Robotphoenix Intelligent Technology Co., Ltd. (Robotphoenix) on its global offering and successful listing on the Main Board of the Hong Kong Stock Exchange.…"
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 96000000,
+          "verdict": "corrected",
+          "was": 86000000,
+          "source": {
+            "url": "https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:36.935Z"
+          },
+          "passage": "…(Robotphoenix) on its global offering and successful listing on the Main Board of the Hong Kong Stock Exchange. The global offering raised approximately HKD 750 million (approximately USD 96 million). The offer price was set at HKD 30.50 per share.…",
+          "note": "no fetched source gives the ~$86M the record carried"
+        },
+        {
+          "field": "round.date",
+          "value": "2026-05-18",
+          "verdict": "verified",
+          "source": {
+            "url": "https://news.pedaily.cn/202605/563989.shtml",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:37.665Z"
+          },
+          "passage": "2026 年 5 月 18 日，浙江翼菲智能科技股份有限公司正式在港交所主板挂牌上市（股票代码：6871.HK）。"
+        },
+        {
+          "field": "aka",
+          "value": "Robotphoenix Intelligent Technology Co., Ltd.",
+          "verdict": "added",
+          "source": {
+            "url": "https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:36.935Z"
+          },
+          "passage": "Baker McKenzie has advised Robotphoenix Intelligent Technology Co., Ltd. (Robotphoenix) on its global offering and successful listing on the Main Board of the Hong Kong Stock Exchange.…"
+        },
+        {
+          "field": "aka",
+          "value": "浙江翼菲智能科技股份有限公司",
+          "verdict": "added",
+          "source": {
+            "url": "https://news.pedaily.cn/202605/563989.shtml",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:37.665Z"
+          },
+          "passage": "2026 年 5 月 18 日，浙江翼菲智能科技股份有限公司正式在港交所主板挂牌上市（股票代码：6871.HK）。",
+          "note": "its registered Chinese name"
+        },
+        {
+          "field": "description",
+          "value": "Makes industrial robots, among them delta, SCARA and six-axis models, and robotics systems for light-industry production lines; it listed in Hong Kong in May 2026.",
+          "verdict": "corrected",
+          "was": "Makes lightweight industrial robots; listed on HKEX in May 2026, raising ~$86M.",
+          "source": {
+            "url": "https://www.robotphoenix.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T11:07:04.252Z"
+          },
+          "passage": "[title] 并联机器人_Scara机器人_六轴机器人_AGV机器人_浙江翼菲智能科技股份有限公司"
+        },
+        {
+          "field": "description",
+          "value": "Makes industrial robots, among them delta, SCARA and six-axis models, and robotics systems for light-industry production lines; it listed in Hong Kong in May 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:36.935Z"
+          },
+          "passage": "Robotphoenix is a leading industrial robotics company in China, focused on the design, development, manufacturing and commercialization of industrial robots and integrated robotics solutions for light industry applications. It was ranked fourth among domestic light industrial robot and solutions providers in China's market in terms of related revenue in 2025."
+        },
+        {
+          "field": "description",
+          "value": "Makes industrial robots, among them delta, SCARA and six-axis models, and robotics systems for light-industry production lines; it listed in Hong Kong in May 2026.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://news.pedaily.cn/202605/563989.shtml",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:26:37.665Z"
+          },
+          "passage": "2026 年 5 月 18 日，浙江翼菲智能科技股份有限公司正式在港交所主板挂牌上市（股票代码：6871.HK）。"
+        }
+      ]
+    },
+    {
+      "id": "abb-robotics",
+      "name": "ABB Robotics",
+      "confidence": "high",
+      "confidenceBasis": "ABB's and SoftBank's releases on the deal, with ABB's own site.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Zurich",
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "(2) Address ¶ Zürich, Switzerland"
+        },
+        {
+          "field": "hq.country",
+          "value": "CH",
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "(2) Address ¶ Zürich, Switzerland"
+        },
+        {
+          "field": "founded",
+          "value": 1988,
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "January 5, 1988",
+          "note": "ABB Ltd's founding; the holding company that is to carry the robotics business has yet to be formed"
+        },
+        {
+          "field": "status",
+          "value": "public",
+          "verdict": "corrected",
+          "was": "acquired",
+          "source": {
+            "url": "https://www.abb.com/global/en/news/129685/abb-to-divest-robotics-division-to-softbank-group",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:36:06.248Z"
+          },
+          "passage": "…At ABB, we call this ‘Engineered to Outrun’. The company has over 140 years of history and around 110,000 employees worldwide. ABB’s shares are listed on the SIX Swiss Exchange (ABBN) and Nasdaq Stockholm (ABB). www.abb.com",
+          "note": "still a division of ABB Ltd; both releases expect the sale to close in mid-to-late 2026, and no fetched source reports that it has"
+        },
+        {
+          "field": "website",
+          "value": "https://www.abb.com",
+          "verdict": "verified",
+          "source": {
+            "url": "https://www.abb.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.318Z"
+          },
+          "passage": "[title] ABB Group | Helping industries outrun – leaner and cleaner | ABB"
+        },
+        {
+          "field": "round.type",
+          "value": "Acquisition",
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "[meta:og:description] SoftBank Group Corp. (“SBG”) today announced that on October 8, 2025 (Central European Time), it entered into a definitive agreement with ABB Ltd (“ABB”), a global technology leader in electrification*1 and automation, to acquire ABB’s robotics business for a total purchase price of USD 5.375 billion (approximately JPY 818.7 billion*2) (the “Acquisition”)."
+        },
+        {
+          "field": "round.amountUsd",
+          "value": 5375000000,
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "[meta:og:description] SoftBank Group Corp. (“SBG”) today announced that on October 8, 2025 (Central European Time), it entered into a definitive agreement with ABB Ltd (“ABB”), a global technology leader in electrification*1 and automation, to acquire ABB’s robotics business for a total purchase price of USD 5.375 billion (approximately JPY 818.7 billion*2) (the “Acquisition”)."
+        },
+        {
+          "field": "round.date",
+          "value": "2025-10-08",
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "[meta:og:description] SoftBank Group Corp. (“SBG”) today announced that on October 8, 2025 (Central European Time), it entered into a definitive agreement with ABB Ltd (“ABB”), a global technology leader in electrification*1 and automation, to acquire ABB’s robotics business for a total purchase price of USD 5.375 billion (approximately JPY 818.7 billion*2) (the “Acquisition”)."
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "Industrial robot installations worldwide",
+          "note": "\"industrial robot installations worldwide\" names no installation, and no fetched source gives a count"
+        },
+        {
+          "field": "round.leadInvestors",
+          "value": "SoftBank Group",
+          "verdict": "verified",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "[meta:og:description] SoftBank Group Corp. (“SBG”) today announced that on October 8, 2025 (Central European Time), it entered into a definitive agreement with ABB Ltd (“ABB”), a global technology leader in electrification*1 and automation, to acquire ABB’s robotics business for a total purchase price of USD 5.375 billion (approximately JPY 818.7 billion*2) (the “Acquisition”)."
+        },
+        {
+          "field": "description",
+          "value": "Makes industrial and collaborative robots, autonomous mobile robots and controllers; SoftBank agreed in October 2025 to buy the business from ABB for $5.375 billion.",
+          "verdict": "corrected",
+          "was": "Major industrial robot manufacturer; robotics business acquired by SoftBank for $5.4B in October 2025.",
+          "source": {
+            "url": "https://www.abb.com",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.318Z"
+          },
+          "passage": "ABB Robotics is one of the world’s leading robotics suppliers, offering a comprehensive and integrated portfolio that includes industrial and collaborative robots, autonomous mobile robots (AMRs), controllers, application solutions, services, and equipment."
+        },
+        {
+          "field": "description",
+          "value": "Makes industrial and collaborative robots, autonomous mobile robots and controllers; SoftBank agreed in October 2025 to buy the business from ABB for $5.375 billion.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "[meta:og:description] SoftBank Group Corp. (“SBG”) today announced that on October 8, 2025 (Central European Time), it entered into a definitive agreement with ABB Ltd (“ABB”), a global technology leader in electrification*1 and automation, to acquire ABB’s robotics business for a total purchase price of USD 5.375 billion (approximately JPY 818.7 billion*2) (the “Acquisition”)."
+        },
+        {
+          "field": "description",
+          "value": "Makes industrial and collaborative robots, autonomous mobile robots and controllers; SoftBank agreed in October 2025 to buy the business from ABB for $5.375 billion.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://group.softbank/en/news/press/20251008",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.248Z"
+          },
+          "passage": "[meta:og:description] SoftBank Group Corp. (“SBG”) today announced that on October 8, 2025 (Central European Time), it entered into a definitive agreement with ABB Ltd (“ABB”), a global technology leader in electrification*1 and automation, to acquire ABB’s robotics business for a total purchase price of USD 5.375 billion (approximately JPY 818.7 billion*2) (the “Acquisition”)."
+        }
+      ]
+    },
+    {
+      "id": "mitsubishi-robotics",
+      "name": "Mitsubishi (Robotics)",
+      "confidence": "medium",
+      "confidenceBasis": "Assembly Magazine on the plan, with Wikipedia and its own site on Mitsubishi Motors.",
+      "rows": [
+        {
+          "field": "hq.city",
+          "value": "Tokyo",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mitsubishi_Motors",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:12.087Z"
+          },
+          "passage": "Headquarters Tamachi Station Tower S, Shibaura , Minato , Tokyo"
+        },
+        {
+          "field": "hq.country",
+          "value": "JP",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mitsubishi_Motors",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:12.087Z"
+          },
+          "passage": "Headquarters Tamachi Station Tower S, Shibaura , Minato , Tokyo"
+        },
+        {
+          "field": "founded",
+          "value": 1970,
+          "verdict": "added",
+          "was": null,
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mitsubishi_Motors",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:12.087Z"
+          },
+          "passage": "Founded 22 April 1970 ; 56 years ago ( 1970-04-22 )",
+          "note": "Mitsubishi Motors' founding; the robot programme has none of its own"
+        },
+        {
+          "field": "status",
+          "value": "public",
+          "verdict": "verified",
+          "source": {
+            "url": "https://en.wikipedia.org/wiki/Mitsubishi_Motors",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:12.087Z"
+          },
+          "passage": "TYO : 7211"
+        },
+        {
+          "field": "website",
+          "value": "https://www.mitsubishi-motors.com/en/",
+          "verdict": "corrected",
+          "was": "https://www.mitsubishielectric.com",
+          "source": {
+            "url": "https://www.mitsubishi-motors.com/en/",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-20T11:28:11.783Z"
+          },
+          "passage": "Global Website- MITSUBISHI MOTORS",
+          "note": "the plan is Mitsubishi Motors', not Mitsubishi Electric's"
+        },
+        {
+          "field": "deployments",
+          "value": null,
+          "verdict": "cut",
+          "was": "1,000 humanoids/month production target",
+          "note": "a production target, not a deployment; the robots are to go first to its own plants once production starts in 2027"
+        },
+        {
+          "field": "description",
+          "value": "Mitsubishi Motors plans to mass-produce AI humanoid robots designed by the Tokyo startup Highlanders on an unused engine line at its Kyoto plant from the first half of 2027, up to 1,000 a month.",
+          "verdict": "corrected",
+          "was": "Mass-producing AI humanoid robots in Japan, converting an idle engine plant into a high-volume robot factory targeting 1,000 humanoids per month.",
+          "source": {
+            "url": "https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.556Z"
+          },
+          "passage": "[meta:og:description] TOKYO — Mitsubishi Motors plans to begin mass-producing artificial intelligence-powered humanoid robots at one of its Japanese manufacturing plants in the first half of 2027, marking one of the industry's most significant moves toward large-scale robot production and physical AI."
+        },
+        {
+          "field": "description",
+          "value": "Mitsubishi Motors plans to mass-produce AI humanoid robots designed by the Tokyo startup Highlanders on an unused engine line at its Kyoto plant from the first half of 2027, up to 1,000 a month.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.556Z"
+          },
+          "passage": "The automaker announced it will manufacture humanoid robots developed by Tokyo-based startup Highlanders Inc. using an unused engine production line at its Kyoto plant. The facility is expected to produce up to 1,000 robots per month."
+        },
+        {
+          "field": "description",
+          "value": "Mitsubishi Motors plans to mass-produce AI humanoid robots designed by the Tokyo startup Highlanders on an unused engine line at its Kyoto plant from the first half of 2027, up to 1,000 a month.",
+          "verdict": "corrected",
+          "source": {
+            "url": "https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.556Z"
+          },
+          "passage": "The automaker announced it will manufacture humanoid robots developed by Tokyo-based startup Highlanders Inc. using an unused engine production line at its Kyoto plant. The facility is expected to produce up to 1,000 robots per month."
+        }
+      ]
     }
   ]
 }

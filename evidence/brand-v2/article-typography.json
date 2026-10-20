@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "a39d1b3bb344d3041dcad65b12e9cdbecaf20b385c7aa9e21a1b90fc827e2a83",
+  "fingerprint": "b5837cf667cb8f04d0d7ef7f7149e98cf8f5f374255d2dcc26edb351b1093e76",
   "viewports": [
     "375x812",
     "1440x900"
@@ -39510,7 +39510,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2770,
+      "visibleTextLength": 2781,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40465,7 +40465,7 @@
         },
         {
           "tag": "button",
-          "text": "Acquired",
+          "text": "Public",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40690,6 +40690,14 @@
         {
           "tag": "button",
           "text": "Anduril",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$5B",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -41274,6 +41282,14 @@
         {
           "tag": "button",
           "text": "Pollen Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -95622,7 +95638,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2770,
+      "visibleTextLength": 2781,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96577,7 +96593,7 @@
         },
         {
           "tag": "button",
-          "text": "Acquired",
+          "text": "Public",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96802,6 +96818,14 @@
         {
           "tag": "button",
           "text": "Anduril",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "$5B",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -97386,6 +97410,14 @@
         {
           "tag": "button",
           "text": "Pollen Robotics",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Acquired",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

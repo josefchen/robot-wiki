@@ -7920,7 +7920,7 @@ const ROWS: Company[] = [
     founded: 2009,
     segment: 'vertical-applications',
     subSegment: 'cleaning',
-    description: 'Builds AI software platform powering autonomous commercial floor cleaning robots.',
+    description: 'Makes BrainOS, autonomy software that robot makers such as Tennant and Nilfisk license to build floor-cleaning, inventory-scanning and other autonomous robots.',
     approach: [
       'ai-cleaning-platform',
       'autonomous-floor-care',
@@ -7931,14 +7931,12 @@ const ROWS: Company[] = [
       amountUsd: null,
       date: null,
       valuationUsd: null,
-      leadInvestors: [
-        'Qualcomm Ventures',
-        'SoftBank',
-      ],
+      leadInvestors: [],
     },
     status: 'private',
     deployments: [
-      'Commercial floor cleaning robots in retail and warehouse',
+      'More than 50,000 BrainOS-powered robots worldwide (2026)',
+      'Customers include Walmart and Kroger (2020)',
     ],
     openSource: [],
     sources: [
@@ -7953,7 +7951,7 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
     ],
-    confidence: 'low',
+    confidence: 'medium',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -7978,6 +7976,9 @@ const ROWS: Company[] = [
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
+      'round.leadInvestors': {
+        state: 'not-disclosed',
+      },
     },
   },
   {
@@ -7993,25 +7994,29 @@ const ROWS: Company[] = [
     founded: 2016,
     segment: 'simulation-tooling',
     subSegment: 'open-source-frameworks',
-    description: 'Builds Reachy and Reachy Mini open-source humanoid robots for research and education, partnered with Hugging Face.',
+    description: 'Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025.',
     approach: [
       'open-source',
       'research-education',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
+      type: 'Acquisition',
       amountUsd: null,
-      date: null,
+      date: '2025-04-14',
       valuationUsd: null,
-      leadInvestors: [],
+      leadInvestors: [
+        'Hugging Face',
+      ],
+      sourceUrl: 'https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition',
     },
-    status: 'private',
+    status: 'acquired',
     deployments: [
-      'Reachy Mini powered by Hugging Face',
+      'More than 10,000 robots shipped worldwide, by its own count (2026)',
+      'Reachy 2 in use in labs such as Cornell and Carnegie Mellon (2025)',
     ],
     openSource: [
-      'Reachy',
+      'Reachy 2',
       'Reachy Mini',
     ],
     sources: [
@@ -8019,6 +8024,16 @@ const ROWS: Company[] = [
         url: 'https://pollen-robotics.com/reachy-mini/',
         title: 'Reachy Mini - Open source companion robot',
         asOf: '2026-08-06',
+      },
+      {
+        url: 'https://www.pollen-robotics.com/about-us/',
+        title: 'About us (Pollen Robotics)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition',
+        title: 'Hugging Face to sell open-source robots thanks to Pollen Robotics acquisition (Hugging Face blog, 2025-04-14)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
@@ -8030,19 +8045,10 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.type': {
-        state: 'not-disclosed',
-      },
       'round.amountUsd': {
         state: 'not-disclosed',
       },
-      'round.date': {
-        state: 'not-disclosed',
-      },
       'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
-      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -8074,19 +8080,22 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Serve Robotics',
       ],
+      sourceUrl: 'https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm',
+      caveat: {
+        text: 'Serve\'s filing says the $29.0 million it paid in stock includes a potential $5.3 million earnout and is subject to adjustments; The Robot Report described the earnout as coming on top of the $29 million.',
+        sourceUrls: [
+          'https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm',
+          'https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/',
+        ],
+      },
     },
     status: 'acquired',
     deployments: [
-      'Moxi robots in 30+ hospitals',
-      '22 health system clients',
+      'Nearly 100 Moxi robots in more than 25 hospitals, with over 1.25 million deliveries (January 2026)',
+      'Customers include Northwestern Medicine, ChristianaCare and Rochester General Hospital',
     ],
     openSource: [],
     sources: [
-      {
-        url: 'https://ir.serverobotics.com/news-releases/news-release-details/serve-robotics-acquire-diligent-robotics-expanding-physical-ai',
-        title: 'Serve Robotics to Acquire Diligent Robotics (first-party; deal values Diligent common stock at $29M)',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/',
         title: 'Serve Robotics acquires Diligent Robotics (The Robot Report, 2026-01-20)',
@@ -8097,8 +8106,18 @@ const ROWS: Company[] = [
         title: 'Moxi - Diligent Robotics',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://www.sec.gov/Archives/edgar/data/1832483/000121390026005920/ea027345401ex99-1_serve.htm',
+        title: 'Serve Robotics to Acquire Diligent Robotics (Serve\'s release of 20 January 2026, exhibit 99.1 to its Form 8-K)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm',
+        title: 'Serve Robotics Form 8-K on completing the Diligent Robotics acquisition (filed 29 January 2026)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -8129,7 +8148,7 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'industrial-logistics',
     subSegment: 'mobile-robots',
-    description: 'Builds autonomous forklifts and lift trucks for warehouse dock operations; acquired by Symbotic.',
+    description: 'Builds the FoxBot, an autonomous forklift that loads and unloads trailers at warehouse docks; Symbotic bought it in 2026.',
     approach: [
       'autonomous-forklifts',
       'dock-operations',
@@ -8138,7 +8157,7 @@ const ROWS: Company[] = [
     latestRound: {
       type: 'Acquisition',
       amountUsd: null,
-      date: '2026-02-10',
+      date: null,
       valuationUsd: null,
       leadInvestors: [
         'Symbotic',
@@ -8146,7 +8165,7 @@ const ROWS: Company[] = [
     },
     status: 'acquired',
     deployments: [
-      'Warehouse dock operations',
+      'More than 100 FoxBot forklifts at 54 customer sites in the US and Canada, by its own count; Symbotic\'s CEO put it at 25 customers, mostly pilots (February 2026)',
     ],
     openSource: [],
     sources: [
@@ -8172,6 +8191,9 @@ const ROWS: Company[] = [
       'round.amountUsd': {
         state: 'not-disclosed',
       },
+      'round.date': {
+        state: 'not-disclosed',
+      },
       'round.valuationUsd': {
         state: 'not-disclosed',
       },
@@ -8190,7 +8212,7 @@ const ROWS: Company[] = [
     founded: 1969,
     segment: 'industrial-logistics',
     subSegment: 'warehouse-automation',
-    description: 'Built robotics automation business including Symmetry Fulfillment orchestration platform; sold to Skild AI in April 2026.',
+    description: 'Zebra\'s robotics automation business, whose Symmetry Fulfillment platform coordinates tasks between robots and frontline workers using Zebra wearable devices; Skild AI bought it in April 2026.',
     approach: [
       'warehouse-orchestration',
       'fulfillment',
@@ -8206,9 +8228,7 @@ const ROWS: Company[] = [
       ],
     },
     status: 'acquired',
-    deployments: [
-      'Symmetry Fulfillment platform sold to Skild AI',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
       {
@@ -8222,6 +8242,9 @@ const ROWS: Company[] = [
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Zebra Technologies and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
       },
       'openSource': {
         state: 'not-applicable',
@@ -8251,35 +8274,53 @@ const ROWS: Company[] = [
     founded: 2017,
     segment: 'vertical-applications',
     subSegment: 'defense',
-    description: 'Builds autonomous systems for defense including drones, counter-drone systems, and AI-powered military platforms.',
+    description: 'Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software.',
     approach: [
       'defense-autonomy',
       'ai-military-systems',
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: null,
-      amountUsd: null,
-      date: null,
+      type: 'Series H',
+      amountUsd: 5000000000,
+      date: '2026-05-13',
       valuationUsd: 61000000000,
       leadInvestors: [
-        'Founders Fund',
+        'Thrive Capital',
+        'Andreessen Horowitz',
       ],
+      sourceUrl: 'https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/',
+      caveat: {
+        text: 'TechCrunch reports that Anduril has raised more than $11 billion in total; it gives no exact figure.',
+        sourceUrls: [
+          'https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
-      'Active in Middle East conflict',
-      'US military contracts',
+      'Its president has said it is a heavy participant in the Middle East conflict (2026)',
+      'A U.S. Army contract for Lattice battle-manager software and a Dutch Ministry of Defence contract (May 2026)',
     ],
     openSource: [],
     sources: [
       {
         url: 'https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6',
-        title: 'Anduril valued at $61B, Founders Fund',
+        title: 'Meet the 22 investors to know in robotics and physical AI (Business Insider, June 2026)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/',
+        title: 'Anduril raises $5B, doubles valuation to $61B (TechCrunch, 2026-05-13)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Anduril_Industries',
+        title: 'Anduril Industries (Wikipedia)',
+        asOf: '2026-10-20',
+      },
     ],
-    confidence: 'medium',
+    confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
@@ -8292,60 +8333,54 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
-      'round.type': {
-        state: 'not-disclosed',
-      },
-      'round.amountUsd': {
-        state: 'not-disclosed',
-      },
-      'round.date': {
-        state: 'not-disclosed',
-      },
     },
   },
   {
     id: 'robotphoenix',
     name: 'Robotphoenix',
-    aka: [],
+    aka: [
+      'Robotphoenix Intelligent Technology Co., Ltd.',
+      '浙江翼菲智能科技股份有限公司',
+    ],
     website: 'https://www.robotphoenix.com',
     logo: 'robotphoenix-logo',
     hq: {
-      city: 'Shanghai',
+      city: 'Yuhuan',
       country: 'CN',
     },
-    founded: null,
+    founded: 2012,
     segment: 'industrial-logistics',
     subSegment: 'industrial-robots',
-    description: 'Makes lightweight industrial robots; listed on HKEX in May 2026, raising ~$86M.',
+    description: 'Makes industrial robots, among them delta, SCARA and six-axis models, and robotics systems for light-industry production lines; it listed in Hong Kong in May 2026.',
     approach: [
       'lightweight-industrial-robots',
     ],
     totalRaisedUsd: null,
     latestRound: {
       type: 'IPO',
-      amountUsd: 86000000,
+      amountUsd: 96000000,
       date: '2026-05-18',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo',
     },
     status: 'public',
     deployments: [],
     openSource: [],
     sources: [
       {
-        url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'Robotphoenix listed on HKEX, raising ~$86M',
-        asOf: '2026-08-18',
+        url: 'https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo',
+        title: 'Baker McKenzie Advises Robotphoenix Intelligent Technology on Hong Kong Main Board Listing (Baker McKenzie, 2026-05-20)',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://news.pedaily.cn/202605/563989.shtml',
+        title: '翼菲科技：从自动化到工业机器人，十年耕耘迎来港股 IPO 的硬核玩家 (PEdaily, 2026-05-18)',
+        asOf: '2026-10-20',
       },
     ],
     confidence: 'medium',
     absent: {
-      'founded': {
-        state: 'not-disclosed',
-      },
-      'aka': {
-        state: 'not-disclosed',
-      },
       'deployments': {
         state: 'not-disclosed',
       },
@@ -8377,7 +8412,7 @@ const ROWS: Company[] = [
     founded: 1988,
     segment: 'industrial-logistics',
     subSegment: 'industrial-robots',
-    description: 'Major industrial robot manufacturer; robotics business acquired by SoftBank for $5.4B in October 2025.',
+    description: 'Makes industrial and collaborative robots, autonomous mobile robots and controllers; SoftBank agreed in October 2025 to buy the business from ABB for $5.375 billion.',
     approach: [
       'industrial-robots',
       'automation',
@@ -8391,11 +8426,16 @@ const ROWS: Company[] = [
       leadInvestors: [
         'SoftBank Group',
       ],
+      caveat: {
+        text: 'SoftBank agreed on 8 October 2025 to buy ABB\'s robotics business; both companies expected the deal to close in mid-to-late 2026, and no fetched source reports that it has closed.',
+        sourceUrls: [
+          'https://group.softbank/en/news/press/20251008',
+          'https://www.abb.com/global/en/news/129685/abb-to-divest-robotics-division-to-softbank-group',
+        ],
+      },
     },
-    status: 'acquired',
-    deployments: [
-      'Industrial robot installations worldwide',
-    ],
+    status: 'public',
+    deployments: [],
     openSource: [],
     sources: [
       {
@@ -8403,12 +8443,20 @@ const ROWS: Company[] = [
         title: 'Acquisition of ABB Ltd\'s Robotics Business (SoftBank Group press release, 2025-10-08)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.abb.com/global/en/news/129685/abb-to-divest-robotics-division-to-softbank-group',
+        title: 'ABB to divest Robotics division to SoftBank Group (ABB, 2025-10-08)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'high',
     absent: {
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it ABB Robotics and give no other name.',
+      },
+      'deployments': {
+        state: 'not-disclosed',
       },
       'openSource': {
         state: 'not-applicable',
@@ -8426,16 +8474,16 @@ const ROWS: Company[] = [
     id: 'mitsubishi-robotics',
     name: 'Mitsubishi (Robotics)',
     aka: [],
-    website: 'https://www.mitsubishielectric.com',
+    website: 'https://www.mitsubishi-motors.com/en/',
     logo: 'mitsubishi-logo',
     hq: {
       city: 'Tokyo',
       country: 'JP',
     },
-    founded: null,
+    founded: 1970,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Mass-producing AI humanoid robots in Japan, converting an idle engine plant into a high-volume robot factory targeting 1,000 humanoids per month.',
+    description: 'Mitsubishi Motors plans to mass-produce AI humanoid robots designed by the Tokyo startup Highlanders on an unused engine line at its Kyoto plant from the first half of 2027, up to 1,000 a month.',
     approach: [
       'mass-production',
       'factory-conversion',
@@ -8449,9 +8497,7 @@ const ROWS: Company[] = [
       leadInvestors: [],
     },
     status: 'public',
-    deployments: [
-      '1,000 humanoids/month production target',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
       {
@@ -8459,15 +8505,26 @@ const ROWS: Company[] = [
         title: 'Mitsubishi to Mass-Produce Humanoid Robots at Former Engine Plant (1,000/month target, H1 2027, with startup Highlanders)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.mitsubishi-motors.com/en/',
+        title: 'Mitsubishi Motors global website',
+        asOf: '2026-10-20',
+      },
+      {
+        url: 'https://en.wikipedia.org/wiki/Mitsubishi_Motors',
+        title: 'Mitsubishi Motors (Wikipedia)',
+        asOf: '2026-10-20',
+      },
     ],
     confidence: 'medium',
     absent: {
-      'founded': {
-        state: 'not-disclosed',
-      },
       'aka': {
         state: 'not-applicable',
         basis: 'One name: the fetched bodies of its cited sources and its website call it Mitsubishi and give no other name.',
+      },
+      'deployments': {
+        state: 'not-applicable',
+        basis: 'Mitsubishi Motors plans to start building the robots in the first half of 2027 (Assembly Magazine); none is deployed yet.',
       },
       'openSource': {
         state: 'not-applicable',

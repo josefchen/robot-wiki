@@ -89,11 +89,14 @@ describe('FundingTimeline roving keyboard access', () => {
     // 77 -> 76 when the same audit cut the round dates of Leju Robotics and
     // Coco Robotics ("this week" in The Robot Report) and gave Starship
     // Technologies its Series C of 15 October 2025.
-    expect(all.length).toBe(76); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
+    // 76 -> 77 when the same audit gave Pollen Robotics its acquisition by
+    // Hugging Face of 14 April 2025 and Anduril its Series H of 13 May 2026,
+    // and cut the undated day of Symbotic's purchase of Fox Robotics.
+    expect(all.length).toBe(77); // 69 dated 2023-2026 rounds since the 2026-08-18 audit (Mytra Series C, Coco Series B, Encord Series B);
     const tabbable = all.filter((el) => el.tabIndex === 0);
     const roving = all.filter((el) => el.tabIndex === -1);
     expect(tabbable).toHaveLength(1);
-    expect(roving).toHaveLength(75); // 76 dated rows minus the one tabbable
+    expect(roving).toHaveLength(76); // 77 dated rows minus the one tabbable
   }, TIMEOUT);
 
   it('moves down to the next event chronologically with ArrowDown', () => {

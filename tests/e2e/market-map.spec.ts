@@ -295,7 +295,15 @@ test.describe('market map visualization', () => {
     await expect(tile(page, 'boston-dynamics')).toBeVisible();
     await expect(tile(page, 'irobot')).toBeVisible();
     await expect(tile(page, 'berkshire-grey')).toBeVisible();
-    await expect(tile(page, 'abb-robotics')).toBeVisible();
+    // pollen-robotics moved private -> acquired on 2026-10-20 (market-map
+    // field audit): Hugging Face announced that it had bought the company on
+    // 14 April 2025 (its blog).
+    await expect(tile(page, 'pollen-robotics')).toBeVisible();
+    // abb-robotics moved acquired -> public the same day: ABB and SoftBank
+    // signed the sale on 8 October 2025 and expected it to close in
+    // mid-to-late 2026, and no fetched source reports that it has closed,
+    // so it is still a division of the listed ABB Ltd.
+    await expect(tile(page, 'abb-robotics')).toHaveCount(0);
     // mentee-robotics moved private -> acquired on 2026-08-18: Mobileye's
     // Form 8-K records the acquisition completed Feb 3, 2026.
     await expect(tile(page, 'mentee-robotics')).toBeVisible();

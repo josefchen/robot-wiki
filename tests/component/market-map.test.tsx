@@ -246,6 +246,52 @@ describe('MarketMap', () => {
     expect(sheet('Genesis AI').querySelector('[data-round-caveat]')).toBeNull();
   }, TIMEOUT);
 
+  it('keeps same-round contradictions visible on the card (VAL-B2-MAP-009)', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    const crunchbase =
+      'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/';
+
+    // Spirit AI: the card shows the A+ round the company announced, and
+    // the caveat keeps the other figures its sources give for its February
+    // round, each linked to the page that states it.
+    await user.click(tile('spirit-ai'));
+    const spirit = sheet('Spirit AI');
+    expect(spirit.querySelector('[data-field="round-type"]')).toHaveTextContent('Series A+');
+    expect(spirit.querySelector('[data-field="amount"]')).toHaveTextContent('$222M');
+    const spiritCaveat = spirit.querySelector('[data-round-caveat]') as HTMLElement;
+    expect(spiritCaveat).toHaveTextContent('$290 million Series A');
+    expect(spiritCaveat).toHaveTextContent('$145 million extension');
+    expect(spiritCaveat).toHaveTextContent('$280 million');
+    expect(within(spiritCaveat).getAllByRole('link').map((a) => a.getAttribute('href'))).toEqual(
+      expect.arrayContaining([
+        crunchbase,
+        'https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html',
+      ]),
+    );
+
+    // TARS: the $455M Pre-A the company announced, with Crunchbase News'
+    // $513M seed reading of the same round kept in the caveat.
+    await user.click(tile('tars-robotics'));
+    const tars = sheet('TARS Robotics');
+    expect(tars.querySelector('[data-field="round-type"]')).toHaveTextContent('Pre-A');
+    expect(tars.querySelector('[data-field="amount"]')).toHaveTextContent('$455M');
+    const tarsCaveat = tars.querySelector('[data-round-caveat]') as HTMLElement;
+    expect(tarsCaveat).toHaveTextContent('$513 million seed round');
+    expect(within(tarsCaveat).getAllByRole('link').map((a) => a.getAttribute('href'))).toContain(
+      crunchbase,
+    );
+
+    // Carbon Robotics: its latest round carries the label GeekWire gives
+    // it, not the "Series D" of its 2024 round.
+    await user.click(tile('carbon-robotics'));
+    const carbon = sheet('Carbon Robotics');
+    expect(carbon.querySelector('[data-field="round-type"]')).toHaveTextContent(
+      'Series D-2 extension',
+    );
+    expect(carbon.querySelector('[data-field="amount"]')).toHaveTextContent('$20M');
+  }, TIMEOUT);
+
   it('renders unknown funding as not disclosed, never zero (VAL-MKT-011)', async () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);

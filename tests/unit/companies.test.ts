@@ -137,7 +137,10 @@ describe('COMPANIES data', () => {
     // 47 -> 49 on 2026-10-20: Leju Robotics' registered name, Leju
     // (Shenzhen) Robotics Co., Ltd. (its own site), and the names PaXini Tech
     // and 帕西尼感知科技 (CnEVPost and EqualOcean).
-    expect(withAka.length).toBe(49);
+    // 49 -> 50 on 2026-10-20: Robotphoenix's legal names, Robotphoenix
+    // Intelligent Technology Co., Ltd. (Baker McKenzie) and 浙江翼菲智能科技股份有限公司
+    // (PEdaily).
+    expect(withAka.length).toBe(50);
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
     // (audit/market-map-ledger.json) found its sources use "Pi" only for the

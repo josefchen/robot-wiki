@@ -1,5 +1,11 @@
 # Market-map company dataset audit (VAL-AUDIT-007)
 
+**Current state, 20 October 2026.** The field audit of 19 and 20 October ("Field audit of the company dataset
+(2026-10-19)" and its close-out at the end of this file) checked every field the map renders, for all 111
+records, against fetched page bodies. The search-snippet rows and the identity-only records that the 2026-08-18
+audit below describes are superseded by it, and no record rests on either any more. The sections below are kept
+as the history of each pass.
+
 Date of audit: 2026-08-18. Scope: all 112 company rows in
 `research/04-market-map-companies.json` (the declared source of truth;
 `data/companies.ts` is generated from it by `npm run generate:companies` and is
@@ -1244,10 +1250,10 @@ floor ("more than $1B") is never promoted to an amount or a total. A description
 say. Where the sources disagree about the same round, or state only a floor, the card shows a caveat that cites
 the sources instead of dropping either figure.
 
-**Progress.** 102 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics, ubtech-robotics, fourier-intelligence, galbot, agibot, sanctuary-ai, neura-robotics, humanoid-uk, spirit-ai, galaxea-ai, engineai, robot-era, tars-robotics, x-square-robot, deep-robotics, kepler-robot, limx-dynamics, wandercraft, clone-robotics, mentee-robotics, persona-ai, rainbow-robotics, symbotic, dexterity, berkshire-grey, amazon-robotics, nimble-robotics, locus-robotics, mujin, righthand-robotics, ambirobotics, plus-one-robotics, carbon-robotics, monarch-tractor, farm-ng, bedrock-robotics, chef-robotics, simbe-robotics, intuitive-surgical, cmr-surgical, moon-surgical, nuro, serve-robotics, gecko-robotics, standard-bots, collaborative-robotics, the-bot-company, weave-robotics, irobot, k-scale-labs, automata, lila-sciences, avidbots, harmonic-drive-systems, nabtesco, leaderdrive, sanhua, shadow-robot, sharpa, wonik-robotics, xela-robotics, openai-robotics, meta-robotics, assured-robot-intelligence, saronic, eka-robotics, foundry-robotics, mytra, formic, astribot, booster-robotics, leju-robotics, switchbot, hanson-robotics, paxini, miso-robotics, starship-technologies, coco-robotics, knightscope.
-The other 9 still rest on the evidence of the earlier passes until their batch lands.
+**Progress.** 111 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics, ubtech-robotics, fourier-intelligence, galbot, agibot, sanctuary-ai, neura-robotics, humanoid-uk, spirit-ai, galaxea-ai, engineai, robot-era, tars-robotics, x-square-robot, deep-robotics, kepler-robot, limx-dynamics, wandercraft, clone-robotics, mentee-robotics, persona-ai, rainbow-robotics, symbotic, dexterity, berkshire-grey, amazon-robotics, nimble-robotics, locus-robotics, mujin, righthand-robotics, ambirobotics, plus-one-robotics, carbon-robotics, monarch-tractor, farm-ng, bedrock-robotics, chef-robotics, simbe-robotics, intuitive-surgical, cmr-surgical, moon-surgical, nuro, serve-robotics, gecko-robotics, standard-bots, collaborative-robotics, the-bot-company, weave-robotics, irobot, k-scale-labs, automata, lila-sciences, avidbots, harmonic-drive-systems, nabtesco, leaderdrive, sanhua, shadow-robot, sharpa, wonik-robotics, xela-robotics, openai-robotics, meta-robotics, assured-robot-intelligence, saronic, eka-robotics, foundry-robotics, mytra, formic, astribot, booster-robotics, leju-robotics, switchbot, hanson-robotics, paxini, miso-robotics, starship-technologies, coco-robotics, knightscope, brain-corp, pollen-robotics, diligent-robotics, fox-robotics, zebra-robotics-automation, anduril, robotphoenix, abb-robotics, mitsubishi-robotics.
+No record rests on search-snippet or identity-only evidence any more.
 
-**Ledger rows.** 1456 rows: 760 verified, 461 corrected, 154 added and 81 cut. The quoted passages come from a body fetched directly (843 rows), a page rendered in a headless browser (23) and a follow-up fetch (517).
+**Ledger rows.** 1576 rows: 819 verified, 503 corrected, 167 added and 87 cut. The quoted passages come from a body fetched directly (912 rows), a page rendered in a headless browser (23) and a follow-up fetch (562).
 
 **Empty fields.** Every rendered field a record leaves empty now carries a recorded disposition in the registry
 (`absent` in `research/04-market-map-companies.json`). `not-disclosed` means a value exists but no source
@@ -1261,15 +1267,15 @@ above, under which every empty list and a missing website read "n/a" whatever th
 | Field | not disclosed | n/a |
 |---|---:|---:|
 | HQ city | 9 | 0 |
-| founded | 17 | 0 |
+| founded | 15 | 0 |
 | website | 1 | 3 |
-| aka | 2 | 60 |
-| deployments | 27 | 0 |
+| aka | 1 | 60 |
+| deployments | 29 | 1 |
 | open source | 0 | 96 |
 | total raised | 91 | 8 |
-| round type | 32 | 7 |
-| round amount | 47 | 7 |
-| round date | 25 | 7 |
+| round type | 30 | 7 |
+| round amount | 46 | 7 |
+| round date | 24 | 7 |
 | round valuation | 73 | 11 |
 | lead investors | 39 | 11 |
 
@@ -1307,6 +1313,9 @@ above, under which every empty list and a missing website read "n/a" whatever th
 | Booster Robotics | type not disclosed | Booster says its April 2026 round raised nearly $150 million; it gives no exact amount. | https://www.booster.tech/about-us?target=en |
 | PaXini | Strategic | PaXini says its August 2026 strategic round raised RMB1 billion, taking its total to RMB3.5 billion, and that an unnamed consumer-electronics and semiconductor group co-led it; no dollar figures are given. | https://technode.com/2026/08/04/embodied-ai-startup-paxini-raises-rmb1-billion-to-scale-tactile-sensing-technology/ |
 | Starship Technologies | Series C | Starship says it has raised more than $280 million in total; it gives no exact figure. | https://finance.yahoo.com/news/starship-technologies-raises-50m-series-130500240.html |
+| Diligent Robotics | Acquisition | Serve's filing says the $29.0 million it paid in stock includes a potential $5.3 million earnout and is subject to adjustments; The Robot Report described the earnout as coming on top of the $29 million. | https://www.sec.gov/Archives/edgar/data/1832483/000121390026009480/ea0274698-8k_serve.htm, https://www.therobotreport.com/serve-robotics-acquires-diligent-robotics/ |
+| Anduril | Series H | TechCrunch reports that Anduril has raised more than $11 billion in total; it gives no exact figure. | https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/ |
+| ABB Robotics | Acquisition | SoftBank agreed on 8 October 2025 to buy ABB's robotics business; both companies expected the deal to close in mid-to-late 2026, and no fetched source reports that it has closed. | https://group.softbank/en/news/press/20251008, https://www.abb.com/global/en/news/129685/abb-to-divest-robotics-division-to-softbank-group |
 
 ### Changes, by record
 
@@ -1807,6 +1816,47 @@ Every value the ledger does not mark verified, against the record at the audit's
 | Knightscope | deployments | Security patrolling at malls, hospitals, corporate campuses | Deployed in 42 U.S. states | stated by https://www.knightscope.com/ |
 | Knightscope | deployments |  | Sites include retail lots, hospital campuses, residential communities, casinos and utility sites | stated by https://www.knightscope.com/ |
 | Knightscope | deployments |  | Clients have included Microsoft, Uber, Juniper Networks, the Sacramento Kings, LaGuardia Airport and NBC Universal (as of 2017) | stated by https://en.wikipedia.org/wiki/Knightscope |
+| Brain Corp | description | Builds AI software platform powering autonomous commercial floor cleaning robots. | Makes BrainOS, autonomy software that robot makers such as Tennant and Nilfisk license to build floor-cleaning, inventory-scanning and other autonomous robots. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Brain Corp | deployments | Commercial floor cleaning robots in retail and warehouse | More than 50,000 BrainOS-powered robots worldwide (2026) | "retail and warehouse" floor cleaning named no deployment (https://www.braincorp.com/) |
+| Brain Corp | deployments |  | Customers include Walmart and Kroger (2020) | stated by https://vcnewsdaily.com/brain-corp/venture-capital-funding/klcvvqtpvz |
+| Brain Corp | lead investors | Qualcomm Ventures | not disclosed | SoftBank Vision Fund 1 led its April 2020 Series D, but an aggregator lists a later round (February 2024) that no fetched source states, so no lead of its latest round is known |
+| Brain Corp | lead investors | SoftBank | not disclosed | Qualcomm Ventures made "an additional investment" in the 2020 Series D; it led no round a fetched source names |
+| Pollen Robotics | description | Builds Reachy and Reachy Mini open-source humanoid robots for research and education, partnered with Hugging Face. | Builds open-source expressive robots, among them the Reachy 2 humanoid, the Reachy Mini companion robot and the Microduck biped; Hugging Face bought it in 2025. | rewritten to what its sources state; each clause quoted from 3 sources in the ledger |
+| Pollen Robotics | status | private | acquired | its own site: "now part of Hugging Face" (https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition) |
+| Pollen Robotics | round type |  | Acquisition | stated by https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition |
+| Pollen Robotics | round date |  | 2025-04-14 | stated by https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition |
+| Pollen Robotics | deployments | Reachy Mini powered by Hugging Face | More than 10,000 robots shipped worldwide, by its own count (2026) | "Reachy Mini powered by Hugging Face" was a product, not a deployment (https://www.pollen-robotics.com) |
+| Pollen Robotics | deployments |  | Reachy 2 in use in labs such as Cornell and Carnegie Mellon (2025) | stated by https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition |
+| Pollen Robotics | open source | Reachy | Reachy 2 | the Reachy robot the source names as open source (https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition) |
+| Pollen Robotics | lead investors |  | Hugging Face | stated by https://huggingface.co/blog/hugging-face-pollen-robotics-acquisition |
+| Diligent Robotics | deployments | Moxi robots in 30+ hospitals | Nearly 100 Moxi robots in more than 25 hospitals, with over 1.25 million deliveries (January 2026) | "30+ hospitals" appears in no fetched source (https://www.sec.gov/Archives/edgar/data/1832483/000121390026005920/ea027345401ex99-1_serve.htm) |
+| Diligent Robotics | deployments | 22 health system clients | Customers include Northwestern Medicine, ChristianaCare and Rochester General Hospital | "22 health system clients" appears in no fetched source (https://www.sec.gov/Archives/edgar/data/1832483/000121390026005920/ea027345401ex99-1_serve.htm) |
+| Fox Robotics | description | Builds autonomous forklifts and lift trucks for warehouse dock operations; acquired by Symbotic. | Builds the FoxBot, an autonomous forklift that loads and unloads trailers at warehouse docks; Symbotic bought it in 2026. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Fox Robotics | round date | 2026-02-10 | not disclosed | The Robot Report of 10 February 2026 says Symbotic announced the deal on its first-quarter earnings call and gives no day; no fetched source dates the deal |
+| Fox Robotics | deployments | Warehouse dock operations | More than 100 FoxBot forklifts at 54 customer sites in the US and Canada, by its own count; Symbotic's CEO put it at 25 customers, mostly pilots (February 2026) | the two counts disagree, and both are given (https://www.therobotreport.com/symbotic-acquires-autonomous-forklift-maker-fox-robotics/) |
+| Zebra Technologies (Robotics Automation) | description | Built robotics automation business including Symmetry Fulfillment orchestration platform; sold to Skild AI in April 2026. | Zebra's robotics automation business, whose Symmetry Fulfillment platform coordinates tasks between robots and frontline workers using Zebra wearable devices; Skild AI bought it in April 2026. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Zebra Technologies (Robotics Automation) | deployments | Symmetry Fulfillment platform sold to Skild AI | not disclosed | selling its Symmetry Fulfillment platform to Skild AI is the deal itself, not a deployment |
+| Anduril | description | Builds autonomous systems for defense including drones, counter-drone systems, and AI-powered military platforms. | Builds autonomous systems for the U.S. and allied militaries, such as drones, autonomous submarines and sentry towers, run by its Lattice software. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Anduril | round type |  | Series H | stated by https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/ |
+| Anduril | round amount |  | $5B | stated by https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/ |
+| Anduril | round date |  | 2026-05-13 | TechCrunch's article of Wednesday 13 May 2026 (https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/) |
+| Anduril | deployments | Active in Middle East conflict | Its president has said it is a heavy participant in the Middle East conflict (2026) | stated by https://www.businessinsider.com/investors-to-know-in-robotics-and-physical-ai-2026-6 |
+| Anduril | deployments | US military contracts | A U.S. Army contract for Lattice battle-manager software and a Dutch Ministry of Defence contract (May 2026) | stated by https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/ |
+| Anduril | lead investors | Founders Fund | Thrive Capital | Founders Fund led its June 2025 round, not this one (https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/) |
+| Anduril | lead investors |  | Andreessen Horowitz | stated by https://techcrunch.com/2026/05/13/anduril-raises-5b-doubles-valuation-to-61b/ |
+| Robotphoenix | description | Makes lightweight industrial robots; listed on HKEX in May 2026, raising ~$86M. | Makes industrial robots, among them delta, SCARA and six-axis models, and robotics systems for light-industry production lines; it listed in Hong Kong in May 2026. | rewritten to what its sources state; each clause quoted from 3 sources in the ledger |
+| Robotphoenix | HQ city | Shanghai | Yuhuan | Yuhuan, a city in Taizhou, Zhejiang; no fetched source puts it in Shanghai (https://www.robotphoenix.com) |
+| Robotphoenix | founded |  | 2012 | stated by https://www.robotphoenix.com |
+| Robotphoenix | round amount | $86M | $96M | no fetched source gives the ~$86M the record carried (https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo) |
+| Robotphoenix | aka |  | Robotphoenix Intelligent Technology Co., Ltd. | stated by https://www.bakermckenzie.com/en/newsroom/2026/05/robotphoenix-hk-ipo |
+| Robotphoenix | aka |  | 浙江翼菲智能科技股份有限公司 | its registered Chinese name (https://news.pedaily.cn/202605/563989.shtml) |
+| ABB Robotics | description | Major industrial robot manufacturer; robotics business acquired by SoftBank for $5.4B in October 2025. | Makes industrial and collaborative robots, autonomous mobile robots and controllers; SoftBank agreed in October 2025 to buy the business from ABB for $5.375 billion. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| ABB Robotics | status | acquired | public | still a division of ABB Ltd; both releases expect the sale to close in mid-to-late 2026, and no fetched source reports that it has (https://www.abb.com/global/en/news/129685/abb-to-divest-robotics-division-to-softbank-group) |
+| ABB Robotics | deployments | Industrial robot installations worldwide | not disclosed | "industrial robot installations worldwide" names no installation, and no fetched source gives a count |
+| Mitsubishi (Robotics) | description | Mass-producing AI humanoid robots in Japan, converting an idle engine plant into a high-volume robot factory targeting 1,000 humanoids per month. | Mitsubishi Motors plans to mass-produce AI humanoid robots designed by the Tokyo startup Highlanders on an unused engine line at its Kyoto plant from the first half of 2027, up to 1,000 a month. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Mitsubishi (Robotics) | founded |  | 1970 | Mitsubishi Motors' founding; the robot programme has none of its own (https://en.wikipedia.org/wiki/Mitsubishi_Motors) |
+| Mitsubishi (Robotics) | website | https://www.mitsubishielectric.com | https://www.mitsubishi-motors.com/en/ | the plan is Mitsubishi Motors', not Mitsubishi Electric's (https://www.mitsubishi-motors.com/en/) |
+| Mitsubishi (Robotics) | deployments | 1,000 humanoids/month production target | n/a | a production target, not a deployment; the robots are to go first to its own plants once production starts in 2027 |
 
 ## /credits marks as their registered images (2026-10-19, market-data-1019c)
 
@@ -1834,3 +1884,108 @@ credited files are white or near-white (most of their opaque pixels under
 Farm-ng's alt, new in market-data-1019b, said most of its caption again
 (0.86 of its words over three letters, above the 0.85 limit); it now describes the mark: "Farm-ng company mark, a
 prompt symbol over its name, from the archived company website" (0.55).
+
+## Field audit close-out (2026-10-20): records 85 to 111, contradictions, empty fields and gates
+
+Feature market-map-dataset-audit-completion. Earlier attempts committed records 1 to 84 (85944e02, db70c150,
+898e18b2 with its pin ecb4a4a2, 21e9aaf5, b8915dd5, b52e0a2a). This session audited the last 27 in three
+batches, with the same decisions grammar and scripts, and repaired the source checker in between (69c06481:
+stale entries removed from `data/dataset-source-exceptions.ts`, and a HEAD 404 or 410 confirmed with a GET before
+a URL counts as dead). Row counts are the rows the committed ledger holds for each batch's records:
+
+| Batch | Records | Commit | Ledger rows |
+|---|---|---|---|
+| 14 | 85-93, openai-robotics to astribot | 05525ad2 | 104: 54 verified, 31 corrected, 13 added, 6 cut |
+| 15 | 94-102, booster-robotics to knightscope | 556d90ec | 115: 48 verified, 43 corrected, 15 added, 9 cut |
+| 16 | 103-111, brain-corp to mitsubishi-robotics | 435f7d27 | 120: 59 verified, 42 corrected, 13 added, 6 cut |
+
+**Where the ledger stands.** At 435f7d27, `audit/market-map-ledger.json` holds 111 records and 1,576 field rows:
+819 verified, 503 corrected, 167 added and 87 cut. 1,497 rows quote a passage from a fetched body. The other 79
+are all cuts, where no fetched body states the value. No row rests on a search snippet: the committed JSON
+contains no occurrence of "snippet". The roughly 40 snippet-corroborated rows and the 21 identity-only records
+of the 2026-08-18 pass (the method paragraph at the top and the identity-only row of its corrections ledger) are
+superseded: each of those records now has a full field ledger. Counted with `git show
+HEAD:audit/market-map-ledger.json`, tallying `rows[].verdict` and the rows with a `source` over all
+`companies[]` in Node.
+
+**Same-round contradictions (VAL-B2-MAP-009).** Spirit AI's card shows the 1.5 billion yuan ($222M) Series A+ the
+company announced on 3 June 2026 (PEdaily; The Next Web). Its caveat keeps the other figures for its February
+round: Crunchbase News gives a $290 million Series A followed by a $145 million extension, while the
+company's release gives $280 million. The caveat links all three sources. TARS's card shows the $455M Pre-A the
+company announced (Pandaily; Xinhua), and its caveat keeps Crunchbase News' reading of the same round as a $513
+million seed at a $1.9 billion valuation. Carbon Robotics' latest round is the $20M that GeekWire calls a
+"Series D-2 extension", led by Giant Ventures on 23 October 2025, corrected from "Series D". The 2024 $70M Series
+D is its earlier round, and the two no longer share a label. `tests/component/market-map.test.tsx` ("keeps
+same-round contradictions visible on the card (VAL-B2-MAP-009)") opens the three cards and checks the round
+type, the amount, the caveat's figures and its source links.
+
+**Empty fields (VAL-B2-BASE-005).** The registry records 569 dispositions across the 111 records (`absent` in
+`research/04-market-map-companies.json`; per-field table in the field-audit section above). The feature brief
+counted 84 empty aka lists, 33 empty deployment lists, 105 empty open-source lists, 1 missing website, 23
+missing founded years and 96 missing totals. After the audit, 61, 30, 96, 4, 15 and 99 are empty, and each
+has a disposition. The schema rejects an empty field without one (`tests/unit/schemas.test.ts`, "rejects an
+empty field with no recorded disposition (VAL-B2-BASE-005)"), and the card prints exactly "not disclosed" or
+"n/a" (`components/market-map/company-card.tsx`).
+
+**Sources.** `npm run check:dataset-sources` on the batch-16 data: 375 dataset source URLs across 111 records,
+364 live, 0 dead, 3 blocked, 4 error and 4 documented exceptions. The three blocked URLs (SupplyChain247 for
+Locus, GeekWire for Carbon, GovConWire for Saronic) answered 403 to the checker. The audit read them through a
+follow-up fetch or a headless render, and 9, 9 and 2 ledger rows quote them. The four errors were network
+failures in that run ("fetch failed" or "This operation was aborted"). `data/dataset-source-exceptions.ts`
+holds 8 entries: the runtime `DATASET_SOURCE_EXCEPTIONS.length`, `rg -c "^    url: '"` and
+`rg -c "^    verifiedOn: '"` each return 8. The run reports 4 documented exceptions because an entry whose URL
+answered live in that run counts as live.
+
+**Access facts.** Serve Robotics' investor site (ir.serverobotics.com) answers 403 to every fetch tried. Serve's
+SEC filings carry the same release (exhibit 99.1 of its 8-K of 21 January 2026) and the completion 8-K. EDGAR
+served them to a Node (undici) fetch with a generic user agent, while curl got 403. Both filing dates come from
+EDGAR's filing indexes, read on 20 October 2026: accession 0001213900-26-005920, which holds the exhibit, was
+filed on 2026-01-21, and the completion 8-K, 0001213900-26-009480, on 2026-01-29. new.abb.com timed out after
+60 s. The same ABB release at www.abb.com/global/en/news/129685/ answered 200.
+
+**Carve-outs.** This is a dataset pass: no article prose changed, so no `lastReviewed` moved. The card
+descriptions are reader-facing, so the 27 written for records 85 to 111 were re-read against the humanizer's
+patterns (contrast framing, staged openers, closing one-liners, superlatives a source does not license). None
+needed a change. The humanizer skill was not run as a tool.
+
+**Notes for future audits.**
+- The brand-v2 identity runtime evidence (`evidence/brand-v2/identity-runtime.json`, last written by 81d4ee90)
+  is stale. Its fingerprint covers every file a public route reaches, and every audit batch since db70c150
+  changed `data/companies.ts`, as did the landing of d3cc89c3. So `npm run build` completes the export and then
+  exits 1 at `check:brand-v2-enforcement` until `npm run refresh:brand-v2-evidence` runs, or the release autofix
+  runs it (owner directive of 2026-10-12 13:40 in the mission's AGENTS.md). This pass did not run it.
+- The 16 e2e failures listed in the gates below are on article routes this pass did not touch: the A-Z index,
+  the ACT and behaviour-cloning correction specs, reading time, author truncation, and two micro-label checks
+  in `market-map.spec.ts` that sweep `/manipulation/action-chunking/` and `/world-models/generative-video/`.
+  They need their own owner.
+- ABB Robotics: ABB and SoftBank expected the sale to close in mid-to-late 2026. When a source reports the
+  close, the status goes back to acquired with that source, and the caveat goes.
+- Fox Robotics: The Robot Report dates Symbotic's announcement only to its first-quarter earnings call. Symbotic's
+  own earnings release would date the round.
+- Brain Corp: an aggregator lists a February 2024 round of $32.1M that no fetched source states. A primary source
+  for it would fill the latest-round fields, which the audit left undisclosed.
+
+### Gates (transcript of commands run in this session)
+
+Batch 14's gate output was not written down when it was committed. The gates below ran on later trees, which
+include its data.
+
+| Gate | Command | Result |
+|---|---|---|
+| Batch 15: unit and component | `npx vitest run` on the 16 dataset-related test files | pass, 291 passed |
+| Batch 15: content, types, lint | `npm run validate:content`, `npm run typecheck`, `npm run lint` | pass, exit 0 each |
+| Batch 15: sources | `npm run check:dataset-sources` | exit 0: 366 URLs, 350 live, 0 dead, 3 blocked, 9 error, 4 documented exceptions |
+| Batch 16: reader-first pin | `node scripts/record-reader-first-continuity.ts tests/e2e/market-map.spec.ts` | recorded: 237 successors, review 2,785,526 bytes |
+| Batch 16: unit and component | `npx vitest run` on 21 files: every unit and component test that mentions the company data, the ledger, the registry or the dataset sources, every `*market-map*`, `*compan*` and `*dataset*` test, `tests/unit/reader-first-continuity.test.ts` and `tests/unit/main-merge-approved-deltas.test.ts` | pass, 21 files, 369 passed |
+| Batch 16: content | `npm run validate:content` | pass, exit 0 (audit coverage OK: 57/57 published articles, 1080 claim rows, 1375/1375 citations) |
+| Batch 16: types | `npm run typecheck` | pass, exit 0 |
+| Batch 16: lint | `npm run lint` | pass, exit 0 |
+| Batch 16: sources | `npm run check:dataset-sources` | exit 0: 375 URLs, 364 live, 0 dead, 3 blocked, 4 error, 4 documented exceptions |
+| Build | `npm run build` at 435f7d27 | exit 1 at `check:brand-v2-enforcement`: "identity runtime evidence is stale" (see the notes above). Before it, both `next build` passes and the post-build checks passed: reading times, export pruning, 404 guard, search index, no-slop, figure system, SEO, discovery prose, internal links and the census ("OK (75 public routes + separate 404, 87 sources, 86 mounts, 267 assets)"). `generate:og-cards` and `check:og-card-bytes` come after it and did not run. |
+| Close-out: contradiction test | `npx vitest run tests/component/market-map.test.tsx -t "same-round contradictions"` | pass, 1 passed |
+| Full e2e | `lsof -ti :3200 \| xargs kill`, then `npx playwright test` at 435f7d27 | stopped at test 149 of 1,992 after 10 minutes (13:46:51 to 13:57:30), because at that pace it would end near 16:30, after this feature's 15:00 stop. 14 failures by then, none on a route this pass changed: `a-z-index.spec.ts:183` (the `aside` A-Z link never appears), `act-convention.spec.ts:9` x2 (4 expected, 3 received), `act-final-model-papers.spec.ts:6` x2 and `act-five-sources.spec.ts:6` x2 (element not found), `article-header.spec.ts:230` (bc-foundations reading time 4.81 min off), `author-truncation.spec.ts:150` and `:173` (5 line boxes; 29.7% growth against 30%), `bc-foundations-corrections.spec.ts:10` and `:101` x2 each. No full-suite count is claimed. |
+| Targeted e2e | port 3200 cleared, then `npx playwright test` on the seven `market-map*.spec.ts` files, `figure-system-marks`, `credits-about`, `imagery` and `search-structured` | 78 passed, 3 failed (5.1 min). `market-map.spec.ts:431` and `:472` fail on article routes the spec also sweeps: `/manipulation/action-chunking/` has 7 uppercase micro-labels (limit 5), and `/world-models/generative-video/` renders "listens to the action" in lowercase. The only commit since the release refresh that touched those articles' components is d3cc89c3, and the lowercase label came in with commits of 12 and 13 October. `market-map-logos.spec.ts:83` timed out at 30 s while screenshotting each of more than 100 marks, and again when run alone. |
+| Logo test, longer budget | `npx playwright test --timeout=180000 "tests/e2e/market-map-logos.spec.ts:83"` | pass, 1 passed in 55.9 s: every mark lays down ink and none is a block. The 30 s failure is the time limit on this loaded host. The test reads only the logo files, which this pass did not change. |
+| Visual check | dev server on port 3200, then a headless Chromium script opening the ABB Robotics, Anduril, Pollen Robotics, Spirit AI, TARS Robotics and Carbon Robotics cards at 1440 and 390 px | 12 screenshots, each examined: status, round, amount, date and caveat match the records above, with no horizontal overflow, no "$0" and 0 console errors |
+| Close-out: final gates | `npm run typecheck`, `npm run lint`, `npm run validate:content`, then `npx vitest run` on `tests/component/market-map.test.tsx`, `tests/unit/schemas.test.ts`, `companies.test.ts`, `market-map.test.ts`, `main-merge-approved-deltas.test.ts` and `reader-first-continuity.test.ts` | pass: exit 0 each; vitest 6 files, 190 passed |
+| Close-out: generated section | `node <mission library>/market-map-audit-20261019-report.mjs --check` | pass: the field-audit section matches the ledger (111 audited, 0 pending, 1576 rows, 533 changes, 33 caveats) |
