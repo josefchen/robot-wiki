@@ -99,7 +99,7 @@
     },
     "control:input": {
       "kind": "controls",
-      "fingerprint": "776ed0967685b51ea5a940bd078be591feab632e92ab1f0215084d94d3b3bd66",
+      "fingerprint": "bb52c708d51f9e4292a527b73543f64ebb05b99100bbebe1a0a743ef7bafa8a8",
       "mountState": "production",
       "definedIn": [
         "components/explainers/brand.ts",
@@ -134,6 +134,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -192,6 +193,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -512,7 +514,7 @@
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "a1d77826b100f7775b0889bfbfde83612e6639b587d97e31a3df57d78b7d884f",
+      "fingerprint": "e919dc8a5c92241554deccb634ca8fb87b2057193207c7c89e39eb6d5415dddc",
       "mountState": "production",
       "definedIn": [
         "components/article/author-list.tsx",
@@ -549,6 +551,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/noise-or-edit.tsx",
         "components/interactive/pendulum-controller.tsx",
@@ -618,6 +621,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/noise-or-edit.tsx",
         "components/interactive/pendulum-controller.tsx",

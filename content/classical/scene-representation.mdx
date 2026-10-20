@@ -75,6 +75,8 @@ seeAlso:
 
 import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';
 
+import { LoopClosure } from '@/components/interactive/loop-closure';
+
 Scene representation is how a robot stores what it knows about its surroundings so that planners, controllers and other consumers can query it <Cite id="cadena-2016" />. Representations range from point clouds and occupancy grids to signed-distance fields, meshes and neural fields such as radiance fields and Gaussian splats <Cite id="cadena-2016" /><Cite id="neural-fields-survey-2024" />.
 
 <Image id="ouster-lidar-point-cloud-sf" />
@@ -138,6 +140,8 @@ Direct Sparse Odometry skips the detector and optimizes photometric error over s
 Learned systems keep classical machinery: DROID-SLAM iterates camera pose and per-pixel depth through a dense bundle-adjustment layer <Cite id="droid-slam-2021" />.
 
 Revisiting mapped landmarks can reduce odometric drift and in some cases correct it, and visual-inertial methods drift less than wheel odometry <Cite id="cadena-2016" />. Monocular ORB-SLAM validates a <Term id="loop-closure">loop closure</Term> geometrically, then spreads its error with similarity alignment and Essential Graph optimization <Cite id="orb-slam-2015" />.
+
+<LoopClosure className="my-6" />
 
 <Term id="place-recognition">Place recognition</Term> asks whether the current image matches a stored place, and motion information can also inform that belief. Viewpoint, illumination and seasonal changes alter one place's appearance, and different places can look alike, which is perceptual aliasing <Cite id="lowry-2016-place-recognition" />.
 

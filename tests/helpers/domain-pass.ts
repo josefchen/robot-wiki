@@ -294,6 +294,29 @@ export function homeHubs20261016Endpoint(
 }
 
 /**
+ * Edges the classical isometric figure batch loop-b01 of 2026-10-20 appended
+ * as one block after the KOL triage batch of the same day: the new LoopClosure
+ * source and its mount, and one plain edge on the scene-representation prose.
+ */
+export const isAnatomyLoopB0120261020Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('anatomy-loop-b01-figures-20261020-');
+
+/** The hash the 2026-10-20 loop-b01 figure batch leaves on a member whose chain ends at `from`. */
+export function anatomyLoopB0120261020Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isAnatomyLoopB0120261020Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-20 loop-b01 edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * Edges the data-hardware images of 2026-10-15 appended as one block after
  * the isometric figure batch b06: one prose edge per data-hardware article that gained
  * image mounts, one edge from an absent seal per registered image they added,

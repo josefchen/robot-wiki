@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "226e0f1842a38bbe5704323d360871c77a95b60c440e7c01d83196d86c5c82bf",
+  "fingerprint": "2a6e4b2e996c38626b9cb6ae01fd59aeeb92ead86407a97c7aa408d55d6f0420",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1260,7 +1260,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27920,
+      "visibleTextLength": 28539,
       "figures": [
         {
           "imageId": "ouster-lidar-point-cloud-sf",
@@ -17726,7 +17726,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36362,
+      "visibleTextLength": 36981,
       "figures": [
         {
           "imageId": "ouster-lidar-point-cloud-sf",

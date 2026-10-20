@@ -166,6 +166,9 @@ export const LatentImagination = dynamic(() =>
 export const LinearizationGap = dynamic(() =>
   import('@/components/interactive/linearization-gap').then((m) => m.LinearizationGap),
 );
+export const LoopClosure = dynamic(() =>
+  import('@/components/interactive/loop-closure').then((m) => m.LoopClosure),
+);
 export const MilestonesWatchlist = dynamic(() =>
   import('@/components/interactive/milestones-watchlist').then((m) => m.MilestonesWatchlist),
 );

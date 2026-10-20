@@ -18,8 +18,8 @@ const root = resolve(import.meta.dirname, '../..');
  * The mounts that landed after the image mounts, the newest change to their articles: the 2026-10-15 frontier,
  * world-models and manipulation mounts, the 2026-10-19 teleoperation rigs mount, surgical robotics' second mount of
  * 2026-10-19 (its first, of 2026-10-12, sits under the adjacent cut and the image mounts), the 2026-10-20
- * manipulation mounts in RL fine-tuning, the robot-learning roadmap and cross-embodiment transfer, and the
- * 2026-10-20 state estimation mount.
+ * manipulation mounts in RL fine-tuning, the robot-learning roadmap and cross-embodiment transfer, the 2026-10-20
+ * state estimation mount, and the 2026-10-20 scene representation mount.
  */
 const AFTER_IMAGES = [
   'content/frontier/bear-case.mdx', 'content/frontier/safety-and-assurance.mdx',
@@ -29,6 +29,7 @@ const AFTER_IMAGES = [
   'content/manipulation/rl-finetuning.mdx', 'content/manipulation/robot-learning-roadmap.mdx',
   'content/manipulation/cross-embodiment.mdx',
   'content/classical/state-estimation.mdx',
+  'content/classical/scene-representation.mdx',
 ];
 /** An article's late record is its last one; its earlier records stay under the newer layers. */
 const isLate = (review: FigureMountReview, source: FigureMountSource) =>
@@ -81,11 +82,15 @@ describe('figure mounts 2026-10-07 article successors', () => {
   // Successor (classical isometric figure, 2026-10-20): state estimation
   // gained one new isometric figure (LinearizationGap) the same way, after
   // its image mounts; the list stays exact.
+  // Successor (classical isometric figure, 2026-10-20, batch loop-b01): scene
+  // representation gained one new isometric figure (LoopClosure) the same
+  // way, after its image mounts; the list stays exact.
   it('reviews exactly the articles that gained admitted figure mounts', () => {
     expect(figureMountSuccessorPaths()).toEqual([
       'content/adjacent/surgical.mdx',
       'content/classical/calibration.mdx',
       'content/classical/ros2-for-ml-engineers.mdx',
+      'content/classical/scene-representation.mdx',
       'content/classical/state-estimation.mdx',
       'content/data-hardware/robot-learning-stack.mdx',
       'content/data-hardware/teleop-rigs.mdx',

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3024,
+      "visibleTextLength": 3031,
       "header": {
         "present": true,
         "display": "flex",
@@ -2666,7 +2666,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 27920,
+      "visibleTextLength": 28539,
       "header": {
         "present": true,
         "display": "flex",

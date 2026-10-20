@@ -9931,6 +9931,57 @@
         "fingerprint": "e872612245c120e58721cde8b7b77966825f030f141014cc01e09ca3e50d091a"
       },
       {
+        "id": "interactive:LoopClosure",
+        "component": "LoopClosure",
+        "sourcePath": "components/interactive/loop-closure.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "b173ecf520a3bf413c7086680f4938e8404a0479ae6b0c5b8861c486ee8f0946"
+      },
+      {
         "id": "interactive:MilestonesWatchlist",
         "component": "MilestonesWatchlist",
         "sourcePath": "components/interactive/milestones-watchlist.tsx",
@@ -13071,6 +13122,61 @@
         ],
         "expectedCaseCount": 7,
         "fingerprint": "ae6d07d33326bd7451bfdc081339952f16e84689ebd8a6daa3354978887ec792"
+      },
+      {
+        "id": "mount:/classical/scene-representation/:LoopClosure:1",
+        "sourceId": "interactive:LoopClosure",
+        "route": "/classical/scene-representation/",
+        "ownerPath": "content/classical/scene-representation.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 8,
+        "fingerprint": "ae2d957617a440cfbd292e8161f4d3010a6a7126cb41d0c2182c650dddf60472"
       },
       {
         "id": "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
@@ -18122,6 +18228,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/noise-or-edit.tsx",
         "components/interactive/pendulum-controller.tsx",
@@ -18191,6 +18298,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/noise-or-edit.tsx",
         "components/interactive/pendulum-controller.tsx",
@@ -18239,7 +18347,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "a1d77826b100f7775b0889bfbfde83612e6639b587d97e31a3df57d78b7d884f"
+      "fingerprint": "e919dc8a5c92241554deccb634ca8fb87b2057193207c7c89e39eb6d5415dddc"
     },
     {
       "id": "control:selection",
@@ -18591,6 +18699,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -18649,6 +18758,7 @@
         "components/interactive/latency-comparison.tsx",
         "components/interactive/latent-imagination.tsx",
         "components/interactive/linearization-gap.tsx",
+        "components/interactive/loop-closure.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/motion-pantograph.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -18688,7 +18798,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "776ed0967685b51ea5a940bd078be591feab632e92ab1f0215084d94d3b3bd66"
+      "fingerprint": "bb52c708d51f9e4292a527b73543f64ebb05b99100bbebe1a0a743ef7bafa8a8"
     },
     {
       "id": "control:disabled",
@@ -18728,5 +18838,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "c9ad818c19cd0e2eabac51b08636732f1975e695c32e611fab0e49599f3d9238"
+  "rootFingerprint": "daf12aa651f7de106ee546cfc8d1b108f745ff1cae49683ea4d00677df00ddd8"
 }

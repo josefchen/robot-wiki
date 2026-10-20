@@ -288,6 +288,13 @@
     "reason": "External imagery keeps its own visual identity and attribution, not the scene palette."
   },
   {
+    "article": "scene-representation",
+    "element": "LoopClosure",
+    "decision": "keep",
+    "teachingGoal": "Show a robot's map drifting out of shape as small turn errors add up, then pulled back when it recognises the start, with every joint of the chain taking a share of the correction.",
+    "reason": "A new isometric chain-map table (2026-10-20): a jointed chain of links and sprung pins on a printed floor plan is the robot's pose chain; closing the loop seats the rover's lit bar on the start post and every spring gives by its least-squares share."
+  },
+  {
     "article": "state-estimation",
     "element": "Image:apollo-imu-draper-2019",
     "decision": "keep",

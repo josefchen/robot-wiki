@@ -71,13 +71,14 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 62838, sha256: 'c7ccdce0ba7643f779af41e0898123cd350a46231352a15183021073c35e1252' };
+const reviewPin = { bytes: 64540, sha256: 'f25ba73bcf8cd101cddc6ffbe81d28c1aa8970f7457317c9b6e67c7e085f2c99' };
 
 /** Reviewed successor bytes per path (one per mount change, oldest first), so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = new Map([
   ['content/adjacent/surgical.mdx', [[13598, 'cffde9f2ee237da5e27c744f7e62bd8f7ac75a914a27487f3fed2e7a9c7dfdf6'], [12535, 'b229640fa753e33d14441269b9fd68424f6775ffaa6dc5ac6e35143c125937f3']]],
   ['content/classical/calibration.mdx', [[10030, 'ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5']]],
   ['content/classical/ros2-for-ml-engineers.mdx', [[9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']]],
+  ['content/classical/scene-representation.mdx', [[16480, '515349d6cfefb7b6df9130a8719889c0f0c56e0219b25453644f0a2929ad0078']]],
   ['content/classical/state-estimation.mdx', [[14073, 'f4ee9d7b68feee568ecf5b21f95d37bfda3f51443c96533816d9929f214232c1']]],
   ['content/data-hardware/robot-learning-stack.mdx', [[11133, 'd5721a94dca00a2436bd40421cd71a69a0419c87459c160403e2c97141564b39']]],
   ['content/data-hardware/teleop-rigs.mdx', [[9699, 'f0115721ca4182a93ab1047168171137f738ebb2bc777439a59c0418e42bc5fa']]],
@@ -140,6 +141,7 @@ const FIGURE_MOUNTS: Readonly<Record<string, string>> = {
   DeltaFrame: 'delta-frame',
   HandMotionShare: 'hand-motion-share',
   LinearizationGap: 'linearization-gap',
+  LoopClosure: 'loop-closure',
 };
 
 const importLine = (name: string, file: string) => `\nimport { ${name} } from '@/components/interactive/${file}';\n\n`;

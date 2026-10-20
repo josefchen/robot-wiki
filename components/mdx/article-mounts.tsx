@@ -85,6 +85,7 @@ export {
   KeypointString,
   KinematicTwin,
   LinearizationGap,
+  LoopClosure,
   LatencyComparison,
   LatentImagination,
   MotionPantograph,

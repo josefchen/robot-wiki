@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2791583, sha256: '1d276b2c3e838cc5a7fa50b89f0d36a3aa49fdbbad9d32c351a7fabd21132991' };
+const reviewPin = { bytes: 2797721, sha256: '179131ab3bc25c88ce084d6529883f75a2d15265742053d389fcf40242bfe3b5' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -266,12 +266,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-figure-evidence.test.ts', [33552, '01ed0e3b977509ab2d5d4d2bf1e333573b08b862af223a8a13cf24ac39bc2460']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [318789, 'e861872f1f64b7373766c149178c81280c1f219519ff19f32bd0e900a97ee80a']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [324258, '92eb1d18954f6b0b82fdc856111d9940b5b5e8472c43e1d7b8f5af1012c1a909']],
   ['tests/unit/motion-data-hardware.test.ts', [11831, 'a440e874d11c87a0c6657331f72be47dacc2e432aaf680f4a1956896369f741a']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
-  ['tests/unit/reader-release-integration.test.ts', [31200, '916d399a9a0b4c37e7426a74952b7a7ac5abadd91a0b63851b46a9e73a1382dd']],
+  ['tests/unit/reader-release-integration.test.ts', [31776, '7cb6dcd6df5287ec524f7c8f781091629a56cc6c6d65a158be335382afb53378']],
   ['tests/unit/reward-local-evidence.test.ts', [9001, 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12']],
   ['tests/unit/robomind-hours-evidence.test.ts', [26666, 'a086b3901b73321a859c0f5fc86fd808e3437b3a6c1c706d61e4b4c41f57a768']],
   ['tests/unit/sim2real-local-evidence.test.ts', [9669, '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a']],

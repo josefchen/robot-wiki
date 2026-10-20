@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-20T16:50:38Z",
+  "observedAt": "2026-10-20T18:36:22Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -110,6 +110,29 @@
         {
           "before": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n",
           "after": "One robust layout for a learned-policy graph separates drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only at an external supervisor's request or on an error in the Active state <Cite id=\"ros2-lifecycle-design-2015\" />. Inference stays outside the hard real-time loop unless its worst case fits; ROS 2's real-time guidance keeps page faults, dynamic allocation and indefinitely blocking synchronization out of that path <Cite id=\"ros2-realtime-docs-2026\" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id=\"ros2-executors-2026\" />.\n\n<Ros2PolicyLayout className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "077f155650d85cd4b5adda477d87cba8760f36c3",
+      "before": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16376,
+        "sha256": "6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc"
+      },
+      "after": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16480,
+        "sha256": "515349d6cfefb7b6df9130a8719889c0f0c56e0219b25453644f0a2929ad0078"
+      },
+      "edits": [
+        {
+          "before": "import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';\n\n",
+          "after": "import { SceneRepresentationLadder } from '@/components/interactive/scene-representation-ladder';\n\nimport { LoopClosure } from '@/components/interactive/loop-closure';\n\n"
+        },
+        {
+          "before": "Revisiting mapped landmarks can reduce odometric drift and in some cases correct it, and visual-inertial methods drift less than wheel odometry <Cite id=\"cadena-2016\" />. Monocular ORB-SLAM validates a <Term id=\"loop-closure\">loop closure</Term> geometrically, then spreads its error with similarity alignment and Essential Graph optimization <Cite id=\"orb-slam-2015\" />.\n",
+          "after": "Revisiting mapped landmarks can reduce odometric drift and in some cases correct it, and visual-inertial methods drift less than wheel odometry <Cite id=\"cadena-2016\" />. Monocular ORB-SLAM validates a <Term id=\"loop-closure\">loop closure</Term> geometrically, then spreads its error with similarity alignment and Essential Graph optimization <Cite id=\"orb-slam-2015\" />.\n\n<LoopClosure className=\"my-6\" />\n"
         }
       ]
     },

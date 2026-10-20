@@ -540,6 +540,19 @@
       "takeaway": "The way a robot stores a scene decides which questions it can answer; finer resolution only changes cost and detail."
     },
     {
+      "id": "classical--scene-representation--loop-closure",
+      "route": "/classical/scene-representation/",
+      "mount": "mount:/classical/scene-representation/:LoopClosure:1",
+      "figure": "loop-closure",
+      "audit": null,
+      "sources": [
+        "components/interactive/loop-closure.tsx",
+        "components/iso/figures/chain-map-table.ts",
+        "lib/loop-closure.ts"
+      ],
+      "takeaway": "Small errors in every turn bend a robot's map out of shape; when it recognises a place it has been, the map is pulled back, with every step taking a little of the correction."
+    },
+    {
       "id": "frontier--reliability-gap--deployment-dashboard",
       "route": "/frontier/reliability-gap/",
       "mount": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "507fd57adb3bd9caf2614d1648c0980a3cde0d1ead9384f674dbe229286ced9b",
+  "fingerprint": "2717b9162979c0d6773b5268982a888922c2cf2d0ae1722dc99a6568cb0f9d81",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3024,
+      "visibleTextLength": 3031,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10754,7 +10754,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27920,
+      "visibleTextLength": 28539,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10806,11 +10806,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 60,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "11 min read",
+        "readingTimeText": "12 min read",
         "citationCountText": "60 sources",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -11141,6 +11141,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Revisiting mapped landmarks can reduce odometric drift and i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative course and drift; each joint's share is that ch"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A robot that maps as it drives places each pose from the one"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a chain-map table. A printed floor plan shows"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a loop of 16 legs of 2 m round a block, and ev"
         },
         {
           "familyHead": "geist",
@@ -11672,6 +11708,22 @@
           "text": "Current representation, resoluti",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Close the loop",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -56770,7 +56822,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3024,
+      "visibleTextLength": 3031,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67260,7 +67312,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36362,
+      "visibleTextLength": 36981,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67312,11 +67364,11 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 11,
+        "readingMinutes": 12,
         "citationCount": 60,
         "reviewDateText": "22 August 2026",
         "reviewDateTime": "2026-08-22",
-        "readingTimeText": "11 min read",
+        "readingTimeText": "12 min read",
         "citationCountText": "60 sources",
         "bibliographyIds": [
           "moravec-elfes-1985",
@@ -67647,6 +67699,42 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Revisiting mapped landmarks can reduce odometric drift and i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.5,
+          "widthPx": 875.63,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative course and drift; each joint's share is that ch"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A robot that maps as it drives places each pose from the one"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The drawing is a chain-map table. A printed floor plan shows"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Illustrative: a loop of 16 legs of 2 m round a block, and ev"
         },
         {
           "familyHead": "geist",
@@ -68178,6 +68266,22 @@
           "text": "Current representation, resoluti",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Close the loop",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

@@ -547,6 +547,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // The EKF's tangent at the estimate against the curve it replaces, on an illustrative one-joint arm; the miss is that arm's exact geometry; "Illustrative" status line.
     kind: 'schematic',
   },
+  'interactive:LoopClosure': {
+    // A pose chain that drifts and closes, on an illustrative loop and drift; each joint's share is that chain's exact least-squares solution; "Illustrative" status line.
+    kind: 'schematic',
+  },
   'interactive:HelixClockwork': {
     // Figure's two Helix 02 rates (200 Hz and 1 kHz) on an illustrative clockwork; "Schematic" status line.
     kind: 'schematic',

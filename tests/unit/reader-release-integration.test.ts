@@ -299,6 +299,17 @@ function throughSeoPass(path: string) {
     expect(continues(kol, end)).toBe(true);
     end = kol.newHash;
   }
+  // The classical isometric figure of 2026-10-20 (batch loop-b01) landed
+  // after the KOL triage batch; its one edge on the scene-representation
+  // article, which gained a figure mount, continues the previous endpoint the
+  // same way.
+  const loopFigureEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('anatomy-loop-b01-figures-20261020-'));
+  expect(loopFigureEdges.length).toBeLessThanOrEqual(1);
+  for (const figures of loopFigureEdges) {
+    expect(continues(figures, end)).toBe(true);
+    end = figures.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 
