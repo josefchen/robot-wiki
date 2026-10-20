@@ -1244,10 +1244,10 @@ floor ("more than $1B") is never promoted to an amount or a total. A description
 say. Where the sources disagree about the same round, or state only a floor, the card shows a caveat that cites
 the sources instead of dropping either figure.
 
-**Progress.** 24 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics.
-The other 87 still rest on the evidence of the earlier passes until their batch lands.
+**Progress.** 36 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics, ubtech-robotics, fourier-intelligence, galbot, agibot, sanctuary-ai, neura-robotics, humanoid-uk, spirit-ai, galaxea-ai, engineai, robot-era, tars-robotics.
+The other 75 still rest on the evidence of the earlier passes until their batch lands.
 
-**Ledger rows.** 349 rows: 242 verified, 72 corrected, 10 added and 25 cut. The quoted passages come from a body fetched directly (277 rows), a page rendered in a headless browser (5) and a follow-up fetch (48).
+**Ledger rows.** 532 rows: 342 verified, 116 corrected, 37 added and 37 cut. The quoted passages come from a body fetched directly (380 rows), a page rendered in a headless browser (8) and a follow-up fetch (115).
 
 **Empty fields.** Every rendered field a record leaves empty now carries a recorded disposition in the registry
 (`absent` in `research/04-market-map-companies.json`). `not-disclosed` means a value exists but no source
@@ -1263,15 +1263,15 @@ above, under which every empty list and a missing website read "n/a" whatever th
 | HQ city | 15 | 0 |
 | founded | 23 | 0 |
 | website | 3 | 0 |
-| aka | 9 | 75 |
-| deployments | 33 | 0 |
-| open source | 0 | 103 |
-| total raised | 92 | 8 |
+| aka | 7 | 72 |
+| deployments | 31 | 0 |
+| open source | 0 | 99 |
+| total raised | 93 | 8 |
 | round type | 34 | 7 |
-| round amount | 45 | 7 |
+| round amount | 47 | 7 |
 | round date | 28 | 7 |
-| round valuation | 74 | 8 |
-| lead investors | 48 | 9 |
+| round valuation | 73 | 9 |
+| lead investors | 48 | 10 |
 
 **Round caveats.** A caveat shows under the round on the card, with links to the sources it cites:
 
@@ -1281,6 +1281,14 @@ above, under which every empty list and a missing website read "n/a" whatever th
 | Field AI | type not disclosed | The $405M is two funding rounds announced together; the sources do not give the latest round on its own. | https://www.cnbc.com/2025/08/20/gates-nvidia-fieldai-robotics.html |
 | Applied Intuition | Series F | The $600M covers the Series F and a tender offer together; the company does not say how much is new money. | https://www.appliedintuition.com/press-releases/series-f |
 | Figure AI | Series C | Figure says the Series C exceeded $1B; it gives no exact amount. | https://www.figure.ai/news/series-c |
+| Fourier | Series E | Fourier's Series E was reported as nearly 800 million yuan, about $109M; no exact amount is given. | https://www.sixthtone.com/news/1016947, https://humanoidroboticstechnology.com/articles/humanoid-funding-rounds-in-2025/ |
+| Galbot | type not disclosed | Galbot says the round exceeded $300 million; it gives no exact amount. | https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html, https://www.therobotreport.com/galbot-brings-in-300m-to-scale-mobile-manipulator-deployments/ |
+| NEURA Robotics | Series C | NEURA gives its Series C as up to $1.4 billion; no closed amount is given. | https://neura-robotics.com/record-series-c/, https://www.cnbc.com/2026/06/10/neura-robotics-funding-ai-humanoid-robots.html |
+| Spirit AI | Series A+ | This A+ round is Spirit AI's fourth in three months. For the February round, Crunchbase News gives a $290 million Series A, followed by a $145 million extension in April, while the company's release gives $280 million. | https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/, https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html, https://news.pedaily.cn/202606/564786.shtml |
+| Galaxea AI | Series B+ | The AI Insider, citing Yicai Global, puts the valuation at roughly $29 billion, while The Paper reports more than 20 billion yuan; the card gives no valuation. | https://theaiinsider.tech/2026/04/04/chinese-robotics-startup-galaxea-ai-raises-290m-usd-in-series-b-funding-valued-at-29b-usd/, https://m.thepaper.cn/newsDetail_forward_32878036 |
+| EngineAI | Series B | Blue Whale Finance reported on 6 May 2026, citing a person familiar with the deal, that a Series B+ round had closed; its size and investors were not published. | https://www.lanjinger.com/d/1778055085697120105 |
+| RobotEra | type not disclosed | RobotEra says the round raised more than $200 million; it gives no exact amount or round name. | https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/, https://pulse2.com/robotera-raises-over-200-million-to-scale-humanoid-robotics-commercialization/ |
+| TARS Robotics | Pre-A | Crunchbase News reports this round as a $513 million seed round at a $1.9 billion valuation; the company's announcement, as Pandaily and Xinhua report it, gives $455 million in a Pre-A round and no valuation. | https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/, https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector, https://www.news.cn/tech/20260417/aa7c5116da7648fc99470a6b4a56ef35/c.html |
 
 ### Changes, by record
 
@@ -1365,6 +1373,67 @@ Every value the ledger does not mark verified, against the record at the audit's
 | Unitree Robotics | open source |  | UnifoLM-VLA-0 model | stated by https://www.unitree.com/opensource |
 | Unitree Robotics | open source |  | G1 and Z1 manipulation datasets | stated by https://www.unitree.com/opensource |
 | Unitree Robotics | open source |  | unitree_IL_lerobot | stated by https://www.unitree.com/opensource |
+| UBTECH Robotics | description | Builds Walker S2 industrial humanoid robots; began mass production and delivery of several hundred units, reaching 1,000 Walker S2 milestone. | Builds Walker S2 industrial humanoid robots; began mass production and delivery in November 2025 and rolled its 1,000th Walker S2 off the line in December 2025. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| UBTECH Robotics | round type | IPO | Share placement | its sixth placement since the December 2023 listing, so the IPO is no longer its latest round; the company's announcements list no later placing (https://finance.yahoo.com/news/chinas-ubtech-robotics-eyes-us-093000717.html) |
+| UBTECH Robotics | round amount | $130M | $399.6M | the US dollar figure SCMP gives; the company's announcements record the placing's completion on 2 December 2025 (https://finance.yahoo.com/news/chinas-ubtech-robotics-eyes-us-093000717.html) |
+| UBTECH Robotics | round date | 2023-12-01 | 2025-11-25 | the exchange announcement of the placing (https://www.ubtrobot.com/en/announce) |
+| UBTECH Robotics | round valuation | $5B | n/a | a placement by a listed company is priced per share and sets no valuation; the old $5B was a 2018 private valuation (Wikipedia), and the listing-day market value belongs to the 2023 IPO |
+| UBTECH Robotics | total raised | $940M | not disclosed | no fetched source states a total raised; $940M appears in none of them |
+| UBTECH Robotics | deployments | China-Vietnam border customs ($37M contract) | Border crossings in Guangxi, near Vietnam ($37M contract) | the source names border crossings in Guangxi (Fangchenggang, on the Vietnam border), not customs (https://interestingengineering.com/innovation/ubtech-secures-us37-million-deal) |
+| UBTECH Robotics | deployments | 1,000 Walker S2 robots produced | removed | a production count, not a deployment; the description carries the 1,000th Walker S2 |
+| Fourier | description | Builds GR-series humanoid robots (GR-1, GR-2, GR-3) originating from rehabilitation exoskeletons; GR-3 designed as care-centric companion with DeepSeek AI partnership. | Began in rehabilitation robotics, including exoskeletons, and now builds the GR series of humanoid robots; it showed its GR-3 care robot at CES 2026. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Fourier | round type | Series D | Series E | the latest round; the $62M Series D led by SoftBank Vision Fund 2 was announced in February 2022 (The Robot Report) (https://www.sixthtone.com/news/1016947) |
+| Fourier | round amount | $62M | not disclosed | a bound ("nearly") in yuan, not an amount; the card caveat carries it, and $62M was the 2022 Series D |
+| Fourier | round date | 2024-09-30 | 2025-01-07 | Sixth Tone (11 Apr 2025) says the round closed "In January"; 2024-09-30 matches no round (https://humanoidroboticstechnology.com/articles/humanoid-funding-rounds-in-2025/) |
+| Fourier | deployments | GR-3 debuted at CES 2026 | not disclosed | a trade-show debut, not a deployment; no fetched source names a customer or site for its robots |
+| Fourier | lead investors | SoftBank Vision Fund 2 | not disclosed | SoftBank Vision Fund 2 led the 2022 Series D; no fetched source says who led the Series E (the roundup names participants, not a lead) |
+| Galbot | description | Builds G1 humanoid robots with embodied multimodal large models for commercial and industrial applications; deployed at CATL battery factory. | Develops embodied AI models and the G1 and S1 humanoid robots; the S1 works on CATL's battery lines and the G1 runs its Galbot Store shops in over 30 Chinese cities. | rewritten to what its sources state; each clause quoted from 3 sources in the ledger |
+| Galbot | round amount | $300M | not disclosed | a floor ("surpassed", "exceeding"), not an amount; the card caveat carries it |
+| Galbot | deployments | Industrial manufacturing partnerships | Manufacturing partners Bosch, Toyota and Hyundai | the company's own release names the partners; CATL is its own row (https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html) |
+| Galbot | deployments |  | Galbot Store autonomous retail shops in over 30 cities | stated by https://www.therobotreport.com/galbot-brings-in-300m-to-scale-mobile-manipulator-deployments/ |
+| AgiBot | description | Builds A2-series humanoid robots; acquired control of listed Swancor Advanced Materials (2.1B yuan for at least 63.62%, which AgiBot says is not a backdoor listing); No.1 in 2025 humanoid shipments; preparing a Hong Kong IPO. | Builds the Yuanzheng (A2) and Lingxi humanoid robot series; agreed in July 2025 to take control of listed Swancor Advanced Materials, and Omdia ranked it No.1 worldwide in 2025 humanoid shipments. | rewritten to what its sources state; each clause quoted from 5 sources in the ledger |
+| AgiBot | aka | Zhiyuan Robot | Zhiyuan Robotics | Futurism also calls it Zhiyuan Robotics; "Zhiyuan Robot" appears in no source (https://en.wikipedia.org/wiki/AgiBot) |
+| AgiBot | deployments | A2 66-mile Guinness world-record walk from Suzhou to Shanghai (Nov 2025) | removed | a record walk (Guinness, November 2025), not a customer, site or fleet |
+| AgiBot | deployments | Acquired at least 63.62% controlling stake in Swancor Advanced Materials for 2.1B yuan (~$290M); AgiBot says it is not a backdoor listing | removed | a corporate takeover, not a deployment; the description carries it |
+| AgiBot | deployments | Omdia ranks AgiBot No.1 worldwide in 2025 humanoid shipments (5,100+ units, 39% share) | removed | a shipment ranking, not a deployment; the description carries it |
+| AgiBot | deployments |  | Fulin Precision Engineering: nearly 100 Yuanzheng robots for its factories | announced in August 2025 (https://finance.yahoo.com/news/exclusive-chinese-robot-maker-agibot-092020928.html) |
+| AgiBot | deployments |  | ASD: 100 X2 humanoid robots across 100 retail stores | the company's news item of 29 September 2026 (https://www.agibot.com) |
+| AgiBot | open source |  | AgiBot World dataset | the site's Open Source menu (https://www.agibot.com) |
+| AgiBot | open source |  | AgiBot X1 (hardware design, training and inference code) | the same page lists agibot_x1_train and agibot_x1_infer; the company's site calls the X1 a full-stack open-source robot (https://github.com/AgibotTech) |
+| AgiBot | open source |  | AimRT framework | the site's Open Source menu (https://www.agibot.com) |
+| Sanctuary AI | description | Originally built Phoenix humanoid robots with hydraulic hands; pivoted in 2026 to selling AI software for other robots rather than building hardware. | Built the Phoenix general-purpose humanoid robots; since June 2026 it deploys its Physical AI software on existing industrial robots while it develops hydraulic robotic hands. | rewritten to what its sources state; each clause quoted from 4 sources in the ledger |
+| Sanctuary AI | round date | 2024-01-01 | 2026-05-26 | Zeon's release, which Sanctuary reposted; 2024-01-01 matched no round (the BDC Capital and InBC strategic financing was announced on 3 July 2024) (https://www.zeon.co.jp/en/news/assets/pdf/260526.pdf) |
+| Sanctuary AI | aka |  | Sanctuary Cognitive Systems Corporation | its legal name; its 2022 Series A release uses it (https://www.zeon.co.jp/en/news/assets/pdf/260526.pdf) |
+| Sanctuary AI | deployments | Pivoted Jun 2026 to Physical AI software for third-party industrial robots | Global Tier 1 automotive supplier: a paid deployment, its first commercial purchase order (2026) | the old row described the strategy change, which the description carries (https://www.sanctuary.ai/milestones) |
+| NEURA Robotics | description | Builds 4NE-1 humanoid and cognitive robots combining sensing, hearing, and learning; full-stack robotics company with edge AI capabilities. | Builds the 4NE1 humanoid and the MAiRA and LARA robot arms; its Neuraverse platform lets its robots share learned skills. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| NEURA Robotics | round valuation |  | $7B | a report from a person familiar with the matter, not a company figure (https://www.cnbc.com/2026/06/10/neura-robotics-funding-ai-humanoid-robots.html) |
+| NEURA Robotics | aka |  | Han's Robot Germany GmbH | its name until it rebranded as Neura Robotics in November 2020 (https://en.wikipedia.org/wiki/Neura_Robotics) |
+| NEURA Robotics | deployments |  | Schaeffler: plans to put a mid-four-digit number of NEURA humanoids in its plants by 2035 | stated by https://en.wikipedia.org/wiki/Neura_Robotics |
+| NEURA Robotics | deployments |  | Kawasaki Robotics CL Series cobots, built on NEURA's robot platform (2023) | stated by https://en.wikipedia.org/wiki/Neura_Robotics |
+| Humanoid | description | Builds industrial humanoid robots for real-world tasks; UK's first humanoid robot for industrial use unveiled September 2025. | Builds the HMND 01 Alpha, a wheeled bimanual industrial humanoid run by its own KinetIQ AI; Schaeffler signed to deploy thousands of its robots in manufacturing. | rewritten to what its sources state; each clause quoted from 2 sources in the ledger |
+| Humanoid | aka |  | SKL Robotics Ltd | its registered name; the site's copyright line reads SKL Robotics LTD. (https://www.therobotreport.com/uk-based-humanoid-secures-152m-in-series-a-funding/) |
+| Humanoid | deployments |  | Schaeffler: an agreement to deploy thousands of humanoid robots in its plants | stated by https://thehumanoid.ai/humanoid-raises-152-million-at-1-35-billion-post-money-valuation |
+| Humanoid | deployments |  | Siemens: humanoids in industrial operations, with NVIDIA | a case study on the company's site (https://thehumanoid.ai) |
+| Humanoid | deployments |  | SAP and Martur Fompak: an automotive manufacturing logistics proof of concept | a case study on the company's site (https://thehumanoid.ai) |
+| Spirit AI | aka |  | 千寻智能 | the company's Chinese name, on its own site (https://www.spirit-ai.com) |
+| Spirit AI | deployments |  | CATL: Moz robots on its battery production lines | stated by https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html |
+| Spirit AI | deployments |  | JD MALL stores: its Moz robot | stated by https://news.pedaily.cn/202606/564786.shtml |
+| Spirit AI | open source |  | Spirit v1.5 VLA model (weights and evaluation code) | stated by https://www.prnewswire.com/news-releases/robochallenges-top-ranked-embodied-ai-model-goes-open-source-challenging-clean-data-collection-paradigm-302658247.html |
+| Galaxea AI | description | Builds humanoid robots for industrial and commercial deployment. | Develops Vision-Language-Action models, including G0 and G0 Plus, and the R1 series of robots for manufacturing, logistics and commercial services. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Galaxea AI | aka | Xinghaitu | 星海图 | the company's Chinese name on its own site; the romanised "Xinghaitu" appears in no fetched source (https://www.galaxea-ai.com) |
+| Galaxea AI | open source |  | GalaxeaVLA (open-source VLA models) | stated by https://github.com/OpenGalaxea |
+| Galaxea AI | open source |  | GalaxeaDP diffusion policy | stated by https://github.com/OpenGalaxea |
+| EngineAI | description | Builds humanoid and quadruped robots for traffic, security, and retail deployment; a Series B+ followed in May 2026 with terms undisclosed. | Builds humanoid and quadruped robots for traffic management, security patrols, retail service and industrial work; it has filed confidentially for a Hong Kong IPO. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| EngineAI | founded | 2024 | 2023 | Crypto Briefing also gives 2023; 2024 appears in no source (https://en.wikipedia.org/wiki/EngineAI) |
+| EngineAI | aka |  | Shenzhen EngineAI Robotics Technology Co., Ltd. | its registered name (https://en.wikipedia.org/wiki/EngineAI) |
+| EngineAI | deployments | Traffic, security, and retail deployments planned | not disclosed | the uses its robots are designed for, not a named customer, site or fleet; the description carries them |
+| EngineAI | open source |  | PM01 humanoid (open-source) | stated by https://en.wikipedia.org/wiki/EngineAI |
+| RobotEra | aka | Robot Era | removed | "Robot Era" appears only in a Crunchbase News roundup; the company writes RobotEra or ROBOTERA |
+| RobotEra | aka |  | 星动纪元 | the company's Chinese name on its own site (https://www.robotera.com) |
+| RobotEra | deployments |  | China Post and SF Group: robots in more than ten logistics centres | stated by https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/ |
+| RobotEra | deployments |  | Boston Dynamics, NVIDIA and Apple: use its robot hardware (company statement) | stated by https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/ |
+| TARS Robotics | lead investors | Hillhouse Capital | Hillhouse Ventures | stated by https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector |
+| TARS Robotics | lead investors |  | Meituan Strategic Investment | stated by https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector |
 
 ## /credits marks as their registered images (2026-10-19, market-data-1019c)
 

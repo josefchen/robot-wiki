@@ -1817,25 +1817,25 @@ const ROWS: Company[] = [
     founded: 2012,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds Walker S2 industrial humanoid robots; began mass production and delivery of several hundred units, reaching 1,000 Walker S2 milestone.',
+    description: 'Builds Walker S2 industrial humanoid robots; began mass production and delivery in November 2025 and rolled its 1,000th Walker S2 off the line in December 2025.',
     approach: [
       'industrial-humanoid',
       'mass-production',
       'battery-swapping',
     ],
-    totalRaisedUsd: 940000000,
+    totalRaisedUsd: null,
     latestRound: {
-      type: 'IPO',
-      amountUsd: 130000000,
-      date: '2023-12-01',
-      valuationUsd: 5000000000,
+      type: 'Share placement',
+      amountUsd: 399600000,
+      date: '2025-11-25',
+      valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://finance.yahoo.com/news/chinas-ubtech-robotics-eyes-us-093000717.html',
     },
     status: 'public',
     deployments: [
       'Airbus manufacturing deal',
-      'China-Vietnam border customs ($37M contract)',
-      '1,000 Walker S2 robots produced',
+      'Border crossings in Guangxi, near Vietnam ($37M contract)',
     ],
     openSource: [],
     sources: [
@@ -1859,6 +1859,31 @@ const ROWS: Company[] = [
         title: 'UBTech agrees Airbus deal',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/UBtech_Robotics',
+        title: 'UBtech Robotics - Wikipedia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.globaltimes.cn/page/202512/1351863.shtml',
+        title: '1,000th industrial humanoid robot rolls off production line at UBTECH in Liuzhou (Global Times, press release, 2025-12-30)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://interestingengineering.com/innovation/ubtech-secures-us37-million-deal',
+        title: 'China to deploy battery-swapping humanoid robots for patrols along Vietnam border (Interesting Engineering)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://finance.yahoo.com/news/chinas-ubtech-robotics-eyes-us-093000717.html',
+        title: 'China\'s UBTech Robotics eyes US$400 million in Hong Kong share placement (South China Morning Post, 2025-11-25)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.ubtrobot.com/en/announce',
+        title: 'Latest Announcements (UBTECH Robotics; the placing of new H shares of 25 November 2025, completed on 2 December 2025)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
     absent: {
@@ -1866,8 +1891,16 @@ const ROWS: Company[] = [
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
-      'round.leadInvestors': {
+      'totalRaisedUsd': {
         state: 'not-disclosed',
+      },
+      'round.valuationUsd': {
+        state: 'not-applicable',
+        basis: 'A placement of new shares by a listed company: it is priced per share against the market price and sets no valuation of its own.',
+      },
+      'round.leadInvestors': {
+        state: 'not-applicable',
+        basis: 'A placement of new shares by a listed company, sold to professional investors through placing agents: it has no lead investor.',
       },
     },
   },
@@ -1886,7 +1919,7 @@ const ROWS: Company[] = [
     founded: 2015,
     segment: 'humanoids',
     subSegment: 'care-companion-humanoids',
-    description: 'Builds GR-series humanoid robots (GR-1, GR-2, GR-3) originating from rehabilitation exoskeletons; GR-3 designed as care-centric companion with DeepSeek AI partnership.',
+    description: 'Began in rehabilitation robotics, including exoskeletons, and now builds the GR series of humanoid robots; it showed its GR-3 care robot at CES 2026.',
     approach: [
       'rehabilitation-heritage',
       'vision-only-navigation',
@@ -1894,18 +1927,22 @@ const ROWS: Company[] = [
     ],
     totalRaisedUsd: null,
     latestRound: {
-      type: 'Series D',
-      amountUsd: 62000000,
-      date: '2024-09-30',
+      type: 'Series E',
+      amountUsd: null,
+      date: '2025-01-07',
       valuationUsd: null,
-      leadInvestors: [
-        'SoftBank Vision Fund 2',
-      ],
+      leadInvestors: [],
+      sourceUrl: 'https://www.sixthtone.com/news/1016947',
+      caveat: {
+        text: 'Fourier\'s Series E was reported as nearly 800 million yuan, about $109M; no exact amount is given.',
+        sourceUrls: [
+          'https://www.sixthtone.com/news/1016947',
+          'https://humanoidroboticstechnology.com/articles/humanoid-funding-rounds-in-2025/',
+        ],
+      },
     },
     status: 'private',
-    deployments: [
-      'GR-3 debuted at CES 2026',
-    ],
+    deployments: [],
     openSource: [],
     sources: [
       {
@@ -1914,23 +1951,31 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://aifunding.me/companies/fourier-intelligence',
-        title: 'Fourier Intelligence - $109M Raised',
-        asOf: '2026-08-06',
-      },
-      {
         url: 'https://interestingengineering.com/ai-robotics/fouriers-gr-3-humanoid-at-ces-2026',
         title: 'Fourier\'s GR-3 humanoid at CES 2026',
         asOf: '2026-08-06',
       },
       {
-        url: 'https://techbullion.com/fourier-intelligence-partners-with-deepseek-to-launch-soft-designed-gr-3-humanoid-robot/',
-        title: 'Fourier Intelligence Partners with DeepSeek for GR-3',
-        asOf: '2026-08-06',
+        url: 'https://en.wikipedia.org/wiki/Fourier_Intelligence',
+        title: 'Fourier (company) - Wikipedia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.sixthtone.com/news/1016947',
+        title: 'Humanoid Robots Are Poised to March Into the Real World (Sixth Tone, 2025-04-11)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://humanoidroboticstechnology.com/articles/humanoid-funding-rounds-in-2025/',
+        title: 'Humanoid Funding Rounds in 2025 (Humanoid Robotics Technology, 2025-07-04)',
+        asOf: '2026-10-19',
       },
     ],
     confidence: 'medium',
     absent: {
+      'deployments': {
+        state: 'not-disclosed',
+      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
@@ -1938,7 +1983,13 @@ const ROWS: Company[] = [
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
+      'round.amountUsd': {
+        state: 'not-disclosed',
+      },
       'round.valuationUsd': {
+        state: 'not-disclosed',
+      },
+      'round.leadInvestors': {
         state: 'not-disclosed',
       },
     },
@@ -1958,7 +2009,7 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds G1 humanoid robots with embodied multimodal large models for commercial and industrial applications; deployed at CATL battery factory.',
+    description: 'Develops embodied AI models and the G1 and S1 humanoid robots; the S1 works on CATL\'s battery lines and the G1 runs its Galbot Store shops in over 30 Chinese cities.',
     approach: [
       'embodied-multimodal-large-model',
       'three-layer-architecture',
@@ -1966,15 +2017,24 @@ const ROWS: Company[] = [
     totalRaisedUsd: 800000000,
     latestRound: {
       type: null,
-      amountUsd: 300000000,
+      amountUsd: null,
       date: '2025-12-19',
       valuationUsd: 3000000000,
       leadInvestors: [],
+      sourceUrl: 'https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html',
+      caveat: {
+        text: 'Galbot says the round exceeded $300 million; it gives no exact amount.',
+        sourceUrls: [
+          'https://finance.yahoo.com/news/galbot-secures-over-300-million-190800748.html',
+          'https://www.therobotreport.com/galbot-brings-in-300m-to-scale-mobile-manipulator-deployments/',
+        ],
+      },
     },
     status: 'private',
     deployments: [
       'CATL battery production line',
-      'Industrial manufacturing partnerships',
+      'Manufacturing partners Bosch, Toyota and Hyundai',
+      'Galbot Store autonomous retail shops in over 30 cities',
     ],
     openSource: [],
     sources: [
@@ -1993,6 +2053,11 @@ const ROWS: Company[] = [
         title: 'First Heavy-Duty Humanoid Robot Powered by CATL Batteries Goes Global (CATL first-party, 2026-06-24)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://www.therobotreport.com/galbot-brings-in-300m-to-scale-mobile-manipulator-deployments/',
+        title: 'Galbot brings in $300M to scale mobile manipulator deployments (The Robot Report, 2025-12-23)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
     absent: {
@@ -2001,6 +2066,9 @@ const ROWS: Company[] = [
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'round.type': {
+        state: 'not-disclosed',
+      },
+      'round.amountUsd': {
         state: 'not-disclosed',
       },
       'round.leadInvestors': {
@@ -2012,7 +2080,7 @@ const ROWS: Company[] = [
     id: 'agibot',
     name: 'AgiBot',
     aka: [
-      'Zhiyuan Robot',
+      'Zhiyuan Robotics',
     ],
     website: 'https://www.agibot.com',
     logo: 'agibot-logo',
@@ -2023,7 +2091,7 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds A2-series humanoid robots; acquired control of listed Swancor Advanced Materials (2.1B yuan for at least 63.62%, which AgiBot says is not a backdoor listing); No.1 in 2025 humanoid shipments; preparing a Hong Kong IPO.',
+    description: 'Builds the Yuanzheng (A2) and Lingxi humanoid robot series; agreed in July 2025 to take control of listed Swancor Advanced Materials, and Omdia ranked it No.1 worldwide in 2025 humanoid shipments.',
     approach: [
       'embodied-ai',
       'mass-production',
@@ -2035,28 +2103,22 @@ const ROWS: Company[] = [
       date: '2025-08-01',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://finance.yahoo.com/news/chinese-robot-maker-agibot-completes-104808083.html',
     },
     status: 'private',
     deployments: [
-      'A2 66-mile Guinness world-record walk from Suzhou to Shanghai (Nov 2025)',
-      'Acquired at least 63.62% controlling stake in Swancor Advanced Materials for 2.1B yuan (~$290M); AgiBot says it is not a backdoor listing',
-      'Omdia ranks AgiBot No.1 worldwide in 2025 humanoid shipments (5,100+ units, 39% share)',
+      'Fulin Precision Engineering: nearly 100 Yuanzheng robots for its factories',
+      'ASD: 100 X2 humanoid robots across 100 retail stores',
     ],
-    openSource: [],
+    openSource: [
+      'AgiBot World dataset',
+      'AgiBot X1 (hardware design, training and inference code)',
+      'AimRT framework',
+    ],
     sources: [
       {
         url: 'https://www.prnewswire.com/news/AgiBot/',
         title: 'AgiBot news and press releases (PR Newswire newsroom)',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'Embodied AI Fuels Record Robotics Funding In China',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://humanoidindex.org/companies/agibot',
-        title: 'AgiBot - Humanoid Index',
         asOf: '2026-08-18',
       },
       {
@@ -2084,13 +2146,19 @@ const ROWS: Company[] = [
         title: 'Omdia Ranks AGIBOT No.1 Worldwide in Humanoid Robot Shipments in 2025 (first-party)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/AgiBot',
+        title: 'AgiBot - Wikipedia',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://github.com/AgibotTech',
+        title: 'AgibotTech on GitHub (the company\'s open-source organisation)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
     absent: {
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
-      },
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
@@ -2108,7 +2176,9 @@ const ROWS: Company[] = [
   {
     id: 'sanctuary-ai',
     name: 'Sanctuary AI',
-    aka: [],
+    aka: [
+      'Sanctuary Cognitive Systems Corporation',
+    ],
     website: 'https://www.sanctuary.ai',
     logo: 'sanctuary-ai-logo',
     hq: {
@@ -2118,7 +2188,7 @@ const ROWS: Company[] = [
     founded: 2018,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Originally built Phoenix humanoid robots with hydraulic hands; pivoted in 2026 to selling AI software for other robots rather than building hardware.',
+    description: 'Built the Phoenix general-purpose humanoid robots; since June 2026 it deploys its Physical AI software on existing industrial robots while it develops hydraulic robotic hands.',
     approach: [
       'ai-software-pivot',
       'hydraulic-hands',
@@ -2128,33 +2198,50 @@ const ROWS: Company[] = [
     latestRound: {
       type: null,
       amountUsd: null,
-      date: '2024-01-01',
+      date: '2026-05-26',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.zeon.co.jp/en/news/assets/pdf/260526.pdf',
     },
     status: 'private',
     deployments: [
-      'Pivoted Jun 2026 to Physical AI software for third-party industrial robots',
+      'Global Tier 1 automotive supplier: a paid deployment, its first commercial purchase order (2026)',
     ],
     openSource: [],
     sources: [
       {
-        url: 'https://blog.robozaps.com/b/sanctuary-ai-phoenix-review',
-        title: 'Sanctuary AI Phoenix 2026: the June 2026 pivot to Physical AI software, funding history (fully sourced recap)',
-        asOf: '2026-08-18',
+        url: 'https://www.sanctuary.ai/about-us',
+        title: 'About Sanctuary AI',
+        asOf: '2026-10-19',
       },
       {
-        url: 'https://sanctuary.ai/news/',
-        title: 'Sanctuary AI deploys Physical AI with production-ready performance',
-        asOf: '2026-08-06',
+        url: 'https://www.sanctuary.ai/milestones',
+        title: 'Milestones (Sanctuary AI)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://sanctuary.ai/news/sanctuary-ai-expands-physical-ai-strategy-to-industrial-robotics-demonstrating-production-ready-ai-performance/',
+        title: 'Sanctuary AI Expands Physical AI Strategy to Industrial Robotics (company release, 2026-06-17)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://sanctuary.ai/news/sanctuary-ai-unveils-the-next-generation-of-ai-robotics/',
+        title: 'Sanctuary AI Unveils the Next Generation of AI Robotics (company release on Phoenix generation 7, 2024-04-26)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://sanctuary.ai/news/sanctuary-ai-announces-strategic-financing-from-bdc-capital-and-inbc/',
+        title: 'Sanctuary AI Announces Strategic Financing From BDC Capital and InBC (company release, 2024-07-03)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.zeon.co.jp/en/news/assets/pdf/260526.pdf',
+        title: 'Zeon invests in Sanctuary AI and partners to advance specialized materials for dexterous robotics (Zeon press release, 2026-05-26)',
+        asOf: '2026-10-19',
       },
     ],
     confidence: 'medium',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Sanctuary AI and give no other name.',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -2179,7 +2266,9 @@ const ROWS: Company[] = [
   {
     id: 'neura-robotics',
     name: 'NEURA Robotics',
-    aka: [],
+    aka: [
+      'Han\'s Robot Germany GmbH',
+    ],
     website: 'https://www.neura-robotics.com',
     logo: 'neura-robotics-logo',
     hq: {
@@ -2189,7 +2278,7 @@ const ROWS: Company[] = [
     founded: 2019,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds 4NE-1 humanoid and cognitive robots combining sensing, hearing, and learning; full-stack robotics company with edge AI capabilities.',
+    description: 'Builds the 4NE1 humanoid and the MAiRA and LARA robot arms; its Neuraverse platform lets its robots share learned skills.',
     approach: [
       'cognitive-robotics',
       'full-stack',
@@ -2200,13 +2289,24 @@ const ROWS: Company[] = [
       type: 'Series C',
       amountUsd: null,
       date: '2026-06-10',
-      valuationUsd: null,
+      valuationUsd: 7000000000,
       leadInvestors: [
         'Tether',
       ],
+      sourceUrl: 'https://neura-robotics.com/record-series-c/',
+      caveat: {
+        text: 'NEURA gives its Series C as up to $1.4 billion; no closed amount is given.',
+        sourceUrls: [
+          'https://neura-robotics.com/record-series-c/',
+          'https://www.cnbc.com/2026/06/10/neura-robotics-funding-ai-humanoid-robots.html',
+        ],
+      },
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Schaeffler: plans to put a mid-four-digit number of NEURA humanoids in its plants by 2035',
+      'Kawasaki Robotics CL Series cobots, built on NEURA\'s robot platform (2023)',
+    ],
     openSource: [],
     sources: [
       {
@@ -2224,16 +2324,14 @@ const ROWS: Company[] = [
         title: 'NEURA Robotics raises up to $1.4B from Nvidia, Amazon',
         asOf: '2026-08-06',
       },
+      {
+        url: 'https://en.wikipedia.org/wiki/Neura_Robotics',
+        title: 'Neura Robotics - Wikipedia',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it NEURA Robotics and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -2244,15 +2342,14 @@ const ROWS: Company[] = [
       'round.amountUsd': {
         state: 'not-disclosed',
       },
-      'round.valuationUsd': {
-        state: 'not-disclosed',
-      },
     },
   },
   {
     id: 'humanoid-uk',
     name: 'Humanoid',
-    aka: [],
+    aka: [
+      'SKL Robotics Ltd',
+    ],
     website: 'https://thehumanoid.ai',
     logo: 'humanoid-uk-logo',
     hq: {
@@ -2262,7 +2359,7 @@ const ROWS: Company[] = [
     founded: 2024,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds industrial humanoid robots for real-world tasks; UK\'s first humanoid robot for industrial use unveiled September 2025.',
+    description: 'Builds the HMND 01 Alpha, a wheeled bimanual industrial humanoid run by its own KinetIQ AI; Schaeffler signed to deploy thousands of its robots in manufacturing.',
     approach: [
       'industrial-humanoid',
     ],
@@ -2275,9 +2372,14 @@ const ROWS: Company[] = [
       leadInvestors: [
         'Prime Movers Lab',
       ],
+      sourceUrl: 'https://thehumanoid.ai/humanoid-raises-152-million-at-1-35-billion-post-money-valuation',
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'Schaeffler: an agreement to deploy thousands of humanoid robots in its plants',
+      'Siemens: humanoids in industrial operations, with NVIDIA',
+      'SAP and Martur Fompak: an automotive manufacturing logistics proof of concept',
+    ],
     openSource: [],
     sources: [
       {
@@ -2293,13 +2395,6 @@ const ROWS: Company[] = [
     ],
     confidence: 'high',
     absent: {
-      'aka': {
-        state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Humanoid and give no other name.',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
       'openSource': {
         state: 'not-applicable',
         basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
@@ -2309,7 +2404,9 @@ const ROWS: Company[] = [
   {
     id: 'spirit-ai',
     name: 'Spirit AI',
-    aka: [],
+    aka: [
+      '千寻智能',
+    ],
     website: 'https://www.spirit-ai.com',
     logo: 'spirit-ai-logo',
     hq: {
@@ -2331,15 +2428,28 @@ const ROWS: Company[] = [
       date: '2026-06-03',
       valuationUsd: null,
       leadInvestors: [],
-      sourceUrl: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
+      sourceUrl: 'https://thenextweb.com/news/spirit-ai-beats-nvidia-roboarena-physical-ai',
+      caveat: {
+        text: 'This A+ round is Spirit AI\'s fourth in three months. For the February round, Crunchbase News gives a $290 million Series A, followed by a $145 million extension in April, while the company\'s release gives $280 million.',
+        sourceUrls: [
+          'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
+          'https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html',
+          'https://news.pedaily.cn/202606/564786.shtml',
+        ],
+      },
     },
     status: 'private',
-    deployments: [],
-    openSource: [],
+    deployments: [
+      'CATL: Moz robots on its battery production lines',
+      'JD MALL stores: its Moz robot',
+    ],
+    openSource: [
+      'Spirit v1.5 VLA model (weights and evaluation code)',
+    ],
     sources: [
       {
         url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'Spirit AI raises $290M Series A + $145M extension',
+        title: 'Embodied AI Fuels Record Robotics Funding In China As IPO Momentum Builds (Crunchbase News, 2026-05-20; the February Series A and its April extension)',
         asOf: '2026-08-18',
       },
       {
@@ -2348,28 +2458,23 @@ const ROWS: Company[] = [
         asOf: '2026-08-18',
       },
       {
-        url: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
-        title: 'Spirit AI\'s Spirit v1.6 Tops RoboArena (StackFutures; 1.5B yuan / $222M Series A+ on June 3)',
-        asOf: '2026-08-18',
-      },
-      {
         url: 'https://news.pedaily.cn/202606/564786.shtml',
         title: '千寻智能完成15亿元A+轮融资 (PEdaily; A+ round announced 2026-06-03)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://thenextweb.com/news/spirit-ai-beats-nvidia-roboarena-physical-ai',
+        title: 'A Chinese startup just dethroned Nvidia on the benchmark Nvidia helped build (TNW, 2026-06-05; the 1.5B yuan / $222M round announced 3 June)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/robochallenges-top-ranked-embodied-ai-model-goes-open-source-challenging-clean-data-collection-paradigm-302658247.html',
+        title: 'RoboChallenge\'s Top-Ranked Embodied AI Model Goes Open Source (company release, 2026-01-12)',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'medium',
     absent: {
-      'aka': {
-        state: 'not-disclosed',
-      },
-      'deployments': {
-        state: 'not-disclosed',
-      },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources (its website returned no readable body).',
-      },
       'totalRaisedUsd': {
         state: 'not-disclosed',
       },
@@ -2385,7 +2490,7 @@ const ROWS: Company[] = [
     id: 'galaxea-ai',
     name: 'Galaxea AI',
     aka: [
-      'Xinghaitu',
+      '星海图',
     ],
     website: 'https://www.galaxea-ai.com',
     logo: 'galaxea-ai-logo',
@@ -2396,7 +2501,7 @@ const ROWS: Company[] = [
     founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid robots for industrial and commercial deployment.',
+    description: 'Develops Vision-Language-Action models, including G0 and G0 Plus, and the R1 series of robots for manufacturing, logistics and commercial services.',
     approach: [
       'embodied-intelligence',
     ],
@@ -2407,21 +2512,22 @@ const ROWS: Company[] = [
       date: '2026-04-02',
       valuationUsd: null,
       leadInvestors: [],
+      sourceUrl: 'https://www.cxodigitalpulse.com/chinas-galaxea-ai-raises-290-4-million-in-series-b-round-to-accelerate-robotics-push/',
+      caveat: {
+        text: 'The AI Insider, citing Yicai Global, puts the valuation at roughly $29 billion, while The Paper reports more than 20 billion yuan; the card gives no valuation.',
+        sourceUrls: [
+          'https://theaiinsider.tech/2026/04/04/chinese-robotics-startup-galaxea-ai-raises-290m-usd-in-series-b-funding-valued-at-29b-usd/',
+          'https://m.thepaper.cn/newsDetail_forward_32878036',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
-    openSource: [],
+    openSource: [
+      'GalaxeaVLA (open-source VLA models)',
+      'GalaxeaDP diffusion policy',
+    ],
     sources: [
-      {
-        url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'Embodied AI Fuels Record Robotics Funding In China',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://humanoidindex.org/companies/galaxea-ai',
-        title: 'Galaxea AI - Humanoid Index',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.cxodigitalpulse.com/chinas-galaxea-ai-raises-290-4-million-in-series-b-round-to-accelerate-robotics-push/',
         title: 'China\'s Galaxea AI Raises $290.4 Million in Series B+ Round (CXO Digitalpulse)',
@@ -2432,15 +2538,21 @@ const ROWS: Company[] = [
         title: 'Chinese Robotics Startup Galaxea AI Raises $290M USD in Series B+ Funding (The AI Insider, citing Yicai Global)',
         asOf: '2026-08-18',
       },
+      {
+        url: 'https://m.thepaper.cn/newsDetail_forward_32878036',
+        title: '星海图完成近20亿元B+轮融资，估值超200亿元 (The Paper, 2026-04-02)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://github.com/OpenGalaxea',
+        title: 'Galaxea (OpenGalaxea) on GitHub',
+        asOf: '2026-10-19',
+      },
     ],
     confidence: 'medium',
     absent: {
       'deployments': {
         state: 'not-disclosed',
-      },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
@@ -2456,17 +2568,19 @@ const ROWS: Company[] = [
   {
     id: 'engineai',
     name: 'EngineAI',
-    aka: [],
+    aka: [
+      'Shenzhen EngineAI Robotics Technology Co., Ltd.',
+    ],
     website: 'https://www.engineai.com.cn',
     logo: 'engineai-logo',
     hq: {
       city: 'Shenzhen',
       country: 'CN',
     },
-    founded: 2024,
+    founded: 2023,
     segment: 'humanoids',
     subSegment: 'industrial-humanoids',
-    description: 'Builds humanoid and quadruped robots for traffic, security, and retail deployment; a Series B+ followed in May 2026 with terms undisclosed.',
+    description: 'Builds humanoid and quadruped robots for traffic management, security patrols, retail service and industrial work; it has filed confidentially for a Hong Kong IPO.',
     approach: [
       'humanoid',
       'quadruped',
@@ -2481,18 +2595,20 @@ const ROWS: Company[] = [
         'Henan CICC Huirong Fund Management',
         'Luxshare-ICT',
       ],
+      sourceUrl: 'https://cryptobriefing.com/engineai-hong-kong-ipo-filing/',
+      caveat: {
+        text: 'Blue Whale Finance reported on 6 May 2026, citing a person familiar with the deal, that a Series B+ round had closed; its size and investors were not published.',
+        sourceUrls: [
+          'https://www.lanjinger.com/d/1778055085697120105',
+        ],
+      },
     },
     status: 'private',
-    deployments: [
-      'Traffic, security, and retail deployments planned',
+    deployments: [],
+    openSource: [
+      'PM01 humanoid (open-source)',
     ],
-    openSource: [],
     sources: [
-      {
-        url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'EngineAI raises $200M Series B',
-        asOf: '2026-08-18',
-      },
       {
         url: 'https://www.lanjinger.com/d/1778055085697120105',
         title: '蓝鲸独家｜众擎机器人完成B+轮融资 (Blue Whale Finance; Series B closed 2026-04-09, co-led by Henan Huirong + Luxshare, B+ in May)',
@@ -2503,15 +2619,16 @@ const ROWS: Company[] = [
         title: 'EngineAI files confidentially for Hong Kong IPO (Crypto Briefing; $200M Series B at $1.5B)',
         asOf: '2026-08-18',
       },
-    ],
-    confidence: 'high',
-    absent: {
-      'aka': {
-        state: 'not-disclosed',
+      {
+        url: 'https://en.wikipedia.org/wiki/EngineAI',
+        title: 'EngineAI - Wikipedia',
+        asOf: '2026-10-19',
       },
-      'openSource': {
-        state: 'not-applicable',
-        basis: 'No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website.',
+    ],
+    confidence: 'medium',
+    absent: {
+      'deployments': {
+        state: 'not-disclosed',
       },
       'totalRaisedUsd': {
         state: 'not-disclosed',
@@ -2522,7 +2639,7 @@ const ROWS: Company[] = [
     id: 'robot-era',
     name: 'RobotEra',
     aka: [
-      'Robot Era',
+      '星动纪元',
     ],
     website: 'https://www.robotera.com',
     logo: 'robot-era-logo',
@@ -2546,21 +2663,22 @@ const ROWS: Company[] = [
       leadInvestors: [
         'SF Group',
       ],
+      sourceUrl: 'https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/',
+      caveat: {
+        text: 'RobotEra says the round raised more than $200 million; it gives no exact amount or round name.',
+        sourceUrls: [
+          'https://www.frontier-enterprise.com/robotera-raises-over-us200-million-in-latest-funding-round/',
+          'https://pulse2.com/robotera-raises-over-200-million-to-scale-humanoid-robotics-commercialization/',
+        ],
+      },
     },
     status: 'private',
-    deployments: [],
+    deployments: [
+      'China Post and SF Group: robots in more than ten logistics centres',
+      'Boston Dynamics, NVIDIA and Apple: use its robot hardware (company statement)',
+    ],
     openSource: [],
     sources: [
-      {
-        url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'Robot Era raises $200M round from HSG',
-        asOf: '2026-08-18',
-      },
-      {
-        url: 'https://humanoidindex.org/companies/robotera',
-        title: 'RobotEra - Humanoid Index',
-        asOf: '2026-08-06',
-      },
       {
         url: 'https://pulse2.com/robotera-raises-over-200-million-to-scale-humanoid-robotics-commercialization/',
         title: 'ROBOTERA Raises Over $200 Million To Scale Humanoid Robotics Commercialization (Pulse 2.0; round led by SF Group)',
@@ -2575,9 +2693,6 @@ const ROWS: Company[] = [
     confidence: 'medium',
     absent: {
       'founded': {
-        state: 'not-disclosed',
-      },
-      'deployments': {
         state: 'not-disclosed',
       },
       'openSource': {
@@ -2628,10 +2743,19 @@ const ROWS: Company[] = [
       date: '2026-04-16',
       valuationUsd: null,
       leadInvestors: [
-        'Hillhouse Capital',
+        'Hillhouse Ventures',
         'HSG',
+        'Meituan Strategic Investment',
       ],
       sourceUrl: 'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
+      caveat: {
+        text: 'Crunchbase News reports this round as a $513 million seed round at a $1.9 billion valuation; the company\'s announcement, as Pandaily and Xinhua report it, gives $455 million in a Pre-A round and no valuation.',
+        sourceUrls: [
+          'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
+          'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
+          'https://www.news.cn/tech/20260417/aa7c5116da7648fc99470a6b4a56ef35/c.html',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
@@ -2639,13 +2763,23 @@ const ROWS: Company[] = [
     sources: [
       {
         url: 'https://news.crunchbase.com/robotics/embodied-ai-fuels-record-funding-china-ipo-momentum-builds/',
-        title: 'TARS Robotics raises $513M seed',
+        title: 'Embodied AI Fuels Record Robotics Funding In China As IPO Momentum Builds (Crunchbase News, 2026-05-20; reports the round as a $513M seed)',
         asOf: '2026-08-18',
       },
       {
         url: 'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
         title: 'TARS Raises $455M Pre-A Round, Setting Record in China\'s Embodied AI Sector (Pandaily; announced 2026-04-16)',
         asOf: '2026-08-25',
+      },
+      {
+        url: 'https://www.prnewswire.com/news-releases/tars-demonstrates-a-robot-that-can-perform-hand-embroidery-breaking-through-a-key-automation-bottleneck-in-flexible-manufacturing-302648045.html',
+        title: 'TARS Demonstrates a Robot That Can Perform Hand Embroidery (company release, 2025-12-22)',
+        asOf: '2026-10-19',
+      },
+      {
+        url: 'https://www.news.cn/tech/20260417/aa7c5116da7648fc99470a6b4a56ef35/c.html',
+        title: '高瓴红杉美团联合领投 它石智航完成4.55亿美金创纪录Pre-A轮融资 (Xinhua, 2026-04-17)',
+        asOf: '2026-10-19',
       },
     ],
     confidence: 'medium',

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "767e060fa0cf44702da7285e7bba748ed222af7421a8eff3652c572b3c52edce",
+  "fingerprint": "9504400c340bd81793df1fefb512586e6156a577326a861c5fda3080f77213e0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -39254,7 +39254,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2767,
+      "visibleTextLength": 2759,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -39937,14 +39937,6 @@
         },
         {
           "tag": "button",
-          "text": "$62M",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
           "text": "Galaxea AI",
           "familyHead": "geist",
           "sizePx": 13,
@@ -39962,14 +39954,6 @@
         {
           "tag": "button",
           "text": "Galbot",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$300M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -40193,7 +40177,7 @@
         },
         {
           "tag": "button",
-          "text": "IPO",
+          "text": "Public",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -95110,7 +95094,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2767,
+      "visibleTextLength": 2759,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95793,14 +95777,6 @@
         },
         {
           "tag": "button",
-          "text": "$62M",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
           "text": "Galaxea AI",
           "familyHead": "geist",
           "sizePx": 13,
@@ -95818,14 +95794,6 @@
         {
           "tag": "button",
           "text": "Galbot",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:selection"
-        },
-        {
-          "tag": "button",
-          "text": "$300M",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -96049,7 +96017,7 @@
         },
         {
           "tag": "button",
-          "text": "IPO",
+          "text": "Public",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

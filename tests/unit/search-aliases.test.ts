@@ -163,7 +163,14 @@ describe('aliases are unambiguous across the whole corpus (VAL-SEARCH-020b)', ()
     ];
     for (const [id, aliases] of rows) {
       for (const alias of aliases) {
-        const key = foldGreekToAscii(alias).replace(/[^a-z0-9]/g, '');
+        // Accents fold away, but letters of every script stay: a registered
+        // Chinese name is an alias like any other, and an ASCII-only key
+        // would collapse every such name to the same empty string.
+        const key = foldGreekToAscii(alias)
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^\p{L}\p{N}]/gu, '');
+        expect(key, `${id} alias "${alias}" has no letter or digit`).not.toBe('');
         owners.set(key, [...(owners.get(key) ?? []), id]);
       }
     }

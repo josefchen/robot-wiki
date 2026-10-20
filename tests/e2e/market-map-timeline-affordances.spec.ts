@@ -210,8 +210,10 @@ test.describe('timeline view roving keyboard affordances', () => {
     // historical first source, which can describe a superseded round.
     const expected = [
       {
+        // The 2026-10-20 field audit replaced the StackFutures blog post
+        // with TNW's report of the same round, which gives its dollar figure.
         id: 'spirit-ai',
-        href: 'https://stackfutures.com/blog/spirit-ai-roboarena-china-nvidia/',
+        href: 'https://thenextweb.com/news/spirit-ai-beats-nvidia-roboarena-physical-ai',
         title: '1.5B yuan / $222M',
       },
       {

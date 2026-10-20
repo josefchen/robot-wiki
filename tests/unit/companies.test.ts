@@ -116,7 +116,10 @@ describe('COMPANIES data', () => {
     // SwitchBot's HK listing under the registered name "OneRobotics
     // (Shenzhen) Co." (Caixin, fetched), so the brand-name record now
     // carries its listed entity as an aka.
-    expect(withAka.length).toBe(27);
+    // 27 -> 32 on 2026-10-20: the field audit added the names fetched bodies
+    // give Sanctuary AI, Neura Robotics, Humanoid, Spirit AI and EngineAI
+    // (a legal, former or registered Chinese name each).
+    expect(withAka.length).toBe(32);
     const pi = COMPANIES.find((c) => c.id === 'physical-intelligence');
     // ['Pi', 'π'] -> ['π'] on 2026-10-19: the field audit
     // (audit/market-map-ledger.json) found its sources use "Pi" only for the

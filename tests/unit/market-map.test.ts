@@ -111,10 +111,12 @@ describe('filterCompanies', () => {
 
   it('treats IPO as companies whose latest round is an IPO (VAL-MKT-004)', () => {
     const ipo = filterCompanies(COMPANIES, filters({ status: 'ipo' }));
+    // UBTech left on 2026-10-20: its latest round is the 25 November 2025
+    // share placement (SCMP; the company's announcement), not its 2023 IPO,
+    // so it shows as Public.
     expect(ipo.map((row) => row.id).sort()).toEqual([
       'robotphoenix',
       'switchbot', // 2025-12-30 HK IPO, added by the 2026-08-18 audit
-      'ubtech-robotics',
       'unitree-robotics',
     ]);
   });
@@ -124,10 +126,16 @@ describe('filterCompanies', () => {
     // 6 -> 8 on 2026-10-19: the field audit added XDOF's ABC-130K dataset
     // and Unitree's released models and datasets, both named in fetched
     // bodies (The AI Insider; unitree.com/opensource).
-    expect(open).toHaveLength(8);
+    // 8 -> 12 on 2026-10-20: AgiBot (its site's Open Source menu and its
+    // GitHub), Spirit AI (its Spirit v1.5 release), Galaxea (its OpenGalaxea
+    // GitHub) and EngineAI (its PM01, per Wikipedia).
+    expect(open).toHaveLength(12);
     expect(open.every((row) => row.openSource.length > 0)).toBe(true);
     expect(open.map((row) => row.id)).toEqual(
-      expect.arrayContaining(['physical-intelligence', 'k-scale-labs', 'xdof', 'unitree-robotics']),
+      expect.arrayContaining([
+        'physical-intelligence', 'k-scale-labs', 'xdof', 'unitree-robotics',
+        'agibot', 'spirit-ai', 'galaxea-ai', 'engineai',
+      ]),
     );
   });
 
@@ -533,8 +541,13 @@ describe('name search (the q param)', () => {
     const humanoidsRo = filterCompanies(COMPANIES, filters({ segment: 'humanoids', query: 'ro' }));
     // 18 -> 19 on 2026-10-19: the field audit corrected 1X's former name
     // from "Halodi" to "Halodi Robotics", as Wikipedia gives it.
-    expect(humanoidsRo).toHaveLength(19);
-    expect(humanoidsRo.map((company) => company.id)).toContain('1x-technologies');
+    // 19 -> 21 on 2026-10-20: Humanoid's registered name SKL Robotics Ltd
+    // (The Robot Report) and EngineAI's full name, Shenzhen EngineAI Robotics
+    // Technology Co., Ltd. (Wikipedia), are now among their other names.
+    expect(humanoidsRo).toHaveLength(21);
+    expect(humanoidsRo.map((company) => company.id)).toEqual(
+      expect.arrayContaining(['1x-technologies', 'humanoid-uk', 'engineai']),
+    );
     expect(humanoidsRo.every((company) => company.segment === 'humanoids')).toBe(true);
     expect(hasActiveFilters(filters({ query: 'ro' }))).toBe(true);
   });

@@ -192815,14 +192815,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
-      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"statusText\":\"16 modules, 6 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"statusText\":\"16 modules, 7 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "statusText": "16 modules, 6 entities match \"action chunking\"",
+          "statusText": "16 modules, 7 entities match \"action chunking\"",
           "loadingRowCount": 0,
           "idleCopyVisible": false,
           "evidence": [
@@ -192865,14 +192865,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
-      "actual": "search-state:state:facet-company holds on the built /search export: {\"statusText\":\"16 modules, 2 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "actual": "search-state:state:facet-company holds on the built /search export: {\"statusText\":\"16 modules, 3 entities match \\\"action chunking\\\"\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "statusText": "16 modules, 2 entities match \"action chunking\"",
+          "statusText": "16 modules, 3 entities match \"action chunking\"",
           "loadingRowCount": 0,
           "idleCopyVisible": false,
           "evidence": [
@@ -192940,14 +192940,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search exposes deterministic empty/default, query-results, filtered, no-results, loading, and error treatments where those states exist.",
-      "actual": "search-state:state:partial-error-prose holds on the built /search export: {\"statusText\":\"6 entities match \\\"action chunking\\\"; the module index is unavailable\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
+      "actual": "search-state:state:partial-error-prose holds on the built /search export: {\"statusText\":\"7 entities match \\\"action chunking\\\"; the module index is unavailable\",\"loadingRowCount\":0,\"idleCopyVisible\":false}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "statusText": "6 entities match \"action chunking\"; the module index is unavailable",
+          "statusText": "7 entities match \"action chunking\"; the module index is unavailable",
           "loadingRowCount": 0,
           "idleCopyVisible": false,
           "evidence": [
@@ -193040,7 +193040,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
-      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"counts\":[\"16 results\",\"6 results\"],\"proseTitleCount\":16}",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"counts\":[\"16 results\",\"7 results\"],\"proseTitleCount\":16}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#resultStates",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -193049,7 +193049,7 @@
         "computed": {
           "counts": [
             "16 results",
-            "6 results"
+            "7 results"
           ],
           "proseTitleCount": 16,
           "evidence": [
@@ -193094,7 +193094,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search-result titles, excerpts, facets, counts, and routes remain data-derived and do not fabricate context.",
-      "actual": "search-state:state:facet-company holds on the built /search export: {\"counts\":[\"16 results\",\"2 results\"],\"proseTitleCount\":16}",
+      "actual": "search-state:state:facet-company holds on the built /search export: {\"counts\":[\"16 results\",\"3 results\"],\"proseTitleCount\":16}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#resultStates",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -193103,7 +193103,7 @@
         "computed": {
           "counts": [
             "16 results",
-            "2 results"
+            "3 results"
           ],
           "proseTitleCount": 16,
           "evidence": [
@@ -193300,14 +193300,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search status updates are announced without moving focus unexpectedly.",
-      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"statusText\":\"16 modules, 6 entities match \\\"action chunking\\\"\",\"inputFocused\":true,\"focusRetainedOnInputThroughSettle\":true}",
+      "actual": "search-state:state:results-both-groups holds on the built /search export: {\"statusText\":\"16 modules, 7 entities match \\\"action chunking\\\"\",\"inputFocused\":true,\"focusRetainedOnInputThroughSettle\":true}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "statusText": "16 modules, 6 entities match \"action chunking\"",
+          "statusText": "16 modules, 7 entities match \"action chunking\"",
           "inputFocused": true,
           "focusRetainedOnInputThroughSettle": true,
           "evidence": [
@@ -193349,14 +193349,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search status updates are announced without moving focus unexpectedly.",
-      "actual": "search-state:state:facet-company holds on the built /search export: {\"statusText\":\"16 modules, 2 entities match \\\"action chunking\\\"\",\"inputFocused\":false}",
+      "actual": "search-state:state:facet-company holds on the built /search export: {\"statusText\":\"16 modules, 3 entities match \\\"action chunking\\\"\",\"inputFocused\":false}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "statusText": "16 modules, 2 entities match \"action chunking\"",
+          "statusText": "16 modules, 3 entities match \"action chunking\"",
           "inputFocused": false,
           "evidence": [
             "evidence/brand-v2/search-states.json"
@@ -193421,14 +193421,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search status updates are announced without moving focus unexpectedly.",
-      "actual": "search-state:state:partial-error-prose holds on the built /search export: {\"statusText\":\"6 entities match \\\"action chunking\\\"; the module index is unavailable\",\"inputFocused\":true}",
+      "actual": "search-state:state:partial-error-prose holds on the built /search export: {\"statusText\":\"7 entities match \\\"action chunking\\\"; the module index is unavailable\",\"inputFocused\":true}",
       "selectorOrRegistryId": "evidence/brand-v2/search-states.json#searchStates",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "statusText": "6 entities match \"action chunking\"; the module index is unavailable",
+          "statusText": "7 entities match \"action chunking\"; the module index is unavailable",
           "inputFocused": true,
           "evidence": [
             "evidence/brand-v2/search-states.json"
@@ -202691,7 +202691,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/market-map/ rendered no v1 identity spelling and no v1 descriptor in 5534 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/market-map/ rendered no v1 identity spelling and no v1 descriptor in 5518 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -348002,7 +348002,7 @@
               "id": "/market-map/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 217,
+                "interfaceControlCount": 215,
                 "controlsInProse": 0,
                 "registrationLabelCount": 0
               }

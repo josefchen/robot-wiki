@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "7bd1f42f600e407193ae5695557a1902d4c686fec9a2696b955d889f7d1d1408",
+  "fingerprint": "afc273156306ac81f6ebdd3a71ad2bedba2ea9aafdf6f98d6ce2db8cf8ff56cf",
   "desktopViewport": "1440x900",
   "mobileViewport": "375x812",
   "states": [
@@ -125,7 +125,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "1440x900",
-      "statusText": "16 modules, 6 entities match \"action chunking\"",
+      "statusText": "16 modules, 7 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -160,6 +160,7 @@
         "company",
         "method",
         "method",
+        "company",
         "method"
       ],
       "groups": [
@@ -172,8 +173,8 @@
         },
         {
           "id": "structured",
-          "rowCount": 6,
-          "countText": "6 results",
+          "rowCount": 7,
+          "countText": "7 results",
           "errorNote": false,
           "emptyNote": false
         }
@@ -197,6 +198,7 @@
           "company",
           "method",
           "method",
+          "company",
           "method"
         ]
       }
@@ -279,7 +281,7 @@
     {
       "stateId": "state:facet-company",
       "viewport": "1440x900",
-      "statusText": "16 modules, 2 entities match \"action chunking\"",
+      "statusText": "16 modules, 3 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": false,
@@ -310,6 +312,7 @@
       ],
       "structuredRowTypes": [
         "company",
+        "company",
         "company"
       ],
       "groups": [
@@ -322,8 +325,8 @@
         },
         {
           "id": "structured",
-          "rowCount": 2,
-          "countText": "2 results",
+          "rowCount": 3,
+          "countText": "3 results",
           "errorNote": false,
           "emptyNote": false
         }
@@ -342,6 +345,7 @@
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
+          "company",
           "company",
           "company"
         ]
@@ -463,7 +467,7 @@
     {
       "stateId": "state:partial-error-prose",
       "viewport": "1440x900",
-      "statusText": "6 entities match \"action chunking\"; the module index is unavailable",
+      "statusText": "7 entities match \"action chunking\"; the module index is unavailable",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -481,6 +485,7 @@
         "company",
         "method",
         "method",
+        "company",
         "method"
       ],
       "groups": [
@@ -493,8 +498,8 @@
         },
         {
           "id": "structured",
-          "rowCount": 6,
-          "countText": "6 results",
+          "rowCount": 7,
+          "countText": "7 results",
           "errorNote": false,
           "emptyNote": false
         }
@@ -518,6 +523,7 @@
           "company",
           "method",
           "method",
+          "company",
           "method"
         ]
       }
@@ -593,7 +599,7 @@
     {
       "stateId": "state:results-both-groups",
       "viewport": "375x812",
-      "statusText": "16 modules, 6 entities match \"action chunking\"",
+      "statusText": "16 modules, 7 entities match \"action chunking\"",
       "liveRegionRole": "status",
       "liveRegionAriaLive": "polite",
       "inputFocused": true,
@@ -628,6 +634,7 @@
         "company",
         "method",
         "method",
+        "company",
         "method"
       ],
       "groups": [
@@ -640,8 +647,8 @@
         },
         {
           "id": "structured",
-          "rowCount": 6,
-          "countText": "6 results",
+          "rowCount": 7,
+          "countText": "7 results",
           "errorNote": false,
           "emptyNote": false
         }
@@ -665,6 +672,7 @@
           "company",
           "method",
           "method",
+          "company",
           "method"
         ]
       }
@@ -732,8 +740,8 @@
           "dataset": false
         },
         "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
-        "selectedColourRgb": "rgb(105, 104, 100)",
-        "selectedRuleRgb": "rgba(28, 28, 26, 0.03)",
+        "selectedColourRgb": "rgb(108, 107, 102)",
+        "selectedRuleRgb": "rgba(0, 0, 0, 0)",
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
