@@ -4,7 +4,9 @@ import { expectReach, reachFor, setSlider, techDeg, waitForArm } from './helpers
 /**
  * The playground stage as an instrument: the server HTML says it is not
  * live yet, the pixel ratio is clamped, a resize keeps the arm framed, the
- * selected joint's motor takes the accent, a reach that ends out of the
+ * selected joint's motor takes the accent and its row the bold name and
+ * square, the deck's controls are the site's square ink, outlined and text
+ * actions with the 1 px ink focus ring, a reach that ends out of the
  * frame is brought into view, the canvas turns and zooms from the keyboard,
  * Reset pose returns pose, target and camera to one default while keeping
  * the recorded motion, Clear removes the motion and nothing else, and
@@ -82,6 +84,18 @@ async function stageMarks(page: Page): Promise<StageMarks> {
   });
 }
 
+/** A runtime colour token as the browser computes it, e.g. "rgb(28, 28, 26)". */
+async function tokenColor(page: Page, token: string): Promise<string> {
+  return page.evaluate((name) => {
+    const probe = document.createElement('span');
+    probe.style.color = `var(${name})`;
+    document.body.append(probe);
+    const value = getComputedStyle(probe).color;
+    probe.remove();
+    return value;
+  }, token);
+}
+
 /** Share of canvas pixels painted in the accent. */
 async function accentShare(page: Page): Promise<number> {
   const marks = await stageMarks(page);
@@ -143,13 +157,91 @@ test.describe('playground stage', () => {
     await expect.poll(() => accentShare(page), { timeout: 10_000 }).toBe(0);
 
     const slider = page.getByTestId('joint-slider-elbow_flex');
+    const row = slider.locator('xpath=ancestor::li');
+    const accent = await tokenColor(page, '--accent');
+    // The non-colour marker: the joint's name in bold with a small square before it.
+    const marker = () =>
+      row.evaluate((li) => {
+        const label = li.querySelector('label')!;
+        const square = getComputedStyle(label, '::before');
+        const drawn = square.content !== 'none' && square.content !== 'normal';
+        return {
+          weight: getComputedStyle(label).fontWeight,
+          square: drawn ? `${square.width} ${square.height} ${square.backgroundColor}` : null,
+        };
+      });
+    expect(await marker()).toEqual({ weight: '400', square: null });
+
     await slider.focus();
-    await expect(slider.locator('xpath=ancestor::li')).toHaveAttribute('data-active', '');
+    await expect(row).toHaveAttribute('data-active', '');
+    expect(await marker()).toEqual({ weight: '600', square: `6px 6px ${accent}` });
     await expect.poll(() => accentShare(page), { timeout: 10_000 }).toBeGreaterThan(0.0005);
 
     await slider.blur();
-    await expect(slider.locator('xpath=ancestor::li')).not.toHaveAttribute('data-active', '');
+    await expect(row).not.toHaveAttribute('data-active', '');
+    expect(await marker()).toEqual({ weight: '400', square: null });
     await expect.poll(() => accentShare(page), { timeout: 10_000 }).toBe(0);
+  });
+
+  test('the deck uses the site\'s ink, outlined and text actions, square, with a 1 px ink focus ring', async ({ page }) => {
+    test.setTimeout(60_000);
+    await page.setViewportSize({ width: 1280, height: 860 });
+    await page.goto('/playground');
+    await waitForArm(page);
+    // Bring every kind of control on screen: a pose square, Play enabled,
+    // the exported motion and the import fold's field and file button.
+    await page.getByTestId('trajectory-record').click();
+    await page.getByTestId('trajectory-export').click();
+    await page.getByTestId('trajectory-import-fold').locator('summary').click();
+    await expect(page.getByTestId('trajectory-import-json')).toBeVisible();
+
+    const ink = await tokenColor(page, '--ink');
+    const clear = 'rgba(0, 0, 0, 0)';
+    const look = (testId: string) =>
+      page.getByTestId(testId).evaluate((el) => {
+        const style = getComputedStyle(el);
+        return { background: style.backgroundColor, border: style.borderTopWidth };
+      });
+    // One ink action, outlined actions beside it, text actions for the rest.
+    expect(await look('trajectory-record')).toEqual({ background: ink, border: '1px' });
+    for (const id of ['trajectory-play', 'trajectory-keyframe-0']) {
+      expect(await look(id)).toEqual({ background: clear, border: '1px' });
+    }
+    for (const id of ['reset-pose', 'trajectory-clear', 'trajectory-export']) {
+      expect(await look(id)).toEqual({ background: clear, border: '0px' });
+    }
+
+    // Square corners on every control, the file button included, as on the
+    // site's Action primitive; only the slider thumb is round.
+    const corners = await page.getByTestId('playground').evaluate((root) => {
+      const radii = (style: CSSStyleDeclaration) =>
+        [style.borderTopLeftRadius, style.borderTopRightRadius, style.borderBottomRightRadius, style.borderBottomLeftRadius];
+      const controls = [...root.querySelectorAll<HTMLElement>('button, textarea, input:not([type="range"]), summary')];
+      const rows = controls.map((el) => ({
+        control: el.dataset.testid ?? el.textContent?.trim() ?? el.tagName,
+        radii: radii(getComputedStyle(el)),
+      }));
+      const file = root.querySelector('input[type="file"]');
+      if (file) rows.push({ control: 'file button', radii: radii(getComputedStyle(file, '::file-selector-button')) });
+      return rows;
+    });
+    for (const id of ['trajectory-record', 'trajectory-play', 'trajectory-keyframe-0', 'trajectory-export-json', 'trajectory-import-json', 'file button']) {
+      expect(corners.map((row) => row.control)).toContain(id);
+    }
+    expect(corners.filter((row) => row.radii.some((radius) => radius !== '0px'))).toEqual([]);
+
+    // The keyboard focus ring: 1 px ink, 2 px out.
+    const record = page.getByTestId('trajectory-record');
+    await record.focus();
+    await page.keyboard.press('Shift+Tab');
+    await page.keyboard.press('Tab');
+    await expect(record).toBeFocused();
+    expect(
+      await record.evaluate((el) => {
+        const style = getComputedStyle(el);
+        return `${style.outlineStyle} ${style.outlineWidth} ${style.outlineColor} ${style.outlineOffset}`;
+      }),
+    ).toBe(`solid 1px ${ink} 2px`);
   });
 
   test('a reach that ends out of the frame is brought into view: the target, its ring and the dashed gap, under the hint', async ({ page }) => {
