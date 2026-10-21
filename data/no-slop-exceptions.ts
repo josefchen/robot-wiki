@@ -57,17 +57,6 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
       'Crossref content negotiation for doi:10.1126/scirobotics.aam8638 returns the title with U+2014 exactly where the registry entry has it; the data/citations.ts entry carries the same verification against the live Science Robotics page.',
     verifiedOn: '2026-08-18',
   },
-  {
-    id: 'xela-press-2026',
-    sourceUrl:
-      'https://xelarobotics.com/press-release/xela-robotics-unlocks-enhanced-automation-for-humanoid-and-industrial-robots/',
-    quote: 'XELA Robotics Unlocks Enhanced Automation',
-    reason:
-      "Third-party press-release title stored as a market-map company source (data/companies.ts) and rendered verbatim in its source list. 'Unlocks' is XELA's marketing, not our prose; the stored title is a prefix of the live release's headline.",
-    verifiedBy:
-      'Fetched the live press release (HTTP 200, redirects to ...-industrial-robots/): the page title is "XELA Robotics Unlocks Enhanced Automation for Humanoid and Industrial Robots", which begins with the stored string.',
-    verifiedOn: '2026-08-18',
-  },
 
   /* ------------------------------------------------------------------ *
    * Standards titles for the safety module (2026-08-22).

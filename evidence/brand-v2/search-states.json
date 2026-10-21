@@ -740,8 +740,8 @@
           "dataset": false
         },
         "selectedBackgroundRgb": "rgba(0, 0, 0, 0)",
-        "selectedColourRgb": "rgb(105, 104, 100)",
-        "selectedRuleRgb": "rgba(28, 28, 26, 0.03)",
+        "selectedColourRgb": "rgb(108, 107, 102)",
+        "selectedRuleRgb": "rgba(0, 0, 0, 0)",
         "selectedRuleWidthPx": 1,
         "selectedHasCheckMarker": true,
         "rowTypes": [
