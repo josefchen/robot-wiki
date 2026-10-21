@@ -1988,4 +1988,30 @@ include its data.
 | Logo test, longer budget | `npx playwright test --timeout=180000 "tests/e2e/market-map-logos.spec.ts:83"` | pass, 1 passed in 55.9 s: every mark lays down ink and none is a block. The 30 s failure is the time limit on this loaded host. The test reads only the logo files, which this pass did not change. |
 | Visual check | dev server on port 3200, then a headless Chromium script opening the ABB Robotics, Anduril, Pollen Robotics, Spirit AI, TARS Robotics and Carbon Robotics cards at 1440 and 390 px | 12 screenshots, each examined: status, round, amount, date and caveat match the records above, with no horizontal overflow, no "$0" and 0 console errors |
 | Close-out: final gates | `npm run typecheck`, `npm run lint`, `npm run validate:content`, then `npx vitest run` on `tests/component/market-map.test.tsx`, `tests/unit/schemas.test.ts`, `companies.test.ts`, `market-map.test.ts`, `main-merge-approved-deltas.test.ts` and `reader-first-continuity.test.ts` | pass: exit 0 each; vitest 6 files, 190 passed |
+
+## Mitsubishi Motors' display name (2026-10-21)
+
+The close-out left one record under a name none of its sources uses. `mitsubishi-robotics` was shown as
+"Mitsubishi (Robotics)", but its three sources name the company Mitsubishi Motors: Assembly Magazine ("TOKYO —
+Mitsubishi Motors plans to begin mass-producing artificial intelligence-powered humanoid robots"), the website it
+links ("Global Website- MITSUBISHI MOTORS") and Wikipedia's Mitsubishi Motors article. Its funding dispositions
+still called the plan Mitsubishi Electric's robotics business, which the audit's website correction had already
+ruled out.
+
+| Record | Field | Was | Now | Basis |
+|---|---|---|---|---|
+| Mitsubishi Motors | name | Mitsubishi (Robotics) | Mitsubishi Motors | Assembly Magazine and the website name the company (the ledger's new name row) |
+| Mitsubishi Motors | aka basis (n/a) | its sources "call it Mitsubishi" | its sources "call it Mitsubishi Motors" | the same sources |
+| Mitsubishi Motors | total raised and the five round bases (n/a) | "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric" | "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211)" | the website row and the status row ("TYO : 7211") |
+
+The id stays `mitsubishi-robotics`, so `#company-mitsubishi-robotics` links keep working. No rendered value, state
+or source changes except the name; the bases are provenance and do not render. `audit/market-map-ledger.json`
+gains a `name` row (corrected, `was` the old name) quoting the Assembly Magazine passage, and
+`contract/brand-v2-approved-deltas.json` gains one plain edge from the field audit's endpoint,
+`market-map-views-20261021-market-playground-company-mitsubishi-robotics`. The field audit's rows above keep the
+name it checked.
+
+The same follow-up gives the "every drawn mark lays down ink" test in `tests/e2e/market-map-logos.spec.ts` its own
+120 s budget with its assertions unchanged: it screenshots more than 100 marks, and took 55.9 s in the close-out's
+run and 41.5 s in this one, both past the 30 s default.
 | Close-out: generated section | `node <mission library>/market-map-audit-20261019-report.mjs --check` | pass: the field-audit section matches the ledger (111 audited, 0 pending, 1576 rows, 533 changes, 33 caveats) |

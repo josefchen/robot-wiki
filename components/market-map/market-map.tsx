@@ -252,7 +252,12 @@ export function MarketMap({ companies }: MarketMapProps) {
     filters.confidence,
   ].filter((value) => value !== null).length;
 
+  // Both Clear filters buttons leave the page once nothing is filtered, and
+  // a removed control drops focus to the body. Focus moves first to the tab
+  // the reset selects, so it is never lost.
+  const allTabRef = useRef<HTMLButtonElement>(null);
   function clearFilters() {
+    allTabRef.current?.focus();
     writeFilters(view, DEFAULT_MARKET_MAP_FILTERS);
   }
 
@@ -283,6 +288,7 @@ export function MarketMap({ companies }: MarketMapProps) {
           onViewChange={(next) => writeFilters(next, filters)}
           onClear={clearFilters}
           canClear={hasActiveFilters(filters)}
+          allTabRef={allTabRef}
         />
 
         <p

@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { publishedModules } from '../../data/modules';
 import { forEachInOwnContext } from './helpers/per-route-context';
@@ -15,6 +15,40 @@ async function noOverflow(page: Page) {
 
 function segmentTab(page: Page, name: RegExp) {
   return page.getByRole('group', { name: 'Segment' }).getByRole('button', { name });
+}
+
+/**
+ * The ancestors whose overflow cuts off part of a control's focus ring (its
+ * border box grown by outline offset and width) or its bottom rule. A scroll
+ * container clips at its padding box, so neither shows past it.
+ */
+function clippedBy(target: Locator, part: 'ring' | 'rule') {
+  return target.evaluate((el, part) => {
+    const r = el.getBoundingClientRect();
+    const style = getComputedStyle(el);
+    const grow = parseFloat(style.outlineOffset) + parseFloat(style.outlineWidth);
+    const box =
+      part === 'ring'
+        ? { left: r.left - grow, top: r.top - grow, right: r.right + grow, bottom: r.bottom + grow }
+        : { left: r.left, top: r.bottom - parseFloat(style.borderBottomWidth), right: r.right, bottom: r.bottom };
+    const cut: string[] = [];
+    for (let a = el.parentElement; a && a !== document.documentElement; a = a.parentElement) {
+      const s = getComputedStyle(a);
+      if (s.overflowX === 'visible' && s.overflowY === 'visible') continue;
+      const b = a.getBoundingClientRect();
+      const left = b.left + a.clientLeft;
+      const top = b.top + a.clientTop;
+      if (
+        box.left < left - 0.5 ||
+        box.top < top - 0.5 ||
+        box.right > left + a.clientWidth + 0.5 ||
+        box.bottom > top + a.clientHeight + 0.5
+      ) {
+        cut.push(`${a.tagName.toLowerCase()}[${a.getAttribute('aria-label') ?? a.className.slice(0, 48)}]`);
+      }
+    }
+    return cut;
+  }, part);
 }
 
 function statusSelect(page: Page) {
@@ -384,6 +418,60 @@ test.describe('market map visualization', () => {
     await expect(page.getByText('Figure AI')).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).press('Enter');
     await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    // The cleared button is gone; focus moves to the tab the reset selects,
+    // never to the body, and the count is a polite status region.
+    await expect(segmentTab(page, /^All/)).toBeFocused();
+    await expect(page.locator('[data-result-count]')).toHaveAttribute('role', 'status');
+    await expect(page.locator('[data-result-count]')).toHaveAttribute('aria-live', 'polite');
+    // The empty state's own Clear filters keeps focus the same way.
+    await page.getByRole('searchbox', { name: 'Search companies by name' }).fill('zzz');
+    await expect(page.getByText('0 of 111 companies')).toBeVisible();
+    await page
+      .locator('[data-market-map-empty]')
+      .getByRole('button', { name: 'Clear filters' })
+      .press('Enter');
+    await expect(page.getByText('111 of 111 companies')).toBeVisible();
+    await expect(segmentTab(page, /^All/)).toBeFocused();
+  });
+
+  test('segment tabs show their whole focus ring and selected rule (VAL-MKT-026)', async ({
+    page,
+  }) => {
+    // The tab row is a scroll container at every width; it overflows on a
+    // phone and on a tablet.
+    for (const viewport of [
+      { width: 1440, height: 900 },
+      { width: 768, height: 1024 },
+      { width: 375, height: 812 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await page.goto(`${ROUTE}?segment=humanoids`);
+      const at = `at ${viewport.width}px`;
+      const selected = segmentTab(page, /^Humanoids/);
+      await expect(selected).toHaveAttribute('aria-pressed', 'true');
+      // The selected tab's 1 px ink rule is in view and drawn over the row's
+      // hairline, not under it.
+      expect(await clippedBy(selected, 'rule'), at).toEqual([]);
+      expect(
+        await selected.evaluate((el) => {
+          const r = el.getBoundingClientRect();
+          return document.elementFromPoint(r.left + r.width / 2, r.bottom - 0.5) === el;
+        }),
+        at,
+      ).toBe(true);
+      // Every tab, reached by keyboard, shows its whole ring.
+      const tabs = page.getByRole('group', { name: 'Segment' }).getByRole('button');
+      const count = await tabs.count();
+      expect(count).toBeGreaterThan(1);
+      await tabs.first().focus();
+      await page.keyboard.press('Shift+Tab');
+      for (let i = 0; i < count; i++) {
+        await page.keyboard.press('Tab');
+        await expect(tabs.nth(i)).toBeFocused();
+        expect(await tabs.nth(i).evaluate((el) => el.matches(':focus-visible')), at).toBe(true);
+        expect(await clippedBy(tabs.nth(i), 'ring'), `tab ${i + 1} of ${count} ${at}`).toEqual([]);
+      }
+    }
   });
 
   test('the map is one tab stop with arrow keys; Enter opens, Escape and Back close', async ({

@@ -4210,7 +4210,7 @@
   },
   {
     "id": "mitsubishi-robotics",
-    "name": "Mitsubishi (Robotics)",
+    "name": "Mitsubishi Motors",
     "aka": [],
     "website": "https://www.mitsubishi-motors.com/en/",
     "logo": "mitsubishi-logo",
@@ -4238,15 +4238,15 @@
     ],
     "confidence": "medium",
     "absent": {
-      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mitsubishi and give no other name." },
+      "aka": { "state": "not-applicable", "basis": "One name: the fetched bodies of its cited sources and its website call it Mitsubishi Motors and give no other name." },
       "deployments": { "state": "not-applicable", "basis": "Mitsubishi Motors plans to start building the robots in the first half of 2027 (Assembly Magazine); none is deployed yet." },
       "openSource": { "state": "not-applicable", "basis": "No open-source release of its own: none is named in the fetched bodies of its cited sources or on its website." },
-      "totalRaisedUsd": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it has no venture total of its own." },
-      "round.type": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
-      "round.amountUsd": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
-      "round.date": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
-      "round.valuationUsd": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." },
-      "round.leadInvestors": { "state": "not-applicable", "basis": "Mitsubishi Electric's robotics business, funded by Mitsubishi Electric: it raises no rounds of its own." }
+      "totalRaisedUsd": { "state": "not-applicable", "basis": "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it has no venture total of its own." },
+      "round.type": { "state": "not-applicable", "basis": "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own." },
+      "round.amountUsd": { "state": "not-applicable", "basis": "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own." },
+      "round.date": { "state": "not-applicable", "basis": "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own." },
+      "round.valuationUsd": { "state": "not-applicable", "basis": "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own." },
+      "round.leadInvestors": { "state": "not-applicable", "basis": "A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own." }
     }
   }
 ]

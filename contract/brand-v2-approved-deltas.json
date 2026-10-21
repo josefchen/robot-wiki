@@ -108783,6 +108783,24 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "market-map-views-20261021-market-playground-company-mitsubishi-robotics",
+      "manifest": "market-playground",
+      "memberId": "company:mitsubishi-robotics",
+      "oldHash": "f9dc399b4327e8f17224fdf5c271af35bb5c521eee2d00f8f7985a879e4b534f",
+      "newHash": "0c5cd8912517f1bb9a3f1f46cd32e27ce13e41ad99b68be422ca82fb8aa09cc8",
+      "reason": "The market-map views follow-up of 2026-10-21 (the field audit close-out found the record shown under a name none of its sources uses), as one plain edge from its last approved endpoint, market-map-audit-20261019-market-playground-company-mitsubishi-robotics. The Mitsubishi Motors record (research/04-market-map-companies.json, regenerated into data/companies.ts; its id, mitsubishi-robotics, is unchanged) was shown as \"Mitsubishi (Robotics)\". Its three sources name the company Mitsubishi Motors: Assembly Magazine opens \"TOKYO — Mitsubishi Motors plans to begin mass-producing artificial intelligence-powered humanoid robots\", the website it links is titled \"Global Website- MITSUBISHI MOTORS\", and the third is Wikipedia's Mitsubishi Motors article. The name is now \"Mitsubishi Motors\". The aka basis names Mitsubishi Motors, and the six funding bases (total raised and the five round fields, each n/a), which still called the plan Mitsubishi Electric's robotics business, now call it a production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211), as the audit's website correction had already found. No other value, state or source changes. Recorded in audit/market-map.md under \"Mitsubishi Motors' display name (2026-10-21)\" and in the record's name row in audit/market-map-ledger.json.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", which put the market map and its data provenance in scope, held to the owner-sealed rows VAL-AUDIT-007 (the company dataset audits clean against its sources) and VAL-B2-MAP-001 (record values match the canonical data registry) and the standing instruction to preserve data truth (AGENTS.md); applied as the mission orchestrator's note of 2026-10-20 on the field audit close-out directs: \"rename its display name to what its sources support, id unchanged, with a reviewed edge in contract/brand-v2-approved-deltas.json\". Not release approval.",
+      "responsibleMilestone": "brand-v2-map-playground",
+      "affectedAssertions": [
+        "VAL-AUDIT-007",
+        "VAL-B2-MAP-001",
+        "VAL-B2-BASE-003",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

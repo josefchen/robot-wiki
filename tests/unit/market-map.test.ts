@@ -600,10 +600,13 @@ describe('name search (the q param)', () => {
     // 19 -> 21 on 2026-10-20: Humanoid's registered name SKL Robotics Ltd
     // (The Robot Report) and EngineAI's full name, Shenzhen EngineAI Robotics
     // Technology Co., Ltd. (Wikipedia), are now among their other names.
-    expect(humanoidsRo).toHaveLength(21);
+    // 21 -> 20 on 2026-10-21: "Mitsubishi (Robotics)" is now "Mitsubishi
+    // Motors", the name its sources use, so no word of it starts with "ro".
+    expect(humanoidsRo).toHaveLength(20);
     expect(humanoidsRo.map((company) => company.id)).toEqual(
       expect.arrayContaining(['1x-technologies', 'humanoid-uk', 'engineai']),
     );
+    expect(humanoidsRo.map((company) => company.id)).not.toContain('mitsubishi-robotics');
     expect(humanoidsRo.every((company) => company.segment === 'humanoids')).toBe(true);
     expect(hasActiveFilters(filters({ query: 'ro' }))).toBe(true);
   });

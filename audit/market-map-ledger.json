@@ -19930,10 +19930,24 @@
     },
     {
       "id": "mitsubishi-robotics",
-      "name": "Mitsubishi (Robotics)",
+      "name": "Mitsubishi Motors",
       "confidence": "medium",
       "confidenceBasis": "Assembly Magazine on the plan, with Wikipedia and its own site on Mitsubishi Motors.",
       "rows": [
+        {
+          "field": "name",
+          "value": "Mitsubishi Motors",
+          "verdict": "corrected",
+          "was": "Mitsubishi (Robotics)",
+          "source": {
+            "url": "https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant",
+            "route": "text",
+            "status": 200,
+            "retrieved": "2026-10-19T10:47:28.556Z"
+          },
+          "passage": "[meta:og:description] TOKYO — Mitsubishi Motors plans to begin mass-producing artificial intelligence-powered humanoid robots at one of its Japanese manufacturing plants in the first half of 2027, marking one of the industry's most significant moves toward large-scale robot production and physical AI.",
+          "note": "corrected 2026-10-21: each cited source and the website name Mitsubishi Motors (the website row's passage: \"Global Website- MITSUBISHI MOTORS\"); the id stays mitsubishi-robotics"
+        },
         {
           "field": "hq.city",
           "value": "Tokyo",

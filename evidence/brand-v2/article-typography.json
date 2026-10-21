@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "2717b9162979c0d6773b5268982a888922c2cf2d0ae1722dc99a6568cb0f9d81",
+  "fingerprint": "d634397a3f35e9aebed047bbd3586b99c5c340ca350525447d932f4aae0d7c0b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -39610,7 +39610,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2781,
+      "visibleTextLength": 2788,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -40381,7 +40381,7 @@
         },
         {
           "tag": "button",
-          "text": "Mitsubishi",
+          "text": "Mitsubishi Motors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -95838,7 +95838,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 2781,
+      "visibleTextLength": 2788,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -96609,7 +96609,7 @@
         },
         {
           "tag": "button",
-          "text": "Mitsubishi",
+          "text": "Mitsubishi Motors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

@@ -32,6 +32,15 @@ function segmentTab(name: RegExp) {
   return within(screen.getByRole('group', { name: 'Segment' })).getByRole('button', { name });
 }
 
+/** The empty state: a status region of its own, beside the result count's. */
+function emptyState(): HTMLElement {
+  const empty = screen
+    .getAllByRole('status')
+    .find((element) => element.hasAttribute('data-market-map-empty'));
+  if (!empty) throw new Error('no empty-state status region');
+  return empty;
+}
+
 async function openMoreFilters(user: ReturnType<typeof userEvent.setup>) {
   const toggle = screen.getByRole('button', { name: /More filters/ });
   if (toggle.getAttribute('aria-expanded') !== 'true') await user.click(toggle);
@@ -426,7 +435,7 @@ describe('MarketMap', () => {
     await user.click(segmentTab(/^Components/));
     await openMoreFilters(user);
     await user.selectOptions(screen.getByLabelText('Stage / status'), 'shut-down');
-    const empty = screen.getByRole('status');
+    const empty = emptyState();
     expect(empty).toHaveTextContent('No companies match these filters.');
     expect(empty).toHaveTextContent('Nothing in Components matches every filter at once.');
     expect(screen.getByText('0 of 111 companies')).toBeInTheDocument();
@@ -439,7 +448,33 @@ describe('MarketMap', () => {
     const user = userEvent.setup();
     render(<MarketMap companies={COMPANIES} />);
     await user.type(screen.getByRole('searchbox', { name: 'Search companies by name' }), 'zzz');
-    expect(screen.getByRole('status')).toHaveTextContent('No company name starts with “zzz”.');
+    expect(emptyState()).toHaveTextContent('No company name starts with “zzz”.');
+  }, TIMEOUT);
+
+  it('hands focus to the All tab when Clear filters removes itself (VAL-MKT-026)', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.click(segmentTab(/^Humanoids/));
+    expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
+    screen.getByRole('button', { name: 'Clear filters' }).focus();
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    // Nothing is filtered, so the button is gone; focus must not fall to the body.
+    expect(screen.queryByRole('button', { name: 'Clear filters' })).not.toBeInTheDocument();
+    expect(segmentTab(/^All/)).toHaveFocus();
+    expect(segmentTab(/^All/)).toHaveAttribute('aria-pressed', 'true');
+  }, TIMEOUT);
+
+  it('hands focus to the All tab from the empty state\'s Clear filters (VAL-MKT-026)', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.type(screen.getByRole('searchbox', { name: 'Search companies by name' }), 'zzz');
+    within(emptyState()).getByRole('button', { name: 'Clear filters' }).focus();
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
+    expect(document.querySelector('[data-market-map-empty]')).toBeNull();
+    expect(screen.getByRole('searchbox', { name: 'Search companies by name' })).toHaveValue('');
+    expect(segmentTab(/^All/)).toHaveFocus();
   }, TIMEOUT);
 
   it('hydrates filters from the URL and ignores invalid params (VAL-MKT-007, VAL-MKT-024)', async () => {
@@ -551,6 +586,11 @@ describe('MarketMap', () => {
 
   it('announces the result count in an aria-live region (VAL-MKT-026)', () => {
     render(<MarketMap companies={COMPANIES} />);
-    expect(screen.getByText('111 of 111 companies')).toHaveAttribute('aria-live', 'polite');
+    const count = screen.getByText('111 of 111 companies');
+    expect(count).toHaveAttribute('aria-live', 'polite');
+    // The registered live-region pattern (the search page's): a polite
+    // status, which is atomic, so the whole "N of 111 companies" is read
+    // rather than only the number that changed.
+    expect(count).toHaveAttribute('role', 'status');
   }, TIMEOUT);
 });

@@ -1,6 +1,15 @@
 'use client';
 
-import { useEffect, useId, useRef, useState, type ChangeEvent, type ReactNode } from 'react';
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FocusEvent,
+  type ReactNode,
+  type Ref,
+} from 'react';
 import {
   CONFIDENCE_LEVELS,
   MARKET_MAP_QUERY_MAX,
@@ -43,6 +52,8 @@ type FilterBarProps = {
   onViewChange: (view: MarketMapViewId) => void;
   onClear: () => void;
   canClear: boolean;
+  /** The "All" segment tab, where focus goes when Clear filters removes itself. */
+  allTabRef?: Ref<HTMLButtonElement>;
 };
 
 /** A text tab: ink with a 1 px rule when on, muted when off (no pills). */
@@ -121,6 +132,7 @@ export function FilterBar({
   onViewChange,
   onClear,
   canClear,
+  allTabRef,
 }: FilterBarProps) {
   const searchId = useId();
   const foldId = useId();
@@ -146,41 +158,58 @@ export function FilterBar({
       row.scrollLeft = Math.max(0, start - 24);
     }
   }, [filters.segment]);
+  // Keyboard focus centres a tab that is out of view but leaves a half-shown
+  // one where it is, so bring the whole tab and its ring in.
+  function revealTab(event: FocusEvent<HTMLDivElement>) {
+    const tab = event.target;
+    if (typeof tab.scrollIntoView === 'function') {
+      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+  }
 
   return (
     <div className="flex flex-col gap-5">
+      {/* The row scrolls, so it clips at its padding box: the padding holds
+          the offset focus ring, and the hairline sits on the inner row so the
+          chosen tab's rule paints over it instead of being cut off. */}
       <div
         ref={tabsRef}
         role="group"
         aria-label="Segment"
-        className="-mx-6 flex gap-x-6 overflow-x-auto border-b border-border px-6 [scrollbar-width:none] sm:mx-0 sm:px-0"
+        className="-mx-6 -my-1 scroll-px-6 overflow-x-auto py-1 [scrollbar-width:none] sm:-mx-1 sm:scroll-px-1 sm:px-1"
       >
-        <button
-          type="button"
-          data-brand-control-id="control:selection"
-          aria-pressed={filters.segment === null}
-          onClick={() => onFilterChange({ segment: null, subSegment: null })}
-          className={cx(tabClass(filters.segment === null), '-mb-px')}
+        <div
+          onFocus={revealTab}
+          className="flex w-max min-w-full gap-x-6 border-b border-border px-6 sm:px-0"
         >
-          All <span className="tabular-nums text-text-dim">{allCount}</span>
-        </button>
-        {segments.map((segment) => {
-          const on = filters.segment === segment.value;
-          return (
-            <button
-              key={segment.value}
-              type="button"
-              data-brand-control-id="control:selection"
-              aria-pressed={on}
-              onClick={() =>
-                onFilterChange({ segment: on ? null : segment.value, subSegment: null })
-              }
-              className={cx(tabClass(on), '-mb-px')}
-            >
-              {segment.label} <span className="tabular-nums text-text-dim">{segment.count}</span>
-            </button>
-          );
-        })}
+          <button
+            ref={allTabRef}
+            type="button"
+            data-brand-control-id="control:selection"
+            aria-pressed={filters.segment === null}
+            onClick={() => onFilterChange({ segment: null, subSegment: null })}
+            className={cx(tabClass(filters.segment === null), '-mb-px')}
+          >
+            All <span className="tabular-nums text-text-dim">{allCount}</span>
+          </button>
+          {segments.map((segment) => {
+            const on = filters.segment === segment.value;
+            return (
+              <button
+                key={segment.value}
+                type="button"
+                data-brand-control-id="control:selection"
+                aria-pressed={on}
+                onClick={() =>
+                  onFilterChange({ segment: on ? null : segment.value, subSegment: null })
+                }
+                className={cx(tabClass(on), '-mb-px')}
+              >
+                {segment.label} <span className="tabular-nums text-text-dim">{segment.count}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -232,6 +261,7 @@ export function FilterBar({
         </button>
 
         <p
+          role="status"
           aria-live="polite"
           data-result-count
           className="font-sans text-[14px] leading-5 tabular-nums text-text-dim"

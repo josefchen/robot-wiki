@@ -8472,7 +8472,7 @@ const ROWS: Company[] = [
   },
   {
     id: 'mitsubishi-robotics',
-    name: 'Mitsubishi (Robotics)',
+    name: 'Mitsubishi Motors',
     aka: [],
     website: 'https://www.mitsubishi-motors.com/en/',
     logo: 'mitsubishi-logo',
@@ -8520,7 +8520,7 @@ const ROWS: Company[] = [
     absent: {
       'aka': {
         state: 'not-applicable',
-        basis: 'One name: the fetched bodies of its cited sources and its website call it Mitsubishi and give no other name.',
+        basis: 'One name: the fetched bodies of its cited sources and its website call it Mitsubishi Motors and give no other name.',
       },
       'deployments': {
         state: 'not-applicable',
@@ -8532,27 +8532,27 @@ const ROWS: Company[] = [
       },
       'totalRaisedUsd': {
         state: 'not-applicable',
-        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it has no venture total of its own.',
+        basis: 'A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it has no venture total of its own.',
       },
       'round.type': {
         state: 'not-applicable',
-        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+        basis: 'A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own.',
       },
       'round.amountUsd': {
         state: 'not-applicable',
-        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+        basis: 'A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own.',
       },
       'round.date': {
         state: 'not-applicable',
-        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+        basis: 'A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own.',
       },
       'round.valuationUsd': {
         state: 'not-applicable',
-        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+        basis: 'A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own.',
       },
       'round.leadInvestors': {
         state: 'not-applicable',
-        basis: 'Mitsubishi Electric\'s robotics business, funded by Mitsubishi Electric: it raises no rounds of its own.',
+        basis: 'A production plan of Mitsubishi Motors, a listed carmaker (TYO: 7211): it raises no rounds of its own.',
       },
     },
   },

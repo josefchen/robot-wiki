@@ -8652,7 +8652,7 @@
     },
     {
       "route": "/market-map/",
-      "visibleTextLength": 2781,
+      "visibleTextLength": 2788,
       "header": {
         "present": true,
         "display": "flex",

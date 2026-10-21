@@ -81,6 +81,9 @@ test.describe('market-map company logos', () => {
   });
 
   test('every drawn mark lays down ink, and none is a block', async ({ page }) => {
+    // One screenshot per mark, more than 100 of them: on a loaded host this
+    // takes about a minute, past the 30 s default.
+    test.setTimeout(120_000);
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(ROUTE);
     await page.waitForLoadState('networkidle');
