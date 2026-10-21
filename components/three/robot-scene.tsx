@@ -134,16 +134,21 @@ export function framePoints(subject: Object3D, budget = 4000): Vector3[] {
 }
 
 /**
- * The home view for a stage of this shape: looking along HOME_VIEW.direction,
- * the distance at which the points span the height of the stage's band (or
- * widthFill of its width, whichever binds first), re-centred on their
- * projected box in that band. Bisection, then re-centring, three passes (the
- * explainer stage's fit). Without a stage height the band is the centred
- * heightFill.
+ * The home view for a stage of this shape: looking along HOME_VIEW.direction
+ * (or `from`, the direction a reframe keeps), the distance at which the
+ * points span the height of the stage's band (or widthFill of its width,
+ * whichever binds first), re-centred on their projected box in that band.
+ * Bisection, then re-centring, three passes (the explainer stage's fit).
+ * Without a stage height the band is the centred heightFill.
  */
-export function fitHome(points: Vector3[], aspect: number, stageHeightPx = 0): HomeView {
+export function fitHome(
+  points: Vector3[],
+  aspect: number,
+  stageHeightPx = 0,
+  from: Vector3 = new Vector3(...HOME_VIEW.direction),
+): HomeView {
   const lens = new PerspectiveCamera(stageFov(aspect), aspect, 0.01, 50);
-  const direction = new Vector3(...HOME_VIEW.direction).normalize();
+  const direction = from.clone().normalize();
   const target = new Box3().setFromPoints(points).getCenter(new Vector3());
   const band = homeBand(stageHeightPx);
   const middle = (band.top + band.bottom) / 2;
@@ -195,6 +200,26 @@ export function fitHome(points: Vector3[], aspect: number, stageHeightPx = 0): H
   return { position: lens.position.clone(), target: target.clone() };
 }
 
+/** How far inside the frame's edges a point must sit to count as seen, in normalised device units. */
+const VIEW_MARGIN = 0.04;
+
+/**
+ * Whether the lens shows every point: inside the frame's edges, below the
+ * hint line's clear room at the top of a stage this many CSS px tall
+ * (HOME_VIEW.topClearPx), and in front of the lens.
+ */
+export function inView(points: Vector3[], lens: PerspectiveCamera, stageHeightPx: number): boolean {
+  lens.updateMatrixWorld();
+  const top = stageHeightPx > 0 ? 1 - (2 * HOME_VIEW.topClearPx) / stageHeightPx : 1 - VIEW_MARGIN;
+  const v = new Vector3();
+  for (const p of points) {
+    v.copy(p).project(lens);
+    if (v.z < -1 || v.z > 1) return false;
+    if (Math.abs(v.x) > 1 - VIEW_MARGIN || v.y < -1 + VIEW_MARGIN || v.y > top) return false;
+  }
+  return true;
+}
+
 /** Where the camera may go: never under the table, never inside or far from the arm. */
 const ORBIT_LIMITS = {
   minDistance: 0.3,
@@ -205,6 +230,13 @@ const ORBIT_LIMITS = {
   targetMin: [-0.3, 0, -0.35] as const,
   targetMax: [0.45, 0.4, 0.35] as const,
 };
+
+/**
+ * The farthest the camera steps back to show a reach. A typed target too far
+ * away for that keeps the view the reader had; the readout under the stage
+ * still gives the verdict.
+ */
+const REACH_VIEW_MAX_DISTANCE = 6;
 
 const RESET_SECONDS = 0.9;
 
@@ -282,16 +314,22 @@ function SceneTelemetry({
 
 /**
  * The camera: the explainers' field of view for the stage's aspect, orbit
- * limits, the keyboard turn and zoom, the touch rule, and the eased return
- * to the home view.
+ * limits, the keyboard turn and zoom, the touch rule, the eased return to
+ * the home view, and the step back that brings a reach into view.
  */
 function CameraRig({
   subject,
+  target,
+  settled,
   viewResetToken,
   reducedMotion,
 }: {
   /** The arm, framed by the home view once it has loaded. */
   subject: Object3D | null;
+  /** The reach target in scene coordinates, or null. */
+  target: Vec3 | null;
+  /** Whether the reach toward the target has settled on its verdict. */
+  settled: boolean;
   viewResetToken: number;
   reducedMotion: boolean;
 }) {
@@ -304,9 +342,9 @@ function CameraRig({
   // Settings written straight onto three.js objects go through the store's
   // getter, inside effects, rather than onto values a hook returned.
   const getState = useThree((state) => state.get);
-  // The move home runs on its own timer, not on the frame loop: the demand
+  // A camera move runs on its own timer, not on the frame loop: the demand
   // loop draws when asked, and a busy device can stall it, but the move must
-  // always end exactly at home unless the reader takes over.
+  // always end exactly on its view unless the reader takes over.
   const tween = useRef<{
     start: number;
     fromPosition: Vector3;
@@ -326,9 +364,40 @@ function CameraRig({
       ? fitHome(framed.current, aspect, heightRef.current)
       : { position: new Vector3(...HOME_VIEW.position), target: new Vector3(...HOME_VIEW.target) }
   ), []);
+  // While a reach the home view could not hold is on the stage, the frame
+  // holds these points (the arm as it reached, the target and the floor
+  // under it) from this direction instead, and a resize refits to them.
+  const shown = useRef<{ points: Vector3[]; direction: Vector3 } | null>(null);
   // Once the reader turns the view it is theirs: a resize no longer refits it
   // until Reset pose brings it home.
   const moved = useRef(false);
+
+  // The orbit limits in force: the defaults, widened just enough to hold a
+  // reach's view so the controls do not clamp it back, until Reset pose
+  // brings the view home. OrbitControls' maxDistance prop only sets the
+  // default; the rig widens and restores it here.
+  const limits = useRef({
+    maxDistance: ORBIT_LIMITS.maxDistance,
+    targetMin: new Vector3(...ORBIT_LIMITS.targetMin),
+    targetMax: new Vector3(...ORBIT_LIMITS.targetMax),
+  });
+  const holdView = useCallback((view: HomeView) => {
+    const held = limits.current;
+    held.maxDistance = Math.max(held.maxDistance, view.position.distanceTo(view.target));
+    held.targetMin.min(view.target);
+    held.targetMax.max(view.target);
+    const orbit = getState().controls as OrbitControlsImpl | null;
+    if (orbit) orbit.maxDistance = held.maxDistance;
+  }, [getState]);
+  const releaseLimits = useCallback(() => {
+    limits.current = {
+      maxDistance: ORBIT_LIMITS.maxDistance,
+      targetMin: new Vector3(...ORBIT_LIMITS.targetMin),
+      targetMax: new Vector3(...ORBIT_LIMITS.targetMax),
+    };
+    const orbit = getState().controls as OrbitControlsImpl | null;
+    if (orbit) orbit.maxDistance = ORBIT_LIMITS.maxDistance;
+  }, [getState]);
 
   // Field of view follows the stage's shape, so a phone sees the whole arm.
   useLayoutEffect(() => {
@@ -347,15 +416,19 @@ function CameraRig({
     heightRef.current = height;
     if (subject && !framed.current) framed.current = framePoints(subject);
     if (moved.current || tween.current) return;
-    const home = homeFor(aspectRef.current);
-    camera.position.copy(home.position);
-    controls.target.copy(home.target);
+    const reach = shown.current;
+    const view = reach
+      ? fitHome(reach.points, aspectRef.current, height, reach.direction)
+      : homeFor(aspectRef.current);
+    if (reach) holdView(view);
+    camera.position.copy(view.position);
+    controls.target.copy(view.target);
     controls.update();
     invalidate();
-  }, [camera, controls, subject, width, height, homeFor, invalidate]);
+  }, [camera, controls, subject, width, height, homeFor, holdView, invalidate]);
 
   // OrbitControls keeps a drag's inertia privately; one update with damping
-  // off spends it and zeroes it. Damping stays off for the move home.
+  // off spends it and zeroes it. Damping stays off for a camera move.
   const settleInertia = useCallback(() => {
     const orbit = getState().controls as OrbitControlsImpl | null;
     if (!orbit) return;
@@ -367,49 +440,48 @@ function CameraRig({
     if (orbit) orbit.enableDamping = !reducedMotion;
   }, [getState, reducedMotion]);
 
-  // A reader who turns the view during the move home takes over from it.
-  const cancelMove = useCallback(() => {
-    moved.current = true;
+  const stopMove = useCallback(() => {
     if (!tween.current) return;
     window.clearTimeout(tween.current.timer);
     tween.current = null;
     restoreDamping();
   }, [restoreDamping]);
+  // A reader who turns the view during a move takes over from it.
+  const cancelMove = useCallback(() => {
+    moved.current = true;
+    stopMove();
+  }, [stopMove]);
   useEffect(() => () => {
     if (tween.current) window.clearTimeout(tween.current.timer);
   }, []);
 
-  // Reset: ease back home, or jump there under reduced motion.
-  const handledToken = useRef(viewResetToken);
-  useEffect(() => {
-    if (!controls || viewResetToken === handledToken.current) return;
-    handledToken.current = viewResetToken;
-    const home = homeFor(aspectRef.current);
+  // Ease to a view, or jump there under reduced motion. Any drag inertia is
+  // dropped first, so the move ends exactly on the view. `arrive` runs as the
+  // move lands, before the controls' last update, unless the reader takes
+  // over first.
+  const moveTo = useCallback((view: HomeView, arrive?: () => void) => {
+    if (!controls) return;
+    stopMove();
+    settleInertia();
     if (reducedMotion) {
-      cancelMove();
-      moved.current = false;
-      settleInertia();
-      camera.position.copy(home.position);
-      controls.target.copy(home.target);
+      camera.position.copy(view.position);
+      controls.target.copy(view.target);
+      arrive?.();
       controls.update();
       restoreDamping();
       invalidate();
       return;
     }
-    // Drop any drag inertia first, so the move ends exactly at home.
-    cancelMove();
-    moved.current = false;
-    settleInertia();
     const move = {
       start: performance.now(),
       fromPosition: camera.position.clone(),
       fromTarget: controls.target.clone(),
-      toPosition: home.position,
-      toTarget: home.target,
+      toPosition: view.position,
+      toTarget: view.target,
       timer: 0,
     };
     tween.current = move;
-    // One step of the move, and its end: exactly the home view, damping on.
+    // One step of the move, and its end: exactly the view, damping on.
     const step = () => {
       if (tween.current !== move) return;
       const { camera: lens, controls: orbit } = getState();
@@ -420,6 +492,7 @@ function CameraRig({
         tween.current = null;
         lens.position.copy(move.toPosition);
         target.copy(move.toTarget);
+        arrive?.();
       } else {
         const k = smooth(t);
         lens.position.lerpVectors(move.fromPosition, move.toPosition, k);
@@ -431,7 +504,54 @@ function CameraRig({
       invalidate();
     };
     step();
-  }, [viewResetToken, reducedMotion, camera, controls, invalidate, getState, settleInertia, restoreDamping, cancelMove, homeFor]);
+  }, [reducedMotion, camera, controls, invalidate, getState, settleInertia, restoreDamping, stopMove]);
+
+  // Reset: back to the home view, whatever the reader or a reach did to it.
+  const handledToken = useRef(viewResetToken);
+  useEffect(() => {
+    if (!controls || viewResetToken === handledToken.current) return;
+    handledToken.current = viewResetToken;
+    shown.current = null;
+    moved.current = false;
+    // The limits return to their defaults as the view lands home, so the
+    // last update clamps it exactly as on load.
+    moveTo(homeFor(aspectRef.current), releaseLimits);
+  }, [viewResetToken, controls, homeFor, moveTo, releaseLimits]);
+
+  // A verdict the reader cannot see is no verdict. When a reach settles, or
+  // its target is cleared, the stage frames the arm as it now stands with
+  // the target and the floor under it: from the home view when that holds
+  // them all (out of the frame or under the hint line is not held), else
+  // from farther back along the same direction. Once the reader has turned
+  // the view it is theirs, and the camera only steps back, as far as it must.
+  useEffect(() => {
+    if (!controls || !subject) return;
+    if (target ? !settled : !shown.current) return;
+    const points = framePoints(subject);
+    if (target) points.push(new Vector3(target.x, target.y, target.z), new Vector3(target.x, 0, target.z));
+    const height = heightRef.current;
+    if (!moved.current) {
+      const home = homeFor(aspectRef.current);
+      const lens = camera.clone();
+      lens.position.copy(home.position);
+      lens.lookAt(home.target);
+      if (inView(points, lens, height)) {
+        if (shown.current) {
+          shown.current = null;
+          moveTo(home, releaseLimits);
+        }
+        return;
+      }
+    } else if (inView(points, camera, height)) {
+      return;
+    }
+    const direction = camera.position.clone().sub(controls.target);
+    const view = fitHome(points, aspectRef.current, height, direction);
+    if (view.position.distanceTo(view.target) > REACH_VIEW_MAX_DISTANCE) return;
+    if (!moved.current) shown.current = { points, direction };
+    holdView(view);
+    moveTo(view);
+  }, [target, settled, controls, subject, camera, homeFor, holdView, releaseLimits, moveTo]);
 
   // Keyboard: the arrow keys turn the view and + or - zoom, as in the explainers.
   useEffect(() => {
@@ -461,7 +581,7 @@ function CameraRig({
       }
       if (zoom) {
         s.radius = Math.min(
-          ORBIT_LIMITS.maxDistance,
+          limits.current.maxDistance,
           Math.max(ORBIT_LIMITS.minDistance, s.radius * zoom),
         );
       }
@@ -520,16 +640,13 @@ function CameraRig({
     };
   }, [controls, getState]);
 
-  // Keep the orbit centre near the arm when the reader pans.
+  // Keep the orbit centre near the arm, or near a reach on the stage, when
+  // the reader pans.
   const clampTarget = useMemo(
     () => () => {
       if (!controls) return;
       const t = controls.target;
-      const clamped = new Vector3(
-        Math.min(ORBIT_LIMITS.targetMax[0], Math.max(ORBIT_LIMITS.targetMin[0], t.x)),
-        Math.min(ORBIT_LIMITS.targetMax[1], Math.max(ORBIT_LIMITS.targetMin[1], t.y)),
-        Math.min(ORBIT_LIMITS.targetMax[2], Math.max(ORBIT_LIMITS.targetMin[2], t.z)),
-      );
+      const clamped = t.clone().clamp(limits.current.targetMin, limits.current.targetMax);
       if (!clamped.equals(t)) {
         camera.position.add(clamped.clone().sub(t));
         t.copy(clamped);
@@ -771,6 +888,8 @@ export default function RobotScene({
       <ClickPlane onPlaceTarget={onPlaceTarget} />
       <CameraRig
         subject={robot?.robot ?? null}
+        target={target}
+        settled={targetState !== 'solving'}
         viewResetToken={viewResetToken}
         reducedMotion={reducedMotion}
       />

@@ -3,7 +3,7 @@ import { Mesh, PerspectiveCamera, SRGBColorSpace, Vector3 } from 'three';
 import { describe, expect, it } from 'vitest';
 import { applyStageLook } from '@/components/three/load-robot';
 import { createProceduralArm } from '@/components/three/procedural-arm';
-import { HOME_VIEW, fitHome, framePoints, homeBand } from '@/components/three/robot-scene';
+import { HOME_VIEW, fitHome, framePoints, homeBand, inView, type HomeView } from '@/components/three/robot-scene';
 import {
   CLAY_MIX,
   FLOOR_MIX,
@@ -214,6 +214,55 @@ describe('the home view keeps the arm clear of the hint line', () => {
       expect(arm.top * height).toBeGreaterThanOrEqual(HOME_VIEW.topClearPx - 0.5);
       expect(arm.fill).toBeGreaterThanOrEqual(0.65);
       expect(arm.bottom).toBeLessThan(1);
+    }
+  });
+});
+
+describe('a reach the home view cannot show is brought into view', () => {
+  function lensAt(view: HomeView, aspect: number) {
+    const lens = new PerspectiveCamera(stageFov(aspect), aspect, 0.01, 50);
+    lens.position.copy(view.position);
+    lens.lookAt(view.target);
+    lens.updateMatrixWorld();
+    return lens;
+  }
+
+  // Desk and phone stages: 16:10 beside the deck, 3:2 on a 390 px phone.
+  const STAGES = [[736, 460], [342, 228]] as const;
+
+  it('refits along the same direction until the arm, the target and the floor under it are all in view', () => {
+    const arm = framePoints(createProceduralArm());
+    for (const [width, height] of STAGES) {
+      const aspect = width / height;
+      const home = fitHome(arm, aspect, height);
+      expect(inView(arm, lensAt(home, aspect), height)).toBe(true);
+      // 60 cm forward and 50 cm up (scene y is up), and the ring on the floor under it.
+      const reach = [...arm, new Vector3(0.6, 0.5, 0), new Vector3(0.6, 0, 0)];
+      expect(inView(reach, lensAt(home, aspect), height)).toBe(false);
+
+      const from = home.position.clone().sub(home.target);
+      const view = fitHome(reach, aspect, height, from);
+      expect(inView(reach, lensAt(view, aspect), height)).toBe(true);
+      const along = view.position.clone().sub(view.target);
+      expect(along.clone().normalize().distanceTo(from.clone().normalize())).toBeLessThan(1e-9);
+      expect(along.length()).toBeGreaterThan(from.length());
+    }
+  });
+
+  it('counts the hint line\'s strip, the frame\'s edges and the space behind the camera as out of view', () => {
+    const arm = framePoints(createProceduralArm());
+    for (const [width, height] of STAGES) {
+      const aspect = width / height;
+      const lens = lensAt(fitHome(arm, aspect, height), aspect);
+      const at = (x: number, y: number) => new Vector3(x, y, 0.5).unproject(lens);
+      const clearTop = 1 - (2 * HOME_VIEW.topClearPx) / height;
+      expect(inView([at(0, clearTop - 0.01)], lens, height)).toBe(true);
+      expect(inView([at(0, clearTop + 0.01)], lens, height)).toBe(false);
+      expect(inView([at(0.9, 0)], lens, height)).toBe(true);
+      expect(inView([at(1.02, 0)], lens, height)).toBe(false);
+      expect(inView([at(0, -1.02)], lens, height)).toBe(false);
+      const behind = lens.position.clone().add(lens.position.clone().sub(fitHome(arm, aspect, height).target));
+      expect(inView([behind], lens, height)).toBe(false);
     }
   });
 });

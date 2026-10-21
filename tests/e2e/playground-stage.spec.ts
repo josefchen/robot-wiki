@@ -1,13 +1,14 @@
 import { expect, test, type Page } from '@playwright/test';
-import { setSlider, techDeg, waitForArm } from './helpers/playground';
+import { expectReach, reachFor, setSlider, techDeg, waitForArm } from './helpers/playground';
 
 /**
  * The playground stage as an instrument: the server HTML says it is not
  * live yet, the pixel ratio is clamped, a resize keeps the arm framed, the
- * selected joint's motor takes the accent, the canvas turns and zooms from
- * the keyboard, Reset pose returns pose, target and camera to one default
- * while keeping the recorded motion, Clear removes the motion and nothing
- * else, and reduced motion keeps every control live with no eased moves.
+ * selected joint's motor takes the accent, a reach that ends out of the
+ * frame is brought into view, the canvas turns and zooms from the keyboard,
+ * Reset pose returns pose, target and camera to one default while keeping
+ * the recorded motion, Clear removes the motion and nothing else, and
+ * reduced motion keeps every control live with no eased moves.
  */
 
 function viewport(page: Page) {
@@ -18,8 +19,25 @@ async function camera(page: Page): Promise<number[]> {
   return ((await viewport(page).getAttribute('data-camera-position')) ?? '').split(',').map(Number);
 }
 
-/** Share of canvas pixels painted in the accent (blue well above red and green). */
-async function accentShare(page: Page): Promise<number> {
+/** How far the camera stands from the point it turns around, in metres. */
+async function cameraDistance(page: Page): Promise<number> {
+  const target = ((await viewport(page).getAttribute('data-camera-target')) ?? '').split(',').map(Number);
+  const position = await camera(page);
+  return Math.hypot(...position.map((value, i) => value - target[i]));
+}
+
+interface StageMarks {
+  total: number;
+  /** Pixels in the accent: blue well above red and green. */
+  accent: number;
+  /** Pixels in the error red of the gap line. */
+  miss: number;
+  /** Pixels off the paper in the strip the hint line covers, at the stage's top. */
+  underHint: number;
+}
+
+/** Reads the canvas's own pixels (no page overlay) and counts the marks on it. */
+async function stageMarks(page: Page): Promise<StageMarks> {
   return page.evaluate(() => {
     const el = document.querySelector('canvas') as HTMLCanvasElement;
     const gl = (el.getContext('webgl2') ?? el.getContext('webgl')) as WebGL2RenderingContext;
@@ -44,12 +62,30 @@ async function accentShare(page: Page): Promise<number> {
     gl.bindTexture(gl.TEXTURE_2D, prevTex);
     gl.deleteFramebuffer(fb);
     gl.deleteTexture(tex);
-    let blue = 0;
+    const paperHex = getComputedStyle(document.documentElement).getPropertyValue('--color-paper').trim().slice(1);
+    const paper = [0, 2, 4].map((at) => Number.parseInt(paperHex.slice(at, at + 2), 16));
+    const hint = document.querySelector('.pg-hint')?.getBoundingClientRect();
+    const box = el.getBoundingClientRect();
+    const hintRows = hint ? Math.ceil(((hint.bottom - box.top) * h) / box.height) : 0;
+    let accent = 0;
+    let miss = 0;
+    let underHint = 0;
     for (let i = 0; i < pixels.length; i += 4) {
-      if (pixels[i + 2] > pixels[i] + 35 && pixels[i + 2] > pixels[i + 1] + 15) blue++;
+      const [r, g, b] = [pixels[i], pixels[i + 1], pixels[i + 2]];
+      if (b > r + 35 && b > g + 15) accent++;
+      if (r > g + 60 && r > b + 60) miss++;
+      // readPixels rows run bottom-up: the stage's top rows come last.
+      const row = h - 1 - Math.floor(i / 4 / w);
+      if (row < hintRows && (Math.abs(r - paper[0]) > 3 || Math.abs(g - paper[1]) > 3 || Math.abs(b - paper[2]) > 3)) underHint++;
     }
-    return blue / (w * h);
+    return { total: w * h, accent, miss, underHint };
   });
+}
+
+/** Share of canvas pixels painted in the accent. */
+async function accentShare(page: Page): Promise<number> {
+  const marks = await stageMarks(page);
+  return marks.accent / marks.total;
 }
 
 test.describe('playground stage', () => {
@@ -114,6 +150,63 @@ test.describe('playground stage', () => {
     await slider.blur();
     await expect(slider.locator('xpath=ancestor::li')).not.toHaveAttribute('data-active', '');
     await expect.poll(() => accentShare(page), { timeout: 10_000 }).toBe(0);
+  });
+
+  test('a reach that ends out of the frame is brought into view: the target, its ring and the dashed gap, under the hint', async ({ page }) => {
+    test.setTimeout(180_000);
+    for (const size of [{ width: 1280, height: 720 }, { width: 390, height: 844 }]) {
+      await page.setViewportSize(size);
+      await page.goto('/playground');
+      await waitForArm(page);
+      const home = await viewport(page).getAttribute('data-camera-position');
+
+      // 60 cm forward and 50 cm up: past the arm's reach, and above and
+      // beyond the home view, so the stretched arm would leave the stage.
+      // 120 cm forward and 100 cm up: a view past the default orbit limits,
+      // which must not clamp it back.
+      const far = { x: 1.2, y: 0, z: 1 };
+      const outOfReach = async (target: typeof far) => {
+        const at = `${target.x * 100} cm forward and ${target.z * 100} cm up at ${size.width} px`;
+        await reachFor(page, target);
+        await expectReach(page, 'unreachable', 10_000);
+        await expect
+          .poll(async () => {
+            const marks = await stageMarks(page);
+            return { gapLine: marks.miss >= 30, target: marks.accent >= 30, clearOfHint: marks.underHint === 0 };
+          }, { timeout: 15_000, message: `the out-of-reach verdict for ${at} is drawn in view` })
+          .toEqual({ gapLine: true, target: true, clearOfHint: true });
+      };
+      await outOfReach({ x: 0.6, y: 0, z: 0.5 });
+      await outOfReach(far);
+      const farDistance = await cameraDistance(page);
+
+      // A reach near the base afterwards brings the view back in, so the arm
+      // is not left small on an empty stage. Either verdict will do: the
+      // solver's wall-clock guard can cut a solve from the stretched pose
+      // short on a loaded software renderer, and the view follows the reach
+      // once it settles, whatever the verdict.
+      await reachFor(page, { x: 0.3, y: 0.1, z: 0.1 });
+      await expectReach(page, /^(reached|unreachable)$/, 15_000);
+      await expect
+        .poll(async () => {
+          const marks = await stageMarks(page);
+          const closer = (await cameraDistance(page)) < 0.75 * farDistance;
+          return { closer, target: marks.accent >= 30, clearOfHint: marks.underHint === 0 };
+        }, { timeout: 15_000, message: `a near reach after a far one is framed closer at ${size.width} px` })
+        .toEqual({ closer: true, target: true, clearOfHint: true });
+
+      // Reset pose still brings the view home from a far reach...
+      await outOfReach(far);
+      await page.getByRole('button', { name: 'Reset pose' }).click();
+      await expect(viewport(page)).toHaveAttribute('data-camera-position', home!, { timeout: 15_000 });
+
+      // ...and the default limits with it: zooming out from home stops at
+      // the orbit's 2.2 m, not at the distance the far reach needed.
+      await page.locator('canvas').focus();
+      for (let i = 0; i < 12; i += 1) await page.keyboard.press('-');
+      await expect.poll(() => cameraDistance(page), { timeout: 5_000 }).toBeGreaterThan(2.15);
+      expect(await cameraDistance(page)).toBeLessThanOrEqual(2.2 + 1e-3);
+    }
   });
 
   test('the canvas turns and zooms from the keyboard, with a visible focus ring', async ({ page }) => {

@@ -108801,6 +108801,24 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "playground-reach-20261021-interactive-sources-mounts-source-robot-scene-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/robot-scene.tsx",
+      "oldHash": "84ce4baadd109e8710fe24a13eccad25415ba4ae8a2e9e95d672e8c911351815",
+      "newHash": "05793e96f1f4030e43dc219c883f59c8dec790fe84fd3ba556eb06d4bf647038",
+      "reason": "Playground reach framing of 2026-10-21, from the verification of the playground features against the code as landed (ce0531b7, 3f73c581), as one plain edge from the member's last approved endpoint (polish-1019-interactive-sources-mounts-source-robot-scene-tsx). A typed target the arm cannot reach, such as 60 cm forward and 50 cm up, left the target's dot and ring and the dashed gap line off the stage at 1440 px, and at 375 px the stretched arm ran under the stage's hint line, so the out-of-reach verdict the successor row of VAL-B2-PLAY-003 draws could not be seen. When a reach settles, the stage now frames the arm as it stands with the target and the floor point under it: from the home view when that view holds them all inside the frame and below the hint line, otherwise from farther back along the current direction with the home view's fit, never more than 6 m away. The orbit limits widen just enough to hold that view until Reset pose eases home and restores the defaults (ORBIT_LIMITS is unchanged). A later reach the home view holds, or clearing the target, eases back home; once the reader has turned the view, the camera only steps back, and only as far as it must; under reduced motion it jumps. The change moves the camera only: no joint, limit, kinematic value, trajectory value or control changes. tests/e2e/playground-stage.spec.ts holds the reframe at 1280 and 390 px, the closer view after a near reach, the return home on Reset pose and the default 2.2 m zoom limit after it, and tests/unit/playground-stage-look.test.ts holds the fit on both stage shapes.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", which put the playground and its verification in scope, under his standing bar of 2026-10-12 (\"remove AI slop\", \"extremely premium\", \"not too long text\"), held to the successor row of VAL-B2-PLAY-003 in contract/design-integrity.md section 13 (Owner decision of 19 October 2026), which marks the reach target with \"the target's dot and ring, a dashed gap line when it is out of reach\". Camera framing only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-playground-instrument-and-control-deck",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-001",
+        "VAL-B2-PLAY-003",
+        "VAL-B2-PLAY-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
