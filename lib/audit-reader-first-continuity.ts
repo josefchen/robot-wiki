@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2827418, sha256: '57be3375577f9195f2a450f39b7397c5df330fae090be580f6115b7d766eafc7' };
+const reviewPin = { bytes: 2832406, sha256: 'a8b8ad74bfc143325dd5b018a00fc2c3fc449a090f1bbcb89f21a1c4a0ce01eb' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -267,7 +267,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/content-integration-20260923.test.ts', [16969, 'eaaeefaf311ae93401aad8414d9f9e084c6aa22f992b1aaf71a4972560a480aa']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [345016, 'e8b483000097dcded19e10698f355a1aaff9b5209a586493613880a59a51c044']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [349906, 'e4e03aa64e487fd3534d667c303e85286019fdfbc5dc55790b6c660c60730b97']],
   ['tests/unit/motion-data-hardware.test.ts', [12019, 'b093effb9f642beee839066813ee12c2349e67a3835c8e86ca5cb3ddcac9733e']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],

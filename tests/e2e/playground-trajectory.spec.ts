@@ -547,31 +547,18 @@ test.describe('playground polish', () => {
     await addKeyframe(page);
     await setSlider(page.getByTestId('joint-slider-shoulder_pan'), '0');
 
+    await startPlaybackRecorder(page);
     await page.getByTestId('trajectory-play').click();
-    // Every mid-playback sample holds the first pose: discrete state
-    // changes instead of eased motion.
-    const midSamples: number[] = [];
-    const deadline = Date.now() + 10_000;
-    while (Date.now() < deadline) {
-      const sample = await page.evaluate(() => {
-        const progressEl = document.querySelector(
-          '[data-testid="trajectory-progress"]',
-        );
-        if (!progressEl) return null;
-        const readoutEl = document.querySelector(
-          '[data-testid="tech-joint-shoulder_pan"]',
-        );
-        return Number.parseFloat(readoutEl!.textContent!.replace('°', ''));
-      });
-      if (sample === null) break;
-      midSamples.push(sample);
-      await page.waitForTimeout(80);
-    }
-    expect(midSamples.length).toBeGreaterThan(0);
-    for (const value of midSamples) {
-      expect(Math.abs(value)).toBeLessThan(0.6);
-    }
     await waitForPlaybackEnd(page);
+    const series = await collectPlaybackSeries(page);
+    // The samples reach past the motion's midpoint, where an eased playback
+    // would already have turned the arm 25 degrees...
+    expect(series.some((sample) => sample.t > sample.duration / 2)).toBe(true);
+    // ...and every one holds the first pose: discrete state changes instead
+    // of eased motion.
+    for (const sample of series) {
+      expect(Math.abs(sample.pan), `pan at ${sample.t} s`).toBeLessThan(0.6);
+    }
     expect(await techDeg(page, 'shoulder_pan')).toBeCloseTo(50, 0);
 
     // Sliders and reset still work under reduced motion, live in the scene.

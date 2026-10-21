@@ -8,9 +8,9 @@ import { expectReach, reachFor, setSlider, techDeg, waitForArm } from './helpers
  * square, the deck's controls are the site's square ink, outlined and text
  * actions with the 1 px ink focus ring, a reach that ends out of the
  * frame is brought into view, the canvas turns and zooms from the keyboard,
- * Reset pose returns pose, target and camera to one default while keeping
- * the recorded motion, Clear removes the motion and nothing else, and
- * reduced motion keeps every control live with no eased moves.
+ * Reset pose returns pose, target, camera and the reach boxes to one default
+ * while keeping the recorded motion, Clear removes the motion and nothing
+ * else, and reduced motion keeps every control live with no eased moves.
  */
 
 function viewport(page: Page) {
@@ -355,6 +355,33 @@ test.describe('playground stage', () => {
     await expect(page.getByTestId('trajectory-count')).toHaveText('No poses yet');
     await expect(page.getByTestId('tech-joint-shoulder_pan')).toHaveText('+20.0°');
     await expect(viewport(page)).toHaveAttribute('data-camera-position', home!);
+  });
+
+  test('Reset pose refills reach boxes typed but never sent, and clears their error, when no target was placed', async ({ page }) => {
+    await page.goto('/playground');
+    await waitForArm(page);
+    const reachForm = page.getByRole('region', { name: 'Reach' });
+    await expect(reachForm).toBeVisible();
+    const boxes = (['forward', 'left', 'up'] as const).map((key) => page.getByTestId(`reach-input-${key}`));
+    // The boxes start at the hand's home position.
+    const home = await Promise.all(boxes.map((box) => box.inputValue()));
+    for (const value of home) expect(Number.isFinite(Number.parseFloat(value))).toBe(true);
+    expect(home[0]).not.toBe('12');
+    expect(home[2]).not.toBe('7');
+
+    // An empty box sent with Reach shows the error and places no target; a
+    // box typed after it is never sent.
+    await boxes[0].fill('12');
+    await boxes[1].fill('');
+    await page.getByTestId('reach-submit').click();
+    await expect(reachForm.getByRole('alert')).toHaveText('Enter a number of centimetres in each box.');
+    await boxes[2].fill('7');
+    await expect(page.getByTestId('tech-target')).toHaveText('none');
+
+    await page.getByRole('button', { name: 'Reset pose' }).click();
+    for (const [index, box] of boxes.entries()) await expect(box).toHaveValue(home[index]);
+    await expect(reachForm.getByRole('alert')).toHaveCount(0);
+    await expect(page.getByTestId('tech-target')).toHaveText('none');
   });
 
   test('reduced motion keeps the live scene and its controls, and resets the view at once', async ({ page }) => {

@@ -112610,6 +112610,41 @@
           "newHash": "381ab357a85139a74622308ce69675b957a449102f9e4923d6000600282df4ad"
         }
       ]
+    },
+    {
+      "id": "playground-reset-20261022-interactive-sources-mounts-source-playground-canvas-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/playground-canvas.tsx",
+      "oldHash": "56e2c10ee8551c2c8233d25804eb58aecd2db3ba8727845da2a5b48b4c33e612",
+      "newHash": "54148f0d002aea04d9c3cd5209d9316a420aee50858e742c208a1ecc355bb282",
+      "reason": "Playground reset of 2026-10-22, from the verification of the playground WebGL feature against the code as landed (1fbb0188), as one plain edge from the member's last approved endpoint (playground-redesign-20261019-interactive-sources-mounts-source-playground-canvas-tsx). With no target placed, Reset pose left reach boxes that were typed but never sent, and the reach form's \"Enter a number of centimetres in each box.\" error, in place: the form refills only when its starting point changes, and with no target that point stays the same home-hand object across a reset. PlaygroundCanvas now keys the reach form on the reset token, so each Reset pose remounts it with the hand's home position in the boxes and no error, the one default VAL-B2-PLAY-005 asks Reset to return the controls to; components/three/ik-target-form.tsx is unchanged. The reach form's reset is the only change: no joint, limit, kinematic value, trajectory value or control changes, and pose, target, camera and the recorded poses reset as before. tests/e2e/playground-stage.spec.ts holds it: boxes typed but never sent and the error, then Reset pose, then the home values and no error. The interactive-sources registry is unchanged (npm run check:brand-v2-registries passes).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", which put the playground and its verification in scope, under his standing bar of 2026-10-12 (\"remove AI slop\", \"extremely premium\", \"not too long text\"), held to VAL-B2-PLAY-005 in contract/design-integrity.md (\"Reset returns camera, model, controls, state description, and trajectory to one deterministic documented default\"), with the recorded poses kept through Reset pose as its successor row VAL-B2-PLAY-013 (Owner decision of 19 October 2026) requires. Reset behaviour of the reach form only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-map-playground",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-005",
+        "VAL-B2-PLAY-013",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "playground-reset-20261022-market-playground-playground-source-playground-canvas-tsx",
+      "manifest": "market-playground",
+      "memberId": "playground-source:components/three/playground-canvas.tsx",
+      "oldHash": "56e2c10ee8551c2c8233d25804eb58aecd2db3ba8727845da2a5b48b4c33e612",
+      "newHash": "54148f0d002aea04d9c3cd5209d9316a420aee50858e742c208a1ecc355bb282",
+      "reason": "Playground reset of 2026-10-22, from the verification of the playground WebGL feature against the code as landed (1fbb0188), as one plain edge from the member's last approved endpoint (playground-redesign-20261019-market-playground-playground-source-playground-canvas-tsx). With no target placed, Reset pose left reach boxes that were typed but never sent, and the reach form's \"Enter a number of centimetres in each box.\" error, in place: the form refills only when its starting point changes, and with no target that point stays the same home-hand object across a reset. PlaygroundCanvas now keys the reach form on the reset token, so each Reset pose remounts it with the hand's home position in the boxes and no error, the one default VAL-B2-PLAY-005 asks Reset to return the controls to; components/three/ik-target-form.tsx is unchanged. The reach form's reset is the only change: no joint, limit, kinematic value, trajectory value or control changes, and pose, target, camera and the recorded poses reset as before. tests/e2e/playground-stage.spec.ts holds it: boxes typed but never sent and the error, then Reset pose, then the home values and no error. This is one of the playground sources the seal binds; model identity, geometry, joint constraints, kinematic calculations and trajectory data stay as sealed (VAL-B2-BASE-004).",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", which put the playground and its verification in scope, under his standing bar of 2026-10-12 (\"remove AI slop\", \"extremely premium\", \"not too long text\"), held to VAL-B2-PLAY-005 in contract/design-integrity.md (\"Reset returns camera, model, controls, state description, and trajectory to one deterministic documented default\"), with the recorded poses kept through Reset pose as its successor row VAL-B2-PLAY-013 (Owner decision of 19 October 2026) requires. Reset behaviour of the reach form only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-map-playground",
+      "affectedAssertions": [
+        "VAL-B2-PLAY-005",
+        "VAL-B2-PLAY-013",
+        "VAL-B2-BASE-004",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

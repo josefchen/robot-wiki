@@ -119,6 +119,38 @@ export async function expectReach(
   await expect(page.getByTestId('reach-status')).toHaveAttribute('data-state', state, { timeout });
 }
 
+/**
+ * Holds the next playback `seconds` into the motion. Playback reads the time
+ * from Date.now() on a 40 ms timer; from the press of Play the page's clock
+ * runs two ticks (80 ms) per read and stops at `seconds`, so the stage and
+ * its text settle part-way between two poses however rarely a software
+ * rasteriser lets the timer fire. The press is caught in the capture phase,
+ * before React's handler takes its start time. Navigating restores the
+ * real clock.
+ */
+export async function holdPlaybackAt(page: Page, seconds: number) {
+  await page.evaluate((holdMs) => {
+    const realNow = Date.now.bind(Date);
+    let start: number | null = null;
+    let now = 0;
+    document.addEventListener(
+      'click',
+      (event) => {
+        const target = event.target as Element | null;
+        if (start !== null || !target?.closest('[data-testid="trajectory-play"]')) return;
+        start = realNow();
+        now = start - 80;
+      },
+      true,
+    );
+    Date.now = () => {
+      if (start === null) return realNow();
+      now = Math.min(now + 80, start + holdMs);
+      return now;
+    };
+  }, Math.round(seconds * 1000));
+}
+
 /** Opens the "Import a motion" fold. */
 export async function openImport(page: Page) {
   const fold = page.getByTestId('trajectory-import-fold');

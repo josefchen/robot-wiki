@@ -16,6 +16,13 @@ import {
   type AzIndexSourceEntry,
 } from '../../lib/az-index';
 import { openClosedAncestorDetails } from './helpers/open-ancestor-details';
+import {
+  holdPlaybackAt,
+  openImport,
+  SO101_JOINTS,
+  techDeg,
+  waitForArm,
+} from './helpers/playground';
 import { setSlider } from './slider';
 
 test.use({ actionTimeout: 10_000, navigationTimeout: 30_000 });
@@ -55,6 +62,11 @@ const TWO_KEYFRAME_TRAJECTORY = JSON.stringify({
     },
   ],
 });
+const [FIXTURE_FROM, FIXTURE_TO] = (
+  JSON.parse(TWO_KEYFRAME_TRAJECTORY) as {
+    keyframes: Array<{ angles: Record<string, number> }>;
+  }
+).keyframes.map(({ angles }) => angles);
 
 const azEntries: AzIndexSourceEntry[] = [
   ...publishedModules().map((module) => ({
@@ -92,6 +104,10 @@ test.describe('brand-v2 27-row deep executor', () => {
     ).toThrow(/Missing expected-red anchor list/);
     const actionFailures = new Set<string>();
     const actionFailureDetails: string[] = [];
+    const viewport = page.getByTestId('playground-viewport');
+    const poseList = page.locator('[data-testid^="trajectory-keyframe-"]');
+    // The playground's home view, read before a row moves it.
+    let homeCamera: string | null = null;
     const records = await executeEvidencePlans(BRAND_V2_DEEP_ROWS, {
       step: async (memberId, step) => {
         const row = BRAND_V2_DEEP_ROWS.find(({ id }) => id === memberId);
@@ -262,37 +278,103 @@ test.describe('brand-v2 27-row deep executor', () => {
                 .click();
             } else if (step.action === 'wait-webgl') {
               await expect(page.locator('canvas')).toBeVisible({ timeout: 30_000 });
+              // The SO-101 itself, drawn, with every control live.
+              await waitForArm(page);
             } else if (step.action === 'change-joint') {
+              const canvas = page.locator('canvas');
+              const before = await canvas.screenshot();
               await setSlider(
                 page.getByTestId('joint-slider-shoulder_pan'),
                 5,
               );
+              await expect(page.getByTestId('joint-readout-shoulder_pan')).toHaveText('5°');
+              await expect(page.getByTestId('tech-joint-shoulder_pan')).toHaveText('+5.0°');
+              await expect
+                .poll(async () => Buffer.compare(before, await canvas.screenshot()), {
+                  timeout: 15_000,
+                })
+                .not.toBe(0);
             } else if (step.action === 'import-trajectory') {
+              await waitForArm(page);
+              await openImport(page);
               await page
                 .getByTestId('trajectory-import-json')
                 .fill(TWO_KEYFRAME_TRAJECTORY);
               await page.getByTestId('trajectory-import').click();
-              await expect(page.getByTestId('trajectory-count')).toContainText(
-                '2 keyframes',
+              await expect(page.getByTestId('trajectory-message')).toHaveText(
+                'Imported 2 poses.',
               );
+              await expect(page.getByTestId('trajectory-count')).toHaveText(
+                '2 poses · 1.2 s',
+              );
+              await expect(poseList).toHaveCount(2);
             } else if (step.action === 'play-trajectory') {
+              // Held at the motion's midpoint, so the capture that follows
+              // shows the arm between the two poses.
+              await holdPlaybackAt(page, 0.6);
               await page.getByTestId('trajectory-play').click();
-              await expect(page.getByTestId('trajectory-progress')).toBeVisible();
+              const progress = page.getByTestId('trajectory-progress');
+              await expect(progress).toHaveAttribute('data-t', '0.600', {
+                timeout: 15_000,
+              });
+              await expect(progress).toHaveAttribute('data-duration', '1.200');
+              await expect(progress).toHaveText('0.6 of 1.2 s');
+              await expect(page.getByTestId('trajectory-message')).toHaveText('Playing.');
+              await expect(page.getByTestId('trajectory-stop')).toBeVisible();
+              // Halfway through the one eased segment (ease(0.5) = 0.5) every
+              // joint has made half its move, strictly between the poses.
+              for (const joint of SO101_JOINTS) {
+                const halfway =
+                  ((FIXTURE_FROM[joint] + FIXTURE_TO[joint]) / 2) * (180 / Math.PI);
+                expect(
+                  Math.abs((await techDeg(page, joint)) - halfway),
+                  joint,
+                ).toBeLessThanOrEqual(0.05);
+              }
             } else if (step.action === 'change-pose') {
+              await waitForArm(page);
+              homeCamera = await viewport.getAttribute('data-camera-position');
               await setSlider(
                 page.getByTestId('joint-slider-shoulder_pan'),
                 15,
               );
-            } else if (step.action === 'reset-pose') {
-              await page.getByRole('button', { name: 'Reset pose' }).click();
-              await expect(page.getByTestId('trajectory-count')).toContainText(
-                '2 keyframes',
+              await expect(page.getByTestId('tech-joint-shoulder_pan')).toHaveText('+15.0°');
+              // Turn the view as well, so Reset pose has a camera to bring home.
+              await page.locator('canvas').focus();
+              await page.keyboard.press('ArrowRight');
+              await expect(viewport).not.toHaveAttribute(
+                'data-camera-position',
+                homeCamera ?? '',
               );
+            } else if (step.action === 'reset-pose') {
+              expect(homeCamera, 'home view read before the change').toBeTruthy();
+              await page.getByRole('button', { name: 'Reset pose' }).click();
+              for (const joint of SO101_JOINTS) {
+                await expect(page.getByTestId(`tech-joint-${joint}`)).toHaveText('+0.0°');
+              }
+              await expect(page.getByTestId('tech-target')).toHaveText('none');
+              // The eased move home is 0.9 s; the budget is for software
+              // rendering late in this long run.
+              await expect(viewport).toHaveAttribute('data-camera-position', homeCamera!, {
+                timeout: 15_000,
+              });
+              // The imported motion stays.
+              await expect(page.getByTestId('trajectory-count')).toHaveText(
+                '2 poses · 1.2 s',
+              );
+              await expect(poseList).toHaveCount(2);
             } else if (step.action === 'clear-trajectory') {
               await page.getByTestId('trajectory-clear').click();
-              await expect(page.getByTestId('trajectory-count')).toContainText(
-                /no keyframes|0 keyframes/i,
+              await expect(page.getByTestId('trajectory-count')).toHaveText(
+                'No poses yet',
               );
+              await expect(poseList).toHaveCount(0);
+              await expect(page.getByTestId('trajectory-play')).toBeDisabled();
+              // Clear leaves the reset pose and the home view alone.
+              for (const joint of SO101_JOINTS) {
+                await expect(page.getByTestId(`tech-joint-${joint}`)).toHaveText('+0.0°');
+              }
+              await expect(viewport).toHaveAttribute('data-camera-position', homeCamera!);
             } else if (step.action === 'activate-credits') {
               await page.getByRole('link', { name: 'Credits' }).first().click();
               await expect(

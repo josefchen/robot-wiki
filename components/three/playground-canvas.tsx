@@ -121,8 +121,9 @@ export function PlaygroundCanvas() {
     },
     [trajectory, kinematics],
   );
-  // Reset pose: every joint to zero, no target, the camera home. The
-  // recorded poses stay; Clear is what removes them.
+  // Reset pose: every joint to zero, no target, the camera home, the reach
+  // boxes at the hand's home position. The recorded poses stay; Clear is
+  // what removes them.
   const resetPoseManual = useCallback(() => {
     trajectory.stopPlayback();
     kinematics.resetPose();
@@ -221,7 +222,12 @@ export function PlaygroundCanvas() {
                 activeJoint={activeJoint}
                 onActiveJoint={setActiveJoint}
               />
+              {/* Keyed on the reset token: with no target placed the form's
+                  starting point stays the same homeHand object across a
+                  reset, so only a remount refills unsent boxes and clears
+                  the form's error. */}
               <IkTargetForm
+                key={viewResetToken}
                 defaultTarget={kinematics.targetScene ?? homeHand}
                 hasTarget={kinematics.targetScene !== null}
                 onSolve={kinematics.placeTarget}
