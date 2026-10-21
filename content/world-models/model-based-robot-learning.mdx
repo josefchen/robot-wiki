@@ -43,6 +43,7 @@ citations:
   - reset-free-driving-2026
   - pointworld-2026
   - simdist-2026
+  - t2z-2026
 seeAlso:
   - "rl-sim2real/reward-design-mpc"
   - "rl-sim2real/offline-rl"
@@ -103,6 +104,8 @@ A policy trained on a model "tends to exploit regions where insufficient data is
 ## Robots see only part of the state, yet learn useful models in minutes to hours
 
 A robot observation is partial: cameras miss forces, friction and compliance, and RGBD gave an 80% improvement in fabric-folding success over RGB <Cite id="visuospatial-foresight-2020" />. Data is narrow too: Hansen and Wang call world-model hallucination "inherently a data coverage issue" and adapt a model to unseen simulated environments with 50 trajectories <Cite id="wm-hallucination-2026" />.
+
+Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen <Cite id="t2z-2026" />. Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent <Cite id="t2z-2026" />. Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts <Cite id="t2z-2026" />.
 
 PDDM learned contact-rich manipulation on a 24-DoF hand from 4 real hours <Cite id="pddm-2019" />. DayDreamer ran Dreamer online on 4 robots without simulators; a quadruped learned to stand up and walk in 1 hour <Cite id="daydreamer-2022" />. SSRL adds a learned force ensemble to known Lagrangian dynamics and learned Go1 gaits from a few minutes of data <Cite id="ssrl-2024" />.
 

@@ -49,6 +49,7 @@ citations:
   - fetchman-2026
   - resgac-2026
   - workhorse-2026
+  - primoretarget-2026
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/hierarchical"
@@ -133,6 +134,8 @@ A tracker does not choose its own motion. Zhang and colleagues pair a terrain-aw
 HITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id="hitter-2025" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id="paxton-robot-sports-2026" />.
 
 Retargeting is lossy: artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id="gmr-retargeting-2025" />, and noisy, inconsistent transferred references motivated a 2026 robustness method with a fall-recovery curriculum <Cite id="robust-tracking-2026" />.
+
+Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives <Cite id="primoretarget-2026" />. On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time <Cite id="primoretarget-2026" />. The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower <Cite id="primoretarget-2026" />. Collaborative manipulation by several robots stayed harder, at 62.6% tracking success <Cite id="primoretarget-2026" />.
 
 <RetargetingGap className="my-6" />
 

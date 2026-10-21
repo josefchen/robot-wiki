@@ -45,6 +45,8 @@ citations:
   - helix-2-5-2026
   - generalist-gen1-2026
   - lbm-cotraining-2026
+  - robota-embed-2026
+  - imprint-2026
 seeAlso:
   - "world-models/taxonomy"
   - "manipulation/generalist-policies"
@@ -87,6 +89,8 @@ A claim names its pretraining data, objective, interface and adaptation budget. 
 
 Budgets run from zero-shot prompting through parameter-efficient and full fine-tuning to new robot data at scale. RoboCat adapts to new tasks and robots from 100 to 1,000 examples <Cite id="robocat-2023" />, Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs <Cite id="octo-2024" />, and π*0.6's RL from experience more than doubles throughput on some of the hardest tasks <Cite id="pistar06-2025" />. The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training <Cite id="gen-1-5-2026" />.
 
+Robota-Embed, from Yunze Liu, Linxi Fan, Han Cai and colleagues at NVIDIA, MIT, UC Berkeley, Oxford and CMU (October 2026), encodes vision, language and action in one vector, so a robot can retrieve recorded experience as context. Seeding a frozen DreamZero policy with a retrieved video, chosen by a reranking agent, raised its average success on three simulated DROID-Sim tasks from 47.0% to 56.3% over 100 trials per task, while random reference videos lowered it to 36.0%. Without the reranker, its top-1 retrievals reached 50.3% against 43.3% for Omni-Embed-Nemotron-3B <Cite id="robota-embed-2026" />.
+
 ## VLA foundations
 
 RT-1 argued for task-agnostic training of high-capacity models on diverse robot data <Cite id="rt1-2022" />. RT-2 co-fine-tunes a vision-language model on robot trajectories and internet-scale vision-language tasks, writing actions as reserved tokens <Cite id="rt2-2023" />, and OpenVLA made a comparable recipe public on Open X-Embodiment <Cite id="openvla-2024" />. VLAs still struggle with novel robot setups until fine-tuned: OpenVLA-OFT's recipe lifted OpenVLA's average success across four task suites from 76.5% to 97.1% <Cite id="openvla-oft-2025" />.
@@ -94,6 +98,8 @@ RT-1 argued for task-agnostic training of high-capacity models on diverse robot 
 π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id="pi0-2024" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id="pi05-2025" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id="pi07-2026" />.
 
 Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. RoboTTT (July 2026) extends visuomotor context to 8K timesteps without growing inference latency and averaged a 79% task completion score on long-horizon real-robot tasks, against 42% for the single-step-context GR00T N1.7 baseline <Cite id="robottt-2026" />. ECoMEM (Stanford, September 2026) keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA, reaching 86.1% success on two new real-robot tasks against 8.6% without memory <Cite id="ecomem-2026" />.
+
+IMPRINT, from Yilin Wu, Homanga Bharadhwaj, Guanya Shi and colleagues at Amazon FAR and Carnegie Mellon (October 2026), trains a latent memory of past camera frames, actions and joint states with the policy, so no rule has to pick which frames to keep. On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%. The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA <Cite id="imprint-2026" />.
 
 ## Humanoid foundations
 

@@ -43,6 +43,7 @@ citations:
   - walmart-drone-1m-2026
   - faa-part-108-nprm-2025
   - faa-part-108-reopen-2026
+  - fly-by-code-2026
 seeAlso:
   - "manipulation/realtime-execution"
   - "rl-sim2real/sim2real-transfer"
@@ -90,6 +91,8 @@ Falanga, Kim and Scaramuzza asked how fast a drone can fly given its perception 
 A 70 ms stereo pipeline, the upper bound the study took from a commercial camera's datasheet, supports about 19 m/s at 25 m/s² of lateral acceleration and 25 m/s at 50 m/s² <Cite id="falanga-latency-2019" />. An event camera reports per-pixel brightness changes without waiting for a frame. At 8 m of range its ceiling is 7 percent higher on the least agile airframe and 22 percent higher at 50 m/s², 31.03 against 25.40 m/s. The paper's own summary of 7 to 12 percent is for its most agile airframe, at 200 m/s², against the fastest stereo camera <Cite id="falanga-latency-2019" />.
 
 In 2020 an event-camera quadrotor dodged fast-moving objects using only onboard sensing and computation <Cite id="falanga-event-avoidance-2020" />. Vision-language-action flight is far slower: RaceVLA averaged 1.04 m/s with a top speed of 2.02 m/s <Cite id="racevla-2025" />. On the CognitiveDrone benchmark RaceVLA succeeded 31.3 percent of the time, and CognitiveDrone-R1, which adds a reasoning module, 77.2 percent <Cite id="cognitivedrone-2025" />.
+
+Jaewoo Lee, Guanya Shi and colleagues at Seoul National University, Carnegie Mellon and elsewhere (October 2026) let a coding agent that programs an aerial manipulator run diagnostic programs in simulation, such as a camera move or a test lift, before it declares a task done <Cite id="fly-by-code-2026" />. Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images <Cite id="fly-by-code-2026" />. Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials <Cite id="fly-by-code-2026" />.
 
 ### End-to-end learning skips the interfaces
 

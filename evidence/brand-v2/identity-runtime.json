@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c006c06b76766620abf6eeff562b0046c87719526717a401dc0b7f481d247f95",
+  "fingerprint": "dea6fa454ca6bbdac6564826a4e6a8bdd69aace8581210976e64b915f3232d9b",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3006,
+      "visibleTextLength": 3050,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -717,7 +717,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 46226,
+      "visibleTextLength": 47487,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "1440x900"
     },
@@ -835,7 +835,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 32166,
+      "visibleTextLength": 33552,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -2841,7 +2841,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27491,
+      "visibleTextLength": 29298,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -3313,7 +3313,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24728,
+      "visibleTextLength": 27282,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "1440x900"
     },
@@ -4847,7 +4847,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21577,
+      "visibleTextLength": 22484,
       "route": "/manipulation/action-spaces/",
       "viewport": "1440x900"
     },
@@ -5437,7 +5437,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22015,
+      "visibleTextLength": 24008,
       "route": "/manipulation/foundation-models/",
       "viewport": "1440x900"
     },
@@ -5555,7 +5555,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24250,
+      "visibleTextLength": 25117,
       "route": "/manipulation/generalist-policies/",
       "viewport": "1440x900"
     },
@@ -6027,7 +6027,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24134,
+      "visibleTextLength": 24986,
       "route": "/manipulation/realtime-execution/",
       "viewport": "1440x900"
     },
@@ -6381,7 +6381,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 28536,
+      "visibleTextLength": 29391,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -6971,7 +6971,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26684,
+      "visibleTextLength": 28266,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -7089,7 +7089,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24830,
+      "visibleTextLength": 26243,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -7679,7 +7679,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30740,
+      "visibleTextLength": 32159,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "1440x900"
     },
@@ -8269,7 +8269,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27346,
+      "visibleTextLength": 28625,
       "route": "/world-models/generative-sim/",
       "viewport": "1440x900"
     },
@@ -8387,7 +8387,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26748,
+      "visibleTextLength": 27974,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -8505,7 +8505,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24825,
+      "visibleTextLength": 25986,
       "route": "/world-models/jepa/",
       "viewport": "1440x900"
     },
@@ -8741,7 +8741,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19655,
+      "visibleTextLength": 20990,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3031,
+      "visibleTextLength": 3075,
       "route": "/",
       "viewport": "375x812"
     },
@@ -9613,7 +9613,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31386,
+      "visibleTextLength": 32140,
       "route": "/adjacent/autonomous-vehicles/",
       "viewport": "375x812"
     },
@@ -9731,7 +9731,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21873,
+      "visibleTextLength": 22731,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -11737,7 +11737,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20242,
+      "visibleTextLength": 21389,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },
@@ -12209,7 +12209,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19184,
+      "visibleTextLength": 20787,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "375x812"
     },
@@ -13743,7 +13743,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16813,
+      "visibleTextLength": 17586,
       "route": "/manipulation/action-spaces/",
       "viewport": "375x812"
     },
@@ -14333,7 +14333,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17342,
+      "visibleTextLength": 19032,
       "route": "/manipulation/foundation-models/",
       "viewport": "375x812"
     },
@@ -14451,7 +14451,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18885,
+      "visibleTextLength": 19639,
       "route": "/manipulation/generalist-policies/",
       "viewport": "375x812"
     },
@@ -14923,7 +14923,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17654,
+      "visibleTextLength": 18378,
       "route": "/manipulation/realtime-execution/",
       "viewport": "375x812"
     },
@@ -15277,7 +15277,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21275,
+      "visibleTextLength": 21987,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -15867,7 +15867,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21681,
+      "visibleTextLength": 22615,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "375x812"
     },
@@ -15985,7 +15985,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19541,
+      "visibleTextLength": 20411,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -16575,7 +16575,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23864,
+      "visibleTextLength": 24749,
       "route": "/rl-sim2real/sim2real-transfer/",
       "viewport": "375x812"
     },
@@ -17165,7 +17165,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20100,
+      "visibleTextLength": 20836,
       "route": "/world-models/generative-sim/",
       "viewport": "375x812"
     },
@@ -17283,7 +17283,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21185,
+      "visibleTextLength": 21898,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },
@@ -17401,7 +17401,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18652,
+      "visibleTextLength": 19393,
       "route": "/world-models/jepa/",
       "viewport": "375x812"
     },
@@ -17637,7 +17637,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 14816,
+      "visibleTextLength": 15686,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "375x812"
     },

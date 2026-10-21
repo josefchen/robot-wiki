@@ -43,6 +43,7 @@ citations:
   - marble-2025
   - worldlabs-atlas-2026
   - newton-manipulation-blog-2026
+  - metagensim-2026
 seeAlso:
   - "rl-sim2real/parallel-sim-rl"
   - "data-hardware/data-bottleneck"
@@ -122,6 +123,8 @@ The push figure separates three layers. Appearance renders the mug, as a reconst
 ## Policies trained on generated variations now transfer to real robots
 
 Learned world models hold narrow roles in [evaluation](/world-models/evaluation/) and data generation ([generative video](/world-models/generative-video/)), while generative models author tasks, scenes, assets and supervision for physics engines <Cite id="robogen-2024" /> <Cite id="holodeck-2024" /> <Cite id="robocasa-2024" />. Policies trained on digital cousins reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id="digital-cousins-2024" />. In 2026, SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id="simfoundry-2026" />.
+
+Liqian Ma, Danfei Xu and colleagues at Georgia Tech (October 2026) train a rater network by meta-gradients to learn which simulator settings produce useful co-training data for a real task <Cite id="metagensim-2026" />. With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone <Cite id="metagensim-2026" />. Data from settings an expert aligned by hand gave 57 <Cite id="metagensim-2026" />.
 
 <span id="the-hybrid-boundary" />
 ## Generators propose content and the engine integrates contact

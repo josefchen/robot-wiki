@@ -21049,6 +21049,260 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.12558',
     type: 'paper',
   },
+  // imprint-2026: KOL intake note of Homanga Bharadhwaj, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 9 Oct 2026). Amazon FAR, Carnegie Mellon University, The University of Texas at Austin
+  // and Johns Hopkins University.
+  {
+    id: 'imprint-2026',
+    title: 'Memory Without Curation: Learning Multi-Stream Latent Memory for Robot Policies',
+    authors: [
+      'Yilin Wu', 'Rutav Shah', 'Shuaiyi Huang', 'Sumedh A. Sontakke', 'Andrea Bajcsy', 'Max Simchowitz', 'Guanya Shi',
+      'Homanga Bharadhwaj',
+    ],
+    year: 2026,
+    arxiv: '2610.14406',
+    url: 'https://arxiv.org/abs/2610.14406',
+    type: 'paper',
+  },
+  // commgap-2026: KOL intake note of Jiajun Wu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // (HTTP 200; v1 13 Oct 2026). Stanford University. The arXiv title's "Human--VLA" is set with an en dash.
+  {
+    id: 'commgap-2026',
+    title: 'The Human–VLA Communication Gap: What Humans Leave Implicit and What Policies Cannot Recover',
+    authors: ['Yiqing Xu', 'Jiajun Wu'],
+    year: 2026,
+    arxiv: '2610.17746',
+    url: 'https://arxiv.org/abs/2610.17746',
+    type: 'paper',
+  },
+  // chronos-policy-2026: KOL intake note of Shuran Song, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 9 Oct 2026). Stanford University.
+  {
+    id: 'chronos-policy-2026',
+    title: 'Chronos Policy: Learning Robot Policies on Physical Time',
+    authors: ['Changhao Wang', 'Jaden Clark', 'Shuran Song'],
+    year: 2026,
+    arxiv: '2610.13929',
+    url: 'https://arxiv.org/abs/2610.13929',
+    type: 'paper',
+  },
+  // discrete-actions-2026: KOL intake note of Guanya Shi, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 14 Oct 2026). Carnegie Mellon University and Amazon FAR.
+  {
+    id: 'discrete-actions-2026',
+    title: 'When Do Discrete Actions Make Good Continuous Controllers?',
+    authors: [
+      'Zeji Yi', 'Soham Dasgupta', 'Xinyang Zhang', 'Koushil Sreenath', 'Guannan Qu', 'Xi Chen', 'Max Simchowitz',
+      'Guanya Shi',
+    ],
+    year: 2026,
+    arxiv: '2610.20429',
+    url: 'https://arxiv.org/abs/2610.20429',
+    type: 'paper',
+  },
+  // robota-embed-2026: KOL intake note of Jim Fan (Linxi Fan), added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 14 Oct 2026). NVIDIA, MIT, UC Berkeley, University of Oxford and Carnegie Mellon
+  // University.
+  {
+    id: 'robota-embed-2026',
+    title: 'Robota-Embed: Unified VLA Embeddings for Robot In-Context Learning and Evolution',
+    authors: [
+      'Yunze Liu', 'Jing Wang', 'Shenrui Wu', 'Wenkun He', 'Guanqi Zhan', 'Xianzheng Ma', 'Junyu Chen', 'Wenhang Ge',
+      'Haozhan Tang', 'Yuchao Gu', 'Zhuoyang Zhang', 'Zekai Wang', 'Dantong Niu', 'Zhen Dong', 'Yuke Zhu',
+      'Trevor Darrell', 'Linxi "Jim" Fan', 'Song Han', 'Han Cai',
+    ],
+    year: 2026,
+    arxiv: '2610.19495',
+    url: 'https://arxiv.org/abs/2610.19495',
+    type: 'paper',
+  },
+  // steertuning-2026: KOL intake note of Lerrel Pinto, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 13 Oct 2026). New York University.
+  {
+    id: 'steertuning-2026',
+    title: 'Steertuning Policies from a Few Human Videos',
+    authors: [
+      'Billy Yan', 'Isaac Tu', 'Kelly Lee', 'Blake Chang', 'Kenny Ma', 'Kanad Patel', 'Dhawal Kabra', 'Neer Patel',
+      'Kevin Wu', 'Lerrel Pinto', 'Irmak Guzey',
+    ],
+    year: 2026,
+    arxiv: '2610.18711',
+    url: 'https://arxiv.org/abs/2610.18711',
+    type: 'paper',
+  },
+  // worldoracle-2026: KOL intake note of Yuke Zhu, added 2026-10-21. arXiv abstract page and v1 and v2 PDFs read
+  // 2026-10-21 (HTTP 200; v1 13 Oct 2026, v2 16 Oct 2026, numbers identical). AgiBot, NVIDIA, Princeton University,
+  // University of Texas at Austin and University of Toronto.
+  {
+    id: 'worldoracle-2026',
+    title: 'WorldOracle: Benchmarking Action-Conditioned World Models against Real-World Executions',
+    authors: [
+      'Haoyi Duan', 'Liliang Chen', 'Nan Wang', 'Yang Zhang', 'Yuhang Lu', 'Xiaotong Chen', 'Wei-Cheng Tseng',
+      'Shenyuan Gao', 'Zhaoshuo Li', 'Jingyi Jin', 'Pooya Jannaty', 'Dhruv Shah', 'Yuke Zhu', 'Ming-Yu Liu',
+      'Maoqing Yao', 'Guanghui Ren',
+    ],
+    year: 2026,
+    arxiv: '2610.18826',
+    url: 'https://arxiv.org/abs/2610.18826',
+    type: 'paper',
+  },
+  // ge-sim-2-2026: KOL intake note of Yuke Zhu (WorldOracle), added 2026-10-21. Cited for the AgiBot authorship of a
+  // model WorldOracle scores. arXiv abstract page and PDF first pages read 2026-10-21 (HTTP 200; v1 26 May 2026).
+  // AgiBot, BUAA, LV-NUS Lab and TJU.
+  {
+    id: 'ge-sim-2-2026',
+    title: 'GE-Sim 2.0: A Roadmap Towards Comprehensive Closed-loop Video World Simulators for Robotic Manipulation',
+    authors: [
+      'Boxiang Qiu', 'Liliang Chen', 'Yue Liao', 'Nan Wang', 'Lintao Wang', 'Jiayi Luo', 'Wenzhi Zhao',
+      'Shengcong Chen', 'Di Chen', 'Ye Li', 'Chen Gao', 'Shuicheng Yan', 'Si Liu', 'Maoqing Yao', 'Guanghui Ren',
+    ],
+    year: 2026,
+    arxiv: '2605.27491',
+    url: 'https://arxiv.org/abs/2605.27491',
+    type: 'paper',
+  },
+  // fomo-dex-2026: KOL intake note of Jitendra Malik, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 12 Oct 2026). Amazon FAR and Carnegie Mellon University.
+  {
+    id: 'fomo-dex-2026',
+    title: 'Force-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation',
+    authors: ['Ying Yuan', 'David Held', 'Jitendra Malik', 'Haozhi Qi'],
+    year: 2026,
+    arxiv: '2610.17161',
+    url: 'https://arxiv.org/abs/2610.17161',
+    type: 'paper',
+  },
+  // i3l-2026: KOL intake note of Jiajun Wu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // (HTTP 200; v1 13 Oct 2026). Stanford University and Lambda Inc.
+  {
+    id: 'i3l-2026',
+    title: 'I3L: Iterative Interactive Imitation Learning for Whole-Body Mobile Manipulation',
+    authors: [
+      'Wensi Ai', 'Christopher Luey', 'Karthik Dharmarajan', 'Evans Han', 'Yunfan Jiang', 'Stef Ren', 'Jianwen Xie',
+      'Jiajun Wu', 'Li Fei-Fei', 'Ruohan Zhang',
+    ],
+    year: 2026,
+    arxiv: '2610.17748',
+    url: 'https://arxiv.org/abs/2610.17748',
+    type: 'paper',
+  },
+  // fly-by-code-2026: KOL intake note of Guanya Shi, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 8 Oct 2026). Seoul National University, Carnegie Mellon University, University of
+  // Maryland, College Park, All Purpose AI and Kyung Hee University.
+  {
+    id: 'fly-by-code-2026',
+    title: 'Fly-by-Code: Embodied Coding Agents for Aerial Manipulation with Active Visual and Physical Feedback',
+    authors: [
+      'Jaewoo Lee', 'Jeongyeon Seo', 'Sihyun Cho', 'Gyeongrak Choe', 'Yutong Wang', 'Bavin Saravanan',
+      'Jia-Bin Huang', 'Furong Huang', 'Sebastian Scherer', 'Guanya Shi', 'H. Jin Kim', 'Seungjae Lee',
+      'Dongjae Lee',
+    ],
+    year: 2026,
+    arxiv: '2610.12549',
+    url: 'https://arxiv.org/abs/2610.12549',
+    type: 'paper',
+  },
+  // mind-temporal-gap-2026: KOL intake note of Daniela Rus, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 8 Oct 2026). MIT CSAIL and University of Haifa.
+  {
+    id: 'mind-temporal-gap-2026',
+    title: 'Mind the Temporal Gap: Evaluating Video Models for Temporal Understanding in Driving',
+    authors: ['Shiva Sreeram', 'Erfan Aasi', 'Tsun-Hsuan Wang', 'Alaa Maalouf', 'Daniela Rus'],
+    year: 2026,
+    arxiv: '2610.12575',
+    url: 'https://arxiv.org/abs/2610.12575',
+    type: 'paper',
+  },
+  // primoretarget-2026: KOL intake note of Xue Bin Peng, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200). Simon Fraser University, FieldAI, NVIDIA and Alberta Machine Intelligence Institute.
+  // v1 8 Oct 2026.
+  {
+    id: 'primoretarget-2026',
+    title: 'PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting',
+    authors: [
+      'Nicholas Ioannidis', 'Dun Yang', 'Max Smith', 'Tue Vu', 'Ziyu Zhang', 'Shayegan Omidshafiei', 'Xue Bin Peng',
+    ],
+    year: 2026,
+    arxiv: '2610.12642',
+    url: 'https://arxiv.org/abs/2610.12642',
+    type: 'paper',
+  },
+  // walk-like-this-2026: KOL intake note of Marco Hutter, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200). Disney Research Zürich and ETH Zürich; CoRL 2026. v1 13 Oct 2026.
+  {
+    id: 'walk-like-this-2026',
+    title: 'Walk Like This: Stylized Locomotion for Physics-Based Characters through Example-Driven Diffusion',
+    authors: [
+      'Joshua Aurand', 'Agon Serifi', 'Sammy Christen', 'Ruben Grandia', 'Espen Knoop', 'Marco Hutter', 'Moritz Bächer',
+    ],
+    year: 2026,
+    arxiv: '2610.18147',
+    url: 'https://arxiv.org/abs/2610.18147',
+    type: 'paper',
+  },
+  // robosimstudio-2026: KOL intake note of Ken Goldberg, added 2026-10-21. arXiv abstract page and v1 and v2 PDFs
+  // read 2026-10-21 (HTTP 200). University of California, Berkeley and NVIDIA. v1 13 Oct 2026, v2 14 Oct 2026.
+  // The PDF title omits "for Human and Agent", which the abstract-page title includes.
+  {
+    id: 'robosimstudio-2026',
+    title: 'RoboSimStudio: An Interactive Toolkit for Human and Agent Rapid Real2Sim of Robot Manipulation Tasks',
+    authors: [
+      'Kaiyuan Chen', 'Shuangyu Xie', 'Uksang Yoo', 'Xinyue Zhu', 'Cael Magner', 'Alvin Zhu', 'Daehwa Kim',
+      'Eric Heiden', 'Erwin Coumans', 'Miles Macklin', 'Spencer Huang', 'Ken Goldberg',
+    ],
+    year: 2026,
+    arxiv: '2610.18835',
+    url: 'https://arxiv.org/abs/2610.18835',
+    type: 'paper',
+  },
+  // lehami-2026: KOL intake note of Yann LeCun, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // (HTTP 200; v1 11 Oct 2026). Courant Institute, New York University; Brown University; AMI Labs.
+  {
+    id: 'lehami-2026',
+    title: 'LeHami: Symplectic Latent Dynamics for World Models',
+    authors: ['Romina Yalovetzky', 'Randall Balestriero', 'Yann LeCun'],
+    year: 2026,
+    arxiv: '2610.15267',
+    url: 'https://arxiv.org/abs/2610.15267',
+    type: 'paper',
+  },
+  // caster-2026: KOL intake note of Homanga Bharadhwaj, added 2026-10-21. arXiv abstract page and PDF read
+  // 2026-10-21 (HTTP 200; v1 8 Oct 2026). Virginia Tech and Johns Hopkins University.
+  {
+    id: 'caster-2026',
+    title: 'CASTER: Formalizing Zero-Shot Manipulation from Synthetic Videos as Constrained Optimization',
+    authors: ['Yinlong Dai', 'Homanga Bharadhwaj', 'Dylan P. Losey'],
+    year: 2026,
+    arxiv: '2610.12567',
+    url: 'https://arxiv.org/abs/2610.12567',
+    type: 'paper',
+  },
+  // metagensim-2026: KOL intake note of Danfei Xu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // (HTTP 200; v1 14 Oct 2026; CoRL 2026). Georgia Institute of Technology.
+  {
+    id: 'metagensim-2026',
+    title: 'Active Generative Simulation: Meta-Learning What to Simulate for Sim-and-Real Policy Co-Training',
+    authors: ['Liqian Ma', 'Vaibhav Saxena', 'Utkarsh Aashu Mishra', 'Shuo Cheng', 'Yongxin Chen', 'Danfei Xu'],
+    year: 2026,
+    arxiv: '2610.19479',
+    url: 'https://arxiv.org/abs/2610.19479',
+    type: 'paper',
+  },
+  // t2z-2026: KOL intake note of Jiajun Wu, added 2026-10-21. arXiv abstract page and PDF read 2026-10-21
+  // (HTTP 200; v1 15 Oct 2026). Stanford University, CMU, Toyota Research Institute and University of Southern
+  // California.
+  {
+    id: 't2z-2026',
+    title: 'T2-z: Test-Time Optimization of Environment Latents for Robotic World Models',
+    authors: [
+      'Chenyuan Zhou', 'Yining Hong', 'Huang Huang', 'Yunfan Jiang', 'Wenlong Huang', 'David Held',
+      'Vitor Campagnolo Guizilini', 'Yue Wang', 'Li Fei-Fei', 'Jiajun Wu', 'Leonidas Guibas', 'Yejin Choi',
+    ],
+    year: 2026,
+    arxiv: '2610.22364',
+    url: 'https://arxiv.org/abs/2610.22364',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

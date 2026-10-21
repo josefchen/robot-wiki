@@ -62,6 +62,7 @@ citations:
   - waymo-scaling-laws-2025
   - rad-2025
   - alpamayo-r1-2025
+  - mind-temporal-gap-2026
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/hierarchical"
@@ -173,6 +174,8 @@ RAD trains end-to-end policies by reinforcement learning in photorealistic 3D Ga
 EMMA is a vision-language model co-trained as a generalist on planning, detection and road-graph tasks, with its driving outputs written as text <Cite id="emma-2024" />. It is a <Term id="vision-language-action-model">vision-language-action model</Term> whose embodiment is a car. A late-2025 survey splits driving VLAs into end-to-end models, which perceive, reason and plan in one network, and dual-system models, where a slow VLM deliberates over fast, safety-critical execution <Cite id="vla-ad-survey-2026" />.
 
 Waymo's foundation model uses such a "Think Fast and Think Slow" design, a sensor-fusion encoder for rapid reactions beside a driving VLM trained using Gemini <Cite id="waymo-foundation-model-2025" />. The split mirrors the end-to-end versus [hierarchical](/manipulation/hierarchical/) divide in manipulation and the [knowledge insulation](/manipulation/knowledge-insulation/) case for a separate fast path. NVIDIA reports that its Alpamayo-R1 driving VLA runs on the vehicle in real time at 99 ms latency <Cite id="alpamayo-r1-2025" />.
+
+Shiva Sreeram, Daniela Rus and colleagues at MIT CSAIL and the University of Haifa (October 2026) asked six open video-language models which way the ego car moves in driving clips <Cite id="mind-temporal-gap-2026" />. On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos <Cite id="mind-temporal-gap-2026" />. After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting <Cite id="mind-temporal-gap-2026" />.
 
 The Waymo Open Dataset set the pattern of shared perception benchmarks <Cite id="waymo-open-dataset-2020" />. Open X-Embodiment pools over a million real robot trajectories across 22 embodiments from 34 labs <Cite id="open-x-embodiment-2023" />. Driving data is counted in hundreds of thousands of hours, such as the 500,000 in Waymo's scaling study <Cite id="waymo-scaling-laws-2025" />, a contrast that [the data bottleneck](/data-hardware/data-bottleneck/) examines.
 

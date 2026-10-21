@@ -106,7 +106,9 @@ describe('content integration of 2026-09-23', () => {
         // more, plain or as a resolution that reconciles the cut. For the
         // two articles that gained a figure mount on 2026-10-15 (batch
         // world-models-b03), one more plain edge from the images endpoint
-        // moves them to the live body.
+        // moves them on. The KOL triage batch of 2026-10-21 then adds one
+        // plain edge from that endpoint to the live body where it added a
+        // paragraph.
         const slug = entry.memberId.slice('article:world-models/'.length);
         const later = approvals.find(a => a.id === `kol-backlog-20261001-world-models-prose-${slug}`);
         if (later) expect(later.oldHash).toBe(next?.newHash);
@@ -121,7 +123,9 @@ describe('content integration of 2026-09-23', () => {
           || (images.reconciles ?? []).some(binding => binding.newHash === lengthCut.newHash)).toBe(true);
         const figures = approvals.find(a => a.id === `anatomy-wm-b03-figures-20261015-prose-${slug}`);
         if (figures) expect(figures.oldHash).toBe(images.newHash);
-        expect((figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        const kol = approvals.find(a => a.id === `kol-batch-20261021-world-models-prose-${slug}`);
+        if (kol) expect(kol.oldHash).toBe((figures ?? images).newHash);
+        expect((kol ?? figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }
@@ -132,11 +136,11 @@ describe('content integration of 2026-09-23', () => {
     // 2026-10-10 world-models pass, the 2026-10-12 KOL triage batch, the
     // 2026-10-10 frontier pass (landed after that batch) and the 2026-10-13
     // data-hardware domain pass and length cut, the 2026-10-14 adjacent
-    // domain pass and length cut and the 2026-10-20 KOL triage batch close
-    // the shared rendering chain with their own resolution; the newest is
-    // the head.
+    // domain pass and length cut, the 2026-10-20 KOL triage batch and each
+    // domain block of the 2026-10-21 batch close the shared rendering chain
+    // with their own resolution; the newest is the head.
     const domainPassRendering = approvals.filter(a =>
-      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020)-citation-rendering$/.test(a.id));
+      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+)-citation-rendering$/.test(a.id));
     expect(domainPassRendering.length).toBeGreaterThan(0);
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe(domainPassRendering.at(-1)!.id);

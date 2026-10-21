@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d9adfde9b513b6f2c6c7ba6a31b71f4be96d39d17dbb565c82382cfce05ec41e",
+  "fingerprint": "6da2d5fde5df73351afd50b548636c03536bcee2c8949b719798e56da113dbea",
   "viewports": [
     "375x812",
     "1440x900"
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 31386,
+      "visibleTextLength": 32140,
       "figures": [
         {
           "imageId": "waymo-jaguar-ipace-san-francisco-2023",
@@ -204,7 +204,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21873,
+      "visibleTextLength": 22731,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -11671,7 +11671,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20242,
+      "visibleTextLength": 21389,
       "figures": [
         {
           "imageId": "roboarena-evaluation-2025",
@@ -12169,7 +12169,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19184,
+      "visibleTextLength": 20787,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -13077,7 +13077,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16813,
+      "visibleTextLength": 17586,
       "figures": [
         {
           "imageId": "action-space-study-platforms-2026",
@@ -13664,7 +13664,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17342,
+      "visibleTextLength": 19032,
       "figures": [
         {
           "imageId": "robocat-embodiments-2023",
@@ -13799,7 +13799,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18885,
+      "visibleTextLength": 19639,
       "figures": [
         {
           "imageId": "gemini-robotics-apollo-franka-2025",
@@ -14255,7 +14255,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17654,
+      "visibleTextLength": 18378,
       "figures": [
         {
           "imageId": "rtc-candle-lighting-2025",
@@ -14618,7 +14618,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21275,
+      "visibleTextLength": 21987,
       "figures": [
         {
           "imageId": "gemini-robotics-aloha-dexterous-2025",
@@ -14753,7 +14753,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21681,
+      "visibleTextLength": 22615,
       "figures": [
         {
           "imageId": "atlas-electric-hyundai-goyang-2026",
@@ -14888,7 +14888,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19541,
+      "visibleTextLength": 20411,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -15437,7 +15437,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 23864,
+      "visibleTextLength": 24749,
       "figures": [
         {
           "imageId": "isaac-gym-anymal-real-stairs-2021",
@@ -15758,7 +15758,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20100,
+      "visibleTextLength": 20836,
       "figures": [
         {
           "imageId": "robocasa-object-library-2024",
@@ -15851,7 +15851,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21185,
+      "visibleTextLength": 21898,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -15986,7 +15986,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18652,
+      "visibleTextLength": 19393,
       "figures": [
         {
           "imageId": "vjepa2-pick-place-goals-2025",
@@ -16172,7 +16172,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 14816,
+      "visibleTextLength": 15686,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -16535,7 +16535,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 46226,
+      "visibleTextLength": 47487,
       "figures": [
         {
           "imageId": "waymo-jaguar-ipace-san-francisco-2023",
@@ -16670,7 +16670,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32166,
+      "visibleTextLength": 33552,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -28137,7 +28137,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27491,
+      "visibleTextLength": 29298,
       "figures": [
         {
           "imageId": "roboarena-evaluation-2025",
@@ -28635,7 +28635,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24728,
+      "visibleTextLength": 27282,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -29543,7 +29543,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21577,
+      "visibleTextLength": 22484,
       "figures": [
         {
           "imageId": "action-space-study-platforms-2026",
@@ -30130,7 +30130,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22015,
+      "visibleTextLength": 24008,
       "figures": [
         {
           "imageId": "robocat-embodiments-2023",
@@ -30265,7 +30265,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24250,
+      "visibleTextLength": 25117,
       "figures": [
         {
           "imageId": "gemini-robotics-apollo-franka-2025",
@@ -30721,7 +30721,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24134,
+      "visibleTextLength": 24986,
       "figures": [
         {
           "imageId": "rtc-candle-lighting-2025",
@@ -31084,7 +31084,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28536,
+      "visibleTextLength": 29391,
       "figures": [
         {
           "imageId": "gemini-robotics-aloha-dexterous-2025",
@@ -31219,7 +31219,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26684,
+      "visibleTextLength": 28266,
       "figures": [
         {
           "imageId": "atlas-electric-hyundai-goyang-2026",
@@ -31354,7 +31354,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24830,
+      "visibleTextLength": 26243,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -31903,7 +31903,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30740,
+      "visibleTextLength": 32159,
       "figures": [
         {
           "imageId": "isaac-gym-anymal-real-stairs-2021",
@@ -32224,7 +32224,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27346,
+      "visibleTextLength": 28625,
       "figures": [
         {
           "imageId": "robocasa-object-library-2024",
@@ -32317,7 +32317,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26748,
+      "visibleTextLength": 27974,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -32452,7 +32452,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24825,
+      "visibleTextLength": 25986,
       "figures": [
         {
           "imageId": "vjepa2-pick-place-goals-2025",
@@ -32638,7 +32638,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 19655,
+      "visibleTextLength": 20990,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",

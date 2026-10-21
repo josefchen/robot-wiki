@@ -2,9 +2,9 @@
   "schemaVersion": "length-cut-continuity-v1",
   "name": "length-cut-20261012",
   "reviewedBy": "implementation workers for the manipulation, classical and rl-sim2real humanize passes of 2026-10-12, combined into one review by the integration lane (not independent acceptance)",
-  "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval.",
-  "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-19T07:26:28Z",
+  "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
+  "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
+  "observedAt": "2026-10-21T11:22:54Z",
   "sources": [
     {
       "archivedFrom": "08955866d1810a79371706218a7cd4e8be9e0b4e",
@@ -3265,13 +3265,13 @@
       },
       "after": {
         "path": "content/manipulation/action-spaces.mdx",
-        "bytes": 8892,
-        "sha256": "d5acb8ed3068a8b4c49b5fa2f53b56ebf0e5d1a5f19cb30b0a0bbdd4099015b9"
+        "bytes": 9506,
+        "sha256": "b024909320e11737d720cfb1b16559324d641f76e31af0d162898787ded5d1cc"
       },
       "edits": [
         {
-          "before": "An action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id=\"open-x-embodiment-2023\" />. Try the check below.\n\n<SelfCheck\n  prompt=\"A policy must transfer between two arms with different link lengths, while each robot already has a stable Cartesian controller. Which first action representation is the cleanest shared interface?\"\n  options={[\n    {\n      value: 'joint-position',\n      label: 'Absolute joint positions for each robot',\n      why: 'The same joint vector places different robots in different physical poses. This is easy to replay on one embodiment and a poor shared task-space label across different kinematic chains.'\n    },\n    {\n      value: 'cartesian-delta',\n      label: 'Relative Cartesian end-effector deltas plus gripper state',\n      why: 'This expresses motion where the task happens and delegates embodiment-specific inverse kinematics and tracking to each robot controller. The frame and rotation convention still have to be identical.'\n    },\n    {\n      value: 'raw-torque',\n      label: 'Raw motor torques at the policy inference rate',\n      why: 'Torque can express contact behavior, but it is tightly coupled to dynamics, actuator limits and a high-rate safety loop. It is the least portable starting point for these two arms.'\n    }\n  ]}\n  answer=\"cartesian-delta\"\n  takeaway=\"Task-space labels can offer a shared interface across these hypothetical arms when each robot implements compatible kinematic conversion.\"\n/>\n\n## The contract has four parts\n\nA contract names coordinates (joint, Cartesian, object-relative or another frame), semantics (absolute target, delta, velocity, force, torque or controller parameter), timing (rate, horizon and stale-prediction handling) and execution (interpolation, clipping, inverse kinematics, feedback and safety limits). DROID records equivalent commands in several action spaces <Cite id=\"droid-2024\" />, and robosuite's controllers span joint and Cartesian spaces <Cite id=\"robosuite-2020\" />.\n\n## Joint-space actions\n\nJoint position targets are a common imitation baseline: on matched leader-follower rigs, demonstrated angles become labels after calibration checks. ACT uses the leader arms' joint positions as actions, predicting chunks of absolute joint-and-gripper targets for two ViperX arms <Cite id=\"act-aloha-2023\" />. The controller interpolates, enforces limits and closes a fast loop, but one shoulder angle moves different arms differently.\n\nJoint velocity targets encode increments and can drift when integrated. The [kinematics module](/classical/kinematics/) derives the forward map and Jacobian that both need <Cite id=\"modern-robotics-2017\" />. In locomotion RL, target joint angles with local feedback beat raw torques for learning speed, robustness and motion quality <Cite id=\"peng-action-space-2016\" />.\n\n## Cartesian actions\n\nCartesian actions say what the tool should do: translate, rotate, open or close. Relative deltas from the current pose can label arms with different joint counts and link lengths alike once range and frame are fixed. Each robot then needs inverse kinematics or an operational-space controller, singularity handling and joint-limit avoidance. Khatib's 1987 IEEE Journal on Robotics and Automation paper on the operational space formulation unifies motion and force control <Cite id=\"khatib-1987\" />.\n\nEuler angles and quaternions are discontinuous as network outputs, while 6D representations are continuous <Cite id=\"rotation-continuity-2018\" />. Axis-angle increments must also name the tool or world frame.\n\nNVIDIA says GR00T N1.7 shares relative end-effector deltas across robot and human embodiments, so priors learned from human video transfer directly to robot control <Cite id=\"isaac-gr00t-repo-2026\" />. Its N1.6 notes find relative actions smoother and more accurate than absolute ones but prone to error accumulation on small datasets <Cite id=\"gr00t-n1-6-2025\" />. UMI pairs relative-trajectory actions with latency matching to deploy one policy on several arms <Cite id=\"umi-2024\" />, and a unified end-effector-relative representation was critical for cross-embodiment transfer in matched VLA pretraining ablations <Cite id=\"vla-scaling-alignment-2026\" />. X-VLA instead adds a separate set of learnable soft-prompt embeddings for each data source, which act as embodiment-specific prompts <Cite id=\"x-vla-2025\" />.\n\n## Torque and impedance actions\n\nTorque actions expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id=\"levine-visuomotor-2015\" />. They need a high rate, accurate timing, actuator-specific scaling and a safety layer that holds when the output is wrong. libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id=\"franka-fci-docs\" />. Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller instead <Cite id=\"rudin-2021\" />.\n\nImpedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id=\"hogan-1985\" />. Variable end-effector impedance has been studied as an RL action space for contact-rich tasks <Cite id=\"martin-martin-2019\" />. Task-space impedance references needed the fewest samples in a comparison with torque, joint PD and inverse dynamics <Cite id=\"varin-action-spaces-2019\" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id=\"acp-2024\" />.\n\nFACTR 2 (Carnegie Mellon and Waseda University, June 2026) estimates external joint torque from motor current, with no force sensor. Across five long-horizon tasks, its force-aware policy beat prior force-aware policies by over 17% in task progress <Cite id=\"factr-2-2026\" />. T-Rex feeds high-frequency touch to a VLA through a variable-rate mixture of transformers and beat its strongest baseline by over 30% average success on 12 tasks <Cite id=\"t-rex-2026\" />.\n\n## Chunks change the time axis\n\nAn <Term id=\"action-chunking\">action chunk</Term> predicts several steps per inference; chunking helped ACT and two retrofitted baselines ([action chunking](/manipulation/action-chunking/)) <Cite id=\"act-aloha-2023\" />. Diffusion Policy executes the first part of a predicted horizon, then replans <Cite id=\"diffusion-policy-2023\" />. Open-loop chunks go stale when contact changes the scene; receding horizons, temporal ensembling and real-time chunk replacement answer this differently <Cite id=\"real-time-chunking-2025\" /> ([real-time execution](/manipulation/realtime-execution/)). Rates differ by layer: GEN-1.5 produces 100 Hz action trajectories <Cite id=\"gen-1-5-2026\" />, and Helix 02's S0 sends joint-level actuator commands at 1 kHz beneath S1's 200 Hz joint targets <Cite id=\"helix-02-2026\" />. Report predicted and executed horizons separately.\n\n## Tokens change the output geometry\n\nRT-2 <Cite id=\"rt2-2023\" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id=\"openvla-2024\" />. Binning allows cross-entropy, limits resolution and adds autoregressive decoding to latency. FAST quantizes a chunk's frequency coefficients and applies byte-pair encoding, compressing far better than per-dimension binning; its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id=\"pi0-fast-2025\" />. BEAST's B-spline tokens need no tokenizer training and decode in parallel <Cite id=\"beast-2025\" />, and VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id=\"vq-bet-2024\" />. With the ActionCodec tokenizer (February 2026), SmolVLM2-2.2B reached 95.5% average LIBERO success without robotics pretraining <Cite id=\"actioncodec-2026\" />. LAP writes end-effector motions as short natural-language phrases with no learned tokenizer, and LAP-3B averaged over 50% zero-shot success on three unseen robots <Cite id=\"lap-2026\" />.\n",
-          "after": "An action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id=\"open-x-embodiment-2023\" />.\n\nTry the check below.\n\n<SelfCheck\n  prompt=\"A policy must transfer between two arms with different link lengths, while each robot already has a stable Cartesian controller. Which first action representation is the cleanest shared interface?\"\n  options={[\n    {\n      value: 'joint-position',\n      label: 'Absolute joint positions for each robot',\n      why: 'The same joint vector places different robots in different physical poses. This is easy to replay on one embodiment and a poor shared task-space label across different kinematic chains.'\n    },\n    {\n      value: 'cartesian-delta',\n      label: 'Relative Cartesian end-effector deltas plus gripper state',\n      why: 'This expresses motion where the task happens and delegates embodiment-specific inverse kinematics and tracking to each robot controller. The frame and rotation convention still have to be identical.'\n    },\n    {\n      value: 'raw-torque',\n      label: 'Raw motor torques at the policy inference rate',\n      why: 'Torque can express contact behavior, but it is tightly coupled to dynamics, actuator limits and a high-rate safety loop. It is the least portable starting point for these two arms.'\n    }\n  ]}\n  answer=\"cartesian-delta\"\n  takeaway=\"Task-space labels can offer a shared interface across these hypothetical arms when each robot implements compatible kinematic conversion.\"\n/>\n\n## The contract has four parts\n\nA contract names coordinates (joint, Cartesian, object-relative or another frame), semantics (absolute target, delta, velocity, force, torque or controller parameter), timing (rate, horizon and stale-prediction handling) and execution (interpolation, clipping, inverse kinematics, feedback and safety limits). DROID records equivalent commands in several action spaces <Cite id=\"droid-2024\" />, and robosuite's controllers span joint and Cartesian spaces <Cite id=\"robosuite-2020\" />.\n\n## Joint-space actions\n\nJoint position targets are a common imitation baseline; ACT predicts chunks of absolute joint-and-gripper targets for two ViperX arms <Cite id=\"act-aloha-2023\" />. The controller interpolates and enforces limits, but one shoulder angle moves different arms differently.\n\nJoint velocity targets drift when integrated; the [kinematics module](/classical/kinematics/) derives the forward map and Jacobian both need <Cite id=\"modern-robotics-2017\" />. In locomotion RL, target joint angles with local feedback beat raw torques for learning speed, robustness and motion quality <Cite id=\"peng-action-space-2016\" />.\n\n## Cartesian actions\n\nCartesian actions say what the tool should do. Once range and frame are fixed, relative deltas from the current pose label arms with different joint counts and link lengths alike, provided each robot supplies inverse kinematics or an operational-space controller; Khatib's 1987 operational space formulation unifies motion and force control <Cite id=\"khatib-1987\" />. Euler angles and quaternions are discontinuous as network outputs, while 6D representations are continuous <Cite id=\"rotation-continuity-2018\" />.\n\nGR00T N1.6's notes find relative actions smoother and more accurate than absolute ones but prone to error accumulation on small datasets <Cite id=\"gr00t-n1-6-2025\" />, and in matched VLA pretraining ablations a unified end-effector-relative representation was critical for cross-embodiment transfer <Cite id=\"vla-scaling-alignment-2026\" />. X-VLA instead learns a separate set of soft-prompt embeddings for each data source as embodiment-specific prompts <Cite id=\"x-vla-2025\" />.\n\n## Torque and impedance actions\n\nTorque actions expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id=\"levine-visuomotor-2015\" />. They need a high rate and a safety layer that holds when the output is wrong: libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id=\"franka-fci-docs\" />, while Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller <Cite id=\"rudin-2021\" />.\n\nImpedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id=\"hogan-1985\" />. Task-space impedance references needed the fewest samples against torque, joint PD and inverse dynamics <Cite id=\"varin-action-spaces-2019\" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id=\"acp-2024\" />.\n\n## Chunks change the time axis\n\nAn <Term id=\"action-chunking\">action chunk</Term> predicts several steps per inference, which helped ACT and two retrofitted baselines ([action chunking](/manipulation/action-chunking/)) <Cite id=\"act-aloha-2023\" />; Diffusion Policy executes the first part of a predicted horizon, then replans <Cite id=\"diffusion-policy-2023\" />. Open-loop chunks go stale when contact changes the scene, which receding horizons, temporal ensembling and real-time chunk replacement each address <Cite id=\"real-time-chunking-2025\" /> ([real-time execution](/manipulation/realtime-execution/)).\n\nRates differ by layer: GEN-1.5 produces 100 Hz action trajectories <Cite id=\"gen-1-5-2026\" />, and Helix 02's S0 sends joint-level actuator commands at 1 kHz beneath S1's 200 Hz joint targets <Cite id=\"helix-02-2026\" />. Report predicted and executed horizons separately.\n\n## Tokens change the output geometry\n\nRT-2 <Cite id=\"rt2-2023\" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id=\"openvla-2024\" />. Binning allows cross-entropy but limits resolution and adds autoregressive decoding to latency. FAST compresses a chunk's frequency coefficients with byte-pair encoding, far better than per-dimension binning, and its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id=\"pi0-fast-2025\" />. VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id=\"vq-bet-2024\" />, and LAP writes end-effector motions as short natural-language phrases, with LAP-3B averaging over 50% zero-shot success on three unseen robots <Cite id=\"lap-2026\" />.\n"
+          "before": "seeAlso:\n  - \"manipulation/knowledge-insulation\"\n  - \"frontier/dexterity\"\n  - \"manipulation/realtime-execution\"\n---\nimport { ActionSpaceTable } from '@/components/mdx/text-tables';\n\nAn action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id=\"open-x-embodiment-2023\" />. Try the check below.\n\n<SelfCheck\n  prompt=\"A policy must transfer between two arms with different link lengths, while each robot already has a stable Cartesian controller. Which first action representation is the cleanest shared interface?\"\n  options={[\n    {\n      value: 'joint-position',\n      label: 'Absolute joint positions for each robot',\n      why: 'The same joint vector places different robots in different physical poses. This is easy to replay on one embodiment and a poor shared task-space label across different kinematic chains.'\n    },\n    {\n      value: 'cartesian-delta',\n      label: 'Relative Cartesian end-effector deltas plus gripper state',\n      why: 'This expresses motion where the task happens and delegates embodiment-specific inverse kinematics and tracking to each robot controller. The frame and rotation convention still have to be identical.'\n    },\n    {\n      value: 'raw-torque',\n      label: 'Raw motor torques at the policy inference rate',\n      why: 'Torque can express contact behavior, but it is tightly coupled to dynamics, actuator limits and a high-rate safety loop. It is the least portable starting point for these two arms.'\n    }\n  ]}\n  answer=\"cartesian-delta\"\n  takeaway=\"Task-space labels can offer a shared interface across these hypothetical arms when each robot implements compatible kinematic conversion.\"\n/>\n\n## The contract has four parts\n\nA contract names coordinates (joint, Cartesian, object-relative or another frame), semantics (absolute target, delta, velocity, force, torque or controller parameter), timing (rate, horizon and stale-prediction handling) and execution (interpolation, clipping, inverse kinematics, feedback and safety limits). DROID records equivalent commands in several action spaces <Cite id=\"droid-2024\" />, and robosuite's controllers span joint and Cartesian spaces <Cite id=\"robosuite-2020\" />.\n\n## Joint-space actions\n\nJoint position targets are a common imitation baseline: on matched leader-follower rigs, demonstrated angles become labels after calibration checks. ACT uses the leader arms' joint positions as actions, predicting chunks of absolute joint-and-gripper targets for two ViperX arms <Cite id=\"act-aloha-2023\" />. The controller interpolates, enforces limits and closes a fast loop, but one shoulder angle moves different arms differently.\n\nJoint velocity targets encode increments and can drift when integrated. The [kinematics module](/classical/kinematics/) derives the forward map and Jacobian that both need <Cite id=\"modern-robotics-2017\" />. In locomotion RL, target joint angles with local feedback beat raw torques for learning speed, robustness and motion quality <Cite id=\"peng-action-space-2016\" />.\n\n## Cartesian actions\n\nCartesian actions say what the tool should do: translate, rotate, open or close. Relative deltas from the current pose can label arms with different joint counts and link lengths alike once range and frame are fixed. Each robot then needs inverse kinematics or an operational-space controller, singularity handling and joint-limit avoidance. Khatib's 1987 IEEE Journal on Robotics and Automation paper on the operational space formulation unifies motion and force control <Cite id=\"khatib-1987\" />.\n\nEuler angles and quaternions are discontinuous as network outputs, while 6D representations are continuous <Cite id=\"rotation-continuity-2018\" />. Axis-angle increments must also name the tool or world frame.\n\nNVIDIA says GR00T N1.7 shares relative end-effector deltas across robot and human embodiments, so priors learned from human video transfer directly to robot control <Cite id=\"isaac-gr00t-repo-2026\" />. Its N1.6 notes find relative actions smoother and more accurate than absolute ones but prone to error accumulation on small datasets <Cite id=\"gr00t-n1-6-2025\" />. UMI pairs relative-trajectory actions with latency matching to deploy one policy on several arms <Cite id=\"umi-2024\" />, and a unified end-effector-relative representation was critical for cross-embodiment transfer in matched VLA pretraining ablations <Cite id=\"vla-scaling-alignment-2026\" />. X-VLA instead adds a separate set of learnable soft-prompt embeddings for each data source, which act as embodiment-specific prompts <Cite id=\"x-vla-2025\" />.\n\n## Torque and impedance actions\n\nTorque actions expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id=\"levine-visuomotor-2015\" />. They need a high rate, accurate timing, actuator-specific scaling and a safety layer that holds when the output is wrong. libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id=\"franka-fci-docs\" />. Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller instead <Cite id=\"rudin-2021\" />.\n\nImpedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id=\"hogan-1985\" />. Variable end-effector impedance has been studied as an RL action space for contact-rich tasks <Cite id=\"martin-martin-2019\" />. Task-space impedance references needed the fewest samples in a comparison with torque, joint PD and inverse dynamics <Cite id=\"varin-action-spaces-2019\" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id=\"acp-2024\" />.\n\nFACTR 2 (Carnegie Mellon and Waseda University, June 2026) estimates external joint torque from motor current, with no force sensor. Across five long-horizon tasks, its force-aware policy beat prior force-aware policies by over 17% in task progress <Cite id=\"factr-2-2026\" />. T-Rex feeds high-frequency touch to a VLA through a variable-rate mixture of transformers and beat its strongest baseline by over 30% average success on 12 tasks <Cite id=\"t-rex-2026\" />.\n\n## Chunks change the time axis\n\nAn <Term id=\"action-chunking\">action chunk</Term> predicts several steps per inference; chunking helped ACT and two retrofitted baselines ([action chunking](/manipulation/action-chunking/)) <Cite id=\"act-aloha-2023\" />. Diffusion Policy executes the first part of a predicted horizon, then replans <Cite id=\"diffusion-policy-2023\" />. Open-loop chunks go stale when contact changes the scene; receding horizons, temporal ensembling and real-time chunk replacement answer this differently <Cite id=\"real-time-chunking-2025\" /> ([real-time execution](/manipulation/realtime-execution/)). Rates differ by layer: GEN-1.5 produces 100 Hz action trajectories <Cite id=\"gen-1-5-2026\" />, and Helix 02's S0 sends joint-level actuator commands at 1 kHz beneath S1's 200 Hz joint targets <Cite id=\"helix-02-2026\" />. Report predicted and executed horizons separately.\n\n## Tokens change the output geometry\n\nRT-2 <Cite id=\"rt2-2023\" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id=\"openvla-2024\" />. Binning allows cross-entropy, limits resolution and adds autoregressive decoding to latency. FAST quantizes a chunk's frequency coefficients and applies byte-pair encoding, compressing far better than per-dimension binning; its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id=\"pi0-fast-2025\" />. BEAST's B-spline tokens need no tokenizer training and decode in parallel <Cite id=\"beast-2025\" />, and VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id=\"vq-bet-2024\" />. With the ActionCodec tokenizer (February 2026), SmolVLM2-2.2B reached 95.5% average LIBERO success without robotics pretraining <Cite id=\"actioncodec-2026\" />. LAP writes end-effector motions as short natural-language phrases with no learned tokenizer, and LAP-3B averaged over 50% zero-shot success on three unseen robots <Cite id=\"lap-2026\" />.\n\nContinuous heads skip tokens: OpenVLA-OFT's continuous actions, parallel decoding and L1 objective lifted LIBERO success from 76.5% to 97.1% <Cite id=\"openvla-oft-2025\" />, and Figure says Helix outputs continuous control to avoid tokenization <Cite id=\"helix-2025\" />. Naively adding a continuous expert to a VLM harms training speed and knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) addresses <Cite id=\"knowledge-insulation-paper-2025\" />.\n",
+          "after": "  - discrete-actions-2026\nseeAlso:\n  - \"manipulation/knowledge-insulation\"\n  - \"frontier/dexterity\"\n  - \"manipulation/realtime-execution\"\n---\nimport { ActionSpaceTable } from '@/components/mdx/text-tables';\n\nAn action space is the interface between a policy and the rest of the robot: what the network predicts, which errors the controller absorbs, how often inference runs and whether embodiments share labels. In Open X-Embodiment, the same seven numbers can mean absolute or relative positions or velocities <Cite id=\"open-x-embodiment-2023\" />.\n\nTry the check below.\n\n<SelfCheck\n  prompt=\"A policy must transfer between two arms with different link lengths, while each robot already has a stable Cartesian controller. Which first action representation is the cleanest shared interface?\"\n  options={[\n    {\n      value: 'joint-position',\n      label: 'Absolute joint positions for each robot',\n      why: 'The same joint vector places different robots in different physical poses. This is easy to replay on one embodiment and a poor shared task-space label across different kinematic chains.'\n    },\n    {\n      value: 'cartesian-delta',\n      label: 'Relative Cartesian end-effector deltas plus gripper state',\n      why: 'This expresses motion where the task happens and delegates embodiment-specific inverse kinematics and tracking to each robot controller. The frame and rotation convention still have to be identical.'\n    },\n    {\n      value: 'raw-torque',\n      label: 'Raw motor torques at the policy inference rate',\n      why: 'Torque can express contact behavior, but it is tightly coupled to dynamics, actuator limits and a high-rate safety loop. It is the least portable starting point for these two arms.'\n    }\n  ]}\n  answer=\"cartesian-delta\"\n  takeaway=\"Task-space labels can offer a shared interface across these hypothetical arms when each robot implements compatible kinematic conversion.\"\n/>\n\n## The contract has four parts\n\nA contract names coordinates (joint, Cartesian, object-relative or another frame), semantics (absolute target, delta, velocity, force, torque or controller parameter), timing (rate, horizon and stale-prediction handling) and execution (interpolation, clipping, inverse kinematics, feedback and safety limits). DROID records equivalent commands in several action spaces <Cite id=\"droid-2024\" />, and robosuite's controllers span joint and Cartesian spaces <Cite id=\"robosuite-2020\" />.\n\n## Joint-space actions\n\nJoint position targets are a common imitation baseline; ACT predicts chunks of absolute joint-and-gripper targets for two ViperX arms <Cite id=\"act-aloha-2023\" />. The controller interpolates and enforces limits, but one shoulder angle moves different arms differently.\n\nJoint velocity targets drift when integrated; the [kinematics module](/classical/kinematics/) derives the forward map and Jacobian both need <Cite id=\"modern-robotics-2017\" />. In locomotion RL, target joint angles with local feedback beat raw torques for learning speed, robustness and motion quality <Cite id=\"peng-action-space-2016\" />.\n\n## Cartesian actions\n\nCartesian actions say what the tool should do. Once range and frame are fixed, relative deltas from the current pose label arms with different joint counts and link lengths alike, provided each robot supplies inverse kinematics or an operational-space controller; Khatib's 1987 operational space formulation unifies motion and force control <Cite id=\"khatib-1987\" />. Euler angles and quaternions are discontinuous as network outputs, while 6D representations are continuous <Cite id=\"rotation-continuity-2018\" />.\n\nGR00T N1.6's notes find relative actions smoother and more accurate than absolute ones but prone to error accumulation on small datasets <Cite id=\"gr00t-n1-6-2025\" />, and in matched VLA pretraining ablations a unified end-effector-relative representation was critical for cross-embodiment transfer <Cite id=\"vla-scaling-alignment-2026\" />. X-VLA instead learns a separate set of soft-prompt embeddings for each data source as embodiment-specific prompts <Cite id=\"x-vla-2025\" />.\n\n## Torque and impedance actions\n\nTorque actions expose dynamics and contact; Levine et al. mapped raw images to motor torques <Cite id=\"levine-visuomotor-2015\" />. They need a high rate and a safety layer that holds when the output is wrong: libfranka sends 1 kHz commands in five modes, including gravity- and friction-compensated joint torque <Cite id=\"franka-fci-docs\" />, while Rudin et al.'s locomotion pipeline sends joint-position targets to a PD controller <Cite id=\"rudin-2021\" />.\n\nImpedance actions sit between: the policy picks a pose target plus stiffness and damping, and a controller turns error into force. Hogan judged position or force control alone inadequate for manipulation <Cite id=\"hogan-1985\" />. Task-space impedance references needed the fewest samples against torque, joint PD and inverse dynamics <Cite id=\"varin-action-spaces-2019\" />, and Adaptive Compliance Policy's predicted compliance beats position-only visuomotor policies by over 50% <Cite id=\"acp-2024\" />.\n\n## Chunks change the time axis\n\nAn <Term id=\"action-chunking\">action chunk</Term> predicts several steps per inference, which helped ACT and two retrofitted baselines ([action chunking](/manipulation/action-chunking/)) <Cite id=\"act-aloha-2023\" />; Diffusion Policy executes the first part of a predicted horizon, then replans <Cite id=\"diffusion-policy-2023\" />. Open-loop chunks go stale when contact changes the scene, which receding horizons, temporal ensembling and real-time chunk replacement each address <Cite id=\"real-time-chunking-2025\" /> ([real-time execution](/manipulation/realtime-execution/)).\n\nRates differ by layer: GEN-1.5 produces 100 Hz action trajectories <Cite id=\"gen-1-5-2026\" />, and Helix 02's S0 sends joint-level actuator commands at 1 kHz beneath S1's 200 Hz joint targets <Cite id=\"helix-02-2026\" />. Report predicted and executed horizons separately.\n\n## Tokens change the output geometry\n\nRT-2 <Cite id=\"rt2-2023\" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id=\"openvla-2024\" />. Binning allows cross-entropy but limits resolution and adds autoregressive decoding to latency. FAST compresses a chunk's frequency coefficients with byte-pair encoding, far better than per-dimension binning, and its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id=\"pi0-fast-2025\" />. VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id=\"vq-bet-2024\" />, and LAP writes end-effector motions as short natural-language phrases, with LAP-3B averaging over 50% zero-shot success on three unseen robots <Cite id=\"lap-2026\" />.\n\nContinuous heads skip tokens: OpenVLA-OFT's continuous actions, parallel decoding and L1 objective lifted LIBERO success from 76.5% to 97.1% <Cite id=\"openvla-oft-2025\" />, and Figure says Helix outputs continuous control to avoid tokenization <Cite id=\"helix-2025\" />. Naively adding a continuous expert to a VLM harms training speed and knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) addresses <Cite id=\"knowledge-insulation-paper-2025\" />.\n\nZeji Yi, Max Simchowitz, Guanya Shi and colleagues at Carnegie Mellon and Amazon FAR (October 2026) gave one PaliGemma VLA four action heads: continuous or binned into 512 values, each predicted in one pass or by iterative flow. On simulated RoboCasa, over five seeds of 500 episodes, binned flow reached 53.9% success, continuous flow 52.7% and one-pass continuous regression 38.8%. One-pass binned prediction reached 27.1%, which the authors trace to tokens chosen independently across time steps and action dimensions; guidance raised it to 49.2% <Cite id=\"discrete-actions-2026\" />.\n"
         }
       ],
       "dropped": {
@@ -3367,20 +3367,52 @@
             "claim": "Across five long-horizon tasks, its force-aware policy beat prior force-aware policies by over 17% in task progress [factr-2-2026]."
           },
           {
-            "value": "2026",
-            "claim": "T-Rex feeds high-frequency touch to a VLA through a variable-rate mixture of transformers and beat its strongest baseline by over 30% average success on 12 tasks [t-rex-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "With the ActionCodec tokenizer (February 2026), SmolVLM2-2.2B reached 95.5% average LIBERO success without robotics pretraining [actioncodec-2026]."
-          },
-          {
             "value": "30",
             "claim": "T-Rex feeds high-frequency touch to a VLA through a variable-rate mixture of transformers and beat its strongest baseline by over 30% average success on 12 tasks [t-rex-2026]."
           },
           {
             "value": "95.5",
             "claim": "With the ActionCodec tokenizer (February 2026), SmolVLM2-2.2B reached 95.5% average LIBERO success without robotics pretraining [actioncodec-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "discrete-actions-2026",
+            "claim": "One-pass binned prediction reached 27.1%, which the authors trace to tokens chosen independently across time steps and action dimensions; guidance raised it to 49.2% [discrete-actions-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "27.1",
+            "claim": "One-pass binned prediction reached 27.1%, which the authors trace to tokens chosen independently across time steps and action dimensions; guidance raised it to 49.2% [discrete-actions-2026]."
+          },
+          {
+            "value": "38.8",
+            "claim": "On simulated RoboCasa, over five seeds of 500 episodes, binned flow reached 53.9% success, continuous flow 52.7% and one-pass continuous regression 38.8%."
+          },
+          {
+            "value": "49.2",
+            "claim": "One-pass binned prediction reached 27.1%, which the authors trace to tokens chosen independently across time steps and action dimensions; guidance raised it to 49.2% [discrete-actions-2026]."
+          },
+          {
+            "value": "500",
+            "claim": "On simulated RoboCasa, over five seeds of 500 episodes, binned flow reached 53.9% success, continuous flow 52.7% and one-pass continuous regression 38.8%."
+          },
+          {
+            "value": "512",
+            "claim": "Zeji Yi, Max Simchowitz, Guanya Shi and colleagues at Carnegie Mellon and Amazon FAR (October 2026) gave one PaliGemma VLA four action heads: continuous or binned into 512 values, each predicted in one pass or by iterative flow."
+          },
+          {
+            "value": "52.7",
+            "claim": "On simulated RoboCasa, over five seeds of 500 episodes, binned flow reached 53.9% success, continuous flow 52.7% and one-pass continuous regression 38.8%."
+          },
+          {
+            "value": "53.9",
+            "claim": "On simulated RoboCasa, over five seeds of 500 episodes, binned flow reached 53.9% success, continuous flow 52.7% and one-pass continuous regression 38.8%."
           }
         ],
         "links": [],
@@ -4201,21 +4233,25 @@
       },
       "after": {
         "path": "content/manipulation/foundation-models.mdx",
-        "bytes": 8953,
-        "sha256": "ddecde0884fc4fb5af803d14cb0762e92cc83f95808d306850777f7fe556f06a"
+        "bytes": 10223,
+        "sha256": "382c7b90044932daaad0a68438c78b2a387ec5cf1c6de0b7b0ae7d83e07f0514"
       },
       "edits": [
+        {
+          "before": "  - lbm-cotraining-2026\n",
+          "after": "  - lbm-cotraining-2026\n  - robota-embed-2026\n  - imprint-2026\n"
+        },
         {
           "before": "A foundation model is a network trained on broad data at scale and adaptable to many downstream tasks <Cite id=\"bommasani-foundation-models-2021\" />. In robotics, the test is whether one checkpoint transfers to new tasks, environments or embodiments after bounded adaptation. Three families carry the label: <Term id=\"vision-language-action-model\">vision-language-action models</Term>, predictive world models, and multimodal backbones adapted into either. Try the check below.\n",
           "after": "A foundation model is a network trained on broad data at scale and adaptable to many downstream tasks <Cite id=\"bommasani-foundation-models-2021\" />. In robotics three families carry the label (<Term id=\"vision-language-action-model\">vision-language-action models</Term>, predictive world models and multimodal backbones adapted into either), and the test is whether one checkpoint transfers to new tasks, environments or embodiments after bounded adaptation.\n\nTry the check below.\n"
         },
         {
           "before": "A claim names its pretraining data, objective, interface and adaptation budget. Data spans web text and images, human video, robot trajectories and simulation; Open X-Embodiment pools 22 robots from 21 institutions <Cite id=\"open-x-embodiment-2023\" />. Objectives include next-token prediction, contrastive learning, video prediction and action denoising; interfaces include text, action chunks, predicted futures, values and embeddings.\n",
-          "after": "A claim names its pretraining data, objective, interface and adaptation budget. Data spans web text and images, human video, robot trajectories and simulation; Open X-Embodiment pools 22 robots from 21 institutions <Cite id=\"open-x-embodiment-2023\" />. Objectives include next-token prediction, contrastive learning, video prediction and action denoising.\n"
+          "after": "A claim names its pretraining data, objective, interface and adaptation budget. Data spans web text and images, human video, robot trajectories and simulation; Open X-Embodiment pools 22 robots from 21 institutions <Cite id=\"open-x-embodiment-2023\" />. Objectives include next-token prediction, contrastive learning, video prediction and action denoising.\n\nBudgets run from zero-shot prompting through parameter-efficient and full fine-tuning to new robot data at scale. RoboCat adapts to new tasks and robots from 100 to 1,000 examples <Cite id=\"robocat-2023\" />, Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs <Cite id=\"octo-2024\" />, and π*0.6's RL from experience more than doubles throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training <Cite id=\"gen-1-5-2026\" />.\n"
         },
         {
           "before": "Budgets run from zero-shot prompting through linear probes, parameter-efficient and full fine-tuning to new robot data at scale. RoboCat adapts to new tasks and robots from 100 to 1,000 examples <Cite id=\"robocat-2023\" />, Gemini Robotics learns short-horizon tasks from as few as 100 demonstrations <Cite id=\"gemini-robotics-2025\" />, and Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs <Cite id=\"octo-2024\" />. π*0.6's RL from experience more than doubles throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training <Cite id=\"gen-1-5-2026\" />, and Skild reports S1 executing a task shown in one video <Cite id=\"skild-s1-2026\" />.\n",
-          "after": "Budgets run from zero-shot prompting through parameter-efficient and full fine-tuning to new robot data at scale. RoboCat adapts to new tasks and robots from 100 to 1,000 examples <Cite id=\"robocat-2023\" />, Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs <Cite id=\"octo-2024\" />, and π*0.6's RL from experience more than doubles throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training <Cite id=\"gen-1-5-2026\" />.\n"
+          "after": "Robota-Embed, from Yunze Liu, Linxi Fan, Han Cai and colleagues at NVIDIA, MIT, UC Berkeley, Oxford and CMU (October 2026), encodes vision, language and action in one vector, so a robot can retrieve recorded experience as context. Seeding a frozen DreamZero policy with a retrieved video, chosen by a reranking agent, raised its average success on three simulated DROID-Sim tasks from 47.0% to 56.3% over 100 trials per task, while random reference videos lowered it to 36.0%. Without the reranker, its top-1 retrievals reached 50.3% against 43.3% for Omni-Embed-Nemotron-3B <Cite id=\"robota-embed-2026\" />.\n"
         },
         {
           "before": "RT-1 argued for task-agnostic training of high-capacity models on diverse robot data <Cite id=\"rt1-2022\" />. RT-2 co-fine-tunes a vision-language model on robot trajectories and internet-scale vision-language tasks, writing actions as reserved tokens <Cite id=\"rt2-2023\" />. OpenVLA made a comparable recipe public: DINOv2 and SigLIP features, a Llama-family backbone and fine-tuning on Open X-Embodiment <Cite id=\"openvla-2024\" />.\n",
@@ -4226,8 +4262,12 @@
           "after": "π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id=\"pi0-2024\" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id=\"pi05-2025\" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id=\"pi07-2026\" />.\n"
         },
         {
-          "before": "π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id=\"pi0-2024\" />. Knowledge insulation trains the backbone on discretized actions alongside the continuous expert <Cite id=\"knowledge-insulation-paper-2025\" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id=\"pi05-2025\" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id=\"pi07-2026\" />.\n\nTest-time training stores past observations in fast weights that gradient descent updates while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id=\"robottt-2026\" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id=\"t2mem-2026\" />. ECoMEM, posted on September 30, 2026 by Stanford's Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA. It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory <Cite id=\"ecomem-2026\" />.\n\n",
-          "after": "Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. RoboTTT (July 2026) extends visuomotor context to 8K timesteps without growing inference latency and averaged a 79% task completion score on long-horizon real-robot tasks, against 42% for the single-step-context GR00T N1.7 baseline <Cite id=\"robottt-2026\" />. ECoMEM (Stanford, September 2026) keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA, reaching 86.1% success on two new real-robot tasks against 8.6% without memory <Cite id=\"ecomem-2026\" />.\n\n"
+          "before": "π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id=\"pi0-2024\" />. Knowledge insulation trains the backbone on discretized actions alongside the continuous expert <Cite id=\"knowledge-insulation-paper-2025\" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id=\"pi05-2025\" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id=\"pi07-2026\" />.\n",
+          "after": "Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. RoboTTT (July 2026) extends visuomotor context to 8K timesteps without growing inference latency and averaged a 79% task completion score on long-horizon real-robot tasks, against 42% for the single-step-context GR00T N1.7 baseline <Cite id=\"robottt-2026\" />. ECoMEM (Stanford, September 2026) keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA, reaching 86.1% success on two new real-robot tasks against 8.6% without memory <Cite id=\"ecomem-2026\" />.\n"
+        },
+        {
+          "before": "Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. In July 2026, Yunfan Jiang, Li Fei-Fei, Yuke Zhu, Linxi Fan and colleagues reported RoboTTT, which extends visuomotor context to 8K timesteps without growing inference latency. On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed <Cite id=\"robottt-2026\" />. In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy <Cite id=\"t2mem-2026\" />. ECoMEM, posted on September 30, 2026 by Stanford's Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA. It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory <Cite id=\"ecomem-2026\" />.\n",
+          "after": "IMPRINT, from Yilin Wu, Homanga Bharadhwaj, Guanya Shi and colleagues at Amazon FAR and Carnegie Mellon (October 2026), trains a latent memory of past camera frames, actions and joint states with the policy, so no rule has to pick which frames to keep. On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%. The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA <Cite id=\"imprint-2026\" />.\n"
         },
         {
           "before": "GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id=\"gr00t-n1-2025\" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. In September 2026, Figure reported pretraining [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior. With identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id=\"helix-2-5-2026\" />.\n",
@@ -4295,14 +4335,6 @@
             "claim": "The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training [gen-1-5-2026], and Skild reports S1 executing a task shown in one video [skild-s1-2026]."
           },
           {
-            "value": "1",
-            "claim": "V-JEPA 2 learns representations from over 1M hours of internet video, then an action-conditioned stage on fewer than 62 hours of unlabeled DROID video [vjepa2-2025]."
-          },
-          {
-            "value": "100",
-            "claim": "RoboCat adapts to new tasks and robots from 100 to 1,000 examples [robocat-2023], Gemini Robotics learns short-horizon tasks from as few as 100 demonstrations [gemini-robotics-2025], and Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs [octo-2024]."
-          },
-          {
             "value": "15",
             "claim": "It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory [ecomem-2026]."
           },
@@ -4363,22 +4395,6 @@
             "claim": "On long-horizon real-robot tasks it averaged a 79% task completion score, against 42% for the single-step-context GR00T N1.7 baseline, and it fully completed a five-minute, ten-stage assembly task that no baseline completed [robottt-2026]."
           },
           {
-            "value": "2026",
-            "claim": "In September 2026, Yize Liu, Li Fei-Fei, Jiajun Wu and colleagues applied the mechanism to memory with T²Mem, which raised average success on 16 RoboMME tasks from 17.93% to 56.83% over its memory-free base policy [t2mem-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "ECoMEM, posted on September 30, 2026 by Stanford's Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA."
-          },
-          {
-            "value": "2026",
-            "claim": "It led the evaluated policies on 15 of 16 RoboMME tasks, and on two new real-robot tasks it reached 86.1% success, against 8.6% for a VLA without memory [ecomem-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "In September 2026, Figure reported pretraining [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior."
-          },
-          {
             "value": "30",
             "claim": "ECoMEM, posted on September 30, 2026 by Stanford's Yize Liu, Mac Schwager, Jiajun Wu and colleagues, keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA."
           },
@@ -4398,6 +4414,90 @@
         "links": [],
         "terms": []
       },
+      "added": {
+        "citations": [
+          {
+            "value": "imprint-2026",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          },
+          {
+            "value": "robota-embed-2026",
+            "claim": "Without the reranker, its top-1 retrievals reached 50.3% against 43.3% for Omni-Embed-Nemotron-3B [robota-embed-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "0.5",
+            "claim": "On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%."
+          },
+          {
+            "value": "0.5",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          },
+          {
+            "value": "100",
+            "claim": "RoboCat adapts to new tasks and robots from 100 to 1,000 examples [robocat-2023], Octo fine-tunes to new sensors and action spaces in hours on consumer GPUs [octo-2024], and π*0.6's RL from experience more than doubles throughput on some of the hardest tasks [pistar06-2025]."
+          },
+          {
+            "value": "122.8",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          },
+          {
+            "value": "25.4",
+            "claim": "On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%."
+          },
+          {
+            "value": "3",
+            "claim": "The newest rung is in-context learning: Generalist reports GEN-1.5 learning a task from one 3 to 12 second demonstration with no training [gen-1-5-2026]."
+          },
+          {
+            "value": "36.0",
+            "claim": "Seeding a frozen DreamZero policy with a retrieved video, chosen by a reranking agent, raised its average success on three simulated DROID-Sim tasks from 47.0% to 56.3% over 100 trials per task, while random reference videos lowered it to 36.0%."
+          },
+          {
+            "value": "40",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          },
+          {
+            "value": "43.3",
+            "claim": "Without the reranker, its top-1 retrievals reached 50.3% against 43.3% for Omni-Embed-Nemotron-3B [robota-embed-2026]."
+          },
+          {
+            "value": "47.0",
+            "claim": "Seeding a frozen DreamZero policy with a retrieved video, chosen by a reranking agent, raised its average success on three simulated DROID-Sim tasks from 47.0% to 56.3% over 100 trials per task, while random reference videos lowered it to 36.0%."
+          },
+          {
+            "value": "50",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          },
+          {
+            "value": "50.3",
+            "claim": "Without the reranker, its top-1 retrievals reached 50.3% against 43.3% for Omni-Embed-Nemotron-3B [robota-embed-2026]."
+          },
+          {
+            "value": "56.3",
+            "claim": "Seeding a frozen DreamZero policy with a retrieved video, chosen by a reranking agent, raised its average success on three simulated DROID-Sim tasks from 47.0% to 56.3% over 100 trials per task, while random reference videos lowered it to 36.0%."
+          },
+          {
+            "value": "67.8",
+            "claim": "On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%."
+          },
+          {
+            "value": "72.8",
+            "claim": "On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%."
+          },
+          {
+            "value": "91.0",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          },
+          {
+            "value": "960",
+            "claim": "The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA [imprint-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
       "pins": []
     },
     {
@@ -4409,10 +4509,14 @@
       },
       "after": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 10609,
-        "sha256": "aa78d0366c3cfee1161bb25dd099608f3308750a1a7fa2a22a9b531ae3f5e97c"
+        "bytes": 11189,
+        "sha256": "e83a7d7c5d57e6facb97631d0a1bfc369e09ed02bc2b702557d785aba17cf3d0"
       },
       "edits": [
+        {
+          "before": "  - roboarena-2025\n",
+          "after": "  - roboarena-2025\n  - steertuning-2026\n"
+        },
         {
           "before": "DeepMind's March 2025 report introduces a Gemini 2.0-based family. Gemini Robotics-ER extends spatial and temporal understanding for pointing, trajectory prediction and grasp prediction, and Gemini Robotics builds on ER to produce robot actions <Cite id=\"gemini-robotics-2025\" />. The March 12, 2025 launch post says Gemini Robotics more than doubles performance on a comprehensive generalization benchmark against other state-of-the-art VLAs, announces an Apptronik humanoid partnership and gives ER to trusted testers <Cite id=\"gemini-robotics-blog-2025\" />.\n",
           "after": "DeepMind's March 2025 report introduces a Gemini 2.0-based family: Gemini Robotics-ER for spatial and temporal understanding, and Gemini Robotics, which builds on ER to produce robot actions <Cite id=\"gemini-robotics-2025\" />. The launch post says Gemini Robotics more than doubles performance on a comprehensive generalization benchmark against other state-of-the-art VLAs <Cite id=\"gemini-robotics-blog-2025\" />.\n"
@@ -4471,7 +4575,7 @@
         },
         {
           "before": "Simar Kareer and colleagues at Physical Intelligence and Georgia Tech co-fine-tune π0.5 on human data, with 3D hand positions as actions, and relevant robot data, with no special transfer mechanism. Transfer improves with the quantity and diversity of robot pretraining <Cite id=\"pi-human-to-robot-2025\" />. Ruijie Zheng and colleagues' EgoScale adds aligned human-robot mid-training to relative wrist motion and retargeted hand actions, and finds scale and alignment complementary <Cite id=\"egoscale-2026\" />. [Cross-embodiment transfer](/manipulation/cross-embodiment/) compares them.\n",
-          "after": "Physical Intelligence and Georgia Tech co-fine-tune π0.5 on human data, with 3D hand positions as actions, and relevant robot data, and transfer improves with the quantity and diversity of robot pretraining <Cite id=\"pi-human-to-robot-2025\" />. EgoScale adds aligned human-robot mid-training and finds scale and alignment complementary <Cite id=\"egoscale-2026\" />. [Cross-embodiment transfer](/manipulation/cross-embodiment/) compares them.\n"
+          "after": "Physical Intelligence and Georgia Tech co-fine-tune π0.5 on human data, with 3D hand positions as actions, and relevant robot data, and transfer improves with the quantity and diversity of robot pretraining <Cite id=\"pi-human-to-robot-2025\" />. EgoScale adds aligned human-robot mid-training and finds scale and alignment complementary <Cite id=\"egoscale-2026\" />. [Cross-embodiment transfer](/manipulation/cross-embodiment/) compares them.\n\nSteertuning, from Lerrel Pinto and colleagues at NYU (October 2026), pretrains a 400M-parameter diffusion policy on egocentric human video alone, then adapts it to a new task from 5 human demonstrations with 2 minutes of LoRA fine-tuning and steering toward the closest demonstration. On a mobile manipulator the authors report 71% average success over 12 new tasks, 9 in a rented home and 3 in their lab. On the lab tasks it succeeded in 25 of 30 trials, against 7 with steering alone and none with the short fine-tune alone <Cite id=\"steertuning-2026\" />.\n"
         }
       ],
       "dropped": {
@@ -4595,10 +4699,6 @@
             "claim": "N1.5, dated June 11, 2025, freezes the VLM in pretraining and fine-tuning and was trained for 250K steps on 1K H100 GPUs [gr00t-n1-5-2025]."
           },
           {
-            "value": "12",
-            "claim": "The March 12, 2025 launch post says Gemini Robotics more than doubles performance on a comprehensive generalization benchmark against other state-of-the-art VLAs, announces an Apptronik humanoid partnership and gives ER to trusted testers [gemini-robotics-blog-2025]."
-          },
-          {
             "value": "132",
             "claim": "The DiT returns from 32 to 16 layers, the state and action interface grows to 132 dimensions, and the prediction horizon to 40."
           },
@@ -4671,10 +4771,6 @@
             "claim": "ER 2 launched on Google AI Studio and in private preview on Gemini Enterprise Agent Platform, the VLA and On-Device 2 went to early-access partners, and weight and licence terms are undisclosed [gemini-robotics-2-2026]."
           },
           {
-            "value": "2",
-            "claim": "GR00T N1, first submitted in March 2025, couples a VLM backbone to a flow-matching diffusion-transformer action head that reads vision-language tokens through cross-attention, and links the public GR00T-N1-2B checkpoint [gr00t-n1-2025]."
-          },
-          {
             "value": "200,000",
             "claim": "Figure says S0 trains entirely in simulation on over 1,000 hours of joint-level retargeted human motion, using sim-to-real reinforcement learning across more than 200,000 domain-randomized parallel environments."
           },
@@ -4739,24 +4835,12 @@
             "claim": "ER 2 launched on Google AI Studio and in private preview on Gemini Enterprise Agent Platform, the VLA and On-Device 2 went to early-access partners, and weight and licence terms are undisclosed [gemini-robotics-2-2026]."
           },
           {
-            "value": "2026",
-            "claim": "The Isaac-GR00T repository lists N1.7 on April 18, 2026, with a Cosmos-Reason2-2B backbone on the Qwen3-VL architecture and a 3B-parameter base checkpoint."
-          },
-          {
-            "value": "2026",
-            "claim": "Inference needs one GPU with 16 GB or more of VRAM [isaac-gr00t-repo-2026]."
-          },
-          {
             "value": "250",
             "claim": "N1.5, dated June 11, 2025, freezes the VLM in pretraining and fine-tuning and was trained for 250K steps on 1K H100 GPUs [gr00t-n1-5-2025]."
           },
           {
             "value": "3",
             "claim": "The Isaac-GR00T repository lists N1.7 on April 18, 2026, with a Cosmos-Reason2-2B backbone on the Qwen3-VL architecture and a 3B-parameter base checkpoint."
-          },
-          {
-            "value": "3",
-            "claim": "It also reports GEN-1 works about 3 times faster than the state of the art, with 1 hour of robot data per task [generalist-gen1-2026]."
           },
           {
             "value": "3.0",
@@ -4781,10 +4865,42 @@
           {
             "value": "60",
             "claim": "The company also reports passing \\$100M in annual recurring revenue with 60+ paying customers [skild-arr-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "steertuning-2026",
+            "claim": "On the lab tasks it succeeded in 25 of 30 trials, against 7 with steering alone and none with the short fine-tune alone [steertuning-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "25",
+            "claim": "The launch post, dated September 25, 2025, made ER 1.5 available through the Gemini API and Gemini Robotics 1.5 to select partners [gemini-robotics-15-blog-2025], after On-Device (June 2025) became the first DeepMind VLA offered for fine-tuning, to trusted testers [gemini-robotics-on-device-2025]."
           },
           {
-            "value": "7",
-            "claim": "S2, an internet-pretrained VLM, produces a continuous latent task representation at 7 to 9 Hz, and S1, a latent-conditioned visuomotor transformer, reads it with images and robot state at 200 Hz."
+            "value": "30",
+            "claim": "On July 30, 2026, DeepMind announced Gemini Robotics 2 as three models: a VLA, the embodied-reasoning VLM ER 2, and On-Device 2 for local operation."
+          },
+          {
+            "value": "400",
+            "claim": "Steertuning, from Lerrel Pinto and colleagues at NYU (October 2026), pretrains a 400M-parameter diffusion policy on egocentric human video alone, then adapts it to a new task from 5 human demonstrations with 2 minutes of LoRA fine-tuning and steering toward the closest demonstration."
+          },
+          {
+            "value": "5",
+            "claim": "N1.5 freezes the VLM in pretraining and fine-tuning [gr00t-n1-5-2025], and N1.6, which doubles the DiT to 32 layers, outperforms N1.5 in simulation and on real YAM, AgiBot Genie-1 and Unitree G1 robots, NVIDIA reports [gr00t-n1-6-2025]."
+          },
+          {
+            "value": "71",
+            "claim": "On a mobile manipulator the authors report 71% average success over 12 new tasks, 9 in a rented home and 3 in their lab."
+          },
+          {
+            "value": "9",
+            "claim": "Figure's February 20, 2025 Helix post pairs S2, an internet-pretrained VLM producing a latent task representation at 7 to 9 Hz, with S1, a visuomotor transformer that reads it with images and robot state at 200 Hz and outputs wrist, finger, torso and head targets [helix-2025]."
           }
         ],
         "links": [],
@@ -5633,10 +5749,14 @@
       },
       "after": {
         "path": "content/manipulation/realtime-execution.mdx",
-        "bytes": 9869,
-        "sha256": "6c8bf9894dac432c2bc6fee105b1a8216dab3ea811aae1856125d3bee03b199f"
+        "bytes": 10498,
+        "sha256": "a021c7515e4a295ea126e08c2870e72f774e421b0591c4d749ac8881a3b0e011"
       },
       "edits": [
+        {
+          "before": "  - realtime-expo-ft-2026\n",
+          "after": "  - realtime-expo-ft-2026\n  - chronos-policy-2026\n"
+        },
         {
           "before": "Real-time execution is delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id=\"real-time-chunking-2025\" />. Slide the model-size control and the missed-deadline count follows the new inference time.\n",
           "after": "Real-time execution means delivering a policy's actions on the controller's clock while the next inference runs. At 50 Hz the control period is 20 ms, shared by cameras, network, preprocessing and model, and the hand-off between action chunks changes what the robot does <Cite id=\"real-time-chunking-2025\" />.\n\nSlide the model-size control and the missed-deadline count follows the new inference time.\n"
@@ -5683,7 +5803,7 @@
         },
         {
           "before": "Black et al. (2025) simulate the delay in training, which avoids inference-time inpainting's added latency and works better at higher delays <Cite id=\"training-time-rtc-2025\" />. π0.7 trains with simulated delays of 0 to 12 timesteps, a maximum of 240 ms on a 50 Hz robot. It predicts 50 actions and executes 15 or 25, with UR5e robots at 20 Hz and the others at 50 Hz <Cite id=\"pi07-2026\" />. Soft RTC's medium overlap window cuts high-delay action delta and jerk by 9.1% and 9.6% against hard training-time RTC, at near-naive runtime <Cite id=\"soft-rtc-2026\" />. [Real-Time EXPO-FT](/manipulation/rl-finetuning/) learns a lightweight edit policy that reacts to the latest observation while a slow VLA proposes chunks. On four dynamic real tasks, average performance rose from 42% to 97% with at most 10 minutes of online data <Cite id=\"realtime-expo-ft-2026\" />. NVIDIA uses test-time and train-time RTC for GR00T N1.6 on the Unitree G1 and bimanual YAM <Cite id=\"gr00t-n1-6-2025\" />. Figure's Helix offsets its two systems' training inputs to match their deployed latency gap, with S1 holding a 200 Hz loop <Cite id=\"helix-2025\" />.\n",
-          "after": "Black et al. (2025) simulate the delay in training, which avoids inference-time inpainting's added latency and works better at higher delays <Cite id=\"training-time-rtc-2025\" />. π0.7 trains with simulated delays of 0 to 12 timesteps, at most 240 ms on a 50 Hz robot <Cite id=\"pi07-2026\" />, and Soft RTC's medium overlap window cuts high-delay action jerk by 9.6% against hard training-time RTC <Cite id=\"soft-rtc-2026\" />.\n\n[Real-Time EXPO-FT](/manipulation/rl-finetuning/) learns a lightweight edit policy that reacts to the latest observation while a slow VLA proposes chunks, raising average performance on four dynamic real tasks from 42% to 97% <Cite id=\"realtime-expo-ft-2026\" />. NVIDIA uses test-time and train-time RTC for GR00T N1.6 <Cite id=\"gr00t-n1-6-2025\" />, and Figure's Helix offsets its two systems' training inputs to match their deployed latency gap <Cite id=\"helix-2025\" />.\n"
+          "after": "Black et al. (2025) simulate the delay in training, which avoids inference-time inpainting's added latency and works better at higher delays <Cite id=\"training-time-rtc-2025\" />. π0.7 trains with simulated delays of 0 to 12 timesteps, at most 240 ms on a 50 Hz robot <Cite id=\"pi07-2026\" />, and Soft RTC's medium overlap window cuts high-delay action jerk by 9.6% against hard training-time RTC <Cite id=\"soft-rtc-2026\" />.\n\nChronos Policy, from Changhao Wang, Jaden Clark and Shuran Song at Stanford (October 2026), tells a diffusion transformer when each observation was captured and when each action will run, and randomizes both timings in training. On a simulated conveyor pick-and-place with inference delays up to 200 ms, it kept 76.4% success where Diffusion Policy fell to 1.8%, over 450 episodes per method and condition. On three real tasks with 10 or 20 trials per condition, it had the highest task score under every timing condition, against Diffusion Policy with and without RTC <Cite id=\"chronos-policy-2026\" />.\n\n[Real-Time EXPO-FT](/manipulation/rl-finetuning/) learns a lightweight edit policy that reacts to the latest observation while a slow VLA proposes chunks, raising average performance on four dynamic real tasks from 42% to 97% <Cite id=\"realtime-expo-ft-2026\" />. NVIDIA uses test-time and train-time RTC for GR00T N1.6 <Cite id=\"gr00t-n1-6-2025\" />, and Figure's Helix offsets its two systems' training inputs to match their deployed latency gap <Cite id=\"helix-2025\" />.\n"
         },
         {
           "before": "In September 2026, Fanding Huang, Cheng Chi, Zhi Wang and colleagues reported ChunkTrust, which infers how many actions to execute before replanning from the policy's own outputs while it runs. Its training-free horizon selector combines the stability of each generated chunk with its continuity with the actions already executed. Over all 50 RoboTwin2.0 tasks it raised π0.5's task-averaged success by 6.80 percentage points, and on four real household tasks it raised the mean normalized process score from 50.4% to 57.5% <Cite id=\"chunktrust-2026\" />.\n",
@@ -5791,10 +5911,6 @@
             "claim": "A hypothetical 9.1B π0-L (1.1B SigLIP-Giant, 6.5B Llama2, 1.5B action expert) reaches 3.9 on Thor [vla-perf-2026]."
           },
           {
-            "value": "1.8",
-            "claim": "On one A100 with three camera images, OpenVLA-OFT's authors measured 1.8 actions per second for OpenVLA, 77.9 for OpenVLA-OFT+, 291.6 for π0 and 432.8 for ACT [openvla-oft-2025]."
-          },
-          {
             "value": "10",
             "claim": "An optimized π0 Triton implementation on an RTX 4090 reaches 73.3 to 82.6% of its predicted throughput with one to three cameras, 10 flow-matching steps, chunk size 63 and an empty prompt [vla-perf-2026]."
           },
@@ -5817,10 +5933,6 @@
           {
             "value": "10",
             "claim": "B100 over Ethernet 10G with a fast cloud link takes 23.4 ms, and over 4G with a slow cloud link 273.4 ms."
-          },
-          {
-            "value": "10",
-            "claim": "Modeled links (upload/download, base latency): WiFi 6 560/800 Mbps, 3.5 ms; 5G 80/500 Mbps, 10 ms; 4G 19/75 Mbps, 25 ms; fast and slow cloud 10 and 1 Gbps, 10 and 100 ms [vla-perf-2026]."
           },
           {
             "value": "100",
@@ -5899,14 +6011,6 @@
             "claim": "Its baseline π0 has 2.7B parameters: a 0.4B vision encoder, 2B VLM and 0.3B action expert."
           },
           {
-            "value": "20",
-            "claim": "π0 predicts 50 actions but executes 16 on its 20 Hz UR5e and Franka setups and 25 on the other 50 Hz robots [pi0-2024]."
-          },
-          {
-            "value": "200",
-            "claim": "In RTC's π0.5 real-robot comparison, both variants triggered the robot's protective stop at +100 and +200 ms of injected latency [real-time-chunking-2025]."
-          },
-          {
             "value": "2025",
             "claim": "Resizing runs on an Intel i7-1260P NUC (mobile) or an AMD Ryzen 9 7950X workstation [real-time-chunking-2025]."
           },
@@ -5921,14 +6025,6 @@
           {
             "value": "2025",
             "claim": "On one A100 with three camera images, OpenVLA-OFT's authors measured 1.8 actions per second for OpenVLA, 77.9 for OpenVLA-OFT+, 291.6 for π0 and 432.8 for ACT [openvla-oft-2025]."
-          },
-          {
-            "value": "2026",
-            "claim": "An optimized π0 Triton implementation on an RTX 4090 reaches 73.3 to 82.6% of its predicted throughput with one to three cameras, 10 flow-matching steps, chunk size 63 and an empty prompt [vla-perf-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "A hypothetical 9.1B π0-L (1.1B SigLIP-Giant, 6.5B Llama2, 1.5B action expert) reaches 3.9 on Thor [vla-perf-2026]."
           },
           {
             "value": "23.4",
@@ -6141,6 +6237,26 @@
           {
             "value": "9.1",
             "claim": "A hypothetical 9.1B π0-L (1.1B SigLIP-Giant, 6.5B Llama2, 1.5B action expert) reaches 3.9 on Thor [vla-perf-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "chronos-policy-2026",
+            "claim": "On three real tasks with 10 or 20 trials per condition, it had the highest task score under every timing condition, against Diffusion Policy with and without RTC [chronos-policy-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "450",
+            "claim": "On a simulated conveyor pick-and-place with inference delays up to 200 ms, it kept 76.4% success where Diffusion Policy fell to 1.8%, over 450 episodes per method and condition."
+          },
+          {
+            "value": "76.4",
+            "claim": "On a simulated conveyor pick-and-place with inference delays up to 200 ms, it kept 76.4% success where Diffusion Policy fell to 1.8%, over 450 episodes per method and condition."
           }
         ],
         "links": [],
@@ -6685,10 +6801,14 @@
       },
       "after": {
         "path": "content/manipulation/vla-models.mdx",
-        "bytes": 12364,
-        "sha256": "65744d37a1210909a37aed462f4bd5ec2a81430454abd29323c0940cb95e1b6a"
+        "bytes": 12951,
+        "sha256": "63e2672a2cc7f81db14bdec9eaa9bdd7f50159669e38e47c1765ffdccbcb6720"
       },
       "edits": [
+        {
+          "before": "  - xiaomi-robotics-1-2026\n",
+          "after": "  - xiaomi-robotics-1-2026\n  - commgap-2026\n"
+        },
         {
           "before": "A <Term id=\"vision-language-action-model\">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model to output robot actions. Earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learned from robot data alone. It starts from a model pretrained on web-scale images and text, and the design question is how to get actions out of a model that outputs text <Cite id=\"rt2-2023\" />.\n",
           "after": "A <Term id=\"vision-language-action-model\">vision-language-action (VLA)</Term> model is a robot policy built by adapting a vision-language model, pretrained on web-scale images and text, to output robot actions; earlier [behavior cloning](/manipulation/bc-foundations/) and [Diffusion Policy](/manipulation/diffusion-policy/) learned from robot data alone. The design question is how to get actions out of a model that outputs text <Cite id=\"rt2-2023\" />.\n"
@@ -6766,6 +6886,10 @@
           "after": "In the one-image LIBERO comparison with parallel decoding and eight-step chunks, L1 OFT averages 95.3% against 95.4% for a diffusion head using 50 denoising steps, and 90.7% against 91.1% on LIBERO-Long; the diffusion variants trained longer and converged and inferred more slowly. The demonstrations follow one consistent strategy per task, and the authors leave multimodal demonstrations and large-scale pretraining open <Cite id=\"openvla-oft-2025\" />. Removing ACT's CVAE objective barely changes scripted-data results but cuts human-data success from 35.3% to 2%; its chunk-size ablation is in [action chunking](/manipulation/action-chunking/) <Cite id=\"act-aloha-2023\" />.\n"
         },
         {
+          "before": "Action interfaces, data mixtures, inputs and execution protocols differ across these studies, so read token-generation and robot-control rates separately <Cite id=\"rt2-2023\" /> <Cite id=\"openvla-2024\" />. With LIBERO near its ceiling, ranking needs harder tests ([evaluation crisis](/data-hardware/evaluation-crisis/)): RoboArena compares generalist policies in double-blind pairs on DROID robots at seven institutions <Cite id=\"roboarena-2025\" />, and SIMPLER's simulated scores correlate with real performance <Cite id=\"simpler-2024\" />.\n\n",
+          "after": "Action interfaces, data mixtures, inputs and execution protocols differ across these studies, so read token-generation and robot-control rates separately <Cite id=\"rt2-2023\" /> <Cite id=\"openvla-2024\" />. With LIBERO near its ceiling, ranking needs harder tests ([evaluation crisis](/data-hardware/evaluation-crisis/)): RoboArena compares generalist policies in double-blind pairs on DROID robots at seven institutions <Cite id=\"roboarena-2025\" />, and SIMPLER's simulated scores correlate with real performance <Cite id=\"simpler-2024\" />.\n\nYiqing Xu and Jiajun Wu at Stanford (October 2026) asked 50 people to describe demonstrated tasks; their instructions grew only from 9.1 words for one-event tasks to 15.8 words for tasks of three or more events. On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent. Issuing a fully specified task one step at a time helped all three policies tested <Cite id=\"commgap-2026\" />.\n\n"
+        },
+        {
           "before": "A VLA is two decisions. The prior is the visual, language and robot experience in the backbone; the control interface is the action, horizon, frame and measured rate. A large prior can improve instruction following while a poor interface fails at contact: OFT changed both throughput and success without replacing OpenVLA <Cite id=\"openvla-oft-2025\" />. Before choosing a checkpoint, write down the required semantic novelty, available embodiment data, action contract and latency budget. Pick the prior with the [foundation-model guide](/manipulation/foundation-models/) and the output with the [action-space guide](/manipulation/action-spaces/), then compare only models whose contracts match; [generalist policies](/manipulation/generalist-policies/) and [RL fine-tuning](/manipulation/rl-finetuning/) cover the rest.\n",
           "after": "Choosing a VLA means choosing a prior (the visual, language and robot experience in the backbone) and a control interface (the action, horizon, frame and measured rate). OFT changed both throughput and success without replacing OpenVLA <Cite id=\"openvla-oft-2025\" />. Write down the required semantic novelty, embodiment data, action contract and latency budget, pick the prior with the [foundation-model guide](/manipulation/foundation-models/) and the output with the [action-space guide](/manipulation/action-spaces/), then compare only models whose contracts match; [generalist policies](/manipulation/generalist-policies/) and [RL fine-tuning](/manipulation/rl-finetuning/) cover the rest.\n"
         }
@@ -6813,10 +6937,6 @@
           {
             "value": "0",
             "claim": "π0 instead adds a flow-matching expert for action chunks at up to 50 Hz, which its authors say challenge autoregressive VLAs [pi0-2024]."
-          },
-          {
-            "value": "0.5",
-            "claim": "VLA-0 writes actions as plain text and, on LIBERO, outperforms π0.5-KI, OpenVLA-OFT and SmolVLA trained on the same robot data [vla-0-2025]."
           },
           {
             "value": "0.9",
@@ -6906,6 +7026,58 @@
         "links": [],
         "terms": []
       },
+      "added": {
+        "citations": [
+          {
+            "value": "commgap-2026",
+            "claim": "Issuing a fully specified task one step at a time helped all three policies tested [commgap-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "10",
+            "claim": "On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent."
+          },
+          {
+            "value": "120",
+            "claim": "On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent."
+          },
+          {
+            "value": "15.2",
+            "claim": "On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent."
+          },
+          {
+            "value": "15.8",
+            "claim": "Yiqing Xu and Jiajun Wu at Stanford (October 2026) asked 50 people to describe demonstrated tasks; their instructions grew only from 9.1 words for one-event tasks to 15.8 words for tasks of three or more events."
+          },
+          {
+            "value": "2026",
+            "claim": "In February 2026, Toyota Research Institute researchers compared 89 co-trained policies over 58,000 simulated and 2,835 real rollouts."
+          },
+          {
+            "value": "2026",
+            "claim": "Xiaomi-Robotics-1 (July 2026) pretrains on over 100,000 hours of UMI handheld-gripper and egocentric trajectories and reports 57.4% on RoboCasa365 against a previous best of 46.6%; its authors say code and checkpoints will be released [xiaomi-robotics-1-2026]."
+          },
+          {
+            "value": "38.0",
+            "claim": "On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent."
+          },
+          {
+            "value": "4.5",
+            "claim": "On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent."
+          },
+          {
+            "value": "50",
+            "claim": "π0 instead adds a flow-matching expert that outputs action chunks at up to 50 Hz [pi0-2024], and PD-VLA decodes in parallel by fixed-point iteration with no retraining, reaching 2.52 times the execution frequency [pd-vla-2025]."
+          },
+          {
+            "value": "9.1",
+            "claim": "Yiqing Xu and Jiajun Wu at Stanford (October 2026) asked 50 people to describe demonstrated tasks; their instructions grew only from 9.1 words for one-event tasks to 15.8 words for tasks of three or more events."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
       "pins": []
     },
     {
@@ -6917,10 +7089,14 @@
       },
       "after": {
         "path": "content/rl-sim2real/humanoid-wbc.mdx",
-        "bytes": 11547,
-        "sha256": "6b8375155f608eed7e564e504e115dd2d3619f2503c826ada6c9f2fc6cbb3960"
+        "bytes": 12375,
+        "sha256": "260ffc53f857c5d4cd22846d8ffb51713da3a3c5fbdeb8ea5f61cc6de78387b4"
       },
       "edits": [
+        {
+          "before": "  - workhorse-2026\n",
+          "after": "  - workhorse-2026\n  - primoretarget-2026\n"
+        },
         {
           "before": "In character animation, DeepMimic adapted standard RL to imitate motion clips, including retargeted ones, for characters including an Atlas robot model <Cite id=\"deepmimic-2018\" />. AMASS unified 15 optical mocap datasets, over 40 hours and 11,000 motions, in one body parameterization <Cite id=\"amass-2019\" />.\n",
           "after": "DeepMimic adapted standard RL to imitate motion clips, including retargeted ones, for animated characters and an Atlas robot model <Cite id=\"deepmimic-2018\" />.\n"
@@ -6979,15 +7155,15 @@
         },
         {
           "before": "Tracking reproduces motion without choosing the task. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned in closed loop on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id=\"wbc-motion-gen-2026\" />. HDMI learns from monocular video to co-track robot and object states, with 67 consecutive door traversals and six real loco-manipulation tasks <Cite id=\"hdmi-2025\" />. Simulation-trained visual loco-manipulation now reaches hardware: VIRAL's RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id=\"viral-2025\" />, and FetchMan's policy walked to and grasped targets in unseen scenes at 73.3% success, zero-shot <Cite id=\"fetchman-2026\" />. Boston Dynamics reports that it trained Atlas's fridge move with RL from a simple animation, and that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id=\"bd-atlas-hard-work-2026\" />.\n",
-          "after": "A tracker does not choose its own motion. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id=\"wbc-motion-gen-2026\" />. VIRAL's simulation-trained RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id=\"viral-2025\" />, and Boston Dynamics reports that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id=\"bd-atlas-hard-work-2026\" />.\n"
+          "after": "A tracker does not choose its own motion. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id=\"wbc-motion-gen-2026\" />. VIRAL's simulation-trained RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id=\"viral-2025\" />, and Boston Dynamics reports that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id=\"bd-atlas-hard-work-2026\" />.\n\nHITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id=\"hitter-2025\" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id=\"paxton-robot-sports-2026\" />.\n"
         },
         {
           "before": "HITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id=\"hitter-2025\" />. LATENT learns tennis strokes from fragments of human motion and sustained multi-shot rallies with people on a Unitree G1 <Cite id=\"latent-tennis-2026\" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id=\"paxton-robot-sports-2026\" />.\n",
-          "after": "HITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id=\"hitter-2025\" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id=\"paxton-robot-sports-2026\" />.\n"
+          "after": "Retargeting is lossy: artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />, and noisy, inconsistent transferred references motivated a 2026 robustness method with a fall-recovery curriculum <Cite id=\"robust-tracking-2026\" />.\n"
         },
         {
           "before": "Retargeting is lossy. Artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />. Noisy, inconsistent transferred references motivate the 2026 robustness work <Cite id=\"robust-tracking-2026\" />.\n",
-          "after": "Retargeting is lossy: artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />, and noisy, inconsistent transferred references motivated a 2026 robustness method with a fall-recovery curriculum <Cite id=\"robust-tracking-2026\" />.\n"
+          "after": "Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives <Cite id=\"primoretarget-2026\" />. On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time <Cite id=\"primoretarget-2026\" />. The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower <Cite id=\"primoretarget-2026\" />. Collaborative manipulation by several robots stayed harder, at 62.6% tracking success <Cite id=\"primoretarget-2026\" />.\n"
         },
         {
           "before": "Figure and NVIDIA [keep balance](/how-robots-work/#upright) and contact beneath the foundation model, behind tracked joint targets or a latent token <Cite id=\"helix-02-2026\" /> <Cite id=\"isaac-gr00t-repo-2026\" />. DeepMind puts them inside one policy, whose whole-body pick categories average 45.7 to 76.3% against 89.6% for gripper insertion tasks <Cite id=\"gemini-robotics-2-2026\" />.\n",
@@ -7071,10 +7247,6 @@
             "claim": "OmniH2O uses kinematic motion goals as a shared interface on the H1."
           },
           {
-            "value": "1",
-            "claim": "Its Humanoid Shadowing Transformer, trained with PPO on retargeted motion in simulation, deploys zero-shot on a customized H1, reading IMU and joint encoders and outputting joint setpoints for PD control."
-          },
-          {
             "value": "109,504",
             "claim": "S0 trained on over 1,000 hours of joint-level retargeted human motion and sim-to-real RL across more than 200,000 parallel environments, and Figure says it replaces 109,504 lines of hand-engineered C++."
           },
@@ -7143,26 +7315,6 @@
             "claim": "ResGAC, from Guanya Shi (Carnegie Mellon), Koushil Sreenath and colleagues (October 2026), adds residual RL to geometric admittance control on a real Unitree G1 and reports 90% success on a standing peg-in-hole task, against 50% for SONIC [resgac-2026]."
           },
           {
-            "value": "2026",
-            "claim": "The headline demo is a 4-minute dishwasher unload and reload of 61 loco-manipulation actions [helix-02-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Figure says it later conditioned S0, which had reasoned only about the robot's own body, on camera perception [figure-s0-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Helix 02 had started from a pretrained vision-language model [helix-2-5-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "It released GR00T N1.7 as early access on 18 April 2026 [gr00t-n1-7-release-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "With the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands, so one language-conditioned policy coordinates locomotion and manipulation [isaac-gr00t-repo-2026] [groot-wbc-2026]."
-          },
-          {
             "value": "21",
             "claim": "SONIC, published in Science Robotics, scales tracking from 1.2M to 42M parameters on 700 hours of motion capture and 21k GPU hours, with one token space serving VR teleoperation and VLAs [sonic-2025]."
           },
@@ -7222,6 +7374,50 @@
         "links": [],
         "terms": []
       },
+      "added": {
+        "citations": [
+          {
+            "value": "primoretarget-2026",
+            "claim": "Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives [primoretarget-2026]."
+          },
+          {
+            "value": "primoretarget-2026",
+            "claim": "On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time [primoretarget-2026]."
+          },
+          {
+            "value": "primoretarget-2026",
+            "claim": "The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower [primoretarget-2026]."
+          },
+          {
+            "value": "primoretarget-2026",
+            "claim": "Collaborative manipulation by several robots stayed harder, at 62.6% tracking success [primoretarget-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "35.2",
+            "claim": "The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower [primoretarget-2026]."
+          },
+          {
+            "value": "62.6",
+            "claim": "Collaborative manipulation by several robots stayed harder, at 62.6% tracking success [primoretarget-2026]."
+          },
+          {
+            "value": "72.8",
+            "claim": "The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower [primoretarget-2026]."
+          },
+          {
+            "value": "78.8",
+            "claim": "On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time [primoretarget-2026]."
+          },
+          {
+            "value": "93.6",
+            "claim": "On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time [primoretarget-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
       "pins": [
         {
           "test": "tests/unit/humanoid-tracking-source-audit.test.ts",
@@ -7249,10 +7445,14 @@
       },
       "after": {
         "path": "content/rl-sim2real/legged-locomotion.mdx",
-        "bytes": 11174,
-        "sha256": "c821f2a7fd1d0d80efedd97ee679fdcd1331b83c8ce41f85cad5f1c0b03dfe7a"
+        "bytes": 11896,
+        "sha256": "614156aeae8659d6b5b8ae8f73a5b15687aacc27168efd58d99d8d3d18db7d04"
       },
       "edits": [
+        {
+          "before": "  - bd-atlas-ces-2026\n",
+          "after": "  - bd-atlas-ces-2026\n  - walk-like-this-2026\n"
+        },
         {
           "before": "Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, trained on data from exciting the real legs and disturbing the robot by hand. It stands in for actuation in the simulator. Policies trained with ideal or analytical actuator models failed to take a single step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, including a nearly upside-down pose and two resting on its own legs, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id=\"hwangbo-2019\" />.\n",
           "after": "Hwangbo and colleagues replaced simulated actuation with a learned network for ANYmal's series-elastic actuators, which predicts joint torque from current and past joint-position errors and velocities; policies trained with ideal or analytical actuator models failed to take a single step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id=\"hwangbo-2019\" />.\n"
@@ -7283,15 +7483,15 @@
         },
         {
           "before": "On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-body <Term id=\"teleoperation\">teleoperation</Term>. It fits and <Term id=\"retargeting\">retargets</Term> AMASS motions, filters those a privileged imitator cannot track, and trains a tracking policy with domain randomization that outputs 19 joint-position targets to a PD controller. The robot side also uses motion capture for linear velocity <Cite id=\"h2o-2024\" />.\n",
-          "after": "On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-body <Term id=\"teleoperation\">teleoperation</Term>: it fits and <Term id=\"retargeting\">retargets</Term> AMASS motions, filters those a privileged imitator cannot track, and trains a tracking policy with domain randomization that outputs 19 joint-position targets to a PD controller. The robot side also uses motion capture for linear velocity <Cite id=\"h2o-2024\" />.\n"
+          "after": "On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-body <Term id=\"teleoperation\">teleoperation</Term>: it fits and <Term id=\"retargeting\">retargets</Term> AMASS motions, filters those a privileged imitator cannot track, and trains a tracking policy with domain randomization that outputs 19 joint-position targets to a PD controller. The robot side also uses motion capture for linear velocity <Cite id=\"h2o-2024\" />.\n\nOn the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. Its quantitative hardware comparison against Vanilla covers only kicking and LeBron's \"Silencer\" <Cite id=\"asap-2025\" />.\n"
         },
         {
           "before": "On the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. The paper shows jumps and Ronaldo-, LeBron- and Kobe-inspired motions, but its quantitative hardware comparison covers only kicking and LeBron's \"Silencer\" against Vanilla <Cite id=\"asap-2025\" />.\n",
-          "after": "On the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. Its quantitative hardware comparison against Vanilla covers only kicking and LeBron's \"Silencer\" <Cite id=\"asap-2025\" />.\n"
+          "after": "A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />.\n"
         },
         {
           "before": "A fully learning-based humanoid controller, a causal transformer over the history of proprioceptive observations and actions, deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, and a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />. A vision-based humanoid parkour policy without motion priors jumps onto a 0.42 m platform and leaps 0.8 m gaps <Cite id=\"humanoid-parkour-2024\" />. Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />. Zhang, Hutter and colleagues pair a diffusion model that generates terrain-aware reference motions in real time with an RL tracker; on a Unitree G1 with onboard perception it crossed boxes, hurdles and stairs <Cite id=\"wbc-motion-gen-2026\" />. A 2026 Science Robotics review traces humanoid locomotion control from model-based methods through RL in large-scale simulation to generative models <Cite id=\"gu-humanoid-review-2026\" />.\n",
-          "after": "A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />.\n"
+          "after": "Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it <Cite id=\"walk-like-this-2026\" />. In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors <Cite id=\"walk-like-this-2026\" />. On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id=\"walk-like-this-2026\" />.\n"
         },
         {
           "before": "Jeon and colleagues compared rewards for a simulated 18-DoF MIT Humanoid running with arms fixed and ten leg joints controlled, holding <Term id=\"ppo\">PPO</Term>-Clip <Cite id=\"ppo-2017\" /> and IsaacGym fixed. They tested baseline rewards alone, plus direct shaping, and plus potential-based shaping of orientation, height and joint regularization, scoring accumulated baseline reward. Ten runs per case converged to similar performance within 1,000 iterations. Potential-based terms converged only marginally faster but were less sensitive across a 0.1 to 10 times weight sweep. The practical variant set the shaping discount to 1 against PPO's 0.99, which the authors say sacrifices policy invariance <span className=\"max-sm:[&_[role=tooltip]]:-translate-x-[64px]\"><Cite id=\"mit-humanoid-rewards-2023\" /></span>.\n",
@@ -7367,10 +7567,6 @@
             "claim": "A vision-based humanoid parkour policy without motion priors jumps onto a 0.42 m platform and leaps 0.8 m gaps [humanoid-parkour-2024]."
           },
           {
-            "value": "1",
-            "claim": "On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-body teleoperation."
-          },
-          {
             "value": "11900",
             "claim": "Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU."
           },
@@ -7407,22 +7603,6 @@
             "claim": "Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s [hiking-wild-2026]."
           },
           {
-            "value": "2026",
-            "claim": "Zhang, Hutter and colleagues pair a diffusion model that generates terrain-aware reference motions in real time with an RL tracker; on a Unitree G1 with onboard perception it crossed boxes, hurdles and stairs [wbc-motion-gen-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "A 2026 Science Robotics review traces humanoid locomotion control from model-based methods through RL in large-scale simulation to generative models [gu-humanoid-review-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Whole-body MPC now runs in real time on legged hardware with iLQR and MuJoCo dynamics [mujoco-ilqr-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Boston Dynamics later says Atlas practiced \"for millions of hours in simulations in parallel\" on GPUs, with only two body actuator types, all rotary and easier to represent in simulation [bd-atlas-hard-work-2026]."
-          },
-          {
             "value": "30",
             "claim": "It controls the full robot at 30 Hz from 30 Hz images, predicting 48 actions (1.6 seconds) per inference and most often executing 24 (0.8 seconds at 1x speed)."
           },
@@ -7441,6 +7621,38 @@
           {
             "value": "9",
             "claim": "Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "walk-like-this-2026",
+            "claim": "Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it [walk-like-this-2026]."
+          },
+          {
+            "value": "walk-like-this-2026",
+            "claim": "In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors [walk-like-this-2026]."
+          },
+          {
+            "value": "walk-like-this-2026",
+            "claim": "On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure [walk-like-this-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "0.001",
+            "claim": "In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors [walk-like-this-2026]."
+          },
+          {
+            "value": "1.104",
+            "claim": "In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors [walk-like-this-2026]."
+          },
+          {
+            "value": "4",
+            "claim": "Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes, with a game-inspired terrain curriculum that promotes robots that cross a tile, demotes those that fall short and loops hardest-level solvers back to a random level [rudin-2021]."
           }
         ],
         "links": [],
@@ -8751,10 +8963,14 @@
       },
       "after": {
         "path": "content/rl-sim2real/sim2real-transfer.mdx",
-        "bytes": 14627,
-        "sha256": "3c7272e3a3795fb1716998049154bca19e484c8ab663981f6d9a9017f7a532b5"
+        "bytes": 15324,
+        "sha256": "957d5dd8ba8b9554b7fe4d53110859d0f2303bf6dfbf9953ae39516f495ca6b5"
       },
       "edits": [
+        {
+          "before": "  - roborender-2026\n",
+          "after": "  - roborender-2026\n  - robosimstudio-2026\n"
+        },
         {
           "before": "Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot. Its four method families are <Term id=\"domain-randomization\">domain randomization</Term>, <Term id=\"teacher-student-distillation\">teacher-student distillation</Term>, <Term id=\"system-identification\">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id=\"reality-gap-survey-2026\" />.\n",
           "after": "Sim-to-real transfer is getting a policy trained in simulation to work on the physical robot, through four families of methods: <Term id=\"domain-randomization\">domain randomization</Term>, <Term id=\"teacher-student-distillation\">teacher-student distillation</Term>, <Term id=\"system-identification\">system identification</Term> and real-to-sim reconstruction. Aljalbout and colleagues' survey covers all four, splitting methods that reduce the gap from those that overcome it <Cite id=\"reality-gap-survey-2026\" />.\n"
@@ -8806,6 +9022,10 @@
         {
           "before": "Newer twins go beyond static appearance. RialTo builds digital twins from small amounts of real data and runs RL in them, raising imitation-policy robustness by over 67% <Cite id=\"rialto-2024\" />. Zhang and colleagues build soft-body splat twins from video whose rollouts correlate strongly with real execution <Cite id=\"softbody-splat-eval-2025\" />. PolaRiS turns short video scans into interactive environments that track real generalist-policy performance better than existing benchmarks <Cite id=\"polaris-2025\" />. SimFoundry builds sim-ready twins from a video and edits them into digital cousins; across 7 tasks and 5 policy architectures its simulated evaluations correlated with real results at a mean Pearson coefficient of 0.911 <Cite id=\"simfoundry-2026\" />. GRAIL generates humanoid interaction data from 3D assets and video-model priors, and visual policies trained only on it reached 84% success on object pick-up and 90% on stair-climbing on a real Unitree G1 <Cite id=\"grail-2026\" />. NVIDIA's Newton 1.0 post describes a Warp-based tiled camera sensor that ray-traces both triangle meshes and Gaussian splats <Cite id=\"newton-manipulation-blog-2026\" />.\n",
           "after": "Newer twins go beyond static appearance: RialTo runs RL in digital twins built from small amounts of real data, raising imitation-policy robustness by over 67% <Cite id=\"rialto-2024\" />, and PolaRiS turns short video scans into environments that track real generalist-policy performance better than existing benchmarks <Cite id=\"polaris-2025\" />. SimFoundry's simulated evaluations correlated with real results at a mean Pearson coefficient of 0.911 across 7 tasks and 5 policy architectures <Cite id=\"simfoundry-2026\" />, and NVIDIA's Newton 1.0 post describes a tiled camera sensor that ray-traces both triangle meshes and Gaussian splats <Cite id=\"newton-manipulation-blog-2026\" />.\n"
+        },
+        {
+          "before": "A rebuilt twin can still mislead. Kadian and colleagues measured a sim-versus-real success correlation of 0.18 in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id=\"kadian-2019\" />.\n\n",
+          "after": "A rebuilt twin can still mislead. Kadian and colleagues measured a sim-versus-real success correlation of 0.18 in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id=\"kadian-2019\" />.\n\nKaiyuan Chen, Ken Goldberg and colleagues at UC Berkeley and NVIDIA (October 2026) built RoboSimStudio, which lets people and coding agents edit the solver, contact model and physical parameters of a Newton simulation <Cite id=\"robosimstudio-2026\" />. In a pilot, coding agents built a bimanual sponge-wiping simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot <Cite id=\"robosimstudio-2026\" />. One real rollout then displaced a bar support that the simulation held fixed, and the authors judged sim and real agreement on this single task mainly by qualitative observation <Cite id=\"robosimstudio-2026\" />.\n\n"
         },
         {
           "before": "The survey also covers co-training with real-world data, noting its benefit for robotic foundation models such as GR00T N1. It says the action space \"plays a crucial role in reducing the sim-to-real gap\" across navigation, locomotion and manipulation, citing joint-velocity control for manipulation, and that high-frequency impedance controllers can improve manipulation transfer <Cite id=\"reality-gap-survey-2026\" />. Co-training has since become a headline recipe. Maddukuri and colleagues report that simulation data raises real-world performance by 38% on average <Cite id=\"sim-real-cotraining-2025\" />, and Lei and colleagues identify structured representation alignment as its primary effect <Cite id=\"lei-cotraining-2026\" />.\n",
@@ -8965,22 +9185,6 @@
             "claim": "ZEST selects joint gains from approximate analytical armature values for closed-chain actuators and adds a refined actuator model; its policies, trained entirely in simulation, deploy zero-shot on Atlas, the Unitree G1 and Spot [zest-2026]."
           },
           {
-            "value": "2026",
-            "claim": "Marco Hutter (ETH Zurich) and colleagues apply identification to the objects a robot handles in ForceTwin (September 2026)."
-          },
-          {
-            "value": "2026",
-            "claim": "It nearly halves the inertial-parameter error of a vision-language-model prior, and whole-body door-traversal policies trained in its twins were deployed on real robots [forcetwin-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "SimFoundry builds sim-ready twins from a video and edits them into digital cousins; across 7 tasks and 5 policy architectures its simulated evaluations correlated with real results at a mean Pearson coefficient of 0.911 [simfoundry-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "GRAIL generates humanoid interaction data from 3D assets and video-model priors, and visual policies trained only on it reached 84% success on object pick-up and 90% on stair-climbing on a real Unitree G1 [grail-2026]."
-          },
-          {
             "value": "3",
             "claim": "GRAIL generates humanoid interaction data from 3D assets and video-model priors, and visual policies trained only on it reached 84% success on object pick-up and 90% on stair-climbing on a real Unitree G1 [grail-2026]."
           },
@@ -9021,6 +9225,25 @@
             "claim": "The student seated real factory rebars at 1.4 mm clearance in 91.3% of zero-shot rollouts, and removing appearance randomization or the DAgger mixture sharply lowered success [rebarsim-2026]."
           }
         ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "robosimstudio-2026",
+            "claim": "Kaiyuan Chen, Ken Goldberg and colleagues at UC Berkeley and NVIDIA (October 2026) built RoboSimStudio, which lets people and coding agents edit the solver, contact model and physical parameters of a Newton simulation [robosimstudio-2026]."
+          },
+          {
+            "value": "robosimstudio-2026",
+            "claim": "In a pilot, coding agents built a bimanual sponge-wiping simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot [robosimstudio-2026]."
+          },
+          {
+            "value": "robosimstudio-2026",
+            "claim": "One real rollout then displaced a bar support that the simulation held fixed, and the authors judged sim and real agreement on this single task mainly by qualitative observation [robosimstudio-2026]."
+          }
+        ],
+        "numbers": [],
         "links": [],
         "terms": []
       },

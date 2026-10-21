@@ -299,6 +299,15 @@ function throughSeoPass(path: string) {
     expect(continues(kol, end)).toBe(true);
     end = kol.newHash;
   }
+  // The KOL triage batch of 2026-10-21 landed after that one; its one edge
+  // on an article that gained a dated paragraph continues the endpoint too.
+  const kolBatch1021Edges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('kol-batch-20261021-'));
+  expect(kolBatch1021Edges.length).toBeLessThanOrEqual(1);
+  for (const kol of kolBatch1021Edges) {
+    expect(continues(kol, end)).toBe(true);
+    end = kol.newHash;
+  }
   // The classical isometric figure of 2026-10-20 (batch loop-b01) landed
   // after the KOL triage batch; its one edge on the scene-representation
   // article, which gained a figure mount, continues the previous endpoint the
@@ -430,8 +439,10 @@ describe('merged reader corrections preserve production additions and exact appr
           a.id === 'seo-pass-20261002-relationships-world-models-generative-sim')!;
         expect(seoRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: relationship.newHash });
         // The 2026-10-10 world-models pass then moved it on with one more
-        // plain edge from the SEO endpoint, and the 2026-10-12 length cut
-        // moved it to the live record with one more from that endpoint.
+        // plain edge from the SEO endpoint, the 2026-10-12 length cut moved
+        // it on with one more from that endpoint, and the 2026-10-21 KOL
+        // triage batch's MetaGenSim citation moved it to the live record with
+        // one more from the cut endpoint.
         const domainRelationship = approvals.find(a =>
           a.id === 'world-models-pass-20261010-relationships-generative-sim')!;
         expect(domainRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: seoRelationship.newHash });
@@ -439,7 +450,11 @@ describe('merged reader corrections preserve production additions and exact appr
           a.id === 'length-cut-20261012-world-models-relationships-generative-sim')!;
         expect(cutRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: domainRelationship.newHash });
         expect(cutRelationship.reconciles).toBeUndefined();
-        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(cutRelationship.newHash);
+        const kolRelationship = approvals.find(a =>
+          a.id === 'kol-batch-20261021-world-models-relationships-generative-sim')!;
+        expect(kolRelationship).toMatchObject({ manifest: 'relationships', memberId: id, oldHash: cutRelationship.newHash });
+        expect(kolRelationship.reconciles).toBeUndefined();
+        expect(truth.relationships.members.find(m => m.id === id)?.hash).toBe(kolRelationship.newHash);
         const relationshipEdges = approvals.filter(a => a.manifest === 'relationships' && a.memberId === id);
         const sealedHash = sealed.manifests.relationships.members.find(m => m.id === id)!.hash;
         expect(approvedDeltaPath(relationshipEdges, sealedHash, relationship.newHash).status).toBe('approved');

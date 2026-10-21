@@ -2,8 +2,9 @@
  * Records the length-cut successor review for the named articles: exact
  * edits over each article's bytes before the cut, every citation, number,
  * link and glossary occurrence the cut dropped with the sentence it came
- * from, the test pins the cut retired or moved, the live successor's pin,
- * and the review's own pin in lib/audit-length-cut-continuity.ts.
+ * from, every one a later reviewed addition brought in with the sentence it
+ * went into, the test pins the cut retired or moved, the live successor's
+ * pin, and the review's own pin in lib/audit-length-cut-continuity.ts.
  *
  *   node scripts/record-length-cut-continuity.ts [--pins <file.json>] <path>...
  *
@@ -51,6 +52,11 @@ function sentences(body: string): string[] {
 const plain = (sentence: string) => sentence.replace(/<Cite id="([^"]+)" \/>/g, '[$1]').replace(/<[^>]+>/g, '')
   .replace(/\s+/g, ' ').trim();
 
+/**
+ * The occurrences that left `prior` for `current`, each with the sentence of
+ * `prior` it came from. Called the other way round, it lists what a reviewed
+ * addition brought in, each with the sentence it went into.
+ */
 function drops(prior: string, current: string): LengthCutDrops {
   const priorBody = prior.slice(frontmatter(prior).length);
   const body = current.slice(frontmatter(current).length);
@@ -66,7 +72,6 @@ function drops(prior: string, current: string): LengthCutDrops {
       [...sentence.matchAll(COUNTED[key])].some((m) => (m[1] ?? m[0]) === value);
     const used = new Map<string, number>();
     for (const [value, n] of [...left].sort(([x], [y]) => x.localeCompare(y))) {
-      if (n < 0) throw new Error(`${key} ${value} added by the cut`);
       for (let i = 0; i < n; i++) {
         const fromCut = cut.filter(holds(value));
         const candidates = fromCut.length > 0 ? fromCut : all.filter(holds(value));
@@ -78,6 +83,11 @@ function drops(prior: string, current: string): LengthCutDrops {
   }
   return result;
 }
+
+const any = (list: LengthCutDrops) => Object.values(list).some((entries) => entries.length > 0);
+// Written into the review once, the first time it records a reviewed addition.
+const ADDITIONS_APPROVAL = 'Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.';
+const ADDITIONS_RATIONALE = 'A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.';
 
 function main(paths: string[], pinFile?: string): void {
   const pinMap: Record<string, LengthCutPin[]> = pinFile ? JSON.parse(readFileSync(pinFile, 'utf8')) : {};
@@ -106,17 +116,26 @@ function main(paths: string[], pinFile?: string): void {
       console.log(`${path}: unchanged from ${archivedFrom.slice(0, 8)}, not recorded`);
       continue;
     }
+    const added = drops(live.toString(), prior.toString());
     const source: LengthCutSource = {
       archivedFrom, before: artifact(path, prior), after: artifact(path, live),
       edits: exactEdits(prior.toString(), live.toString()),
       dropped: drops(prior.toString(), live.toString()),
+      ...(any(added) ? { added } : {}),
       pins: pinMap[path] ?? (index >= 0 ? review.sources[index].pins : []),
     };
     if (index >= 0) review.sources[index] = source;
     else review.sources.push(source);
     const d = source.dropped;
+    const a = added;
     console.log(`${path}: ${source.edits.length} edit(s) over ${archivedFrom.slice(0, 8)}; dropped ${d.citations.length} citation, ` +
-      `${d.numbers.length} number, ${d.links.length} link and ${d.terms.length} glossary occurrence(s); ${source.pins.length} pin(s)`);
+      `${d.numbers.length} number, ${d.links.length} link and ${d.terms.length} glossary occurrence(s); added ` +
+      `${a.citations.length} citation, ${a.numbers.length} number, ${a.links.length} link and ${a.terms.length} glossary ` +
+      `occurrence(s); ${source.pins.length} pin(s)`);
+  }
+  if (review.sources.some(({ added }) => added && any(added))) {
+    if (!review.ownerApproval.includes(ADDITIONS_APPROVAL)) review.ownerApproval += ` ${ADDITIONS_APPROVAL}`;
+    if (!review.rationale.includes(ADDITIONS_RATIONALE)) review.rationale += ` ${ADDITIONS_RATIONALE}`;
   }
   review.sources.sort((x, y) => x.after.path.localeCompare(y.after.path));
   review.observedAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');

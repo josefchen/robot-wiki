@@ -48,6 +48,7 @@ citations:
   - simfoundry-2026
   - grail-2026
   - roborender-2026
+  - robosimstudio-2026
 seeAlso:
   - "classical/calibration"
   - "classical/state-estimation"
@@ -118,6 +119,8 @@ RoboGSim's August 2025 revision chains a Gaussian Reconstructor, Digital Twins B
 Newer twins go beyond static appearance: RialTo runs RL in digital twins built from small amounts of real data, raising imitation-policy robustness by over 67% <Cite id="rialto-2024" />, and PolaRiS turns short video scans into environments that track real generalist-policy performance better than existing benchmarks <Cite id="polaris-2025" />. SimFoundry's simulated evaluations correlated with real results at a mean Pearson coefficient of 0.911 across 7 tasks and 5 policy architectures <Cite id="simfoundry-2026" />, and NVIDIA's Newton 1.0 post describes a tiled camera sensor that ray-traces both triangle meshes and Gaussian splats <Cite id="newton-manipulation-blog-2026" />.
 
 A rebuilt twin can still mislead. Kadian and colleagues measured a sim-versus-real success correlation of 0.18 in a 3D-scanned lab because agents exploited collision dynamics, and tuning simulation parameters raised it to 0.844 <Cite id="kadian-2019" />.
+
+Kaiyuan Chen, Ken Goldberg and colleagues at UC Berkeley and NVIDIA (October 2026) built RoboSimStudio, which lets people and coding agents edit the solver, contact model and physical parameters of a Newton simulation <Cite id="robosimstudio-2026" />. In a pilot, coding agents built a bimanual sponge-wiping simulation from a smartphone video in about an hour, and a policy improved there completed the wipe on the real robot <Cite id="robosimstudio-2026" />. One real rollout then displaced a bar support that the simulation held fixed, and the authors judged sim and real agreement on this single task mainly by qualitative observation <Cite id="robosimstudio-2026" />.
 
 <ScannedTwinCheck className="my-6" />
 

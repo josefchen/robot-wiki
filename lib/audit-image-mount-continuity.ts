@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176288, sha256: '09f057b654024e2f8f45f8d7fea918963972837bb07cee7ff55181ce73f18615' };
+const reviewPin = { bytes: 176644, sha256: 'eb58a669984841e3d50e4ca5d4a9076d53416e944024be31d7d95cce3962314b' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -174,8 +174,8 @@ const admitted: ReadonlySet<string> = new Set([
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['content/adjacent/autonomous-vehicles.mdx', [20460, '49118a4634c77b3a64dbef740232adb56675a62b5d3527649c327268fe20816b']],
-  ['content/adjacent/drones.mdx', [12992, '701be0c28cea61567e4a48e1dda26df1c213747fbbad71fe3fd5e39a7b588958']],
+  ['content/adjacent/autonomous-vehicles.mdx', [21121, '63cf93d78d2db6066352b616494f1d3da26d1999c0f0618dc05e6a7859b5a7ad']],
+  ['content/adjacent/drones.mdx', [13642, 'ebf249ec3991c6e7f018663d7d73aea77654608877ed43110b5f047a3a8a7af3']],
   ['content/adjacent/space.mdx', [13751, '65e0c08f4d86447344531aee2e1231ff77cb6131f254752e2b789dfdd869a7e4']],
   ['content/adjacent/surgical.mdx', [12431, 'af0187f6b73b19cf8f85c772672725687f36788afaf090ea1ba3893ada5cf7e3']],
   ['content/classical/calibration.mdx', [8186, '1be288684890f4acb3526b0054ded937aacbe67aee8caa185089e12c86bb2c9d']],
@@ -189,11 +189,11 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],
   ['content/data-hardware/data-bottleneck.mdx', [14264, '0e5457aa30ececce1bc3cba3c5a942c439c8866e879d38c9aa8f2f1c113d4081']],
   ['content/data-hardware/datasets.mdx', [12114, '698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51']],
-  ['content/data-hardware/evaluation-crisis.mdx', [14999, 'ebdc3f24dcd30fbc4ef0209eabb8dc5d560c79f72d79b330a171dfd3f928369c']],
+  ['content/data-hardware/evaluation-crisis.mdx', [15714, 'c094f543b6839b0b2956d0a3dc32ef58df077369db878006f8c8033b48588c97']],
   ['content/data-hardware/hardware-taxonomy.mdx', [11225, '01727d1b7c0ddd110bdafd3c957475ab217d338cf71adad943ce4bf76969a180']],
   ['content/data-hardware/industrial-deployment.mdx', [16804, '94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b']],
   ['content/data-hardware/robot-learning-stack.mdx', [10400, 'd99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7']],
-  ['content/data-hardware/teleop-rigs.mdx', [9589, 'a3a49cb85b1ef94c4569ae2516102b5aec1aabfbf5b57681d9de9b07e9bc42f3']],
+  ['content/data-hardware/teleop-rigs.mdx', [10880, 'df9345d0d975e9594fcab54c41f7a2e0392fc685e38c5f94b992aa223e0c75b8']],
   ['content/frontier/bear-case.mdx', [10119, 'bfac4a48de3b0c71bd41e20e1eb1b7508898fd31d60e904729b50714b073e2a8']],
   ['content/frontier/competing-theses.mdx', [14365, '86e4399da86ea923b7ea52759b903c61deba9df47b5167a6d021429da1d3bec7']],
   ['content/frontier/dexterity.mdx', [17774, '62e378f98f9ae2edaacb5e154f17ab248d5c2afd7e0909174841a6fd3858beeb']],
@@ -201,34 +201,34 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/frontier/reliability-gap.mdx', [10847, '55c19e0c4f96b2c286b480f128c19c51f60f47d73960cd77a114c7a88c17d7da']],
   ['content/frontier/safety-and-assurance.mdx', [18343, '4c763d7b789d26e9bccdb0aad7b2c66a241d72fef111583e02429723f1ab760c']],
   ['content/manipulation/action-chunking.mdx', [10683, '8f270d172551c6dddf41a447721c34131bd0fc7c8255d75829e9164f88f9743a']],
-  ['content/manipulation/action-spaces.mdx', [8989, '62fe978b227865f84c69a7e1008bf7df558019ae5f17f21ecc349e9782d9c361']],
+  ['content/manipulation/action-spaces.mdx', [9603, 'a98ce0fa564a9b886d6db796fbfe3fe31d037e5d482a9134fa17e13e0cf1a425']],
   ['content/manipulation/bc-foundations.mdx', [12584, 'ba3b209ad17ac41a97500ddb679fa7202258d42844018a9227dca80359c2d523']],
   ['content/manipulation/comparison-matrix.mdx', [9382, 'ebdc0ce5e86afca1edc616ca74bcb19ac47b488866ea5ce714f896181ce824ee']],
   ['content/manipulation/cross-embodiment.mdx', [9803, '4cb0ce6f4c00c06f350e83304a3557bd0db30ea2fd542287fbcbccfeccfdefa2']],
   ['content/manipulation/diffusion-policy.mdx', [9652, '54f0f2f2c5f094a44a386c62dc1ee14a9fc9f8aa5e1d3b6c33920556f8053dc9']],
-  ['content/manipulation/foundation-models.mdx', [9075, 'cacda44e0e9779003e5e9ed3be07c966810c8b3dfe743a2424681abc8f74513f']],
-  ['content/manipulation/generalist-policies.mdx', [10755, '52496ab38e8d5ea4680e488a1978f5b6f7f7c34614b9d6b5a57106a46318a5b9']],
+  ['content/manipulation/foundation-models.mdx', [10345, '6a5c7383f6078015d5dd2401cc6474093200bcc048a976f9695e1016bede4747']],
+  ['content/manipulation/generalist-policies.mdx', [11335, '416b72fd5bfca8b5338d249ee3b8ce9a39d24c307dbe37125a1ca6fc004e8cd6']],
   ['content/manipulation/hierarchical.mdx', [11881, '8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691']],
   ['content/manipulation/knowledge-insulation.mdx', [8651, 'b97c1b7b1971dd73d103fa5479680813c69375fda35f1dd791553d76de904d9b']],
   ['content/manipulation/pi-line.mdx', [12914, '22b3e62a57a42dda336cda4619dc08bfaf177e094f4d7586044f8ee47bbd077c']],
-  ['content/manipulation/realtime-execution.mdx', [9955, '6bf678385cee70644020bce85b7d9a48f3b06af44c4c6177428ae2ddd03933e5']],
+  ['content/manipulation/realtime-execution.mdx', [10584, '1397e0bb36a80dc5dbd37128bf89647a525686fdbb17beaca29c1b4ac3ac4bd2']],
   ['content/manipulation/rl-finetuning.mdx', [18148, '7749de405711f539b2471cf5298bd9d68dd60ed068e846d8a6429fa42a089dd6']],
   ['content/manipulation/robot-learning-roadmap.mdx', [8930, '186f8f71aa2f8f72939bee3db299c71463ff20303aae669571947433f27f4135']],
-  ['content/manipulation/vla-models.mdx', [12509, '593b9ddd9d7a85673c682eb4e1cb66fee91503e76bf0a21e50275cc1e73008f4']],
-  ['content/rl-sim2real/humanoid-wbc.mdx', [11708, '0d15eb18c58ed67c3384abc488271e21fce251942ec703d53ecbf807c93c3818']],
-  ['content/rl-sim2real/legged-locomotion.mdx', [11304, '7e84805b270b605d2d9718825b5861c6a51c68cfec7569af86d11ecaca07fab3']],
+  ['content/manipulation/vla-models.mdx', [13096, 'cff47f1d35bc19779faf67c348807d7d308a45e289ca66876f44c010f320033d']],
+  ['content/rl-sim2real/humanoid-wbc.mdx', [12536, 'b1a2f1729adedd216fb3c4fa6357668c361c3325fe5bd1ebe0fe209bba48aea3']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [12026, 'fca9093d5d268ff7244ff6c8ac65a9951ddd70f16f1d46775f68982dde37dd9f']],
   ['content/rl-sim2real/offline-rl.mdx', [10788, 'b34063066228dc15860f6b1d5faf3e8148e8e660146abc5b181df6659e17f37c']],
   ['content/rl-sim2real/parallel-sim-rl.mdx', [10077, '4309475a7e10f3ed0cbfede8a8b55a8983bbce35ffdf133e224dd13bea396e9b']],
   ['content/rl-sim2real/reward-design-mpc.mdx', [13919, '1dca36a9eae1c46dee33b6ee9efb6ac7d569888b6935ce5898258a10aef9e352']],
   ['content/rl-sim2real/rl-for-robotics.mdx', [12201, '198f6cbb974adb9d743d052d0d59cbe0a6cb342e8ae94417a41d80d4f8609aa8']],
-  ['content/rl-sim2real/sim2real-transfer.mdx', [14729, 'cbe27c4618cdc3a5ab0b00dc4a3e840746729c9e6287905f2af2dea6127d82f7']],
+  ['content/rl-sim2real/sim2real-transfer.mdx', [15426, '80c6478a4a102638186655eaa99da4c0a173086464f3f2a69a381f91329e41d5']],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [7902, '751f42924e9933e040e7beaca56c414443930ea98f90bbb3b552f4fcd2664bce']],
   ['content/world-models/evaluation.mdx', [9650, '7e097f28165e752ab573e215f3048f29d2d11ca2600b4e63661fedeecb61a094']],
-  ['content/world-models/generative-sim.mdx', [12599, '6355e16b329d92721ba982e003154d028c1b1ffdddc6721b0d854f3f90fe3ea5']],
-  ['content/world-models/generative-video.mdx', [13954, 'dcf47edcbd75508f396caaf7b2a443e6dbdb7bb41b1cf8dad2941cad2ea134d6']],
-  ['content/world-models/jepa.mdx', [12060, '6a4e35424dc85f07227a770bf08863f945de7405c361e8fc84be9e968125272a']],
+  ['content/world-models/generative-sim.mdx', [13187, 'f5050231cf9d1ddfb44f73c3cd631c2abb21f264e36910fa1f86ddb6d40a279d']],
+  ['content/world-models/generative-video.mdx', [14544, 'd2ffb758234a8d4eb2643186cc82b02ad1ba242b0779c6127386acb1e71575a0']],
+  ['content/world-models/jepa.mdx', [12716, '5949b267185ce2023f5f06b47d3affb3b504947ce02f0f372bd0748181f84220']],
   ['content/world-models/latent-dynamics.mdx', [10797, '89dea20591cce8527f71c692ca2285389bf9c2274322ef28523823b42dbaf61e']],
-  ['content/world-models/model-based-robot-learning.mdx', [8954, '5da85a65adb26741b0560410aea79520f7e8ed3d504eb69eb6e9bdce9b7a57e5']],
+  ['content/world-models/model-based-robot-learning.mdx', [9602, 'bcf23833c0d4960092320aa6c89df584f2124f95ded7f739506a8525c15ed099']],
   ['content/world-models/taxonomy.mdx', [12579, '937ab8c9c797b8a0f7b24f6b4ca8f08b777cfb3f21f8f366900873526d5d3d1e']],
   ['content/world-models/world-models-vs-simulators.mdx', [11462, '203db84ca9cf49e7c66583aff74cb5b47ba285eb5884d099ed89a2a09ec69ddf']],
 ]);

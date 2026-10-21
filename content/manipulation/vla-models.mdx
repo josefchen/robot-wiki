@@ -42,6 +42,7 @@ citations:
   - lbm-cotraining-2026
   - x-vla-2025
   - xiaomi-robotics-1-2026
+  - commgap-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "manipulation/generalist-policies"
@@ -116,6 +117,8 @@ In the one-image LIBERO comparison with parallel decoding and eight-step chunks,
 ## State of the field
 
 Action interfaces, data mixtures, inputs and execution protocols differ across these studies, so read token-generation and robot-control rates separately <Cite id="rt2-2023" /> <Cite id="openvla-2024" />. With LIBERO near its ceiling, ranking needs harder tests ([evaluation crisis](/data-hardware/evaluation-crisis/)): RoboArena compares generalist policies in double-blind pairs on DROID robots at seven institutions <Cite id="roboarena-2025" />, and SIMPLER's simulated scores correlate with real performance <Cite id="simpler-2024" />.
+
+Yiqing Xu and Jiajun Wu at Stanford (October 2026) asked 50 people to describe demonstrated tasks; their instructions grew only from 9.1 words for one-event tasks to 15.8 words for tasks of three or more events. On 120 simulated RoboLab tasks with 10 rollouts each, π0.5 fine-tuned on DROID succeeded 38.0% of the time with fully explicit commands, 4.5 points less when told the outcome instead of the action and 15.2 points less when told only the intent. Issuing a fully specified task one step at a time helped all three policies tested <Cite id="commgap-2026" />.
 
 ## A 2026 selection rule
 

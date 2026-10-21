@@ -44,6 +44,7 @@ citations:
   - grail-2026
   - openwam-2026
   - long-wam-2026
+  - caster-2026
 seeAlso:
   - "world-models/jepa"
   - "manipulation/vla-models"
@@ -133,6 +134,8 @@ In February 2026 Runway reported a similar ranking test for its GWM-Robotics wor
 ## Generated experience trains real policies, but contact-rich tasks stay open
 
 RISE ran RL inside a compositional world model and gained 35 to 45 absolute points on three real tasks, including dynamic brick sorting <Cite id="rise-2026" />. GRAIL used 3D assets and video-model priors to generate over 20,000 humanoid sequences. Visual policies trained only on them reached 84% success on object pick-up and 90% on stair-climbing on a real Unitree G1 <Cite id="grail-2026" />.
+
+Yinlong Dai, Homanga Bharadhwaj and Dylan P. Losey at Virginia Tech and Johns Hopkins (October 2026) seed CASTER with generated videos of a person doing the task, then optimize a feasible robot motion in a digital twin <Cite id="caster-2026" />. Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly <Cite id="caster-2026" />. The authors trace kettle pouring and bucket covering failures to physics the twin did not model <Cite id="caster-2026" />.
 
 The survey calls visual plausibility "only a weak proxy for control utility" and says vision and proprioception miss friction, stiffness and contact stability, making tactile integration indispensable. World-model policies also cost far more compute than <Term id="vision-language-action-model">VLAs</Term> in training and inference, and iterative diffusion denoising adds latency <Cite id="world-model-survey-2026" />.
 

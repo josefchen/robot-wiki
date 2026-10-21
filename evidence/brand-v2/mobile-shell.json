@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3031,
+      "visibleTextLength": 3075,
       "header": {
         "present": true,
         "display": "flex",
@@ -722,7 +722,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 31386,
+      "visibleTextLength": 32140,
       "header": {
         "present": true,
         "display": "flex",
@@ -884,7 +884,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 21873,
+      "visibleTextLength": 22731,
       "header": {
         "present": true,
         "display": "flex",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 20242,
+      "visibleTextLength": 21389,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 19184,
+      "visibleTextLength": 20787,
       "header": {
         "present": true,
         "display": "flex",
@@ -6384,7 +6384,7 @@
     },
     {
       "route": "/manipulation/action-spaces/",
-      "visibleTextLength": 16813,
+      "visibleTextLength": 17586,
       "header": {
         "present": true,
         "display": "flex",
@@ -7194,7 +7194,7 @@
     },
     {
       "route": "/manipulation/foundation-models/",
-      "visibleTextLength": 17342,
+      "visibleTextLength": 19032,
       "header": {
         "present": true,
         "display": "flex",
@@ -7356,7 +7356,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 18885,
+      "visibleTextLength": 19639,
       "header": {
         "present": true,
         "display": "flex",
@@ -8004,7 +8004,7 @@
     },
     {
       "route": "/manipulation/realtime-execution/",
-      "visibleTextLength": 17654,
+      "visibleTextLength": 18378,
       "header": {
         "present": true,
         "display": "flex",
@@ -8490,7 +8490,7 @@
     },
     {
       "route": "/manipulation/vla-models/",
-      "visibleTextLength": 21275,
+      "visibleTextLength": 21987,
       "header": {
         "present": true,
         "display": "flex",
@@ -9292,7 +9292,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 21681,
+      "visibleTextLength": 22615,
       "header": {
         "present": true,
         "display": "flex",
@@ -9454,7 +9454,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 19541,
+      "visibleTextLength": 20411,
       "header": {
         "present": true,
         "display": "flex",
@@ -10264,7 +10264,7 @@
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
-      "visibleTextLength": 23864,
+      "visibleTextLength": 24749,
       "header": {
         "present": true,
         "display": "flex",
@@ -11066,7 +11066,7 @@
     },
     {
       "route": "/world-models/generative-sim/",
-      "visibleTextLength": 20100,
+      "visibleTextLength": 20836,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 21185,
+      "visibleTextLength": 21898,
       "header": {
         "present": true,
         "display": "flex",
@@ -11390,7 +11390,7 @@
     },
     {
       "route": "/world-models/jepa/",
-      "visibleTextLength": 18652,
+      "visibleTextLength": 19393,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 14816,
+      "visibleTextLength": 15686,
       "header": {
         "present": true,
         "display": "flex",

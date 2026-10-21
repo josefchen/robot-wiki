@@ -15,11 +15,12 @@ export const DOMAIN_PASS_PREFIX = 'domain-pass-20261006-';
 /**
  * Registry ids appended by the domain passes; each entry's comment opens with
  * "<id>: domain pass 2026-10-06", followed by its draft file, its KOL intake note or
- * the owner sweep item it answers.
+ * the owner sweep item it answers. The KOL triage batch of 2026-10-21 marks its
+ * entries "<id>: KOL intake note of <author>, added 2026-10-21." instead.
  */
 export const DOMAIN_PASS_CITATION_IDS: ReadonlySet<string> = new Set(
   [...readFileSync(resolve(root, 'data/citations.ts'), 'utf8')
-    .matchAll(/^ {2}\/\/ ([a-z0-9][a-z0-9.-]*): domain pass 2026-10-06, (?:from drafts\/|KOL intake |owner sweep item )/gm)].map((m) => m[1]),
+    .matchAll(/^ {2}\/\/ ([a-z0-9][a-z0-9.-]*): (?:domain pass 2026-10-06, (?:from drafts\/|KOL intake |owner sweep item )|KOL intake note of [^\n]*, added 2026-10-21\.)/gm)].map((m) => m[1]),
 );
 
 export const isDomainPassEdge = (entry: Pick<ApprovedDelta, 'id'>) => entry.id.startsWith(DOMAIN_PASS_PREFIX);
@@ -365,6 +366,34 @@ export function kolBatch20261020Endpoint(
   const edges = entries.filter((entry) => isKolBatch20261020Edge(entry)
     && entry.manifest === manifest && entry.memberId === memberId);
   if (edges.length > 1) throw new Error(`more than one 2026-10-20 KOL batch edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
+ * Edges the KOL triage batch of 2026-10-21 appended, one block per domain
+ * after the 2026-10-20 batch: dated paragraphs on existing articles, their
+ * new citation records and one citation-rendering resolution per block.
+ */
+export const isKolBatch20261021Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('kol-batch-20261021-');
+
+/**
+ * The hash the 2026-10-21 KOL triage batch leaves on a member whose chain
+ * ends at `from`: its one edge on the member must continue `from`, as a plain
+ * edge or as a resolution that reconciles it; an untouched member stays at
+ * `from`.
+ */
+export function kolBatch20261021Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isKolBatch20261021Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-21 KOL batch edge on ${manifest} ${memberId}`);
   const [edge] = edges;
   if (!edge) return from;
   if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {

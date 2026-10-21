@@ -15,7 +15,7 @@ import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedJson, committedText } from '../helpers/editorial-current-context';
 import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 import {
-  domainPassEndpoint, humanize20261012Endpoint, imagesA20261013Endpoint, preDomainPassCitations,
+  domainPassEndpoint, humanize20261012Endpoint, imagesA20261013Endpoint, kolBatch20261021Endpoint, preDomainPassCitations,
 } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -147,16 +147,17 @@ describe('VLA21 and comparison1 current identity and scoped introduction', { tim
     expect(vlaReaderFirst.oldHash).toBe(vlaSeo.newHash);
     expect(vlaReaderFirst.reconciles).toBeUndefined();
     // The 2026-10-06 domain pass continues the reader-first endpoint with one plain edge per batch, the
-    // 2026-10-12 manipulation humanize pass continues its last batch, and images bundle A of 2026-10-13 continues
-    // that to the live article.
+    // 2026-10-12 manipulation humanize pass continues its last batch, images bundle A of 2026-10-13 continues
+    // that, and the KOL triage batch of 2026-10-21 continues it to the live article.
     const ledger = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
     const vlaDomainPass = ledger.find((a: { id: string }) => a.id === 'domain-pass-20261006-g1-prose-vla-models');
     expect(vlaDomainPass.oldHash).toBe(vlaReaderFirst.newHash);
     expect(vlaDomainPass.reconciles).toBeUndefined();
     expect(truthManifests['prose'].members.find(m => m.id === 'article:manipulation/vla-models')?.hash)
-      .toBe(imagesA20261013Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
-        humanize20261012Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
-          domainPassEndpoint(ledger, vlaDomainPass).newHash)));
+      .toBe(kolBatch20261021Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
+        imagesA20261013Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
+          humanize20261012Endpoint(ledger, 'prose', 'article:manipulation/vla-models',
+            domainPassEndpoint(ledger, vlaDomainPass).newHash))));
     // The original VLA packet did not alter the registry. NASA was added by
     // the later industrial packet, whose complete record has its own test.
     expect(committedSource('89cda67', 'data/citations.ts')).toBe(before('data/citations.ts'));

@@ -4,19 +4,19 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-20T16:50:37Z",
+  "observedAt": "2026-10-21T11:31:59Z",
   "sources": [
     {
-      "archivedFrom": "488f773433ed5556396cb5012639f6b0fd11e7c4",
+      "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
       "before": {
         "path": "content/adjacent/autonomous-vehicles.mdx",
-        "bytes": 20313,
-        "sha256": "f8b6738fe834f5ab6d15e6d142750c4a49bee26d8ddbde20e3ad665cd9b3f19b"
+        "bytes": 20974,
+        "sha256": "751bd13e34608dbe4b60477ee23c061daa08a0bfdc66beadf4596b476e221239"
       },
       "after": {
         "path": "content/adjacent/autonomous-vehicles.mdx",
-        "bytes": 20460,
-        "sha256": "49118a4634c77b3a64dbef740232adb56675a62b5d3527649c327268fe20816b"
+        "bytes": 21121,
+        "sha256": "63cf93d78d2db6066352b616494f1d3da26d1999c0f0618dc05e6a7859b5a7ad"
       },
       "mounts": [
         "waymo-jaguar-ipace-san-francisco-2023",
@@ -39,16 +39,16 @@
       ]
     },
     {
-      "archivedFrom": "f4792db975aa54907dd8b8f7a13f9b1caf83cf83",
+      "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
       "before": {
         "path": "content/adjacent/drones.mdx",
-        "bytes": 12903,
-        "sha256": "0a0d001423f03e2e44eaec22718e463a4f6b684f06076be3b282024597ac9c77"
+        "bytes": 13553,
+        "sha256": "3735bcb3d587b7fc9d9e8198f23106209c600aaa7d800ca1e6d981c062be3cb1"
       },
       "after": {
         "path": "content/adjacent/drones.mdx",
-        "bytes": 12992,
-        "sha256": "701be0c28cea61567e4a48e1dda26df1c213747fbbad71fe3fd5e39a7b588958"
+        "bytes": 13642,
+        "sha256": "ebf249ec3991c6e7f018663d7d73aea77654608877ed43110b5f047a3a8a7af3"
       },
       "mounts": [
         "racing-quadrotor-minion-220-2016",
@@ -432,16 +432,16 @@
       ]
     },
     {
-      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "archivedFrom": "6cb311960d6dcdb2a49e2ef9eab0134da15c4107",
       "before": {
         "path": "content/data-hardware/evaluation-crisis.mdx",
-        "bytes": 14910,
-        "sha256": "c81a2b0d30dc2b3c0ea31ab6ffb9b084c5365a281397b9d56a8625f21df40e54"
+        "bytes": 15625,
+        "sha256": "5471104dc3b7ffd51d42b72f90ed6d97b9a6cc53f030a949137f403e833feaba"
       },
       "after": {
         "path": "content/data-hardware/evaluation-crisis.mdx",
-        "bytes": 14999,
-        "sha256": "ebdc3f24dcd30fbc4ef0209eabb8dc5d560c79f72d79b330a171dfd3f928369c"
+        "bytes": 15714,
+        "sha256": "c094f543b6839b0b2956d0a3dc32ef58df077369db878006f8c8033b48588c97"
       },
       "mounts": [
         "roboarena-evaluation-2025",
@@ -545,16 +545,16 @@
       ]
     },
     {
-      "archivedFrom": "8f29baafd2ad0b97114d9c91a842eafdbf00f54f",
+      "archivedFrom": "6cb311960d6dcdb2a49e2ef9eab0134da15c4107",
       "before": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 9499,
-        "sha256": "d3c6abe7ca60488ebe17673d52b6c06812ee9742dd3404901c576c099359b005"
+        "bytes": 10790,
+        "sha256": "39048aef62feee2cedd8090baac2247cfdc53917b9649c5ab9356c4492cca07d"
       },
       "after": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 9589,
-        "sha256": "a3a49cb85b1ef94c4569ae2516102b5aec1aabfbf5b57681d9de9b07e9bc42f3"
+        "bytes": 10880,
+        "sha256": "df9345d0d975e9594fcab54c41f7a2e0392fc685e38c5f94b992aa223e0c75b8"
       },
       "mounts": [
         "inl-hot-cell-manipulators-2006",
@@ -776,16 +776,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "af06bc71994dffbdf952efb70178717393ed08e4",
       "before": {
         "path": "content/manipulation/action-spaces.mdx",
-        "bytes": 8892,
-        "sha256": "d5acb8ed3068a8b4c49b5fa2f53b56ebf0e5d1a5f19cb30b0a0bbdd4099015b9"
+        "bytes": 9506,
+        "sha256": "b024909320e11737d720cfb1b16559324d641f76e31af0d162898787ded5d1cc"
       },
       "after": {
         "path": "content/manipulation/action-spaces.mdx",
-        "bytes": 8989,
-        "sha256": "62fe978b227865f84c69a7e1008bf7df558019ae5f17f21ecc349e9782d9c361"
+        "bytes": 9603,
+        "sha256": "a98ce0fa564a9b886d6db796fbfe3fe31d037e5d482a9134fa17e13e0cf1a425"
       },
       "mounts": [
         "action-space-study-platforms-2026",
@@ -921,16 +921,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "af06bc71994dffbdf952efb70178717393ed08e4",
       "before": {
         "path": "content/manipulation/foundation-models.mdx",
-        "bytes": 8953,
-        "sha256": "ddecde0884fc4fb5af803d14cb0762e92cc83f95808d306850777f7fe556f06a"
+        "bytes": 10223,
+        "sha256": "382c7b90044932daaad0a68438c78b2a387ec5cf1c6de0b7b0ae7d83e07f0514"
       },
       "after": {
         "path": "content/manipulation/foundation-models.mdx",
-        "bytes": 9075,
-        "sha256": "cacda44e0e9779003e5e9ed3be07c966810c8b3dfe743a2424681abc8f74513f"
+        "bytes": 10345,
+        "sha256": "6a5c7383f6078015d5dd2401cc6474093200bcc048a976f9695e1016bede4747"
       },
       "mounts": [
         "robocat-embodiments-2023",
@@ -953,16 +953,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "af06bc71994dffbdf952efb70178717393ed08e4",
       "before": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 10609,
-        "sha256": "aa78d0366c3cfee1161bb25dd099608f3308750a1a7fa2a22a9b531ae3f5e97c"
+        "bytes": 11189,
+        "sha256": "e83a7d7c5d57e6facb97631d0a1bfc369e09ed02bc2b702557d785aba17cf3d0"
       },
       "after": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 10755,
-        "sha256": "52496ab38e8d5ea4680e488a1978f5b6f7f7c34614b9d6b5a57106a46318a5b9"
+        "bytes": 11335,
+        "sha256": "416b72fd5bfca8b5338d249ee3b8ce9a39d24c307dbe37125a1ca6fc004e8cd6"
       },
       "mounts": [
         "gemini-robotics-apollo-franka-2025",
@@ -1071,16 +1071,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "af06bc71994dffbdf952efb70178717393ed08e4",
       "before": {
         "path": "content/manipulation/realtime-execution.mdx",
-        "bytes": 9869,
-        "sha256": "6c8bf9894dac432c2bc6fee105b1a8216dab3ea811aae1856125d3bee03b199f"
+        "bytes": 10498,
+        "sha256": "a021c7515e4a295ea126e08c2870e72f774e421b0591c4d749ac8881a3b0e011"
       },
       "after": {
         "path": "content/manipulation/realtime-execution.mdx",
-        "bytes": 9955,
-        "sha256": "6bf678385cee70644020bce85b7d9a48f3b06af44c4c6177428ae2ddd03933e5"
+        "bytes": 10584,
+        "sha256": "1397e0bb36a80dc5dbd37128bf89647a525686fdbb17beaca29c1b4ac3ac4bd2"
       },
       "mounts": [
         "rtc-candle-lighting-2025",
@@ -1162,16 +1162,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "af06bc71994dffbdf952efb70178717393ed08e4",
       "before": {
         "path": "content/manipulation/vla-models.mdx",
-        "bytes": 12364,
-        "sha256": "65744d37a1210909a37aed462f4bd5ec2a81430454abd29323c0940cb95e1b6a"
+        "bytes": 12951,
+        "sha256": "63e2672a2cc7f81db14bdec9eaa9bdd7f50159669e38e47c1765ffdccbcb6720"
       },
       "after": {
         "path": "content/manipulation/vla-models.mdx",
-        "bytes": 12509,
-        "sha256": "593b9ddd9d7a85673c682eb4e1cb66fee91503e76bf0a21e50275cc1e73008f4"
+        "bytes": 13096,
+        "sha256": "cff47f1d35bc19779faf67c348807d7d308a45e289ca66876f44c010f320033d"
       },
       "mounts": [
         "gemini-robotics-aloha-dexterous-2025",
@@ -1194,16 +1194,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "07cd0399aef86add040a6e26a40a5dbe724b38ae",
       "before": {
         "path": "content/rl-sim2real/humanoid-wbc.mdx",
-        "bytes": 11547,
-        "sha256": "6b8375155f608eed7e564e504e115dd2d3619f2503c826ada6c9f2fc6cbb3960"
+        "bytes": 12375,
+        "sha256": "260ffc53f857c5d4cd22846d8ffb51713da3a3c5fbdeb8ea5f61cc6de78387b4"
       },
       "after": {
         "path": "content/rl-sim2real/humanoid-wbc.mdx",
-        "bytes": 11708,
-        "sha256": "0d15eb18c58ed67c3384abc488271e21fce251942ec703d53ecbf807c93c3818"
+        "bytes": 12536,
+        "sha256": "b1a2f1729adedd216fb3c4fa6357668c361c3325fe5bd1ebe0fe209bba48aea3"
       },
       "mounts": [
         "atlas-electric-hyundai-goyang-2026",
@@ -1226,16 +1226,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "07cd0399aef86add040a6e26a40a5dbe724b38ae",
       "before": {
         "path": "content/rl-sim2real/legged-locomotion.mdx",
-        "bytes": 11174,
-        "sha256": "c821f2a7fd1d0d80efedd97ee679fdcd1331b83c8ce41f85cad5f1c0b03dfe7a"
+        "bytes": 11896,
+        "sha256": "614156aeae8659d6b5b8ae8f73a5b15687aacc27168efd58d99d8d3d18db7d04"
       },
       "after": {
         "path": "content/rl-sim2real/legged-locomotion.mdx",
-        "bytes": 11304,
-        "sha256": "7e84805b270b605d2d9718825b5861c6a51c68cfec7569af86d11ecaca07fab3"
+        "bytes": 12026,
+        "sha256": "fca9093d5d268ff7244ff6c8ac65a9951ddd70f16f1d46775f68982dde37dd9f"
       },
       "mounts": [
         "spot-boston-dynamics-2023",
@@ -1252,8 +1252,8 @@
           "after": "A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id=\"walk-these-ways-2022\" />.\n\n<Image id=\"horse-in-motion-muybridge-1878\" />\n\n"
         },
         {
-          "before": "A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />.\n",
-          "after": "A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id=\"radosavovic-2023\" />. Cassie's dual-history controller ran a 400-meter dash <Cite id=\"li-cassie-2024\" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id=\"haarnoja-soccer-2023\" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id=\"hiking-wild-2026\" />.\n\n<Image id=\"cassie-oregon-state-2017\" />\n"
+          "before": "Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it <Cite id=\"walk-like-this-2026\" />. In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors <Cite id=\"walk-like-this-2026\" />. On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id=\"walk-like-this-2026\" />.\n",
+          "after": "Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it <Cite id=\"walk-like-this-2026\" />. In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors <Cite id=\"walk-like-this-2026\" />. On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id=\"walk-like-this-2026\" />.\n\n<Image id=\"cassie-oregon-state-2017\" />\n"
         }
       ]
     },
@@ -1366,16 +1366,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "07cd0399aef86add040a6e26a40a5dbe724b38ae",
       "before": {
         "path": "content/rl-sim2real/sim2real-transfer.mdx",
-        "bytes": 14627,
-        "sha256": "3c7272e3a3795fb1716998049154bca19e484c8ab663981f6d9a9017f7a532b5"
+        "bytes": 15324,
+        "sha256": "957d5dd8ba8b9554b7fe4d53110859d0f2303bf6dfbf9953ae39516f495ca6b5"
       },
       "after": {
         "path": "content/rl-sim2real/sim2real-transfer.mdx",
-        "bytes": 14729,
-        "sha256": "cbe27c4618cdc3a5ab0b00dc4a3e840746729c9e6287905f2af2dea6127d82f7"
+        "bytes": 15426,
+        "sha256": "80c6478a4a102638186655eaa99da4c0a173086464f3f2a69a381f91329e41d5"
       },
       "mounts": [
         "isaac-gym-anymal-real-stairs-2021",
@@ -1452,16 +1452,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "7373f3779648faac4fbe5fe37825db07237fef91",
       "before": {
         "path": "content/world-models/generative-sim.mdx",
-        "bytes": 12515,
-        "sha256": "64bc0843a0a20709612a441c9f6895cbc8fbdaaaa474a5f621ccc3a9596adb56"
+        "bytes": 13103,
+        "sha256": "b961312be3988fa917e33a9afb5ccc7156702dc8b4d1f9315de53e20ee0a0b13"
       },
       "after": {
         "path": "content/world-models/generative-sim.mdx",
-        "bytes": 12599,
-        "sha256": "6355e16b329d92721ba982e003154d028c1b1ffdddc6721b0d854f3f90fe3ea5"
+        "bytes": 13187,
+        "sha256": "f5050231cf9d1ddfb44f73c3cd631c2abb21f264e36910fa1f86ddb6d40a279d"
       },
       "mounts": [
         "robocasa-object-library-2024",
@@ -1479,16 +1479,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "7373f3779648faac4fbe5fe37825db07237fef91",
       "before": {
         "path": "content/world-models/generative-video.mdx",
-        "bytes": 13820,
-        "sha256": "afec6682b8def24499ee1ad58127f77dd62ba8c4bb395f673ea9edb32b39fa3a"
+        "bytes": 14410,
+        "sha256": "4084e96053e589275a785b85dde2683b0df301167e925d06026030129c76c3a5"
       },
       "after": {
         "path": "content/world-models/generative-video.mdx",
-        "bytes": 13954,
-        "sha256": "dcf47edcbd75508f396caaf7b2a443e6dbdb7bb41b1cf8dad2941cad2ea134d6"
+        "bytes": 14544,
+        "sha256": "d2ffb758234a8d4eb2643186cc82b02ad1ba242b0779c6127386acb1e71575a0"
       },
       "mounts": [
         "gr1-video-prediction-2023",
@@ -1511,16 +1511,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "7373f3779648faac4fbe5fe37825db07237fef91",
       "before": {
         "path": "content/world-models/jepa.mdx",
-        "bytes": 11978,
-        "sha256": "b2515a8b9a6c3dc11c758b54191df1dcc68842f25b06705be86b575cae571461"
+        "bytes": 12634,
+        "sha256": "96f0abf25e2973cfb7e3ca18d819ff90032fc426fda524f86a8d3434207b87fb"
       },
       "after": {
         "path": "content/world-models/jepa.mdx",
-        "bytes": 12060,
-        "sha256": "6a4e35424dc85f07227a770bf08863f945de7405c361e8fc84be9e968125272a"
+        "bytes": 12716,
+        "sha256": "5949b267185ce2023f5f06b47d3affb3b504947ce02f0f372bd0748181f84220"
       },
       "mounts": [
         "vjepa2-pick-place-goals-2025",
@@ -1565,16 +1565,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "7373f3779648faac4fbe5fe37825db07237fef91",
       "before": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 8862,
-        "sha256": "304717c7928004c427479c2f6886028323a16f1a0c5e34b58d557442b76f04d3"
+        "bytes": 9510,
+        "sha256": "7e3bd1de20b638ca14b2142c90698dbd3a61d14b6cd0eb90723ec28914edf9da"
       },
       "after": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 8954,
-        "sha256": "5da85a65adb26741b0560410aea79520f7e8ed3d504eb69eb6e9bdce9b7a57e5"
+        "bytes": 9602,
+        "sha256": "bcf23833c0d4960092320aa6c89df584f2124f95ded7f739506a8525c15ed099"
       },
       "mounts": [
         "daydreamer-a1-rollover-2022",

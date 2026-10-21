@@ -45,6 +45,7 @@ citations:
   - helix-02-2026
   - actioncodec-2026
   - lap-2026
+  - discrete-actions-2026
 seeAlso:
   - "manipulation/knowledge-insulation"
   - "frontier/dexterity"
@@ -120,6 +121,8 @@ Rates differ by layer: GEN-1.5 produces 100 Hz action trajectories <Cite id="gen
 RT-2 <Cite id="rt2-2023" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id="openvla-2024" />. Binning allows cross-entropy but limits resolution and adds autoregressive decoding to latency. FAST compresses a chunk's frequency coefficients with byte-pair encoding, far better than per-dimension binning, and its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id="pi0-fast-2025" />. VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id="vq-bet-2024" />, and LAP writes end-effector motions as short natural-language phrases, with LAP-3B averaging over 50% zero-shot success on three unseen robots <Cite id="lap-2026" />.
 
 Continuous heads skip tokens: OpenVLA-OFT's continuous actions, parallel decoding and L1 objective lifted LIBERO success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />, and Figure says Helix outputs continuous control to avoid tokenization <Cite id="helix-2025" />. Naively adding a continuous expert to a VLM harms training speed and knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) addresses <Cite id="knowledge-insulation-paper-2025" />.
+
+Zeji Yi, Max Simchowitz, Guanya Shi and colleagues at Carnegie Mellon and Amazon FAR (October 2026) gave one PaliGemma VLA four action heads: continuous or binned into 512 values, each predicted in one pass or by iterative flow. On simulated RoboCasa, over five seeds of 500 episodes, binned flow reached 53.9% success, continuous flow 52.7% and one-pass continuous regression 38.8%. One-pass binned prediction reached 27.1%, which the authors trace to tokens chosen independently across time steps and action dimensions; guidance raised it to 49.2% <Cite id="discrete-actions-2026" />.
 
 ## A selection rule
 

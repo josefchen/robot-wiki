@@ -64,12 +64,12 @@ export type AdjacentCutReview = {
 
 // BEGIN adjacent cut pins (written by scripts/record-length-cut-adjacent-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 288219, sha256: '2fd7261f00d64544e165320dbb4df26e5f823e9b93343553c92e50f56d552ca5' };
+const reviewPin = { bytes: 296622, sha256: '588c303e902853ed8703e9e8be8e2b8b2600be02b84715b9e318bf8f1c8f3e02' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['content/adjacent/autonomous-vehicles.mdx', [20313, 'f8b6738fe834f5ab6d15e6d142750c4a49bee26d8ddbde20e3ad665cd9b3f19b']],
-  ['content/adjacent/drones.mdx', [12903, '0a0d001423f03e2e44eaec22718e463a4f6b684f06076be3b282024597ac9c77']],
+  ['content/adjacent/autonomous-vehicles.mdx', [20974, '751bd13e34608dbe4b60477ee23c061daa08a0bfdc66beadf4596b476e221239']],
+  ['content/adjacent/drones.mdx', [13553, '3735bcb3d587b7fc9d9e8198f23106209c600aaa7d800ca1e6d981c062be3cb1']],
   ['content/adjacent/space.mdx', [13557, 'b1bb87b73841035d85cdb1b74c8a7785f1846ffcb10aa2c6c716ce265a7291a5']],
   ['content/adjacent/surgical.mdx', [12329, 'b1237858576ffe8b3bb4ca94d522929e716e71165471b1c491cbb7304f8a49cd']],
 ]);

@@ -43,6 +43,7 @@ citations:
   - skyjepa-2026
   - levjepa-2026
   - jepa-unstable-modes-2026
+  - lehami-2026
 seeAlso:
   - "adjacent/drones"
   - "manipulation/vla-models"
@@ -115,6 +116,8 @@ In September 2026, Haoran Zhu, Wancong Zhang, Yann LeCun and Anna Choromanska te
 H-JEPA, from Yann LeCun (AMI Labs and NYU) and colleagues (October 2026), stacks action-conditioned JEPAs that each predict farther ahead and hand subgoals to the level below. On Visual AntMaze a three-level hierarchy raised success from 18% to 73% with less planner compute <Cite id="h-jepa-2026" />.
 
 Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou of Columbia, NYU and AMI Labs showed in October 2026 that next-step prediction with anti-collapse regularization can reach its minimum loss while discarding a system's controllable unstable modes. The learned state is then impossible to stabilize. They add an inverse-dynamics loss that reconstructs actions and prove, for linear systems, that exact reconstruction keeps every state direction reachable within the horizon. Experiments on CartPole, Walker2D and PointMaze from pixels extend the finding to nonlinear tasks <Cite id="jepa-unstable-modes-2026" />.
+
+Romina Yalovetzky, Randall Balestriero and Yann LeCun of NYU, Brown University and AMI Labs (October 2026) replace the JEPA predictor with an action-conditioned Hamiltonian flow whose leapfrog step preserves latent volume at every rollout step <Cite id="lehami-2026" />. On a simulated pendulum seen only in pixels, LeHami has 2.8 times lower angular velocity error than LeWorldModel over the first ten rollout steps <Cite id="lehami-2026" />. When a torque-driven pendulum must reach a goal angle and velocity, the best LeWorldModel variant still succeeds more often, 0.636 against 0.304 over three model seeds <Cite id="lehami-2026" />.
 
 <span id="a-deployment-rule-for-representation-prediction" />
 ## Use JEPA when reconstructing pixels adds no evidence

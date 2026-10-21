@@ -4,7 +4,7 @@
   "reviewedBy": "helper preparing the adjacent domain pass (opus-pass-adjacent), under the owner directive of 2026-10-12 and the length decision of the same day (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. The opus-pass-adjacent feature (owner sweep of 2026-09-29, owner directives of 2026-10-04 and 2026-10-06) adds dated primary sources, corrections and the trailing-slash form of the four article links the sweep found redirecting. Not release approval.",
   "rationale": "The owner asked for short, premium articles, and the adjacent domain pass applies the humanizer standard and the length decision to the four adjacent articles: leads of at most two sentences, paragraphs of at most four and about a quarter less prose. The same pass applies the owner sweep of 2026-09-29: it adds dated primary sources for the 2025 and 2026 record (robotaxi and trucking deployment, safety data and recalls, drone racing and delivery, Mars autonomy and orbital servicing, new surgical systems and learned surgical autonomy), corrects overtaken claims and brings every article to at least 30 cited sources. Neither the domain-pass layer, which admits no dropped inline citation, nor the length-cut layers, which admit no added one, can record that, so this review records each rewrite as exact edits over the bytes the article had before the pass, lists every citation, number, link and glossary occurrence that left or entered the body with the sentence it came from or went into, records each corrected component block with its reason, and lists the test pins the pass retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-15T21:09:33Z",
+  "observedAt": "2026-10-21T11:15:22Z",
   "sources": [
     {
       "archivedFrom": "9a0a3ae5b454de2c884f6b840c27e4fce7f1932f",
@@ -15,13 +15,13 @@
       },
       "after": {
         "path": "content/adjacent/autonomous-vehicles.mdx",
-        "bytes": 20313,
-        "sha256": "f8b6738fe834f5ab6d15e6d142750c4a49bee26d8ddbde20e3ad665cd9b3f19b"
+        "bytes": 20974,
+        "sha256": "751bd13e34608dbe4b60477ee23c061daa08a0bfdc66beadf4596b476e221239"
       },
       "edits": [
         {
           "before": "  - paxton-autonomous-trucks-2026\n",
-          "after": "  - paxton-autonomous-trucks-2026\n  - alphabet-q1-2026\n  - pomerleau-1991\n  - stanley-2006\n  - waymo-foundation-model-2025\n  - waymo-ai-lessons-2026\n  - bevformer-2022\n  - nuscenes-2020\n  - occ3d-2023\n  - waymo-open-motion-2021\n  - motionlm-2023\n  - boss-urban-challenge-2008\n  - nuplan-2021\n  - dauner-misconceptions-2023\n  - navsim-2024\n  - waymo-year-in-review-2025\n  - un-ads-regulation-2026\n  - nhtsa-av-framework-2026\n  - nhtsa-zoox-exemption-2026\n  - wod-e2e-2025\n  - gaia-2-2025\n  - waymo-recall-25e084-2025\n  - waymo-recall-26e026-2026\n  - iihs-waymo-2026\n  - ca-dmv-av-miles-2026\n  - waymo-safety-hub-2026\n  - tesla-q2-2026-update\n  - baidu-q2-2026\n  - aurora-driverless-launch-2025\n  - aurora-q2-2026\n  - nhtsa-cruise-consent-2024\n  - gm-cruise-refocus-2024\n  - waymo-scaling-laws-2025\n  - rad-2025\n  - alpamayo-r1-2025\n"
+          "after": "  - paxton-autonomous-trucks-2026\n  - alphabet-q1-2026\n  - pomerleau-1991\n  - stanley-2006\n  - waymo-foundation-model-2025\n  - waymo-ai-lessons-2026\n  - bevformer-2022\n  - nuscenes-2020\n  - occ3d-2023\n  - waymo-open-motion-2021\n  - motionlm-2023\n  - boss-urban-challenge-2008\n  - nuplan-2021\n  - dauner-misconceptions-2023\n  - navsim-2024\n  - waymo-year-in-review-2025\n  - un-ads-regulation-2026\n  - nhtsa-av-framework-2026\n  - nhtsa-zoox-exemption-2026\n  - wod-e2e-2025\n  - gaia-2-2025\n  - waymo-recall-25e084-2025\n  - waymo-recall-26e026-2026\n  - iihs-waymo-2026\n  - ca-dmv-av-miles-2026\n  - waymo-safety-hub-2026\n  - tesla-q2-2026-update\n  - baidu-q2-2026\n  - aurora-driverless-launch-2025\n  - aurora-q2-2026\n  - nhtsa-cruise-consent-2024\n  - gm-cruise-refocus-2024\n  - waymo-scaling-laws-2025\n  - rad-2025\n  - alpamayo-r1-2025\n  - mind-temporal-gap-2026\n"
         },
         {
           "before": "Autonomous driving is the largest deployed autonomy system on Earth, and it got there before robot learning had a name. The distance between the two bookends is the whole story of this module. In 1988, ALVINN trained a three-layer neural network to steer a van from images from a camera and a laser range finder <Cite id=\"alvinn-1988\" />. Its lineage went on to steer a van across America: in the 1995 No Hands Across America tour, the ALVINN-lineage RALPH program did the steering for 2,797 of 2,849 miles, 98.2 percent of the run, while the human researchers handled the throttle and brake <Cite id=\"no-hands-across-america-1995\" />. In 2025, Waymo published a retrospective crash-rate study covering 56.7 million rider-only miles, miles driven with no human behind the steering wheel, and found statistically significant reductions against human benchmarks in every crash-outcome category it could statistically test <Cite id=\"waymo-crash-rates-2025\" />. Between those bookends sits everything this wiki covers elsewhere: imitation learning, distribution shift, closed-loop evaluation, the long tail, and the gap between a working demo and a deployable system.\n",
@@ -109,7 +109,7 @@
         },
         {
           "before": "The current architectural convergence is not an analogy, it is the same architecture. EMMA is a vision-language model with driving outputs represented as text, jointly trained across planning, detection, and road-graph tasks, and evaluated as a generalist <Cite id=\"emma-2024\" />. That is a <Term id=\"vision-language-action-model\">vision-language-action model</Term> whose embodiment is a car. The survey literature now treats it as such: a late-2025 survey of VLA models for autonomous driving maps the field into end-to-end VLA, one model from sensors to actions, and dual-system VLA, a slow deliberative VLM over a fast safety-critical executor <Cite id=\"vla-ad-survey-2026\" />. Read that taxonomy against this wiki's manipulation modules and it is the same fault line: end-to-end VLA versus hierarchical system, π0 versus SayCan descendants, with the same open question of where the safety-critical fast path should live. The dual-system framing in driving is argued on exactly the grounds manipulation uses for knowledge insulation and real-time execution: a large model's inference budget does not close a 10 Hz control loop.\n",
-          "after": "EMMA is a vision-language model co-trained as a generalist on planning, detection and road-graph tasks, with its driving outputs written as text <Cite id=\"emma-2024\" />. It is a <Term id=\"vision-language-action-model\">vision-language-action model</Term> whose embodiment is a car. A late-2025 survey splits driving VLAs into end-to-end models, which perceive, reason and plan in one network, and dual-system models, where a slow VLM deliberates over fast, safety-critical execution <Cite id=\"vla-ad-survey-2026\" />.\n\nWaymo's foundation model uses such a \"Think Fast and Think Slow\" design, a sensor-fusion encoder for rapid reactions beside a driving VLM trained using Gemini <Cite id=\"waymo-foundation-model-2025\" />. The split mirrors the end-to-end versus [hierarchical](/manipulation/hierarchical/) divide in manipulation and the [knowledge insulation](/manipulation/knowledge-insulation/) case for a separate fast path. NVIDIA reports that its Alpamayo-R1 driving VLA runs on the vehicle in real time at 99 ms latency <Cite id=\"alpamayo-r1-2025\" />.\n"
+          "after": "EMMA is a vision-language model co-trained as a generalist on planning, detection and road-graph tasks, with its driving outputs written as text <Cite id=\"emma-2024\" />. It is a <Term id=\"vision-language-action-model\">vision-language-action model</Term> whose embodiment is a car. A late-2025 survey splits driving VLAs into end-to-end models, which perceive, reason and plan in one network, and dual-system models, where a slow VLM deliberates over fast, safety-critical execution <Cite id=\"vla-ad-survey-2026\" />.\n\nWaymo's foundation model uses such a \"Think Fast and Think Slow\" design, a sensor-fusion encoder for rapid reactions beside a driving VLM trained using Gemini <Cite id=\"waymo-foundation-model-2025\" />. The split mirrors the end-to-end versus [hierarchical](/manipulation/hierarchical/) divide in manipulation and the [knowledge insulation](/manipulation/knowledge-insulation/) case for a separate fast path. NVIDIA reports that its Alpamayo-R1 driving VLA runs on the vehicle in real time at 99 ms latency <Cite id=\"alpamayo-r1-2025\" />.\n\nShiva Sreeram, Daniela Rus and colleagues at MIT CSAIL and the University of Haifa (October 2026) asked six open video-language models which way the ego car moves in driving clips <Cite id=\"mind-temporal-gap-2026\" />. On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos <Cite id=\"mind-temporal-gap-2026\" />. After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting <Cite id=\"mind-temporal-gap-2026\" />.\n"
         },
         {
           "before": "Data practice is converging the same way. The Waymo Open Dataset's 1,150 scenes set the pattern AV research still follows: shared perception benchmarks with defined metrics <Cite id=\"waymo-open-dataset-2020\" />. Robot learning's Open X-Embodiment pool, over a million trajectories across 22 embodiments federated from dozens of labs, is the same bet on shared data as the substrate for generalist policies <Cite id=\"open-x-embodiment-2023\" />. The scales differ in kind, tens of hours versus millions of miles of driving logs, which is the subject of this wiki's data bottleneck module, but the strategic move, pool heterogeneous real data, standardize the format, train generalists, is identical.\n",
@@ -242,6 +242,18 @@
           {
             "value": "iihs-waymo-2026",
             "claim": "IIHS found that Waymo's driverless vehicles in San Francisco, Phoenix, Los Angeles and Austin had 68 percent fewer police-reportable crashes per mile than human drivers [iihs-waymo-2026]."
+          },
+          {
+            "value": "mind-temporal-gap-2026",
+            "claim": "After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting [mind-temporal-gap-2026]."
+          },
+          {
+            "value": "mind-temporal-gap-2026",
+            "claim": "Shiva Sreeram, Daniela Rus and colleagues at MIT CSAIL and the University of Haifa (October 2026) asked six open video-language models which way the ego car moves in driving clips [mind-temporal-gap-2026]."
+          },
+          {
+            "value": "mind-temporal-gap-2026",
+            "claim": "On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos [mind-temporal-gap-2026]."
           },
           {
             "value": "motionlm-2023",
@@ -454,6 +466,10 @@
             "claim": "Under a September 2024 consent order, Cruise agreed to a \\$1.5 million penalty for crash reports that omitted those details [nhtsa-cruise-consent-2024]."
           },
           {
+            "value": "100",
+            "claim": "After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting [mind-temporal-gap-2026]."
+          },
+          {
             "value": "100,000",
             "claim": "The Waymo Open Motion Dataset made interactive forecasting a benchmark: over 100,000 scenes of 20 seconds at 10 Hz, more than 570 hours over 1,750 km of roads [waymo-open-motion-2021]."
           },
@@ -552,6 +568,14 @@
           {
             "value": "200",
             "claim": "By its count it drove nearly 440,000 driverless miles through June 2026 with zero collisions attributed to its system, and expected to end the year with 200 driverless trucks [aurora-q2-2026]."
+          },
+          {
+            "value": "200",
+            "claim": "On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos [mind-temporal-gap-2026]."
+          },
+          {
+            "value": "200",
+            "claim": "The same post reported nearly 200 million fully autonomous miles on real roads and billions in virtual worlds [waymo-world-model-2026]."
           },
           {
             "value": "2005",
@@ -727,6 +751,10 @@
           },
           {
             "value": "2026",
+            "claim": "After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting [mind-temporal-gap-2026]."
+          },
+          {
+            "value": "2026",
             "claim": "NHTSA has also streamlined its Standing General Order on crash reporting [nhtsa-av-framework-2026]."
           },
           {
@@ -748,6 +776,10 @@
           {
             "value": "2026",
             "claim": "In July 2026 NHTSA exempted Zoox's purpose-built robotaxi from parts of eight of those standards for commercial deployment [nhtsa-zoox-exemption-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Shiva Sreeram, Daniela Rus and colleagues at MIT CSAIL and the University of Haifa (October 2026) asked six open video-language models which way the ego car moves in driving clips [mind-temporal-gap-2026]."
           },
           {
             "value": "2026",
@@ -791,6 +823,10 @@
           },
           {
             "value": "2026",
+            "claim": "On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos [mind-temporal-gap-2026]."
+          },
+          {
+            "value": "2026",
             "claim": "Over the same distance it counts 95 percent fewer serious-injury-or-worse crashes and 82 percent fewer injury-causing crashes than human drivers [waymo-safety-hub-2026]."
           },
           {
@@ -828,6 +864,10 @@
           {
             "value": "2026",
             "claim": "Waymo built it to rehearse events \"from a tornado to a casual encounter with an elephant\" [waymo-world-model-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "The same post reported nearly 200 million fully autonomous miles on real roads and billions in virtual worlds [waymo-world-model-2026]."
           },
           {
             "value": "2026",
@@ -938,8 +978,20 @@
             "claim": "nuScenes, 1,000 scenes of 20 seconds, was the first dataset with a full vehicle sensor suite: 6 cameras, 5 radars and 1 lidar [nuscenes-2020]."
           },
           {
+            "value": "60",
+            "claim": "On 200 simulated forward and 200 backward clips, every model answered forward every time, and the same biases appeared on 60 real videos [mind-temporal-gap-2026]."
+          },
+          {
             "value": "68",
             "claim": "IIHS found that Waymo's driverless vehicles in San Francisco, Phoenix, Los Angeles and Austin had 68 percent fewer police-reportable crashes per mile than human drivers [iihs-waymo-2026]."
+          },
+          {
+            "value": "80",
+            "claim": "After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting [mind-temporal-gap-2026]."
+          },
+          {
+            "value": "80",
+            "claim": "After LoRA finetuning on 80 percent of those clips, all six scored 100 percent on the held-out 80, and the authors conclude that the motion cues are learnable but not reliably exposed through prompting [mind-temporal-gap-2026]."
           },
           {
             "value": "82",
@@ -1022,13 +1074,13 @@
       },
       "after": {
         "path": "content/adjacent/drones.mdx",
-        "bytes": 12903,
-        "sha256": "0a0d001423f03e2e44eaec22718e463a4f6b684f06076be3b282024597ac9c77"
+        "bytes": 13553,
+        "sha256": "3735bcb3d587b7fc9d9e8198f23106209c600aaa7d800ca1e6d981c062be3cb1"
       },
       "edits": [
         {
           "before": "  - reynolds-boids-1987\n",
-          "after": "  - reynolds-boids-1987\n  - monorace-2026\n  - faessler-flatness-2018\n  - mahony-multirotor-2012\n  - mellinger-minimum-snap-2011\n  - lee-se3-control-2010\n  - foehn-time-optimal-2021\n  - ac-mpc-2026\n  - tudelft-a2rl-2025\n  - a2rl-2026-final\n  - green-generalization-2026\n  - vins-mono-2018\n  - px4-2015\n  - falanga-event-avoidance-2020\n  - racevla-2025\n  - cognitivedrone-2025\n  - deep-drone-acrobatics-2020\n  - geles-pixels-2024\n  - dream-to-fly-2025\n  - zhang-diff-physics-2025\n  - ego-swarm-2021\n  - geles-marl-2026\n  - spectrum-ukraine-autonomy-2026\n  - zipline-safety-facts\n  - zipline-2m-2026\n  - wing-walmart-2026\n  - walmart-drone-1m-2026\n  - faa-part-108-nprm-2025\n  - faa-part-108-reopen-2026\n"
+          "after": "  - reynolds-boids-1987\n  - monorace-2026\n  - faessler-flatness-2018\n  - mahony-multirotor-2012\n  - mellinger-minimum-snap-2011\n  - lee-se3-control-2010\n  - foehn-time-optimal-2021\n  - ac-mpc-2026\n  - tudelft-a2rl-2025\n  - a2rl-2026-final\n  - green-generalization-2026\n  - vins-mono-2018\n  - px4-2015\n  - falanga-event-avoidance-2020\n  - racevla-2025\n  - cognitivedrone-2025\n  - deep-drone-acrobatics-2020\n  - geles-pixels-2024\n  - dream-to-fly-2025\n  - zhang-diff-physics-2025\n  - ego-swarm-2021\n  - geles-marl-2026\n  - spectrum-ukraine-autonomy-2026\n  - zipline-safety-facts\n  - zipline-2m-2026\n  - wing-walmart-2026\n  - walmart-drone-1m-2026\n  - faa-part-108-nprm-2025\n  - faa-part-108-reopen-2026\n  - fly-by-code-2026\n"
         },
         {
           "before": "Drones are aircraft that fly with no pilot on board. A quadrotor is among the most agile machines ever built, and it is the robot that learned to control itself first. Racing quadrotors pull forces several times their own weight, exceed 100 km/h, and accelerate at several times gravity in confined spaces <Cite id=\"swift-drone-racing-2023\" />. The same airframe costs a few hundred dollars, carries its own sensors and compute, and crashes without breaking anything but itself. That combination, extreme dynamics plus cheap iteration, is why autonomous flight went from a controls problem to a learning problem a full decade before manipulation did, and why the results came faster: by 2021 a neural network flew a drone through forests, outperforming classical obstacle-avoidance pipelines <Cite id=\"high-speed-flight-2021\" />, and by 2023 a reinforcement-learning system beat three human world champions at their own sport <Cite id=\"swift-drone-racing-2023\" />.\n",
@@ -1056,11 +1108,11 @@
         },
         {
           "before": "The latency argument is the cleanest result in aerial robotics, and the figure at the top of this module reproduces it. Falanga, Kim, and Scaramuzza asked a direct question: how fast can a drone fly, given the latency of its perception pipeline and the acceleration its airframe can produce <Cite id=\"falanga-latency-2019\" />? Their answer is a closed-form inequality. A drone flying at speed v perceives an obstacle when it enters the sensing range s, but the perception pipeline delays the information by the latency tau. The time to contact left when control finally acts is s/v minus tau, and the avoidance maneuver at maximum lateral acceleration u takes time proportional to the square root of the obstacle size over u. If the remaining time is shorter than the maneuver, no controller saves the drone: the crash is set by geometry before any control law runs. The maximum speed follows directly, range divided by latency plus maneuver time <Cite id=\"falanga-latency-2019\" />.\n",
-          "after": "Falanga, Kim and Scaramuzza asked how fast a drone can fly given its perception latency and the acceleration its airframe can produce <Cite id=\"falanga-latency-2019\" />. A drone at speed $v$ sees an obstacle at sensing range $s$, and its pipeline delays that information by latency $\\tau$. Avoiding the obstacle at maximum lateral acceleration $u$ takes time proportional to the square root of obstacle size over $u$. If $s/v - \\tau$ is shorter than the maneuver, no controller saves the drone <Cite id=\"falanga-latency-2019\" />.\n\nA 70 ms stereo pipeline, the upper bound the study took from a commercial camera's datasheet, supports about 19 m/s at 25 m/s² of lateral acceleration and 25 m/s at 50 m/s² <Cite id=\"falanga-latency-2019\" />. An event camera reports per-pixel brightness changes without waiting for a frame. At 8 m of range its ceiling is 7 percent higher on the least agile airframe and 22 percent higher at 50 m/s², 31.03 against 25.40 m/s. The paper's own summary of 7 to 12 percent is for its most agile airframe, at 200 m/s², against the fastest stereo camera <Cite id=\"falanga-latency-2019\" />.\n"
+          "after": "Falanga, Kim and Scaramuzza asked how fast a drone can fly given its perception latency and the acceleration its airframe can produce <Cite id=\"falanga-latency-2019\" />. A drone at speed $v$ sees an obstacle at sensing range $s$, and its pipeline delays that information by latency $\\tau$. Avoiding the obstacle at maximum lateral acceleration $u$ takes time proportional to the square root of obstacle size over $u$. If $s/v - \\tau$ is shorter than the maneuver, no controller saves the drone <Cite id=\"falanga-latency-2019\" />.\n\nA 70 ms stereo pipeline, the upper bound the study took from a commercial camera's datasheet, supports about 19 m/s at 25 m/s² of lateral acceleration and 25 m/s at 50 m/s² <Cite id=\"falanga-latency-2019\" />. An event camera reports per-pixel brightness changes without waiting for a frame. At 8 m of range its ceiling is 7 percent higher on the least agile airframe and 22 percent higher at 50 m/s², 31.03 against 25.40 m/s. The paper's own summary of 7 to 12 percent is for its most agile airframe, at 200 m/s², against the fastest stereo camera <Cite id=\"falanga-latency-2019\" />.\n\nIn 2020 an event-camera quadrotor dodged fast-moving objects using only onboard sensing and computation <Cite id=\"falanga-event-avoidance-2020\" />. Vision-language-action flight is far slower: RaceVLA averaged 1.04 m/s with a top speed of 2.02 m/s <Cite id=\"racevla-2025\" />. On the CognitiveDrone benchmark RaceVLA succeeded 31.3 percent of the time, and CognitiveDrone-R1, which adds a reasoning module, 77.2 percent <Cite id=\"cognitivedrone-2025\" />.\n"
         },
         {
           "before": "The numbers make the argument sharp. A stereo camera pipeline with a 70 ms latency, the upper bound the study took from a commercial stereo camera's datasheet, supports about 19 m/s on an airframe that can pull 25 m/s^2 laterally, and 25 m/s on one that can pull 50 <Cite id=\"falanga-latency-2019\" />. The paper's comparison point is the event camera, a sensor that reports per-pixel brightness changes without waiting out a frame; at 8 m of sensing range its ceiling runs 7 percent above the stereo one on the study's least agile airframe and 22 percent at 50 m/s^2, 31.03 versus 25.40 m/s in its table, and the paper's own summary of 7 to 12 percent spans the least agile airframe across sensing ranges <Cite id=\"falanga-latency-2019\" />. The structural lesson generalizes past sensors: latency anywhere in the loop, sensing, inference, or actuation, converts directly into a speed ceiling or a crash margin, and faster platforms tolerate less of it. A vision-language-action model that takes 50 ms to infer one action is slow on any robot. On a fast drone it is also the binding constraint on the whole system.\n",
-          "after": "In 2020 an event-camera quadrotor dodged fast-moving objects using only onboard sensing and computation <Cite id=\"falanga-event-avoidance-2020\" />. Vision-language-action flight is far slower: RaceVLA averaged 1.04 m/s with a top speed of 2.02 m/s <Cite id=\"racevla-2025\" />. On the CognitiveDrone benchmark RaceVLA succeeded 31.3 percent of the time, and CognitiveDrone-R1, which adds a reasoning module, 77.2 percent <Cite id=\"cognitivedrone-2025\" />.\n"
+          "after": "Jaewoo Lee, Guanya Shi and colleagues at Seoul National University, Carnegie Mellon and elsewhere (October 2026) let a coding agent that programs an aerial manipulator run diagnostic programs in simulation, such as a camera move or a test lift, before it declares a task done <Cite id=\"fly-by-code-2026\" />. Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images <Cite id=\"fly-by-code-2026\" />. Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials <Cite id=\"fly-by-code-2026\" />.\n"
         },
         {
           "before": "The modular stack's weakness on a drone is the same one the driving literature found: each interface between stages is a lossy summary, and latency accumulates across the pipeline. The aerial answer arrived in 2021. Loquercio and colleagues trained a convolutional network to map noisy depth images directly to collision-free trajectories, in a receding-horizon loop, trained entirely in simulation by imitating an expert with privileged information <Cite id=\"high-speed-flight-2021\" />. The key transfer trick was realistic sensor noise in training: simulate the noise properties of the real depth sensor and the policy stops overfitting to clean inputs, and it crossed from simulation to real forests, snow, derailed trains, and collapsed buildings with zero additional training on them <Cite id=\"high-speed-flight-2021\" />. Their own framing of the result is the pipeline critique stated plainly: separating sensing, mapping, and planning \"can be problematic for high-speed navigation in cluttered environments\" because the stages run sequentially, latency compounds, and errors propagate <Cite id=\"high-speed-flight-2021\" />.\n",
@@ -1173,6 +1225,18 @@
           {
             "value": "falanga-latency-2019",
             "claim": "If $s/v - \\tau$ is shorter than the maneuver, no controller saves the drone [falanga-latency-2019]."
+          },
+          {
+            "value": "fly-by-code-2026",
+            "claim": "Jaewoo Lee, Guanya Shi and colleagues at Seoul National University, Carnegie Mellon and elsewhere (October 2026) let a coding agent that programs an aerial manipulator run diagnostic programs in simulation, such as a camera move or a test lift, before it declares a task done [fly-by-code-2026]."
+          },
+          {
+            "value": "fly-by-code-2026",
+            "claim": "Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images [fly-by-code-2026]."
+          },
+          {
+            "value": "fly-by-code-2026",
+            "claim": "Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials [fly-by-code-2026]."
           },
           {
             "value": "foehn-time-optimal-2021",
@@ -1454,6 +1518,10 @@
           },
           {
             "value": "2026",
+            "claim": "Jaewoo Lee, Guanya Shi and colleagues at Seoul National University, Carnegie Mellon and elsewhere (October 2026) let a coding agent that programs an aerial manipulator run diagnostic programs in simulation, such as a camera move or a test lift, before it declares a task done [fly-by-code-2026]."
+          },
+          {
+            "value": "2026",
             "claim": "In Ukraine, electronic warfare is pushing military drones toward terrain-based navigation, autonomous target lock-on and, eventually, mesh-networked swarms [spectrum-ukraine-autonomy-2026]."
           },
           {
@@ -1470,11 +1538,19 @@
           },
           {
             "value": "2026",
+            "claim": "Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images [fly-by-code-2026]."
+          },
+          {
+            "value": "2026",
             "claim": "The FAA reopened comments on electronic conspicuity and right-of-way until February 11, 2026 [faa-part-108-reopen-2026]."
           },
           {
             "value": "2026",
             "claim": "In April 2025 a TU Delft drone with one rolling-shutter camera and an IMU won the A2RL race in Abu Dhabi, beating all AI teams and three human world champions in a knockout tournament [monorace-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials [fly-by-code-2026]."
           },
           {
             "value": "2026",
@@ -1495,6 +1571,10 @@
           {
             "value": "2026",
             "claim": "Swift won in its own lab and MonoRace on organiser hardware [tudelft-a2rl-2025], and the 2026 final turned on one unrecovered gate strike [a2rl-2026-final]."
+          },
+          {
+            "value": "2026",
+            "claim": "Flight was an early learning success because its dynamics simulate well: a reinforcement-learning system beat human world champions in its own lab in 2023 [swift-drone-racing-2023], and a one-camera drone won an organiser-run race in 2025 [monorace-2026]."
           },
           {
             "value": "2026",
@@ -1550,6 +1630,10 @@
           },
           {
             "value": "3",
+            "claim": "Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials [fly-by-code-2026]."
+          },
+          {
+            "value": "3",
             "claim": "Mellinger and Kumar generated minimum-snap trajectories for quadrotors [mellinger-minimum-snap-2011], and Lee and colleagues built a geometric tracking controller on SE(3) [lee-se3-control-2010]."
           },
           {
@@ -1565,8 +1649,16 @@
             "claim": "On the CognitiveDrone benchmark RaceVLA succeeded 31.3 percent of the time, and CognitiveDrone-R1, which adds a reasoning module, 77.2 percent [cognitivedrone-2025]."
           },
           {
+            "value": "31.7",
+            "claim": "Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images [fly-by-code-2026]."
+          },
+          {
             "value": "4",
             "claim": "The fast inner loop often runs on a microcontroller stack such as PX4, which has substantially lower latency than a typical robotics Linux system [px4-2015]."
+          },
+          {
+            "value": "4",
+            "claim": "Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials [fly-by-code-2026]."
           },
           {
             "value": "4",
@@ -1585,8 +1677,20 @@
             "claim": "Wing reports well over one million commercial deliveries and plans more than 270 Walmart locations reaching 40 million Americans by 2027 [wing-walmart-2026]."
           },
           {
+            "value": "5",
+            "claim": "Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials [fly-by-code-2026]."
+          },
+          {
+            "value": "5",
+            "claim": "Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials [fly-by-code-2026]."
+          },
+          {
             "value": "500",
             "claim": "MonoRace keeps a state estimator, but its network skips inner-loop controllers and sends motor commands at 500 Hz [monorace-2026]."
+          },
+          {
+            "value": "60",
+            "claim": "Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images [fly-by-code-2026]."
           },
           {
             "value": "66",
@@ -1595,6 +1699,10 @@
           {
             "value": "7.4",
             "claim": "Champion policies stay narrow: they often crash immediately in unseen configurations, and a 2026 method improved generalization 7.4x [green-generalization-2026]."
+          },
+          {
+            "value": "75",
+            "claim": "Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images [fly-by-code-2026]."
           },
           {
             "value": "77.2",

@@ -42,6 +42,8 @@ citations:
   - egomimic-2024
   - egodex-2025
   - generalist-gen0-2025
+  - i3l-2026
+  - fomo-dex-2026
 seeAlso:
   - "manipulation/action-chunking"
   - "data-hardware/datasets"
@@ -85,6 +87,8 @@ GELLO is a scaled replica of the target arm built from 3D-printed links and off-
 
 A policy trained only on adapted AirExo-2 data performed comparably to one trained on teleoperated data <Cite id="airexo-2-2025" />. HOMIE's \$500 humanoid cockpit pairs an exoskeleton arm and motion-sensing gloves with a pedal-driven locomotion policy, finishing tasks in half the time of earlier systems <Cite id="homie-2025" />.
 
+JoyLo+, from Wensi Ai, Jiajun Wu, Li Fei-Fei, Ruohan Zhang and colleagues at Stanford and Lambda (October 2026), puts motors on GELLO-style leader arms so they follow the policy, and a touch on a grip hands the whole robot to the operator for a correction <Cite id="i3l-2026" />. The two-arm leader set for a Galaxea R1 Pro costs about \$2,515 in parts <Cite id="i3l-2026" />. On four real household tasks with 25 trials each, 100 corrections over four retraining rounds raised average success by 81 percentage points, 30 more than 100 extra demonstrations <Cite id="i3l-2026" />.
+
 ## UMI: collection without a robot
 
 The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \$73 and the GoPro and accessories at \$298, for a \$371 rig <Cite id="umi-2024" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id="umi-gripper-site-2024" />.
@@ -106,6 +110,8 @@ Human and robot arms share no kinematics; every action passes through <Term id="
 ## Gloves and wearables
 
 DexUMI's hand exoskeleton gives the operator direct haptic feedback and adapts human motion to feasible robot-hand motion, for an 86% average success rate <Cite id="dexumi-2025" />. SEED-UMI collects data 3.0x faster than exoskeleton-based teleoperation <Cite id="seed-umi-2026" />. Sunday's Skill Capture Glove shares its robot hand's geometry and sensor layout; Sunday reports converting glove data to robot data with a 90% success rate <Cite id="sunday-act1-2025" />. DITTO-X, from Stanford and Columbia researchers (September 2026), renders joint-level force and fingertip contacts from the robot hand and improved demonstration quality and throughput over a commercial hand-tracking glove <Cite id="ditto-x-2026" />.
+
+FOMO-Dex, from Ying Yuan, Jitendra Malik and colleagues at Amazon FAR and Carnegie Mellon (October 2026), hands force control to the robot: a controller between the operator's glove and a 22-DoF hand applies force-driven corrections along selected directions and leaves the rest of each command unchanged <Cite id="fomo-dex-2026" />. After 10 minutes of practice, four operators collected 30.7 minutes of successful screwdriving demonstrations per hour, against 12.4 with stiff control <Cite id="fomo-dex-2026" />. Policies cloned from 50 such demonstrations averaged 6.3 screw turns per episode over 10 trials, against 0.6 from stiff-control data <Cite id="fomo-dex-2026" />.
 
 PanTact, from Xiaomeng Xu, Shuran Song, Guanya Shi and colleagues at Stanford, Amazon FAR and Carnegie Mellon (October 2026), pairs bimanual UMI grippers with force-sensing patches on the demonstrator's forearms and knees, so each demonstration records where and when the body touches the scene. A Unitree G1 with no body contact sensors, trained on 100 or 110 such demonstrations per task, grasped a small object and then embraced a bulky one in 17 of 20 trials, and carried a box while pushing another with its legs in 9 of 10. Trained on the same demonstrations, a humanoid UMI baseline that tracked only the grippers consistently failed to support the bulky object <Cite id="pantact-2026" />.
 

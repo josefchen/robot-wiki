@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "9b836e3ac03a74213556efb8a1426a09bd397e375ec3c939a05656325977117c",
+  "fingerprint": "dd3dd55b423779db56ce159a8f010355fb8909939fbff679d1ab5ada34c3c4bf",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2797,
+  "visibleTextLength": 2841,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Scene Representation and Mapping",
-      "href": "/classical/scene-representation/",
+      "accessibleName": "Generative Simulation",
+      "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2179.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Teleoperation Rigs",
-      "href": "/data-hardware/teleop-rigs/",
+      "accessibleName": "Generative Video World Models",
+      "href": "/world-models/generative-video/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2229.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Data Bottleneck",
-      "href": "/data-hardware/data-bottleneck/",
+      "accessibleName": "JEPA and the Non-Generative Counterargument",
+      "href": "/world-models/jepa/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2279.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Hardware Taxonomy",
-      "href": "/data-hardware/hardware-taxonomy/",
+      "accessibleName": "Model-Based Robot Learning",
+      "href": "/world-models/model-based-robot-learning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2329.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "State Estimation",
-      "href": "/classical/state-estimation/",
+      "accessibleName": "Humanoid Whole-Body Control",
+      "href": "/rl-sim2real/humanoid-wbc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2379.89,
@@ -974,7 +974,7 @@
       "headingSizePx": null
     }
   ],
-  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1368 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced. Turn it in 3D 1 2 3 4 5 A humanoid is shaped like us so it can use our doors, stairs and tools. Back Next All 12 explainers in How robots work Related: Humanoid Whole-Body Control | Turn it in 3D | 1 | 2 | 3 | 4 | 5 | Back | Next | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | A humanoid is shaped like us so it can use our doors, stairs and tools. | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | 3D explainer: Inside a humanoid | Step 1 | Step 2 | Step 3 | Step 4 | Step 5 | Tools",
+  "chromeText": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1387 sources · 119 glossary terms Search | Robot Wiki | Search |  | Search | CONTENTS | Behavior Cloning Foundations Action Chunking (ACT and ALOHA) Diffusion Policy Vision-Language-Action Models The Pi Line Other Generalist Policies Comparison Matrix Hierarchical Approaches RL Fine-Tuning of Policies Real-Time Execution Cross-Embodiment Transfer Knowledge Insulation Robot Learning Curriculum for ML Engineers Action Spaces for Robot Learning Foundation Models for Robotics | RL for Robotics Why RL Won Locomotion but Not Manipulation Massively Parallel Sim RL Sim-to-Real Transfer Legged Locomotion Lineage Humanoid Whole-Body Control Reward Design and the MPC Debate Offline Reinforcement Learning for Robotics | What Is a World Model? Latent-Dynamics World Models Generative Video World Models JEPA and the Non-Generative Counterargument Generative Simulation Model-Based Robot Learning World Model Evaluation for Robotics World Models vs Physics Simulators | The Data Bottleneck Major Datasets Hardware Taxonomy Teleoperation Rigs The Evaluation Crisis Industrial Deployment The Robot Learning Stack | Kinematics Motion Planning Control State Estimation Grasp Planning Perception for Manipulation Scene Representation and Mapping Robot Calibration ROS 2 for Machine Learning Engineers | The Reliability Gap Dexterity Generalization Competing Theses The Bear Case Safety and Assurance | Autonomous Vehicles Drones and Aerial Robotics Surgical Robotics Space Robotics | FEATURED ARTICLE | FEATURED SCENE | Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced. Turn it in 3D 1 2 3 4 5 A humanoid is shaped like us so it can use our doors, stairs and tools. Back Next All 12 explainers in How robots work Related: Humanoid Whole-Body Control | Turn it in 3D | 1 | 2 | 3 | 4 | 5 | Back | Next | DID YOU KNOW | RECENTLY UPDATED | TOOLS Playground How robots work Market Map | A humanoid is shaped like us so it can use our doors, stairs and tools. | Introduction | Search the wiki | Search articles, sources and glossary terms | Manipulation & Learned Policies articles | RL, Sim-to-Real & Locomotion articles | World Models articles | Data, Hardware & Evaluation articles | Classical Foundations articles | Frontier & Open Problems articles | Adjacent Domains articles | 3D explainer: Inside a humanoid | Step 1 | Step 2 | Step 3 | Step 4 | Step 5 | Tools",
   "domainAnchorCounts": {
     "Manipulation & Learned Policies": 1,
     "RL, Sim-to-Real & Locomotion": 1,
@@ -1003,7 +1003,9 @@
     },
     {
       "label": "RECENTLY UPDATED",
-      "names": []
+      "names": [
+        "World Models"
+      ]
     },
     {
       "label": "Tools",
@@ -1014,8 +1016,8 @@
     {
       "label": "Introduction",
       "signature": "sheet/display-lockup/search-form",
-      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1368 sources 119 glossary terms",
-      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1368 sources · 119 glossary terms Search"
+      "prose": "Citation-first encyclopedia of modern robot learning. 57 articles 1387 sources 119 glossary terms",
+      "text": "Robot Wiki Citation-first encyclopedia of modern robot learning. 57 articles · 1387 sources · 119 glossary terms Search"
     },
     {
       "label": "CONTENTS",
@@ -1045,7 +1047,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-20 Scene Representation and Mapping 2026-10-20 Teleoperation Rigs 2026-10-20 The Data Bottleneck 2026-10-20 Hardware Taxonomy 2026-10-20 State Estimation"
+      "text": "RECENTLY UPDATED 2026-10-21 Generative Simulation 2026-10-21 Generative Video World Models 2026-10-21 JEPA and the Non-Generative Counterargument 2026-10-21 Model-Based Robot Learning 2026-10-21 Humanoid Whole-Body Control"
     },
     {
       "label": "Tools",

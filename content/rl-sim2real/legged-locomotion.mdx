@@ -44,6 +44,7 @@ citations:
   - gu-humanoid-review-2026
   - zest-2026
   - bd-atlas-ces-2026
+  - walk-like-this-2026
 seeAlso:
   - "classical/control"
   - "rl-sim2real/parallel-sim-rl"
@@ -104,6 +105,8 @@ On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-
 On the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. Its quantitative hardware comparison against Vanilla covers only kicking and LeBron's "Silencer" <Cite id="asap-2025" />.
 
 A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id="radosavovic-2023" />. Cassie's dual-history controller ran a 400-meter dash <Cite id="li-cassie-2024" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id="haarnoja-soccer-2023" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id="hiking-wild-2026" />.
+
+Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it <Cite id="walk-like-this-2026" />. In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors <Cite id="walk-like-this-2026" />. On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id="walk-like-this-2026" />.
 
 <Image id="cassie-oregon-state-2017" />
 

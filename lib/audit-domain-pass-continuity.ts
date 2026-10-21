@@ -21,8 +21,8 @@ import { imageMountPredecessor } from './audit-image-mount-continuity.ts';
 import { dataHardwareCutPredecessor } from './audit-length-cut-data-hardware-continuity.ts';
 import { adjacentCutPredecessor } from './audit-length-cut-adjacent-continuity.ts';
 import { frontierLengthCutPredecessor } from './audit-length-cut-frontier-continuity.ts';
-import { worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
-import { lengthCutPredecessor } from './audit-length-cut-continuity.ts';
+import { worldModelsLengthCutAppendedCitations, worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
+import { lengthCutAppendedCitations, lengthCutPredecessor } from './audit-length-cut-continuity.ts';
 import { parallelLocalCheckerPredecessor } from './audit-parallel-local-continuity.ts';
 import { wordBudgetTrimPredecessor } from './audit-word-budget-trim-continuity.ts';
 
@@ -2136,8 +2136,11 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
  * The citation list a frontmatter P1 ledger row was written against. A
  * reviewed successor appends its new ids to the list; those ids have their
  * own registry audit rows, so the P1 row keeps certifying the list it
- * declared. Any other article, or bytes other than the reviewed successor,
- * get their live list back unchanged.
+ * declared. The 2026-10-12 length cut and the world-models length cut may
+ * append further ids with a reviewed addition; those are accepted only as
+ * the exact tail each layer verified and appended. Any other article, or
+ * bytes other than the reviewed successor, get their live list back
+ * unchanged.
  */
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
@@ -2145,13 +2148,18 @@ export function preDomainPassCitations(root: string, path: string, citations: re
   // The newer figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
   // length-cut (manipulation, classical and rl-sim2real), world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
   const ref = { path, bytes: 0, sha256: '' };
+  const cutSuccessor = frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, readFileSync(join(root, path)))))));
+  const worldModelsSuccessor = lengthCutPredecessor(root, ref, cutSuccessor);
   const live = figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref,
-    worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
-      frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, readFileSync(join(root, path)))))))))));
+    worldModelsLengthCutPredecessor(root, ref, worldModelsSuccessor)));
   if (live.length !== pinned[0] || digest(live) !== pinned[1]) return citations;
   const prior = citationList(frontmatter(rebuiltPrior(root, path, live).toString()) ?? '');
   const current = citationList(frontmatter(live.toString()) ?? '');
-  if (current.join('\n') !== citations.join('\n')) return citations;
+  const appended = [
+    ...worldModelsLengthCutAppendedCitations(root, path, worldModelsSuccessor),
+    ...lengthCutAppendedCitations(root, path, cutSuccessor),
+  ];
+  if ([...current, ...appended].join('\n') !== citations.join('\n')) return citations;
   return prior;
 }
 

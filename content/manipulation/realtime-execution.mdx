@@ -40,6 +40,7 @@ citations:
   - fast-in-slow-2025
   - realtime-vla-2025
   - realtime-expo-ft-2026
+  - chronos-policy-2026
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "manipulation/rl-finetuning"
@@ -104,6 +105,8 @@ VLASH rolls the robot state forward with the previous chunk and cuts reaction la
 ## Training the tolerance in
 
 Black et al. (2025) simulate the delay in training, which avoids inference-time inpainting's added latency and works better at higher delays <Cite id="training-time-rtc-2025" />. π0.7 trains with simulated delays of 0 to 12 timesteps, at most 240 ms on a 50 Hz robot <Cite id="pi07-2026" />, and Soft RTC's medium overlap window cuts high-delay action jerk by 9.6% against hard training-time RTC <Cite id="soft-rtc-2026" />.
+
+Chronos Policy, from Changhao Wang, Jaden Clark and Shuran Song at Stanford (October 2026), tells a diffusion transformer when each observation was captured and when each action will run, and randomizes both timings in training. On a simulated conveyor pick-and-place with inference delays up to 200 ms, it kept 76.4% success where Diffusion Policy fell to 1.8%, over 450 episodes per method and condition. On three real tasks with 10 or 20 trials per condition, it had the highest task score under every timing condition, against Diffusion Policy with and without RTC <Cite id="chronos-policy-2026" />.
 
 [Real-Time EXPO-FT](/manipulation/rl-finetuning/) learns a lightweight edit policy that reacts to the latest observation while a slow VLA proposes chunks, raising average performance on four dynamic real tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />. NVIDIA uses test-time and train-time RTC for GR00T N1.6 <Cite id="gr00t-n1-6-2025" />, and Figure's Helix offsets its two systems' training inputs to match their deployed latency gap <Cite id="helix-2025" />.
 

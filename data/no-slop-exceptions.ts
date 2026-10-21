@@ -245,4 +245,16 @@ export const NO_SLOP_EXCEPTIONS: SlopQuotationException[] = [
       'Crossref API record for doi:10.1177/0278364913515286 (fetched 2026-10-07) returns this title with U+2013 in "camera–IMU" exactly where this entry has it.',
     verifiedOn: '2026-10-07',
   },
+  /* ------------------------------------------------------------------ *
+   * Verbatim source titles added with the KOL batch (2026-10-21).
+   * ------------------------------------------------------------------ */
+  {
+    id: 'commgap-2026',
+    quote: 'The Human–VLA Communication Gap: What Humans Leave Implicit and What Policies Cannot Recover',
+    reason:
+      "Title of Xu and Wu's arXiv paper, rendered verbatim in the VLA models module's References entry. The en dash in 'Human–VLA' is the authors' own title punctuation, not our prose; titles are never reworded.",
+    verifiedBy:
+      'Fetched arxiv.org/abs/2610.17746 on 2026-10-21 (HTTP 200): its citation_title meta reads "The Human--VLA Communication Gap: ...", the LaTeX en dash that this entry stores as U+2013.',
+    verifiedOn: '2026-10-21',
+  },
 ];

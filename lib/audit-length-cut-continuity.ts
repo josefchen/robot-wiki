@@ -7,20 +7,28 @@
  * paragraphs, repeated numbers, secondary corroboration and minor reporting
  * caveats, so citations, numbers, link and glossary occurrences can leave the
  * body. Every one that leaves is listed in the review with the claim it came
- * from, so the drop is explicit and auditable, and nothing may be added:
- * every citation, number, link target and glossary id the live article holds
- * was already in the article, at least as often.
+ * from, so the drop is explicit and auditable. Nothing may be added without a
+ * record either: a later reviewed addition (an attributed, dated paragraph
+ * from the KOL intake, checked against its primary source) lists every
+ * citation, number, link and glossary occurrence it brought into the body
+ * with the sentence it went into, and any source it adds is appended to the
+ * frontmatter citations list, the only frontmatter change the layer admits.
+ * With no recorded addition, every citation, number, link target and
+ * glossary id the live article holds was already in the article, at least as
+ * often.
  *
- * The cut keeps, exactly and in order, the frontmatter, every import line,
- * every one-line figure or component mount and every multi-line component
- * block (stat strips, self-checks); every heading anchor (heading slugs and
- * `<span id="..." />` ids) of the earlier article stays reachable; every link
- * target and glossary id stays at least once; the body still cites at least
- * 30 distinct sources (the rule of 2 Oct); and the body ends shorter than it
- * began. Each change is recorded as exact edits over the bytes the article
- * had before the cut, so the earlier bytes are rebuilt from the live file
- * instead of being archived. The artifact reader hands every older check the
- * rebuilt bytes only while the live article is exactly the reviewed
+ * The cut keeps, exactly and in order, the frontmatter (apart from those
+ * appended citation ids), every import line, every one-line figure or
+ * component mount and every multi-line component block (stat strips,
+ * self-checks); every heading anchor (heading slugs and `<span id="..." />`
+ * ids) of the earlier article stays reachable; every link target and
+ * glossary id stays at least once, and an added glossary occurrence keeps
+ * their order of first use; the body still cites at least 30 distinct
+ * sources (the rule of 2 Oct); and the body ends shorter than it began,
+ * additions included. Each change is recorded as exact edits over the bytes
+ * the article had before the cut, so the earlier bytes are rebuilt from the
+ * live file instead of being archived. The artifact reader hands every older
+ * check the rebuilt bytes only while the live article is exactly the reviewed
  * successor, reversing the edits rebuilds bytes that hash to the recorded
  * predecessor, and replaying them gives the live bytes back. No old review,
  * run, receipt, capture or ledger cell is rewritten. Test pins on cut text
@@ -64,6 +72,8 @@ export type LengthCutSource = {
   after: Artifact;
   edits: LengthCutEdit[];
   dropped: LengthCutDrops;
+  /** Occurrences a reviewed addition brought into the body, each with the sentence it went into. */
+  added?: LengthCutDrops;
   pins: LengthCutPin[];
 };
 export type LengthCutReview = {
@@ -78,7 +88,7 @@ export type LengthCutReview = {
 
 // BEGIN length-cut pins (written by scripts/record-length-cut-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1026207, sha256: 'c741f15cfd2fb196f3fab099d1985150d3d4b142a0a432affcfccee211d8a4d9' };
+const reviewPin = { bytes: 1047173, sha256: 'b8b8addeebd943a17a608f710609bfe36497580663d8636283a8df128533580b' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -92,27 +102,27 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/scene-representation.mdx', [16251, '31724309557796eb11ee1512cf17aa2344791eec401f3630a7f7fb4747a94e75']],
   ['content/classical/state-estimation.mdx', [13869, '13c1151dcbd985d003f962b35d81696d39b73b5724747fabeb77032047e199fd']],
   ['content/manipulation/action-chunking.mdx', [10602, '2bd758433044f9e3c8c8c9471056b9d06911ccd0633ba1cb33051089f5942d9a']],
-  ['content/manipulation/action-spaces.mdx', [8892, 'd5acb8ed3068a8b4c49b5fa2f53b56ebf0e5d1a5f19cb30b0a0bbdd4099015b9']],
+  ['content/manipulation/action-spaces.mdx', [9506, 'b024909320e11737d720cfb1b16559324d641f76e31af0d162898787ded5d1cc']],
   ['content/manipulation/bc-foundations.mdx', [12506, 'e33d1a20ed8cb7d6ba29650063b2e690ea9dbdaaaccd799696aff656f7fa7be9']],
   ['content/manipulation/comparison-matrix.mdx', [9245, '3acd9415130e88c4b80eeb4ad055ef9cc6be044ca0377ed9e53ca900a1e54153']],
   ['content/manipulation/cross-embodiment.mdx', [9663, '1ba71d527e08521870db79810f015190df72c28be1f51f30593b9c7d46e0ec93']],
   ['content/manipulation/diffusion-policy.mdx', [9559, '8ad96dcd6c5c09cca1006d3bf9dcf3d114fde389f08551107b4e148ce40a5f65']],
-  ['content/manipulation/foundation-models.mdx', [8953, 'ddecde0884fc4fb5af803d14cb0762e92cc83f95808d306850777f7fe556f06a']],
-  ['content/manipulation/generalist-policies.mdx', [10609, 'aa78d0366c3cfee1161bb25dd099608f3308750a1a7fa2a22a9b531ae3f5e97c']],
+  ['content/manipulation/foundation-models.mdx', [10223, '382c7b90044932daaad0a68438c78b2a387ec5cf1c6de0b7b0ae7d83e07f0514']],
+  ['content/manipulation/generalist-policies.mdx', [11189, 'e83a7d7c5d57e6facb97631d0a1bfc369e09ed02bc2b702557d785aba17cf3d0']],
   ['content/manipulation/hierarchical.mdx', [11756, '9dba5d207735a0dcaee01289521ceeb1703ee5f9623235bdcf84fdadf485506d']],
   ['content/manipulation/knowledge-insulation.mdx', [8568, '5012e761a81069a2d06fcf44b6766730138f20420716de1bedd579ac1169835f']],
   ['content/manipulation/pi-line.mdx', [12833, '01baa480bef031aa44b8da0b6adf2d782571e5c359f60ddc701e6d365b024477']],
-  ['content/manipulation/realtime-execution.mdx', [9869, '6c8bf9894dac432c2bc6fee105b1a8216dab3ea811aae1856125d3bee03b199f']],
+  ['content/manipulation/realtime-execution.mdx', [10498, 'a021c7515e4a295ea126e08c2870e72f774e421b0591c4d749ac8881a3b0e011']],
   ['content/manipulation/rl-finetuning.mdx', [18028, '74e5bdeed2af9e7ec93e87d93315a337badf003cec5c005c0a2e86fcfebae718']],
   ['content/manipulation/robot-learning-roadmap.mdx', [8803, 'a2ac5d083ef93fbc4c0930fc665af6c40de7d9450dc20f85895d54407a775089']],
-  ['content/manipulation/vla-models.mdx', [12364, '65744d37a1210909a37aed462f4bd5ec2a81430454abd29323c0940cb95e1b6a']],
-  ['content/rl-sim2real/humanoid-wbc.mdx', [11547, '6b8375155f608eed7e564e504e115dd2d3619f2503c826ada6c9f2fc6cbb3960']],
-  ['content/rl-sim2real/legged-locomotion.mdx', [11174, 'c821f2a7fd1d0d80efedd97ee679fdcd1331b83c8ce41f85cad5f1c0b03dfe7a']],
+  ['content/manipulation/vla-models.mdx', [12951, '63e2672a2cc7f81db14bdec9eaa9bdd7f50159669e38e47c1765ffdccbcb6720']],
+  ['content/rl-sim2real/humanoid-wbc.mdx', [12375, '260ffc53f857c5d4cd22846d8ffb51713da3a3c5fbdeb8ea5f61cc6de78387b4']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [11896, '614156aeae8659d6b5b8ae8f73a5b15687aacc27168efd58d99d8d3d18db7d04']],
   ['content/rl-sim2real/offline-rl.mdx', [10698, '61ecad239228138f25b5e4c5a250b68a8d81123fc42424f8ad8cb50a16e21cf5']],
   ['content/rl-sim2real/parallel-sim-rl.mdx', [9977, 'e27bb271f18f76a12e368c27bca2b687fce142bb784850ee20b65dd47bc56218']],
   ['content/rl-sim2real/reward-design-mpc.mdx', [13817, '99d713cd7c97f53c1b9fd6ace3d288de3796354110035c7dbfb30ea38c745102']],
   ['content/rl-sim2real/rl-for-robotics.mdx', [12108, '785251da7ffa9959af66d623489ca2ec2648a8b42b78497a332e92e71d52e6ef']],
-  ['content/rl-sim2real/sim2real-transfer.mdx', [14627, '3c7272e3a3795fb1716998049154bca19e484c8ab663981f6d9a9017f7a532b5']],
+  ['content/rl-sim2real/sim2real-transfer.mdx', [15324, '957d5dd8ba8b9554b7fe4d53110859d0f2303bf6dfbf9953ae39516f495ca6b5']],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [7813, '31d842b1f5b1175c5e1d1b4d7ecbe16a6265a2b4fed1eb0bdb91d2fbe24e013a']],
 ]);
 // END length-cut pins
@@ -149,53 +159,75 @@ const anchors = (body: string) => [
   ...matchList(body, /<span id="([^"]+)" \/>/g),
 ];
 
-function counts(list: readonly string[]): Map<string, number> {
-  const map = new Map<string, number>();
-  for (const item of list) map.set(item, (map.get(item) ?? 0) + 1);
-  return map;
+const NO_ADDITIONS: LengthCutDrops = { citations: [], numbers: [], links: [], terms: [] };
+const citationList = (head: string) =>
+  head.match(/\ncitations:\n((?: {2}- [^\n]+\n)*)/)?.[1].split('\n').filter(Boolean).map((line) => line.slice(4)) ?? [];
+const firstUse = (list: readonly string[]) => list.filter((item, index) => list.indexOf(item) === index);
+
+/** left minus right as a sorted multiset. */
+function minus(left: readonly string[], right: readonly string[]): string[] {
+  const counts = new Map<string, number>();
+  for (const item of left) counts.set(item, (counts.get(item) ?? 0) + 1);
+  for (const item of right) counts.set(item, (counts.get(item) ?? 0) - 1);
+  return [...counts].flatMap(([item, n]) => (n > 0 ? Array<string>(n).fill(item) : [])).sort();
 }
 
-/** prior minus current as a sorted list, or null when current holds anything prior lacks. */
-function removed(prior: readonly string[], current: readonly string[]): string[] | null {
-  const left = counts(prior);
-  for (const item of current) {
-    const n = left.get(item) ?? 0;
-    if (n === 0) return null;
-    left.set(item, n - 1);
-  }
-  return [...left].flatMap(([item, n]) => Array<string>(n).fill(item)).sort();
+/**
+ * The earlier frontmatter exactly, except that its citations list may end
+ * with appended ids, each new to the list and a recorded added citation.
+ */
+function keepsFrontmatter(priorHead: string, head: string, added: LengthCutDrops): boolean {
+  const before = citationList(priorHead);
+  const after = citationList(head);
+  const appended = after.slice(before.length);
+  const addedIds = new Set((added?.citations ?? []).map(({ value }) => value));
+  if (!sameList(after.slice(0, before.length), before) || new Set(appended).size !== appended.length ||
+    appended.some((id) => !/^[a-z0-9][a-z0-9.-]*$/.test(id) || before.includes(id) || !addedIds.has(id))) return false;
+  const withoutAppended = head.replace(/\ncitations:\n(?: {2}- [^\n]+\n)*/, (block) =>
+    block.split('\n').filter((line) => !appended.some((id) => line === `  - ${id}`)).join('\n'));
+  return withoutAppended === priorHead;
 }
 
 /**
  * The article obligations of a length cut: a content MDX file whose
- * frontmatter, imports, mounts and component blocks are unchanged and in
- * order, whose earlier heading anchors all survive, whose citations, numbers,
- * link targets and glossary ids only thinned (each link target and glossary
- * id still present) with exactly the recorded drops, which still cites at
- * least 30 distinct sources, and whose body has fewer words. Every pin entry
- * names text the earlier article held; a retired pin's text is gone from the
- * live article and a moved pin's new wording is in it.
+ * frontmatter (but for citation ids appended with a recorded addition),
+ * imports, mounts and component blocks are unchanged and in order, whose
+ * earlier heading anchors all survive, whose citations, numbers, link
+ * targets and glossary ids changed by exactly the recorded drops and
+ * additions (each earlier link target and glossary id still present, no
+ * added glossary occurrence changing their order of first use, every added
+ * source listed in the frontmatter), which still cites at least 30 distinct
+ * sources, and whose
+ * body has fewer words. Every pin entry names text the earlier article held;
+ * a retired pin's text is gone from the live article and a moved pin's new
+ * wording is in it. A caller that passes no additions admits none.
  */
 export function keepsLengthCutObligations(
   path: string, prior: string, current: string, dropped: LengthCutDrops, pins: readonly LengthCutPin[],
+  added: LengthCutDrops = NO_ADDITIONS,
 ): boolean {
   if (!path.startsWith('content/') || !path.endsWith('.mdx') || prior === current) return false;
   const priorHead = frontmatter(prior);
   const head = frontmatter(current);
-  if (!priorHead || head !== priorHead) return false;
+  if (!priorHead || !head || !keepsFrontmatter(priorHead, head, added)) return false;
   const priorBody = prior.slice(priorHead.length);
   const body = current.slice(head.length);
   if (!KEPT.every((kept) => sameList(kept(priorBody), kept(body)))) return false;
   const live = new Set(anchors(body));
   if (!anchors(priorBody).every((anchor) => live.has(anchor))) return false;
+  const listed = citationList(head);
   for (const key of Object.keys(COUNTED) as (keyof typeof COUNTED)[]) {
-    const before = matchList(priorBody, COUNTED[key]);
-    const after = matchList(body, COUNTED[key]);
-    const gone = removed(before, after);
-    const recorded = (dropped?.[key] ?? []).map(({ value }) => value).sort();
-    if (!gone || !sameList(gone, recorded)) return false;
-    if ((dropped[key] ?? []).some(({ claim }) => typeof claim !== 'string' || claim.length < 12)) return false;
-    if ((key === 'links' || key === 'terms') && new Set(before).size !== new Set(after).size) return false;
+    const was = matchList(priorBody, COUNTED[key]);
+    const now = matchList(body, COUNTED[key]);
+    const recordedDrops = (dropped?.[key] ?? []).map(({ value }) => value).sort();
+    const recordedAdds = (added?.[key] ?? []).map(({ value }) => value).sort();
+    if (!sameList(minus(was, now), recordedDrops) || !sameList(minus(now, was), recordedAdds)) return false;
+    if ([...(dropped?.[key] ?? []), ...(added?.[key] ?? [])]
+      .some(({ claim }) => typeof claim !== 'string' || claim.length < 12)) return false;
+    if ((key === 'links' || key === 'terms') && [...new Set(was)].some((value) => !now.includes(value))) return false;
+    // An added glossary occurrence brings no new id and leaves the order of first use alone.
+    if (key === 'terms' && recordedAdds.length > 0 && !sameList(firstUse(was), firstUse(now))) return false;
+    if (key === 'citations' && recordedAdds.some((id) => !listed.includes(id))) return false;
   }
   if (new Set(matchList(body, COUNTED.citations)).size < MIN_BODY_SOURCES) return false;
   const pinHolds = ({ phrase, disposition, to, toPath, test }: LengthCutPin) => {
@@ -241,7 +273,8 @@ export function verifyLengthCutSource(source: LengthCutSource, live: Buffer): Bu
   const prior = Buffer.from(rebuilt);
   if (!same(source.before, path, prior.length, digest(prior)) ||
     applyExact(rebuilt, edits.map(({ before, after }) => [before, after] as const)) !== current ||
-    !keepsLengthCutObligations(path, rebuilt, current, source.dropped, source.pins ?? [])) {
+    !keepsLengthCutObligations(path, rebuilt, current, source.dropped, source.pins ?? [],
+      source.added ?? NO_ADDITIONS)) {
     throw new Error(drift);
   }
   return prior;
@@ -290,6 +323,19 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 
 /** The paths the length-cut review holds a successor for. */
 export const lengthCutSuccessorPaths = (): readonly string[] => [...successors.keys()];
+
+/**
+ * The citation ids a reviewed addition appended to the front-matter list of
+ * the successor at `path`, in list order. Empty unless `live` is that
+ * successor; the successor is verified against every obligation first.
+ */
+export function lengthCutAppendedCitations(root: string, path: string, live: Buffer): readonly string[] {
+  const pinned = successors.get(path);
+  if (!pinned || live.length !== pinned[0] || digest(live) !== pinned[1]) return [];
+  const head = (text: string) => text.slice(0, text.indexOf('\n---\n', 3) + 1);
+  const before = citationList(head(rebuiltPrior(root, path, live).toString()));
+  return citationList(head(live.toString())).slice(before.length);
+}
 
 /**
  * The bytes the caller's exact checks should see. A reference that names the

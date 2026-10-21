@@ -2,9 +2,9 @@
   "schemaVersion": "length-cut-continuity-v1",
   "name": "length-cut-20261012-world-models",
   "reviewedBy": "implementation worker for the world-models domain pass (opus-pass-world-models), under the owner directive of 2026-10-12 16:50 (not independent acceptance)",
-  "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval.",
-  "rationale": "The owner asked for short, premium articles, and the directive of 2026-10-12 16:50 applies the humanizer standard and the length decision to the eight world-models articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-13T00:41:26Z",
+  "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
+  "rationale": "The owner asked for short, premium articles, and the directive of 2026-10-12 16:50 applies the humanizer standard and the length decision to the eight world-models articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
+  "observedAt": "2026-10-21T11:31:59Z",
   "sources": [
     {
       "archivedFrom": "e30b926a63d083459788cb8e8cfcd87c6f04dd42",
@@ -167,10 +167,14 @@
       },
       "after": {
         "path": "content/world-models/generative-sim.mdx",
-        "bytes": 12515,
-        "sha256": "64bc0843a0a20709612a441c9f6895cbc8fbdaaaa474a5f621ccc3a9596adb56"
+        "bytes": 13103,
+        "sha256": "b961312be3988fa917e33a9afb5ccc7156702dc8b4d1f9315de53e20ee0a0b13"
       },
       "edits": [
+        {
+          "before": "  - newton-manipulation-blog-2026\n",
+          "after": "  - newton-manipulation-blog-2026\n  - metagensim-2026\n"
+        },
         {
           "before": "[Generative video](/world-models/generative-video/) learns physics from pixels, and a plausible future can ignore the pending action. The 2026 world-model survey lists causal-conditioning gaps first among its open challenges and calls visual plausibility a weak proxy for control utility <Cite id=\"world-model-survey-2026\" />. Generative simulation moves the model off that path: a solver executes the generated task, layout, mesh or reward, so a mug with the wrong friction still cannot fall upward.\n\nManiSkill3 simulates with rendering at up to 30,000+ FPS, 10 to 1000 times faster than other platforms <Cite id=\"maniskill3-2024\" />. Genesis World, which began as the academic project Genesis in December 2024 and is now supported by Genesis AI, combines a unified multi-physics engine, a photo-realistic renderer and a cross-platform compiler behind a Python interface <Cite id=\"genesis-world-2026\" />.\n\n",
           "after": "[Generative video](/world-models/generative-video/) learns physics from pixels, and a plausible future can ignore the pending action; the 2026 world-model survey calls visual plausibility a weak proxy for control utility <Cite id=\"world-model-survey-2026\" />. Generative simulation moves the model off that path: a solver executes the generated task, layout, mesh or reward, so a mug with the wrong friction still cannot fall upward.\n\n"
@@ -213,7 +217,7 @@
         },
         {
           "before": "Learned world models hold narrow roles in [evaluation](/world-models/evaluation/) and data generation ([generative video](/world-models/generative-video/)), while generative models author tasks, scenes, assets and supervision for physics engines <Cite id=\"robogen-2024\" /> <Cite id=\"holodeck-2024\" /> <Cite id=\"robocasa-2024\" />. Policies trained on digital cousins reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id=\"digital-cousins-2024\" />. In 2026, SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id=\"simfoundry-2026\" />. GRAIL composes 3D assets, simulator-ready scenes and video-model priors into over 20,000 humanoid sequences, and a Unitree G1 trained only on them reached 84% on object pick-up and 90% on stair-climbing <Cite id=\"grail-2026\" />. RialTo's scanned twins raised real policy robustness by over 67% <Cite id=\"rialto-2024\" />.\n",
-          "after": "Learned world models hold narrow roles in [evaluation](/world-models/evaluation/) and data generation ([generative video](/world-models/generative-video/)), while generative models author tasks, scenes, assets and supervision for physics engines <Cite id=\"robogen-2024\" /> <Cite id=\"holodeck-2024\" /> <Cite id=\"robocasa-2024\" />. Policies trained on digital cousins reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id=\"digital-cousins-2024\" />. In 2026, SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id=\"simfoundry-2026\" />.\n"
+          "after": "Learned world models hold narrow roles in [evaluation](/world-models/evaluation/) and data generation ([generative video](/world-models/generative-video/)), while generative models author tasks, scenes, assets and supervision for physics engines <Cite id=\"robogen-2024\" /> <Cite id=\"holodeck-2024\" /> <Cite id=\"robocasa-2024\" />. Policies trained on digital cousins reached 90% zero-shot sim-to-real success against 25% for exact digital twins <Cite id=\"digital-cousins-2024\" />. In 2026, SimFoundry's object, scene and task cousins raised zero-shot real success by 17%, 21% and 40% <Cite id=\"simfoundry-2026\" />.\n\nLiqian Ma, Danfei Xu and colleagues at Georgia Tech (October 2026) train a rater network by meta-gradients to learn which simulator settings produce useful co-training data for a real task <Cite id=\"metagensim-2026\" />. With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone <Cite id=\"metagensim-2026\" />. Data from settings an expert aligned by hand gave 57 <Cite id=\"metagensim-2026\" />.\n"
         },
         {
           "before": "A generator proposes layouts, tasks, textures and initial states; an asset pipeline checks for interpenetrating parts and attaches physical properties, as Infinigen-Articulated does for 18 articulated categories <Cite id=\"infinigen-articulated-2025\" />. Generated 3D worlds follow the same split. World Labs' Marble, generally available since 12 November 2025, exports worlds as Gaussian splats and as meshes, including low-fidelity collider meshes for coarse physics simulation <Cite id=\"marble-2025\" />, and the company presents its Atlas model (1 September 2026) as enabling real-to-sim workflows for robotics <Cite id=\"worldlabs-atlas-2026\" />. The engine integrates contacts, a supervisor labels outcomes, and the dataset records which component produced every field. Engines now model more of the contact: Newton 1.0 adds SDF-based collision and hydroelastic contact for tight-tolerance assembly such as connector insertion <Cite id=\"newton-manipulation-blog-2026\" />. Check asset scale and collision geometry before dynamics, static stability before rollouts and contact parameters against real measurements before claiming transfer. Steerable scene generation enforces feasibility \"via projection and simulation\" and releases over 44 million scenes <Cite id=\"steerable-scene-generation-2025\" />. Keep failed scenes as adversarial tests; the [simulator comparison](/world-models/world-models-vs-simulators/) gives the selection rule.\n",
@@ -257,10 +261,6 @@
             "claim": "World Labs' Marble, generally available since 12 November 2025, exports worlds as Gaussian splats and as meshes, including low-fidelity collider meshes for coarse physics simulation [marble-2025], and the company presents its Atlas model (1 September 2026) as enabling real-to-sim workflows for robotics [worldlabs-atlas-2026]."
           },
           {
-            "value": "10",
-            "claim": "ManiSkill3 simulates with rendering at up to 30,000+ FPS, 10 to 1000 times faster than other platforms [maniskill3-2024]."
-          },
-          {
             "value": "10,000",
             "claim": "ProcTHOR had procedurally generated 10,000 houses and set state-of-the-art results on 6 embodied benchmarks [procthor-2022]."
           },
@@ -301,22 +301,6 @@
             "claim": "World Labs' Marble, generally available since 12 November 2025, exports worlds as Gaussian splats and as meshes, including low-fidelity collider meshes for coarse physics simulation [marble-2025], and the company presents its Atlas model (1 September 2026) as enabling real-to-sim workflows for robotics [worldlabs-atlas-2026]."
           },
           {
-            "value": "2026",
-            "claim": "GRAIL composes 3D assets, simulator-ready scenes and video-model priors into over 20,000 humanoid sequences, and a Unitree G1 trained only on them reached 84% on object pick-up and 90% on stair-climbing [grail-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Genesis World, which began as the academic project Genesis in December 2024 and is now supported by Genesis AI, combines a unified multi-physics engine, a photo-realistic renderer and a cross-platform compiler behind a Python interface [genesis-world-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "World Labs' Marble, generally available since 12 November 2025, exports worlds as Gaussian splats and as meshes, including low-fidelity collider meshes for coarse physics simulation [marble-2025], and the company presents its Atlas model (1 September 2026) as enabling real-to-sim workflows for robotics [worldlabs-atlas-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "The 2026 world-model survey lists causal-conditioning gaps first among its open challenges and calls visual plausibility a weak proxy for control utility [world-model-survey-2026]."
-          },
-          {
             "value": "3",
             "claim": "GRAIL composes 3D assets, simulator-ready scenes and video-model priors into over 20,000 humanoid sequences, and a Unitree G1 trained only on them reached 84% on object pick-up and 90% on stair-climbing [grail-2026]."
           },
@@ -352,6 +336,46 @@
         "links": [],
         "terms": []
       },
+      "added": {
+        "citations": [
+          {
+            "value": "metagensim-2026",
+            "claim": "Liqian Ma, Danfei Xu and colleagues at Georgia Tech (October 2026) train a rater network by meta-gradients to learn which simulator settings produce useful co-training data for a real task [metagensim-2026]."
+          },
+          {
+            "value": "metagensim-2026",
+            "claim": "Data from settings an expert aligned by hand gave 57 [metagensim-2026]."
+          },
+          {
+            "value": "metagensim-2026",
+            "claim": "With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone [metagensim-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "23",
+            "claim": "With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone [metagensim-2026]."
+          },
+          {
+            "value": "26",
+            "claim": "With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone [metagensim-2026]."
+          },
+          {
+            "value": "57",
+            "claim": "Data from settings an expert aligned by hand gave 57 [metagensim-2026]."
+          },
+          {
+            "value": "58",
+            "claim": "With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone [metagensim-2026]."
+          },
+          {
+            "value": "80",
+            "claim": "With 10 real demonstrations per task and Diffusion Policy on a Franka Panda, MetaGenSim data gave 58 full-task successes in 80 real trials over four tasks, against 23 for uniformly sampled simulation data and 26 for real data alone [metagensim-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
       "pins": []
     },
     {
@@ -363,10 +387,14 @@
       },
       "after": {
         "path": "content/world-models/generative-video.mdx",
-        "bytes": 13820,
-        "sha256": "afec6682b8def24499ee1ad58127f77dd62ba8c4bb395f673ea9edb32b39fa3a"
+        "bytes": 14410,
+        "sha256": "4084e96053e589275a785b85dde2683b0df301167e925d06026030129c76c3a5"
       },
       "edits": [
+        {
+          "before": "  - long-wam-2026\n",
+          "after": "  - long-wam-2026\n  - caster-2026\n"
+        },
         {
           "before": "Generative video [world models](/world-models/taxonomy/) are video predictors that generate future pixels from the current frame and an action or text prompt, standing in for the environment. They supply training data, policy evaluation, RL post-training and interactive worlds. UniSim trained policies purely inside such a simulator and deployed them zero-shot in the real world <Cite id=\"unisim-2023\" />.\n",
           "after": "Generative video [world models](/world-models/taxonomy/) are video predictors that generate future pixels from the current frame and an action or text prompt, standing in for the environment to supply training data, policy evaluation, RL post-training and interactive worlds. UniSim trained policies purely inside such a simulator and deployed them zero-shot in the real world <Cite id=\"unisim-2023\" />.\n"
@@ -440,8 +468,12 @@
           "after": "RISE ran RL inside a compositional world model and gained 35 to 45 absolute points on three real tasks, including dynamic brick sorting <Cite id=\"rise-2026\" />. GRAIL used 3D assets and video-model priors to generate over 20,000 humanoid sequences. Visual policies trained only on them reached 84% success on object pick-up and 90% on stair-climbing on a real Unitree G1 <Cite id=\"grail-2026\" />.\n"
         },
         {
-          "before": "The survey calls visual plausibility \"only a weak proxy for control utility\" and says vision and proprioception miss friction, stiffness and contact stability, making tactile integration indispensable. World-model policies are also far more computationally intensive than <Term id=\"vision-language-action-model\">VLAs</Term> in training and inference, because they jointly predict video and actions or need fine-tuning, and iterative diffusion denoising adds latency <Cite id=\"world-model-survey-2026\" />.\n\nBy late 2026, generative video models serve policy ranking, synthetic demonstrations, RL post-training and closed-loop control in narrow task families. Contact-rich interaction, especially with small objects, remains open <Cite id=\"veo-world-simulator-2025\" />, and in 1X's own tests dexterous tasks such as pouring still fail <Cite id=\"1x-world-model-2026\" />. The gating property, as in the figure, is whether the predicted future listens to the action.\n\n",
-          "after": "The survey calls visual plausibility \"only a weak proxy for control utility\" and says vision and proprioception miss friction, stiffness and contact stability, making tactile integration indispensable. World-model policies also cost far more compute than <Term id=\"vision-language-action-model\">VLAs</Term> in training and inference, and iterative diffusion denoising adds latency <Cite id=\"world-model-survey-2026\" />.\n\n"
+          "before": "The survey calls visual plausibility \"only a weak proxy for control utility\" and says vision and proprioception miss friction, stiffness and contact stability, making tactile integration indispensable. World-model policies are also far more computationally intensive than <Term id=\"vision-language-action-model\">VLAs</Term> in training and inference, because they jointly predict video and actions or need fine-tuning, and iterative diffusion denoising adds latency <Cite id=\"world-model-survey-2026\" />.\n",
+          "after": "Yinlong Dai, Homanga Bharadhwaj and Dylan P. Losey at Virginia Tech and Johns Hopkins (October 2026) seed CASTER with generated videos of a person doing the task, then optimize a feasible robot motion in a digital twin <Cite id=\"caster-2026\" />. Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly <Cite id=\"caster-2026\" />. The authors trace kettle pouring and bucket covering failures to physics the twin did not model <Cite id=\"caster-2026\" />.\n"
+        },
+        {
+          "before": "By late 2026, generative video models serve policy ranking, synthetic demonstrations, RL post-training and closed-loop control in narrow task families. Contact-rich interaction, especially with small objects, remains open <Cite id=\"veo-world-simulator-2025\" />, and in 1X's own tests dexterous tasks such as pouring still fail <Cite id=\"1x-world-model-2026\" />. The gating property, as in the figure, is whether the predicted future listens to the action.\n",
+          "after": "The survey calls visual plausibility \"only a weak proxy for control utility\" and says vision and proprioception miss friction, stiffness and contact stability, making tactile integration indispensable. World-model policies also cost far more compute than <Term id=\"vision-language-action-model\">VLAs</Term> in training and inference, and iterative diffusion denoising adds latency <Cite id=\"world-model-survey-2026\" />.\n"
         },
         {
           "before": "Start with paired interventions: identical initial frames, only the action changed, checking direction, contact onset and object identity before image quality. Then lengthen the horizon on held-out transitions until geometry, action sensitivity or consistency fails. Only then rank policies against blinded real trials, or test generated training episodes on untouched real scenes. By 1X's estimate, with a 15% real gap between two policies, a world model with 70% accuracy picks the better one 90% of the time <Cite id=\"1x-world-model-2025\" />. The [evaluation guide](/world-models/evaluation/) gives the full protocol, [the evaluation crisis](/data-hardware/evaluation-crisis/) explains why real trials are scarce, [world models versus simulators](/world-models/world-models-vs-simulators/) covers engines and hybrids, and [JEPA](/world-models/jepa/) the non-generative alternative.\n",
@@ -525,22 +557,6 @@
             "claim": "Starchild-1 adds audio [odyssey-starchild-1-2026], and Agora-1 lets up to four participants share one simulation [odyssey-agora-1-2026]."
           },
           {
-            "value": "2026",
-            "claim": "Waymo reports that its World Model, \"built upon Genie 3\", generates camera and lidar data for driving simulation [waymo-world-model-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Two October 2026 papers measured WAM design choices directly."
-          },
-          {
-            "value": "2026",
-            "claim": "Contact-rich interaction, especially with small objects, remains open [veo-world-simulator-2025], and in 1X's own tests dexterous tasks such as pouring still fail [1x-world-model-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "NVIDIA reports that DreamDojo, pretrained on 44k hours of egocentric human video, runs at 10.81 FPS and targets \"open-world, contact-rich tasks\" [dreamdojo-2026]."
-          },
-          {
             "value": "3",
             "claim": "Waymo reports that its World Model, \"built upon Genie 3\", generates camera and lidar data for driving simulation [waymo-world-model-2026]."
           },
@@ -551,6 +567,42 @@
           {
             "value": "5090",
             "claim": "Each action chunk took 107.4 ms on an RTX 5090, and on real robots it stacked moving cups in 95% of trials, a task where π0.5 and Fast-WAM succeeded in none of 20 [long-wam-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "caster-2026",
+            "claim": "Losey at Virginia Tech and Johns Hopkins (October 2026) seed CASTER with generated videos of a person doing the task, then optimize a feasible robot motion in a digital twin [caster-2026]."
+          },
+          {
+            "value": "caster-2026",
+            "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
+          },
+          {
+            "value": "caster-2026",
+            "claim": "The authors trace kettle pouring and bucket covering failures to physics the twin did not model [caster-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "12",
+            "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
+          },
+          {
+            "value": "21",
+            "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
+          },
+          {
+            "value": "42.5",
+            "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
+          },
+          {
+            "value": "76.6",
+            "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
           }
         ],
         "links": [],
@@ -588,10 +640,14 @@
       },
       "after": {
         "path": "content/world-models/jepa.mdx",
-        "bytes": 11978,
-        "sha256": "b2515a8b9a6c3dc11c758b54191df1dcc68842f25b06705be86b575cae571461"
+        "bytes": 12634,
+        "sha256": "96f0abf25e2973cfb7e3ca18d819ff90032fc426fda524f86a8d3434207b87fb"
       },
       "edits": [
+        {
+          "before": "  - jepa-unstable-modes-2026\n",
+          "after": "  - jepa-unstable-modes-2026\n  - lehami-2026\n"
+        },
         {
           "before": "Drag \"Options tried each step\" in the figure and the fan of tried moves follows it; \"Plan next move\" takes one more step. Planning in a frozen feature space works without reconstruction: DINO-WM solved six environments zero-shot without demonstrations, reward models or inverse models <Cite id=\"dino-wm-2024\" />.\n",
           "after": "Drag \"Options tried each step\" in the figure and the fan of tried moves follows it. \"Plan next move\" takes one more step. Planning in a frozen feature space works without reconstruction: DINO-WM solved six environments zero-shot without demonstrations, reward models or inverse models <Cite id=\"dino-wm-2024\" />.\n"
@@ -642,7 +698,7 @@
         },
         {
           "before": "Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou of Columbia, NYU and AMI Labs showed in October 2026 that next-step prediction with anti-collapse regularization can reach its minimum loss while discarding a system's controllable unstable modes, which leaves the learned state impossible to stabilize. They add an inverse-dynamics loss that reconstructs actions and prove, for linear systems, that exact reconstruction keeps every state direction reachable within the horizon; experiments on CartPole, Walker2D and PointMaze from pixels extend the finding to nonlinear tasks <Cite id=\"jepa-unstable-modes-2026\" />.\n",
-          "after": "Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou of Columbia, NYU and AMI Labs showed in October 2026 that next-step prediction with anti-collapse regularization can reach its minimum loss while discarding a system's controllable unstable modes. The learned state is then impossible to stabilize. They add an inverse-dynamics loss that reconstructs actions and prove, for linear systems, that exact reconstruction keeps every state direction reachable within the horizon. Experiments on CartPole, Walker2D and PointMaze from pixels extend the finding to nonlinear tasks <Cite id=\"jepa-unstable-modes-2026\" />.\n"
+          "after": "Leonardo Toso, Yann LeCun, James Anderson and Oumayma Bounou of Columbia, NYU and AMI Labs showed in October 2026 that next-step prediction with anti-collapse regularization can reach its minimum loss while discarding a system's controllable unstable modes. The learned state is then impossible to stabilize. They add an inverse-dynamics loss that reconstructs actions and prove, for linear systems, that exact reconstruction keeps every state direction reachable within the horizon. Experiments on CartPole, Walker2D and PointMaze from pixels extend the finding to nonlinear tasks <Cite id=\"jepa-unstable-modes-2026\" />.\n\nRomina Yalovetzky, Randall Balestriero and Yann LeCun of NYU, Brown University and AMI Labs (October 2026) replace the JEPA predictor with an action-conditioned Hamiltonian flow whose leapfrog step preserves latent volume at every rollout step <Cite id=\"lehami-2026\" />. On a simulated pendulum seen only in pixels, LeHami has 2.8 times lower angular velocity error than LeWorldModel over the first ten rollout steps <Cite id=\"lehami-2026\" />. When a torque-driven pendulum must reach a goal angle and velocity, the best LeWorldModel variant still succeeds more often, 0.636 against 0.304 over three model seeds <Cite id=\"lehami-2026\" />.\n"
         },
         {
           "before": "Use a JEPA-style model when the decision depends on task-relevant change and reconstructing pixels adds no evidence. Goal-conditioned planning fits: compare predicted and goal representations and replan after each observation. Decoder-free latent planning already scales, with one 317M-parameter TD-MPC2 agent performing 80 tasks <Cite id=\"tdmpc2-2023\" />. Synthetic video, visual debugging and simulator replacement fit poorly, because the decoder-free state hides what it omitted. Test whether nearby embeddings mean equivalent outcomes and whether action rankings match hardware, and add out-of-distribution detectors or planner fallbacks, since embedding distance is uncalibrated confidence. See the [model-based](/world-models/model-based-robot-learning/) and [evaluation](/world-models/evaluation/) guides.\n",
@@ -754,22 +810,6 @@
             "claim": "LeWorldModel trains end-to-end from raw pixels with two loss terms and detects physically implausible events by surprise [leworldmodel-2026]."
           },
           {
-            "value": "2026",
-            "claim": "LeVJEPA trains a video encoder under LeJEPA's collapse-free objective and matches or surpasses V-JEPA 2 across ViT-S, B and L at 5.6 to 20.8 times less pretraining compute [levjepa-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "LeWorldModel \"plans up to 48x faster than foundation-model-based world models\" [leworldmodel-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "AMI dates its launch to 10 March 2026 and operates in Paris, New York, Montreal and Singapore [ami-labs-launch-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "They add an inverse-dynamics loss that reconstructs actions and prove, for linear systems, that exact reconstruction keeps every state direction reachable within the horizon; experiments on CartPole, Walker2D and PointMaze from pixels extend the finding to nonlinear tasks [jepa-unstable-modes-2026]."
-          },
-          {
             "value": "22",
             "claim": "Its largest encoder is a 1B-parameter ViT-g with a 22M pretraining predictor, an L1 feature loss and 3D rotary position embeddings."
           },
@@ -844,6 +884,38 @@
           {
             "value": "8",
             "claim": "A probe over the frozen encoder and predictor reaches 39.7% recall-at-5 on Epic-Kitchens-100 action anticipation, from 32 frames at 8 fps ending one second before the action [vjepa2-2025]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "lehami-2026",
+            "claim": "When a torque-driven pendulum must reach a goal angle and velocity, the best LeWorldModel variant still succeeds more often, 0.636 against 0.304 over three model seeds [lehami-2026]."
+          },
+          {
+            "value": "lehami-2026",
+            "claim": "On a simulated pendulum seen only in pixels, LeHami has 2.8 times lower angular velocity error than LeWorldModel over the first ten rollout steps [lehami-2026]."
+          },
+          {
+            "value": "lehami-2026",
+            "claim": "Romina Yalovetzky, Randall Balestriero and Yann LeCun of NYU, Brown University and AMI Labs (October 2026) replace the JEPA predictor with an action-conditioned Hamiltonian flow whose leapfrog step preserves latent volume at every rollout step [lehami-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "0.304",
+            "claim": "When a torque-driven pendulum must reach a goal angle and velocity, the best LeWorldModel variant still succeeds more often, 0.636 against 0.304 over three model seeds [lehami-2026]."
+          },
+          {
+            "value": "0.636",
+            "claim": "When a torque-driven pendulum must reach a goal angle and velocity, the best LeWorldModel variant still succeeds more often, 0.636 against 0.304 over three model seeds [lehami-2026]."
+          },
+          {
+            "value": "2.8",
+            "claim": "On a simulated pendulum seen only in pixels, LeHami has 2.8 times lower angular velocity error than LeWorldModel over the first ten rollout steps [lehami-2026]."
           }
         ],
         "links": [],
@@ -1070,10 +1142,14 @@
       },
       "after": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 8862,
-        "sha256": "304717c7928004c427479c2f6886028323a16f1a0c5e34b58d557442b76f04d3"
+        "bytes": 9510,
+        "sha256": "7e3bd1de20b638ca14b2142c90698dbd3a61d14b6cd0eb90723ec28914edf9da"
       },
       "edits": [
+        {
+          "before": "  - simdist-2026\n",
+          "after": "  - simdist-2026\n  - t2z-2026\n"
+        },
         {
           "before": "The loop encodes the state, predicts futures under candidate actions, scores them, acts, observes the real transition and updates the model. Sutton proposed integrated architectures for learning, planning and reacting in 1990 <Cite id=\"dyna-1990\" />.\n\nTry the check and choose the evidence that a model improves decisions. One-step prediction likelihood \"is not always correlated with control performance\" <Cite id=\"objective-mismatch-2020\" />.\n\n",
           "after": "The loop predicts futures under candidate actions, scores them, acts, observes the real transition and updates the model. Sutton proposed integrated architectures for learning, planning and reacting in 1990 <Cite id=\"dyna-1990\" />.\n\n"
@@ -1100,7 +1176,7 @@
         },
         {
           "before": "A robot observation is partial: cameras miss forces, friction and compliance. Inputs matter; RGBD gave an 80% improvement in fabric-folding success over RGB <Cite id=\"visuospatial-foresight-2020\" />. Data is also narrow while a planner searches beyond it. Hansen and Wang call world-model hallucination \"inherently a data coverage issue\" and adapt a model to unseen simulated environments with 50 trajectories <Cite id=\"wm-hallucination-2026\" />.\n",
-          "after": "A robot observation is partial: cameras miss forces, friction and compliance, and RGBD gave an 80% improvement in fabric-folding success over RGB <Cite id=\"visuospatial-foresight-2020\" />. Data is narrow too: Hansen and Wang call world-model hallucination \"inherently a data coverage issue\" and adapt a model to unseen simulated environments with 50 trajectories <Cite id=\"wm-hallucination-2026\" />.\n"
+          "after": "A robot observation is partial: cameras miss forces, friction and compliance, and RGBD gave an 80% improvement in fabric-folding success over RGB <Cite id=\"visuospatial-foresight-2020\" />. Data is narrow too: Hansen and Wang call world-model hallucination \"inherently a data coverage issue\" and adapt a model to unseen simulated environments with 50 trajectories <Cite id=\"wm-hallucination-2026\" />.\n\nChenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen <Cite id=\"t2z-2026\" />. Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent <Cite id=\"t2z-2026\" />. Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts <Cite id=\"t2z-2026\" />.\n"
         },
         {
           "before": "Real-robot model-based learning predates DayDreamer. Gaussian-process policy search carried model uncertainty into planning on real robots <Cite id=\"pilco-2015\" />, and PDDM learned contact-rich manipulation on a 24-DoF hand from 4 real hours <Cite id=\"pddm-2019\" />. DayDreamer ran Dreamer online on 4 robots without simulators; a quadruped learned to stand up and walk in 1 hour <Cite id=\"daydreamer-2022\" />. Structure helps with contact: SSRL adds a learned force ensemble to known Lagrangian dynamics and learned Go1 gaits from a few minutes of data <Cite id=\"ssrl-2024\" />.\n",
@@ -1176,12 +1252,72 @@
             "claim": "TD-MPC2 trained one 317M-parameter agent on 80 tasks [tdmpc2-2023], and Newt reaches 200 [newt-2025]."
           },
           {
-            "value": "2026",
-            "claim": "SimDist pretrains a world model in simulation and adapts only its latent dynamics on real data, keeping the encoder, reward model and value function learned in simulation [simdist-2026]."
-          },
-          {
             "value": "3",
             "claim": "PointWorld, a 3D world model trained on about 2 million trajectories, plans with MPC at 0.1 s per inference on a real Franka without demonstrations [pointworld-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "t2z-2026",
+            "claim": "Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen [t2z-2026]."
+          },
+          {
+            "value": "t2z-2026",
+            "claim": "Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts [t2z-2026]."
+          },
+          {
+            "value": "t2z-2026",
+            "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "10.85",
+            "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
+          },
+          {
+            "value": "19.30",
+            "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
+          },
+          {
+            "value": "2",
+            "claim": "Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen [t2z-2026]."
+          },
+          {
+            "value": "2",
+            "claim": "Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts [t2z-2026]."
+          },
+          {
+            "value": "2",
+            "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen [t2z-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts [t2z-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
+          },
+          {
+            "value": "26.47",
+            "claim": "Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts [t2z-2026]."
+          },
+          {
+            "value": "32",
+            "claim": "Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen [t2z-2026]."
+          },
+          {
+            "value": "70.80",
+            "claim": "Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts [t2z-2026]."
           }
         ],
         "links": [],

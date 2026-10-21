@@ -12,7 +12,7 @@
     "minutes": 7
   },
   "manipulation/vla-models": {
-    "words": 1716,
+    "words": 1811,
     "minutes": 9
   },
   "manipulation/pi-line": {
@@ -20,8 +20,8 @@
     "minutes": 9
   },
   "manipulation/generalist-policies": {
-    "words": 1499,
-    "minutes": 7
+    "words": 1591,
+    "minutes": 8
   },
   "manipulation/comparison-matrix": {
     "words": 1637,
@@ -36,8 +36,8 @@
     "minutes": 17
   },
   "manipulation/realtime-execution": {
-    "words": 1480,
-    "minutes": 7
+    "words": 1574,
+    "minutes": 8
   },
   "manipulation/cross-embodiment": {
     "words": 1415,
@@ -52,12 +52,12 @@
     "minutes": 5
   },
   "manipulation/action-spaces": {
-    "words": 1081,
-    "minutes": 5
+    "words": 1167,
+    "minutes": 6
   },
   "manipulation/foundation-models": {
-    "words": 1121,
-    "minutes": 6
+    "words": 1313,
+    "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
     "words": 1720,
@@ -72,15 +72,15 @@
     "minutes": 7
   },
   "rl-sim2real/sim2real-transfer": {
-    "words": 1816,
-    "minutes": 9
+    "words": 1914,
+    "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1668,
-    "minutes": 8
+    "words": 1772,
+    "minutes": 9
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1752,
+    "words": 1859,
     "minutes": 9
   },
   "rl-sim2real/reward-design-mpc": {
@@ -100,20 +100,20 @@
     "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 1801,
+    "words": 1892,
     "minutes": 9
   },
   "world-models/jepa": {
-    "words": 1506,
+    "words": 1597,
     "minutes": 8
   },
   "world-models/generative-sim": {
-    "words": 1536,
+    "words": 1621,
     "minutes": 8
   },
   "world-models/model-based-robot-learning": {
-    "words": 1058,
-    "minutes": 5
+    "words": 1157,
+    "minutes": 6
   },
   "world-models/evaluation": {
     "words": 1085,
@@ -136,12 +136,12 @@
     "minutes": 14
   },
   "data-hardware/teleop-rigs": {
-    "words": 1658,
-    "minutes": 8
+    "words": 1844,
+    "minutes": 9
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1684,
-    "minutes": 8
+    "words": 1779,
+    "minutes": 9
   },
   "data-hardware/industrial-deployment": {
     "words": 2228,
@@ -212,11 +212,11 @@
     "minutes": 13
   },
   "adjacent/autonomous-vehicles": {
-    "words": 2755,
+    "words": 2848,
     "minutes": 14
   },
   "adjacent/drones": {
-    "words": 1956,
+    "words": 2048,
     "minutes": 10
   },
   "adjacent/surgical": {

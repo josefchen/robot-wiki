@@ -47,6 +47,7 @@ citations:
   - generalist-gen1-2026
   - gen-1-5-2026
   - roboarena-2025
+  - steertuning-2026
 seeAlso:
   - "data-hardware/data-bottleneck"
   - "manipulation/vla-models"
@@ -116,3 +117,5 @@ RoboArena ranks generalist policies through double-blind pairwise trials at seve
 ## Human-video transfer
 
 Physical Intelligence and Georgia Tech co-fine-tune π0.5 on human data, with 3D hand positions as actions, and relevant robot data, and transfer improves with the quantity and diversity of robot pretraining <Cite id="pi-human-to-robot-2025" />. EgoScale adds aligned human-robot mid-training and finds scale and alignment complementary <Cite id="egoscale-2026" />. [Cross-embodiment transfer](/manipulation/cross-embodiment/) compares them.
+
+Steertuning, from Lerrel Pinto and colleagues at NYU (October 2026), pretrains a 400M-parameter diffusion policy on egocentric human video alone, then adapts it to a new task from 5 human demonstrations with 2 minutes of LoRA fine-tuning and steering toward the closest demonstration. On a mobile manipulator the authors report 71% average success over 12 new tasks, 9 in a rented home and 3 in their lab. On the lab tasks it succeeded in 25 of 30 trials, against 7 with steering alone and none with the short fine-tune alone <Cite id="steertuning-2026" />.

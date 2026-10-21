@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-20T18:36:22Z",
+  "observedAt": "2026-10-21T11:31:59Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -183,16 +183,16 @@
       ]
     },
     {
-      "archivedFrom": "6cde1a0a315acb6152d660d4e7a85568db33b8aa",
+      "archivedFrom": "02b12799f95495cb5adae72bd548d6d2c7c33365",
       "before": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 9589,
-        "sha256": "a3a49cb85b1ef94c4569ae2516102b5aec1aabfbf5b57681d9de9b07e9bc42f3"
+        "bytes": 10880,
+        "sha256": "df9345d0d975e9594fcab54c41f7a2e0392fc685e38c5f94b992aa223e0c75b8"
       },
       "after": {
         "path": "content/data-hardware/teleop-rigs.mdx",
-        "bytes": 9699,
-        "sha256": "f0115721ca4182a93ab1047168171137f738ebb2bc777439a59c0418e42bc5fa"
+        "bytes": 10990,
+        "sha256": "387384a25f74e8bb09b6b5d808602d64e3ef81a06df2e46543b8e17330d12a60"
       },
       "edits": [
         {
@@ -275,16 +275,16 @@
       ]
     },
     {
-      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "archivedFrom": "66cddc7e6b47d4f58a93590196d421b825b692f1",
       "before": {
         "path": "content/manipulation/action-spaces.mdx",
-        "bytes": 8989,
-        "sha256": "62fe978b227865f84c69a7e1008bf7df558019ae5f17f21ecc349e9782d9c361"
+        "bytes": 9603,
+        "sha256": "a98ce0fa564a9b886d6db796fbfe3fe31d037e5d482a9134fa17e13e0cf1a425"
       },
       "after": {
         "path": "content/manipulation/action-spaces.mdx",
-        "bytes": 9102,
-        "sha256": "73e527d6c46472d025e3840f75c70cf8f388422d5f29efcf0cd9e19c46d13d8a"
+        "bytes": 9716,
+        "sha256": "2f009a099e4c5b4514c183ff45661d375085761b2522187c0fc105c36bf10c2c"
       },
       "edits": [
         {
@@ -602,16 +602,16 @@
       ]
     },
     {
-      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "archivedFrom": "27fa53dc4f6024f31d8c2fd323084bca279aef52",
       "before": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 8954,
-        "sha256": "5da85a65adb26741b0560410aea79520f7e8ed3d504eb69eb6e9bdce9b7a57e5"
+        "bytes": 9602,
+        "sha256": "bcf23833c0d4960092320aa6c89df584f2124f95ded7f739506a8525c15ed099"
       },
       "after": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 9076,
-        "sha256": "0ea0f60d5f11bfc29db4fa4b14a2e519c893ad23d0038ada0049f0e0b20f4d07"
+        "bytes": 9724,
+        "sha256": "41530e485435afc6e57c2b25f627f6c5dfcb920897c1b9016752c5cfde559f28"
       },
       "edits": [
         {

@@ -137,7 +137,9 @@ describe('data-hardware prose truth', () => {
       // 2026-10-05 KOL backlog batch then re-resolved industrial-deployment.
       // The 2026-10-13 data-hardware domain pass and length cut then added one
       // edge of the same kind to each, and the data-hardware images of
-      // 2026-10-15 one more (their image mounts).
+      // 2026-10-15 one more (their image mounts). The KOL triage batch of
+      // 2026-10-21 added one more to evaluation-crisis (the WorldOracle
+      // paragraph).
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
@@ -145,7 +147,8 @@ describe('data-hardware prose truth', () => {
           'reader-first-20261002-prose-data-hardware-evaluation-crisis',
           'reader-first-20261003-predict-prose-data-hardware-evaluation-crisis',
           'length-cut-20261013-data-hardware-prose-evaluation-crisis',
-          'images-dh-20261015-prose-data-hardware-evaluation-crisis']
+          'images-dh-20261015-prose-data-hardware-evaluation-crisis',
+          'kol-batch-20261021-data-hardware-prose-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
           'seo-pass-20261002-prose-data-hardware-industrial-deployment',
           'reader-first-20261002-prose-data-hardware-industrial-deployment',

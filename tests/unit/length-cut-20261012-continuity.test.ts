@@ -3,11 +3,11 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:f
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { domainPassSuccessorPaths } from '../../lib/audit-domain-pass-continuity';
+import { domainPassSuccessorPaths, preDomainPassCitations } from '../../lib/audit-domain-pass-continuity';
 import { figureMountPredecessor, figureMountSuccessorPaths } from '../../lib/audit-figure-mount-continuity';
 import { wordBudgetTrimPredecessor, wordBudgetTrimSuccessorPaths } from '../../lib/audit-word-budget-trim-continuity';
 import {
-  LENGTH_CUT_CONTINUITY_DIR, MIN_BODY_SOURCES, keepsLengthCutObligations, lengthCutPredecessor,
+  LENGTH_CUT_CONTINUITY_DIR, MIN_BODY_SOURCES, keepsLengthCutObligations, lengthCutAppendedCitations, lengthCutPredecessor,
   lengthCutSuccessorPaths, loadLengthCutReview, verifyLengthCutSource, type LengthCutDrops,
 } from '../../lib/audit-length-cut-continuity';
 import { preImageMounts } from '../helpers/seo-pass';
@@ -85,6 +85,57 @@ describe('length cut 2026-10-12 article successors', () => {
     }
   });
 
+  it('lists every added occurrence with the sentence it went into, and each added source in the frontmatter', () => {
+    for (const source of review.sources.filter(({ added }) => added !== undefined)) {
+      const live = read(source.after.path).toString();
+      const head = live.match(/^---\n[\s\S]*?\n---\n/)![0];
+      const body = live.slice(head.length);
+      const lists = Object.values(source.added!);
+      expect(lists.some((list) => list.length > 0)).toBe(true);
+      for (const { value, claim } of lists.flat()) {
+        expect(value.length).toBeGreaterThan(0);
+        expect(claim.length).toBeGreaterThanOrEqual(12);
+      }
+      for (const { value } of source.added!.citations) {
+        expect(body).toContain(`<Cite id="${value}"`);
+        expect(head).toContain(`  - ${value}\n`);
+      }
+    }
+  });
+
+  it('hands a frontmatter P1 row its declared list only with the exact tail the cut appended', () => {
+    const tail = (path: string) => {
+      const live = read(path);
+      const list = (text: string) => text.match(/\ncitations:\n((?: {2}- [^\n]+\n)*)/)![1]
+        .split('\n').filter(Boolean).map((line) => line.slice(4));
+      const source = review.sources.find(({ after }) => after.path === path)!;
+      return list(live.toString()).slice(list(verifyLengthCutSource(source, live).toString()).length);
+    };
+    for (const path of paths) {
+      const live = read(path);
+      expect(lengthCutAppendedCitations(root, path, live)).toEqual(tail(path));
+      expect(lengthCutAppendedCitations(root, path, Buffer.concat([live, Buffer.from('\n')]))).toEqual([]);
+    }
+    expect(lengthCutAppendedCitations(root, 'content/frontier/bear-case.mdx', read(paths[0]))).toEqual([]);
+    // The articles a frontmatter P1 row certifies, where the domain pass holds the earlier list.
+    const p1 = ['manipulation/generalist-policies', 'manipulation/vla-models', 'rl-sim2real/humanoid-wbc',
+      'rl-sim2real/legged-locomotion'].map((slug) => `content/${slug}.mdx`);
+    for (const path of p1) {
+      expect(domainPassSuccessorPaths()).toContain(path);
+      const live = readFileSync(join(root, path), 'utf8');
+      const list = live.match(/\ncitations:\n((?: {2}- [^\n]+\n)*)/)![1].split('\n').filter(Boolean).map((line) => line.slice(4));
+      // Accepted: the earlier list comes back as a new array, without any id the cut appended.
+      const declared = preDomainPassCitations(root, path, list);
+      expect(declared).not.toBe(list);
+      expect(declared.filter((id) => tail(path).includes(id))).toEqual([]);
+      // A tail the cut did not append, or a list cut short, gets the live list itself back.
+      const extra = [...list, 'unreviewed-2026'];
+      expect(preDomainPassCitations(root, path, extra)).toBe(extra);
+      const short = list.slice(0, -1);
+      expect(preDomainPassCitations(root, path, short)).toBe(short);
+    }
+  });
+
   it('passes other bytes through and rejects a successor whose edits no longer replay', () => {
     const [source] = review.sources;
     const drifted = Buffer.concat([read(source.after.path), Buffer.from('\n')]);
@@ -158,6 +209,65 @@ describe('length cut 2026-10-12 article successors', () => {
       [{ test, phrase: 'A recap that repeats', disposition: 'moved', to: 'new wording', toPath: path }])).toBe(false);
     expect(keepsLengthCutObligations(path, prior, cut, dropped,
       [{ test, phrase: 'A recap that repeats', disposition: 'retired', toPath: 'content/x/z.mdx' }])).toBe(false);
+  });
+
+  it('admits an addition only as recorded: each occurrence with its sentence, new sources appended to the frontmatter', () => {
+    const cites = Array.from({ length: 31 }, (_, i) => `<Cite id="s${i}" />`).join(' ');
+    const prior = [
+      '---', 'title: "A"', 'citations:', '  - s0', '---', '',
+      `Kept claim ${cites} in the [guide](/x/z) and a <Term id="t">term</Term>.`, '',
+      'A recap that repeats 12 links and the [guide](/x/z) <Cite id="s0" />, at length and once too often.', '',
+      '## Next', '', 'Closing words.', '',
+    ].join('\n');
+    const cut = prior.replace(/A recap [^\n]+\n\n/, '');
+    const recap = 'A recap that repeats 12 links and the guide';
+    const dropped: LengthCutDrops = {
+      citations: [{ value: 's0', claim: recap }],
+      numbers: [{ value: '0', claim: recap }, { value: '12', claim: recap }],
+      links: [{ value: '/x/z', claim: recap }],
+      terms: [],
+    };
+    const sentence = 'New work reached 42% [n1].';
+    const paragraph = 'New work reached 42% <Cite id="n1" />.\n\n';
+    const added: LengthCutDrops = {
+      citations: [{ value: 'n1', claim: sentence }],
+      numbers: [{ value: '1', claim: sentence }, { value: '42', claim: sentence }],
+      links: [],
+      terms: [],
+    };
+    const withParagraph = (text: string, inserted = paragraph) => text.replace('## Next', `${inserted}## Next`);
+    const grown = withParagraph(cut).replace('  - s0\n', '  - s0\n  - n1\n');
+    const path = 'content/x/y.mdx';
+    const keeps = (current: string, extra?: LengthCutDrops) =>
+      keepsLengthCutObligations(path, prior, current, dropped, [], extra);
+    expect(keeps(grown, added)).toBe(true);
+    // Unrecorded, recorded but absent, or recorded with no sentence.
+    expect(keeps(grown)).toBe(false);
+    expect(keeps(grown, { ...added, numbers: [...added.numbers, { value: '7', claim: sentence }] })).toBe(false);
+    expect(keeps(grown, { ...added, numbers: added.numbers.slice(1) })).toBe(false);
+    expect(keeps(grown, { ...added, citations: [{ value: 'n1', claim: 'n1' }] })).toBe(false);
+    // The new source must be appended to the frontmatter list, and nothing else there may change.
+    expect(keeps(withParagraph(cut), added)).toBe(false);
+    expect(keeps(withParagraph(cut).replace('  - s0\n', '  - n1\n  - s0\n'), added)).toBe(false);
+    expect(keeps(grown.replace('  - n1\n', '  - n1\n  - n2\n'), added)).toBe(false);
+    expect(keeps(grown.replace('title: "A"', 'title: "B"'), added)).toBe(false);
+    // A new link target is admitted as recorded; a new glossary id would change the order of first use.
+    const linked = withParagraph(cut, 'New work reached 42% in the [survey](/x/w) <Cite id="n1" />.\n\n')
+      .replace('  - s0\n', '  - s0\n  - n1\n');
+    const linkedSentence = 'New work reached 42% in the survey [n1].';
+    expect(keeps(linked, {
+      citations: [{ value: 'n1', claim: linkedSentence }],
+      numbers: [{ value: '1', claim: linkedSentence }, { value: '42', claim: linkedSentence }],
+      links: [{ value: '/x/w', claim: linkedSentence }],
+      terms: [],
+    })).toBe(true);
+    const termed = withParagraph(cut, 'New work on a <Term id="v">new term</Term> reached 42% <Cite id="n1" />.\n\n')
+      .replace('  - s0\n', '  - s0\n  - n1\n');
+    expect(keeps(termed, { ...added, terms: [{ value: 'v', claim: 'New work on a new term reached 42% [n1].' }] }))
+      .toBe(false);
+    // The body must still end shorter than it was before the cut.
+    const long = `New work reached 42% ${'and more words '.repeat(8)}<Cite id="n1" />.\n\n`;
+    expect(keeps(withParagraph(cut, long).replace('  - s0\n', '  - s0\n  - n1\n'), added)).toBe(false);
   });
 
   it('binds every pin moved to another article to that article\'s live text', () => {
