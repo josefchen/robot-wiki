@@ -21,7 +21,15 @@ function dynamicIds(route: string) {
     expect(THESES.some(thesis => thesis.id === DEFAULT_THESIS_ID)).toBe(true);
     return [];
   }
-  if (route === '/frontier/bear-case/') return MILESTONES[0].citationIds;
+  if (route === '/frontier/bear-case/') {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard, restyled in 2c66acda): the watchlist opens with no milestone
+    // selected, so the detail panel that once showed the first milestone's
+    // sources renders nothing at rest, and the method table gives every
+    // milestone's evidence with its sources. The spec asserts that resting
+    // state below and owes each milestone's citations once, from the table.
+    return MILESTONES.flatMap(milestone => milestone.citationIds);
+  }
   const expected = graph.get(route)!;
   expect(expected.dynamicCitationSites, 'unmodelled dynamic mount').toHaveLength(0);
   return [];
@@ -43,14 +51,19 @@ async function settle(page: Page) {
  * author-year link is the source link with the registry's href, label,
  * target and rel; and the note reads the number, the label, the title and
  * the venue line from the registry. A margin note (prose, from 1200 px) is
- * a floating block and must be wholly contained. A note opened inline (a
- * phone, a table, a figure) flows after its number inside the column: each
- * line must lie inside the insets and the first line inside the viewport
- * below the top bar, since an in-flow note near the bottom edge continues
- * below it and the reader scrolls on.
+ * a floating block and must be wholly contained, except with its number at
+ * the lower edge: margin notes stack level with or below their numbers and
+ * cannot rise as a tooltip did, so there the note must sit inside the side
+ * insets, never above its number, and the number and note together must fit
+ * inside one inset viewport, so a reader who scrolls on sees both at once.
+ * A note opened inline (a phone, a table, a figure)
+ * flows after its number inside the column: each line must lie inside the
+ * insets and the first line inside the viewport below the top bar, since an
+ * in-flow note near the bottom edge continues below it and the reader
+ * scrolls on.
  */
-async function measure(root: Locator) {
-  return root.evaluate(element => {
+async function measure(root: Locator, position: string) {
+  return root.evaluate((element, position) => {
     const mark = element.querySelector<HTMLAnchorElement>('sup.cite-mark a')!;
     const note = element.querySelector<HTMLElement>('[data-sidenote]')!;
     const source = note.querySelector<HTMLAnchorElement>('a[target="_blank"]')!;
@@ -76,8 +89,13 @@ async function measure(root: Locator) {
     const visible = lines.length > 0 && style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0;
     const inside = (r: { left: number; right: number; top: number; bottom: number }) =>
       r.left >= vx + 12 - 0.5 && r.right <= vx + width - 12 + 0.5 && r.top >= top - 0.5 && r.bottom <= vy + height - 12 + 0.5;
-    const contained = visible && (inMargin ? inside(box) :
-      inside(lines[0]) && lines.every(r => r.left >= vx + 12 - 0.5 && r.right <= vx + width - 12 + 0.5 && r.top >= top - 0.5));
+    const withinInsets = (r: { left: number; right: number; top: number }) =>
+      r.left >= vx + 12 - 0.5 && r.right <= vx + width - 12 + 0.5 && r.top >= top - 0.5;
+    const besideAtFold = position === 'lower-edge' && withinInsets(box) && box.top >= trigger.top - 0.5 &&
+      Math.max(box.bottom, trigger.bottom) - Math.min(box.top, trigger.top) <= vy + height - 12 - top + 0.5;
+    const contained = visible && (inMargin
+      ? inside(box) || besideAtFold
+      : inside(lines[0]) && lines.every(withinInsets));
     const overlaps = lines.some(r => r.left < trigger.right - 0.5 && r.right > trigger.left + 0.5 &&
       r.top < trigger.bottom - 0.5 && r.bottom > trigger.top + 0.5);
     const number = [...mark.childNodes].filter(n => n.nodeType === Node.TEXT_NODE).map(n => n.textContent).join('').trim();
@@ -95,7 +113,7 @@ async function measure(root: Locator) {
       font: style.fontFamily, fontSize: style.fontSize, color: style.color, background: style.backgroundColor,
       translate: style.translate, transform: style.transform,
     };
-  });
+  }, position);
 }
 
 test.beforeEach(async ({ context }) => {
@@ -127,6 +145,10 @@ for (const width of [375, 1440]) {
         await page.evaluate(() => document.fonts.ready);
         if (route === '/frontier/competing-theses/') {
           await expect(page.locator('[data-selected]')).toHaveCount(0);
+        }
+        if (route === '/frontier/bear-case/') {
+          await expect(page.getByTestId('milestone-detail')).toHaveCount(0);
+          await expect(page.locator('[data-testid^="milestone-row-"]')).toHaveCount(MILESTONES.length);
         }
         const roots = page.locator('div.prose [data-cite-id]');
         const ids = await roots.evaluateAll(elements => elements.map(e => e.getAttribute('data-cite-id')!));
@@ -180,7 +202,7 @@ for (const width of [375, 1440]) {
               if (!inMargin) await page.keyboard.press('Enter');
             }
             await settle(page);
-            const result = await measure(root);
+            const result = await measure(root, position);
             const valid = result.contained && !result.overlaps && result.triggerHit && !result.horizontalTextOverflow &&
               (method === 'hover' ? result.hovered : result.focused) &&
               result.source.href === citation.url && result.source.label === citationLabel(citation) &&
