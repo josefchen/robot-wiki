@@ -157,7 +157,7 @@ export function TerrainCurriculum({ className }: { className?: string }) {
         <>
           <button
             type="button"
-            data-brand-control-id="control:primary-action"
+            data-brand-control-id="control:secondary-action"
             data-testid="curriculum-next"
             className={INSTRUMENT_PRIMARY_CONTROL_CLASS}
             onClick={round >= MAX_ROUND ? undefined : advance}

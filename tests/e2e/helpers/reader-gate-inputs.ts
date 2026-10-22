@@ -6,6 +6,7 @@ export const READER_INPUTS_SCHEMA = 'browser-current-attempt-inputs-v1';
 
 const SELF = 'tests/e2e/helpers/reader-gate-inputs.ts';
 const ORACLE = 'tests/e2e/helpers/keypoint-reader-oracle.ts';
+const CITATION_NOTE = 'tests/e2e/helpers/citation-note.ts';
 
 /** Specs allowed in each offline reader lane and the helpers their evidence depends on. */
 export const READER_LANES = {
@@ -17,11 +18,11 @@ export const READER_LANES = {
       'tests/e2e/motion-three-reader-closeout.spec.ts',
       'tests/e2e/rrt-date-readers.spec.ts',
     ],
-    helpers: ['tests/e2e/helpers/motion-planning-offline-fixture.ts', ORACLE, 'tests/e2e/helpers/figure-fold.ts', SELF],
+    helpers: ['tests/e2e/helpers/motion-planning-offline-fixture.ts', ORACLE, 'tests/e2e/helpers/figure-fold.ts', CITATION_NOTE, SELF],
   },
   'state-smoothing': {
     specs: ['tests/e2e/state-estimation.spec.ts', 'tests/e2e/state-smoothing-readers.spec.ts'],
-    helpers: ['tests/e2e/helpers/state-smoothing-fixture.ts', ORACLE, SELF],
+    helpers: ['tests/e2e/helpers/state-smoothing-fixture.ts', ORACLE, CITATION_NOTE, SELF],
   },
   keypoint: {
     specs: ['tests/e2e/perception-keypoint-readers.spec.ts'],

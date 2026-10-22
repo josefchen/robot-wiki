@@ -28,7 +28,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   state: {
     means: "estimate, belief, position, the main object",
     stage: '#1C1C1A',
-    stageContrast: 17.1,
+    stageContrast: 16.3,
     lightText: '#1C1C1A',
     lightGraphic: '#1C1C1A',
     encoding: "solid 1.5 px stroke",
@@ -36,7 +36,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   measurement: {
     means: "observation, sensor reading, data point",
     stage: '#3F3F3B',
-    stageContrast: 10.7,
+    stageContrast: 10.1,
     lightText: '#3F3F3B',
     lightGraphic: '#3F3F3B',
     encoding: "cross or dot markers",
@@ -44,7 +44,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   action: {
     means: "policy output, control input, command",
     stage: '#1C1C1A',
-    stageContrast: 17.1,
+    stageContrast: 16.3,
     lightText: '#1C1C1A',
     lightGraphic: '#1C1C1A',
     encoding: "arrows, arrowheads",
@@ -52,7 +52,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   value: {
     means: "reward, return, value, cost, score",
     stage: '#3F3F3B',
-    stageContrast: 10.7,
+    stageContrast: 10.1,
     lightText: '#3F3F3B',
     lightGraphic: '#3F3F3B',
     encoding: "filled bars or areas",
@@ -60,7 +60,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   constraint: {
     means: "obstacle, collision, error, limit, failure",
     stage: '#1C1C1A',
-    stageContrast: 17.1,
+    stageContrast: 16.3,
     lightText: '#1C1C1A',
     lightGraphic: '#1C1C1A',
     encoding: "45 degree hatch fill",
@@ -68,7 +68,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   reference: {
     means: "ground truth, target, baseline",
     stage: '#A3A39E',
-    stageContrast: 2.5,
+    stageContrast: 2.4,
     lightText: '#6C6B66',
     lightGraphic: '#A3A39E',
     encoding: "dashed 1 px",
@@ -76,7 +76,7 @@ export const MOTION_ROLES: Record<MotionRoleName, MotionRole> = {
   highlight: {
     means: "Indicate, selection, the thing to look at now",
     stage: '#3B6EA8',
-    stageContrast: 5.4,
+    stageContrast: 5,
     lightText: '#3B6EA8',
     lightGraphic: '#3B6EA8',
     lightGraphicTreatment: 'the one accent series or mark per figure, in the muted blue',

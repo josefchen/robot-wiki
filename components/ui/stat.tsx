@@ -6,7 +6,10 @@ type StatProps = {
   value: string;
   /** Small supporting line under the label. */
   note?: string;
-  /** Renders the value in the accent; reserve for genuinely key data. */
+  /**
+   * Marks the strip's key value, set in ink at weight 600: highlight is ink
+   * weight, and the muted blue stays with a figure's one highlighted series.
+   */
   accent?: boolean;
   className?: string;
 };
@@ -56,7 +59,7 @@ export function Stat({ label, value, note, accent, className }: StatProps) {
       <div
         className={cx(
           'font-mono text-2xl leading-tight tabular-nums',
-          accent ? 'text-accent' : 'text-text',
+          accent ? 'font-semibold text-text' : 'text-text',
         )}
       >
         {value}

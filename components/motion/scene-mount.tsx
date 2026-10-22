@@ -117,7 +117,7 @@ export function SceneMount({
       heading={scene.headline ?? scene.title}
       controls={
         <button
-          data-brand-control-id="control:primary-action"
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           data-testid="motion-poster"
           type="button"

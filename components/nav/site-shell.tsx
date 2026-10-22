@@ -21,8 +21,10 @@ import { SiteFooter } from './site-footer';
 const DRAWER_TAB_STOPS =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
+// The bar's text controls keep their 14px type and get a 24px-tall hit
+// box (WCAG 2.2 target size, the controls registry's 24px minimum).
 const topLink =
-  'font-sans text-[14px] leading-none text-text transition-colors hover:text-text-dim';
+  'inline-flex min-h-6 items-center font-sans text-[14px] leading-none text-text transition-colors hover:text-text-dim';
 
 /**
  * The application shell of the Pantheon standard: one top bar with the
@@ -145,7 +147,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               aria-current={pathname === '/' ? 'page' : undefined}
               data-tektur-role="shell-wordmark"
               data-brand-control-id="control:link-focus"
-              className="font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text"
+              className="inline-flex min-h-6 items-center font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text"
             >
               {PUBLIC_IDENTITY}
             </Link>
@@ -228,7 +230,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                     onClick={() => setDrawerOpen(false)}
                     data-tektur-role="shell-wordmark"
                     data-brand-control-id="control:link-focus"
-                    className="font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text"
+                    className="inline-flex min-h-6 items-center font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text"
                   >
                     {PUBLIC_IDENTITY}
                   </Link>

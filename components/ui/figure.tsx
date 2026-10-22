@@ -69,7 +69,7 @@ type FigureProps = {
 const SCHEMATIC_LABEL = 'Original schematic';
 
 const CREDIT_LINK_CLASS =
-  'underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent';
+  'underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-text';
 
 function CreditLine({ credit, className }: { credit: FigureCredit; className: string }) {
   return (

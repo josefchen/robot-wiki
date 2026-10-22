@@ -35,7 +35,7 @@ export function FigureReuse({
       <Link
         data-brand-control-id="control:link-focus"
         href={href}
-        className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+        className="text-text underline decoration-border-strong underline-offset-2 hover:decoration-text"
       >
         {page}
       </Link>

@@ -36,7 +36,7 @@ export default function PrivacyPage() {
       />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: title }]} />
       <header data-pagefind-body>
-        <h1 className="font-display text-3xl font-semibold tracking-tight text-text">
+        <h1 className="display-h1">
           Privacy
         </h1>
         <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">

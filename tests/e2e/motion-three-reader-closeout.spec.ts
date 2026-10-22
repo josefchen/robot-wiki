@@ -6,6 +6,7 @@ import AxeBuilder from '@axe-core/playwright';
 import pinned from '../fixtures/term-consumer-identities.json' with { type: 'json' };
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
+import { citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 
 const PROSE = 'div.prose[data-pagefind-body]';
 // Literal reader expectations from the preserved article/registry. Not source certification.
@@ -108,25 +109,31 @@ test('foundation citation chips keep intended short metadata and full References
   for (const source of SOURCES) {
     const roots = page.locator(`${PROSE} [data-cite-id="${source.id}"]`); await expect(roots).toHaveCount(source.count);
     for (let occurrence = 0; occurrence < source.count; occurrence++) {
-      await e.clear(); const root = roots.nth(occurrence), anchor = root.locator('a').first(), tip = root.getByRole('tooltip');
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the focused chip's tooltip became the numbered citation's
+      // sidenote, shown by keyboard (in the margin from 1200 px, opened
+      // inline by Enter below that). Title, venue line, source link and
+      // description are read off the note (helpers/citation-note.ts) with the
+      // same bounds and no scrolling; Escape's successor is the number pressed
+      // again, with focus kept on it.
+      await e.clear(); const root = roots.nth(occurrence), { mark: anchor, note: tip } = citeParts(root);
       await root.scrollIntoViewIfNeeded(); await root.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - innerHeight / 2));
-      await anchor.focus(); await expect(tip).toBeVisible();
-      await expect(tip.locator(':scope > span').nth(0)).toHaveText(source.title); await expect(tip.locator(':scope > span').nth(1)).toHaveText(source.meta);
-      await expect(anchor).toHaveAttribute('href', source.url); await expect(anchor).toHaveAttribute('target', '_blank'); await expect(anchor).toHaveAttribute('rel', 'noopener noreferrer');
+      const inMargin = await showCiteNote(page, root, 'keyboard'); await expect(tip).toBeVisible();
+      await expectCiteNoteFacts(page, root, source);
       const box = (await tip.boundingBox())!, v = page.viewportSize()!;
       expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x + box.width).toBeLessThanOrEqual(v.width); expect(box.y).toBeGreaterThanOrEqual(54); expect(box.y + box.height).toBeLessThanOrEqual(v.height);
       const scroll = await tip.evaluate(el => ({ scrollHeight: el.scrollHeight, clientHeight: el.clientHeight }));
       expect(scroll.scrollHeight).toBeLessThanOrEqual(scroll.clientHeight);
-      await e.capture(`${source.id}-chip-${occurrence}`, { box, scroll, fullMetadataVisible: true });
-      await page.keyboard.press('Escape'); await expect(tip).not.toBeVisible(); await expect(anchor).toBeFocused();
+      await e.capture(`${source.id}-chip-${occurrence}`, { box, scroll, inMargin, fullMetadataVisible: !inMargin });
+      await dismissCiteNote(page, root, 'keyboard'); if (!inMargin) await expect(tip).not.toBeVisible(); await expect(anchor).toBeFocused();
     }
-    await e.clear(); const jump = roots.first().getByRole('link', { name: `Jump to the full reference for ${source.title}`, exact: true });
-    await jump.focus(); await page.keyboard.press('Enter'); await expect(page).toHaveURL(new RegExp(`#ref-${source.id}$`));
+    await e.clear(); const restore = await jumpFromCiteMark(page, roots.first(), source.id);
     const reference = page.locator(`[data-reference-id="${source.id}"]`);
     await expect(reference.locator('[data-author-names]')).toHaveText(source.authors.join(', '));
     await expect(reference.getByRole('link', { name: source.title, exact: true })).toHaveAttribute('href', source.url);
     await e.slices(reference, `${source.id}-full-reference`, source.url);
     e.record({ name: 'reference-identity', id: source.id, authors: source.authors, allAuthorCount: source.authors.length, sourceFollowed: false });
+    await restore();
     await page.goBack(); await expect(page).toHaveURL(/\/classical\/motion-planning\/$/);
     e.record({ name: 'back-focus-observation', id: source.id, focus: await page.evaluate(() => document.activeElement?.tagName), accepted: false });
   }

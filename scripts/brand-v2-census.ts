@@ -1063,7 +1063,10 @@ function staticRegistries() {
     },
     {
       id: 'control:selection',
-      treatment: 'lime-plus-non-colour-marker',
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard; VAL-B2-COL-005): selection is ink weight with a 1 px ink
+      // rule or underline, in place of the brand-v2 lime marker.
+      treatment: 'ink-weight-plus-ink-rule',
       statePurpose: 'persistent-selection',
       action: 'select or toggle one persistent state',
       // `aria-current` marks the current destination or item in a set, not a
@@ -1076,7 +1079,10 @@ function staticRegistries() {
     },
     {
       id: 'control:link-focus',
-      treatment: 'signal-plus-non-colour-affordance',
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard; VAL-B2-COL-006): links are ink and underlined and focus is
+      // a 1 px ink outline, in place of the brand-v2 signal blue.
+      treatment: 'ink-underline-plus-ink-outline',
       statePurpose: 'information-path',
       action: 'navigate to a truthful destination',
       persistentAria: ['aria-current when the destination is current'],

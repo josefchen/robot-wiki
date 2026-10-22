@@ -591,12 +591,16 @@ test.describe('design chrome discipline', () => {
       page.getByText(PUBLIC_DESCRIPTOR, { exact: true }),
     ).toHaveCount(1);
 
-    // Desktop sidebar lockup at 1440px: wordmark link, no descriptor.
+    // Desktop shell lockup at 1440px: wordmark link, no descriptor.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the desktop sidebar's lockup became the top bar's, the
+    // one shell lockup at every width.
+    const topbar = page.locator('header[data-site-topbar]');
+    await expect(topbar).toHaveCount(1);
     await expect(
-      page.locator('aside').getByText(PUBLIC_DESCRIPTOR, { exact: true }),
+      topbar.getByText(PUBLIC_DESCRIPTOR, { exact: true }),
     ).toHaveCount(0);
-    const sidebarWordmark = await page
-      .locator('aside')
+    const sidebarWordmark = await topbar
       .getByRole('link', { name: PUBLIC_IDENTITY })
       .textContent();
     expect(sidebarWordmark?.trim()).toBe(PUBLIC_IDENTITY);
@@ -648,15 +652,19 @@ test.describe('design chrome discipline', () => {
         .replace(/^["']|["']$/g, '')
         .toLowerCase();
 
-    // Home wordmark: the bands VAL-B2-TYPE-006 locks, 52-68px at 375 and
-    // 88-120px at 1440 with a 0.88-0.98 line height, at weight 600 and
-    // tracking -0.035em; descriptor 12px mono, sentence case. Stated as
-    // bands rather than as the two literals the pre-v2 scale shipped,
-    // because the size is fluid between them and the contract measures
-    // the two viewports below. The family assertion pins the FIRST
-    // resolved family, because a computed font-family string still
-    // contains every fallback and a `toContain('IBM Plex Sans')` check
-    // would pass on a Tektur-led stack and on a Plex-led one alike.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard; contract/design-integrity.md VAL-B2-TYPE-003 to -007 and
+    // -015, PANTHEON-SPEC.md "Type"): the bands and faces below replace the
+    // brand-v2 scale of design-system 4.3 (Tektur 600 wordmark and h1s at
+    // 52-68/88-120px, a 12px mono descriptor, 15/17px Tektur shell lockups,
+    // Tektur article h1 at 34-44/48-64px, IBM Plex Sans 600 supporting
+    // headings) at the same strength: every role is still measured at both
+    // viewports for family, size band, line height, weight and tracking.
+    // Home wordmark: the shared DM Sans 400 display h1, 40-48px at 375 and
+    // 84-92px at 1440 with a 0.90-0.96 line height and slight negative
+    // tracking; descriptor as the Geist 16px lead, sentence case. The
+    // family assertion pins the FIRST resolved family, because a computed
+    // font-family string still contains every fallback.
     const inBand = (
       metrics: { size: number; lineHeight: number },
       label: string,
@@ -666,55 +674,51 @@ test.describe('design chrome discipline', () => {
       expect(metrics.size, `${label} size`).toBeGreaterThanOrEqual(min);
       expect(metrics.size, `${label} size`).toBeLessThanOrEqual(max);
       const ratio = metrics.lineHeight / metrics.size;
-      expect(ratio, `${label} line height`).toBeGreaterThanOrEqual(0.88);
-      expect(ratio, `${label} line height`).toBeLessThanOrEqual(0.98);
+      expect(ratio, `${label} line height`).toBeGreaterThanOrEqual(0.9);
+      expect(ratio, `${label} line height`).toBeLessThanOrEqual(0.96);
     };
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const homeH1Mobile = await metricsOf('main h1');
-    inBand(homeH1Mobile, 'home wordmark at 375', 52, 68);
-    expect(homeH1Mobile.weight).toBe('600');
-    expect(firstFamily(homeH1Mobile.family)).toBe('tektur');
-    expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
-    const heroDescriptor = await metricsOf(
-      'main [aria-label="Introduction"] p.font-mono',
-    );
-    expect(heroDescriptor.size).toBeCloseTo(12, 5);
+    inBand(homeH1Mobile, 'home wordmark at 375', 40, 48);
+    expect(homeH1Mobile.weight).toBe('400');
+    expect(firstFamily(homeH1Mobile.family)).toBe('dm sans');
+    expect(em(homeH1Mobile)).toBeLessThan(0);
+    expect(em(homeH1Mobile)).toBeGreaterThanOrEqual(-0.04);
+    const heroDescriptor = await metricsOf('main .home-lockup p.page-lead');
+    expect(heroDescriptor.size).toBeCloseTo(16, 5);
+    expect(heroDescriptor.lineHeight / heroDescriptor.size).toBeCloseTo(1.62, 2);
     // Sentence case is load-bearing: an uppercase transform would render a
     // descriptor that no longer equals the locked string (VAL-B2-ID-002).
     expect(heroDescriptor.transform).toBe('none');
-    expect(firstFamily(heroDescriptor.family)).toBe('ibm plex mono');
+    expect(firstFamily(heroDescriptor.family)).toBe('geist');
     expect(heroDescriptor.text).toBe(PUBLIC_DESCRIPTOR.slice(0, 30));
-    // Mobile header lockup: 15px Tektur 600 wordmark, no descriptor.
-    const mobileHeaderWordmark = await metricsOf('header a');
-    expect(mobileHeaderWordmark.size).toBeCloseTo(15, 5);
+    // The top bar's lockup, the one shell wordmark at every width: 17px
+    // DM Sans 600, no descriptor.
+    const mobileHeaderWordmark = await metricsOf('header[data-site-topbar] a[href="/"]');
+    expect(mobileHeaderWordmark.size).toBeCloseTo(17, 5);
     expect(mobileHeaderWordmark.weight).toBe('600');
-    expect(firstFamily(mobileHeaderWordmark.family)).toBe('tektur');
+    expect(firstFamily(mobileHeaderWordmark.family)).toBe('dm sans');
+    expect(mobileHeaderWordmark.text).toBe(PUBLIC_IDENTITY);
 
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     const homeH1Desktop = await metricsOf('main h1');
-    inBand(homeH1Desktop, 'home wordmark at 1440', 88, 120);
-    expect(homeH1Desktop.weight).toBe('600');
-    expect(firstFamily(homeH1Desktop.family)).toBe('tektur');
-    expect(em(homeH1Desktop)).toBeCloseTo(-0.035, 2);
-    // Desktop sidebar lockup: 17px Tektur 600 wordmark, no descriptor
-    // (design-system 3.5 makes the shell descriptor optional).
-    const sidebarWordmark = await metricsOf('aside a[href="/"]');
-    expect(sidebarWordmark.size).toBeCloseTo(17, 5);
-    expect(sidebarWordmark.weight).toBe('600');
-    expect(firstFamily(sidebarWordmark.family)).toBe('tektur');
-    expect(sidebarWordmark.text).toBe(PUBLIC_IDENTITY);
+    inBand(homeH1Desktop, 'home wordmark at 1440', 84, 92);
+    expect(homeH1Desktop.weight).toBe('400');
+    expect(firstFamily(homeH1Desktop.family)).toBe('dm sans');
+    expect(em(homeH1Desktop)).toBeLessThan(0);
+    expect(em(homeH1Desktop)).toBeGreaterThanOrEqual(-0.04);
+    const desktopWordmark = await metricsOf('header[data-site-topbar] a[href="/"]');
+    expect(desktopWordmark.size).toBeCloseTo(17, 5);
+    expect(desktopWordmark.weight).toBe('600');
+    expect(firstFamily(desktopWordmark.family)).toBe('dm sans');
+    expect(desktopWordmark.text).toBe(PUBLIC_IDENTITY);
 
-    // Article h1 and the section ladder under it, as design-system 4.3
-    // bounds them: article h1 34-44px at 375 and 48-64px at 1440, Tektur
-    // at line-height 1.00-1.10 (VAL-B2-ART-001); supporting h2 22-28px
-    // and 26-34px; supporting h3 18-22px and 20-24px, IBM Plex Sans 600.
-    // Bands, not the two literals the pre-v2 scale shipped, because the
-    // size is fluid between the measured viewports. The scale table seals
-    // size, leading, family and weight for these rows and says nothing
-    // about article-h1 tracking, so what is checked here is the direction
-    // display type requires rather than a number no authority holds.
+    // Article h1 and the section ladder under it: the article h1 is the
+    // same DM Sans 400 display h1 (VAL-B2-TYPE-007); the H2 is DM Sans 600
+    // at about 20px, uppercase, tracked about +0.055em; the H3 is DM Sans
+    // 600 at 16px in sentence case.
     const inRange = (
       value: number,
       label: string,
@@ -724,52 +728,35 @@ test.describe('design chrome discipline', () => {
       expect(value, label).toBeGreaterThanOrEqual(min);
       expect(value, label).toBeLessThanOrEqual(max);
     };
-    await page.setViewportSize({ width: 375, height: 812 });
-    await page.goto(MODULE_ROUTE);
-    const articleH1Mobile = await metricsOf('article h1');
-    inRange(articleH1Mobile.size, 'article h1 size at 375', 34, 44);
-    inRange(
-      articleH1Mobile.lineHeight / articleH1Mobile.size,
-      'article h1 line height at 375',
-      1.0,
-      1.1,
-    );
-    expect(firstFamily(articleH1Mobile.family)).toBe('tektur');
-    expect(articleH1Mobile.weight).toBe('600');
-    expect(em(articleH1Mobile)).toBeLessThan(0);
-    const proseH2Mobile = await metricsOf('article .prose h2');
-    inRange(proseH2Mobile.size, 'prose h2 size at 375', 22, 28);
-    expect(firstFamily(proseH2Mobile.family)).toBe('ibm plex sans');
-    expect(proseH2Mobile.weight).toBe('600');
-    const proseH3Mobile = await metricsOf('article .prose h3');
-    inRange(proseH3Mobile.size, 'prose h3 size at 375', 18, 22);
-    expect(firstFamily(proseH3Mobile.family)).toBe('ibm plex sans');
-    expect(proseH3Mobile.weight).toBe('600');
-
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto(MODULE_ROUTE);
-    const articleH1Desktop = await metricsOf('article h1');
-    inRange(articleH1Desktop.size, 'article h1 size at 1440', 48, 64);
-    inRange(
-      articleH1Desktop.lineHeight / articleH1Desktop.size,
-      'article h1 line height at 1440',
-      1.0,
-      1.1,
-    );
-    expect(firstFamily(articleH1Desktop.family)).toBe('tektur');
-    expect(articleH1Desktop.weight).toBe('600');
-    expect(em(articleH1Desktop)).toBeLessThan(0);
-    const proseH2 = await metricsOf('article .prose h2');
-    inRange(proseH2.size, 'prose h2 size at 1440', 26, 34);
-    expect(firstFamily(proseH2.family)).toBe('ibm plex sans');
-    expect(proseH2.weight).toBe('600');
-    const proseH3 = await metricsOf('article .prose h3');
-    inRange(proseH3.size, 'prose h3 size at 1440', 20, 24);
-    expect(firstFamily(proseH3.family)).toBe('ibm plex sans');
-    expect(proseH3.weight).toBe('600');
+    for (const [width, height, min, max] of [[375, 812, 40, 48], [1440, 900, 84, 92]] as const) {
+      await page.setViewportSize({ width, height });
+      await page.goto(MODULE_ROUTE);
+      const articleH1 = await metricsOf('article h1');
+      inRange(articleH1.size, `article h1 size at ${width}`, min, max);
+      inRange(articleH1.lineHeight / articleH1.size, `article h1 line height at ${width}`, 0.9, 0.96);
+      expect(firstFamily(articleH1.family)).toBe('dm sans');
+      expect(articleH1.weight).toBe('400');
+      expect(em(articleH1)).toBeLessThan(0);
+      const proseH2 = await metricsOf('article .prose h2');
+      inRange(proseH2.size, `prose h2 size at ${width}`, 19, 21);
+      expect(firstFamily(proseH2.family)).toBe('dm sans');
+      expect(proseH2.weight).toBe('600');
+      expect(proseH2.transform).toBe('uppercase');
+      expect(em(proseH2)).toBeCloseTo(0.055, 2);
+      const proseH3 = await metricsOf('article .prose h3');
+      inRange(proseH3.size, `prose h3 size at ${width}`, 15.5, 16.5);
+      expect(firstFamily(proseH3.family)).toBe('dm sans');
+      expect(proseH3.weight).toBe('600');
+      expect(proseH3.transform).toBe('none');
+    }
   });
 
-  test('components use only the brand-v2 radius ladder (VAL-B2-SURF-001)', async ({ page }) => {
+  // Owner-approved successor (research-page standard, Josef, 10 October
+  // 2026): the brand-v2 ladder (0, 2, 4, 8, 16, 24px) is replaced by square
+  // corners everywhere, with 7px allowed only on code blocks (the `pre` box
+  // and its pretty-code title cap). The allowed set narrows, so the sweep is
+  // stricter than the ladder it succeeds.
+  test('components use only square corners, 7px on code blocks (VAL-B2-SURF-001)', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     // Population is derived exhaustively per route: every element in the
     // document is measured (not a hand-picked selector list), and the
@@ -779,8 +766,8 @@ test.describe('design chrome discipline', () => {
       await page.goto(route);
       const { offenders, population } = await page.evaluate(() => {
         // Data marks (legend swatches, dots) whose geometry carries meaning
-        // are exempt. Every other first-party radius must resolve to the
-        // sealed brand-v2 ladder: 0, 2, 4, 8, 16, or 24px.
+        // are exempt. Every other first-party radius must be 0, except 7px
+        // on a code block.
         const offenders: string[] = [];
         let population = 0;
         for (const el of Array.from(document.querySelectorAll('*'))) {
@@ -794,10 +781,21 @@ test.describe('design chrome discipline', () => {
             cs.borderBottomRightRadius,
             cs.borderBottomLeftRadius,
           ];
+          const isCodeBlock = el.matches(
+            '.prose pre, .prose [data-rehype-pretty-code-title]',
+          );
+          // The How Robots Work explainer (also mounted on home) is frozen
+          // as it is by the owner (Josef, 12 October 2026: "Leave
+          // /how-robots-work/ exactly as it is"), so it keeps the ladder it
+          // shipped with rather than the square successor.
+          const isFrozenExplainer = el.closest('[data-explainers]') !== null;
           for (const value of radii) {
             const px = parseFloat(value);
             if (Number.isNaN(px)) continue;
-            const inScale = [0, 2, 4, 8, 16, 24].includes(px);
+            const inScale =
+              px === 0 ||
+              (isCodeBlock && px === 7) ||
+              (isFrozenExplainer && [2, 4, 8, 16, 24].includes(px));
             if (inScale) continue;
             const isSmallMark = rect.width <= 12 && rect.height <= 12;
             if (!isSmallMark) {

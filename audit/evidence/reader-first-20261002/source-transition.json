@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-22T09:58:48Z",
+  "observedAt": "2026-10-22T12:06:39Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -1006,10 +1006,14 @@
       },
       "after": {
         "path": "components/interactive/dataset-table.tsx",
-        "bytes": 9020,
-        "sha256": "0242321fee2a786af99810a301be1e4494f50a5e2e5f8ed0cea7ae0236372ba0"
+        "bytes": 9059,
+        "sha256": "c7540d9d9a826643c56e94192704130730d8c7ccaf408bd63906ede24916dcdd"
       },
       "edits": [
+        {
+          "before": "      className=\"font-mono text-xs text-accent underline-offset-2 hover:underline\"\n",
+          "after": "      className=\"font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text\"\n"
+        },
         {
           "before": "    'inline-flex min-h-6 cursor-pointer items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs transition-colors active:translate-y-[1px]',\n    active\n      ? 'border-highlight bg-selection font-semibold text-ink'\n      : 'border-border bg-surface text-text hover:border-border-strong',\n",
           "after": "    'figure-tab font-sans text-[13px]',\n    active ? 'text-text' : 'text-text-dim',\n"
@@ -1482,8 +1486,8 @@
       },
       "after": {
         "path": "components/interactive/eureka-loop.tsx",
-        "bytes": 21905,
-        "sha256": "9d034c14f1866c094a1af0dfb4fa552163d534dcbb1f46b38caed23d34039451"
+        "bytes": 21886,
+        "sha256": "1515c767e669901857b161a709393bbae1627e263a72d747cd324f06cdf8338f"
       },
       "edits": [
         {
@@ -1509,6 +1513,10 @@
         {
           "before": " * A change bar in the gutter carries the same statement the tint does, in\n * the register a diff reader already knows, so the added and removed lines\n * stay separable from the unchanged ones without relying on the hue.\n */\n",
           "after": " * Each round as the four steps of the loop, one short line each: the rules\n * (the reward the language model wrote), what the robot did in simulated\n * practice, the task score, and the fix its reflection proposes. The numbers\n * are lib/eureka's.\n */\nconst PLAIN: readonly {\n  outcome: Outcome;\n  note: readonly string[];\n  rules: string;\n  practice: string;\n  fix: string;\n}[] = [\n  {\n    outcome: 'falls',\n    note: ['Points only for speed:', 'it runs too fast and falls'],\n    rules: 'Speed only',\n    practice: 'Sprints at 2.8 metres a second, then falls',\n    fix: 'Reward staying up, and make a fall cost points',\n  },\n  {\n    outcome: 'stands',\n    note: ['Points for staying up too:', 'it stands still and never walks'],\n    rules: 'Speed and staying up; a fall costs 5 points',\n    practice: 'Never falls, but barely moves',\n    fix: 'Reward the target speed and smooth moves',\n  },\n  {\n    outcome: 'walks',\n    note: ['Points for the right speed:', 'it walks at the target speed'],\n    rules: 'Target speed, staying up, smooth moves; a fall costs 5 points',\n    practice: 'Walks, off the target by 0.12 metres a second on average',\n    fix: 'Only fine tuning left, no new rules',\n  },\n];\n\n"
+        },
+        {
+          "before": "  add: 'border-l-2 border-ok bg-ok/10 pl-2 text-ok',\n  del: 'border-l-2 border-err bg-err/10 pl-2 text-err line-through',\n",
+          "after": "  add: 'border-l-2 border-ok pl-2 text-ok',\n  del: 'border-l-2 border-err pl-2 text-err line-through',\n"
         },
         {
           "before": "const DIFF_PREFIX: Record<'same' | 'add' | 'del', string> = {\n  same: '  ',\n  add: '+ ',\n  del: '- ',\n};\n",
@@ -1962,8 +1970,8 @@
       },
       "after": {
         "path": "components/interactive/hardware-guide.tsx",
-        "bytes": 10655,
-        "sha256": "de9c934f26f16a81f84cc9cd3c78eca5be08524a23901897a4948e9876f4c4a3"
+        "bytes": 10739,
+        "sha256": "932fbf7ae73dcaad1e1e6cda02a76cb08c9883337b8e06d687b7828a272b25be"
       },
       "edits": [
         {
@@ -1971,8 +1979,16 @@
           "after": "          href=\"https://arxiv.org/abs/2304.13705\"\n"
         },
         {
+          "before": "          className=\"block font-mono text-xs text-accent underline underline-offset-2\"\n",
+          "after": "          className=\"block font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text\"\n"
+        },
+        {
           "before": "          Community estimate (Jun 2026)\n",
           "after": "          ACT paper (2023)\n"
+        },
+        {
+          "before": "      className=\"font-mono text-xs text-accent underline-offset-2 hover:underline\"\n",
+          "after": "      className=\"font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text\"\n"
         },
         {
           "before": "    'inline-flex min-h-6 cursor-pointer items-center gap-1 rounded-xs border px-2 py-1 font-sans text-xs transition-colors active:translate-y-[1px]',\n    active\n      ? 'border-highlight bg-selection font-semibold text-ink'\n      : 'border-border bg-surface text-text hover:border-border-strong',\n",
@@ -3888,8 +3904,8 @@
       },
       "after": {
         "path": "components/interactive/teleop-rig-matrix.tsx",
-        "bytes": 8252,
-        "sha256": "ef74ddfe18dee7b791b97d13b3f30032d20662c8f2fa8358f82dbed1c5412111"
+        "bytes": 8291,
+        "sha256": "0ae5092374e241402890a9d64d4a107165e48aec0e7462aa5cb6013a71cdbc30"
       },
       "edits": [
         {
@@ -3899,6 +3915,10 @@
         {
           "before": "                className=\"inline-flex items-center rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 font-mono text-xs leading-none tracking-wide text-text\"\n",
           "after": "                className=\"font-mono text-xs leading-none text-text\"\n"
+        },
+        {
+          "before": "              className=\"inline-flex min-h-6 items-center font-mono text-xs text-accent underline-offset-2 hover:underline\"\n",
+          "after": "              className=\"inline-flex min-h-6 items-center font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text\"\n"
         },
         {
           "before": "          <span className=\"font-sans text-xs text-text-dim\">\n",
@@ -3931,10 +3951,14 @@
       },
       "after": {
         "path": "components/interactive/terrain-curriculum.tsx",
-        "bytes": 12123,
-        "sha256": "95a9255f1e1f46055e093ed2af9b324608f38faae4bb5211793d25fce4c59eb1"
+        "bytes": 12125,
+        "sha256": "ac4624fd367c49d4a006b0caba5dff740bd4413ca822de59bb6d202edffe9689"
       },
       "edits": [
+        {
+          "before": "            data-brand-control-id=\"control:primary-action\"\n",
+          "after": "            data-brand-control-id=\"control:secondary-action\"\n"
+        },
         {
           "before": "            onClick={advance}\n            disabled={round >= MAX_ROUND}\n",
           "after": "            onClick={round >= MAX_ROUND ? undefined : advance}\n            aria-disabled={round >= MAX_ROUND || undefined}\n"
@@ -4385,13 +4409,17 @@
       },
       "after": {
         "path": "components/motion/clip.tsx",
-        "bytes": 6910,
-        "sha256": "9f5bf57e9a743bd98a54895822909c318304568ed82159a0cd27651823c0e008"
+        "bytes": 6912,
+        "sha256": "57bd2898697b5d779ef2c40769fe102e8f9f6f719dc104c1e70659fbb2ddfd27"
       },
       "edits": [
         {
           "before": " * hides, matching the player contract the live scenes keep.\n */\nimport { Pause, Play } from '@phosphor-icons/react';\n",
           "after": " * hides, matching the player contract the live scenes keep.\n */\n"
+        },
+        {
+          "before": "      data-brand-control-id=\"control:primary-action\"\n",
+          "after": "      data-brand-control-id=\"control:secondary-action\"\n"
         },
         {
           "before": "      className={INSTRUMENT_PRIMARY_CONTROL_CLASS}\n    >\n      {playing ? (\n        <Pause size={14} weight=\"bold\" aria-hidden />\n      ) : (\n        <Play size={14} weight=\"bold\" aria-hidden />\n      )}\n",
@@ -4723,8 +4751,8 @@
       },
       "after": {
         "path": "components/motion/scene-mount.tsx",
-        "bytes": 6487,
-        "sha256": "0d4a984b5c95c82b1a155d2a9d38111447de9225f22c4974a71658df7a5432f7"
+        "bytes": 6489,
+        "sha256": "34eeb2a9387102f2897deac97640d5450b494dab387ddcda32d3d97e90cb036d"
       },
       "edits": [
         {
@@ -4748,6 +4776,10 @@
           "after": "      as=\"div\"\n      id={anchorId}\n"
         },
         {
+          "before": "        <button\n          data-brand-control-id=\"control:primary-action\"\n",
+          "after": "        <button\n          data-brand-control-id=\"control:secondary-action\"\n"
+        },
+        {
           "before": "          className={INSTRUMENT_PRIMARY_CONTROL_CLASS}\n        >\n          <Play size={14} weight=\"bold\" aria-hidden />\n",
           "after": "          className={INSTRUMENT_PRIMARY_CONTROL_CLASS}\n        >\n"
         },
@@ -4766,8 +4798,8 @@
       },
       "after": {
         "path": "components/motion/scene-player.tsx",
-        "bytes": 13445,
-        "sha256": "38246aa84d7b3f9ac2eaa8de44e9941a7ae5b53d36df553fa2b394d6fe9a72e3"
+        "bytes": 13447,
+        "sha256": "d81f6518b588148c9a738c97bafb8f4db675f04c661f6a27ac9625c5a6ef86a6"
       },
       "edits": [
         {
@@ -4789,6 +4821,10 @@
         {
           "before": "      as=\"div\"\n",
           "after": "      as=\"div\"\n      id={anchorId}\n"
+        },
+        {
+          "before": "          ref={playButtonRef}\n          data-brand-control-id=\"control:primary-action\"\n",
+          "after": "          ref={playButtonRef}\n          data-brand-control-id=\"control:secondary-action\"\n"
         },
         {
           "before": "          className={INSTRUMENT_PRIMARY_CONTROL_CLASS}\n        >\n          {playing ? (\n            <Pause size={14} weight=\"bold\" aria-hidden />\n          ) : (\n            <Play size={14} weight=\"bold\" aria-hidden />\n          )}\n",
@@ -5577,13 +5613,17 @@
       },
       "after": {
         "path": "components/ui/figure.tsx",
-        "bytes": 8637,
-        "sha256": "e5b4ff30ca93ae6d486bd3bd6b0c36d190563ca23928d0624209e4c3ec7950cf"
+        "bytes": 8617,
+        "sha256": "c8642d817015f3a216b62594fbac200404fc768bdd4a1c4d1bfb50cf0fc25b09"
       },
       "edits": [
         {
           "before": "import { LOGO_MARK_CLASS, LOGO_TILE_CLASS } from '@/components/ui/logo-tile';\nimport { ORIGINAL_SCHEMATICS } from '@/components/ui/original-schematics';\n",
           "after": "import { LogoMark } from '@/components/ui/logo-mark';\nimport { ORIGINAL_SCHEMATICS } from '@/components/ui/original-schematics';\nimport { MARK_PLACEMENT, markGeometry, markInk } from '@/lib/market-map-marks';\n"
+        },
+        {
+          "before": "  'underline decoration-border-strong underline-offset-2 transition-colors hover:text-accent hover:decoration-accent';\n",
+          "after": "  'underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-text';\n"
         },
         {
           "before": " * one-line caption: the registry caption is the longer record and runs past\n * the frame's 20-word limit.\n",
@@ -5636,8 +5676,8 @@
       },
       "after": {
         "path": "components/ui/instrument.tsx",
-        "bytes": 14528,
-        "sha256": "e09cf2576c438c4b2ea45aca57034cab50c9c3e233f73d23a6bc5c1ef2586610"
+        "bytes": 14700,
+        "sha256": "b98f135b1ff6534c8d6701b22224ea28c6236c96e39c0731ae4d12802c71413d"
       },
       "edits": [
         {
@@ -5646,7 +5686,7 @@
         },
         {
           "before": " * Instrument controls sit inside the frame's own hairline, so neither\n * treatment draws a four-sided box: a control framed inside the frame is\n * the redundant nested boxing the design contract counts as a defect. The\n * border stays in the box model but transparent, which keeps both\n * treatments the same height and still paints a boundary under forced\n * colours. The secondary control's ink hairline is its underline, which\n * hover strengthens; a disabled control drops it.\n",
-          "after": " * Figure controls (owner-approved figure standard, 10 October 2026) are\n * text: a small muted text action for Replay, Step and Reset, the one\n * action that starts a figure in ink, and text tabs for choices, muted at\n * rest and ink over a 1 px underline when chosen, separated by hairlines.\n * No fills, pills or boxes; stage.css paints the figure-action and\n * figure-tab classes and the 1 px keyboard focus outline.\n"
+          "after": " * Figure controls (owner-approved figure standard, 10 October 2026) are\n * text: a small muted text action for Replay, Step and Reset, the one\n * action that starts a figure in ink, and text tabs for choices, muted at\n * rest and ink over a 1 px underline when chosen, separated by hairlines.\n * No fills, pills or boxes; stage.css paints the figure-action and\n * figure-tab classes and the 1 px keyboard focus outline. Being a quiet\n * text action, the starting action registers as\n * `control:secondary-action`; `control:primary-action` is the page's\n * ink-filled action (VAL-B2-COL-004).\n"
         },
         {
           "before": "const INSTRUMENT_CONTROL_BASE =\n  'inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xs border border-transparent py-1.5 font-sans text-sm font-medium transition-colors active:translate-y-[1px]';\nexport const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} bg-action px-3 text-on-action hover:bg-graphite`;\nexport const INSTRUMENT_SECONDARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} justify-self-start bg-transparent px-2 text-text underline decoration-border-strong decoration-1 underline-offset-4 hover:decoration-text disabled:cursor-not-allowed disabled:text-text-dim disabled:no-underline disabled:active:translate-y-0`;\n",
@@ -6730,37 +6770,37 @@
       },
       "after": {
         "path": "lib/motion-tokens.ts",
-        "bytes": 4241,
-        "sha256": "5ba0b718d8260b189acc6c3f1f2a5c7d0ea1f466d5074adb2360c38ee0d6f846"
+        "bytes": 4239,
+        "sha256": "7f78507f6c80bcf096f896da04846768b93d6d87387ec73836420714586fd701"
       },
       "edits": [
         {
           "before": "    stage: '#58C4DD',\n    stageContrast: 6.9,\n    lightText: '#00829A',\n    lightGraphic: '#2EA1B9',\n    encoding: \"solid 2 px stroke\",\n",
-          "after": "    stage: '#1C1C1A',\n    stageContrast: 17.1,\n    lightText: '#1C1C1A',\n    lightGraphic: '#1C1C1A',\n    encoding: \"solid 1.5 px stroke\",\n"
+          "after": "    stage: '#1C1C1A',\n    stageContrast: 16.3,\n    lightText: '#1C1C1A',\n    lightGraphic: '#1C1C1A',\n    encoding: \"solid 1.5 px stroke\",\n"
         },
         {
           "before": "    means: \"observation, sensor reading, data point\",\n    stage: '#E8C11C',\n    stageContrast: 8.1,\n    lightText: '#956F00',\n    lightGraphic: '#B69000',\n",
-          "after": "    means: \"observation, sensor reading, data point\",\n    stage: '#3F3F3B',\n    stageContrast: 10.7,\n    lightText: '#3F3F3B',\n    lightGraphic: '#3F3F3B',\n"
+          "after": "    means: \"observation, sensor reading, data point\",\n    stage: '#3F3F3B',\n    stageContrast: 10.1,\n    lightText: '#3F3F3B',\n    lightGraphic: '#3F3F3B',\n"
         },
         {
           "before": "    means: \"policy output, control input, command\",\n    stage: '#B189C6',\n    stageContrast: 4.9,\n    lightText: '#8D67A1',\n    lightGraphic: '#AE86C3',\n",
-          "after": "    means: \"policy output, control input, command\",\n    stage: '#1C1C1A',\n    stageContrast: 17.1,\n    lightText: '#1C1C1A',\n    lightGraphic: '#1C1C1A',\n"
+          "after": "    means: \"policy output, control input, command\",\n    stage: '#1C1C1A',\n    stageContrast: 16.3,\n    lightText: '#1C1C1A',\n    lightGraphic: '#1C1C1A',\n"
         },
         {
           "before": "    means: \"reward, return, value, cost, score\",\n    stage: '#A6CF8C',\n    stageContrast: 8,\n    lightText: '#5B8141',\n    lightGraphic: '#789F5F',\n",
-          "after": "    means: \"reward, return, value, cost, score\",\n    stage: '#3F3F3B',\n    stageContrast: 10.7,\n    lightText: '#3F3F3B',\n    lightGraphic: '#3F3F3B',\n"
+          "after": "    means: \"reward, return, value, cost, score\",\n    stage: '#3F3F3B',\n    stageContrast: 10.1,\n    lightText: '#3F3F3B',\n    lightGraphic: '#3F3F3B',\n"
         },
         {
           "before": "    means: \"obstacle, collision, error, limit, failure\",\n    stage: '#FC6255',\n    stageContrast: 4.7,\n    lightText: '#D63E35',\n    lightGraphic: '#FA6053',\n",
-          "after": "    means: \"obstacle, collision, error, limit, failure\",\n    stage: '#1C1C1A',\n    stageContrast: 17.1,\n    lightText: '#1C1C1A',\n    lightGraphic: '#1C1C1A',\n"
+          "after": "    means: \"obstacle, collision, error, limit, failure\",\n    stage: '#1C1C1A',\n    stageContrast: 16.3,\n    lightText: '#1C1C1A',\n    lightGraphic: '#1C1C1A',\n"
         },
         {
           "before": "    stage: '#D9DADB',\n    stageContrast: 10,\n    lightText: '#767778',\n    lightGraphic: '#949595',\n    encoding: \"dashed 1.5 px\",\n",
-          "after": "    stage: '#A3A39E',\n    stageContrast: 2.5,\n    lightText: '#6C6B66',\n    lightGraphic: '#A3A39E',\n    encoding: \"dashed 1 px\",\n"
+          "after": "    stage: '#A3A39E',\n    stageContrast: 2.4,\n    lightText: '#6C6B66',\n    lightGraphic: '#A3A39E',\n    encoding: \"dashed 1 px\",\n"
         },
         {
           "before": "    stage: '#C6FF19',\n    stageContrast: 11.8,\n    lightText: '#548200',\n    lightGraphic: '#C6FF19',\n    lightGraphicTreatment: 'lime underlay behind ink',\n    encoding: \"underlay or halo, never a stroke on light\",\n",
-          "after": "    stage: '#3B6EA8',\n    stageContrast: 5.4,\n    lightText: '#3B6EA8',\n    lightGraphic: '#3B6EA8',\n    lightGraphicTreatment: 'the one accent series or mark per figure, in the muted blue',\n    encoding: \"the one accent: the highlighted series, its marker and its plain note, never a control fill\",\n"
+          "after": "    stage: '#3B6EA8',\n    stageContrast: 5,\n    lightText: '#3B6EA8',\n    lightGraphic: '#3B6EA8',\n    lightGraphicTreatment: 'the one accent series or mark per figure, in the muted blue',\n    encoding: \"the one accent: the highlighted series, its marker and its plain note, never a control fill\",\n"
         },
         {
           "before": "/** The graphite stage and its structure, resolved from the brand tokens. */\n",
@@ -6877,7 +6917,7 @@
       "after": {
         "path": "motion-tokens.json",
         "bytes": 4797,
-        "sha256": "c5d58f5adc79d9dbd965a3b7cae308f21b26185a2be147e93738a743836ef583"
+        "sha256": "3779e28bc4113a627bd32b70b52efbcf17dad54418030ca1359b4747ae297156"
       },
       "edits": [
         {
@@ -6886,7 +6926,7 @@
         },
         {
           "before": "    \"background\": \"#F5F6F7\",\n    \"backgroundToken\": \"var(--color-paper)\",\n    \"axes\": \"#242D33\",\n    \"axesOpacity\": 0.6,\n    \"grid\": \"#D9DADB\",\n    \"gridOpacity\": 0.7,\n    \"label\": \"#0B0B0C\",\n    \"labelSecondary\": \"#242D33\",\n",
-          "after": "    \"background\": \"#FFFFFF\",\n    \"backgroundToken\": \"var(--paper, var(--color-paper))\",\n    \"axes\": \"#1C1C1A\",\n    \"axesOpacity\": 1,\n    \"grid\": \"rgba(28, 28, 26, 0.14)\",\n    \"gridOpacity\": 1,\n    \"label\": \"#1C1C1A\",\n    \"labelSecondary\": \"#6C6B66\",\n"
+          "after": "    \"background\": \"#FAFAF8\",\n    \"backgroundToken\": \"var(--paper, var(--color-paper))\",\n    \"axes\": \"#1C1C1A\",\n    \"axesOpacity\": 1,\n    \"grid\": \"rgba(28, 28, 26, 0.14)\",\n    \"gridOpacity\": 1,\n    \"label\": \"#1C1C1A\",\n    \"labelSecondary\": \"#6C6B66\",\n"
         },
         {
           "before": "    \"labelMinPx\": 14\n",
@@ -6894,31 +6934,31 @@
         },
         {
           "before": "      \"stage\": \"#007A91\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#007A91\",\n      \"lightGraphic\": \"#007A91\",\n      \"encoding\": \"solid 2 px stroke\"\n",
-          "after": "      \"stage\": \"#1C1C1A\",\n      \"stageContrast\": 17.1,\n      \"lightText\": \"#1C1C1A\",\n      \"lightGraphic\": \"#1C1C1A\",\n      \"encoding\": \"solid 1.5 px stroke\"\n"
+          "after": "      \"stage\": \"#1C1C1A\",\n      \"stageContrast\": 16.3,\n      \"lightText\": \"#1C1C1A\",\n      \"lightGraphic\": \"#1C1C1A\",\n      \"encoding\": \"solid 1.5 px stroke\"\n"
         },
         {
           "before": "      \"means\": \"observation, sensor reading, data point\",\n      \"stage\": \"#8E6A00\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#8E6A00\",\n      \"lightGraphic\": \"#8E6A00\",\n",
-          "after": "      \"means\": \"observation, sensor reading, data point\",\n      \"stage\": \"#3F3F3B\",\n      \"stageContrast\": 10.7,\n      \"lightText\": \"#3F3F3B\",\n      \"lightGraphic\": \"#3F3F3B\",\n"
+          "after": "      \"means\": \"observation, sensor reading, data point\",\n      \"stage\": \"#3F3F3B\",\n      \"stageContrast\": 10.1,\n      \"lightText\": \"#3F3F3B\",\n      \"lightGraphic\": \"#3F3F3B\",\n"
         },
         {
           "before": "      \"means\": \"policy output, control input, command\",\n      \"stage\": \"#866299\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#866299\",\n      \"lightGraphic\": \"#866299\",\n",
-          "after": "      \"means\": \"policy output, control input, command\",\n      \"stage\": \"#1C1C1A\",\n      \"stageContrast\": 17.1,\n      \"lightText\": \"#1C1C1A\",\n      \"lightGraphic\": \"#1C1C1A\",\n"
+          "after": "      \"means\": \"policy output, control input, command\",\n      \"stage\": \"#1C1C1A\",\n      \"stageContrast\": 16.3,\n      \"lightText\": \"#1C1C1A\",\n      \"lightGraphic\": \"#1C1C1A\",\n"
         },
         {
           "before": "      \"means\": \"reward, return, value, cost, score\",\n      \"stage\": \"#56793D\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#56793D\",\n      \"lightGraphic\": \"#56793D\",\n",
-          "after": "      \"means\": \"reward, return, value, cost, score\",\n      \"stage\": \"#3F3F3B\",\n      \"stageContrast\": 10.7,\n      \"lightText\": \"#3F3F3B\",\n      \"lightGraphic\": \"#3F3F3B\",\n"
+          "after": "      \"means\": \"reward, return, value, cost, score\",\n      \"stage\": \"#3F3F3B\",\n      \"stageContrast\": 10.1,\n      \"lightText\": \"#3F3F3B\",\n      \"lightGraphic\": \"#3F3F3B\",\n"
         },
         {
           "before": "      \"means\": \"obstacle, collision, error, limit, failure\",\n      \"stage\": \"#CB3B32\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#CB3B32\",\n      \"lightGraphic\": \"#CB3B32\",\n",
-          "after": "      \"means\": \"obstacle, collision, error, limit, failure\",\n      \"stage\": \"#1C1C1A\",\n      \"stageContrast\": 17.1,\n      \"lightText\": \"#1C1C1A\",\n      \"lightGraphic\": \"#1C1C1A\",\n"
+          "after": "      \"means\": \"obstacle, collision, error, limit, failure\",\n      \"stage\": \"#1C1C1A\",\n      \"stageContrast\": 16.3,\n      \"lightText\": \"#1C1C1A\",\n      \"lightGraphic\": \"#1C1C1A\",\n"
         },
         {
           "before": "      \"stage\": \"#6E6F70\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#6E6F70\",\n      \"lightGraphic\": \"#6E6F70\",\n      \"encoding\": \"dashed 1.5 px\"\n",
-          "after": "      \"stage\": \"#A3A39E\",\n      \"stageContrast\": 2.5,\n      \"lightText\": \"#6C6B66\",\n      \"lightGraphic\": \"#A3A39E\",\n      \"encoding\": \"dashed 1 px\"\n"
+          "after": "      \"stage\": \"#A3A39E\",\n      \"stageContrast\": 2.4,\n      \"lightText\": \"#6C6B66\",\n      \"lightGraphic\": \"#A3A39E\",\n      \"encoding\": \"dashed 1 px\"\n"
         },
         {
           "before": "      \"stage\": \"#507C00\",\n      \"stageContrast\": 4.6,\n      \"lightText\": \"#507C00\",\n      \"lightGraphic\": \"#C6FF19\",\n      \"lightGraphicTreatment\": \"lime halo or underlay behind the one highlighted mark\",\n      \"encoding\": \"dark-green note and leader line; a lime halo marks at most one point, never a control fill\"\n",
-          "after": "      \"stage\": \"#3B6EA8\",\n      \"stageContrast\": 5.4,\n      \"lightText\": \"#3B6EA8\",\n      \"lightGraphic\": \"#3B6EA8\",\n      \"lightGraphicTreatment\": \"the one accent series or mark per figure, in the muted blue\",\n      \"encoding\": \"the one accent: the highlighted series, its marker and its plain note, never a control fill\"\n"
+          "after": "      \"stage\": \"#3B6EA8\",\n      \"stageContrast\": 5.0,\n      \"lightText\": \"#3B6EA8\",\n      \"lightGraphic\": \"#3B6EA8\",\n      \"lightGraphicTreatment\": \"the one accent series or mark per figure, in the muted blue\",\n      \"encoding\": \"the one accent: the highlighted series, its marker and its plain note, never a control fill\"\n"
         },
         {
           "before": "    \"stageLabelMinPx\": 14,\n    \"stageLabelFill\": \"#0B0B0C\",\n    \"stageSecondaryFill\": \"#242D33\",\n    \"stageReadoutFont\": \"var(--font-sans)\",\n",
@@ -6939,8 +6979,8 @@
       },
       "after": {
         "path": "scripts/brand-v2-census.ts",
-        "bytes": 48819,
-        "sha256": "b7e45b4400d0bafe77131c014821e60e7a625abdf89eaa76c4a16c2e61ad68ec"
+        "bytes": 49244,
+        "sha256": "fd65c1668aa993bd1b39b3ce6c2110808239e8b4582c02bff19d62c563347c0a"
       },
       "edits": [
         {
@@ -6990,6 +7030,14 @@
         {
           "before": "      allowedOwners: ['tooltip', 'menu', 'drawer', 'modal', 'dragged-object'],\n    },\n    {\n      id: 'surface:bounded-dark-instrument',\n      level: 'bounded-dark',\n      stackingPurpose: 'technical-instrument',\n      allowedRadiusPx: [0, 2, 4, 8],\n      border: { allowedWidthsPx: [1], styles: ['solid'] },\n      shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },\n      allowedOwners: ['chart', 'diagram', 'simulation', 'code', 'media', 'playground'],\n    },\n",
           "after": "      allowedOwners: ['tooltip', 'menu', 'drawer', 'modal', 'dragged-object'],\n    },\n"
+        },
+        {
+          "before": "      treatment: 'lime-plus-non-colour-marker',\n",
+          "after": "      // Owner-approved successor (Josef, 2026-10-10, the research-page\n      // standard; VAL-B2-COL-005): selection is ink weight with a 1 px ink\n      // rule or underline, in place of the brand-v2 lime marker.\n      treatment: 'ink-weight-plus-ink-rule',\n"
+        },
+        {
+          "before": "      treatment: 'signal-plus-non-colour-affordance',\n",
+          "after": "      // Owner-approved successor (Josef, 2026-10-10, the research-page\n      // standard; VAL-B2-COL-006): links are ink and underlined and focus is\n      // a 1 px ink outline, in place of the brand-v2 signal blue.\n      treatment: 'ink-underline-plus-ink-outline',\n"
         },
         {
           "before": "      pointerAlternative: 'native pointer activation matching keyboard activation',\n    }),\n  );\n",
@@ -7237,12 +7285,12 @@
       "after": {
         "path": "scripts/motion/motion_theme.py",
         "bytes": 2399,
-        "sha256": "27b5b388de634ac4c0ae00a057ad5ce03e05b9f2171fc2fc1a4fef5f07ed1a68"
+        "sha256": "687917773d46f9797efe92b24dfae9e302777f1ef22954765ce4e2d743deeeaf"
       },
       "edits": [
         {
           "before": "STAGE_BACKGROUND = \"#242D33\"\nSTAGE_AXES = \"#D9DADB\"\nSTAGE_AXES_OPACITY = 0.45\nSTAGE_GRID_OPACITY = 0.08\nSTAGE_LABEL = \"#FFFFFF\"\nSTAGE_LABEL_SECONDARY = \"#D9DADB\"\n",
-          "after": "STAGE_BACKGROUND = \"#FFFFFF\"\nSTAGE_AXES = \"#1C1C1A\"\nSTAGE_AXES_OPACITY = 1\nSTAGE_GRID_OPACITY = 1\nSTAGE_LABEL = \"#1C1C1A\"\nSTAGE_LABEL_SECONDARY = \"#6C6B66\"\n"
+          "after": "STAGE_BACKGROUND = \"#FAFAF8\"\nSTAGE_AXES = \"#1C1C1A\"\nSTAGE_AXES_OPACITY = 1\nSTAGE_GRID_OPACITY = 1\nSTAGE_LABEL = \"#1C1C1A\"\nSTAGE_LABEL_SECONDARY = \"#6C6B66\"\n"
         },
         {
           "before": "    'state': '#58C4DD',\n    'measurement': '#E8C11C',\n    'action': '#B189C6',\n    'value': '#A6CF8C',\n    'constraint': '#FC6255',\n    'reference': '#D9DADB',\n    'highlight': '#C6FF19',\n",
@@ -10274,8 +10322,8 @@
       },
       "after": {
         "path": "tests/e2e/figure-light-stage.spec.ts",
-        "bytes": 11291,
-        "sha256": "78e8e774caf3946c76c57057ee0e99077acb0b51b9eb367df24f1d235a2dfaf4"
+        "bytes": 11539,
+        "sha256": "89204bfe3f0c3bfb696ece88256b7d1edf851d44a77344a9cff5b937bf9ffe52"
       },
       "edits": [
         {
@@ -10292,7 +10340,7 @@
         },
         {
           "before": " * Light stages another milestone owns, by route and figure prefix. An entry\n * that stops failing fails as stale, so this only shrinks.\n",
-          "after": " * The page's own paper, from app/globals.css. The research-page standard of\n * 2026-10-10 made it #FAFAF8 while the motion stage stayed white, and a\n * figure drawn straight on the page resolves to it.\n"
+          "after": " * The page's own paper, from app/globals.css. The research-page standard of\n * 2026-10-10 made it #FAFAF8, and a figure drawn straight on the page\n * resolves to it. Owner-approved successor (Josef, 2026-10-10, the\n * research-page standard): the motion stage token followed it, so\n * motion-tokens.json stage.background is paper #FAFAF8 instead of white.\n * White stays an allowed light ground, and every other colour rule of this\n * check is kept.\n"
         },
         {
           "before": "const PENDING: Record<string, string> = {\n  '/playground/ <canvas': 'The SO-101 scene clears to paper; VAL-B2-PLAY-001 makes the canvas a graphite instrument in the playground rollout.',\n};\n",

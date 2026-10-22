@@ -960,7 +960,7 @@
       "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 237
+      "tabStops": 238
     },
     {
       "route": "/classical/grasp-planning/",
@@ -984,7 +984,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 255
+      "tabStops": 254
     },
     {
       "route": "/classical/perception/",

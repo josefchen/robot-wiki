@@ -120,7 +120,7 @@ export default function CreditsPage() {
       <header data-pagefind-body>
         <h1
           data-tektur-role="page-h1"
-          className="font-display-page text-3xl tracking-tight text-text"
+          className="font-display-page display-h1"
         >
           Credits
         </h1>
@@ -145,7 +145,7 @@ export default function CreditsPage() {
             href={AUTHOR_PROFILE_URL}
             target="_blank"
             rel="noopener"
-            className="text-text underline decoration-border-strong underline-offset-2 hover:decoration-accent"
+            className="text-text underline decoration-border-strong underline-offset-2 hover:decoration-text"
           >
             {AUTHOR_NAME}
           </a>{' '}

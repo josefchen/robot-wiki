@@ -105,8 +105,8 @@ const PLAIN: readonly {
 
 const DIFF_STYLE: Record<'same' | 'add' | 'del', string> = {
   same: 'border-l-2 border-transparent pl-2 text-text-dim',
-  add: 'border-l-2 border-ok bg-ok/10 pl-2 text-ok',
-  del: 'border-l-2 border-err bg-err/10 pl-2 text-err line-through',
+  add: 'border-l-2 border-ok pl-2 text-ok',
+  del: 'border-l-2 border-err pl-2 text-err line-through',
 };
 
 const DIFF_PREFIX: Record<'same' | 'add' | 'del', string> = { same: '  ', add: '+ ', del: '- ' };

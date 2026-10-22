@@ -46,7 +46,7 @@ export default function AboutPage() {
       />
       <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: title }]} />
       <header data-pagefind-body>
-        <h1 className="font-display text-3xl font-semibold tracking-tight text-text">
+        <h1 className="display-h1">
           About
         </h1>
         <p

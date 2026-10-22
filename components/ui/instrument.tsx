@@ -33,7 +33,10 @@ const INSTRUMENT_SIGNATURE = 'instrument-frame';
  * action that starts a figure in ink, and text tabs for choices, muted at
  * rest and ink over a 1 px underline when chosen, separated by hairlines.
  * No fills, pills or boxes; stage.css paints the figure-action and
- * figure-tab classes and the 1 px keyboard focus outline.
+ * figure-tab classes and the 1 px keyboard focus outline. Being a quiet
+ * text action, the starting action registers as
+ * `control:secondary-action`; `control:primary-action` is the page's
+ * ink-filled action (VAL-B2-COL-004).
  */
 const INSTRUMENT_CONTROL_BASE = 'figure-action font-sans text-[13px]';
 export const INSTRUMENT_PRIMARY_CONTROL_CLASS = `${INSTRUMENT_CONTROL_BASE} figure-action-primary`;

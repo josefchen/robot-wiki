@@ -20,8 +20,12 @@ import { settleTransitions } from './settle';
  * lands inside the measured set instead of beside it.
  */
 
-/** The shipped brand-v2 paper ground, as the browser reports it. */
-const GROUND = 'rgb(245, 246, 247)';
+/**
+ * The shipped paper ground, as the browser reports it. Owner-approved
+ * successor (Josef, 2026-10-10, the research-page standard): paper
+ * #FAFAF8 replaced the brand-v2 #F5F6F7.
+ */
+const GROUND = 'rgb(250, 250, 248)';
 
 /** One published article per domain: the article template under each domain. */
 function articlePerDomain(): string[] {
@@ -108,23 +112,31 @@ async function open(page: Page, route: string): Promise<void> {
 test.describe('the paper theme is the single site-wide theme', () => {
   test('globals.css declares the paper tokens at :root and no theme fork', () => {
     const css = readFileSync(join(process.cwd(), 'app', 'globals.css'), 'utf8');
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard; contract/design-integrity.md VAL-B2-COL-001 to -003 and
+    // library/design-system.md 5.1): paper and ink, the grayscale chart
+    // tones and the one muted blue replace the brand-v2 palette, the
+    // surface is the paper sheet itself, dim text is the muted ink, rules
+    // are the 1 px ink hairline, and Geist and Geist Mono replace IBM Plex
+    // Sans, Newsreader and IBM Plex Mono. Each declaration is still read
+    // literally off :root.
     for (const declaration of [
-      '--color-ink: #0B0B0C;',
-      '--color-graphite: #242D33;',
-      '--color-concrete: #D9DADB;',
-      '--color-paper: #F5F6F7;',
+      '--color-ink: #1C1C1A;',
+      '--color-graphite: #3F3F3B;',
+      '--color-concrete: #DEDEDB;',
+      '--color-paper: #FAFAF8;',
       '--color-white: #FFFFFF;',
-      '--color-highlight: #C6FF19;',
-      '--color-signal: #245FFF;',
+      '--color-highlight: #A3A39E;',
+      '--color-signal: #3B6EA8;',
       '--color-bg: var(--color-paper);',
-      '--color-surface: var(--color-white);',
+      '--color-surface: var(--color-paper);',
       '--color-text: var(--color-ink);',
-      '--color-text-dim: var(--color-graphite);',
-      '--color-border: var(--color-concrete);',
+      '--color-text-dim: #6C6B66;',
+      '--color-border: rgba(28, 28, 26, 0.14);',
       '--color-accent: var(--color-signal);',
-      '--font-sans: var(--font-plex-sans)',
-      '--font-serif: var(--font-newsreader)',
-      '--font-mono: var(--font-plex-mono)',
+      '--font-sans: var(--font-geist)',
+      '--font-serif: var(--font-geist)',
+      '--font-mono: var(--font-geist-mono)',
     ]) {
       expect(css, `globals.css must declare ${declaration}`).toContain(declaration);
     }
@@ -136,8 +148,9 @@ test.describe('the paper theme is the single site-wide theme', () => {
     expect(code).not.toContain('prefers-color-scheme');
     expect(code).not.toContain('data-design-spike');
     // The retired palette must be gone, not merely outranked.
-    for (const retired of ['#0b0d0e', '#121517', '#e8eaec', '#9aa4ab', '#23282c', '#f5a623']) {
-      expect(code, `globals.css still names the retired token ${retired}`).not.toContain(
+    for (const retired of ['#0b0d0e', '#121517', '#e8eaec', '#9aa4ab', '#23282c', '#f5a623',
+      '#245fff', '#c6ff19', '#0b0b0c', '#f5f6f7', '#242d33', '#d9dadb']) {
+      expect(code.toLowerCase(), `globals.css still names the retired token ${retired}`).not.toContain(
         retired,
       );
     }
@@ -180,24 +193,28 @@ test.describe('the paper theme is the single site-wide theme', () => {
       for (const [name, value] of Object.entries(tokens)) {
         expect(value, `${route} must define ${name}`).not.toBe('');
       }
-      expect(tokens['--color-bg'].toUpperCase()).toBe('#F5F6F7');
-      expect(tokens['--color-accent'].toUpperCase()).toBe('#245FFF');
-      expect(tokens['--color-paper'].toUpperCase()).toBe('#F5F6F7');
-      expect(tokens['--color-signal'].toUpperCase()).toBe('#245FFF');
-      expect(tokens['--color-highlight'].toUpperCase()).toBe('#C6FF19');
-      // The three faces are the new ones, and only the new ones. Shipping
-      // nine families would satisfy a positive check on its own.
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): paper #FAFAF8, the muted blue #3B6EA8 and the medium
+      // grey highlight #A3A39E replace #F5F6F7, #245FFF and lime #C6FF19.
+      expect(tokens['--color-bg'].toUpperCase()).toBe('#FAFAF8');
+      expect(tokens['--color-accent'].toUpperCase()).toBe('#3B6EA8');
+      expect(tokens['--color-paper'].toUpperCase()).toBe('#FAFAF8');
+      expect(tokens['--color-signal'].toUpperCase()).toBe('#3B6EA8');
+      expect(tokens['--color-highlight'].toUpperCase()).toBe('#A3A39E');
+      // The faces are the new ones, and only the new ones. Shipping nine
+      // families would satisfy a positive check on its own.
       //
       // Assert on the RESOLVED family name: next/font substitutes the
       // var(--font-*) reference with the loaded family plus its fallback, so
-      // the token reads "IBM Plex Sans", "IBM Plex Sans Fallback", ... and
-      // never the variable name that appears in the stylesheet.
-      expect(tokens['--font-sans']).toContain('IBM Plex Sans');
-      expect(tokens['--font-serif']).toContain('Newsreader');
-      expect(tokens['--font-mono']).toContain('IBM Plex Mono');
+      // the token reads "Geist", "Geist Fallback", ... and never the
+      // variable name that appears in the stylesheet. The head of each stack
+      // is matched, so Geist Mono cannot pass for Geist.
+      expect(tokens['--font-sans']).toMatch(/^['"]?Geist['"]?,/);
+      expect(tokens['--font-serif']).toMatch(/^['"]?Geist['"]?,/);
+      expect(tokens['--font-mono']).toMatch(/^['"]?Geist Mono['"]?,/);
       for (const slot of ['--font-sans', '--font-serif', '--font-mono']) {
         expect(tokens[slot], `${route} ${slot} names a retired face`).not.toMatch(
-          /geist|source-serif|jetbrains/i,
+          /plex|newsreader|tektur|source-serif|jetbrains/i,
         );
       }
       expect(
@@ -364,40 +381,44 @@ test.describe('the paper theme is the single site-wide theme', () => {
   }
 });
 
+// Owner-approved successor (Josef, 2026-10-10, the research-page standard:
+// "No shadows, no gradients, no coloured panels behind text"): the brand-v2
+// dot texture is retired, so the bound it lived under (at most 12% of the
+// viewport, within 0.06 luminance of the ground) tightens to its limit: no
+// gradient paints anywhere and the article sits on the flat paper ground.
 test.describe('texture subtlety, site-wide (VAL-DESIGN-030)', () => {
   const TEXTURED_ROUTES = articlePerDomain();
 
   for (const route of TEXTURED_ROUTES) {
-    test(`${route} texture stays under 12% of the 1440x900 viewport`, async ({
+    test(`${route} paints no texture or gradient over the 1440x900 page`, async ({
       page,
     }) => {
       await page.setViewportSize({ width: 1440, height: 900 });
       await open(page, route);
       const measured = await page.evaluate(() => {
-        // Derived by asking for a painted radial-gradient rather than by
-        // naming a selector, so a second textured surface added later
-        // cannot escape the bound.
-        const textured = Array.from(document.querySelectorAll<HTMLElement>('*')).filter(
-          (el) => getComputedStyle(el).backgroundImage.includes('radial-gradient'),
+        // Derived by asking every element for a painted gradient rather than
+        // by naming a selector, so a textured surface added later cannot
+        // escape the bound. A chart data mark may hatch its fill (claimed
+        // against documented records), because there the pattern is the
+        // value's encoding, not page texture.
+        const all = Array.from(document.querySelectorAll<HTMLElement>('*'));
+        const textured = all.filter(
+          (el) =>
+            /gradient\(/.test(getComputedStyle(el).backgroundImage) &&
+            !el.matches('[data-chart-mark]'),
         );
         return {
-          count: textured.length,
-          area: textured.reduce((sum, el) => {
-            const r = el.getBoundingClientRect();
-            return sum + r.width * r.height;
-          }, 0),
-          viewport: window.innerWidth * window.innerHeight,
+          population: all.length,
+          textured: textured.map(
+            (el) => `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}`,
+          ),
         };
       });
-      expect(measured.count, `${route} paints no texture`).toBeGreaterThan(0);
-      const coverage = measured.area / measured.viewport;
-      expect(
-        coverage,
-        `${route} texture covers ${(coverage * 100).toFixed(3)}% of the viewport`,
-      ).toBeLessThanOrEqual(0.12);
+      expect(measured.population, `${route} sweep population`).toBeGreaterThan(0);
+      expect(measured.textured, `${route} paints a texture or gradient`).toEqual([]);
     });
 
-    test(`${route} texture sits within 0.06 luminance of its ground`, async ({
+    test(`${route} sits on the flat paper ground with no dot-texture tiers`, async ({
       page,
     }) => {
       await open(page, route);
@@ -410,14 +431,9 @@ test.describe('texture subtlety, site-wide (VAL-DESIGN-030)', () => {
           ),
         };
       });
-      const groundLuminance = relativeLuminance(sample.ground);
+      expect(sample.ground, `${route} ground`).toBe(GROUND);
       for (const dot of sample.dots) {
-        expect(dot, `${route} must declare every dot tier`).not.toBe('');
-        const delta = Math.abs(relativeLuminance(dot) - groundLuminance);
-        expect(
-          delta,
-          `${route} dot ${dot} is ${delta.toFixed(4)} from ground ${sample.ground}`,
-        ).toBeLessThanOrEqual(0.06);
+        expect(dot, `${route} still declares a retired dot tier`).toBe('');
       }
     });
 

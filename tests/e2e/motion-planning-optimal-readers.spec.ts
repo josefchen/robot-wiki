@@ -7,6 +7,7 @@ import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
+import { citeNoteEnd, citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 
 const ROUTE = '/classical/motion-planning/';
 const PROSE = 'div.prose[data-pagefind-body]';
@@ -111,22 +112,27 @@ async function openReader(page: Page) {
 
 test('optimal corrections retain qualifications, three repaired display blocks and bounded math', async ({ page }, info) => {
   const e = evidence(page, info); await openReader(page);
-  // Figure readouts are set in IBM Plex Sans on the one figure system, so the
-  // mono role is read from the header's citation count.
-  const roles = await page.evaluate(() => ['article h1', 'div.prose[data-pagefind-body] > p', '[data-testid="rrt-grow"]', '[data-header-citation-count]'].map((selector) => {
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+  // DM Sans, Geist and Geist Mono replace Tektur, Newsreader and the IBM Plex
+  // faces. The header's citation count is now muted Geist on the meta line,
+  // so the interface role is read from it and the figure's control, and the
+  // mono role from the RRT figure's node readout. Each role is matched as the
+  // first family of its stack, so Geist Mono cannot pass for Geist.
+  const roles = await page.evaluate(() => ['article h1', 'div.prose[data-pagefind-body] > p', '[data-testid="rrt-grow"]', '[data-header-citation-count]', '[data-testid="rrt-node-readout"]'].map((selector) => {
     const element = document.querySelector(selector)!;
     const cs = getComputedStyle(element); return { selector, family: cs.fontFamily, size: cs.fontSize, lineHeight: cs.lineHeight, loaded: document.fonts.check('16px ' + cs.fontFamily.split(',')[0]) };
   }));
-  e.record({ name: 'four-font-roles', roles });
-  for (const [index, family] of [/tektur/i, /newsreader/i, /ibm.plex.sans/i, /ibm.plex.mono/i].entries()) {
+  e.record({ name: 'five-font-roles', roles });
+  for (const [index, family] of [/^"?DM Sans"?,/, /^"?Geist"?,/, /^"?Geist"?,/, /^"?Geist"?,/, /^"?Geist Mono"?,/].entries()) {
     expect(roles[index].loaded).toBe(true); expect(roles[index].family).toMatch(family);
   }
   await e.capture('article-top', { roles });
-  const compact = page.viewportSize()!.width < 768;
+  // The top bar carries the identity and the shell at every width; the
+  // desktop sidebar it replaced is gone.
   const measurements = await page.evaluate(collectBrowserReferenceFeatures, {
-    surfaceKind: 'article', identitySelector: compact ? 'header a[href="/"]' : 'aside a[href="/"]',
+    surfaceKind: 'article', identitySelector: 'header a[href="/"]',
     descriptorRequired: false, primarySelector: 'article h1', supportingSelector: 'article h2',
-    bodySelector: `${PROSE} > p`, shellSelector: compact ? 'header' : 'aside', proseSelector: PROSE,
+    bodySelector: `${PROSE} > p`, shellSelector: 'header', proseSelector: PROSE,
     alternateSymbolSelector: '[data-brand-symbol]', repeatedModuleSelector: 'article section',
   } satisfies BrowserReferenceFeatureConfig);
   e.record({ name: 'reference-feature-measurements', measurements, acceptance: 'Collected, not a reference pass; evaluate every locked anchor independently.' });
@@ -192,32 +198,38 @@ test('all affected optimal and OMPL citation occurrences expose bounded metadata
   for (const source of SOURCES) {
     const roots = prose.locator(`[data-cite-id="${source.id}"]`); await expect(roots).toHaveCount(source.count);
     for (let occurrence = 0; occurrence < source.count; occurrence++) {
-      const root = roots.nth(occurrence), trigger = root.locator('a').first(), tip = root.getByRole('tooltip');
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the chip's hover/focus tooltip became the numbered
+      // citation's sidenote. Its title, venue line, source link and
+      // description are read off the note (helpers/citation-note.ts); the note
+      // must sit whole inside the viewport below the top bar at each
+      // placement, never scroll, and end inside its own box; the tooltip's
+      // Escape is the number pressed again, which an inline note closes on
+      // and a margin note, at rest, has no use for.
+      const root = roots.nth(occurrence), { mark: trigger, note: tip } = citeParts(root);
       for (const [placement, y] of [['top', (await e.stickyBottom()) + 24], ['middle', viewport.height / 2], ['bottom', viewport.height - 70]] as const) {
         for (const mode of ['hover', 'keyboard'] as const) {
           await e.clear(); await e.position(root, y);
-          if (mode === 'hover') await trigger.hover(); else await trigger.focus();
-          await expect(tip).toBeVisible(); await expect(tip.locator(':scope > span').nth(0)).toHaveText(source.title);
-          await expect(tip.locator(':scope > span').nth(1)).toHaveText(source.meta);
-          await expect(trigger).toHaveAttribute('href', source.url); await expect(trigger).toHaveAttribute('target', '_blank'); await expect(trigger).toHaveAttribute('rel', 'noopener noreferrer');
-          await expect(trigger).toHaveAttribute('aria-describedby', (await tip.getAttribute('id'))!);
-          await expect(page.locator(`[id="${await tip.getAttribute('id')}"]`)).toHaveCount(1);
+          const inMargin = await showCiteNote(page, root, mode);
+          await expectCiteNoteFacts(page, root, source);
           const scroll = await e.popupGeometry(tip);
-          await e.capture(`${source.id}-${occurrence}-${placement}-${mode}`, { id: source.id, occurrence, placement, mode, scroll });
+          expect(scroll.height).toBeLessThanOrEqual(scroll.client + 1);
+          await e.capture(`${source.id}-${occurrence}-${placement}-${mode}`, { id: source.id, occurrence, placement, mode, scroll, inMargin });
           if (mode === 'keyboard') {
-            if (scroll.height > scroll.client) {
-              expect(scroll.tabIndex).toBe(0); await page.keyboard.press('Tab'); await expect(root.locator('a').nth(1)).toBeFocused();
-              await page.keyboard.press('Tab'); await expect(tip).toBeFocused(); await page.keyboard.press('End');
-              await expect.poll(() => tip.evaluate(el => Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop))).toBeLessThanOrEqual(1);
+            const end = await citeNoteEnd(tip); e.record({ name: 'note-end-geometry', ...end });
+            expect(end.lastText.length).toBeGreaterThan(0); expect(end.rects.length).toBeGreaterThan(0);
+            for (const rect of end.rects) {
+              expect(rect.top).toBeGreaterThanOrEqual(end.panel.top - 0.5); expect(rect.bottom).toBeLessThanOrEqual(end.panel.bottom + 0.5);
+              expect(rect.left).toBeGreaterThanOrEqual(end.panel.left - 0.5); expect(rect.right).toBeLessThanOrEqual(end.panel.right + 0.5);
             }
-            await e.endGeometry(tip); await page.keyboard.press('Escape'); await expect(tip).not.toBeVisible(); await expect(trigger).toBeFocused();
-          }
+            await dismissCiteNote(page, root, 'keyboard'); await expect(trigger).toBeFocused();
+            if (!inMargin) await expect(tip).not.toBeVisible();
+          } else await dismissCiteNote(page, root, 'hover');
         }
       }
     }
     await e.clear();
-    const jump = roots.first().getByRole('link', { name: `Jump to the full reference for ${source.title}`, exact: true });
-    await jump.focus(); await page.keyboard.press('Enter'); await expect(page).toHaveURL(new RegExp(`#ref-${source.id}$`));
+    const restore = await jumpFromCiteMark(page, roots.first(), source.id);
     const reference = page.locator(`[data-reference-id="${source.id}"]`);
     await expect(reference.locator('[data-author-names]')).toHaveText(source.authors.join(', '));
     await expect(reference.locator('p').first()).toHaveText(source.meta + '.');
@@ -226,18 +238,27 @@ test('all affected optimal and OMPL citation occurrences expose bounded metadata
     await expect(external).toHaveAttribute('href', source.url); await expect(external).toHaveAttribute('rel', 'noopener noreferrer'); await expect(external).toHaveAttribute('target', '_blank');
     await e.textCapture(reference, `${source.id}-full-reference`);
     e.record({ name: 'reference-recovery', id: source.id, authors: source.authors, authorCount: source.authors.length, expansionRequired: false, sourceFollowed: false });
+    await restore();
     await page.goBack(); await expect(page).toHaveURL(new RegExp(ROUTE + '$'));
     e.record({ name: 'citation-return', id: source.id, url: page.url(), focus: await page.evaluate(() => document.activeElement?.tagName), focusRestorationAccepted: false });
   }
+  // The References list the cited sources in citation order and then the
+  // frontmatter's uncited sources under "Further reading"
+  // (components/article/references.tsx, lib/reference-order.ts). The length
+  // cut fa85511f (2026-10-13) left eleven of the sources this list first
+  // pinned without an inline citation, so they now follow the cited ones,
+  // and a4b72c6f (2026-10-12) added ariadne-2026. Every earlier id is still
+  // in the bibliography, exactly once and in this order.
   const expectedIds = [
     'lozano-perez-1983', 'kavraki-1996', 'lavalle-1998', 'lavalle-kuffner-2001', 'karaman-frazzoli-2011',
     'gammell-2014', 'ratliff-2009', 'schulman-2013', 'lavalle-2006', 'ompl-2012', 'solovey-complexity-2020',
-    'mcvamp-2026', 'flask-2026', 'rrt-connect-2000', 'orthey-review-2023', 'vamp-2023', 'prrtc-2025', 'ompl-2-2026',
-    'ompl-release-notes-2026', 'fmt-star-2013', 'bit-star-2017', 'aorrtc-2025', 'gcs-2022', 'chomp-ijrr-2013',
-    'stomp-2011', 'trajopt-ijrr-2014', 'curobo-2023', 'industrial-curobo-2025', 'mr-pop-2026', 'hauser-shortcut-2010',
-    'moveit-trajectory-processing-2026', 'moveit-time-parameterization-2026', 'moveit-pro-10-1-2026', 'mpinets-2022',
-    'neural-mp-2024', 'deep-reactive-policy-2025', 'mayne-2000', 'diffusion-policy-2023', 'totg-2012', 'ruckig-2021',
-    'curobo-v2-2026', 'neural-motion-planner-survey-2026',
+    'rrt-connect-2000', 'orthey-review-2023', 'vamp-2023', 'ompl-release-notes-2026', 'gcs-2022', 'chomp-ijrr-2013',
+    'curobo-2023', 'hauser-shortcut-2010', 'moveit-trajectory-processing-2026', 'moveit-time-parameterization-2026',
+    'moveit-pro-10-1-2026', 'mpinets-2022', 'deep-reactive-policy-2025', 'mayne-2000', 'diffusion-policy-2023',
+    'totg-2012', 'ruckig-2021', 'curobo-v2-2026', 'neural-motion-planner-survey-2026',
+    // Further reading.
+    'ariadne-2026', 'mcvamp-2026', 'flask-2026', 'prrtc-2025', 'ompl-2-2026', 'fmt-star-2013', 'bit-star-2017',
+    'aorrtc-2025', 'stomp-2011', 'trajopt-ijrr-2014', 'industrial-curobo-2025', 'mr-pop-2026', 'neural-mp-2024',
   ];
   expect(await page.locator('[data-reference-id]').evaluateAll(els => els.map(el => el.getAttribute('data-reference-id')))).toEqual(expectedIds);
   await e.textCapture(page.locator('section[aria-labelledby="references-heading"]'), 'complete-references');
@@ -246,9 +267,12 @@ test('all affected optimal and OMPL citation occurrences expose bounded metadata
 
 test('actual RRT controls, disclosure and compact navigation remain keyboard operable', async ({ page }, info) => {
   const e = evidence(page, info); await openReader(page);
-  const menu = page.getByRole('button', { name: 'Open navigation menu' });
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+  // the phone menu button became the top bar's "Articles" button, which opens
+  // the same navigation dialog.
+  const menu = page.getByRole('button', { name: 'Articles', exact: true });
   if (page.viewportSize()!.width === 375) {
-    await menu.focus(); await page.keyboard.press('Enter'); const dialog = page.getByRole('dialog');
+    await menu.focus(); await page.keyboard.press('Enter'); const dialog = page.getByRole('dialog', { name: 'Site navigation' });
     const close = dialog.getByRole('button', { name: 'Close navigation menu' }); await expect(close).toBeFocused();
     await expect(dialog.getByRole('link', { name: 'Motion Planning', exact: true })).toHaveAttribute('aria-current', 'page');
     await expect(dialog.locator('[aria-current="page"]')).toHaveCount(1);

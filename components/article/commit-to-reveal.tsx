@@ -213,7 +213,7 @@ export function CommitToReveal({
           data-brand-control-id="control:secondary-action"
           // `font-sans` is explicit rather than inherited: controls are
           // Geist wherever they mount.
-          className="cursor-pointer font-sans text-[14px] text-text-dim hover:text-text"
+          className="min-h-6 cursor-pointer font-sans text-[14px] text-text-dim hover:text-text"
         >
           {chosen === null ? 'Read the reasoning' : 'Reasoning'}
         </summary>

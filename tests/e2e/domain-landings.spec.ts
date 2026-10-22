@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { DOMAIN_META, DOMAINS, modulesByDomain, publishedModules } from '../../data/modules';
 import { PUBLIC_IDENTITY } from '../../lib/identity';
 import { settleTransitions } from './settle';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * The seven domain landing pages (VAL-WIKI-022, VAL-WIKI-023, VAL-WIKI-024,
@@ -108,10 +109,15 @@ test.describe('domain landing pages', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     for (const domain of DOMAINS) {
       await page.goto('/');
-      const sidebar = page.locator('aside');
-      const nav = sidebar.getByRole('navigation', {
-        name: 'Robot Wiki taxonomy',
-      });
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the taxonomy left the persistent sidebar for the panel
+      // the top bar's "Articles" button opens. The same group, link, landing
+      // and active state are checked there; the panel closes on navigation,
+      // so it is reopened on the landing to read the current entry.
+      await openArticlesPanel(page);
+      const nav = page
+        .getByRole('dialog', { name: 'Site navigation' })
+        .getByRole('navigation', { name: 'Robot Wiki taxonomy' });
       const toggle = nav.getByRole('button', {
         name: DOMAIN_META[domain].name,
       });
@@ -121,6 +127,7 @@ test.describe('domain landing pages', () => {
       await nav.getByRole('link', { name: 'Domain overview' }).click();
       await page.waitForURL(`/${domain}/`);
       await expect(page.locator('h1')).toHaveText(DOMAIN_META[domain].name);
+      await openArticlesPanel(page);
       await expect(
         nav.getByRole('link', { name: 'Domain overview' }),
       ).toHaveAttribute('aria-current', 'page');
@@ -164,12 +171,14 @@ test.describe('domain landing pages', () => {
     page,
   }) => {
     test.setTimeout(120_000);
-    // / -> /a-z via the chrome.
+    // / -> /a-z via the chrome. Owner-approved successor (Josef,
+    // 2026-10-10, the research-page standard): the chrome's entry points sit
+    // in the panel the top bar's "Articles" button opens, and the wordmark
+    // that returns home is the top bar's.
     await page.goto('/');
-    await page
-      .locator('aside')
-      .getByRole('link', { name: 'A-Z Index' })
-      .click();
+    await openArticlesPanel(page);
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
+    await panel.getByRole('link', { name: 'A-Z Index' }).click();
     await page.waitForURL('/a-z/');
     await expect(page.locator('h1')).toHaveText('A-Z Index');
 
@@ -209,20 +218,18 @@ test.describe('domain landing pages', () => {
       .click();
     await page.waitForURL(`/${first.domain}/`);
     await expect(page.locator('h1')).toHaveText(DOMAIN_META[first.domain].name);
-    // The sidebar highlight tracks the landing page.
+    // The navigation highlight tracks the landing page.
+    await openArticlesPanel(page);
     await expect(
-      page.locator('aside').getByRole('link', { name: 'Domain overview' }),
+      panel.getByRole('link', { name: 'Domain overview' }),
     ).toHaveAttribute('aria-current', 'page');
 
     // -> /glossary via the chrome entry point -> back home.
-    await page
-      .locator('aside')
-      .getByRole('link', { name: 'Glossary' })
-      .click();
+    await panel.getByRole('link', { name: 'Glossary' }).click();
     await page.waitForURL('/glossary/');
     await expect(page.locator('h1')).toHaveText('Glossary');
     await page
-      .locator('aside')
+      .locator('header[data-site-topbar]')
       .getByRole('link', { name: PUBLIC_IDENTITY })
       .click();
     await page.waitForURL('/');

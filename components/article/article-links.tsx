@@ -50,7 +50,7 @@ function ArticleLinkSection({
             <IntentLink
               href={entry.href}
               data-brand-control-id="control:link-focus"
-              className="break-words font-sans text-sm font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:text-accent hover:decoration-accent"
+              className="break-words font-sans text-sm font-medium leading-snug text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:decoration-text"
             >
               {entry.title}
             </IntentLink>

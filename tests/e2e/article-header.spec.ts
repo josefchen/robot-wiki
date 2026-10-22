@@ -77,9 +77,23 @@ async function displayedReadingMinutes(page: Page): Promise<number> {
   return Number(match?.[1]);
 }
 
+/**
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * from 1200 px each citation's sidenote stands in the margin beside the
+ * prose. A note is the citation's apparatus, as the hover tooltip it
+ * replaced was, and the reading-time measure leaves it out
+ * (lib/reading-time.ts and the `.sidenote` rule in app/globals.css), so the
+ * rendered prose is read with the notes set aside and restored after.
+ */
 async function proseWordCount(page: Page): Promise<number> {
-  const text = await page.locator('article .prose').innerText();
-  return text.trim().split(/\s+/).filter(Boolean).length;
+  return page.locator('article .prose').evaluate((prose) => {
+    const notes = [...prose.querySelectorAll<HTMLElement>('[data-sidenote]')];
+    const display = notes.map((note) => note.style.display);
+    for (const note of notes) note.style.display = 'none';
+    const text = (prose as HTMLElement).innerText;
+    notes.forEach((note, index) => { note.style.display = display[index]; });
+    return text.trim().split(/\s+/).filter(Boolean).length;
+  });
 }
 
 type TitleBreak = { word: string; hyphen: boolean };

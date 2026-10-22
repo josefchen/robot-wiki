@@ -43,8 +43,12 @@ const RETIRED = ['#245FFF', '#245EDB'];
 const STAGE_ARGS = { limit: LIMIT, roles: ROLES, retired: RETIRED, accentRoles: ACCENT_ROLE_PROPERTIES };
 /**
  * The page's own paper, from app/globals.css. The research-page standard of
- * 2026-10-10 made it #FAFAF8 while the motion stage stayed white, and a
- * figure drawn straight on the page resolves to it.
+ * 2026-10-10 made it #FAFAF8, and a figure drawn straight on the page
+ * resolves to it. Owner-approved successor (Josef, 2026-10-10, the
+ * research-page standard): the motion stage token followed it, so
+ * motion-tokens.json stage.background is paper #FAFAF8 instead of white.
+ * White stays an allowed light ground, and every other colour rule of this
+ * check is kept.
  */
 const PAGE_PAPER = readFileSync('app/globals.css', 'utf8').match(/--color-paper:\s*(#[0-9A-Fa-f]{6});/)?.[1]?.toUpperCase();
 if (!PAGE_PAPER) throw new Error('--color-paper is not declared in app/globals.css');

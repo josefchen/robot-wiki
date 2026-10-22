@@ -5,7 +5,7 @@ smooth() is a different sigmoid, so smooth() here overrides it with the
 motion language's curve. Keep this file generated.
 """
 
-STAGE_BACKGROUND = "#FFFFFF"
+STAGE_BACKGROUND = "#FAFAF8"
 STAGE_AXES = "#1C1C1A"
 STAGE_AXES_OPACITY = 1
 STAGE_GRID_OPACITY = 1

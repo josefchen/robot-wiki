@@ -68,8 +68,12 @@ for (const route of ['/', '/market-map/', '/playground/', '/search/']) {
         proof.skipBox = await skip.boundingBox();
         await page.keyboard.press('Enter');
         if (width === 375) {
-          const open = page.getByRole('button', { name: 'Open navigation menu', exact: true });
+          // Owner-approved successor (Josef, 2026-10-10, the research-page
+          // standard): the phone menu button became the top bar's
+          // "Articles" button, which opens the same navigation dialog.
+          const open = page.getByRole('button', { name: 'Articles', exact: true });
           await open.click();
+          await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
           const close = page.getByRole('button', { name: 'Close navigation menu', exact: true });
           await expect(close).toBeFocused();
           await page.keyboard.press('Escape');

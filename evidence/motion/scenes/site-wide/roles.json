@@ -8,7 +8,7 @@
     "reference": "#A3A39E",
     "highlight": "#3B6EA8"
   },
-  "motionSpecSha256": "c5d58f5adc79d9dbd965a3b7cae308f21b26185a2be147e93738a743836ef583",
+  "motionSpecSha256": "3779e28bc4113a627bd32b70b52efbcf17dad54418030ca1359b4747ae297156",
   "scenes": [
     {
       "id": "kalman-predict-update",

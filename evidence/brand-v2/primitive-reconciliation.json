@@ -257,7 +257,7 @@
     },
     "control:link-focus": {
       "kind": "controls",
-      "fingerprint": "46761419c5d37c3e33a89b633afe731b549567c6c29863275e4ee88c0a27d7d4",
+      "fingerprint": "8a319186e54a7085aa3a77c991d7f83e66ab815493a871a0229b6018b98cd502",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/page.tsx",
@@ -477,44 +477,29 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "60392895803737311b66fd8cd172c3bd0ce48b6d7f04def10728a7c26cf0de99",
+      "fingerprint": "dd005a7d449531ad6b2b992afb52f4c907f86e05843522b481dc9f3944dbbc78",
       "mountState": "production",
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
-        "components/interactive/terrain-curriculum.tsx",
-        "components/motion/clip.tsx",
-        "components/motion/scene-mount.tsx",
-        "components/motion/scene-player.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
-        "components/interactive/terrain-curriculum.tsx",
-        "components/motion/clip.tsx",
-        "components/motion/scene-mount.tsx",
-        "components/motion/scene-player.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "renderedOn": [
         "/",
-        "/adjacent/drones/",
-        "/classical/state-estimation/",
-        "/data-hardware/industrial-deployment/",
-        "/frontier/dexterity/",
         "/how-robots-work/",
-        "/manipulation/diffusion-policy/",
-        "/playground/",
-        "/rl-sim2real/legged-locomotion/",
-        "/rl-sim2real/parallel-sim-rl/"
+        "/playground/"
       ]
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "e919dc8a5c92241554deccb634ca8fb87b2057193207c7c89e39eb6d5415dddc",
+      "fingerprint": "638652289ae0a923e6943eb450ce4672f620a35eec0c87e849377b5a8df92517",
       "mountState": "production",
       "definedIn": [
         "components/article/author-list.tsx",
@@ -566,11 +551,13 @@
         "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/scope-follow.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/clip.tsx",
         "components/motion/figure-frame.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
@@ -636,11 +623,13 @@
         "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/scope-follow.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/clip.tsx",
         "components/motion/figure-frame.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
@@ -792,7 +781,7 @@
     },
     "control:selection": {
       "kind": "controls",
-      "fingerprint": "ab8f26aa30d43d919f1b39b45d7a90472ddb88932b68a9ffef742d9bdf602485",
+      "fingerprint": "9dd706778e6015375f4be93151ab7f54f06cc19384d62dd11be0c687208c9136",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",

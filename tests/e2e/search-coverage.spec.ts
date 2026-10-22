@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, DOMAIN_META, modules, publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Search coverage over the whole published route set, the site's own
@@ -301,11 +302,17 @@ test.describe("VAL-SEARCH-022: the site's own navigation labels return results",
     page,
   }) => {
     await page.goto(`${BASE}/`, { waitUntil: 'domcontentloaded' });
-    const nav = page.locator('aside nav[aria-label="Robot Wiki taxonomy"]');
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the taxonomy left the persistent sidebar for the panel the
+    // top bar's "Articles" button opens, with the same labels.
+    await openArticlesPanel(page);
+    const nav = page
+      .getByRole('dialog', { name: 'Site navigation' })
+      .getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     // Only the active route's group is expanded on load, and "Domain
-    // overview" renders inside a group's panel, so a collapsed sidebar does
-    // not show it. Expanding one group is what a reader does before they
-    // could have read the label at all.
+    // overview" renders inside a group's panel, so a collapsed navigation
+    // does not show it. Expanding one group is what a reader does before
+    // they could have read the label at all.
     await nav
       .getByRole('button', { name: DOMAIN_META.classical.name })
       .click();
@@ -317,7 +324,7 @@ test.describe("VAL-SEARCH-022: the site's own navigation labels return results",
     for (const { query } of LABEL_CASES) {
       expect(
         navText.includes(query.toLowerCase()),
-        `"${query}" is not rendered in the sidebar, so it is not a navigation label`,
+        `"${query}" is not rendered in the navigation, so it is not a navigation label`,
       ).toBe(true);
     }
   });

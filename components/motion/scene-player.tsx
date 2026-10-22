@@ -317,7 +317,7 @@ export function ScenePlayer({
       controls={
         <button
           ref={playButtonRef}
-          data-brand-control-id="control:primary-action"
+          data-brand-control-id="control:secondary-action"
           data-pagefind-ignore
           data-testid="motion-play"
           type="button"

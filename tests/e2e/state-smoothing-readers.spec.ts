@@ -8,6 +8,7 @@ import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 const ROUTE = '/classical/state-estimation/';
 const PROSE = 'div.prose[data-pagefind-body]';
 // Exact retained corrected definition and registry values. These are rendering
@@ -141,26 +142,31 @@ test('all five changed-source chips preserve hover focus Escape and full Referen
   for (const source of SOURCES) {
     const roots = page.locator(`${PROSE} [data-cite-id="${source.id}"]`); await expect(roots).toHaveCount(source.count);
     for (let occurrence = 0; occurrence < source.count; occurrence++) {
-      const root = roots.nth(occurrence), trigger = root.locator('a').first(), tip = root.getByRole('tooltip');
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the chip's hover/focus tooltip became the numbered
+      // citation's sidenote. Title, venue line, source link and description
+      // are read off the note (helpers/citation-note.ts), which must sit
+      // inside the viewport below the top bar; the tooltip's Escape is the
+      // number pressed again, which closes an inline note and leaves a
+      // margin note at rest, with focus kept on the number.
+      const root = roots.nth(occurrence), { mark: trigger, note: tip } = citeParts(root);
       for (const mode of ['hover', 'keyboard'] as const) {
         await e.clear(); await e.position(root, page.viewportSize()!.height / 2);
-        if (mode === 'hover') await trigger.hover(); else await trigger.focus();
-        await expect(tip).toBeVisible(); await expect(tip.locator(':scope > span').nth(0)).toHaveText(source.title);
-        await expect(tip.locator(':scope > span').nth(1)).toHaveText(source.meta);
-        await expect(trigger).toHaveAttribute('href', source.url); await expect(trigger).toHaveAttribute('target', '_blank'); await expect(trigger).toHaveAttribute('rel', 'noopener noreferrer');
-        await expect(trigger).toHaveAttribute('aria-describedby', (await tip.getAttribute('id'))!);
+        const inMargin = await showCiteNote(page, root, mode);
+        await expectCiteNoteFacts(page, root, source);
         await e.popupGeometry(tip); await e.capture(`${source.id}-${occurrence}-${mode}`);
-        if (mode === 'keyboard') { await page.keyboard.press('Escape'); await expect(tip).not.toBeVisible(); await expect(trigger).toBeFocused(); }
+        await dismissCiteNote(page, root, mode);
+        if (mode === 'keyboard') { if (!inMargin) await expect(tip).not.toBeVisible(); await expect(trigger).toBeFocused(); }
       }
     }
     await e.clear();
-    const jump = roots.first().getByRole('link', { name: `Jump to the full reference for ${source.title}`, exact: true });
-    await jump.focus(); await page.keyboard.press('Enter'); await expect(page).toHaveURL(new RegExp(`#ref-${source.id}$`));
+    const restore = await jumpFromCiteMark(page, roots.first(), source.id);
     const reference = page.locator(`[data-reference-id="${source.id}"]`);
     await expect(reference.locator('[data-author-names]')).toHaveText(source.authors.join(', '));
     await expect(reference.getByRole('link', { name: source.title, exact: true })).toHaveAttribute('href', source.url);
     e.record({ name: 'full-reference', id: source.id, text: await reference.innerText(), authors: source.authors });
     await e.textCapture(reference, `${source.id}-reference`);
+    await restore();
   }
   await expect(page.locator('[data-reference-id]')).toHaveCount(39); await e.clear(); await e.axe('#main-content', 'source-reader-axe');
 });

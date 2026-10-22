@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_URL } from '../../lib/site';
 import { publishedModules } from '../../data/modules';
-import { WORDS_PER_MINUTE } from '../../lib/reading-time';
+import { JSDOM } from 'jsdom';
+import { countVisibleWords, WORDS_PER_MINUTE } from '../../lib/reading-time';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { closeBrowserAndStopServer } from './static-spec-teardown';
 
@@ -311,9 +312,24 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
 
     test(`the affordance contributes no words to reading time on ${route} (VAL-EDU-003)`, async () => {
       const page = await open(route);
-      const words = await page
-        .locator('.prose')
-        .evaluate((el) => (el as HTMLElement).innerText.trim().split(/\s+/).length);
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): at 1440 px the citations' margin notes and the hydrated
+      // figures put words into the rendered .prose that the reading-time
+      // measure leaves out (a note is the citation's apparatus, as the
+      // References are). The words are counted as check:reading-times
+      // counts them, from the exported page's .prose markup, and the
+      // affordance must add none: the rendered buttons hold no text, and
+      // the count is unchanged with every affordance removed.
+      const html = readFileSync(join(OUT, ...route.split('/').filter(Boolean), 'index.html'), 'utf8');
+      const prose = new JSDOM(html).window.document.querySelector('article .prose')!;
+      const words = countVisibleWords(prose.innerHTML);
+      const affordances = page.locator('article .prose button[data-heading-permalink]');
+      expect(await affordances.count()).toBeGreaterThan(0);
+      expect(prose.querySelectorAll('button[data-heading-permalink]').length).toBe(await affordances.count());
+      const texts = await affordances.evaluateAll((els) => els.map((el) => (el as HTMLElement).innerText.trim()));
+      expect(texts.filter((text) => text !== '')).toEqual([]);
+      prose.querySelectorAll('button[data-heading-permalink]').forEach((button) => button.remove());
+      expect(countVisibleWords(prose.innerHTML)).toBe(words);
       const header = await page.locator('#main-content').innerText();
       const stated = /(\d+)\s*min/i.exec(header);
       expect(stated).not.toBeNull();

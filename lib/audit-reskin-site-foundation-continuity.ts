@@ -40,26 +40,26 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 210196, sha256: '60180b168b06605ed5a61a959c4b7b89c4a3e83729de153ac715864ce9e9615e' };
+const reviewPin = { bytes: 212529, sha256: '95a23d4edc1fb7ade725a52b6675ae68f6f22d0531107ff419e46fb174fe9a97' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['app/(content)/[domain]/[slug]/page.tsx', [13070, '7c97076edf344ea7b7540608801c57732054b5252477eab1ed8d9893c2c3a34c']],
   ['app/(content)/[domain]/page.tsx', [10361, '5c1ef612ed9def83ce545626ba1ea6c6320d98a1b4125ea6d93a4c14f3b14f82']],
   ['app/a-z/page.tsx', [6588, 'ede8948c474300006eb05d1bcb608dcfff4a346733e540a4e3d1829d09eb17a5']],
-  ['app/about/page.tsx', [5993, '70cee064b2b312acab3de6d13c080440af5052776d5c4a3880b6098550dc2516']],
-  ['app/credits/page.tsx', [8636, 'ea2aab600e7f32601568cc05ceb29e0fa78431a9add556351582aafe7813b32a']],
-  ['app/editorial-policy/page.tsx', [4507, '5725a0790a4ee703a3af4908432ff8837edf7ec23d89d3cc33749534b66bef8a']],
-  ['app/globals.css', [32204, 'f82f6f65ee1761efb36bf3bc231424c7c7ec2d282074e3df3610883783d64f97']],
+  ['app/about/page.tsx', [5943, '26354ca9a2237e1a01f11f1fca803c3295693c5f5717be7b450cb801f5ac13e4']],
+  ['app/credits/page.tsx', [8611, 'e9617eee54f32291710f0a57bb885eb9e9220ae0f2b973434ee819327734c5a0']],
+  ['app/editorial-policy/page.tsx', [4457, '9aad4cd7cd278fe29a4b1b32526df7369f06f532424b256bb46576a478821bc9']],
+  ['app/globals.css', [33177, 'd1c6fcd58ad4f3d2b8e6ed32ad26d676cfa82d344a648aad23ced652155cab4c']],
   ['app/glossary/page.tsx', [5323, 'fd573583eef2c762e26081e85dda3c1f48b8461cce24a41116e19114b7fc3b21']],
   ['app/layout.tsx', [4426, '7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5']],
   ['app/not-found.tsx', [2670, '61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9']],
   ['app/page.tsx', [11945, 'ecd27da9b503740482930904478dec78a843bf338515b19489529c28c49c9973']],
-  ['app/privacy/page.tsx', [3984, '87ba4321fb4de3469891cdb718d997608f8af7c4fa62c3941b702d5557464bd3']],
+  ['app/privacy/page.tsx', [3934, 'cc3fe48d405b4a1e5a0a9bde5b71c72b446c7ee13004f9228ad64e75ecff9ac5']],
   ['app/search/page.tsx', [2386, '812ecfe725d6dde3691e47dce6be31c0456e0312ee87c25f267e443ea7b63878']],
   ['components/article/article-header.tsx', [2737, '0e6de69a8588c6d716b7ef9969701dfe798b3b44608f305307a99f6a04c8af1c']],
   ['components/article/breadcrumbs.tsx', [4821, 'f339ceecb4b0d338067ab20ff3e18b22a07e3ea36575066b52a721748f1002de']],
-  ['components/article/commit-to-reveal.tsx', [13685, '0f6725ec5f4f80a4897c32b69ded5979a3fc2271b1bef20d0fdfe008bc9ffb19']],
+  ['components/article/commit-to-reveal.tsx', [13693, '318c361237e36c0781aee01817b33ba3f9dde879277d77acba95bdb0514cf316']],
   ['components/article/heading-permalink.tsx', [2884, 'c846ea4836f62164f217826b2a639e3b819bf89d2cd282a4657c775cf80ec8a8']],
   ['components/article/references.tsx', [4522, 'fed962d668a021e3f70b7a198766ef66ba5c8bbf03895c53913b66e92dd9d0e7']],
   ['components/home/contents-index.tsx', [2671, 'b737e6f7c1990c2732b651495c24562d479b630487b69f5d028472fdb19538b6']],
@@ -68,7 +68,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/nav/nav-tree.tsx', [7461, '45c349bc17cc35b756995ad76e07e8dc0337cf47d09bd334f143f165b4614602']],
   ['components/nav/search-box.tsx', [2330, 'b7c20da06d0bad70111694d3ad0611c9d7e02ce34197610ae0f54a8e3210b78b']],
   ['components/nav/site-footer.tsx', [4958, 'fd96f04fd40b1fe84eee17b6355aa69cb8cbd88684617c92588e354a56e0ce47']],
-  ['components/nav/site-shell.tsx', [11051, 'e5af0fb1687850d8846930525949134cc56809b0d1a24b38c0dff4a97ce0cc01']],
+  ['components/nav/site-shell.tsx', [11291, 'c96a2bff291d040f83963e3ecb676298727ec56d4542086f79789356594513f7']],
   ['components/search/results-group.tsx', [2789, '6c8d42c17798590e7d958d9f4b06f3c43c8b0e601040c76d7968d174f625bec3']],
   ['components/search/search-interface.tsx', [22509, 'a1069881595ea3f04c8dd7001d699653f9633a553007d93f352ad9fc75e5da00']],
   ['components/search/type-facet-bar.tsx', [3160, '48b32a1ed2a34dcabab5bb2090463cb9b78ccae0652c707880cc751213490c56']],

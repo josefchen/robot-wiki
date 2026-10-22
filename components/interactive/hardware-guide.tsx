@@ -77,7 +77,7 @@ function priceCell(entry: HardwareEntry): ReactNode {
           href="https://arxiv.org/abs/2304.13705"
           target="_blank"
           rel="noopener"
-          className="block font-mono text-xs text-accent underline underline-offset-2"
+          className="block font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text"
         >
           ACT paper (2023)
         </a>
@@ -141,7 +141,7 @@ function sourceCell(entry: HardwareEntry): ReactNode {
       href={entry.url}
       target="_blank"
       rel="noopener"
-      className="font-mono text-xs text-accent underline-offset-2 hover:underline"
+      className="font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text"
     >
       {new URL(entry.url).host}
     </a>

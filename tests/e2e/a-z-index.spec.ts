@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { glossaryTermsAlphabetical } from '../../data/glossary';
 import { DOMAIN_META, modules, publishedModules } from '../../data/modules';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * The A-Z index at /a-z (VAL-WIKI-019, VAL-WIKI-020, VAL-WIKI-021): every
@@ -183,21 +184,30 @@ test.describe('A-Z index', () => {
   test('is reachable by clicking from the site chrome and shows an active state (VAL-WIKI-021)', async ({
     page,
   }) => {
-    // Desktop: the sidebar carries the entry point.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the desktop sidebar and the phone drawer became one
+    // navigation panel, opened from the top bar's "Articles" button at every
+    // width. Desktop: the panel carries the entry point, and reopened on
+    // /a-z/ it marks that entry as the current page.
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const sidebar = page.locator('aside');
-    await sidebar.getByRole('link', { name: 'A-Z Index' }).click();
+    await openArticlesPanel(page);
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
+    await panel.getByRole('link', { name: 'A-Z Index' }).click();
     await page.waitForURL('/a-z/');
+    await expect(panel).not.toBeVisible();
     await expect(page.locator('h1')).toHaveText('A-Z Index');
+    await openArticlesPanel(page);
     await expect(
-      sidebar.getByRole('link', { name: 'A-Z Index' }),
+      panel.getByRole('link', { name: 'A-Z Index' }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(panel).not.toBeVisible();
 
-    // Mobile: the drawer carries the same entry point.
+    // Mobile: the same panel carries the same entry point.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    await openArticlesPanel(page);
     const dialog = page.getByRole('dialog', { name: 'Site navigation' });
     await dialog.getByRole('link', { name: 'A-Z Index' }).click();
     await page.waitForURL('/a-z/');

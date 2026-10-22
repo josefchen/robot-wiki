@@ -424,7 +424,16 @@ test.describe('home front page', () => {
     }, registered);
     expect(graphics.filter(({ kind }) => kind === 'ornament')).toEqual([]);
     expect(graphics.some(({ kind }) => kind === 'featured-scene')).toBe(true);
-    await expect(main.locator('mark[data-brand-highlight]')).toHaveCount(1);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the one brand highlight is still the masthead's source
+    // count, now set on the meta line in the page's own type instead of a
+    // lime <mark>, so no <mark> and no fill remain in <main>.
+    const highlight = main.locator('[data-brand-highlight]');
+    await expect(highlight).toHaveCount(1);
+    await expect(highlight).toHaveAttribute('data-brand-highlight', 'home-source-count');
+    await expect(highlight).toHaveText(/^\d+ sources$/);
+    await expect(main.locator('mark')).toHaveCount(0);
+    expect(await highlight.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe('rgba(0, 0, 0, 0)');
   });
 
   test('home holds only the seven front-page blocks and none of the removed texts (VAL-OPUS-022)', async ({

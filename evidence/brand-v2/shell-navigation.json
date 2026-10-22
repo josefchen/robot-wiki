@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e55573cdb0f8e2de28b6f201bdceea2be578132f382fbcbbcc23e89a397cd04c",
+  "fingerprint": "bf089c620187ff8497dfb105f9eea0cdc027249936dc0162217efec8b64175b2",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -88,7 +88,7 @@
           "href": "/",
           "navigationLink": true,
           "accessibleName": "Robot Wiki",
-          "outline": "<a aria-current=\"page\" data-tektur-role=\"shell-wordmark\" data-brand-control-id=\"control:link-focus\" class=\"font-display-shell text-[17px] leading-none tracking-"
+          "outline": "<a aria-current=\"page\" data-tektur-role=\"shell-wordmark\" data-brand-control-id=\"control:link-focus\" class=\"inline-flex min-h-6 items-center font-display-shell t"
         }
       ],
       "navEntries": [

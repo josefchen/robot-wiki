@@ -10,6 +10,7 @@ import { HIERARCHY_SYSTEMS } from '../../lib/hierarchy-timescales';
 import { expectedApparatusGraph } from '../../lib/brand-v2-apparatus-evidence';
 import { missingOccurrences } from './source-reader-requirements';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
 
 // Current dev-render correction check, not static-export or release acceptance.
 const transferProof = process.env.GO_HELIX_TRANSFER_PROOF === '1';
@@ -75,23 +76,34 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const boxes = [];
       const citeIds = [...new Set([...target.ids, ...(target.slug === 'vla-models' ? ['openvla-oft-2025'] : [])])].filter(id => requiredChips.includes(id));
       for (const id of citeIds) {
-        const chip = page.locator(`div.prose [data-cite-id="${id}"] a`).first();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the chip's focus/hover tooltip became the numbered
+        // citation's sidenote. The number is the focus stop; focused, and
+        // then pointed at, its note shows (in the margin from 1200 px,
+        // opened inline below that) and stays inside the viewport without
+        // overflowing, line by line.
+        const cite = page.locator(`div.prose [data-cite-id="${id}"]`).first();
+        const { mark: chip, note: tip } = citeParts(cite);
         await expect(chip).toHaveCount(1);
         await chip.scrollIntoViewIfNeeded();
         await chip.focus();
         await expect(chip).toBeFocused();
-        const tip = page.getByRole('tooltip');
+        await showCiteNote(page, cite, 'keyboard');
         await expect(tip).toBeVisible();
         const box = await tip.boundingBox();
         expect.soft(box!.x, `${id} tooltip left`).toBeGreaterThanOrEqual(0);
         expect.soft(box!.x + box!.width, `${id} tooltip right`).toBeLessThanOrEqual(viewport.width);
+        const lines = await tip.evaluate(el => [...el.getClientRects()].map(r => ({ left: r.left, right: r.right })));
+        for (const line of lines) expect.soft(line.left >= 0 && line.right <= viewport.width, `${id} tooltip line`).toBe(true);
         expect.soft(await tip.evaluate(el => el.scrollWidth <= el.clientWidth && el.scrollHeight <= el.clientHeight), `${id} tooltip interior`).toBe(true);
         boxes.push({ id, box });
         await page.screenshot({ caret: 'initial', path: info.outputPath(`${id}-tooltip.png`) });
+        await dismissCiteNote(page, cite, 'keyboard');
         await chip.blur();
         await page.mouse.move(0, 0);
-        await chip.hover();
+        await showCiteNote(page, cite, 'hover');
         await expect(tip).toBeVisible();
+        await dismissCiteNote(page, cite, 'hover');
         await page.mouse.move(0, 0);
       }
       expect.soft((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);

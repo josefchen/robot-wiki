@@ -72,7 +72,7 @@ function sourceCell(dataset: Dataset): ReactNode {
       href={dataset.url}
       target="_blank"
       rel="noopener"
-      className="font-mono text-xs text-accent underline-offset-2 hover:underline"
+      className="font-mono text-xs text-text underline decoration-border-strong underline-offset-2 hover:decoration-text"
     >
       {datasetSourceHost(dataset)}
     </a>

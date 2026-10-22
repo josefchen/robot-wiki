@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "87bbc2082cd4dd25b12c1a5d5d710be513e65525c3b99f19dd3f1230fe945dfa",
+  "fingerprint": "3b5e57b2049ee66bb2613a69f3e2f10f4be437a2ee24308e33179ace356161d4",
   "viewport": "1440x900",
   "surfaces": [
     {
@@ -328,7 +328,7 @@
       "documentClientWidthPx": 1440,
       "h1Text": "Credits",
       "h1FontFamilyHead": "\"DM Sans\"",
-      "h1SizePx": 30,
+      "h1SizePx": 87.36,
       "monoMetadataCount": 3,
       "rowLists": [
         {

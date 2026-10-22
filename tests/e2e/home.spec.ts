@@ -141,14 +141,18 @@ test.describe('home page', () => {
   test('the wordmark holds its locked type scale at both stated viewports (VAL-B2-TYPE-006)', async ({
     page,
   }) => {
-    // contract/design-integrity.md VAL-B2-TYPE-006 and design-system 4.3:
-    // 52-68px at 375, 88-120px at 1440, line height 0.88-0.98, at the
-    // registered wght=600/wdth=100 instance. Measured after fonts settle,
-    // because the size is fluid and a fallback face would change the box
-    // the seventh domain link is then checked against.
+    // contract/design-integrity.md VAL-B2-TYPE-006, as the owner decision
+    // of 10 October 2026 (the research-page standard) restated it: the
+    // shared DM Sans 400 display h1, 40-48px at 375 and 84-92px at 1440,
+    // line height 0.90-0.96, at the registered home-wordmark instance
+    // (wght 400) with no variation-axis override (VAL-B2-TYPE-015). It
+    // replaced Tektur at 52-68/88-120px, 0.88-0.98, wght 600 / wdth 100,
+    // at the same strength. Measured after fonts settle, because the size
+    // is fluid and a fallback face would change the box the seventh domain
+    // link is then checked against.
     const bands = [
-      { width: 375, height: 812, min: 52, max: 68 },
-      { width: 1440, height: 900, min: 88, max: 120 },
+      { width: 375, height: 812, min: 40, max: 48 },
+      { width: 1440, height: 900, min: 84, max: 92 },
     ] as const;
     for (const band of bands) {
       await page.setViewportSize({ width: band.width, height: band.height });
@@ -164,14 +168,13 @@ test.describe('home page', () => {
             fontSizePx,
             lineHeightRatio: parseFloat(style.lineHeight) / fontSizePx,
             variation: style.fontVariationSettings,
+            weight: style.fontWeight,
             family: style.fontFamily.split(',')[0].replaceAll('"', ''),
           };
         });
       const at = `${band.width}px`;
       expect(measured.text, `wordmark text at ${at}`).toBe(PUBLIC_IDENTITY);
-      expect(measured.family.toLowerCase(), `family at ${at}`).toContain(
-        'tektur',
-      );
+      expect(measured.family, `family at ${at}`).toBe('DM Sans');
       expect(measured.fontSizePx, `wordmark size at ${at}`).toBeGreaterThanOrEqual(
         band.min,
       );
@@ -181,17 +184,13 @@ test.describe('home page', () => {
       expect(
         measured.lineHeightRatio,
         `wordmark line height at ${at}`,
-      ).toBeGreaterThanOrEqual(0.88);
+      ).toBeGreaterThanOrEqual(0.9);
       expect(
         measured.lineHeightRatio,
         `wordmark line height at ${at}`,
-      ).toBeLessThanOrEqual(0.98);
-      expect(measured.variation, `role instance at ${at}`).toMatch(
-        /"wght"\s*600/,
-      );
-      expect(measured.variation, `role instance at ${at}`).toMatch(
-        /"wdth"\s*100/,
-      );
+      ).toBeLessThanOrEqual(0.96);
+      expect(measured.weight, `role instance at ${at}`).toBe('400');
+      expect(measured.variation, `no axis override at ${at}`).toBe('normal');
     }
 
     // The scale and the fold are one constraint: a wordmark inside its band

@@ -38,7 +38,7 @@ export default function MarketMapPage() {
       <div data-pagefind-body>
         <h1
           data-tektur-role="page-h1"
-          className="font-display-page text-3xl tracking-tight text-text"
+          className="font-display-page display-h1"
         >
           Market Map
         </h1>

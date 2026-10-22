@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { revealCiteNote } from './helpers/citation-note';
 
 const source = 'https://arxiv.org/abs/2304.13705';
 const evidence = process.env.PRICING_EVIDENCE_DIR;
@@ -43,7 +44,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await settled(page);
     await expect(page.locator('h1')).toHaveText('Robot Wiki');
     await expect(page.getByText('Citation-first encyclopedia of modern robot learning.', { exact: true }).first()).toBeVisible();
-    await expect(page.locator('mark[data-brand-highlight="home-source-count"]')).toHaveText(/^\d+ sources$/);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the source count left the lime <mark> for the masthead's
+    // meta line, with the same hook and the same text.
+    const sourceCount = page.locator('[data-brand-highlight="home-source-count"]');
+    await expect(sourceCount).toHaveText(/^\d+ sources$/);
+    expect(await sourceCount.evaluate((el) => el.tagName)).toBe('SPAN');
     await capture('home-full', true);
     await inspect('/');
 
@@ -86,7 +92,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(paperLink).toHaveAttribute('href', source);
     await expect(paperLink).toHaveAttribute('rel', /noopener/);
     // Inspect the citation without opening a new external source request.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip's author-year link is now the source link inside
+    // the citation's sidenote, which stands in the margin from 1200 px and
+    // opens inline from its number below that, so the note is shown first.
     const chip = page.locator('div.prose[data-pagefind-body] a').filter({ hasText: /2023/ }).and(page.locator(`a[href="${source}"]`)).first();
+    await revealCiteNote(chip.locator('xpath=ancestor::*[@data-cite-id][1]'), 'keyboard');
     await chip.focus();
     await expect(chip).toBeFocused();
     await expect(chip).toHaveAttribute('href', source);

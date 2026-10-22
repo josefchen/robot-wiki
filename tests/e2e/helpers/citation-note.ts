@@ -113,3 +113,138 @@ export async function cycleInlineCiteNote(page: Page, cite: Locator): Promise<vo
   await expect(mark).toBeFocused();
   await page.setViewportSize(viewport);
 }
+
+/** The facts a reader spec read off the retired tooltip, for one source. */
+export type CiteNoteFacts = { title: string; meta: string; url: string; label?: string };
+
+/**
+ * The tooltip's two lines and its trigger's attributes, read off the note
+ * at the same strength. The tooltip's first span held the title and its
+ * second the venue line. The note sets the title in `.sidenote-title` after
+ * the author-year link (shown when the note opens inline, kept for
+ * assistive technology in the margin) and keeps the venue line as
+ * screen-reader text, so both are matched exactly there. The author-year
+ * link is the source link the chip's trigger was, with the same href,
+ * target and rel; the number that replaced the trigger as the keyboard
+ * stop is described by the note, and the note's id is unique on the page.
+ */
+export async function expectCiteNoteFacts(page: Page, cite: Locator, facts: CiteNoteFacts): Promise<void> {
+  const { mark, note, source } = citeParts(cite);
+  await expect(note.locator('.sidenote-title')).toHaveText(`, ${facts.title}`);
+  await expect(note.locator(':scope > .sr-only')).toHaveText(`. ${facts.meta}`);
+  await expect(source).toHaveAttribute('href', facts.url);
+  await expect(source).toHaveAttribute('target', '_blank');
+  await expect(source).toHaveAttribute('rel', 'noopener noreferrer');
+  if (facts.label !== undefined) await expect(source).toHaveText(facts.label);
+  const id = await note.getAttribute('id');
+  expect(id, 'the note carries an id').toBeTruthy();
+  await expect(mark).toHaveAttribute('aria-describedby', id!);
+  await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
+}
+
+/**
+ * Shows the note by pointer or by keyboard, the two ways the tooltip
+ * opened, and returns whether the note stands in the margin. From 1200 px
+ * a prose note is in the margin at rest and stays there while its number
+ * is pointed at or focused. Elsewhere the number opens it inline, by a
+ * click (the pointer) or by Enter (the keyboard), with focus kept on the
+ * number.
+ */
+export async function showCiteNote(page: Page, cite: Locator, mode: 'hover' | 'keyboard'): Promise<boolean> {
+  const { mark, note } = citeParts(cite);
+  const inMargin = await citeNoteInMargin(cite);
+  const open = async () => (await note.getAttribute('data-open')) === 'true';
+  if (mode === 'hover') {
+    const box = await mark.boundingBox();
+    if (!box) throw new Error('citation number has no box');
+    await mark.hover({ position: { x: box.width / 2, y: box.height / 2 } });
+    if (!inMargin && !(await open())) await clickCiteMark(mark);
+  } else {
+    await mark.focus();
+    await expect(mark).toBeFocused();
+    if (!inMargin && !(await open())) await page.keyboard.press('Enter');
+    await expect(mark).toBeFocused();
+  }
+  await expect(note).toBeVisible();
+  return inMargin;
+}
+
+/**
+ * The tooltip's Escape, on its successor: an inline note closes when its
+ * number is pressed again, by Enter with focus kept on the number or by a
+ * click. A margin note has no open state to dismiss and stays at rest.
+ */
+export async function dismissCiteNote(page: Page, cite: Locator, mode: 'hover' | 'keyboard'): Promise<void> {
+  const { mark, note } = citeParts(cite);
+  if ((await note.getAttribute('data-open')) === 'true') {
+    if (mode === 'keyboard') {
+      await expect(mark).toBeFocused();
+      await page.keyboard.press('Enter');
+    } else {
+      await clickCiteMark(mark);
+    }
+    await expect(note).toHaveAttribute('data-open', 'false');
+    await expect(note).toBeHidden();
+  }
+  if (mode === 'keyboard') await expect(mark).toBeFocused();
+}
+
+/**
+ * The tooltip's "Jump to the full reference" link, on its successor: the
+ * number itself links to the References entry and jumps where its note
+ * stands in the margin, from 1200 px. Narrower, the number opens the note
+ * instead, so the jump is taken at 1280 px; the returned function restores
+ * the viewport once the entry has been read.
+ */
+export async function jumpFromCiteMark(page: Page, cite: Locator, id: string): Promise<() => Promise<void>> {
+  const viewport = page.viewportSize()!;
+  const { mark } = citeParts(cite);
+  await expect(mark).toHaveAttribute('href', `#ref-${id}`);
+  await closeCiteNote(cite);
+  const wide = await citeNoteInMargin(cite);
+  if (!wide) {
+    await page.setViewportSize({ width: 1280, height: viewport.height });
+    await expect.poll(() => citeNoteInMargin(cite)).toBe(true);
+  }
+  await mark.focus();
+  await expect(mark).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
+  return async () => {
+    if (!wide) await page.setViewportSize(viewport);
+  };
+}
+
+/**
+ * The last visible words of a shown note and the note's own box, the
+ * successor of the tooltip's end-of-text geometry. In the margin the note
+ * is its number and label, the title being kept for assistive technology;
+ * inline it also shows the title. Screen-reader-only text is clipped by
+ * design and is not a visible end.
+ */
+export async function citeNoteEnd(note: Locator) {
+  return note.evaluate((el) => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let last: Text | null = null;
+    for (let node = walker.nextNode() as Text | null; node; node = walker.nextNode() as Text | null) {
+      const parent = node.parentElement!;
+      const clipped = parent.closest('.sr-only') || getComputedStyle(parent).clipPath !== 'none' ||
+        parent.getBoundingClientRect().width <= 1;
+      if (!clipped && (node.textContent ?? '').trim()) last = node;
+    }
+    const text = last?.textContent ?? '';
+    const range = document.createRange();
+    if (last) { range.setStart(last, Math.max(0, text.length - 30)); range.setEnd(last, text.length); }
+    const rects = last ? [...range.getClientRects()] : [];
+    const panel = [...el.getClientRects()];
+    const box = {
+      top: Math.min(...panel.map((r) => r.top)), bottom: Math.max(...panel.map((r) => r.bottom)),
+      left: Math.min(...panel.map((r) => r.left)), right: Math.max(...panel.map((r) => r.right)),
+    };
+    return {
+      lastText: text.slice(-30), panel: box,
+      rects: rects.map((r) => ({ top: r.top, bottom: r.bottom, left: r.left, right: r.right })),
+      scrollHeight: el.scrollHeight, clientHeight: el.clientHeight,
+    };
+  });
+}

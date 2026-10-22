@@ -637,7 +637,7 @@
       "routeId": "route:/about/",
       "owner": "route:/about/",
       "ownerPath": "app/about/page.tsx",
-      "ownerSourceFingerprint": "29639942774fdcf96892577e14bec3e7df4b968114dc7c7d80800e0a51085d5c",
+      "ownerSourceFingerprint": "e5365e2dbbe6fc021e4e0823f0b054b80b3b6dc347b02b56a4e6d07bd7cef0e6",
       "canonical": "https://robot-wiki.com/about/",
       "title": "About Robot Wiki: Scope and Reading Order",
       "description": "About Robot Wiki: what it covers and excludes, the order to read its articles in, what they assume you know and how its citations work.",
@@ -676,7 +676,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f49fb56e878b16c6e08bbc7b34f77c409b89e01b7b9c4a344c9fa012a4daf2c3"
+      "fingerprint": "fbaa448e72a02f75296909b881a600a31254e8109cf4777c990a28094316ab80"
     },
     {
       "id": "metadata:/adjacent/",
@@ -1403,7 +1403,7 @@
       "routeId": "route:/credits/",
       "owner": "route:/credits/",
       "ownerPath": "app/credits/page.tsx",
-      "ownerSourceFingerprint": "ff01b9f114ec518019ed33834d68797bf05c0dcc310ae59c9ac1ebf36b0d414c",
+      "ownerSourceFingerprint": "985fe47a406a48051dc08a9c30a3143e1d7974dac846a5a7424a843fd10ce848",
       "canonical": "https://robot-wiki.com/credits/",
       "title": "Credits",
       "description": "Every photograph and diagram on Robot Wiki, with its creator, source, and licence.",
@@ -1442,7 +1442,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "e3151a027a2cd4e7ddec795c394df4ec2787837d043d72d8e0c0e1ad64ded600"
+      "fingerprint": "a6ace2cc2f9231e05e48d12b3dfe8849a32589d876f7705f8fd25ce563cd9f46"
     },
     {
       "id": "metadata:/data-hardware/",
@@ -1833,7 +1833,7 @@
       "routeId": "route:/editorial-policy/",
       "owner": "route:/editorial-policy/",
       "ownerPath": "app/editorial-policy/page.tsx",
-      "ownerSourceFingerprint": "1d366813d8029b5230a8835cce0cf5c4e80c48f611c40f87eef175698494f707",
+      "ownerSourceFingerprint": "370b739d09d572ee63f7da88a39fc333824cde1408e856ec9118b35463a463b7",
       "canonical": "https://robot-wiki.com/editorial-policy/",
       "title": "Editorial Policy: Sources, Review, Corrections",
       "description": "Robot Wiki's editorial policy: how its robotics articles are researched, cited, reviewed, corrected and updated, plus how to report an error.",
@@ -1872,7 +1872,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "7a8574edc77174cc1566cc11f497d1c13080cb8fa3467168a484600d9417ed04"
+      "fingerprint": "2127e7e5cbb8cfcbd5943d14adc050f5d73abb48358c76e4b76169de4b8c2679"
     },
     {
       "id": "metadata:/frontier/",
@@ -3075,7 +3075,7 @@
       "routeId": "route:/market-map/",
       "owner": "route:/market-map/",
       "ownerPath": "app/market-map/page.tsx",
-      "ownerSourceFingerprint": "deda0ece798083f98632991fae548b9e29b8e217310a8410d303dd9f45155b56",
+      "ownerSourceFingerprint": "9ef5cf5bd4cb26d9cb7075a49b25138f5ffb6b1d7b2a8d18b51bc6ccac470b18",
       "canonical": "https://robot-wiki.com/market-map/",
       "title": "Market Map",
       "description": "The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.",
@@ -3114,14 +3114,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "11360b729608270062426da6a54bb228492d629054fa29cddbdc6948f6a3a3c6"
+      "fingerprint": "9dc5c966f45e2eac085cc5bf2e114e4950a8cddc690adafbb57fb21ebf109ebd"
     },
     {
       "id": "metadata:/playground/",
       "routeId": "route:/playground/",
       "owner": "route:/playground/",
       "ownerPath": "app/playground/page.tsx",
-      "ownerSourceFingerprint": "e72a6966f963712c17d22648cc67cc35494271b3a346db4193df0c05d168c93e",
+      "ownerSourceFingerprint": "24041b6b84528ea939e7e9d16fed2037be99cfedb8e8aa172abd596c7be406f9",
       "canonical": "https://robot-wiki.com/playground/",
       "title": "3D Kinematics Playground",
       "description": "A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.",
@@ -3160,14 +3160,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "c380289dcc207b1b7d1b68bc76c8adbe2de0dfeea18899650b1198ef5e45a118"
+      "fingerprint": "454c8392d85ca7ac20c5ba2fa7d2294c98e18479ba4bd16b9fb4587c811e9449"
     },
     {
       "id": "metadata:/privacy/",
       "routeId": "route:/privacy/",
       "owner": "route:/privacy/",
       "ownerPath": "app/privacy/page.tsx",
-      "ownerSourceFingerprint": "7ab178e285dcc4cd0a8d0697131328ddfc6877455d1afd2decdf76121e2ce078",
+      "ownerSourceFingerprint": "b88845c4c0031ee192d9f162ee84782ddf9ade9f39698647c48b99fb77d48a27",
       "canonical": "https://robot-wiki.com/privacy/",
       "title": "Privacy and Anonymous Analytics",
       "description": "Privacy on Robot Wiki: what anonymous traffic information it measures, why it is collected and what is deliberately excluded.",
@@ -3206,7 +3206,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "f7caaaafeb2698ddc6f60c268be5f0add826eadbbafdfe6e910e9242ee817891"
+      "fingerprint": "8b16ad9fc46fc3dc1e6b17fb31c1b1c7e6a3510d94ef6acac3b51a8cf948f9d8"
     },
     {
       "id": "metadata:/rl-sim2real/",
@@ -18153,20 +18153,12 @@
       "definedIn": [
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
-        "components/interactive/terrain-curriculum.tsx",
-        "components/motion/clip.tsx",
-        "components/motion/scene-mount.tsx",
-        "components/motion/scene-player.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
-        "components/interactive/terrain-curriculum.tsx",
-        "components/motion/clip.tsx",
-        "components/motion/scene-mount.tsx",
-        "components/motion/scene-player.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
@@ -18178,7 +18170,7 @@
         "exceptions": []
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "60392895803737311b66fd8cd172c3bd0ce48b6d7f04def10728a7c26cf0de99"
+      "fingerprint": "dd005a7d449531ad6b2b992afb52f4c907f86e05843522b481dc9f3944dbbc78"
     },
     {
       "id": "control:secondary-action",
@@ -18243,11 +18235,13 @@
         "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/scope-follow.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/clip.tsx",
         "components/motion/figure-frame.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
@@ -18313,11 +18307,13 @@
         "components/interactive/safety-filter-fence.tsx",
         "components/interactive/scene-split.tsx",
         "components/interactive/scope-follow.tsx",
+        "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/market-map/company-card.tsx",
         "components/market-map/filter-bar.tsx",
         "components/market-map/funding-timeline.tsx",
         "components/market-map/market-map.tsx",
+        "components/motion/clip.tsx",
         "components/motion/figure-frame.tsx",
         "components/motion/scene-mount.tsx",
         "components/motion/scene-player.tsx",
@@ -18347,11 +18343,11 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "e919dc8a5c92241554deccb634ca8fb87b2057193207c7c89e39eb6d5415dddc"
+      "fingerprint": "638652289ae0a923e6943eb450ce4672f620a35eec0c87e849377b5a8df92517"
     },
     {
       "id": "control:selection",
-      "treatment": "lime-plus-non-colour-marker",
+      "treatment": "ink-weight-plus-ink-rule",
       "statePurpose": "persistent-selection",
       "action": "select or toggle one persistent state",
       "persistentAria": [
@@ -18442,11 +18438,11 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "ab8f26aa30d43d919f1b39b45d7a90472ddb88932b68a9ffef742d9bdf602485"
+      "fingerprint": "9dd706778e6015375f4be93151ab7f54f06cc19384d62dd11be0c687208c9136"
     },
     {
       "id": "control:link-focus",
-      "treatment": "signal-plus-non-colour-affordance",
+      "treatment": "ink-underline-plus-ink-outline",
       "statePurpose": "information-path",
       "action": "navigate to a truthful destination",
       "persistentAria": [
@@ -18613,7 +18609,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "46761419c5d37c3e33a89b633afe731b549567c6c29863275e4ee88c0a27d7d4"
+      "fingerprint": "8a319186e54a7085aa3a77c991d7f83e66ab815493a871a0229b6018b98cd502"
     },
     {
       "id": "control:segmented",
@@ -18838,5 +18834,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "daf12aa651f7de106ee546cfc8d1b108f745ff1cae49683ea4d00677df00ddd8"
+  "rootFingerprint": "aee0314038772d029543842f9ee5087f87d433817443405069801aad7418aed2"
 }

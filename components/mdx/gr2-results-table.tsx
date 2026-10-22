@@ -82,7 +82,7 @@ export function Gr2ResultsTable({ className }: { className?: string }) {
               <td className="px-4 py-2.5 align-top font-mono text-xs text-text-dim">
                 {row.embodiment}
               </td>
-              <td className="px-4 py-2.5 text-right align-top font-mono text-sm text-accent">
+              <td className="px-4 py-2.5 text-right align-top font-mono text-sm text-text">
                 {formatSuccess(row.success)}
               </td>
               <td className="px-4 py-2.5 align-top">

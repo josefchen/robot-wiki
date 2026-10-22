@@ -182,7 +182,7 @@ function ClipPlayButton({
 }) {
   return (
     <button
-      data-brand-control-id="control:primary-action"
+      data-brand-control-id="control:secondary-action"
       data-pagefind-ignore
       data-testid="motion-clip-play"
       type="button"
