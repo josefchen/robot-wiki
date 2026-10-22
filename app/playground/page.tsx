@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { playgroundJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
@@ -37,7 +38,13 @@ export default function PlaygroundPage() {
           one page declares one, so this route needed its own
           (VAL-SEARCH-021). The playground below carries live readouts
           that change on every interaction and are not prose. */}
-      <div data-pagefind-body className="max-w-[58ch]">
+      {/* The playground representative surface declares its material
+          (VAL-B2-SURF-011). */}
+      <div
+        data-pagefind-body
+        {...materialAttributes('paper')}
+        className="max-w-[58ch] material-paper"
+      >
         <h1
           data-tektur-role="page-h1"
           className="font-display-page display-h1"

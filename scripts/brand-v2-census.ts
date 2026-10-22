@@ -988,12 +988,18 @@ function staticRegistries() {
       alignmentTolerancePx: 2,
     }),
   );
+  // Owner decision of 2026-10-10 (PANTHEON-SPEC.md): corners are square
+  // everywhere except the code block's 7px (--code-radius), and no surface
+  // casts a shadow at any level. The rows record the geometry the runtime
+  // tokens render (--radius-* 0px, --shadow-raised/--shadow-floating none),
+  // so a raised or floating surface that drew the brand-v2 4-16px corner or
+  // an 8/20px shadow would contradict its own row.
   const surfaces = [
     {
       id: 'surface:flat',
       level: 'flat',
       stackingPurpose: 'content-plane',
-      allowedRadiusPx: [0, 2, 4, 8],
+      allowedRadiusPx: [0, 7],
       border: { allowedWidthsPx: [0, 1], styles: ['solid', 'dashed'] },
       shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
       allowedOwners: ['article', 'card', 'callout', 'table', 'input', 'code', 'chart', 'diagram', 'simulation', 'media'],
@@ -1002,18 +1008,18 @@ function staticRegistries() {
       id: 'surface:raised',
       level: 'raised',
       stackingPurpose: 'actionable-or-selected',
-      allowedRadiusPx: [4, 8, 16],
+      allowedRadiusPx: [0],
       border: { allowedWidthsPx: [0, 1, 2], styles: ['solid'] },
-      shadow: { neutralOnly: true, maxBlurPx: 8, maxAlpha: 0.12 },
+      shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
       allowedOwners: ['actionable-card', 'calculator', 'active-module'],
     },
     {
       id: 'surface:floating',
       level: 'floating',
       stackingPurpose: 'temporary-overlay',
-      allowedRadiusPx: [4, 8, 16],
+      allowedRadiusPx: [0],
       border: { allowedWidthsPx: [0, 1], styles: ['solid'] },
-      shadow: { neutralOnly: true, maxBlurPx: 20, maxAlpha: 0.18 },
+      shadow: { neutralOnly: true, maxBlurPx: 0, maxAlpha: 0 },
       allowedOwners: ['tooltip', 'menu', 'drawer', 'modal', 'dragged-object'],
     },
   ].map((entry) => stableRecord({ ...entry, ...annotationMountRecord(entry.id) }));

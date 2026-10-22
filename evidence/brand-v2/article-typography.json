@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "194c7d357506bf570b137c956ea56bff95dccfb4b535c0a046ad2d60f11fba66",
+  "fingerprint": "c70c82d8a486da399660d5237d0f9e15f74394bd6a423c808b71c01c817fb4f9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -98146,7 +98146,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 781,
+      "visibleTextLength": 1042,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -98289,11 +98289,156 @@
         }
       ],
       "registrationLabels": [],
-      "monoRequired": [],
+      "monoRequired": [
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        },
+        {
+          "tag": "code",
+          "familyHead": "geist mono"
+        }
+      ],
       "interfaceControls": [
         {
           "tag": "button",
           "text": "Articles",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Reset pose",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "input",
+          "text": "39.1",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "0",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "22.6",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Reach",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Clear target",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Record pose",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Play",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Clear",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Export",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Import a motion",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "textarea",
+          "text": "Paste an exported motion here",
+          "familyHead": "geist mono",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "input",
+          "text": "Choose a motion file",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:input"
+        },
+        {
+          "tag": "button",
+          "text": "Import",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Technical names",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": false,

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { SearchInterface } from '@/components/search/search-interface';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { webPageJsonLd } from '@/lib/structured-data';
 import {
@@ -36,7 +37,13 @@ export const metadata: Metadata = {
  */
 export default function SearchPage() {
   return (
-    <div data-pagefind-ignore className="sheet sheet-masthead pb-8">
+    // The search sheet is the route's representative surface and declares
+    // its material (VAL-B2-SURF-011).
+    <div
+      data-pagefind-ignore
+      {...materialAttributes('paper')}
+      className="sheet sheet-masthead pb-8 material-paper"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -7,6 +7,7 @@ import { IntentLink } from '@/components/ui/intent-link';
 import { citationLabel, citationMeta, getCitation } from '@/data/citations';
 import { DOMAIN_META, DOMAINS, modulesByDomain } from '@/data/modules';
 import type { DomainCitedText, DomainEvidenceRow, Domain } from '@/data/modules';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { relatedTitle } from '@/lib/domain-hub';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import {
@@ -186,7 +187,9 @@ export default async function DomainLandingPage({
           search (VAL-SEARCH-021). The region is the header and the module
           list, excluding the breadcrumb chrome above it. */}
       <div data-pagefind-body>
-        <header className="mb-16">
+        {/* The discovery representative surface declares its material
+            (VAL-B2-SURF-011). */}
+        <header {...materialAttributes('paper')} className="mb-16 material-paper">
           <h1 data-tektur-role="page-h1" className="display-h1">
             {meta.name}
           </h1>

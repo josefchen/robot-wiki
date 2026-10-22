@@ -30,6 +30,18 @@ export type GlobalConvergenceCollectorInput = {
   featureSelector: string;
   frameOwners: ReadonlyArray<{ id: string; selector: string }>;
   ladderPx: readonly number[];
+  /** The registered grid devices, each with the alignment tolerance its row declares. */
+  registeredDevices: ReadonlyArray<{ id: string; tolerancePx: number }>;
+  /** The registered materials a surface may declare. */
+  materialIds: readonly string[];
+  /** Text whose case is its meaning (lib/notation-case.ts), as a regex source. */
+  caseSensitivePattern: string;
+  /** Strings whose case is the public identity and is never converted. */
+  identityStrings: readonly string[];
+  /** How far a major block may sit from a line of its frame (`VAL-B2-GRID-001`). */
+  compositionTolerancePx: number;
+  /** The text contrast a declared material's ground has to clear for its own text. */
+  materialContrastFloor: number;
 };
 
 export type CollectedFinding = {
@@ -85,6 +97,12 @@ export type CollectedPage = {
   sectionGaps: Array<{ element: string; gapPx: number; exemption: string | null }>;
   componentInteriors: Array<{ element: string; paddingPx: number[]; exemption: string | null }>;
   controlGaps: Array<{ element: string; gapPx: number; exemption: string | null }>;
+  /**
+   * Every string a reader can reach in `main`, painted or behind a
+   * disclosure, folded into one order-free digest, so two widths of a route
+   * can be compared for lost content (`VAL-B2-GRID-007`).
+   */
+  content: { strings: number; digest: string };
 };
 
 export type CollectedFocusStop = {
@@ -1101,6 +1119,474 @@ export function collectGlobalConvergence(
     }
   }
 
+  // ---- Devices and decorative layers (VAL-B2-GRID-002/-004/-005/-006) ---
+  const edgeOf = (rect: DOMRect, edge: string) =>
+    edge === 'right'
+      ? rect.right
+      : edge === 'top'
+        ? rect.top
+        : edge === 'bottom'
+          ? rect.bottom
+          : edge === 'center-x'
+            ? rect.left + rect.width / 2
+            : edge === 'center-y'
+              ? rect.top + rect.height / 2
+              : rect.left;
+  const focusable =
+    'a[href], button:not([disabled]), input:not([type="hidden"]):not([disabled]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex]:not([tabindex="-1"]), [contenteditable="true"]';
+  const tolerance = new Map(input.registeredDevices.map(({ id, tolerancePx }) => [id, tolerancePx]));
+  /** A list item's ordinal as its list numbers it. */
+  const ordinalOf = (item: Element | null) => {
+    if (!item || item.tagName !== 'LI') return null;
+    const list = item.parentElement;
+    if (!list || list.tagName !== 'OL') return null;
+    const start = Number(list.getAttribute('start') ?? '1') || 1;
+    return start + [...list.children].filter((child) => child.tagName === 'LI').indexOf(item);
+  };
+  const deviceElements = [...document.querySelectorAll('[data-brand-device-id]')].filter(painted);
+  for (const device of deviceElements) {
+    count('registeredDevices');
+    const id = device.getAttribute('data-brand-device-id') ?? '';
+    let sound = true;
+    if (!tolerance.has(id)) {
+      find('unregistered-device', device, `${id} is not a registered grid device`);
+      sound = false;
+    }
+    if (!device.getAttribute('data-brand-purpose') || !device.getAttribute('data-brand-owner')) {
+      find('unregistered-device', device, `${id} states no structural purpose or owner`);
+      sound = false;
+    }
+    const s = style(device);
+    const exposed: string[] = [];
+    if (!device.closest('[aria-hidden="true"]')) exposed.push('not aria-hidden');
+    if (s.pointerEvents !== 'none') exposed.push(`pointer-events ${s.pointerEvents}`);
+    if (device.matches(`${focusable}, [role]`) || device.querySelector(focusable)) exposed.push('focusable or given a role');
+    if (exposed.length > 0) {
+      find('device-exposed', device, `${id}: ${exposed.join(', ')}`);
+      sound = false;
+    }
+    const selector = device.getAttribute('data-brand-anchor-selector') ?? '';
+    let anchorElement: Element | null = null;
+    try {
+      anchorElement = selector ? document.querySelector(selector) : null;
+    } catch {
+      anchorElement = null;
+    }
+    if (!anchorElement || !painted(anchorElement)) {
+      find('device-misaligned', device, `${id} names the anchor "${selector}", which is not painted on the page`);
+      continue;
+    }
+    const error = Math.abs(
+      edgeOf(device.getBoundingClientRect(), device.getAttribute('data-brand-device-edge') ?? 'left') -
+        edgeOf(anchorElement.getBoundingClientRect(), device.getAttribute('data-brand-anchor-edge') ?? 'left'),
+    );
+    if (error > (tolerance.get(id) ?? 0) + 0.01) {
+      find('device-misaligned', device, `${id} sits ${error.toFixed(1)}px off ${selector}`);
+      sound = false;
+    }
+    // A sequence label is the reading position of the row it labels, never
+    // a decorative number.
+    const label = (device.textContent ?? '').trim();
+    if (label) {
+      const ordinal = ordinalOf(anchorElement.closest('li'));
+      if (!/^\d+$/.test(label) || ordinal === null || Number(label) !== ordinal) {
+        find('technical-glyph', device, `${id} reads "${label}", not the position ${ordinal ?? '(none)'} of the row it labels`);
+        sound = false;
+      }
+    }
+    if (sound) count('alignedDevices');
+  }
+  // Decorative layers: every aria-hidden subtree outside a figure. None may
+  // hold a keyboard stop, and a thin empty rule or a repeated pattern in one
+  // has to be a registered device.
+  for (const element of everything) {
+    if (inFigure(element) || element.closest('.katex')) continue;
+    if (element.getAttribute('aria-hidden') === 'true' && !element.parentElement?.closest('[aria-hidden="true"]')) {
+      count('decorativeLayers');
+      const stop = element.matches(focusable) ? element : element.querySelector(focusable);
+      if (stop && !stop.closest('[inert]')) {
+        find('device-exposed', element, `an aria-hidden layer holds the keyboard stop ${name(stop)}`);
+      }
+    }
+    if (element.hasAttribute('data-brand-device-id')) continue;
+    if ((element.textContent ?? '').trim()) continue;
+    if (element.matches('input, img, svg, canvas, video, iframe, hr, button, a, select, textarea, [role]')) continue;
+    const s = style(element);
+    const rect = element.getBoundingClientRect();
+    const sides = ['top', 'right', 'bottom', 'left'].filter(
+      (side) =>
+        px(s.getPropertyValue(`border-${side}-width`)) > 0 &&
+        !['none', 'hidden'].includes(s.getPropertyValue(`border-${side}-style`)),
+    ).length;
+    const fill = rgba(s.backgroundColor);
+    const thin = (rect.width <= 4 || rect.height <= 4) && Math.max(rect.width, rect.height) >= 24;
+    const rule = thin && (sides === 1 || (!!fill && fill.a > 0));
+    const pattern =
+      s.backgroundImage !== 'none' && s.backgroundRepeat !== 'no-repeat' && rect.width * rect.height >= 2_000;
+    if (rule || pattern) {
+      find(
+        'unregistered-device',
+        element,
+        `an unregistered ${rule ? `${Math.round(rect.width)}x${Math.round(rect.height)} rule` : 'repeated pattern'} with no content`,
+      );
+    }
+  }
+  // Text kept from assistive technology outside a figure: punctuation, a
+  // numeral that repeats the position of the list item it sits in, or the
+  // visible readout of a form control in the same field whose spoken value
+  // or description already carries it. Anything else is a label drawn for
+  // decoration.
+  const spokenBy = (control: Element) =>
+    [
+      control.getAttribute('aria-valuetext') ?? '',
+      ...(control.getAttribute('aria-describedby') ?? '')
+        .split(/\s+/)
+        .map((id) => (id ? document.getElementById(id)?.textContent ?? '' : '')),
+    ]
+      .join(' ')
+      .trim();
+  const readsOutControl = (element: Element, text: string) => {
+    for (let field = element.parentElement, depth = 0; field && depth < 2; field = field.parentElement, depth += 1) {
+      const controls = field.querySelectorAll('input, select, textarea, [role="slider"], [role="spinbutton"]');
+      if (controls.length !== 1) continue;
+      const spoken = spokenBy(controls[0]);
+      if (!spoken) return false;
+      const numerals = text.match(/\d+(?:\.\d+)?/g) ?? [];
+      return numerals.every((numeral) => spoken.includes(numeral));
+    }
+    return false;
+  };
+  const hiddenSeen = new Set<Element>();
+  const hiddenWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let node = hiddenWalker.nextNode(); node; node = hiddenWalker.nextNode()) {
+    const element = node.parentElement;
+    const text = (node.textContent ?? '').trim();
+    if (!element || !text || hiddenSeen.has(element)) continue;
+    if (!element.closest('[aria-hidden="true"]') || element.closest('[data-brand-device-id]')) continue;
+    if (inFigure(element) || element.closest('.katex, pre, code, script, style, template, noscript')) continue;
+    if (!painted(element)) continue;
+    hiddenSeen.add(element);
+    count('hiddenTextRuns');
+    if (!/[\p{L}\p{N}]/u.test(text)) continue;
+    const ordinal = ordinalOf(element.closest('li'));
+    if (/^\d+$/.test(text) && ordinal !== null && Number(text) === ordinal) continue;
+    if (readsOutControl(element, text)) continue;
+    find('technical-glyph', element, `aria-hidden label "${text.slice(0, 30)}" repeats nothing on the page`);
+  }
+  // Animation that runs on its own, outside a figure a reader drives.
+  for (const animation of document.getAnimations()) {
+    const target = (animation.effect as KeyframeEffect | null)?.target ?? null;
+    if (!target) continue;
+    count('animations');
+    const timing = animation.effect?.getComputedTiming();
+    if (animation.playState === 'running' && timing?.iterations === Infinity && !inFigure(target)) {
+      find('ambient-animation', target, `${(animation as CSSAnimation).animationName ?? 'an animation'} loops for ever`);
+    }
+  }
+
+  // ---- Prose grounds (VAL-B2-GRID-003) ---------------------------------
+  const layers: Element[] = [...deviceElements];
+  for (const element of everything) {
+    if (inFigure(element)) continue;
+    if (style(element).backgroundImage !== 'none') layers.push(element);
+  }
+  const layerRects = layers.map((layer) => ({ layer, rect: layer.getBoundingClientRect() }));
+  const proseWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let node = proseWalker.nextNode(); node; node = proseWalker.nextNode()) {
+    const element = node.parentElement;
+    if (!element || !(node.textContent ?? '').trim() || !element.closest('.prose')) continue;
+    if (inFigure(element) || element.closest('.katex, pre, script, style, template')) continue;
+    if (!painted(element)) continue;
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    for (const glyphs of range.getClientRects()) {
+      if (glyphs.width < 1 || glyphs.height < 1) continue;
+      count('proseRuns');
+      for (const { layer, rect } of layerRects) {
+        const width = Math.min(rect.right, glyphs.right) - Math.max(rect.left, glyphs.left);
+        const height = Math.min(rect.bottom, glyphs.bottom) - Math.max(rect.top, glyphs.top);
+        if (width <= 0 || height <= 0) continue;
+        find(
+          layer.hasAttribute('data-brand-device-id') ? 'device-under-prose' : 'texture',
+          element,
+          `prose glyphs "${textOf(element)}" sit over ${name(layer)}`,
+        );
+      }
+    }
+  }
+
+  // ---- Rules, borders, elevation and texture (VAL-B2-GRID-008, VAL-B2-SURF-002/-003/-004/-005/-009)
+  const ruleInk = (c: RGBA | null) =>
+    !!c && near(c, 28, 28, 26, 2) && [0.14, 0.22, 1].some((alpha) => Math.abs(c.a - alpha) <= 0.011);
+  const sideOf = (rect: DOMRect, side: string) =>
+    side === 'top' ? rect.top : side === 'bottom' ? rect.bottom : side === 'left' ? rect.left : rect.right;
+  const paintedSides = (element: Element) => {
+    const s = style(element);
+    return ['top', 'right', 'bottom', 'left'].filter((side) => {
+      const colour = rgba(s.getPropertyValue(`border-${side}-color`));
+      return (
+        px(s.getPropertyValue(`border-${side}-width`)) > 0 &&
+        !['none', 'hidden'].includes(s.getPropertyValue(`border-${side}-style`)) &&
+        !!colour &&
+        colour.a > 0
+      );
+    });
+  };
+  const realInterior = 'table, figure, pre, [data-rehype-pretty-code-figure], fieldset, [role="group"], [role="radiogroup"], [role="tablist"], [role="toolbar"], video, iframe, canvas, img';
+  for (const element of everything) {
+    const s = style(element);
+    if (s.boxShadow !== 'none') find('shadow', element, `box-shadow ${s.boxShadow.slice(0, 80)}`);
+    if (/drop-shadow/.test(s.filter)) find('shadow', element, `filter ${s.filter.slice(0, 80)}`);
+    const glow = [
+      s.textShadow !== 'none' ? `text-shadow ${s.textShadow}` : '',
+      s.filter !== 'none' && !/drop-shadow/.test(s.filter) ? `filter ${s.filter}` : '',
+      s.backdropFilter && s.backdropFilter !== 'none' ? `backdrop-filter ${s.backdropFilter}` : '',
+      s.mixBlendMode !== 'normal' ? `mix-blend-mode ${s.mixBlendMode}` : '',
+    ].filter(Boolean);
+    if (glow.length > 0) find('glow', element, glow.join('; ').slice(0, 120));
+    for (const pseudo of ['::before', '::after'] as const) {
+      const p = getComputedStyle(element, pseudo);
+      if (p.content === 'none' || p.content === 'normal') continue;
+      if (p.boxShadow !== 'none') find('shadow', element, `${pseudo} box-shadow ${p.boxShadow.slice(0, 80)}`);
+      if (p.textShadow !== 'none' || (p.backdropFilter && p.backdropFilter !== 'none')) {
+        find('glow', element, `${pseudo} ${p.textShadow} ${p.backdropFilter}`.slice(0, 120));
+      }
+      if (p.backgroundImage !== 'none' && !inFigure(element)) {
+        find('texture', element, `${pseudo} paints ${p.backgroundImage.slice(0, 80)}`);
+      }
+    }
+    if (inFigure(element) || element.closest('.katex')) continue;
+    if (s.backgroundImage !== 'none') find('texture', element, `paints ${s.backgroundImage.slice(0, 80)}`);
+    const sides = paintedSides(element);
+    if (sides.length === 0) continue;
+    count('borderedSides', sides.length);
+    const rect = element.getBoundingClientRect();
+    const device = element.getAttribute('data-brand-device-id');
+    for (const side of sides) {
+      const width = px(s.getPropertyValue(`border-${side}-width`));
+      const kind = s.getPropertyValue(`border-${side}-style`);
+      const colour = rgba(s.getPropertyValue(`border-${side}-color`));
+      if (Math.abs(width - 1) > 0.01) find('border-weight', element, `a ${width}px ${kind} ${side} border`);
+      if (kind === 'dashed' || kind === 'dotted') find('dashed-border', element, `a ${kind} ${side} border`);
+      if (['double', 'groove', 'ridge', 'inset', 'outset'].includes(kind)) {
+        find('glow', element, `a ${kind} ${side} border bevels the surface`);
+      }
+      if (sides.length < 4) {
+        count('rails');
+        const registration = device === 'device:registration-cross' && isAccent(colour);
+        // A text field's underline is its boundary, which has to clear 3:1
+        // against the ground (WCAG 1.4.11), so it cannot be a hairline.
+        const fieldBoundary =
+          element.matches('input, select, textarea') &&
+          !!colour &&
+          contrast(blend(colour, ground(element)), ground(element)) >= 3;
+        if (!ruleInk(colour) && !registration && !fieldBoundary) {
+          find('rail-colour', element, `the ${side} rule paints ${s.getPropertyValue(`border-${side}-color`)}`);
+        }
+      }
+      if (element.closest(realInterior)) continue;
+      // A rule drawn on top of another: an ancestor's rule on the same side
+      // within a pixel and a half, or the touching edge of the sibling before.
+      const edge = sideOf(rect, side);
+      for (let node = element.parentElement, depth = 0; node && depth < 4; node = node.parentElement, depth += 1) {
+        if (node.matches('html, body') || !paintedSides(node).includes(side)) continue;
+        if (Math.abs(sideOf(node.getBoundingClientRect(), side) - edge) <= 1.5) {
+          find('double-rule', element, `its ${side} rule doubles the one ${name(node)} draws`);
+        }
+        break;
+      }
+      if (side === 'top') {
+        let previous = element.previousElementSibling;
+        while (previous && !painted(previous)) previous = previous.previousElementSibling;
+        if (previous && paintedSides(previous).includes('bottom') && Math.abs(previous.getBoundingClientRect().bottom - edge) <= 1.5) {
+          find('double-rule', element, `its top rule touches the bottom rule of ${name(previous)}`);
+        }
+      }
+    }
+  }
+
+  // ---- Dark surfaces and the light shell (VAL-B2-SURF-006) ---------------
+  // An action may be ink at any size, and a compact control may show its
+  // state in ink; media paints its own pixels, and so does a fill shown only
+  // through an image mask (a logo's ink layer).
+  const actionOrControl =
+    'button, a, input, select, textarea, summary, label, [role="button"], [role="tab"], [role="slider"], [role="switch"], [role="radio"], [role="checkbox"], [role="option"]';
+  for (const element of everything) {
+    if (inFigure(element) || element.matches(`img, picture, video, canvas, iframe, ${actionOrControl}`)) continue;
+    const masked = style(element).maskImage || style(element).getPropertyValue('-webkit-mask-image');
+    if (masked && masked !== 'none') continue;
+    const fill = rgba(style(element).backgroundColor);
+    if (!fill || fill.a < 0.5) continue;
+    const shade = blend(fill, ground(element.parentElement));
+    if (luminance(shade) >= 0.2) continue;
+    const rect = element.getBoundingClientRect();
+    find('dark-surface', element, `a ${Math.round(rect.width)}x${Math.round(rect.height)} surface paints ${style(element).backgroundColor}`);
+  }
+  for (const element of document.querySelectorAll(
+    'html, body, main, header, footer, nav, article, aside, [data-prose-column], .prose',
+  )) {
+    if (element !== document.documentElement && element !== document.body && !painted(element)) continue;
+    if (inFigure(element)) continue;
+    count('shellGrounds');
+    const under = ground(element);
+    if (luminance(under) < 0.8) {
+      find('dark-shell', element, `the ${element.tagName.toLowerCase()} ground is rgb(${Math.round(under.r)}, ${Math.round(under.g)}, ${Math.round(under.b)})`);
+    }
+  }
+  if (/dark/.test(getComputedStyle(document.documentElement).colorScheme)) {
+    find('dark-shell', document.documentElement, `color-scheme ${getComputedStyle(document.documentElement).colorScheme}`);
+  }
+  const themeRules: string[] = [];
+  const scanThemes = (list: CSSRuleList) => {
+    for (const rule of list) {
+      if (rule instanceof CSSMediaRule && /prefers-color-scheme:\s*dark/.test(rule.conditionText)) {
+        themeRules.push(rule.conditionText);
+      }
+      if ('cssRules' in rule && (rule as CSSGroupingRule).cssRules && !(rule instanceof CSSStyleRule)) {
+        scanThemes((rule as CSSGroupingRule).cssRules);
+      }
+    }
+  };
+  for (const sheet of document.styleSheets) {
+    try {
+      scanThemes(sheet.cssRules);
+    } catch {
+      continue;
+    }
+  }
+  if (themeRules.length > 0) {
+    find('dark-shell', document.documentElement, `${themeRules.length} stylesheet rule(s) switch to a dark theme`);
+  }
+
+  // ---- Materials (VAL-B2-SURF-007, VAL-B2-SURF-011) ---------------------
+  for (const surface of document.querySelectorAll('[data-brand-material-id]')) {
+    if (!painted(surface)) continue;
+    const id = surface.getAttribute('data-brand-material-id') ?? '';
+    const problems: string[] = [];
+    if (!input.materialIds.includes(id)) problems.push(`${id} is not a registered material`);
+    if (surface.getAttribute('data-brand-material-deterministic') !== 'true') problems.push('not declared deterministic');
+    if (surface.getAttribute('data-brand-material-contrast') !== 'pass') problems.push('its declared contrast does not pass');
+    const external = surface.getAttribute('data-brand-material-external');
+    if (external !== 'false' && !surface.getAttribute('data-brand-material-provenance')) {
+      problems.push('external with no provenance record');
+    }
+    if (surface.getAttribute('data-brand-material-owned') !== 'owned' && external === 'false') {
+      problems.push('first-party but not declared owned');
+    }
+    const s = style(surface);
+    if (s.backgroundImage !== 'none') problems.push(`paints ${s.backgroundImage.slice(0, 60)}`);
+    const under = ground(surface);
+    const ink = rgba(s.color);
+    const ratio = ink ? contrast(blend(ink, under), under) : 0;
+    if (ratio < input.materialContrastFloor) problems.push(`its text reaches ${ratio.toFixed(2)}:1 on its ground`);
+    if (surface.closest('.prose') || surface.querySelector('.prose')) problems.push('sits behind article prose');
+    if (problems.length > 0) {
+      find('material', surface, problems.join('; '));
+      continue;
+    }
+    count('materialSurfaces');
+  }
+
+  // ---- Rendered casing (VAL-B2-GRID-010) --------------------------------
+  const caseSensitive = new RegExp(input.caseSensitivePattern, 'gu');
+  const casingSeen = new Set<Element>();
+  const casingWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let node = casingWalker.nextNode(); node; node = casingWalker.nextNode()) {
+    const element = node.parentElement;
+    const text = node.textContent ?? '';
+    if (!element || !text.trim() || element.closest('svg, .katex, pre, code, script, style, template, noscript')) continue;
+    const s = style(element);
+    const transformed = s.textTransform !== 'none' || s.fontVariantCaps !== 'normal';
+    if (!transformed || !painted(element)) continue;
+    if (!casingSeen.has(element)) {
+      casingSeen.add(element);
+      count('transformedLabels');
+    }
+    const drift = [...text.matchAll(caseSensitive)].map(([match]) => match);
+    drift.push(...input.identityStrings.filter((identity) => text.includes(identity)));
+    if (s.textTransform === 'lowercase') drift.push(...(text.match(/\b[A-Z]{2,}\b/g) ?? []));
+    if (drift.length > 0) {
+      find(
+        'casing-drift',
+        element,
+        `${s.textTransform === 'none' ? s.fontVariantCaps : s.textTransform} rewrites "${drift.join('", "')}" in "${text.trim().slice(0, 60)}"`,
+      );
+    }
+  }
+
+  // ---- Major composition (VAL-B2-GRID-001) -------------------------------
+  if (ownerElement && anchor) {
+    const s = style(ownerElement);
+    const box = ownerElement.getBoundingClientRect();
+    const left = box.left + px(s.paddingLeft) + px(s.borderLeftWidth);
+    const right = box.right - px(s.paddingRight) - px(s.borderRightWidth);
+    const lines = [left, right];
+    const centres = [(left + right) / 2];
+    if (s.display === 'grid' || s.display === 'inline-grid') {
+      const tracks = s.gridTemplateColumns.split(/\s+/).map(px);
+      const gap = px(s.columnGap);
+      let x = left;
+      tracks.forEach((track, index) => {
+        lines.push(x, x + track);
+        centres.push(x + track / 2);
+        x += track + (index < tracks.length - 1 ? gap : 0);
+      });
+    }
+    const blocks = new Set<Element>([anchor, ...ownerElement.children]);
+    for (const prose of ownerElement.querySelectorAll('.prose')) for (const child of prose.children) blocks.add(child);
+    for (const block of blocks) {
+      if (!painted(block) || block.closest('svg')) continue;
+      const b = style(block);
+      if (b.position === 'absolute' || b.position === 'fixed' || b.float !== 'none') continue;
+      count('compositionBlocks');
+      const r = block.getBoundingClientRect();
+      const offset = Math.min(
+        ...lines.map((line) => Math.abs(r.left - line)),
+        ...lines.map((line) => Math.abs(r.right - line)),
+        ...centres.map((centre) => Math.abs(r.left + r.width / 2 - centre)),
+      );
+      if (offset > input.compositionTolerancePx) {
+        find('composition-offgrid', block, `starts, ends and centres ${offset.toFixed(1)}px from every line of ${name(ownerElement)}`);
+      }
+    }
+  }
+
+  // ---- Reachable content (VAL-B2-GRID-007) ------------------------------
+  const disclosed = new Set<Element>();
+  for (const control of document.querySelectorAll('[aria-controls], [aria-describedby], [popovertarget]')) {
+    for (const attribute of ['aria-controls', 'aria-describedby', 'popovertarget']) {
+      for (const id of (control.getAttribute(attribute) ?? '').split(/\s+/)) {
+        const target = id ? document.getElementById(id) : null;
+        if (target) disclosed.add(target);
+      }
+    }
+  }
+  const reachable = (element: Element) => {
+    if (element.getClientRects().length > 0) return true;
+    if (element.closest('details:not([open])')) return true;
+    for (let n: Element | null = element; n; n = n.parentElement) if (disclosed.has(n)) return true;
+    return false;
+  };
+  const strings = new Set<string>();
+  const contentRoot = document.querySelector('main') ?? document.body;
+  const contentWalker = document.createTreeWalker(contentRoot, NodeFilter.SHOW_TEXT);
+  for (let node = contentWalker.nextNode(); node; node = contentWalker.nextNode()) {
+    const element = node.parentElement;
+    const text = (node.textContent ?? '').replace(/\s+/g, ' ').trim();
+    if (!element || !text) continue;
+    if (element.closest('script, style, template, noscript, [hidden], svg title, [aria-hidden="true"]')) continue;
+    if (reachable(element)) strings.add(text);
+  }
+  let digest = 0;
+  for (const text of strings) {
+    let hash = 2166136261;
+    for (let i = 0; i < text.length; i += 1) {
+      hash ^= text.charCodeAt(i);
+      hash = Math.imul(hash, 16777619) >>> 0;
+    }
+    digest = (digest + hash) >>> 0;
+  }
+
   return {
     counts,
     findings,
@@ -1118,6 +1604,7 @@ export function collectGlobalConvergence(
     sectionGaps,
     componentInteriors,
     controlGaps,
+    content: { strings: strings.size, digest: digest.toString(16).padStart(8, '0') },
   };
 }
 

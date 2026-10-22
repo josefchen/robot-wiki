@@ -20,7 +20,7 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
       data-brand-surface-id="surface:flat"
       data-brand-frame-depth="1"
       data-brand-frame-interior-registered="code"
-      className="my-8 overflow-hidden rounded-[7px] bg-surface-2"
+      className="my-8 overflow-hidden rounded-[var(--code-radius)] bg-surface-2"
     >
       <figcaption
         data-brand-surface-id="surface:flat"

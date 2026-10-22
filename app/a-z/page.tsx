@@ -9,6 +9,7 @@ import {
   letterAnchorId,
   type AzIndexSourceEntry,
 } from '@/lib/az-index';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
@@ -77,7 +78,9 @@ export default function AzIndexPage() {
           titles and term names that all live on their own routes, and
           indexing them here would put this page in front of the article a
           reader was looking for. */}
-      <header data-pagefind-body>
+      {/* The index's representative surface declares its material
+          (VAL-B2-SURF-011). */}
+      <header data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1 data-tektur-role="page-h1" className="display-h1 mt-6">
           A-Z Index
         </h1>

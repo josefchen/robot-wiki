@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import { citationLabel, getCitation } from '@/data/citations';
 import { glossaryTermsAlphabetical } from '@/data/glossary';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { definitionParagraphs } from '@/lib/discovery-prose';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
 import { glossaryJsonLd } from '@/lib/structured-data';
@@ -43,7 +44,9 @@ export default function GlossaryPage() {
           body region as soon as one page declares one, which left this
           route unreachable by the query "Glossary" that the sidebar itself
           invites (VAL-SEARCH-021, VAL-SEARCH-022). */}
-      <header data-pagefind-body>
+      {/* The glossary's representative surface declares its material
+          (VAL-B2-SURF-011). */}
+      <header data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1 data-tektur-role="page-h1" className="display-h1">
           Glossary
         </h1>

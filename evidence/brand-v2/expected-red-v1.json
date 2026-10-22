@@ -15,12 +15,10 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-015",
       "expected": "all eight home reference-feature anchors pass independently",
-      "actual": "home now registers a structural signature on every top-level section, so its module repetition and frame depth are measured and bounded; it still fails identity (exact name, descriptor, and Tektur), purposeful-devices, palette-type, and material-treatment",
+      "actual": "home registers a structural signature on every top-level section, a registered rail that states its purpose and owner, and a declared paper material on its masthead, so its module repetition, frame depth, devices and material are measured and bounded; it still fails identity (exact name, descriptor, and Tektur) and palette-type",
       "failedAnchors": [
         "identity",
-        "purposeful-devices",
-        "palette-type",
-        "material-treatment"
+        "palette-type"
       ],
       "rolloutMilestone": "brand-v2-social-convergence"
     },
@@ -28,12 +26,10 @@
       "suite": "brand-v2 reference-feature rubric",
       "assertionId": "VAL-B2-EVID-004",
       "expected": "all eight article reference-feature anchors pass independently without cross-composition pixel scoring",
-      "actual": "v1 article fails identity (exact public name and Tektur), purposeful-devices, palette-type, and material-treatment",
+      "actual": "the article's rails state their purpose and owner and its title sheet declares the paper material; it still fails identity (exact public name and Tektur) and palette-type",
       "failedAnchors": [
         "identity",
-        "purposeful-devices",
-        "palette-type",
-        "material-treatment"
+        "palette-type"
       ],
       "rolloutMilestone": "brand-v2-social-convergence"
     }

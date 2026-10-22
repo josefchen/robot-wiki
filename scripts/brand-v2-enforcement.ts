@@ -263,12 +263,20 @@ import {
   GLOBAL_CONVERGENCE_EVIDENCE_PATH,
   GLOBAL_CONVERGENCE_SWEEP_MODULE,
   GLOBAL_CONVERGENCE_VIEWPORTS,
+  REPRESENTATIVE_SURFACES,
+  REPRESENTATIVE_SURFACE_POPULATION_SOURCE,
   ROUTE_ROW_PREDICATES,
+  SOCIAL_ARTWORK_MANIFEST_PATH,
+  SURFACE_FAMILIES,
+  SURFACE_FAMILY_POPULATION_SOURCE,
   TYPE_POPULATION_SOURCE,
   TYPE_POPULATIONS,
+  VIEWPORT_PAIR_ROW,
   globalConvergenceEvidenceFingerprint,
   globalConvergenceVerdicts,
+  readConvergenceRegistry,
   readGlobalConvergenceEvidence,
+  readSocialArtwork,
 } from '../lib/brand-v2-global-convergence-evidence.ts';
 import {
   HOME_ASSERTION_POPULATION_SOURCES,
@@ -1154,6 +1162,10 @@ const GLOBAL_CONVERGENCE_EVIDENCE = readGlobalConvergenceEvidence({
 });
 const GLOBAL_CONVERGENCE_VERDICTS = globalConvergenceVerdicts(
   GLOBAL_CONVERGENCE_EVIDENCE,
+  readSocialArtwork(
+    readJson(join(ROOT, SOCIAL_ARTWORK_MANIFEST_PATH)),
+    readConvergenceRegistry(ROOT),
+  ),
 );
 // The sweep's per-frame inline minimum is its own constant; it has to be
 // the one the page-frame registry declares, or VAL-B2-SPACE-002 would be
@@ -1548,6 +1560,8 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     ...MAP_POPULATIONS,
     ...OG_POPULATIONS,
     [TYPE_POPULATION_SOURCE]: Object.keys(TYPE_POPULATIONS),
+    [SURFACE_FAMILY_POPULATION_SOURCE]: [...SURFACE_FAMILIES],
+    [REPRESENTATIVE_SURFACE_POPULATION_SOURCE]: [...REPRESENTATIVE_SURFACES],
   };
 }
 
@@ -2147,22 +2161,22 @@ const HOME_TOOLS_READER_TARGET = testTarget(
 const GLOBAL_CONVERGENCE_SWEEP_TARGET = testTarget(
   GLOBAL_CONVERGENCE_SWEEP_MODULE,
   'brand-v2 global type, colour, spacing and component convergence › every public route is read at each page-frame width',
-  'Loads every registry-derived public route in the built export at 375x812, 768x1024 and 1440x900, discovers actions, selections, links, inputs, cards, frames, citation marks, section heads, text runs and spacing values structurally from computed styles and the accessibility tree before reading any annotation, composites each label onto the ground it actually paints over, measures each section gap, inline inset, frame width and text box as laid out, and walks thirty real Tab stops reading the focus ring and whatever covers the focused control.',
+  'Loads every registry-derived public route in the built export at 375x812, 768x1024 and 1440x900, discovers actions, selections, links, inputs, cards, frames, citation marks, section heads, text runs, spacing values, devices, rules, decorative layers, transformed labels, material surfaces and major blocks structurally from computed styles and the accessibility tree before reading any annotation, composites each label onto the ground it actually paints over, measures each section gap, inline inset, frame width, device anchor, block line and text box as laid out, digests the content each width can reach, and walks thirty real Tab stops reading the focus ring and whatever covers the focused control.',
 );
 const GLOBAL_CONVERGENCE_PLANT_TARGET = testTarget(
   GLOBAL_CONVERGENCE_SWEEP_MODULE,
   'brand-v2 global type, colour, spacing and component convergence › the global verdicts fail independently when their subjects are broken',
-  'Plants each route predicate on the last registered route of the corpus just measured and requires exactly the rows that own it to fail that route and no other, plants a signal-blue keyboard ring, an unregistered 7 px margin, an 8 px inset, a 40 px section gap, a 1100 px paragraph, an unowned h1, a word-broken heading and a covered focus stop against the frame rows, and a Tektur tuple into each type population, then proves the reader refuses a dropped route, a missing route/viewport reading, a stale fingerprint and an empty population.',
+  'Plants each route predicate on the last registered route of the corpus just measured and requires exactly the rows that own it to fail that route and no other, plants a signal-blue keyboard ring, an unregistered 7 px margin, an 8 px inset, a 40 px section gap, a 1100 px paragraph, an unowned h1, a word-broken heading, a covered focus stop and an off-line block against the frame rows, a Tektur tuple into each type population, a phone reading with an extra device or lost content against its route, a bare home and a deviceless or unstable social card against their surfaces, then proves the reader refuses a dropped route, a missing route/viewport reading, a stale fingerprint and an empty population.',
 );
 const GLOBAL_CONVERGENCE_READER_TARGET = testTarget(
   'tests/unit/brand-v2-global-convergence-evidence.test.ts',
   'global convergence evidence > refuses stale, incomplete, and vacuous convergence evidence',
-  'Proves the reader that gates all seventeen rows throws on a wrong version, a stale fingerprint, a dropped, extra or duplicated route, a missing viewport, a non-200 page, an empty page, a short keyboard trace, an exemption the register does not hold or does not grant for that predicate, route, property or value, a register clause the sweep never used, and an empty population.',
+  'Proves the reader that gates all thirty-six rows throws on a wrong version, a stale fingerprint, a dropped, extra or duplicated route, a missing viewport, a non-200 page, an empty page, a short keyboard trace, an exemption the register does not hold or does not grant for that predicate, route, property or value, a register clause the sweep never used, and an empty population.',
 );
 const GLOBAL_CONVERGENCE_VERDICT_TARGET = testTarget(
   'tests/unit/brand-v2-global-convergence-evidence.test.ts',
   'global convergence evidence > fails each planted violation under the rows that own it',
-  'Proves on a synthetic sweep that every route predicate, an off-ink, too-wide or unexcused offset keyboard ring, each spacing, separation, frame-geometry, ownership and collision defect, and a tuple outside each sealed type population fails its own row and member, and that an exempted finding fails nothing.',
+  'Proves on a synthetic sweep that every route predicate, an off-ink, too-wide or unexcused offset keyboard ring, each spacing, separation, frame-geometry, ownership, composition and collision defect, a tuple outside each sealed type population, a narrow width with more devices or less content than the desktop, and a surface with no device, no sound material or an unstable card fails its own row and member, and that an exempted finding fails nothing.',
 );
 
 const FIGURE_SWEEP_TARGET = testTarget(
@@ -3932,6 +3946,18 @@ function globalConvergenceAssertionEvidence(
   const routeRow = assertionId in ROUTE_ROW_PREDICATES;
   const actual = routeRow
     ? `${member} at ${viewports.join(', ')}: no unexempted ${ROUTE_ROW_PREDICATES[assertionId].join(', ')} finding${Object.keys(exempted).length > 0 ? `; registered exemptions used: ${Object.entries(exempted).map(([id, count]) => `${id} x${count}`).join(', ')}` : ''}`
+    : assertionId === VIEWPORT_PAIR_ROW
+      ? `${member}: ${viewports.map((viewport) => `${observed[`devices@${viewport}`]} registered device(s) at ${viewport}`).join(', ')}, never more on a narrower width, and the same ${observed.contentStrings} reachable strings at every width`
+    : assertionId === 'VAL-B2-GRID-002'
+      ? member === 'social-artwork'
+        ? `social-artwork: all ${observed.cards} generated cards draw registered grid devices (${observed.devices} device instances)`
+        : `${member}: every one of its ${observed.routes} public route(s) carries a registered, aligned, pointer-inert device at ${viewports.join(', ')} (${observed.alignedDevices} instances)`
+    : assertionId === 'VAL-B2-SURF-011'
+      ? member === 'social-artwork'
+        ? `social-artwork: all ${observed.cards} generated cards render byte-identically twice, paint only token colours with no translucent or off-palette pixel, pass every contrast anchor, and set type from registered font binaries`
+        : `${member}: every one of its ${observed.routes} public route(s) declares the deterministic, owned paper material at ${viewports.join(', ')} (${observed.materialSurfaces} surfaces), its text clearing 4.5:1 on its ground, with no texture and nothing behind prose`
+    : assertionId === 'VAL-B2-GRID-001'
+      ? `${member} at ${observed.viewport}: all ${observed.routes} public routes set ${observed.compositionBlocks} major blocks on a line of the frame that owns them, within 4px${Number(observed.exemptedCompositionBlocks) > 0 ? ` (${observed.exemptedCompositionBlocks} on the owner-frozen explainer page)` : ''}, over ${observed.spacingValues} spacing values on the ladder`
     : assertionId === 'VAL-B2-TYPE-018'
       ? `the ${member} population holds ${observed.elements} rendered elements in ${observed.forms} distinct tuples across every public route at ${viewports.join(', ')}, each inside a sealed form of the population${Number(observed.exempted) > 0 ? ` (${observed.exempted} under the owner-frozen explainer register)` : ''}`
       : `${member} at ${observed.viewport}: all ${observed.routes} public routes hold the row, over ${observed.spacingValues} spacing values, ${observed.insetTextRuns} inset text runs, ${observed.sectionGaps} section gaps, ${observed.componentInteriors} component interiors, ${observed.controlGaps} control gaps, ${observed.collisionTextBoxes} text boxes and ${observed.focusStops} keyboard stops`;
@@ -4580,7 +4606,7 @@ function generate() {
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : GLOBAL_CONVERGENCE_ASSERTIONS.has(id)
-              ? `${id} per-member evidence derived from the persisted ${GLOBAL_CONVERGENCE_VIEWPORTS.map(({ id: viewport }) => viewport).join('/')} sweep of every public route in the built export, reading each structurally discovered action, selection, link, input, card, frame, citation mark, section, text run and spacing value as the browser computed and laid it out plus a thirty-stop keyboard trace, decided against the research-page successor thresholds with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
+              ? `${id} per-member evidence derived from the persisted ${GLOBAL_CONVERGENCE_VIEWPORTS.map(({ id: viewport }) => viewport).join('/')} sweep of every public route in the built export, reading each structurally discovered action, selection, link, input, card, frame, citation mark, section, text run, spacing value, device, rule, decorative layer, transformed label, material surface and major block as the browser computed and laid it out, the content each width can reach, and a thirty-stop keyboard trace (the social-artwork surface read off the generated card manifest), decided against the research-page successor thresholds with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)

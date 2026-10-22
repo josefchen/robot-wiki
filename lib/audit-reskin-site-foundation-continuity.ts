@@ -40,23 +40,23 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 218944, sha256: 'ef219bf8608a3f751191e571b6a8adb909b3204bb72079a563323f384f8d479b' };
+const reviewPin = { bytes: 223278, sha256: '10764a1e76c318df37a0cce97f9b8630a72ab2508fa57d15b1a8ac79fefb2c21' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
-  ['app/(content)/[domain]/[slug]/page.tsx', [13070, '7c97076edf344ea7b7540608801c57732054b5252477eab1ed8d9893c2c3a34c']],
-  ['app/(content)/[domain]/page.tsx', [10361, '071f0fe3426105d77c60e9db62939597aa6d192d10ce2ccf3a20a96537f048e3']],
-  ['app/a-z/page.tsx', [6597, 'ce64d4a3aea6d8c85e5301a2955e72197d3a68d3e364653c8a978ec9dadd6b17']],
+  ['app/(content)/[domain]/[slug]/page.tsx', [13879, '4fd4e7019be88898c8ce46513f1d0f6fb6017352a69b22853297b7dfa251e324']],
+  ['app/(content)/[domain]/page.tsx', [10578, '1c268a9010c58a7f1684cd24f642817b87878b4413e145e361ed72653f1d62ce']],
+  ['app/a-z/page.tsx', [6820, '4b66c75008cda5ebef7f1c7add2725e57309b2efafd093d5b4c74e1c886ac476']],
   ['app/about/page.tsx', [5933, 'e9aaad71dc1cfff9927a94b6513b3802d66273b1dc1c62cd0d3f3d8233dbc150']],
   ['app/credits/page.tsx', [8783, '16e103d18fdfd0f7934e868342fcb348532d9b450078c1eddf0e09b25221efc5']],
   ['app/editorial-policy/page.tsx', [4443, '257028078639e755cd778b3ca3ef9d1c2a2aa126fb9053b67e5e50472cc78afa']],
-  ['app/globals.css', [33372, '62d80af952c5ce63dac13c4ea4b40748882c9f19cfe78aa4b3c3111f7ab94370']],
-  ['app/glossary/page.tsx', [5323, 'fd573583eef2c762e26081e85dda3c1f48b8461cce24a41116e19114b7fc3b21']],
+  ['app/globals.css', [33751, '5c9a4b5a3c9d020c878177d4528f6f5c2917ae2729d7bab1ef16883223de0dd8']],
+  ['app/glossary/page.tsx', [5549, 'b3bf27a520bd31db700922be2d6ea06769500299890ccbb384b754335b31cee8']],
   ['app/layout.tsx', [4426, '7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5']],
   ['app/not-found.tsx', [2670, '61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9']],
-  ['app/page.tsx', [11945, 'ecd27da9b503740482930904478dec78a843bf338515b19489529c28c49c9973']],
+  ['app/page.tsx', [12211, '06adecb7d8b51d4e2dcedb73202c39b095a1681f4eed4ff0f4e7643486ab13d6']],
   ['app/privacy/page.tsx', [3922, '4162cdcfe9d285a5be25579f78b7b5c7a257c1a8c217c13c3686adb192603604']],
-  ['app/search/page.tsx', [2386, '812ecfe725d6dde3691e47dce6be31c0456e0312ee87c25f267e443ea7b63878']],
+  ['app/search/page.tsx', [2634, '71e590bc0e02fb2e17fbaba7ec3b49d55906a60cfbe0479e7c540e56a108595a']],
   ['components/article/article-header.tsx', [2737, '0e6de69a8588c6d716b7ef9969701dfe798b3b44608f305307a99f6a04c8af1c']],
   ['components/article/breadcrumbs.tsx', [4821, 'f339ceecb4b0d338067ab20ff3e18b22a07e3ea36575066b52a721748f1002de']],
   ['components/article/commit-to-reveal.tsx', [13693, '318c361237e36c0781aee01817b33ba3f9dde879277d77acba95bdb0514cf316']],
@@ -67,7 +67,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/home/home-search.tsx', [1555, '34497e010c08772608f61c7160319348efc5918c10ea100e24ec731977eebe6c']],
   ['components/nav/nav-tree.tsx', [7461, '45c349bc17cc35b756995ad76e07e8dc0337cf47d09bd334f143f165b4614602']],
   ['components/nav/search-box.tsx', [2330, 'b7c20da06d0bad70111694d3ad0611c9d7e02ce34197610ae0f54a8e3210b78b']],
-  ['components/nav/site-footer.tsx', [4958, 'fd96f04fd40b1fe84eee17b6355aa69cb8cbd88684617c92588e354a56e0ce47']],
+  ['components/nav/site-footer.tsx', [5628, 'cd64ff68d483ec143ce64241ec39998907fd323946e80fa845ab92a774403c02']],
   ['components/nav/site-shell.tsx', [11291, 'c96a2bff291d040f83963e3ecb676298727ec56d4542086f79789356594513f7']],
   ['components/search/results-group.tsx', [2789, '6c8d42c17798590e7d958d9f4b06f3c43c8b0e601040c76d7968d174f625bec3']],
   ['components/search/search-interface.tsx', [22504, '9b6396a3cebc107b28ae2a6d472b571de9814b58dc39cbfdc92921e8077ad15e']],
@@ -77,7 +77,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/ui/card.tsx', [1948, '8125ef184499dd6843e602d5f60bbcc51d16165e9c135d296166324882ded1de']],
   ['components/ui/chip.tsx', [1404, 'ad85270b8f9d35724744af9a598131ac6066d90d64e1b66176798d6a80c14b7c']],
   ['components/ui/cite.tsx', [4783, 'cd028146d7e2b05c0b4ce5269c7fb7518eb45aaefb91c150d03565d77cac2c81']],
-  ['components/ui/code-block.tsx', [1415, '8dad0fc0047e962a8d6e3d73bd95c697af6c190d4cf1d7e65cff926514c62524']],
+  ['components/ui/code-block.tsx', [1430, '3526006a9a5bf11b3d7a702a4b1ef4d636cb647bcd83b4dfa2bbcc616b9dc0ac']],
   ['components/ui/table.tsx', [8316, '59f239fcde4498d01359bf0568a6e23e2188a891c17a524dc665eda132e422d9']],
   ['components/ui/tabs.tsx', [2844, '6b8cd205e909cfff2f5e783de2cc717cab0c864579f6e3fc557d646edf58f00d']],
   ['lib/rehype-cite-punctuation.mjs', [6741, 'd801b6f103d9dc0d497d8f5569f4ec01354852878aee8638dced4e24a2e30631']],

@@ -1,17 +1,21 @@
 import type { HTMLAttributes, ReactNode } from 'react';
+import {
+  SITE_MATERIALS,
+  materialAttributes,
+  type MaterialTreatment,
+} from '@/lib/brand-v2-materials';
 import { cx } from '@/lib/utils';
-
-type MaterialTreatment = 'paper';
 
 type MaterialProps = HTMLAttributes<HTMLDivElement> & {
   treatment?: MaterialTreatment;
   children: ReactNode;
 };
 
-const materialClasses: Record<MaterialTreatment, string> = {
-  paper: 'material-paper',
-};
-
+/**
+ * A block that paints one registered material. Surfaces that already own an
+ * element spread `materialAttributes()` and the material's class on it
+ * instead of adding a wrapper (lib/brand-v2-materials.ts).
+ */
 export function Material({
   treatment = 'paper',
   className,
@@ -20,9 +24,8 @@ export function Material({
 }: MaterialProps) {
   return (
     <div
-      data-brand-material-id={`material:${treatment}`}
-      data-brand-material-owned="owned"
-      className={cx(materialClasses[treatment], className)}
+      {...materialAttributes(treatment)}
+      className={cx(SITE_MATERIALS[treatment].className, className)}
       {...props}
     >
       {children}

@@ -883,6 +883,17 @@ article > hr {
   font-size: 0.875em;
 }
 
+/*
+ * A list that declares list-none (a figure's tile grid, a card list, a
+ * control column) draws no marker. The prose rules above are unlayered, so
+ * they outrank Tailwind's layered utility and painted a stray bullet beside
+ * each tile of those grids: an unanchored glyph that no registry owns
+ * (VAL-B2-GRID-006).
+ */
+.prose :is(ul, ol).list-none {
+  list-style: none;
+}
+
 .prose strong {
   color: var(--ink);
   font-weight: 600;

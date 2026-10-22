@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3b6eeee6fb165dae0ec7f0de6a960671d13741246104ea788a1266c7f0da7830",
+  "fingerprint": "dbdb084724ca91e9866ea2ba24caa5a833c5a4df738ea34e6f4bc90ef804a27a",
   "viewport": "1440x900",
   "route": "/",
   "visibleTextLength": 2841,
@@ -914,8 +914,8 @@
       "index": 0,
       "label": "Introduction",
       "signature": "sheet/display-lockup/search-form",
-      "derivedSignature": "transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=1,h3=0,h4=0,blockquote=0,pre=0",
-      "derivedSurfaceHeadingAction": "transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1]",
+      "derivedSignature": "rgb(250, 250, 248)|0,0,0,0|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=1,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedSurfaceHeadingAction": "rgb(250, 250, 248)|0,0,0,0|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1]",
       "headingTag": "h1",
       "headingSizePx": 87.36
     },
@@ -1065,7 +1065,7 @@
       "declaredSignature": "sheet/display-lockup/search-form",
       "registeredOwner": "opus-pass-homepage",
       "registeredPurpose": "The identity line: the public identity and the locked descriptor on the opening sheet, the registry counts, and the search form whose black submit is the primary action.",
-      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=1,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedStructuralForm": "rgb(250, 250, 248)|0,0,0,0|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/87.36/400/DM Sans/none || button[rgb(28, 28, 26)/rgb(255, 255, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=1,h3=0,h4=0,blockquote=0,pre=0",
       "derivedForm": "form:1",
       "derivedSurfaceHeadingActionForm": "form:1"
     },

@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Children, cloneElement, isValidElement } from 'react';
 import { HeadingPermalink } from '@/components/article/heading-permalink';
+import { CASE_SENSITIVE } from '@/lib/notation-case';
 
 /**
  * Article h2 and h3 in MDX prose, with a copy-link control attached.
@@ -25,18 +26,17 @@ function textOf(node: ReactNode): string {
 
 /**
  * The h2 is set in tracked capitals (app/globals.css), and an uppercase
- * transform turns a lowercase Greek letter into its capital: the model
- * name π0.7 would read Π0.7, another symbol. A word that holds lowercase
- * Greek keeps its case inside the heading; every other word is untouched.
- * The whole word is wrapped, so the span starts and ends where the word
- * does and the reading-time count sees the same words as before.
+ * transform changes text whose case is its meaning: the model name π0.7
+ * would read Π0.7, another symbol, and 2000 mm/s would read MM/S. Each such
+ * piece (lib/notation-case.ts) keeps its case inside the heading; every
+ * other word is untouched. A Greek match is the whole word, so the span
+ * starts and ends where the word does and the reading-time count sees the
+ * same words as before; a unit is already a word of its own.
  */
-const LOWER_GREEK = /(\S*[\u03B1-\u03C9\u03D1\u03D5\u03D6]\S*)/;
-
-function keepGreekCase(node: ReactNode): ReactNode {
+function keepNotationCase(node: ReactNode): ReactNode {
   if (typeof node === 'string') {
-    if (!LOWER_GREEK.test(node)) return node;
-    return node.split(LOWER_GREEK).map((part, index) =>
+    if (!CASE_SENSITIVE.test(node)) return node;
+    return node.split(CASE_SENSITIVE).map((part, index) =>
       index % 2 === 1 ? (
         <span key={index} className="normal-case">
           {part}
@@ -46,9 +46,9 @@ function keepGreekCase(node: ReactNode): ReactNode {
       ),
     );
   }
-  if (Array.isArray(node)) return Children.map(node, keepGreekCase);
+  if (Array.isArray(node)) return Children.map(node, keepNotationCase);
   if (isValidElement<{ children?: ReactNode }>(node) && node.props.children !== undefined) {
-    return cloneElement(node, undefined, keepGreekCase(node.props.children));
+    return cloneElement(node, undefined, keepNotationCase(node.props.children));
   }
   return node;
 }
@@ -77,7 +77,7 @@ function heading(level: 2 | 3) {
       // aria-label pins the heading to its own text instead, so the heading
       // still announces as the section it names.
       <Tag id={id} aria-label={text} className="group/heading" {...rest}>
-        {level === 2 ? keepGreekCase(children) : children}
+        {level === 2 ? keepNotationCase(children) : children}
         <HeadingPermalink headingId={id} headingText={text} />
       </Tag>
     );

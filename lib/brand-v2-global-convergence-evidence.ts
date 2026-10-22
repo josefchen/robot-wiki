@@ -1,4 +1,10 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { z } from 'zod';
+import { DOMAINS } from '../data/domains.ts';
+import { MATERIAL_TEXT_CONTRAST_FLOOR } from './brand-v2-materials.ts';
+import { PUBLIC_IDENTITY } from './identity.ts';
+import { CASE_SENSITIVE_PATTERN_SOURCE } from './notation-case.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
   SHIPPED_GEOMETRY_MODEL_CLASS,
@@ -9,14 +15,15 @@ import {
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 
 /**
- * Evidence for the product-wide colour, component, spacing and type rows:
- * one sweep of every registered public route at the three page-frame widths,
- * read by the browser that laid each page out.
+ * Evidence for the product-wide colour, component, spacing, type, grid and
+ * surface rows: one sweep of every registered public route at the three
+ * page-frame widths, read by the browser that laid each page out.
  *
  * None of these rows survives a source read. Whether a primary action is an
  * ink fill with a light label, whether a label clears 4.5:1 on the ground it
  * actually composites onto, whether a section opens 76 px under the last
- * block, whether a heading breaks inside a word: each is a computed style or
+ * block, whether a heading breaks inside a word, whether a device sits on
+ * the line it registers or a rule paints 1 px: each is a computed style or
  * a laid-out box at one width. The collector
  * (`tests/e2e/helpers/global-convergence-collector.ts`) discovers every
  * population structurally, from computed styles and the accessibility tree,
@@ -34,7 +41,7 @@ export const GLOBAL_CONVERGENCE_EVIDENCE_PATH = 'evidence/brand-v2/global-conver
 /** The sweep whose own bytes decide what this evidence recorded. */
 export const GLOBAL_CONVERGENCE_SWEEP_MODULE = 'tests/e2e/brand-v2-global-convergence.spec.ts';
 
-export const GLOBAL_CONVERGENCE_VERSION = 1;
+export const GLOBAL_CONVERGENCE_VERSION = 2;
 
 /**
  * One width per registered page frame (`contract/brand-v2-registries.json`
@@ -142,7 +149,25 @@ export type ConvergencePredicate =
   | 'spacing-ladder'
   | 'section-separation'
   | 'component-interior'
-  | 'control-gap';
+  | 'control-gap'
+  | 'composition-offgrid'
+  | 'device-under-prose'
+  | 'texture'
+  | 'device-exposed'
+  | 'device-misaligned'
+  | 'unregistered-device'
+  | 'technical-glyph'
+  | 'ambient-animation'
+  | 'rail-colour'
+  | 'casing-drift'
+  | 'border-weight'
+  | 'dashed-border'
+  | 'shadow'
+  | 'glow'
+  | 'dark-surface'
+  | 'dark-shell'
+  | 'material'
+  | 'double-rule';
 
 export type ConvergenceExemption = {
   id: string;
@@ -158,7 +183,7 @@ export type ConvergenceExemption = {
 };
 
 const OWNER_FREEZE =
-  'Josef, 12 October 2026: "Leave /how-robots-work/ exactly as it is." The explainer viewer keeps its frozen look on its own page and as home\'s featured scene (its 2 px focus ring, step dots, rail chips and tight control rhythm); each is listed as a known owner-gated difference, not drift.';
+  'Josef, 12 October 2026: "Leave /how-robots-work/ exactly as it is." The explainer viewer keeps its frozen look on its own page and as home\'s featured scene (its 2 px focus ring, step dots, rail chips and their 2 px accent current mark, the chart-tone rules around its stage, folds and pager, and its tight control rhythm); each is listed as a known owner-gated difference, not drift.';
 
 /**
  * The checked-in exemption register. Each entry is named, scoped to a
@@ -179,6 +204,8 @@ export const CONVERGENCE_EXEMPTIONS: readonly ConvergenceExemption[] = [
       'section-separation',
       'inline-padding',
       'type-range',
+      'rail-colour',
+      'border-weight',
     ],
     routes: ['route:/', 'route:/how-robots-work/'],
     reason: OWNER_FREEZE,
@@ -433,6 +460,21 @@ export const ROUTE_ROW_PREDICATES: Readonly<Record<string, readonly ConvergenceP
   'VAL-B2-COMP-006': ['empty-card', 'bento-grid', 'repeated-signature'],
   'VAL-B2-COMP-008': ['citation-language', 'citation-target'],
   'VAL-B2-COMP-016': ['repeated-signature', 'nested-frame', 'frame-depth', 'capsule', 'rounded-corner'],
+  'VAL-B2-GRID-003': ['device-under-prose', 'texture', 'text-contrast'],
+  'VAL-B2-GRID-004': ['device-exposed'],
+  'VAL-B2-GRID-005': ['device-misaligned'],
+  'VAL-B2-GRID-006': ['unregistered-device', 'technical-glyph', 'ambient-animation'],
+  'VAL-B2-GRID-008': ['rail-colour'],
+  'VAL-B2-GRID-010': ['casing-drift'],
+  'VAL-B2-SURF-001': ['rounded-corner', 'capsule'],
+  'VAL-B2-SURF-002': ['border-weight'],
+  'VAL-B2-SURF-003': ['dashed-border'],
+  'VAL-B2-SURF-004': ['shadow'],
+  'VAL-B2-SURF-005': ['glow'],
+  'VAL-B2-SURF-006': ['dark-surface', 'dark-shell'],
+  'VAL-B2-SURF-007': ['texture', 'material'],
+  'VAL-B2-SURF-008': ['capsule'],
+  'VAL-B2-SURF-009': ['nested-frame', 'frame-depth', 'double-rule'],
 };
 
 export const FRAME_ROWS = [
@@ -442,14 +484,89 @@ export const FRAME_ROWS = [
   'VAL-B2-SPACE-004',
   'VAL-B2-SPACE-005',
   'VAL-B2-SPACE-006',
+  'VAL-B2-GRID-001',
 ] as const;
 
 export const TYPE_ROW = 'VAL-B2-TYPE-018';
 
 /**
- * The population each row is recorded over: a route row per registered
- * public route, a frame row per registered page frame, and the type row per
- * sealed type population. The verdict keys are these members exactly.
+ * `VAL-B2-GRID-007`: one verdict per public route, comparing the route's
+ * own readings at the three widths, so it is neither a route-local finding
+ * nor a frame-wide one.
+ */
+export const VIEWPORT_PAIR_ROW = 'VAL-B2-GRID-007';
+
+/**
+ * The surfaces `VAL-B2-GRID-002` names, each with the public routes that
+ * make it up. The shell is every route; social artwork is the generated
+ * Open Graph/X card corpus, read from its own manifest rather than from a
+ * browser page.
+ */
+export const SURFACE_FAMILIES = [
+  'home',
+  'shell',
+  'article',
+  'discovery',
+  'market-map',
+  'playground',
+  'social-artwork',
+] as const;
+export type SurfaceFamily = (typeof SURFACE_FAMILIES)[number];
+
+/**
+ * The surfaces `VAL-B2-SURF-011` names as representative: the same list
+ * without the shell, which that row does not name.
+ */
+export const REPRESENTATIVE_SURFACES = SURFACE_FAMILIES.filter(
+  (family): family is Exclude<SurfaceFamily, 'shell'> => family !== 'shell',
+);
+
+export const SURFACE_FAMILY_POPULATION_SOURCE =
+  'lib/brand-v2-global-convergence-evidence.ts#SURFACE_FAMILIES';
+export const REPRESENTATIVE_SURFACE_POPULATION_SOURCE =
+  'lib/brand-v2-global-convergence-evidence.ts#REPRESENTATIVE_SURFACES';
+
+/** The rows decided per surface family, with the population each is recorded over. */
+export const SURFACE_FAMILY_ROWS: Readonly<Record<string, string>> = {
+  'VAL-B2-GRID-002': SURFACE_FAMILY_POPULATION_SOURCE,
+  'VAL-B2-SURF-011': REPRESENTATIVE_SURFACE_POPULATION_SOURCE,
+};
+
+/** The discovery surfaces: the seven domain landings and the three indexes. */
+const DISCOVERY_PATHS: readonly string[] = [
+  ...DOMAINS.map((domain) => `/${domain}/`),
+  '/a-z/',
+  '/glossary/',
+  '/search/',
+];
+
+/** Whether a public route path belongs to a browser-read surface family. */
+export function inSurfaceFamily(family: Exclude<SurfaceFamily, 'social-artwork'>, path: string): boolean {
+  const segments = path.split('/').filter(Boolean);
+  switch (family) {
+    case 'home':
+      return path === '/';
+    case 'shell':
+      return true;
+    case 'article':
+      return segments.length === 2 && (DOMAINS as readonly string[]).includes(segments[0]);
+    case 'discovery':
+      return DISCOVERY_PATHS.includes(path);
+    case 'market-map':
+      return path === '/market-map/';
+    case 'playground':
+      return path === '/playground/';
+  }
+}
+
+/** The Open Graph manifest the social-artwork member is read from. */
+export const SOCIAL_ARTWORK_MANIFEST_PATH = 'evidence/brand-v2/og-cards/manifest.json';
+
+/**
+ * The population each row is recorded over: a route row and the viewport
+ * pair row per registered public route, a frame row per registered page
+ * frame, the type row per sealed type population, and the two surface rows
+ * per surface they name. The verdict keys are these members exactly.
  */
 export const GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES: Readonly<Record<string, string>> = {
   ...Object.fromEntries(
@@ -457,10 +574,27 @@ export const GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES: Readonly<Record<st
   ),
   ...Object.fromEntries(FRAME_ROWS.map((id) => [id, 'contract/brand-v2-registries.json#pageFrames'])),
   [TYPE_ROW]: TYPE_POPULATION_SOURCE,
+  [VIEWPORT_PAIR_ROW]: 'contract/brand-v2-registries.json#routes.public',
+  ...SURFACE_FAMILY_ROWS,
 };
 
 /** The page counts each route row needs to be non-empty somewhere in the sweep. */
 const ROUTE_ROW_POPULATIONS: Readonly<Record<string, readonly string[]>> = {
+  'VAL-B2-GRID-003': ['registeredDevices', 'proseRuns'],
+  'VAL-B2-GRID-004': ['registeredDevices', 'decorativeLayers'],
+  'VAL-B2-GRID-005': ['registeredDevices'],
+  'VAL-B2-GRID-006': ['decorativeLayers', 'hiddenTextRuns'],
+  'VAL-B2-GRID-008': ['rails'],
+  'VAL-B2-GRID-010': ['transformedLabels'],
+  'VAL-B2-SURF-001': ['paintedElements'],
+  'VAL-B2-SURF-002': ['borderedSides'],
+  'VAL-B2-SURF-003': ['borderedSides'],
+  'VAL-B2-SURF-004': ['paintedElements'],
+  'VAL-B2-SURF-005': ['paintedElements'],
+  'VAL-B2-SURF-006': ['paintedElements', 'shellGrounds'],
+  'VAL-B2-SURF-007': ['paintedElements', 'materialSurfaces'],
+  'VAL-B2-SURF-008': ['paintedElements'],
+  'VAL-B2-SURF-009': ['frames', 'borderedSides'],
   'VAL-B2-COL-004': ['primaryActions'],
   'VAL-B2-COL-005': ['persistentStates'],
   'VAL-B2-COL-006': ['links', 'paintedElements'],
@@ -473,11 +607,53 @@ const ROUTE_ROW_POPULATIONS: Readonly<Record<string, readonly string[]>> = {
   'VAL-B2-COMP-016': ['frames', 'cards'],
 };
 
-/** The sweep's collector input, derived from the constants above. */
-export function collectorInput(frame: ConvergenceFrameId) {
+/**
+ * `VAL-B2-GRID-001` successor: a major block sits within 4 px of a line of
+ * the frame that owns the page (the 4 px fine alignment the row seals).
+ */
+export const COMPOSITION_TOLERANCE_PX = 4;
+
+/** The registry rows the sweep reads devices and materials against. */
+export type ConvergenceRegistry = {
+  gridDevices: ReadonlyArray<{ id: string; alignmentTolerancePx: number }>;
+  materials: ReadonlyArray<{ id: string }>;
+};
+
+export const CONVERGENCE_REGISTRY_PATH = 'contract/brand-v2-registries.json';
+
+/** The device and material rows of the checked-in registry. */
+export function readConvergenceRegistry(root: string): ConvergenceRegistry {
+  const registry = JSON.parse(readFileSync(join(root, CONVERGENCE_REGISTRY_PATH), 'utf8')) as ConvergenceRegistry;
+  if (!Array.isArray(registry.gridDevices) || registry.gridDevices.length === 0) {
+    throw new Error(`${CONVERGENCE_REGISTRY_PATH} registers no grid devices`);
+  }
+  if (!Array.isArray(registry.materials) || registry.materials.length === 0) {
+    throw new Error(`${CONVERGENCE_REGISTRY_PATH} registers no materials`);
+  }
+  return registry;
+}
+
+function registryFacts(registry: ConvergenceRegistry): string {
+  return JSON.stringify({
+    devices: registry.gridDevices.map(({ id, alignmentTolerancePx }) => [id, alignmentTolerancePx]),
+    materials: registry.materials.map(({ id }) => id),
+  });
+}
+
+/** The sweep's collector input, derived from the constants above and the registry. */
+export function collectorInput(frame: ConvergenceFrameId, registry: ConvergenceRegistry) {
   const viewport = GLOBAL_CONVERGENCE_VIEWPORTS.find((candidate) => candidate.frame === frame);
   if (!viewport) throw new Error(`${frame} is not a swept page frame`);
   return {
+    registeredDevices: registry.gridDevices.map(({ id, alignmentTolerancePx }) => ({
+      id,
+      tolerancePx: alignmentTolerancePx,
+    })),
+    materialIds: registry.materials.map(({ id }) => id),
+    caseSensitivePattern: CASE_SENSITIVE_PATTERN_SOURCE,
+    identityStrings: [PUBLIC_IDENTITY],
+    compositionTolerancePx: COMPOSITION_TOLERANCE_PX,
+    materialContrastFloor: MATERIAL_TEXT_CONTRAST_FLOOR,
     minimumInlinePaddingPx: viewport.minimumInlinePaddingPx,
     exemptions: CONVERGENCE_EXEMPTIONS.map(({ id, selector, predicates, properties, valuesPx }) => ({
       id,
@@ -502,11 +678,14 @@ export function globalConvergenceEvidenceFingerprint(input: {
   root: string;
   routeIds: readonly string[];
 }): string {
+  // The sweep reads devices and materials against the registry, so a
+  // registry row that moved has to stale it.
+  const registry = readConvergenceRegistry(input.root);
   return deriveEvidenceClosure({
     root: input.root,
     entries: [...routeEntryModules(evidenceClosureGraph(input.root)), GLOBAL_CONVERGENCE_SWEEP_MODULE],
     nonImportClasses: [SHIPPED_GEOMETRY_MODEL_CLASS],
-    facts: [[...input.routeIds].sort().join(',')],
+    facts: [[...input.routeIds].sort().join(','), registryFacts(registry)],
     computedSpecifiers: [ARTICLE_BODY_COMPUTED_IMPORT],
   }).fingerprint;
 }
@@ -560,6 +739,7 @@ const pageSchema = z.object({
   sectionGaps: z.array(measuredBoxSchema.extend({ gapPx: z.number() })),
   componentInteriors: z.array(measuredBoxSchema.extend({ paddingPx: z.array(z.number()) })),
   controlGaps: z.array(measuredBoxSchema.extend({ gapPx: z.number() })),
+  content: z.object({ strings: z.number(), digest: z.string().regex(/^[0-9a-f]{8}$/) }),
 });
 const focusStopSchema = z.object({
   element: z.string(),
@@ -663,6 +843,8 @@ const REQUIRED_COUNTS = [
     'headings',
     'sectionHeads',
     'paragraphs',
+    'compositionBlocks',
+    'alignedDevices',
   ]),
 ];
 
@@ -1018,10 +1200,23 @@ export function frameRowVerdicts(
           ...obscuredFocusFailures(observation),
         );
       }
+      // The research-page successor: every major block on a line of the
+      // frame that owns the page, and the 8 px base rhythm is the ladder.
+      if (assertionId === 'VAL-B2-GRID-001') {
+        failures.push(
+          ...findingFailures(observation, ['composition-offgrid']),
+          ...spacingFailures(observation),
+        );
+      }
       const page = observation.page;
       const add = (key: string, by: number) => {
         observed[key] = Number(observed[key] ?? 0) + by;
       };
+      add('compositionBlocks', page.counts.compositionBlocks ?? 0);
+      add(
+        'exemptedCompositionBlocks',
+        page.findings.filter(({ predicate, exemption }) => predicate === 'composition-offgrid' && exemption).length,
+      );
       add('spacingValues', page.counts.spacingValues ?? 0);
       add('insetTextRuns', page.counts.insetTextRuns ?? 0);
       add('sectionGaps', page.sectionGaps.length);
@@ -1099,9 +1294,180 @@ export function typePopulationVerdicts(evidence: GlobalConvergenceEvidence): Map
   return verdicts;
 }
 
+/**
+ * `VAL-B2-GRID-007`: one verdict per public route. The phone and tablet
+ * readings may carry no more registered devices than the desktop reading,
+ * and every width has to reach the same content.
+ */
+export function viewportPairVerdicts(evidence: GlobalConvergenceEvidence): Map<string, Verdict> {
+  const verdicts = new Map<string, Verdict>();
+  const desktop = GLOBAL_CONVERGENCE_VIEWPORTS.find(({ frame }) => frame === 'frame:desktop')!.id;
+  for (const [routeId, observations] of observationsByRoute(evidence)) {
+    const failures: string[] = [];
+    const wide = observations.find(({ viewport }) => viewport === desktop);
+    const observed: Record<string, number | string> = {};
+    if (!wide) {
+      failures.push(`no ${desktop} reading to compare the narrower widths against`);
+    } else {
+      const wideDevices = wide.page.counts.registeredDevices ?? 0;
+      observed[`devices@${desktop}`] = wideDevices;
+      observed.contentStrings = wide.page.content.strings;
+      for (const observation of observations) {
+        if (observation === wide) continue;
+        const devices = observation.page.counts.registeredDevices ?? 0;
+        observed[`devices@${observation.viewport}`] = devices;
+        if (devices > wideDevices) {
+          failures.push(`${observation.viewport} shows ${devices} registered devices, more than the ${wideDevices} at ${desktop}`);
+        }
+        if (observation.page.content.digest !== wide.page.content.digest) {
+          failures.push(
+            `${observation.viewport} reaches ${observation.page.content.strings} distinct strings (digest ${observation.page.content.digest}), not the ${wide.page.content.strings} (digest ${wide.page.content.digest}) at ${desktop}`,
+          );
+        }
+      }
+    }
+    observed.viewports = observations.length;
+    if (observations.length !== GLOBAL_CONVERGENCE_VIEWPORTS.length) {
+      failures.push(`read at ${observations.length} widths, not ${GLOBAL_CONVERGENCE_VIEWPORTS.length}`);
+    }
+    verdicts.set(routeId, { id: routeId, observed, failures });
+  }
+  if (verdicts.size === 0) throw new Error(`the ${VIEWPORT_PAIR_ROW} route population is empty`);
+  return verdicts;
+}
+
+const socialCardSchema = z.object({
+  cardId: z.string(),
+  devices: z.array(z.string()),
+  paintedTokens: z.array(z.string()),
+  asset: z.object({ sha256: z.string() }),
+  pixels: z.object({
+    secondRenderSha256: z.string(),
+    offPalettePixels: z.number(),
+    translucentPixels: z.number(),
+    anchorsFailed: z.array(z.unknown()),
+  }),
+});
+const socialManifestSchema = z.object({
+  cards: z.array(socialCardSchema),
+  styleTokens: z.array(z.object({ token: z.string() })),
+  fonts: z.array(z.object({ faceId: z.string(), sha256: z.string(), registeredSha256: z.string() })),
+});
+
+/** The generated card corpus, as the social-artwork member reads it. */
+export type SocialArtwork = z.infer<typeof socialManifestSchema> & {
+  registeredDeviceIds: readonly string[];
+};
+
+/**
+ * Reads the Open Graph manifest for the social-artwork member. The manifest's
+ * own freshness and pixel truth are the Open Graph rows' reader's to decide;
+ * this reads only what the two family rows need, and refuses an empty corpus.
+ */
+export function readSocialArtwork(manifest: unknown, registry: ConvergenceRegistry): SocialArtwork {
+  const parsed = parseEvidenceArtifact(socialManifestSchema, manifest, 'Open Graph card manifest');
+  if (parsed.cards.length === 0) {
+    throw new Error('the Open Graph card corpus is empty, so the social-artwork member would pass vacuously');
+  }
+  return { ...parsed, registeredDeviceIds: registry.gridDevices.map(({ id }) => id) };
+}
+
+/** Each social card's failures against the shared-treatment and material rows. */
+function socialArtworkFailures(social: SocialArtwork, assertionId: string): string[] {
+  const failures: string[] = [];
+  const tokens = new Set(social.styleTokens.map(({ token }) => token));
+  for (const card of social.cards) {
+    if (assertionId === 'VAL-B2-GRID-002') {
+      if (card.devices.length === 0) failures.push(`${card.cardId} carries no registered device`);
+      for (const device of card.devices) {
+        const id = device.split('#')[0];
+        if (!social.registeredDeviceIds.includes(id)) {
+          failures.push(`${card.cardId} draws ${device}, which is not a registered grid device`);
+        }
+      }
+      continue;
+    }
+    if (card.pixels.secondRenderSha256 !== card.asset.sha256) {
+      failures.push(`${card.cardId} renders differently the second time: not deterministic`);
+    }
+    if (card.pixels.offPalettePixels > 0 || card.pixels.translucentPixels > 0) {
+      failures.push(
+        `${card.cardId} paints ${card.pixels.offPalettePixels} off-palette and ${card.pixels.translucentPixels} translucent pixels: a texture or wash the tokens do not name`,
+      );
+    }
+    if (card.pixels.anchorsFailed.length > 0) {
+      failures.push(`${card.cardId} fails ${card.pixels.anchorsFailed.length} contrast/colour anchor(s)`);
+    }
+    for (const token of card.paintedTokens) {
+      if (!tokens.has(token)) failures.push(`${card.cardId} paints ${token}, which no style token declares`);
+    }
+  }
+  if (assertionId === 'VAL-B2-SURF-011') {
+    for (const font of social.fonts) {
+      if (font.sha256 !== font.registeredSha256) {
+        failures.push(`${font.faceId} is not the registered binary: its provenance record does not hold`);
+      }
+    }
+  }
+  return failures;
+}
+
+/**
+ * `VAL-B2-GRID-002` and `VAL-B2-SURF-011`: one verdict per named surface.
+ * A browser-read surface passes when every route that makes it up carries,
+ * at every width, a registered, aligned, pointer-inert device (`GRID-002`)
+ * or a declared, deterministic, contrast-safe material surface clear of
+ * prose with no texture or material finding (`SURF-011`). Social artwork is
+ * read off the generated card corpus.
+ */
+export function surfaceFamilyVerdicts(
+  evidence: GlobalConvergenceEvidence,
+  assertionId: string,
+  social: SocialArtwork,
+): Map<string, Verdict> {
+  const families = assertionId === 'VAL-B2-GRID-002' ? SURFACE_FAMILIES : assertionId === 'VAL-B2-SURF-011' ? REPRESENTATIVE_SURFACES : null;
+  if (!families) throw new Error(`${assertionId} is not a surface-family row of the global convergence sweep`);
+  const verdicts = new Map<string, Verdict>();
+  for (const family of families) {
+    const failures: string[] = [];
+    const observed: Record<string, number> = {};
+    if (family === 'social-artwork') {
+      failures.push(...socialArtworkFailures(social, assertionId));
+      observed.cards = social.cards.length;
+      observed.devices = social.cards.reduce((sum, card) => sum + card.devices.length, 0);
+      verdicts.set(family, { id: family, observed, failures });
+      continue;
+    }
+    const observations = evidence.observations.filter(({ route }) => inSurfaceFamily(family, route));
+    if (observations.length === 0) failures.push(`no public route makes up the ${family} surface`);
+    observed.routes = new Set(observations.map(({ routeId }) => routeId)).size;
+    observed.readings = observations.length;
+    for (const observation of observations) {
+      const counts = observation.page.counts;
+      if (assertionId === 'VAL-B2-GRID-002') {
+        observed.alignedDevices = (observed.alignedDevices ?? 0) + (counts.alignedDevices ?? 0);
+        if ((counts.alignedDevices ?? 0) === 0) {
+          failures.push(`${observation.route} at ${observation.viewport} carries no registered, aligned, pointer-inert device`);
+        }
+      } else {
+        observed.materialSurfaces = (observed.materialSurfaces ?? 0) + (counts.materialSurfaces ?? 0);
+        if ((counts.materialSurfaces ?? 0) === 0) {
+          failures.push(`${observation.route} at ${observation.viewport} declares no sound material surface`);
+        }
+        failures.push(
+          ...findingFailures(observation, ['material', 'texture']).map((failure) => `${failure} (${observation.viewport})`),
+        );
+      }
+    }
+    verdicts.set(family, { id: family, observed, failures });
+  }
+  return verdicts;
+}
+
 /** Every verdict this evidence decides, by assertion and member. */
 export function globalConvergenceVerdicts(
   evidence: GlobalConvergenceEvidence,
+  social: SocialArtwork,
 ): Readonly<Record<string, Map<string, Verdict>>> {
   return {
     ...Object.fromEntries(
@@ -1109,5 +1475,12 @@ export function globalConvergenceVerdicts(
     ),
     ...Object.fromEntries(FRAME_ROWS.map((assertionId) => [assertionId, frameRowVerdicts(evidence, assertionId)])),
     [TYPE_ROW]: typePopulationVerdicts(evidence),
+    [VIEWPORT_PAIR_ROW]: viewportPairVerdicts(evidence),
+    ...Object.fromEntries(
+      Object.keys(SURFACE_FAMILY_ROWS).map((assertionId) => [
+        assertionId,
+        surfaceFamilyVerdicts(evidence, assertionId, social),
+      ]),
+    ),
   };
 }

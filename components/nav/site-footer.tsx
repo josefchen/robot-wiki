@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BrandDevice } from '@/components/ui/brand-device';
 import { IntentLink } from '@/components/ui/intent-link';
 import {
   AUTHOR_NAME,
@@ -53,8 +54,22 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
     <footer
       inert={inert}
       data-pagefind-ignore
-      className="mt-24 border-t border-border"
+      data-site-footer
+      className="relative mt-24 pt-px"
     >
+      {/* The closing rail every route shares (VAL-B2-GRID-002): the same
+          1px hairline the footer always drew, registered as the section
+          rule it is and anchored to the footer's own top edge, so home,
+          discovery, the market map and the playground each carry one
+          purposeful, aligned, pointer-inert rail at every width. */}
+      <BrandDevice
+        device="section-rule"
+        anchorSelector="[data-site-footer]"
+        deviceEdge="top"
+        anchorEdge="top"
+        owner="components/nav/site-footer.tsx"
+        className="inset-x-0 top-0"
+      />
       <div className="mx-auto w-full max-w-[calc(960px+2*var(--article-gutter))] px-[var(--article-gutter)] pt-8 pb-14">
         {/* The lockup keeps its own block. The identity sweep reads a
             lockup's siblings as its descriptor surfaces, and the credit

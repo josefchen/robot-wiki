@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { devices, type Page } from '@playwright/test';
 import { test, expect, brandV2Registry } from './brand-v2-static-fixture';
@@ -13,24 +13,37 @@ import {
   GLOBAL_CONVERGENCE_EVIDENCE_PATH,
   GLOBAL_CONVERGENCE_VERSION,
   GLOBAL_CONVERGENCE_VIEWPORTS,
+  REPRESENTATIVE_SURFACES,
   ROUTE_ROW_PREDICATES,
+  SOCIAL_ARTWORK_MANIFEST_PATH,
+  SURFACE_FAMILIES,
   TYPE_POPULATIONS,
+  VIEWPORT_PAIR_ROW,
   collectorInput,
   frameRowVerdicts,
   globalConvergenceEvidenceFingerprint,
   globalConvergenceVerdicts,
+  readConvergenceRegistry,
   readGlobalConvergenceEvidence,
+  readSocialArtwork,
   routeRowVerdicts,
+  surfaceFamilyVerdicts,
   typePopulationVerdicts,
+  viewportPairVerdicts,
   type GlobalConvergenceEvidence,
   type GlobalConvergenceObservation,
 } from '../../lib/brand-v2-global-convergence-evidence';
 
 const ROOT = process.cwd();
+const REGISTRY = readConvergenceRegistry(ROOT);
+const SOCIAL = readSocialArtwork(
+  JSON.parse(readFileSync(join(ROOT, SOCIAL_ARTWORK_MANIFEST_PATH), 'utf8')),
+  REGISTRY,
+);
 
 /**
- * The product-wide colour, component, spacing and type rows, measured on
- * every registered public route at each page-frame width.
+ * The product-wide colour, component, spacing, type, grid and surface rows,
+ * measured on every registered public route at each page-frame width.
  *
  * Each page is laid out by the browser at 375, 768 and 1440 px, read once by
  * the structural collector, then walked for thirty keyboard stops. The
@@ -53,19 +66,24 @@ async function measure(
   route: PublicRoute,
   viewport: (typeof GLOBAL_CONVERGENCE_VIEWPORTS)[number],
 ): Promise<GlobalConvergenceObservation> {
-  const input = collectorInput(viewport.frame);
+  const input = collectorInput(viewport.frame, REGISTRY);
   const response = await page.goto(`${staticBase}${route.path}`, { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
   // Layout that settles after fonts (balanced headings, sticky rails) is
   // read where it lands.
   await page.waitForTimeout(300);
   // The playground creates its WebGL canvas, and only then makes it a
-  // keyboard stop, some time after load; walk the page once it has.
+  // keyboard stop, some time after load; walk the page once it has. The
+  // explainer stage shows a "Loading…" status while its scene loads, which
+  // would read as content one width has and another lacks.
   await page.waitForFunction(
     () =>
       document.querySelector('[data-playground-state="loading"]') === null &&
       (document.querySelector('[data-playground-state="ready"]') === null ||
-        document.querySelector('.pg-stage canvas[tabindex="0"]') !== null),
+        document.querySelector('.pg-stage canvas[tabindex="0"]') !== null) &&
+      [...document.querySelectorAll<HTMLElement>('[data-explainers] [data-x="status"]')].every(
+        (status) => status.hidden || status.textContent !== 'Loading…',
+      ),
     undefined,
     { timeout: 60_000 },
   );
@@ -136,7 +154,7 @@ test.describe('brand-v2 global type, colour, spacing and component convergence',
       routeIds,
     });
 
-    const verdicts = globalConvergenceVerdicts(measured);
+    const verdicts = globalConvergenceVerdicts(measured, SOCIAL);
     for (const [assertionId, members] of Object.entries(verdicts)) {
       const failures = [...members.values()].flatMap(({ id, failures: list }) =>
         list.map((failure) => `${id}: ${failure}`),
@@ -151,6 +169,9 @@ test.describe('brand-v2 global type, colour, spacing and component convergence',
         GLOBAL_CONVERGENCE_VIEWPORTS.map(({ frame }) => frame),
       );
     }
+    expect([...verdicts[VIEWPORT_PAIR_ROW].keys()].sort()).toEqual([...routeIds].sort());
+    expect([...verdicts['VAL-B2-GRID-002'].keys()]).toEqual([...SURFACE_FAMILIES]);
+    expect([...verdicts['VAL-B2-SURF-011'].keys()]).toEqual([...REPRESENTATIVE_SURFACES]);
 
     const artifactPath = join(ROOT, GLOBAL_CONVERGENCE_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
@@ -161,8 +182,9 @@ test.describe('brand-v2 global type, colour, spacing and component convergence',
    * The plant proof, on the corpus just measured: a defect planted on one
    * route has to fail that route under exactly the rows that own its
    * predicate, a planted frame defect has to fail only its frame, and a
-   * planted type tuple only its population; otherwise these rows are one
-   * boolean wearing seventeen names.
+   * planted type tuple only its population, a planted width difference only
+   * its route and a planted surface defect only its surface; otherwise these
+   * rows are one boolean wearing thirty-six names.
    */
   test('the global verdicts fail independently when their subjects are broken', async () => {
     const routeIds = routes.map(({ id }) => id);
@@ -219,7 +241,18 @@ test.describe('brand-v2 global type, colour, spacing and component convergence',
             element: 'div[data-planted]',
             exemption: null,
           }),
-        ['VAL-B2-SPACE-001', 'VAL-B2-SPACE-005'],
+        ['VAL-B2-SPACE-001', 'VAL-B2-SPACE-005', 'VAL-B2-GRID-001'],
+      ],
+      [
+        'a block off every line of its frame',
+        (e) =>
+          at(e, '375x812').page.findings.push({
+            predicate: 'composition-offgrid',
+            element: 'section[data-planted]',
+            detail: 'planted',
+            exemption: null,
+          }),
+        ['VAL-B2-GRID-001'],
       ],
       [
         'text 8 px from the edge',
@@ -298,6 +331,35 @@ test.describe('brand-v2 global type, colour, spacing and component convergence',
       });
       expect(failing(typePopulationVerdicts(planted)), population).toEqual([population]);
     }
+
+    // A phone reading with more devices, or less content, than the desktop
+    // reading fails that route alone.
+    const crowded = plant((e) => {
+      const phone = at(e, '375x812').page;
+      phone.counts.registeredDevices = (at(e, '1440x900').page.counts.registeredDevices ?? 0) + 1;
+    });
+    expect(failing(viewportPairVerdicts(crowded))).toEqual([target.id]);
+    const lost = plant((e) => (at(e, '768x1024').page.content.digest = '00000000'));
+    expect(failing(viewportPairVerdicts(lost))).toEqual([target.id]);
+
+    // A surface-family defect fails its own surface and no other.
+    const home = routes.find(({ path }) => path === '/')!;
+    const bare = plant((e) => {
+      const row = e.observations.find((o) => o.routeId === home.id && o.viewport === '375x812')!;
+      row.page.counts.alignedDevices = 0;
+      row.page.counts.materialSurfaces = 0;
+    });
+    expect(failing(surfaceFamilyVerdicts(bare, 'VAL-B2-GRID-002', SOCIAL))).toEqual(['home', 'shell']);
+    expect(failing(surfaceFamilyVerdicts(bare, 'VAL-B2-SURF-011', SOCIAL))).toEqual(['home']);
+    const strayCard = { ...SOCIAL, cards: SOCIAL.cards.map((card, i) => (i === 0 ? { ...card, devices: [] } : card)) };
+    expect(failing(surfaceFamilyVerdicts(measured, 'VAL-B2-GRID-002', strayCard))).toEqual(['social-artwork']);
+    const unstable = {
+      ...SOCIAL,
+      cards: SOCIAL.cards.map((card, i) =>
+        i === 0 ? { ...card, pixels: { ...card.pixels, secondRenderSha256: 'planted' } } : card,
+      ),
+    };
+    expect(failing(surfaceFamilyVerdicts(measured, 'VAL-B2-SURF-011', unstable))).toEqual(['social-artwork']);
 
     // Omitted, extra and empty evidence is refused before any verdict.
     expect(() =>

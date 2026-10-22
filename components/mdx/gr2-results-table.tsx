@@ -94,7 +94,7 @@ export function Gr2ResultsTable({ className }: { className?: string }) {
       </table>
       <p
         data-testid="gr2-caveat"
-        className="border-t border-border px-4 py-3 font-sans text-xs leading-relaxed text-text-dim"
+        className="px-4 py-3 font-sans text-xs leading-relaxed text-text-dim"
       >
         All figures are vendor-reported by Google DeepMind (2026-07-30) with
         no external replication and no standardized real-world humanoid

@@ -375,6 +375,19 @@ describe('identity geometry and typography stay aligned', () => {
     ]) {
       expect(integrity).toContain(id);
     }
+    // The research-page successors of the grid and surface rows (owner
+    // decision of 10 October 2026), each at the brand-v2 row's strength.
+    const row = (id: string) => integrity.split('\n').find((line) => line.startsWith(`| \`${id}\``)) ?? '';
+    expect(row('VAL-B2-GRID-001')).toContain('within 4px of a line of that frame');
+    expect(row('VAL-B2-GRID-002')).toContain('on every generated card');
+    expect(row('VAL-B2-SURF-002')).toContain('no state takes a 2px border');
+    expect(row('VAL-B2-SURF-003')).toContain('No first-party surface outside a data figure has a dashed or dotted border');
+    expect(row('VAL-B2-SURF-004')).toContain('"No shadows"');
+    expect(row('VAL-B2-SURF-006')).toContain('no bounded dark instrument');
+    expect(row('VAL-B2-SURF-007')).toContain('the one material is the registered flat `material:paper`');
+    expect(row('VAL-B2-SURF-008')).toContain('"No pills"');
+    expect(row('VAL-B2-GRID-010')).toContain('`lib/notation-case.ts`');
+    expect(row('VAL-B2-SURF-011')).toContain('renders byte-identically twice');
   });
 
   it('does not leave stale green labels on blue interactive marks', () => {

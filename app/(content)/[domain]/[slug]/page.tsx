@@ -16,6 +16,7 @@ import { getCitation } from '@/data/citations';
 import { DOMAIN_META, getModule, modules, publishedModules } from '@/data/modules';
 import type { ModuleFrontmatter } from '@/data/schemas/module';
 import { publishedBacklinkGraph, resolveArticleEntries } from '@/lib/backlinks';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { articleDateModified, articleDatePublished } from '@/lib/content-dates';
 import { moduleSource } from '@/lib/module-source';
 import { countWordsInMdxSource, readingTimeMinutes } from '@/lib/reading-time';
@@ -246,18 +247,24 @@ export default async function ModulePage({ params }: { params: Params }) {
           }),
         }}
       />
-      <ArticleHeader
-        entry={entry}
-        lastReviewed={mod.frontmatter?.lastReviewed}
-        readingTimeMinutes={readingTime}
-        citationCount={references.length}
-        eyebrow={
-          <Breadcrumbs
-            variant="eyebrow"
-            items={[...breadcrumbTrail, { label: entry.title }]}
-          />
-        }
-      />
+      {/* The article representative surface declares its material: the
+          title sheet, never the prose column (VAL-B2-SURF-011). A plain
+          block in the same grid cell, so the masthead's layout is
+          unchanged and the sealed header source stays as it is. */}
+      <div {...materialAttributes('paper')} className="material-paper">
+        <ArticleHeader
+          entry={entry}
+          lastReviewed={mod.frontmatter?.lastReviewed}
+          readingTimeMinutes={readingTime}
+          citationCount={references.length}
+          eyebrow={
+            <Breadcrumbs
+              variant="eyebrow"
+              items={[...breadcrumbTrail, { label: entry.title }]}
+            />
+          }
+        />
+      </div>
       <ArticleToc items={outline} startId={ARTICLE_START_ID} />
       {/* The title sheet closes on space, not on a rule; the article's one
           hairline is the apparatus boundary below. */}
@@ -282,7 +289,12 @@ export default async function ModulePage({ params }: { params: Params }) {
           data-brand-anchor-selector="[data-pagefind-body]"
           data-brand-device-edge="left"
           data-brand-anchor-edge="left"
-          data-brand-motif="dot-grid"
+          // The motif names the device it is (a section rule, not a dot
+          // grid), with the registry purpose and the mounting module, so
+          // the rule reads as purposeful rather than as a bare mark.
+          data-brand-motif="section-rule"
+          data-brand-purpose="section-start-or-apparatus-boundary"
+          data-brand-owner="app/(content)/[domain]/[slug]/page.tsx"
           className="pointer-events-none mt-14 border-border"
         />
       ) : null}

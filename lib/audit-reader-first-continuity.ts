@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2870297, sha256: 'b6dcde78792bc7c0e3b1c6e024ac26f5209d37edc80dc0c34beccd609b280447' };
+const reviewPin = { bytes: 2876176, sha256: 'b57097bc666138c60e0b4f1365be27dede13f7ceeb68130a92cbb058943829f4' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -155,10 +155,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['lib/figure-system-check.ts', [14713, 'd70a30d88a88d8f00b5bbabea4854b4067679bf66c5471d738c4773e64763f91']],
   ['lib/figure-system-paint.ts', [5408, 'aea5c837e3c35e6328fd0bb54840a5c2be63288219e538e5ade0d7d642192bc8']],
   ['lib/motion-tokens.ts', [4239, '7f78507f6c80bcf096f896da04846768b93d6d87387ec73836420714586fd701']],
-  ['library/design-system.md', [64830, '8a640cdd449a9441dab245dfa72b9602c5d01a4200f320e4255dc93c340826e5']],
+  ['library/design-system.md', [66134, 'aad2b754d935b9e833de6ebc573823e4cd3db3be4905c7b1e08a77de86520d73']],
   ['motion-tokens.json', [4797, '3779e28bc4113a627bd32b70b52efbcf17dad54418030ca1359b4747ae297156']],
-  ['scripts/brand-v2-census.ts', [49244, 'fd65c1668aa993bd1b39b3ce6c2110808239e8b4582c02bff19d62c563347c0a']],
-  ['scripts/brand-v2-enforcement.ts', [219008, 'bde751aafa133677d8e53d60b1fd0c43f23336f999be41c039484d4a7689bb2c']],
+  ['scripts/brand-v2-census.ts', [49647, '09a0f10cb0d4359b83e9d7a950775de92914e4fc44f420fe8ab16325e74bf78e']],
+  ['scripts/brand-v2-enforcement.ts', [221826, '20ad20675e23ae8e7e90c4de1c39c612f983175585e0898b2dac52c967cdba93']],
   ['scripts/generate-motion-tokens.ts', [16496, '736d58cc877152ee18c85482fa63344f7c7ab4a353a92a2506aa46250bb3f7c7']],
   ['scripts/motion/motion_theme.py', [2399, '687917773d46f9797efe92b24dfae9e302777f1ef22954765ce4e2d743deeeaf']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],

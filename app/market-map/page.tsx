@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { MarketMap } from '@/components/market-map/market-map';
 import { COMPANIES } from '@/data/companies';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { marketMapJsonLd } from '@/lib/structured-data';
 import {
   STANDALONE_SEO_DESCRIPTIONS,
@@ -38,7 +39,9 @@ export default function MarketMapPage() {
           already reachable through the structured index, and indexing
           their prose here would return this page for every company name
           instead of the entity row. */}
-      <div data-pagefind-body>
+      {/* The market-map representative surface declares its material
+          (VAL-B2-SURF-011). */}
+      <div data-pagefind-body {...materialAttributes('paper')} className="material-paper">
         <h1
           data-tektur-role="page-h1"
           className="font-display-page display-h1"

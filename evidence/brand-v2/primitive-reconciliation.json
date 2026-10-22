@@ -952,20 +952,26 @@
     },
     "device:section-rule": {
       "kind": "gridDevices",
-      "fingerprint": "e3e7355d2c1db6d7405367f71768d1666bbd8157718ac800c869f8ea8d8e0734",
+      "fingerprint": "a866bf4248b3d46de3f4408b13a2ea009cea8c6db2cdf7bb717c17ddf9c7410e",
       "mountState": "production",
       "definedIn": [
         "app/(content)/[domain]/[slug]/page.tsx",
         "components/ui/brand-device.tsx"
       ],
       "ownerRouteOrMount": [
-        "app/(content)/[domain]/[slug]/page.tsx"
+        "app/(content)/[domain]/[slug]/page.tsx",
+        "components/ui/brand-device.tsx"
       ],
       "renderedOn": [
+        "/",
+        "/a-z/",
+        "/about/",
+        "/adjacent/",
         "/adjacent/autonomous-vehicles/",
         "/adjacent/drones/",
         "/adjacent/space/",
         "/adjacent/surgical/",
+        "/classical/",
         "/classical/calibration/",
         "/classical/control/",
         "/classical/grasp-planning/",
@@ -975,6 +981,8 @@
         "/classical/ros2-for-ml-engineers/",
         "/classical/scene-representation/",
         "/classical/state-estimation/",
+        "/credits/",
+        "/data-hardware/",
         "/data-hardware/data-bottleneck/",
         "/data-hardware/datasets/",
         "/data-hardware/evaluation-crisis/",
@@ -982,12 +990,17 @@
         "/data-hardware/industrial-deployment/",
         "/data-hardware/robot-learning-stack/",
         "/data-hardware/teleop-rigs/",
+        "/editorial-policy/",
+        "/frontier/",
         "/frontier/bear-case/",
         "/frontier/competing-theses/",
         "/frontier/dexterity/",
         "/frontier/generalization/",
         "/frontier/reliability-gap/",
         "/frontier/safety-and-assurance/",
+        "/glossary/",
+        "/how-robots-work/",
+        "/manipulation/",
         "/manipulation/action-chunking/",
         "/manipulation/action-spaces/",
         "/manipulation/bc-foundations/",
@@ -1003,6 +1016,10 @@
         "/manipulation/rl-finetuning/",
         "/manipulation/robot-learning-roadmap/",
         "/manipulation/vla-models/",
+        "/market-map/",
+        "/playground/",
+        "/privacy/",
+        "/rl-sim2real/",
         "/rl-sim2real/humanoid-wbc/",
         "/rl-sim2real/legged-locomotion/",
         "/rl-sim2real/offline-rl/",
@@ -1011,6 +1028,8 @@
         "/rl-sim2real/rl-for-robotics/",
         "/rl-sim2real/sim2real-transfer/",
         "/rl-sim2real/why-rl-locomotion/",
+        "/search/",
+        "/world-models/",
         "/world-models/evaluation/",
         "/world-models/generative-sim/",
         "/world-models/generative-video/",
@@ -1018,7 +1037,9 @@
         "/world-models/latent-dynamics/",
         "/world-models/model-based-robot-learning/",
         "/world-models/taxonomy/",
-        "/world-models/world-models-vs-simulators/"
+        "/world-models/world-models-vs-simulators/",
+        "/market-map/?view=bubble",
+        "/market-map/?view=timeline"
       ]
     },
     "device:sequence-label": {
@@ -1043,7 +1064,7 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "823b17d99dbc5849b2362f91a5d54bd7e0a9726d77ce6a8b5e09756af6bc0ce8",
+      "fingerprint": "4ce309836b2e4ac2d7197413a75525982c29bf41a4fa6e2bca584dbd59672ddd",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
@@ -1192,7 +1213,7 @@
     },
     "surface:floating": {
       "kind": "surfaces",
-      "fingerprint": "c1455f582e5412b55b5e1040f336ca48a009f22c901614810da6b17f2283a71a",
+      "fingerprint": "1fd63903aa8a44e6646a145d1d106c305bf1834201a1443b8a7fe0bf49ca59db",
       "mountState": "production",
       "definedIn": [
         "components/ui/surface.tsx",
@@ -1263,7 +1284,7 @@
     },
     "surface:raised": {
       "kind": "surfaces",
-      "fingerprint": "1d4ddc7965a6042699d3e0806bf2be24d888cf72d8f33fb52fc33ce4c2e8a048",
+      "fingerprint": "b43ee88f004654365ed39ba3e3664d96119fad04cc07c9cf4cc541762a234457",
       "mountState": "library-only",
       "definedIn": [
         "components/ui/card.tsx",

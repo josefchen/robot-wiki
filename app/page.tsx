@@ -8,6 +8,7 @@ import { FeaturedExplainer } from '@/components/home/featured-explainer';
 import { HomeSearch } from '@/components/home/home-search';
 import { HOME_FEATURED_SCENE } from '@/data/home-featured';
 import { getModule, publishedModules } from '@/data/modules';
+import { materialAttributes } from '@/lib/brand-v2-materials';
 import { recentlyUpdated } from '@/lib/content-dates';
 import {
   HOME_ROTATING_WORDS,
@@ -93,7 +94,10 @@ export default function Home() {
         aria-label="Introduction"
         data-pagefind-body
         data-brand-module-signature={SECTION_SIGNATURES.identity}
-        className={`${container} sheet-masthead home-masthead`}
+        // The home representative surface declares its material: paper,
+        // the one texture-free ground the site paints (VAL-B2-SURF-011).
+        {...materialAttributes('paper')}
+        className={`${container} sheet-masthead home-masthead material-paper`}
       >
         <script
           type="application/ld+json"

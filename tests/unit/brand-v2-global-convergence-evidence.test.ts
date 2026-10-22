@@ -7,16 +7,28 @@ import {
   GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES,
   GLOBAL_CONVERGENCE_EVIDENCE_PATH,
   GLOBAL_CONVERGENCE_VIEWPORTS,
+  REPRESENTATIVE_SURFACES,
+  REPRESENTATIVE_SURFACE_POPULATION_SOURCE,
   ROUTE_ROW_PREDICATES,
+  SOCIAL_ARTWORK_MANIFEST_PATH,
+  SURFACE_FAMILIES,
+  SURFACE_FAMILY_POPULATION_SOURCE,
   TYPE_POPULATIONS,
   TYPE_POPULATION_SOURCE,
   TYPE_ROW,
+  VIEWPORT_PAIR_ROW,
   frameRowVerdicts,
   globalConvergenceEvidenceFingerprint,
   globalConvergenceVerdicts,
+  inSurfaceFamily,
+  readConvergenceRegistry,
   readGlobalConvergenceEvidence,
+  readSocialArtwork,
   routeRowVerdicts,
+  surfaceFamilyVerdicts,
   typePopulationVerdicts,
+  viewportPairVerdicts,
+  type SocialArtwork,
   type ConvergenceTypeTuple,
   type GlobalConvergenceEvidence,
   type GlobalConvergenceObservation,
@@ -31,6 +43,11 @@ const REGISTRY = JSON.parse(
   pageFrames: Array<{ id: string; minimumPaddingPx: number }>;
 };
 const ROUTE_IDS = REGISTRY.routes.public.map(({ id }) => id);
+
+const SOCIAL = readSocialArtwork(
+  JSON.parse(readFileSync(join(ROOT, SOCIAL_ARTWORK_MANIFEST_PATH), 'utf8')),
+  readConvergenceRegistry(ROOT),
+);
 
 const COMMITTED = JSON.parse(
   readFileSync(join(ROOT, GLOBAL_CONVERGENCE_EVIDENCE_PATH), 'utf8'),
@@ -85,6 +102,25 @@ const FULFILLED = [
   'VAL-B2-SPACE-005',
   'VAL-B2-SPACE-006',
   'VAL-B2-TYPE-018',
+  'VAL-B2-GRID-001',
+  'VAL-B2-GRID-002',
+  'VAL-B2-GRID-003',
+  'VAL-B2-GRID-004',
+  'VAL-B2-GRID-005',
+  'VAL-B2-GRID-006',
+  'VAL-B2-GRID-007',
+  'VAL-B2-GRID-008',
+  'VAL-B2-GRID-010',
+  'VAL-B2-SURF-001',
+  'VAL-B2-SURF-002',
+  'VAL-B2-SURF-003',
+  'VAL-B2-SURF-004',
+  'VAL-B2-SURF-005',
+  'VAL-B2-SURF-006',
+  'VAL-B2-SURF-007',
+  'VAL-B2-SURF-008',
+  'VAL-B2-SURF-009',
+  'VAL-B2-SURF-011',
 ];
 
 describe('global convergence evidence', () => {
@@ -94,7 +130,7 @@ describe('global convergence evidence', () => {
       fingerprint: globalConvergenceEvidenceFingerprint({ root: ROOT, routeIds: ROUTE_IDS }),
       routeIds: ROUTE_IDS,
     });
-    const verdicts = globalConvergenceVerdicts(evidence);
+    const verdicts = globalConvergenceVerdicts(evidence, SOCIAL);
     expect(Object.keys(verdicts).sort()).toEqual([...FULFILLED].sort());
     expect(Object.keys(GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES).sort()).toEqual([...FULFILLED].sort());
     for (const [assertionId, members] of Object.entries(verdicts)) {
@@ -110,7 +146,11 @@ describe('global convergence evidence', () => {
             ? REGISTRY.pageFrames.map(({ id }) => id)
             : source === TYPE_POPULATION_SOURCE
               ? Object.keys(TYPE_POPULATIONS)
-              : [];
+              : source === SURFACE_FAMILY_POPULATION_SOURCE
+                ? [...SURFACE_FAMILIES]
+                : source === REPRESENTATIVE_SURFACE_POPULATION_SOURCE
+                  ? [...REPRESENTATIVE_SURFACES]
+                  : [];
       expect([...members.keys()].sort(), assertionId).toEqual([...members_].sort());
     }
     // The sweep measures each frame against the inline minimum the page-frame
@@ -118,12 +158,23 @@ describe('global convergence evidence', () => {
     expect(
       GLOBAL_CONVERGENCE_VIEWPORTS.map(({ frame, minimumInlinePaddingPx }) => [frame, minimumInlinePaddingPx]),
     ).toEqual(REGISTRY.pageFrames.map(({ id, minimumPaddingPx }) => [id, minimumPaddingPx]));
+    // No two route rows own the same predicates, so no row is another
+    // row's verdict under a second name.
+    const sets = Object.values(ROUTE_ROW_PREDICATES).map((predicates) => [...predicates].sort().join(','));
+    expect(new Set(sets).size).toBe(sets.length);
+    // Every browser-read surface is made up of at least one public route.
+    for (const family of SURFACE_FAMILIES.filter((name) => name !== 'social-artwork')) {
+      expect(
+        REGISTRY.routes.public.some(({ path }) => inSurfaceFamily(family as Exclude<typeof family, 'social-artwork'>, path)),
+        family,
+      ).toBe(true);
+    }
   });
 
   it('refuses stale, incomplete, and vacuous convergence evidence', () => {
     expect(() => read(COMMITTED)).not.toThrow();
 
-    expect(() => read(mutate((e) => ((e as { version: number }).version = 2)))).toThrow(/version 2/);
+    expect(() => read(mutate((e) => ((e as { version: number }).version = 1)))).toThrow(/version 1/);
     expect(() =>
       readGlobalConvergenceEvidence({ artifact: COMMITTED, fingerprint: 'another tree', routeIds: ROUTE_IDS }),
     ).toThrow(/stale/);
@@ -404,7 +455,7 @@ describe('global convergence evidence', () => {
             element: 'div[data-planted]',
             exemption: null,
           }),
-        ['VAL-B2-SPACE-001', 'VAL-B2-SPACE-005'],
+        ['VAL-B2-SPACE-001', 'VAL-B2-SPACE-005', 'VAL-B2-GRID-001'],
         'frame:mobile',
       ],
       [
@@ -426,7 +477,31 @@ describe('global convergence evidence', () => {
           const token = at(e, TARGET, '768x1024').page.spacingTokens.find(({ name }) => name === '--space-128')!;
           token.valuePx = 120;
         },
-        ['VAL-B2-SPACE-001', 'VAL-B2-SPACE-005'],
+        ['VAL-B2-SPACE-001', 'VAL-B2-SPACE-005', 'VAL-B2-GRID-001'],
+        'frame:tablet',
+      ],
+      [
+        'a major block off every line of its frame',
+        (e) =>
+          at(e, TARGET, '768x1024').page.findings.push({
+            predicate: 'composition-offgrid',
+            element: 'section[data-planted]',
+            detail: 'planted',
+            exemption: null,
+          }),
+        ['VAL-B2-GRID-001'],
+        'frame:tablet',
+      ],
+      [
+        'an off-line block on the frozen explainer page',
+        (e) =>
+          at(e, TARGET, '768x1024').page.findings.push({
+            predicate: 'composition-offgrid',
+            element: 'section[data-planted]',
+            detail: 'planted',
+            exemption: 'owner-freeze:how-robots-work',
+          }),
+        [],
         'frame:tablet',
       ],
       [
@@ -661,5 +736,98 @@ describe('global convergence evidence', () => {
       'the registration-label population is empty',
     ]);
     expect(TYPE_ROW).toBe('VAL-B2-TYPE-018');
-  });
+
+    // VAL-B2-GRID-007: a narrower width with more devices than the desktop,
+    // or one that reaches different content, fails its route alone.
+    expect(failing(viewportPairVerdicts(COMMITTED))).toEqual([]);
+    expect(VIEWPORT_PAIR_ROW).toBe('VAL-B2-GRID-007');
+    for (const [label, viewport, change] of [
+      ['an extra device on a phone', '375x812', (o: GlobalConvergenceObservation, wide: GlobalConvergenceObservation) => {
+        o.page.counts.registeredDevices = (wide.page.counts.registeredDevices ?? 0) + 1;
+      }],
+      ['an extra device on a tablet', '768x1024', (o: GlobalConvergenceObservation, wide: GlobalConvergenceObservation) => {
+        o.page.counts.registeredDevices = (wide.page.counts.registeredDevices ?? 0) + 1;
+      }],
+      ['content a phone cannot reach', '375x812', (o: GlobalConvergenceObservation) => {
+        o.page.content.digest = '00000000';
+      }],
+    ] as const) {
+      const planted = mutate((e) => change(at(e, TARGET, viewport), at(e, TARGET, '1440x900')));
+      expect(failing(viewportPairVerdicts(planted)), label).toEqual([TARGET]);
+    }
+    const fewer = mutate((e) => (at(e, TARGET, '375x812').page.counts.registeredDevices = 0));
+    expect(failing(viewportPairVerdicts(fewer)), 'fewer devices on a phone').toEqual([]);
+
+    // VAL-B2-GRID-002 and VAL-B2-SURF-011: each surface on its own.
+    expect(failing(surfaceFamilyVerdicts(COMMITTED, 'VAL-B2-GRID-002', SOCIAL))).toEqual([]);
+    expect(failing(surfaceFamilyVerdicts(COMMITTED, 'VAL-B2-SURF-011', SOCIAL))).toEqual([]);
+    const route = (path: string) => REGISTRY.routes.public.find((candidate) => candidate.path === path)!.id;
+    const surfaceCases: Array<[string, (e: GlobalConvergenceEvidence) => void, string[], string[]]> = [
+      [
+        'the market map with no aligned device on a phone',
+        (e) => (at(e, route('/market-map/'), '375x812').page.counts.alignedDevices = 0),
+        ['shell', 'market-map'],
+        [],
+      ],
+      [
+        'the playground with no sound material on the desktop',
+        (e) => (at(e, route('/playground/'), '1440x900').page.counts.materialSurfaces = 0),
+        [],
+        ['playground'],
+      ],
+      [
+        'a texture behind the glossary',
+        (e) =>
+          at(e, route('/glossary/'), '768x1024').page.findings.push({
+            predicate: 'texture',
+            element: 'div[data-planted]',
+            detail: 'planted',
+            exemption: null,
+          }),
+        [],
+        ['discovery'],
+      ],
+      [
+        'an undeclared material on an article',
+        (e) => {
+          const article = REGISTRY.routes.public.find(({ path }) => inSurfaceFamily('article', path))!.id;
+          at(e, article, '375x812').page.findings.push({
+            predicate: 'material',
+            element: 'div[data-planted]',
+            detail: 'planted',
+            exemption: null,
+          });
+        },
+        [],
+        ['article'],
+      ],
+    ];
+    for (const [label, change, grid, surf] of surfaceCases) {
+      const planted = mutate(change);
+      expect(failing(surfaceFamilyVerdicts(planted, 'VAL-B2-GRID-002', SOCIAL)), `${label} under GRID-002`).toEqual(grid);
+      expect(failing(surfaceFamilyVerdicts(planted, 'VAL-B2-SURF-011', SOCIAL)), `${label} under SURF-011`).toEqual(surf);
+    }
+    const card = (change: (cards: SocialArtwork['cards']) => void): SocialArtwork => {
+      const copy = JSON.parse(JSON.stringify(SOCIAL)) as SocialArtwork;
+      change(copy.cards);
+      return copy;
+    };
+    for (const [label, social, grid, surf] of [
+      ['a card with no device', card((cards) => (cards[cards.length - 1].devices = [])), true, false],
+      ['a card drawing an unregistered device', card((cards) => cards[0].devices.push('device:planted#top')), true, false],
+      ['a card that renders differently twice', card((cards) => (cards[0].pixels.secondRenderSha256 = 'planted')), false, true],
+      ['a card with off-palette pixels', card((cards) => (cards[0].pixels.offPalettePixels = 3)), false, true],
+      ['a card painting an undeclared token', card((cards) => cards[0].paintedTokens.push('lime')), false, true],
+    ] as const) {
+      expect(failing(surfaceFamilyVerdicts(COMMITTED, 'VAL-B2-GRID-002', social)), label).toEqual(grid ? ['social-artwork'] : []);
+      expect(failing(surfaceFamilyVerdicts(COMMITTED, 'VAL-B2-SURF-011', social)), label).toEqual(surf ? ['social-artwork'] : []);
+    }
+    const unregisteredFont = JSON.parse(JSON.stringify(SOCIAL)) as SocialArtwork;
+    unregisteredFont.fonts[0].sha256 = 'planted';
+    expect(failing(surfaceFamilyVerdicts(COMMITTED, 'VAL-B2-SURF-011', unregisteredFont))).toEqual(['social-artwork']);
+    expect(() => readSocialArtwork({ cards: [], styleTokens: [], fonts: [] }, readConvergenceRegistry(ROOT))).toThrow(
+      /card corpus is empty/,
+    );
+    // Each plant re-reads a copy of the whole committed sweep.
+  }, 60_000);
 });

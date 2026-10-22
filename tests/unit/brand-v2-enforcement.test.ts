@@ -106,6 +106,10 @@ import {
 } from '@/lib/brand-v2-market-map-states';
 import { ogPopulations, readOgEvidence } from '@/lib/brand-v2-og-evidence';
 import {
+  REPRESENTATIVE_SURFACES,
+  REPRESENTATIVE_SURFACE_POPULATION_SOURCE,
+  SURFACE_FAMILIES,
+  SURFACE_FAMILY_POPULATION_SOURCE,
   TYPE_POPULATION_SOURCE,
   TYPE_POPULATIONS,
 } from '@/lib/brand-v2-global-convergence-evidence';
@@ -599,6 +603,10 @@ describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, (
           // VAL-B2-TYPE-018, one member per sealed type population of the
           // global convergence sweep.
           [TYPE_POPULATION_SOURCE]: Object.keys(TYPE_POPULATIONS),
+          // VAL-B2-GRID-002 and VAL-B2-SURF-011, one member per surface the
+          // row names.
+          [SURFACE_FAMILY_POPULATION_SOURCE]: [...SURFACE_FAMILIES],
+          [REPRESENTATIVE_SURFACE_POPULATION_SOURCE]: [...REPRESENTATIVE_SURFACES],
           // The Open Graph/X rows' populations, merged the same way from the
           // reader that decides them: the sealed cards, the site-card
           // destinations, the probed strings and the publication trees.
