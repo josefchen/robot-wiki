@@ -5,6 +5,8 @@ import { COMPANIES } from '@/data/companies';
 import {
   DEFAULT_MARKET_MAP_FILTERS,
   filterCompanies,
+  formatShortDate,
+  roundSource,
 } from '@/lib/market-map';
 import type { Company } from '@/data/schemas/company';
 import { CompanyDetail } from '@/components/market-map/company-card';
@@ -53,6 +55,40 @@ function expectSelectedTile(id: string) {
 /** The open company's details (the side sheet at this width). */
 function sheet(name: string | RegExp): HTMLElement {
   return screen.getByRole('dialog', { name });
+}
+
+/** Entry `number` (1-based, as printed) of an open sheet's Sources list. */
+function listedSource(details: HTMLElement, number: number): HTMLElement {
+  const items = within(within(details).getByRole('region', { name: 'Sources' })).getAllByRole(
+    'listitem',
+  );
+  const item = items[number - 1];
+  expect(item.querySelector('[data-source-number]')).toHaveTextContent(new RegExp(`^${number}$`));
+  return item;
+}
+
+/**
+ * The number a round line or caveat gives the source it names by title, in
+ * plain text and without a second link ("<title>, source N below").
+ */
+function sourceNumberNamed(line: Element, title: string): number {
+  expect(line.querySelector('a')).toBeNull();
+  const escaped = title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = new RegExp(`${escaped}, source (\\d+) below`).exec(line.textContent ?? '');
+  expect(match, `"${line.textContent}" names ${title} by number`).not.toBeNull();
+  return Number(match![1]);
+}
+
+/** The pages a caveat names by number, read from the Sources list's links. */
+function namedSourceHrefs(details: HTMLElement, line: Element): string[] {
+  expect(line.querySelector('a')).toBeNull();
+  const numbers = Array.from((line.textContent ?? '').matchAll(/, source (\d+) below/g), (m) =>
+    Number(m[1]),
+  );
+  expect(numbers.length).toBeGreaterThan(0);
+  return numbers.map(
+    (number) => within(listedSource(details, number)).getByRole('link').getAttribute('href')!,
+  );
 }
 
 function segmentTab(name: RegExp) {
@@ -225,10 +261,11 @@ describe('MarketMap', () => {
     expect(pi.querySelector('[data-field="valuation"]')).toHaveTextContent('$5.6B');
     expect(pi.querySelector('[data-field="status"]')).toHaveTextContent('Private');
     expect(pi.querySelector('[data-field="confidence"]')).toHaveTextContent('high');
+    // The sheet links each source once, in its Sources list.
     expect(
-      within(pi).getAllByRole('link', {
+      within(pi).getByRole('link', {
         name: /Physical Intelligence raises \$600M to advance robot foundation models/,
-      })[0],
+      }),
     ).toHaveAttribute('href', expect.stringMatching(/^https:\/\//));
     // The 2026-10-19 field audit cut "Pi" (its sources use it only for the
     // Pi0 model and the API) and named the open release as PI's own pages do.
@@ -289,12 +326,104 @@ describe('MarketMap', () => {
     const tars = sheet('TARS Robotics');
     const source = tars.querySelector('[data-round-source]')!;
     expect(source).toHaveTextContent('TARS Raises $455M Pre-A Round');
+    const pandaily =
+      'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector';
+    const title = COMPANIES.find((x) => x.id === 'tars-robotics')!.sources.find(
+      (entry) => entry.url === pandaily,
+    )!.title;
+    const number = sourceNumberNamed(source, title);
     expect(source.querySelector('[data-field="as-of"]')).toHaveTextContent('25 Aug 2026');
-    expect(source.querySelector('a')).toHaveAttribute(
-      'href',
-      'https://pandaily.com/tars-raises-455-m-pre-a-round-setting-record-in-china-s-embodied-ai-sector',
-    );
+    expect(within(listedSource(tars, number)).getByRole('link')).toHaveAttribute('href', pandaily);
+    expect(listedSource(tars, number)).toHaveTextContent('As of 25 Aug 2026');
   }, TIMEOUT);
+
+  it('links each external page once, in the numbered Sources list with its as-of date, for every company (VAL-MKT-010)', () => {
+    // The browser resolves `https://farm-ng.com` and `https://farm-ng.com/`
+    // to the same page, so links are compared as it resolves them.
+    const page = (href: string) => new URL(href).href;
+    for (const company of COMPANIES) {
+      const { container, unmount } = render(
+        <CompanyDetail company={company} headingId="detail" onClose={() => {}} />,
+      );
+      const hrefs = Array.from(container.querySelectorAll('a[href^="http"]'), (a) =>
+        page(a.getAttribute('href')!),
+      );
+      expect(
+        hrefs.filter((href, index) => hrefs.indexOf(href) !== index),
+        `${company.id} links a page more than once`,
+      ).toEqual([]);
+
+      // The list is the one place a source is linked: every entry, in
+      // order, under its visible number, with the date it was read.
+      const items = container.querySelectorAll('section[aria-labelledby="detail-sources"] ol > li');
+      expect(items, company.id).toHaveLength(company.sources.length);
+      const numberOf = (url: string) =>
+        company.sources.findIndex((entry) => page(entry.url) === page(url)) + 1;
+      company.sources.forEach((entry, index) => {
+        const item = items[index] as HTMLElement;
+        expect(item.querySelector('[data-source-number]'), company.id).toHaveTextContent(
+          new RegExp(`^${index + 1}$`),
+        );
+        const link = within(item).getByRole('link');
+        expect(link, company.id).toHaveAttribute('href', entry.url);
+        expect(link, company.id).toHaveTextContent(entry.title);
+        expect(item, company.id).toHaveTextContent(`As of ${formatShortDate(entry.asOf)}`);
+        expect(hrefs.filter((href) => href === page(entry.url)), company.id).toHaveLength(1);
+      });
+
+      // The round's figures name their source by its number, in plain
+      // text, still dated beside them.
+      const cited = roundSource(company);
+      const line = container.querySelector('[data-round-source]') as HTMLElement;
+      if (cited) {
+        expect(line, company.id).toHaveTextContent(
+          `Source: ${cited.title}, source ${numberOf(cited.url)} below, as of ${formatShortDate(cited.asOf)}.`,
+        );
+        expect(line.querySelector('a'), company.id).toBeNull();
+      } else {
+        expect(line, company.id).toBeNull();
+      }
+
+      const caveat = company.latestRound?.caveat;
+      const caveatLine = container.querySelector('[data-round-caveat]') as HTMLElement | null;
+      if (caveat) {
+        expect(caveatLine, company.id).toHaveTextContent(`Caveat: ${caveat.text}`);
+        expect(caveatLine!.querySelector('a'), company.id).toBeNull();
+        for (const url of caveat.sourceUrls) {
+          const number = numberOf(url);
+          expect(number, `${company.id} caveat cites ${url}`).toBeGreaterThan(0);
+          expect(caveatLine, company.id).toHaveTextContent(
+            `${company.sources[number - 1].title}, source ${number} below`,
+          );
+        }
+      } else {
+        expect(caveatLine, company.id).toBeNull();
+      }
+
+      // A homepage that is also a listed source is named, not linked again.
+      const website = container.querySelector('[data-field="website"]') as HTMLElement;
+      if (company.website && numberOf(company.website) > 0) {
+        expect(website.querySelector('a'), company.id).toBeNull();
+        expect(website, company.id).toHaveTextContent(`, source ${numberOf(company.website)} below`);
+      } else if (company.website) {
+        expect(within(website).getByRole('link'), company.id).toHaveAttribute('href', company.website);
+      }
+      unmount();
+    }
+
+    // Clone Robotics keeps its caveat naming The Rundown, and no funding
+    // field takes the reported figure.
+    const clone = COMPANIES.find((company) => company.id === 'clone-robotics')!;
+    const { container } = render(<CompanyDetail company={clone} headingId="detail" onClose={() => {}} />);
+    const caveat = container.querySelector('[data-round-caveat]');
+    expect(caveat).toHaveTextContent(/^Caveat: The Rundown \(9 April 2026\) mentions a reported \$50M raise/);
+    expect(caveat).toHaveTextContent(
+      "Source: Clone's $20K synthetic human (The Rundown Robotics, 2026-04-09), source 4 below.",
+    );
+    for (const field of ['round-type', 'amount', 'date', 'valuation', 'leads', 'total-raised']) {
+      expect(container.querySelector(`[data-field="${field}"]`)).toHaveTextContent(/^not disclosed$/);
+    }
+  }, 60_000);
 
   it('shows a round caveat with its source on the card (VAL-B2-MAP-009)', async () => {
     const user = userEvent.setup();
@@ -302,13 +431,17 @@ describe('MarketMap', () => {
     await user.click(tile('figure-ai'));
     const figure = sheet('Figure AI');
     // The floor the source states is visible next to the undisclosed
-    // amount, never silently dropped, and it cites the page it came from.
+    // amount, never silently dropped, and it names the page it came from,
+    // which the sheet's Sources list links.
     expect(figure.querySelector('[data-field="amount"]')).toHaveTextContent('not disclosed');
     const caveat = figure.querySelector('[data-round-caveat]') as HTMLElement;
     expect(caveat).toHaveTextContent(
       'Caveat: Figure says the Series C exceeded $1B; it gives no exact amount. Source:',
     );
-    expect(within(caveat).getByRole('link')).toHaveAttribute(
+    const series = COMPANIES.find((x) => x.id === 'figure-ai')!.sources.find(
+      (entry) => entry.url === 'https://www.figure.ai/news/series-c',
+    )!;
+    expect(within(listedSource(figure, sourceNumberNamed(caveat, series.title))).getByRole('link')).toHaveAttribute(
       'href',
       'https://www.figure.ai/news/series-c',
     );
@@ -323,13 +456,18 @@ describe('MarketMap', () => {
     await user.click(tile('clone-robotics'));
     const clone = sheet('Clone Robotics');
     // The Rundown (9 April 2026) mentions "a reported $50M raise" with no
-    // date, round type or source: the card names it in a caveat linked to
-    // that page, and no funding field takes the figure.
+    // date, round type or source: the card names it in a caveat that names
+    // that page, linked from the Sources list, and no funding field takes
+    // the figure.
     const caveat = clone.querySelector('[data-round-caveat]') as HTMLElement;
     expect(caveat).toHaveTextContent(
       'Caveat: The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither. Source:',
     );
-    const link = within(caveat).getByRole('link');
+    const number = sourceNumberNamed(
+      caveat,
+      "Clone's $20K synthetic human (The Rundown Robotics, 2026-04-09)",
+    );
+    const link = within(listedSource(clone, number)).getByRole('link');
     expect(link).toHaveAttribute('href', 'https://robotnews.therundown.ai/p/clone-20k-synthetic-human');
     expect(link).toHaveTextContent("Clone's $20K synthetic human (The Rundown Robotics, 2026-04-09)");
     for (const field of ['round-type', 'amount', 'date', 'valuation', 'total-raised']) {
@@ -347,7 +485,7 @@ describe('MarketMap', () => {
 
     // Spirit AI: the card shows the A+ round the company announced, and
     // the caveat keeps the other figures its sources give for its February
-    // round, each linked to the page that states it.
+    // round, each naming the listed source that states it.
     await user.click(tile('spirit-ai'));
     const spirit = sheet('Spirit AI');
     expect(spirit.querySelector('[data-field="round-type"]')).toHaveTextContent('Series A+');
@@ -356,7 +494,7 @@ describe('MarketMap', () => {
     expect(spiritCaveat).toHaveTextContent('$290 million Series A');
     expect(spiritCaveat).toHaveTextContent('$145 million extension');
     expect(spiritCaveat).toHaveTextContent('$280 million');
-    expect(within(spiritCaveat).getAllByRole('link').map((a) => a.getAttribute('href'))).toEqual(
+    expect(namedSourceHrefs(spirit, spiritCaveat)).toEqual(
       expect.arrayContaining([
         crunchbase,
         'https://www.prnewswire.com/news-releases/spirit-ai-lands-280m-to-scale-embodied-ai-through-dirty-data-302697085.html',
@@ -371,9 +509,7 @@ describe('MarketMap', () => {
     expect(tars.querySelector('[data-field="amount"]')).toHaveTextContent('$455M');
     const tarsCaveat = tars.querySelector('[data-round-caveat]') as HTMLElement;
     expect(tarsCaveat).toHaveTextContent('$513 million seed round');
-    expect(within(tarsCaveat).getAllByRole('link').map((a) => a.getAttribute('href'))).toContain(
-      crunchbase,
-    );
+    expect(namedSourceHrefs(tars, tarsCaveat)).toContain(crunchbase);
 
     // Carbon Robotics: its latest round carries the label GeekWire gives
     // it, not the "Series D" of its 2024 round.

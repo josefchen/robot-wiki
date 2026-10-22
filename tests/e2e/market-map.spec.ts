@@ -212,10 +212,11 @@ test.describe('market map visualization', () => {
     await expect(pi.getByRole('heading', { name: 'Physical Intelligence' })).toBeFocused();
     await expect(page).toHaveURL(/#company-physical-intelligence$/);
     await expect(pi.getByText(/vision-language-action/)).toBeVisible();
-    // Target the funding figure by its data field: the source list in the
-    // sheet includes a Robot Report link whose TITLE contains "$600M" (a
-    // correct title), so a bare getByText collides with it in strict mode.
-    // The data-field locator still fails if the figure is wrong.
+    // Target the funding figure by its data field: the round's source is a
+    // Robot Report article whose TITLE contains "$600M" (a correct title),
+    // linked once in the sheet's Sources list and named in plain text under
+    // the round, so a bare getByText collides with it in strict mode. The
+    // data-field locator still fails if the figure is wrong.
     await expect(pi.locator('[data-field="amount"]')).toHaveText('$600M');
     await expect(pi.locator('[data-field="valuation"]')).toHaveText('$5.6B');
     await expect(pi.locator('[data-field="confidence"]')).toHaveText('high');
@@ -278,11 +279,15 @@ test.describe('market map visualization', () => {
     const figure = page.locator('[data-company-id="figure-ai"]');
     await figure.getByRole('button').click();
     const details = sheet(page, 'Figure AI');
-    await expect(details.locator('[data-round-source]')).toContainText(/as of/i);
-    await expect(details.locator('[data-round-source] a')).toHaveAttribute(
-      'href',
-      /^https:\/\//,
-    );
+    // The round line names its source by number, dated, without a second
+    // link; that entry of the Sources list links the page.
+    const roundLine = details.locator('[data-round-source]');
+    await expect(roundLine).toContainText(/, source \d+ below, as of /);
+    await expect(roundLine.locator('a')).toHaveCount(0);
+    const number = Number(/, source (\d+) below/.exec(await roundLine.innerText())![1]);
+    const entry = details.getByRole('region', { name: 'Sources' }).getByRole('listitem').nth(number - 1);
+    await expect(entry.locator('[data-source-number]')).toHaveText(String(number));
+    await expect(entry.getByRole('link')).toHaveAttribute('href', /^https:\/\//);
 
     const covariant = page.locator('[data-company-id="covariant"]');
     await covariant.getByRole('button').click();

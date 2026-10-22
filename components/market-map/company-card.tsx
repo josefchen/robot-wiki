@@ -69,10 +69,37 @@ const linkClass =
   'text-text underline decoration-border-strong underline-offset-[3px] transition-colors hover:decoration-ink';
 
 /**
+ * Where a page sits in the company's numbered Sources list (1-based), or 0.
+ * Pages are compared as the browser resolves them, so a homepage written
+ * without its trailing slash is still the listed page.
+ */
+function sourceNumber(company: Company, url: string): number {
+  const page = new URL(url).href;
+  return company.sources.findIndex((entry) => new URL(entry.url).href === page) + 1;
+}
+
+function websiteLabel(url: string): string {
+  return url.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '');
+}
+
+/** A listed source named in plain text by its title and number. */
+function SourceName({ company, url }: { company: Company; url: string }) {
+  const number = sourceNumber(company, url);
+  return (
+    <>
+      {company.sources[number - 1]?.title ?? url}, source {number} below
+    </>
+  );
+}
+
+/**
  * Everything the market map knows about one company, with each figure next
- * to the source it rests on. The latest round's figures cite the round's
- * own source (lib/market-map.ts roundSource), dated the day that source was
- * last read; every other source follows with its own date.
+ * to the source it rests on. Each source is linked once, in the numbered
+ * Sources list, with the date it was last read. The latest round's figures
+ * name the round's own source (lib/market-map.ts roundSource) and its date,
+ * and a round caveat or a homepage that is also a listed source names it by
+ * number in plain text. They do not link to it again, and they do not jump
+ * to it with an in-page anchor, since the URL hash holds the sheet open.
  */
 export function CompanyDetail({
   company,
@@ -85,6 +112,7 @@ export function CompanyDetail({
 }) {
   const round = company.latestRound;
   const source = roundSource(company);
+  const websiteSource = company.website ? sourceNumber(company, company.website) : 0;
   const withheld = withheldMark(company.logo);
   const place = [company.hq.city, company.hq.country].filter(Boolean).join(', ');
   const context = [
@@ -166,17 +194,8 @@ export function CompanyDetail({
             data-round-source
             className="mt-2 font-sans text-[13px] leading-5 text-text-dim"
           >
-            Source:{' '}
-            <a
-              data-brand-control-id="control:link-focus"
-              href={source.url}
-              target="_blank"
-              rel="noopener"
-              className={linkClass}
-            >
-              {source.title}
-            </a>
-            , as of <span data-field="as-of">{formatShortDate(source.asOf)}</span>.
+            Source: <SourceName company={company} url={source.url} />, as of{' '}
+            <span data-field="as-of">{formatShortDate(source.asOf)}</span>.
           </p>
         ) : null}
         {round?.caveat ? (
@@ -186,23 +205,12 @@ export function CompanyDetail({
           >
             <span className="font-medium text-text">Caveat:</span> {round.caveat.text}{' '}
             {round.caveat.sourceUrls.length > 1 ? 'Sources: ' : 'Source: '}
-            {round.caveat.sourceUrls.map((url, index) => {
-              const cited = company.sources.find((entry) => entry.url === url);
-              return (
-                <span key={url}>
-                  {index > 0 ? '; ' : ''}
-                  <a
-                    data-brand-control-id="control:link-focus"
-                    href={url}
-                    target="_blank"
-                    rel="noopener"
-                    className={linkClass}
-                  >
-                    {cited?.title ?? url}
-                  </a>
-                </span>
-              );
-            })}
+            {round.caveat.sourceUrls.map((url, index) => (
+              <span key={url}>
+                {index > 0 ? '; ' : ''}
+                <SourceName company={company} url={url} />
+              </span>
+            ))}
             .
           </p>
         ) : null}
@@ -244,7 +252,11 @@ export function CompanyDetail({
             <List company={company} field="aka" items={company.aka} />
           </Row>
           <Row term="Website" field="website">
-            {company.website ? (
+            {company.website && websiteSource > 0 ? (
+              <>
+                {websiteLabel(company.website)}, source {websiteSource} below
+              </>
+            ) : company.website ? (
               <a
                 data-brand-control-id="control:link-focus"
                 href={company.website}
@@ -252,7 +264,7 @@ export function CompanyDetail({
                 rel="noopener"
                 className={linkClass}
               >
-                {company.website.replace(/^https:\/\/(www\.)?/, '').replace(/\/$/, '')}
+                {websiteLabel(company.website)}
               </a>
             ) : (
               <Absent company={company} field="website" />
@@ -272,19 +284,24 @@ export function CompanyDetail({
           Sources
         </h3>
         <ol className="font-sans text-[14px] leading-5">
-          {company.sources.map((entry) => (
-            <li key={entry.url} className="py-[7px]">
-              <a
-                data-brand-control-id="control:link-focus"
-                href={entry.url}
-                target="_blank"
-                rel="noopener"
-                className={linkClass}
-              >
-                {entry.title}
-              </a>
-              <span className="mt-0.5 block text-[13px] text-text-dim">
-                As of {formatShortDate(entry.asOf)}
+          {company.sources.map((entry, index) => (
+            <li key={entry.url} className="grid grid-cols-[1.5rem_minmax(0,1fr)] py-[7px]">
+              <span data-source-number className="font-mono text-[13px] tabular-nums text-text-dim">
+                {index + 1}
+              </span>
+              <span className="min-w-0">
+                <a
+                  data-brand-control-id="control:link-focus"
+                  href={entry.url}
+                  target="_blank"
+                  rel="noopener"
+                  className={linkClass}
+                >
+                  {entry.title}
+                </a>
+                <span className="mt-0.5 block text-[13px] text-text-dim">
+                  As of {formatShortDate(entry.asOf)}
+                </span>
               </span>
             </li>
           ))}

@@ -82,6 +82,75 @@ test.describe('bubble view hover/focus affordances', () => {
     await expect(label(page)).toHaveCount(0);
   });
 
+  for (const viewport of [
+    { name: '1280x720', width: 1280, height: 720 },
+    { name: '375x812', width: 375, height: 812 },
+  ]) {
+    test(`every plotted mark: hovering shows the label focusing the mark under the pointer shows, at ${viewport.name} (VAL-B2-MAP-005)`, async ({
+      page,
+    }) => {
+      test.setTimeout(120_000);
+      await page.setViewportSize({ width: viewport.width, height: viewport.height });
+      await openBubble(page);
+      const ids = await marks(page).evaluateAll((circles) =>
+        circles.map((circle) => circle.getAttribute('data-company-id') as string),
+      );
+      expect(ids.length).toBeGreaterThan(0);
+
+      /** The label's text and placement, so "the same label" means both. */
+      const shown = () =>
+        label(page).evaluateAll((groups) =>
+          groups.map((group) =>
+            Array.from(group.querySelectorAll('text'), (text) => ({
+              text: text.textContent,
+              x: text.getAttribute('x'),
+              y: text.getAttribute('y'),
+              anchor: text.getAttribute('text-anchor'),
+            })),
+          ),
+        );
+
+      const checked: string[] = [];
+      for (const id of ids) {
+        const target = mark(page, id);
+        await target.scrollIntoViewIfNeeded();
+        const box = await target.boundingBox();
+        expect(box, `${id} has a box`).not.toBeNull();
+        const x = box!.x + box!.width / 2;
+        const y = box!.y + box!.height / 2;
+        // Marks can overlap: the company the pointer opens here is the
+        // topmost control at the mark's centre, which need not be `id`.
+        const under = await page.evaluate(
+          ([px, py]) =>
+            document
+              .elementFromPoint(px, py)
+              ?.closest('circle[data-company-id]')
+              ?.getAttribute('data-company-id') ?? null,
+          [x, y] as const,
+        );
+        expect(under, `a mark is under the pointer at ${id}'s centre`).not.toBeNull();
+
+        await page.mouse.move(x, y);
+        await expect(label(page)).toHaveCount(1);
+        const hovered = await shown();
+        const name = (await mark(page, under!).getAttribute('aria-label'))!.split(', founded')[0];
+        expect(hovered[0][0].text, `hover at ${id}'s centre names ${under}`).toBe(name);
+
+        // Pointer off the chart, then keyboard focus on the mark it was over.
+        await page.mouse.move(1, 1);
+        await expect(label(page)).toHaveCount(0);
+        await mark(page, under!).focus();
+        await expect(mark(page, under!)).toBeFocused();
+        await expect(label(page)).toHaveCount(1);
+        expect(await shown(), `focus on ${under} shows the hover label`).toEqual(hovered);
+        await page.evaluate(() => (document.activeElement as HTMLElement).blur());
+        await expect(label(page)).toHaveCount(0);
+        checked.push(id);
+      }
+      expect(checked).toEqual(ids);
+    });
+  }
+
   test('the focus ring is visibly painted (computed-style proof)', async ({
     page,
   }) => {

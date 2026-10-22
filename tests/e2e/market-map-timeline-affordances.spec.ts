@@ -281,11 +281,24 @@ test.describe('timeline view roving keyboard affordances', () => {
       },
     ];
 
+    // The round line names its source by title and number in plain text;
+    // that entry of the sheet's numbered Sources list links the page.
     for (const source of expected) {
       await page
         .locator(`[data-company-id="${source.id}"] > button`)
         .click();
-      const link = page.locator('[data-company-detail] [data-round-source] a');
+      const line = page.locator('[data-company-detail] [data-round-source]');
+      await expect(line).toContainText(source.title);
+      await expect(line.locator('a')).toHaveCount(0);
+      const number = Number(/, source (\d+) below/.exec(await line.innerText())?.[1]);
+      expect(number, `${source.id} round line names its source by number`).toBeGreaterThan(0);
+      const entry = page
+        .locator('[data-company-detail]')
+        .getByRole('region', { name: 'Sources' })
+        .getByRole('listitem')
+        .nth(number - 1);
+      await expect(entry.locator('[data-source-number]')).toHaveText(String(number));
+      const link = entry.getByRole('link');
       await expect(link).toHaveAttribute('href', source.href);
       await expect(link).toContainText(source.title);
     }

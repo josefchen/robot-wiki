@@ -231,7 +231,7 @@ function TimelinePlot({
         </span>
         <span className="flex items-center gap-2">
           <svg aria-hidden="true" width="11" height="11" viewBox="0 0 11 11">
-            <circle cx="5.5" cy="5.5" r="5.5" className="fill-accent" />
+            <circle data-legend-key="open-company" cx="5.5" cy="5.5" r="5.5" className="fill-accent" />
           </svg>
           Open company
         </span>
@@ -316,6 +316,7 @@ function TimelinePlot({
           return (
             <g key={event.id}>
               <circle
+                data-timeline-round={event.companyId}
                 cx={x}
                 cy={y}
                 r={on ? 5.5 : open ? 3 : 3.5}

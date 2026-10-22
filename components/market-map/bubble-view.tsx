@@ -172,7 +172,7 @@ export function BubbleView({ companies, selectedId, onSelect }: BubbleViewProps)
         </span>
         <span className="flex items-center gap-2">
           <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12">
-            <circle cx="6" cy="6" r="6" className="fill-accent" />
+            <circle data-legend-key="open-company" cx="6" cy="6" r="6" className="fill-accent" />
           </svg>
           Open company
         </span>

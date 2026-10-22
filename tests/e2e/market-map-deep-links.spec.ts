@@ -1,6 +1,7 @@
 import { expect, test, type Locator } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { COMPANIES } from '../../data/companies';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -169,6 +170,50 @@ test.describe('market-map deep links on the static export', () => {
     await expect(page.locator('#filter-approach')).toHaveValue('');
     await expect(page.locator('#filter-country')).toHaveValue('US');
   });
+
+  // Every company in the registry, not a fixed count: a fresh load of its
+  // #company-<id> link opens its own sheet, marks its tile, and the sheet
+  // links each external page once (VAL-MKT-010).
+  for (const company of COMPANIES) {
+    test(`#company-${company.id} opens ${company.name}'s details (VAL-B2-MAP-001, VAL-MKT-010)`, async ({
+      page,
+    }) => {
+      const errors: string[] = [];
+      page.on('console', (msg) => {
+        if (msg.type() === 'error') errors.push(msg.text());
+      });
+      await page.goto(`${BASE}/market-map/#company-${company.id}`);
+
+      const details = page.getByRole('dialog', { name: company.name, exact: true });
+      await expect(details).toBeVisible();
+      await expect(details.locator('[data-company-detail]')).toHaveAttribute(
+        'data-company-detail',
+        company.id,
+      );
+      await expect(details.getByRole('heading', { level: 2 })).toHaveText(company.name);
+      const card = page.locator(`button[data-map-tile="${company.id}"]`);
+      await expect(card).toHaveAttribute('aria-expanded', 'true');
+      await expect(card).toHaveAttribute('aria-controls', 'market-map-company');
+      await expect(page).toHaveURL(new RegExp(`/market-map/#company-${company.id}$`));
+
+      // Resolved hrefs, so a homepage with and without its trailing slash
+      // counts as one page.
+      const hrefs = await details
+        .locator('a[href^="http"]')
+        .evaluateAll((links) => links.map((link) => (link as HTMLAnchorElement).href));
+      expect(
+        hrefs.filter((href, index) => hrefs.indexOf(href) !== index),
+        `${company.id}: external pages linked more than once`,
+      ).toEqual([]);
+      for (const source of company.sources) {
+        expect(
+          hrefs.filter((href) => href === new URL(source.url).href),
+          `${company.id}: ${source.url} linked exactly once`,
+        ).toHaveLength(1);
+      }
+      expect(errors).toEqual([]);
+    });
+  }
 
   test('valid subSegment and approach params still hydrate from the URL', async ({
     page,

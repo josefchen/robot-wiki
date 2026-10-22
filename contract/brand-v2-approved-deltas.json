@@ -112664,6 +112664,24 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "market-map-round2-fixes-20261022-value-states-state-source-components-market-map-company-card",
+      "manifest": "value-states",
+      "memberId": "state-source:components/market-map/company-card.tsx",
+      "oldHash": "4f2b9d51acfd4bdacfa51d4c1561a695b22c677c8448d08814624d6f6e262f16",
+      "newHash": "5b61c09d71683f52acd751f45f232f282f18ffcc9e990e4354db1fe00eea0fe8",
+      "reason": "The market-map round-2 fixes of 2026-10-22 (the map-playground user testing found every company sheet linking its round source twice, every caveat linking a URL the Sources list links again, and a Website row repeating a listed source), as one plain edge from the member's last approved endpoint, market-map-audit-20261019-value-states-state-source-components-market-map-company-card. company-card.tsx now links each external page once, in the Sources list, which numbers every entry visibly and keeps its \"As of\" date. The round-source line names its source in plain text with its number and as-of date (\"Source: <title>, source N below, as of <date>.\"), a caveat names each source it cites the same way without a link, and a Website row whose URL is a listed source prints its domain with that number (\"<domain>, source N below\") instead of a second link; a website that is not a listed source stays linked. No in-sheet anchor is used, since a hash change would close the sheet. The value states are untouched: the Absent helper still renders exactly \"not disclosed\" for a field recorded not-disclosed and exactly \"n/a\" for one recorded not-applicable, and a caveated round (Clone Robotics) still shows its caveat with every funding field not disclosed. No record, value, disposition or source changes.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", which put the market map and its data provenance in scope, held to the owner-sealed rows VAL-B2-MAP-001 (record values, source dates and deep-link destinations match the canonical registry), VAL-B2-MAP-009 (missing disclosures render not disclosed; contradictory source pointers remain visibly caveated) and VAL-B2-BASE-005 (an existing but undisclosed value renders exactly \"not disclosed\"), and the owner-accepted successor of VAL-MKT-010 (the sheet has every extended field and each source once); applied as the mission orchestrator's round-2 triage of the map-playground user testing decides (Option A): \"the full, visibly numbered Sources list is the one place each URL is linked, and the round-source line, the caveat and a Website row whose URL is a listed source name their source in plain text as 'source N'\". Not release approval.",
+      "responsibleMilestone": "brand-v2-map-playground",
+      "affectedAssertions": [
+        "VAL-MKT-010",
+        "VAL-B2-MAP-001",
+        "VAL-B2-MAP-009",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-013"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
