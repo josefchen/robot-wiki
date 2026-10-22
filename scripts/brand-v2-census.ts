@@ -433,6 +433,20 @@ function inheritedInstrumentControlText(text: string): string {
   return markers.join('\n');
 }
 
+/**
+ * Whether a source renders a reset action: the shared `InstrumentReset`, a
+ * reset handler, or a control labelled Reset. A bare `/reset/i` also
+ * matches "Preset" and "PresetGroup", which restore nothing, and would
+ * register a reset case the rendered frame cannot satisfy.
+ */
+function implementsReset(text: string): boolean {
+  return (
+    /<InstrumentReset\b/.test(text) ||
+    /\bonReset\b/.test(text) ||
+    />\s*Reset\s*</.test(text)
+  );
+}
+
 function stateCases(text: string, inheritedControlText = ''): StateCase[] {
   // Control shapes may live in the shared instrument primitives the
   // interactive mounts; everything below that is a fact about this file
@@ -482,7 +496,7 @@ function stateCases(text: string, inheritedControlText = ''): StateCase[] {
       expectedEnumeration: 'every rendered discrete option independently',
     });
   }
-  if (/reset/i.test(text)) cases.push({ id: 'reset', kind: 'reset' });
+  if (implementsReset(text)) cases.push({ id: 'reset', kind: 'reset' });
   const independentControlKinds = [
     /type=["']range["']/.test(controlText),
     /aria-(?:pressed|selected)|type=["'](?:radio|checkbox)["']|<select\b/.test(controlText),

@@ -32,7 +32,9 @@ const NOT_DISCLOSED: ReactNode = (
   <span className="text-text-dim">not disclosed</span>
 );
 
-const HIGHLIGHTED_CELL = 'bg-[var(--paper-deep,var(--color-surface-2))]';
+// A highlighted column is selected state: ink and weight, never a fill
+// behind its text.
+const HIGHLIGHTED_CELL = 'font-medium text-text';
 
 function formatUsd(value: number): string {
   return `$${value.toLocaleString('en-US')}`;

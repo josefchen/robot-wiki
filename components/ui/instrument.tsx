@@ -402,7 +402,8 @@ type InstrumentResetProps = ButtonHTMLAttributes<HTMLButtonElement> & {
  * itself is the content. A reset whose accessible name is more specific
  * than the visible label passes `aria-label` (or any other button
  * attribute) through in its native spelling, so the source keeps the
- * accessible name the sealed baseline records.
+ * accessible name the sealed baseline records. `data-instrument-reset`
+ * identifies the action whatever its label says ("Reset", "Start over").
  */
 export function InstrumentReset({
   onClick,
@@ -413,6 +414,7 @@ export function InstrumentReset({
   return (
     <button
       data-brand-control-id="control:secondary-action"
+      data-instrument-reset=""
       data-pagefind-ignore
       type="button"
       onClick={onClick}

@@ -157,6 +157,16 @@ import {
   readMarketMapStatesEvidence,
 } from '../lib/brand-v2-market-map-states.ts';
 import {
+  INTERACTIVE_CAPTURES_EVIDENCE_PATH,
+  INTERACTIVE_CAPTURES_SWEEP_MODULE,
+  INTERACTIVE_CAPTURE_POPULATION_SOURCE,
+  INTERACTIVE_CAPTURE_VIEWPORTS,
+  interactiveCapturePlan,
+  interactiveCaptureVerdicts,
+  interactiveCapturesEvidenceFingerprint,
+  readInteractiveCapturesEvidence,
+} from '../lib/brand-v2-interactive-captures.ts';
+import {
   ARTICLE_RUNTIME_EVIDENCE_PATH,
   ARTICLE_VIEWPORTS,
   articleEvidenceFingerprint,
@@ -410,6 +420,7 @@ function isMeasured(id: string): boolean {
     LINK_SAFETY_ASSERTIONS.has(id) ||
     SEARCH_ASSERTIONS.has(id) ||
     MAP_ASSERTIONS.has(id) ||
+    INTERACTIVE_CAPTURE_ASSERTIONS.has(id) ||
     OG_ASSERTIONS.has(id) ||
     GLOBAL_CONVERGENCE_ASSERTIONS.has(id)
   );
@@ -1410,6 +1421,64 @@ const MAP_READER_TARGET = {
     'Proves the fail-closed reader throws on a stale fingerprint, a dropped, an extra, a duplicated, a misfiled and a reordered case, a recorded count that disagrees with the registry, a different pairwise generator and a malformed artifact, and proves the plan is deterministic, covers every pair of independent filter values and derives every count from the registry before any result row may be generated from the artifact.',
 };
 
+/**
+ * The capture row, decided by the persisted capture sweep: one member per
+ * production mount, each with its default and changed captures at the phone
+ * and desktop frames, the contact sheet that tiles them, its exact expected
+ * and observed case counts and the §1.12 rubric. A root's computed styles
+ * cannot satisfy it: the reader refuses a reading without both settled,
+ * non-blank captures and a committed sheet whose bytes it re-hashes.
+ */
+const INTERACTIVE_CAPTURE_ASSERTION_POPULATION_SOURCES: Readonly<Record<string, string>> = {
+  'VAL-B2-VIZ-012': INTERACTIVE_CAPTURE_POPULATION_SOURCE,
+};
+
+const INTERACTIVE_CAPTURE_ASSERTIONS = new Set(
+  Object.keys(INTERACTIVE_CAPTURE_ASSERTION_POPULATION_SOURCES),
+);
+
+const INTERACTIVE_CAPTURE_PLAN = interactiveCapturePlan(
+  REGISTRY as unknown as Parameters<typeof interactiveCapturePlan>[0],
+);
+
+const INTERACTIVE_CAPTURE_EVIDENCE = readInteractiveCapturesEvidence({
+  artifact: readJson(join(ROOT, INTERACTIVE_CAPTURES_EVIDENCE_PATH)),
+  fingerprint: interactiveCapturesEvidenceFingerprint({ root: ROOT, plan: INTERACTIVE_CAPTURE_PLAN }),
+  plan: INTERACTIVE_CAPTURE_PLAN,
+  root: ROOT,
+});
+
+const INTERACTIVE_CAPTURE_VERDICTS = interactiveCaptureVerdicts(
+  INTERACTIVE_CAPTURE_EVIDENCE,
+  INTERACTIVE_CAPTURE_PLAN,
+);
+
+const INTERACTIVE_CAPTURE_SWEEP_TARGET = testTarget(
+  INTERACTIVE_CAPTURES_SWEEP_MODULE,
+  'brand-v2 interactive captures and contact sheets › every mount is captured default and changed at the phone and desktop frames',
+  'Loads every registered mount on its built route at 375x812 and 1440x900 with reduced motion, binds the mount by its own figure frame and ordinal, reconciles each registered case against what the mount’s own root renders, and takes a default and a changed element capture that must agree with the shot before it, records the scoped convergence findings, the text families, the registered devices and the headline’s laid-out lines, and presses the registered reset, reading its effect from the mount’s state.',
+);
+const INTERACTIVE_CAPTURE_SHEET_TARGET = testTarget(
+  INTERACTIVE_CAPTURES_SWEEP_MODULE,
+  'brand-v2 interactive captures and contact sheets › the captures tile into deterministic contact sheets',
+  'Tiles every capture into the planned contact sheets, renders each sheet twice and records whether the two renders are byte-identical, and removes sheets the plan no longer names.',
+);
+const INTERACTIVE_CAPTURE_VERDICT_TARGET = testTarget(
+  INTERACTIVE_CAPTURES_SWEEP_MODULE,
+  'brand-v2 interactive captures and contact sheets › the measured evidence grants every mount its captures, cases and rubric',
+  'Reads the fresh artifact through the fail-closed reader and requires every mount’s verdict to hold before the artifact is written.',
+);
+const INTERACTIVE_CAPTURE_PLANT_TARGET = testTarget(
+  INTERACTIVE_CAPTURES_SWEEP_MODULE,
+  'brand-v2 interactive captures and contact sheets › the capture verdicts fail independently when their subjects are broken',
+  'On the corpus just measured, plants on the last planned mount a finding under every predicate each rubric row owns, an unsettled, a blank, a pre-font, a clipped and a sideways-scrolling capture, a changed state that paints the default, a missing and a dropped case, a retired, an unsealed and an alternate-identity family, more devices on the phone than the desktop, a route that did not answer and a four-line headline, plus a reset that restores no deterministic state and a missing reset on the last resettable mount, and proves each fails that mount alone (each rubric plant under its own row); it proves the reader refuses a dropped, an extra and a reordered mount, a missing reading, a reading whose captures were taken away, an untyped unmounted source, an unowned predicate, an invented exemption, a sheet tile with other bytes, a dropped tile, a nondeterministic and a dropped sheet, and a stale fingerprint.',
+);
+const INTERACTIVE_CAPTURE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-interactive-captures.test.ts',
+  'interactive-captures evidence > refuses stale, incomplete, reordered and malformed capture evidence',
+  'Proves the plan is deterministic and accounts every source, typing the unmounted ones, and that the reader throws on a stale fingerprint, a dropped, an extra, a duplicated and a reordered mount or reading, a reading without both captures, an unowned finding, an unregistered exemption, a sheet that misses or repeats a capture or disagrees with its hashes, and a committed sheet with other bytes or a stray file beside the sheets.',
+);
+
 const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
   artifact: readJson(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH)),
   fingerprint: figureEvidenceFingerprint({ root: ROOT }),
@@ -1580,6 +1649,8 @@ function populationSourceFor(id: string): string {
   if (searchSource) return searchSource;
   const mapSource = MAP_ASSERTION_POPULATION_SOURCES[id];
   if (mapSource) return mapSource;
+  const captureSource = INTERACTIVE_CAPTURE_ASSERTION_POPULATION_SOURCES[id];
+  if (captureSource) return captureSource;
   const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
   if (articleSource) return articleSource;
   const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
@@ -1613,11 +1684,7 @@ function populationSourceFor(id: string): string {
   if (area === 'BASE') {
     return 'evidence/brand-v2/baseline/baseline.json#manifests';
   }
-  if (area === 'VIZ') {
-    return id === 'VAL-B2-VIZ-012'
-      ? 'contract/brand-v2-registries.json#interactive.mounts'
-      : 'contract/brand-v2-registries.json#interactive.sources';
-  }
+  if (area === 'VIZ') return 'contract/brand-v2-registries.json#interactive.sources';
   if (area === 'EVID') {
     return 'lib/brand-v2-runners.ts#BRAND_V2_DEEP_ROWS';
   }
@@ -2665,6 +2732,17 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (MAP_ASSERTIONS.has(id)) {
     return [MAP_SWEEP_TARGET, MAP_READER_TARGET];
+  }
+  if (INTERACTIVE_CAPTURE_ASSERTIONS.has(id)) {
+    return [
+      CENSUS_INTERACTIVE_TARGET,
+      INTERACTIVE_STATE_TARGET,
+      INTERACTIVE_CAPTURE_SWEEP_TARGET,
+      INTERACTIVE_CAPTURE_SHEET_TARGET,
+      INTERACTIVE_CAPTURE_VERDICT_TARGET,
+      INTERACTIVE_CAPTURE_PLANT_TARGET,
+      INTERACTIVE_CAPTURE_READER_TARGET,
+    ];
   }
   if (HOME_TOOLS_ASSERTIONS.has(id)) {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
@@ -4424,6 +4502,35 @@ function resultFor(
       },
     };
   }
+  if (INTERACTIVE_CAPTURE_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = INTERACTIVE_CAPTURE_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: the interactive-captures sweep decided no member ${member}`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${member}: ${verdict.failures.join('; ')}`);
+    }
+    const { observed } = verdict;
+    return {
+      ...common,
+      actual: `${member} on ${observed.route} holds its default and ${observed.changedBy}-changed (${observed.changedCaseId}) captures at ${INTERACTIVE_CAPTURE_VIEWPORTS.map(({ id }) => id).join(' and ')}, tiled on ${observed.contactSheet}, with ${observed.expectedCaseCount} of ${observed.expectedCaseCount} registered cases observed at each width and every rubric row ${Object.values(observed.rubric).every((cell) => cell === 'pass') ? 'passing' : 'passing or typed not applicable'}`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          ...observed,
+          evidence: [INTERACTIVE_CAPTURES_EVIDENCE_PATH, observed.contactSheet],
+          tool: INTERACTIVE_CAPTURES_SWEEP_MODULE,
+        },
+      },
+    };
+  }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -4603,6 +4710,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at ${SEARCH_DESKTOP_VIEWPORT.id} with the results and Methods states again at ${SEARCH_MOBILE_VIEWPORT.id}, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over ${canonicalPopulationSource}`
               : MAP_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at ${MARKET_MAP_VIEWPORT.id}, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (${MAP_PLAN.cases.length} in all, the pairwise rows from the pinned ${MAP_PLAN.generator.algorithm} generator with seed ${MAP_PLAN.generator.seed}) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over ${canonicalPopulationSource}`
+              : INTERACTIVE_CAPTURE_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted interactive-captures sweep of the built export at ${INTERACTIVE_CAPTURE_VIEWPORTS.map(({ id: viewport }) => viewport).join('/')} with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the ${INTERACTIVE_CAPTURE_PLAN.sources.filter(({ notApplicableReason }) => notApplicableReason !== null).length} registered sources without a production mount carry a typed reason, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : GLOBAL_CONVERGENCE_ASSERTIONS.has(id)

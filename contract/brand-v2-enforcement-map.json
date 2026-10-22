@@ -68643,8 +68643,438 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-VIZ-012",
-          "mechanism": "VAL-B2-VIZ-012 pending rollout evidence over contract/brand-v2-registries.json#interactive.mounts"
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/adjacent/drones/:PerceptionLatency:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/adjacent/surgical/:MotionPantograph:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/adjacent/surgical/:ScopeFollow:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/calibration/:CalibrationChain:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/calibration/:HandEyePoses:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/calibration/:TimeOffsetMiss:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/control/:ImpedanceContactLab:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/control/:PendulumController:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/grasp-planning/:GraspWrenchLab:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/kinematics/:PlanarFkArm:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/motion-planning/:RrtExplorer:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/perception/:PerceptionErrorBudget:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/ros2-for-ml-engineers/:QosQueueAge:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/ros2-for-ml-engineers/:Ros2Interfaces:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/scene-representation/:LoopClosure:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/classical/state-estimation/:LinearizationGap:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/datasets/:DatasetTable:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/bear-case/:BearCaseLock:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/bear-case/:MilestonesWatchlist:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/competing-theses/:HelixClockwork:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/competing-theses/:ThesisExplorer:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/dexterity/:HandComparison:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/generalization/:EgoScaleScaling:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/reliability-gap/:DeploymentDashboard:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/action-chunking/:LatencyComparison:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/action-spaces/:ImpedancePress:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/bc-foundations/:CompoundingError:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/cross-embodiment/:HandMotionShare:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/hierarchical/:HierarchyTimescales:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/hierarchical/:KeypointString:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/knowledge-insulation/:MotInsulation:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/pi-line/:PiGenerationTimeline:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/realtime-execution/:ExecutionModes:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/manipulation/vla-models/:ActionTokenization:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/generative-video/:ActionConditioning:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/jepa/:JepaPlanning:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/latent-dynamics/:LatentImagination:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/taxonomy/:WmDisambiguator:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/world-models/world-models-vs-simulators/:PlannerExploit:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
           "kind": "test",
@@ -68657,6 +69087,36 @@
           "file": "tests/e2e/brand-v2-interactive-states.spec.ts",
           "title": "brand-v2 interactive-state runner › reconciles non-empty registry sources, production mounts, controls, and exact cases",
           "mechanism": "Accounts for every registered interactive case and exercises or explicitly classifies its current milestone-1 mechanism; later visual convergence remains pending."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-interactive-captures.spec.ts",
+          "title": "brand-v2 interactive captures and contact sheets › every mount is captured default and changed at the phone and desktop frames",
+          "mechanism": "Loads every registered mount on its built route at 375x812 and 1440x900 with reduced motion, binds the mount by its own figure frame and ordinal, reconciles each registered case against what the mount’s own root renders, and takes a default and a changed element capture that must agree with the shot before it, records the scoped convergence findings, the text families, the registered devices and the headline’s laid-out lines, and presses the registered reset, reading its effect from the mount’s state."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-interactive-captures.spec.ts",
+          "title": "brand-v2 interactive captures and contact sheets › the captures tile into deterministic contact sheets",
+          "mechanism": "Tiles every capture into the planned contact sheets, renders each sheet twice and records whether the two renders are byte-identical, and removes sheets the plan no longer names."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-interactive-captures.spec.ts",
+          "title": "brand-v2 interactive captures and contact sheets › the measured evidence grants every mount its captures, cases and rubric",
+          "mechanism": "Reads the fresh artifact through the fail-closed reader and requires every mount’s verdict to hold before the artifact is written."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-interactive-captures.spec.ts",
+          "title": "brand-v2 interactive captures and contact sheets › the capture verdicts fail independently when their subjects are broken",
+          "mechanism": "On the corpus just measured, plants on the last planned mount a finding under every predicate each rubric row owns, an unsettled, a blank, a pre-font, a clipped and a sideways-scrolling capture, a changed state that paints the default, a missing and a dropped case, a retired, an unsealed and an alternate-identity family, more devices on the phone than the desktop, a route that did not answer and a four-line headline, plus a reset that restores no deterministic state and a missing reset on the last resettable mount, and proves each fails that mount alone (each rubric plant under its own row); it proves the reader refuses a dropped, an extra and a reordered mount, a missing reading, a reading whose captures were taken away, an untyped unmounted source, an unowned predicate, an invented exemption, a sheet tile with other bytes, a dropped tile, a nondeterministic and a dropped sheet, and a stale fingerprint."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-interactive-captures.test.ts",
+          "title": "interactive-captures evidence > refuses stale, incomplete, reordered and malformed capture evidence",
+          "mechanism": "Proves the plan is deterministic and accounts every source, typing the unmounted ones, and that the reader throws on a stale fingerprint, a dropped, an extra, a duplicated and a reordered mount or reading, a reading without both captures, an unowned finding, an unregistered exemption, a sheet that misses or repeats a capture or disagrees with its hashes, and a committed sheet with other bytes or a stray file beside the sheets."
         }
       ],
       "enforcementMode": "browser-state",
@@ -68673,7 +69133,93 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-VIZ-012"
+          "result:VAL-B2-VIZ-012:mount:/adjacent/drones/:PerceptionLatency:1",
+          "result:VAL-B2-VIZ-012:mount:/adjacent/surgical/:MotionPantograph:1",
+          "result:VAL-B2-VIZ-012:mount:/adjacent/surgical/:ScopeFollow:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/calibration/:CalibrationChain:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/calibration/:HandEyePoses:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/calibration/:TimeOffsetMiss:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/control/:ImpedanceContactLab:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/control/:PendulumController:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/grasp-planning/:GraspWrenchLab:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/kinematics/:PlanarFkArm:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/motion-planning/:RrtExplorer:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/perception/:PerceptionErrorBudget:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/ros2-for-ml-engineers/:QosQueueAge:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/ros2-for-ml-engineers/:Ros2Interfaces:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/scene-representation/:LoopClosure:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
+          "result:VAL-B2-VIZ-012:mount:/classical/state-estimation/:LinearizationGap:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/datasets/:DatasetTable:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/bear-case/:BearCaseLock:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/bear-case/:MilestonesWatchlist:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/competing-theses/:HelixClockwork:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/competing-theses/:ThesisExplorer:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/dexterity/:HandComparison:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/generalization/:EgoScaleScaling:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/reliability-gap/:DeploymentDashboard:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+          "result:VAL-B2-VIZ-012:mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/action-chunking/:LatencyComparison:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/action-spaces/:ImpedancePress:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/bc-foundations/:CompoundingError:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/cross-embodiment/:HandMotionShare:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/hierarchical/:HierarchyTimescales:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/hierarchical/:KeypointString:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/knowledge-insulation/:MotInsulation:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/pi-line/:PiGenerationTimeline:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/realtime-execution/:ExecutionModes:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1",
+          "result:VAL-B2-VIZ-012:mount:/manipulation/vla-models/:ActionTokenization:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
+          "result:VAL-B2-VIZ-012:mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/generative-video/:ActionConditioning:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/jepa/:JepaPlanning:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/latent-dynamics/:LatentImagination:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/taxonomy/:WmDisambiguator:1",
+          "result:VAL-B2-VIZ-012:mount:/world-models/world-models-vs-simulators/:PlannerExploit:1"
         ]
       }
     },

@@ -123,6 +123,22 @@ describe('TeleopRigMatrix', () => {
     ).toBeNull();
   });
 
+  it('marks the highlighted column with ink and weight, never a fill behind its text', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<TeleopRigMatrix />);
+    await user.click(screen.getByRole('button', { name: /^cost$/i }));
+    const headers = [...container.querySelectorAll('thead th')];
+    const column = headers.findIndex((th) => /cost/i.test(th.textContent ?? ''));
+    expect(column).toBeGreaterThanOrEqual(0);
+    const cells = [...container.querySelectorAll('tbody tr')].map((row) => row.children[column]);
+    expect(cells.length).toBeGreaterThan(0);
+    for (const cell of cells) {
+      expect(cell.className).not.toMatch(/(^|\s)bg-/);
+      expect(cell.className).toMatch(/(^|\s)font-medium(\s|$)/);
+      expect(cell.className).toMatch(/(^|\s)text-text(\s|$)/);
+    }
+  });
+
   it('highlights exactly one dimension at a time', async () => {
     const user = userEvent.setup();
     render(<TeleopRigMatrix />);
