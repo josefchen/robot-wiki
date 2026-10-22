@@ -40339,24 +40339,74 @@
     },
     {
       "assertionId": "VAL-B2-MAP-011",
-      "canonicalPopulationSource": "contract/brand-v2-registries.json#routes.public",
+      "canonicalPopulationSource": "evidence/brand-v2/market-map-states.json#caseGroups",
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-MAP-011",
-          "mechanism": "VAL-B2-MAP-011 pending rollout evidence over contract/brand-v2-registries.json#routes.public"
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:default-reset",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:views",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:single-options",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:dependent-options",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:pairwise",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:higher-order",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:selection",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:url-history",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:tooltip-parity",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:states",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-MAP-011:market-map-cases:focus-keyboard",
+          "mechanism": "VAL-B2-MAP-011 per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at 1440x900, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (3127 in all, the pairwise rows from the pinned ipog generator with seed brand-v2-state-v1) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over evidence/brand-v2/market-map-states.json#caseGroups"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-market-map-states.spec.ts",
+          "title": "brand-v2 market map states sweep › measures every registered market-map case and persists the artifact",
+          "mechanism": "Drives the built /market-map export at 1440x900 through every case the registry derives, in registry order: the default and the reset, each view, every discrete filter option alone, every sub-segment under its segment, the pinned IPOG pairwise rows over the independent filters, the registered higher-order combinations, open and close/Escape/Back for each view, URL deep links and history restore, hover against focus and row for every plotted mark and dated round, each implemented empty witness and the typed not-applicable states, the filter-bar focus trace and the keyboard-only script with the result-count live-region ledger, plus axe; it compares each case with the registry-derived company-ID set, count, URL and segment counts, enforces every verdict inside the suite before the artifact is written, proves a dropped, an extra and a reordered case are refused, and plants a dropped tile, a lying count and a count region that lost its politeness to show each fails by name."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-market-map-states.test.ts",
+          "title": "market-map-states evidence > refuses stale, incomplete, reordered and malformed market-map evidence",
+          "mechanism": "Proves the fail-closed reader throws on a stale fingerprint, a dropped, an extra, a duplicated, a misfiled and a reordered case, a recorded count that disagrees with the registry, a different pairwise generator and a malformed artifact, and proves the plan is deterministic, covers every pair of independent filter values and derives every count from the registry before any result row may be generated from the artifact."
         }
       ],
       "enforcementMode": "browser-state",
@@ -40364,7 +40414,7 @@
         "statement": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
         "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 75,
+        "populationSize": 11,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -40373,7 +40423,17 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-MAP-011"
+          "result:VAL-B2-MAP-011:market-map-cases:default-reset",
+          "result:VAL-B2-MAP-011:market-map-cases:views",
+          "result:VAL-B2-MAP-011:market-map-cases:single-options",
+          "result:VAL-B2-MAP-011:market-map-cases:dependent-options",
+          "result:VAL-B2-MAP-011:market-map-cases:pairwise",
+          "result:VAL-B2-MAP-011:market-map-cases:higher-order",
+          "result:VAL-B2-MAP-011:market-map-cases:selection",
+          "result:VAL-B2-MAP-011:market-map-cases:url-history",
+          "result:VAL-B2-MAP-011:market-map-cases:tooltip-parity",
+          "result:VAL-B2-MAP-011:market-map-cases:states",
+          "result:VAL-B2-MAP-011:market-map-cases:focus-keyboard"
         ]
       }
     },

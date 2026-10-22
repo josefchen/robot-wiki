@@ -99,6 +99,11 @@ import {
   searchFacetMemberId,
   searchStateMemberId,
 } from '@/lib/brand-v2-search-evidence';
+import {
+  MARKET_MAP_CASE_GROUPS,
+  MARKET_MAP_CASE_GROUP_POPULATION_SOURCE,
+  marketMapCaseGroupMemberId,
+} from '@/lib/brand-v2-market-map-states';
 import { ogPopulations, readOgEvidence } from '@/lib/brand-v2-og-evidence';
 
 /**
@@ -581,6 +586,11 @@ describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, (
           ),
           [SEARCH_MOBILE_STATE_POPULATION_SOURCE]: SEARCH_MOBILE_STATE_IDS.map(
             searchStateMemberId,
+          ),
+          // The market map's §1.15 row, one member per registered case
+          // group of the bounded-state sweep.
+          [MARKET_MAP_CASE_GROUP_POPULATION_SOURCE]: MARKET_MAP_CASE_GROUPS.map(
+            marketMapCaseGroupMemberId,
           ),
           // The Open Graph/X rows' populations, merged the same way from the
           // reader that decides them: the sealed cards, the site-card

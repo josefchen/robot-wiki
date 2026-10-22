@@ -138,18 +138,29 @@ describe('aliases are search-only (VAL-SEARCH-020c)', () => {
     // map's own name search (lib/market-map.ts, 2026-10-19) is a second
     // search reader: it matches a typed name against the aliases and never
     // prints them, which the next check holds it to.
+    // The market map's state oracle (lib/brand-v2-market-map-states.ts,
+    // 2026-10-22) re-derives that documented rule independently to decide
+    // which companies a search case should show; it renders nothing and is
+    // held to the same check below.
     expect(readers.sort()).toEqual([
       'components/market-map/company-card.tsx',
+      'lib/brand-v2-market-map-states.ts',
       'lib/market-map.ts',
       'lib/structured-search.ts',
     ]);
-    const marketMap = await readFile(join('lib', 'market-map.ts'), 'utf8');
-    const matcher = /export function matchesQuery\([^)]*\): boolean \{[\s\S]*?\n\}\n/.exec(marketMap)?.[0] ?? '';
-    expect(matcher).not.toBe('');
-    // Every alias read in that module sits inside the matcher, which
-    // returns a boolean: no alias text can leave it.
-    expect(marketMap.match(/\.aka\b/g)?.length).toBe(matcher.match(/\.aka\b/g)?.length);
-    expect(marketMap).not.toMatch(/['"`]aka['"`]/);
+    const matchers: Array<[string, RegExp]> = [
+      ['market-map.ts', /export function matchesQuery\([^)]*\): boolean \{[\s\S]*?\n\}\n/],
+      ['brand-v2-market-map-states.ts', /\nfunction nameMatches\([^)]*\): boolean \{[\s\S]*?\n\}\n/],
+    ];
+    for (const [file, pattern] of matchers) {
+      const source = await readFile(join('lib', file), 'utf8');
+      const matcher = pattern.exec(source)?.[0] ?? '';
+      expect(matcher, file).not.toBe('');
+      // Every alias read in that module sits inside the matcher, which
+      // returns a boolean: no alias text can leave it.
+      expect(source.match(/\.aka\b/g)?.length, file).toBe(matcher.match(/\.aka\b/g)?.length);
+      expect(source, file).not.toMatch(/['"`]aka['"`]/);
+    }
   });
 });
 

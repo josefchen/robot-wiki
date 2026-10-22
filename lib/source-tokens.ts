@@ -88,6 +88,19 @@ function regexLiteralEnd(source: string, start: number): number | null {
   return null;
 }
 
+/** An arrow body may open with a regex: `(line) => /x/.test(line)`. */
+function isArrow(tokens: readonly SourceToken[]): boolean {
+  const arrowHead = tokens[tokens.length - 1];
+  const equals = tokens[tokens.length - 2];
+  return (
+    arrowHead?.kind === 'punctuation' &&
+    arrowHead.value === '>' &&
+    equals?.kind === 'punctuation' &&
+    equals.value === '=' &&
+    equals.start === arrowHead.start - 1
+  );
+}
+
 export function tokenizeSource(source: string): SourceToken[] {
   const tokens: SourceToken[] = [];
   for (let index = 0; index < source.length; ) {
@@ -113,7 +126,8 @@ export function tokenizeSource(source: string): SourceToken[] {
         (previous.kind === 'punctuation' &&
           REGEX_ALLOWED_AFTER.has(previous.value)) ||
         (previous.kind === 'identifier' &&
-          REGEX_ALLOWED_AFTER_KEYWORD.has(previous.value));
+          REGEX_ALLOWED_AFTER_KEYWORD.has(previous.value)) ||
+        isArrow(tokens);
       const end = startsRegex ? regexLiteralEnd(source, index) : null;
       if (end !== null) {
         index = end;

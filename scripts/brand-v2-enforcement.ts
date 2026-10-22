@@ -146,6 +146,17 @@ import {
   readSearchStatesEvidence,
 } from '../lib/brand-v2-search-evidence.ts';
 import {
+  MARKET_MAP_CASE_GROUPS,
+  MARKET_MAP_CASE_GROUP_POPULATION_SOURCE,
+  MARKET_MAP_STATES_EVIDENCE_PATH,
+  MARKET_MAP_VIEWPORT,
+  marketMapCaseGroupMemberId,
+  marketMapGroupVerdicts,
+  marketMapStatePlan,
+  marketMapStatesEvidenceFingerprint,
+  readMarketMapStatesEvidence,
+} from '../lib/brand-v2-market-map-states.ts';
+import {
   ARTICLE_RUNTIME_EVIDENCE_PATH,
   ARTICLE_VIEWPORTS,
   articleEvidenceFingerprint,
@@ -377,6 +388,7 @@ function isMeasured(id: string): boolean {
     ARTICLE_TRUTH_ASSERTIONS.has(id) ||
     LINK_SAFETY_ASSERTIONS.has(id) ||
     SEARCH_ASSERTIONS.has(id) ||
+    MAP_ASSERTIONS.has(id) ||
     OG_ASSERTIONS.has(id)
   );
 }
@@ -1277,6 +1289,55 @@ const SEARCH_READER_TARGET = {
     'Proves the fail-closed reader throws on a stale fingerprint, a missing and an extra and a duplicate member, a missing 375px member, a settled state that announced nothing, and a malformed artifact, and proves the state machine, facet options and verdict populations are the derived ones before any result row may be generated from the artifact.',
 };
 
+/**
+ * The market map's §1.15 row, decided by the persisted bounded-state sweep.
+ * Its members are the registered case groups, each carrying the exact
+ * non-zero count of cases the registry derives for it and the count the
+ * sweep recorded; the reader refuses a missing, extra, duplicated,
+ * misfiled or reordered case before any group is read.
+ */
+const MAP_ASSERTION_POPULATION_SOURCES: Readonly<Record<string, string>> = {
+  'VAL-B2-MAP-011': MARKET_MAP_CASE_GROUP_POPULATION_SOURCE,
+};
+
+const MAP_ASSERTIONS = new Set(Object.keys(MAP_ASSERTION_POPULATION_SOURCES));
+
+const MAP_PLAN = marketMapStatePlan();
+
+const MAP_EVIDENCE = readMarketMapStatesEvidence({
+  artifact: readJson(join(ROOT, MARKET_MAP_STATES_EVIDENCE_PATH)),
+  fingerprint: marketMapStatesEvidenceFingerprint({ root: ROOT }),
+  plan: MAP_PLAN,
+});
+
+const MAP_GROUP_VERDICTS = new Map(
+  marketMapGroupVerdicts(MAP_EVIDENCE, MAP_PLAN).map((verdict) => [verdict.id, verdict]),
+);
+
+const MAP_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [MARKET_MAP_CASE_GROUP_POPULATION_SOURCE]: MARKET_MAP_CASE_GROUPS.map(
+    marketMapCaseGroupMemberId,
+  ),
+};
+
+/** The sweep that writes the artifact, and the reader gate that guards it. */
+const MAP_SWEEP_TARGET = {
+  kind: 'test' as const,
+  file: 'tests/e2e/brand-v2-market-map-states.spec.ts',
+  title:
+    'brand-v2 market map states sweep › measures every registered market-map case and persists the artifact',
+  mechanism:
+    'Drives the built /market-map export at 1440x900 through every case the registry derives, in registry order: the default and the reset, each view, every discrete filter option alone, every sub-segment under its segment, the pinned IPOG pairwise rows over the independent filters, the registered higher-order combinations, open and close/Escape/Back for each view, URL deep links and history restore, hover against focus and row for every plotted mark and dated round, each implemented empty witness and the typed not-applicable states, the filter-bar focus trace and the keyboard-only script with the result-count live-region ledger, plus axe; it compares each case with the registry-derived company-ID set, count, URL and segment counts, enforces every verdict inside the suite before the artifact is written, proves a dropped, an extra and a reordered case are refused, and plants a dropped tile, a lying count and a count region that lost its politeness to show each fails by name.',
+};
+const MAP_READER_TARGET = {
+  kind: 'test' as const,
+  file: 'tests/unit/brand-v2-market-map-states.test.ts',
+  title:
+    'market-map-states evidence > refuses stale, incomplete, reordered and malformed market-map evidence',
+  mechanism:
+    'Proves the fail-closed reader throws on a stale fingerprint, a dropped, an extra, a duplicated, a misfiled and a reordered case, a recorded count that disagrees with the registry, a different pairwise generator and a malformed artifact, and proves the plan is deterministic, covers every pair of independent filter values and derives every count from the registry before any result row may be generated from the artifact.',
+};
+
 const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
   artifact: readJson(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH)),
   fingerprint: figureEvidenceFingerprint({ root: ROOT }),
@@ -1424,6 +1485,7 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembers(LINK_SAFETY_CENSUS),
     ...INDEX_POPULATIONS,
     ...SEARCH_POPULATIONS,
+    ...MAP_POPULATIONS,
     ...OG_POPULATIONS,
   };
 }
@@ -1441,6 +1503,8 @@ function populationSourceFor(id: string): string {
   if (indexSource) return indexSource;
   const searchSource = SEARCH_ASSERTION_POPULATION_SOURCES[id];
   if (searchSource) return searchSource;
+  const mapSource = MAP_ASSERTION_POPULATION_SOURCES[id];
+  if (mapSource) return mapSource;
   const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
   if (articleSource) return articleSource;
   const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
@@ -2497,6 +2561,9 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (SEARCH_ASSERTIONS.has(id)) {
     return [SEARCH_SWEEP_TARGET, SEARCH_READER_TARGET];
+  }
+  if (MAP_ASSERTIONS.has(id)) {
+    return [MAP_SWEEP_TARGET, MAP_READER_TARGET];
   }
   if (HOME_TOOLS_ASSERTIONS.has(id)) {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
@@ -4148,6 +4215,34 @@ function resultFor(
       },
     };
   }
+  if (MAP_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = MAP_GROUP_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(
+        `${assertionId}: the market-map-states sweep decided no member ${member}`,
+      );
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return {
+      ...common,
+      actual: `${member} holds on the built /market-map export at ${MARKET_MAP_VIEWPORT.id}: ${JSON.stringify(verdict.observed)}`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          viewport: MARKET_MAP_VIEWPORT.id,
+          ...verdict.observed,
+          evidence: [MARKET_MAP_STATES_EVIDENCE_PATH],
+        },
+      },
+    };
+  }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -4325,6 +4420,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted ${INDEX_VIEWPORT.id} sweep of the built export over the home domain index, the seven domain landings, /a-z/, /glossary/ and /credits/, measuring each index run's separator rules, row rhythm, boxed-card residue, registry-derived inventory, fragment-target census and fragment-keyboard focus trace, over ${canonicalPopulationSource}`
               : SEARCH_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted search-states sweep of the built /search export, driving every deterministic state the interface exposes - idle, in-flight loading, settled results, one facet state per shipped entity type, the neutral no-results query, both partial index failures, the total failure and the clear back to idle - at ${SEARCH_DESKTOP_VIEWPORT.id} with the results and Methods states again at ${SEARCH_MOBILE_VIEWPORT.id}, reading each state's live-region announcement, the computed lime and check marker of the selected facet, per-group counts against their rendered rows and prose titles against site-suffix residue, focus retention through settle, and the keyboard activation and reset of every facet option, over ${canonicalPopulationSource}`
+              : MAP_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at ${MARKET_MAP_VIEWPORT.id}, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (${MAP_PLAN.cases.length} in all, the pairwise rows from the pinned ${MAP_PLAN.generator.algorithm} generator with seed ${MAP_PLAN.generator.seed}) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)

@@ -52,6 +52,17 @@ describe('tokenizeSource', () => {
     expect(tokens.some(({ value }) => value === 'b')).toBe(true);
   });
 
+  it('reads a regex that opens an arrow body', () => {
+    // `=>` ends in `>`, so the quote inside `/event's/` used to open a string
+    // that swallowed the next `describe` and misfiled its test titles.
+    const tokens = tokenizeSource(
+      "lines.some((line) => /their event's task/.test(line));\ndescribe('after', () => {});",
+    );
+    expect(tokens.filter(({ kind }) => kind === 'string').map(({ value }) => value)).toEqual([
+      'after',
+    ]);
+  });
+
   it('matches the group a token opens', () => {
     const tokens = tokenizeSource('call(inner(1), 2) after');
     expect(matchingToken(tokens, 1, '(', ')')).not.toBeNull();

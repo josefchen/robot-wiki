@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2838769, sha256: 'ca24faa5e9a00c5c3763c669afe791776df09c1f4fee1b5a144ab4294f608dbd' };
+const reviewPin = { bytes: 2847460, sha256: 'fdb76e2895b340acfb674a0e26d4120111002a1992b2cb50bb7591fc43ca5779' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -158,7 +158,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['library/design-system.md', [64830, '8a640cdd449a9441dab245dfa72b9602c5d01a4200f320e4255dc93c340826e5']],
   ['motion-tokens.json', [4797, 'c5d58f5adc79d9dbd965a3b7cae308f21b26185a2be147e93738a743836ef583']],
   ['scripts/brand-v2-census.ts', [48819, 'b7e45b4400d0bafe77131c014821e60e7a625abdf89eaa76c4a16c2e61ad68ec']],
-  ['scripts/brand-v2-enforcement.ts', [204068, '1711311dfea29daac713ac933b97215ed7bb5581b92d46ab58312a9a278ead04']],
+  ['scripts/brand-v2-enforcement.ts', [209450, 'e5be49a99a61f5c01ec65f8ea864e68876aca41041f4461d82cccd971ad4a7da']],
   ['scripts/generate-motion-tokens.ts', [16496, '736d58cc877152ee18c85482fa63344f7c7ab4a353a92a2506aa46250bb3f7c7']],
   ['scripts/motion/motion_theme.py', [2399, '27b5b388de634ac4c0ae00a057ad5ce03e05b9f2171fc2fc1a4fef5f07ed1a68']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],
