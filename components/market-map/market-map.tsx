@@ -3,6 +3,7 @@
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -73,6 +74,18 @@ function notifyUrl() {
 function marketMapUrl(view: MarketMapViewId, filters: MarketMapFilters, hash: string) {
   const query = serializeMarketMapSearch({ view, filters });
   return query ? `/market-map/?${query}${hash}` : `/market-map/${hash}`;
+}
+
+/**
+ * Brings an element to the middle of the window unless it already shows
+ * whole below the sticky site bar (the page's scroll padding).
+ */
+function reveal(element: Element) {
+  if (typeof element.scrollIntoView !== 'function') return;
+  const box = element.getBoundingClientRect();
+  const top = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+  if (box.top >= top && box.bottom <= window.innerHeight) return;
+  element.scrollIntoView({ block: 'center', inline: 'nearest' });
 }
 
 function isTextEntry(target: EventTarget | null): boolean {
@@ -210,21 +223,35 @@ export function MarketMap({ companies }: MarketMapProps) {
   // When the details close (Escape, Close, Back), focus goes back to what
   // opened them, or to the company's tile, row or mark if that is gone, but
   // only when the closing left focus nowhere.
-  useEffect(() => {
+  //
+  // Opening and closing the side sheet also narrows and widens the views,
+  // which can carry what the reader chose, or where their focus is, out of
+  // the window. This runs before paint so that element is back in view
+  // when the new layout first shows.
+  useLayoutEffect(() => {
     const previous = previousSelectionRef.current;
     previousSelectionRef.current = selectedId;
+    if (previous === null && selectedId !== null) {
+      if (returnFocusRef.current?.isConnected) reveal(returnFocusRef.current);
+      return;
+    }
     if (selectedId !== null || previous === null) return;
     // However it closed, no pushed entry is open any more.
     pushedRef.current = null;
     const opener = returnFocusRef.current;
     returnFocusRef.current = null;
     const active = document.activeElement;
-    if (active && active !== document.body) return;
+    if (active && active !== document.body) {
+      reveal(active);
+      return;
+    }
     const fallback = document.querySelector<HTMLElement>(
       `[data-map-tile="${previous}"], [data-company-id="${previous}"] > button, circle[data-company-id="${previous}"]`,
     );
     const target = opener?.isConnected ? opener : fallback;
-    target?.focus({ preventScroll: true });
+    if (!target) return;
+    target.focus({ preventScroll: true });
+    reveal(target);
   }, [selectedId]);
 
   // Segment counts under every other active filter, so a segment shows how
@@ -263,9 +290,9 @@ export function MarketMap({ companies }: MarketMapProps) {
 
   const onSelect = (id: string, trigger: HTMLElement | null) => select(id, trigger);
 
-  // Beside an open side sheet the controls and the chart views narrow to
-  // the space left of it (charts redraw at any width); the map keeps its
-  // columns and the sheet sits over its right edge.
+  // Beside an open side sheet the controls and every view narrow to the
+  // space left of it, so nothing the keyboard reaches sits under the
+  // sheet: the charts redraw at any width and the map reflows its tiles.
   const besideSheet =
     'lg:max-w-[calc(100vw_-_440px_-_max(24px,(100vw_-_84rem)/2_+_24px)_-_32px)]';
 
@@ -302,11 +329,16 @@ export function MarketMap({ companies }: MarketMapProps) {
         </p>
       </div>
 
-      <div className={cx('mt-5', selected && view !== 'grid' && besideSheet)}>
+      <div className={cx('mt-5', selected && besideSheet)}>
         {visible.length === 0 ? (
           <EmptyState filters={filters} onClear={clearFilters} />
         ) : view === 'grid' ? (
-          <GridView companies={visible} selectedId={selectedId} onSelect={onSelect} />
+          <GridView
+            companies={visible}
+            selectedId={selectedId}
+            besideSheet={selected !== null}
+            onSelect={onSelect}
+          />
         ) : view === 'bubble' ? (
           <BubbleView companies={visible} selectedId={selectedId} onSelect={onSelect} />
         ) : (

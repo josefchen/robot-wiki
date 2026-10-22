@@ -146,6 +146,29 @@ describe('market-map-states evidence', () => {
     expect(singles.observed.observedRenderedTotal).toBe(derivedTotal);
   });
 
+  it('names the market-map contract assertions each group row decides', () => {
+    // Freshness is the first test's concern; this reads the verdict shape.
+    const verdicts = marketMapGroupVerdicts(committed(), marketMapStatePlan());
+    const decides: Partial<Record<string, string[]>> = {
+      'single-options': ['VAL-MKT-005'],
+      'dependent-options': ['VAL-MKT-005'],
+      pairwise: ['VAL-MKT-006'],
+      'higher-order': ['VAL-MKT-006'],
+      'focus-keyboard': ['VAL-MKT-026'],
+    };
+    for (const verdict of verdicts) {
+      const group = verdict.observed.group as string;
+      expect(verdict.observed.marketMapAssertions ?? [], group).toEqual(decides[group] ?? []);
+      if (decides[group]) {
+        expect(verdict.observed.expectedCaseCount, group).toBeGreaterThan(0);
+        expect(verdict.observed.observedCaseCount, group).toBe(verdict.observed.expectedCaseCount);
+      }
+    }
+    expect(
+      [...new Set(verdicts.flatMap(({ observed }) => (observed.marketMapAssertions as string[]) ?? []))],
+    ).toEqual(['VAL-MKT-005', 'VAL-MKT-006', 'VAL-MKT-026']);
+  });
+
   it('fails the case a dropped or an extra rendered company would hide', () => {
     const plan = marketMapStatePlan();
     const dropTile = mutate((evidence) => {

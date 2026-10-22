@@ -604,6 +604,23 @@ export const MARKET_MAP_CASE_GROUPS = [
 ] as const;
 export type MarketMapCaseGroup = (typeof MARKET_MAP_CASE_GROUPS)[number];
 
+/**
+ * The market-map contract assertions a group's counts decide, written into
+ * that group's VAL-B2-MAP-011 result row so each can be found by its own ID:
+ * every option alone (VAL-MKT-005), the pairwise and registered higher-order
+ * intersections (VAL-MKT-006), and the keyboard trace with the result-count
+ * live-region ledger and axe (VAL-MKT-026).
+ */
+export const MARKET_MAP_GROUP_ASSERTIONS: Partial<
+  Record<MarketMapCaseGroup, readonly string[]>
+> = {
+  'single-options': ['VAL-MKT-005'],
+  'dependent-options': ['VAL-MKT-005'],
+  pairwise: ['VAL-MKT-006'],
+  'higher-order': ['VAL-MKT-006'],
+  'focus-keyboard': ['VAL-MKT-026'],
+};
+
 export type MarketMapDismissal = 'close' | 'escape' | 'back';
 
 export type MarketMapCase = StateCase & {
@@ -2146,6 +2163,8 @@ export function marketMapGroupVerdicts(
       selectorReconciled: accounting.selectorReconciled,
       typedNotApplicable: accounting.typedNotApplicable,
     };
+    const decides = MARKET_MAP_GROUP_ASSERTIONS[group];
+    if (decides) observed.marketMapAssertions = [...decides];
     if (counted.length > 0) {
       observed.expectedRenderedTotal = counted.reduce((sum, verdict) => sum + (verdict.expectedCount ?? 0), 0);
       observed.observedRenderedTotal = counted.reduce((sum, verdict) => sum + (verdict.observedCount ?? 0), 0);
