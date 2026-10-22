@@ -14,22 +14,17 @@ import {
   test,
 } from './brand-v2-static-fixture';
 import { setSlider } from './slider';
+import {
+  MOUNT_FRAME_SELECTOR,
+  PLAIN_TABLE_SOURCES,
+  RESET_MARKER,
+  mountRoots,
+} from './helpers/interactive-mount-roots';
 import type { Locator, Page } from '@playwright/test';
 
 const INTERACTIVE_IMPORT =
   /import\s+\{\s*([A-Z][A-Za-z0-9]*)\s*\}\s+from\s+['"]@\/components\/interactive\/[^'"]+['"]/g;
-const RESET_BUTTONS =
-  'main [data-brand-module-signature="instrument-frame"]:not([data-motion-scene]):not([data-motion-clip]) button';
-// A plain prose table is not a figure, so its mount has no frame (the
-// interactive-data spec roots it the same way): its root is the block around
-// the shared table region that no frame contains, and its Reset sits there.
-const PLAIN_TABLE_SOURCES = new Set([
-  'interactive:DatasetTable',
-  'interactive:HardwareGuide',
-  'interactive:TeleopRigMatrix',
-]);
-const UNFRAMED_TABLE_REGION =
-  'main [data-brand-frame-interior-registered="table"]:not([data-brand-module-signature="instrument-frame"] *)';
+const FRAMED_RESETS = `${MOUNT_FRAME_SELECTOR} button${RESET_MARKER}`;
 
 function filesUnder(path: string): string[] {
   return readdirSync(path, { withFileTypes: true }).flatMap((entry) => {
@@ -67,16 +62,6 @@ function deriveMountIdsFromSource(): string[] {
     }
   }
   return mountIds;
-}
-
-function pairwiseRoot(page: Page, resetIndex: number): Locator {
-  const reset = page
-    .locator(RESET_BUTTONS)
-    .filter({ hasText: /^\s*Reset\s*$/ })
-    .nth(resetIndex);
-  return reset.locator(
-    "xpath=ancestor::div[count(.//button[normalize-space(.)='Reset'])=1 and .//input[@type='range'] and (.//*[@aria-pressed] or .//*[@aria-selected] or .//input[@type='radio'] or .//input[@type='checkbox'] or .//select or .//details)][1]",
-  );
 }
 
 async function controlState(root: Locator) {
@@ -134,33 +119,20 @@ async function activateDiscrete(discrete: Locator) {
   }
 }
 
-async function exerciseReset(
-  page: Page,
-  resetIndex: number,
-  plainTableRoot: Locator | null,
-) {
-  // A plain-table root must hold exactly one Reset; a frame's Reset is the
-  // next one among the route's frames.
-  const reset = plainTableRoot
-    ? plainTableRoot.locator('button').filter({ hasText: /^\s*Reset\s*$/ })
-    : page
-        .locator(RESET_BUTTONS)
-        .filter({ hasText: /^\s*Reset\s*$/ })
-        .nth(resetIndex);
+async function exerciseReset(root: Locator) {
+  // The reset lives in the mount's own root, so a mount can neither borrow
+  // a neighbour's reset nor hide a second one.
+  const reset = root.locator(`button${RESET_MARKER}`);
   expect(
     await reset.count(),
-    'a mounted reset case exposes its own Reset action in the DOM',
+    'a mounted reset case exposes its own reset action in the DOM',
   ).toBe(1);
   expect(await reset.isEnabled()).toBe(true);
   if (await reset.isVisible()) await reset.click();
   else await reset.evaluate((element) => (element as HTMLButtonElement).click());
 }
 
-async function exercisePairwise(
-  page: Page,
-  pairwiseIndex: number,
-) {
-  const root = pairwiseRoot(page, pairwiseIndex);
+async function exercisePairwise(root: Locator) {
   const range = root.locator('input[type="range"]:not(:disabled)').first();
   const discrete = root
     .locator(
@@ -213,8 +185,7 @@ async function exerciseNonSelectorCase(
   component: string,
   sourcePath: string,
   stateCase: InteractiveStateCase,
-  kindIndex: number,
-  plainTableRoot: Locator | null,
+  root: Locator,
 ) {
   switch (stateCase.kind) {
     case 'default':
@@ -225,7 +196,7 @@ async function exerciseNonSelectorCase(
       ).toBe(true);
       return true;
     case 'reset':
-      await exerciseReset(page, kindIndex, plainTableRoot);
+      await exerciseReset(root);
       return true;
     case 'discrete-options': {
       const witness = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1];
@@ -245,7 +216,7 @@ async function exerciseNonSelectorCase(
       return true;
     }
     case 'pairwise':
-      await exercisePairwise(page, kindIndex);
+      await exercisePairwise(root);
       return true;
     default:
       return false;
@@ -284,23 +255,18 @@ test.describe('brand-v2 interactive-state runner', () => {
           join(process.cwd(), 'out', route, 'index.html'),
           'utf8',
         );
-        let resetIndex = 0;
-        let pairwiseIndex = 0;
-        const plainCount = mounts.filter((mount) =>
-          PLAIN_TABLE_SOURCES.has(mount.sourceId),
-        ).length;
-        const plainRegions = page.locator(UNFRAMED_TABLE_REGION);
-        if (plainCount > 0) {
-          expect(
-            await plainRegions.count(),
-            `${route} renders one unframed table per plain-table mount (${plainCount})`,
-          ).toBe(plainCount);
-        }
-        let plainIndex = 0;
-        for (const mount of mounts) {
-          const plainTableRoot = PLAIN_TABLE_SOURCES.has(mount.sourceId)
-            ? plainRegions.nth(plainIndex++).locator('xpath=..')
-            : null;
+        const roots = await mountRoots(
+          page,
+          route,
+          mounts.map(({ id, sourceId, ordinal }) => ({
+            id,
+            sourceId,
+            component: sourceById.get(sourceId)?.component ?? sourceId,
+            ordinal,
+          })),
+        );
+        for (const [mountIndex, mount] of mounts.entries()) {
+          const root = roots[mountIndex];
           const source = sourceById.get(mount.sourceId);
           expect(source, `${mount.id} resolves to a source`).toBeTruthy();
           expect(
@@ -331,17 +297,23 @@ test.describe('brand-v2 interactive-state runner', () => {
                 source?.component ?? '',
                 source?.sourcePath ?? '',
                 stateCase,
-                stateCase.kind === 'reset' ? resetIndex : pairwiseIndex,
-                plainTableRoot,
+                root,
               )
             ) {
               reconciledCaseIds.add(caseId);
-              if (stateCase.kind === 'reset' && !plainTableRoot) resetIndex += 1;
-              if (stateCase.kind === 'pairwise') pairwiseIndex += 1;
             }
           }
           observedMounts += 1;
         }
+        const framedResetMounts = mounts.filter(
+          (mount) =>
+            !PLAIN_TABLE_SOURCES.has(mount.sourceId) &&
+            mount.cases.some(({ kind }) => kind === 'reset'),
+        ).length;
+        expect(
+          await page.locator(FRAMED_RESETS).count(),
+          `${route} renders exactly one framed reset per framed mount with a reset case (${framedResetMounts})`,
+        ).toBe(framedResetMounts);
       });
     }
     expect(observedMounts).toBe(plan.mounts.length);

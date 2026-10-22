@@ -394,6 +394,45 @@ describe('brand-v2 canonical census', () => {
     }
   });
 
+  it('registers a reset case exactly where a source renders a reset action', () => {
+    // "Preset" and "PresetGroup" contain the letters r-e-s-e-t and reset
+    // nothing; only the shared reset action, a reset handler or a control
+    // labelled Reset implements the case.
+    const implementsReset = (text: string) =>
+      /<InstrumentReset\b/.test(text) ||
+      /\bonReset\b/.test(text) ||
+      />\s*Reset\s*</.test(text);
+    const withReset = registry.interactive.sources.filter(({ cases }) =>
+      cases.some(({ kind }) => kind === 'reset'),
+    );
+    const renderingReset = registry.interactive.sources.filter(({ sourcePath }) =>
+      implementsReset(readFileSync(join(ROOT, sourcePath), 'utf8')),
+    );
+    expect(renderingReset.length).toBeGreaterThan(0);
+    expect(withReset.map(({ id }) => id)).toEqual(
+      renderingReset.map(({ id }) => id),
+    );
+    const presetOnly = registry.interactive.sources.filter(({ sourcePath }) => {
+      const text = readFileSync(join(ROOT, sourcePath), 'utf8');
+      return /Preset/.test(text) && !implementsReset(text);
+    });
+    expect(presetOnly.length).toBeGreaterThan(0);
+    for (const source of presetOnly) {
+      expect(
+        source.cases.some(({ kind }) => kind === 'reset'),
+        `${source.id} only names presets, so it has no reset case`,
+      ).toBe(false);
+    }
+    const sourceById = new Map(
+      registry.interactive.sources.map((source) => [source.id, source]),
+    );
+    for (const mount of registry.interactive.mounts) {
+      expect(mount.cases.some(({ kind }) => kind === 'reset')).toBe(
+        sourceById.get(mount.sourceId)!.cases.some(({ kind }) => kind === 'reset'),
+      );
+    }
+  });
+
   it('registers complete grid, surface, and control primitive contracts', () => {
     for (const device of registry.gridDevices) {
       expect(device.ownerSurface).toBeTruthy();

@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2876176, sha256: 'b57097bc666138c60e0b4f1365be27dede13f7ceeb68130a92cbb058943829f4' };
+const reviewPin = { bytes: 2885694, sha256: '5da08640d93ba3adc4bbaeb4b0b7377f02cdb540a51f0a9bf341a0784b2a5016' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -92,7 +92,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/scene-representation-ladder.tsx', [33167, '2f250ed084865f4997586f5b92a0d574c75a669e81abf58aec1af3cc078ad759']],
   ['components/interactive/scene-split.tsx', [11141, 'ef3d6d480f9916cf6ece930de2b78871fc83af830d1cde616186a2cd2d1c5400']],
   ['components/interactive/teacher-student.tsx', [14676, 'f689e8ed519e9d933c75945949b4886d1945bff1c61b1c842a5c64109c80237b']],
-  ['components/interactive/teleop-rig-matrix.tsx', [8291, '0ae5092374e241402890a9d64d4a107165e48aec0e7462aa5cb6013a71cdbc30']],
+  ['components/interactive/teleop-rig-matrix.tsx', [8359, 'f1d5801d8d493b99c0d97e53138776884408da25636524d9ef99828f15eedaf3']],
   ['components/interactive/terrain-curriculum.tsx', [12125, 'ac4624fd367c49d4a006b0caba5dff740bd4413ca822de59bb6d202edffe9689']],
   ['components/interactive/thesis-explorer.tsx', [13363, '54279cd483fd09b3414a787c2862b7985adc217e0a1bcab8860b2aa2d87dc3c4']],
   ['components/interactive/wbc-decomposition.tsx', [14453, 'b588d52a32d59407b753d0f157420abc9b29b1b8b31e89af57022023502edb10']],
@@ -120,7 +120,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/motion/stage.css', [16031, '31376d5fbe35871fdfeb3323d4d91eed4afcf4d8896c034f5b0341e2a3f8fa67']],
   ['components/ui/chart-description.tsx', [7860, 'e4b15bd32ef9dd83d63c4a05b593cab3c94d53bc049146f13ee93a545b5beb93']],
   ['components/ui/figure.tsx', [8617, 'c8642d817015f3a216b62594fbac200404fc768bdd4a1c4d1bfb50cf0fc25b09']],
-  ['components/ui/instrument.tsx', [14700, 'b98f135b1ff6534c8d6701b22224ea28c6236c96e39c0731ae4d12802c71413d']],
+  ['components/ui/instrument.tsx', [14829, '123ef846e0c784a185f1199c944399cbe2574d94705011df1b01e2c332cb8f0a']],
   ['components/ui/original-schematics.tsx', [10541, 'b070e4319a9e83abec9a435612fa9efbf119895906cb856cce49abdd9b01e2c1']],
   ['components/ui/stage-status-chip.tsx', [1316, 'bf25270b9a0a9b6223af19ca77876c6c2be6d2bb06c2802b30982ce069388ef2']],
   ['components/ui/surface.tsx', [1094, 'ecd93d3fca25d478c2b862b10678147d91487bbe89888f5fa120b4fa857334a3']],
@@ -157,8 +157,8 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['lib/motion-tokens.ts', [4239, '7f78507f6c80bcf096f896da04846768b93d6d87387ec73836420714586fd701']],
   ['library/design-system.md', [66134, 'aad2b754d935b9e833de6ebc573823e4cd3db3be4905c7b1e08a77de86520d73']],
   ['motion-tokens.json', [4797, '3779e28bc4113a627bd32b70b52efbcf17dad54418030ca1359b4747ae297156']],
-  ['scripts/brand-v2-census.ts', [49647, '09a0f10cb0d4359b83e9d7a950775de92914e4fc44f420fe8ab16325e74bf78e']],
-  ['scripts/brand-v2-enforcement.ts', [221826, '20ad20675e23ae8e7e90c4de1c39c612f983175585e0898b2dac52c967cdba93']],
+  ['scripts/brand-v2-census.ts', [50106, '198c4a7687a6346a9326f48545eca0acb402bd41b0d0d13dae13af9857514a81']],
+  ['scripts/brand-v2-enforcement.ts', [229389, '87190125f0a2b78541bf74df321e4c2683f0a41fe2014a16fefe957f682c2c1f']],
   ['scripts/generate-motion-tokens.ts', [16496, '736d58cc877152ee18c85482fa63344f7c7ab4a353a92a2506aa46250bb3f7c7']],
   ['scripts/motion/motion_theme.py', [2399, '687917773d46f9797efe92b24dfae9e302777f1ef22954765ce4e2d743deeeaf']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],

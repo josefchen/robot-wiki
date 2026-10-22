@@ -7261,10 +7261,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -7285,8 +7281,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "9806c8c5993ebcd2bf2da65a00c3d100e9becfa073edf37bd7289551d37cb4d6"
+        "expectedCaseCount": 8,
+        "fingerprint": "38215c8f6897212804b956f55e051b5a2049cb985c00eb03592feba6bb8a847a"
       },
       {
         "id": "interactive:AdvantageScrubber",
@@ -7448,10 +7444,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -7472,8 +7464,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "5e6818128ac1ed568020cc5049ef1b5e8d2c6e3d50eb3645e6835288104c2dce"
+        "expectedCaseCount": 8,
+        "fingerprint": "fc6c2738167a0f52eed39338f6d058ee0a01e8158b58afc29754565972e7f4df"
       },
       {
         "id": "interactive:CalibrationChain",
@@ -8038,10 +8030,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -8062,8 +8050,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "50d4e26bc60c5e5e7db0a2888c78c28f57f463f23d4636fc1c247ee35c800206"
+        "expectedCaseCount": 8,
+        "fingerprint": "0e16ab2e8f5307000c498861e20e8fb1e4f3ee7bf41b2a388b9d4a6b50c4e30d"
       },
       {
         "id": "interactive:DataScaleChart",
@@ -8220,10 +8208,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "pairwise-independent-controls",
             "kind": "pairwise",
             "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
@@ -8249,8 +8233,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 11,
-        "fingerprint": "a33ae5fbaff8b96088c45cf4ee77f37bc878851accadd75d0c1ebf47d2a87237"
+        "expectedCaseCount": 10,
+        "fingerprint": "f46a5f53ff20f8ac3e7ce385f793dd9f0e32bcf35f5d104d370911e256d31f71"
       },
       {
         "id": "interactive:DemoOrSim",
@@ -8280,10 +8264,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -8304,8 +8284,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "3744257c58b924fd1b407b1ec2fde4cc553eeef12b9595186cd59b13835cd4a5"
+        "expectedCaseCount": 8,
+        "fingerprint": "47ec9cd10bf84b4bea777ee56c038ca02b3fb714516c4ccfbc888fcd8bad3378"
       },
       {
         "id": "interactive:DeploymentDashboard",
@@ -8571,10 +8551,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -8595,8 +8571,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "68e35f13a828a9cdec51ed6fca90536e92d94c57b236a9b583c023ada2d5738f"
+        "expectedCaseCount": 8,
+        "fingerprint": "eb6095f78f6778723b966ba1e2ec37bc6404f5f5fce9571d264907c6a9921c94"
       },
       {
         "id": "interactive:ExecutionModes",
@@ -9138,10 +9114,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -9162,8 +9134,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "9a806a15e34f0fb10dafbb418b412d7bb055b3331edc967ab54111f3b1b4adbc"
+        "expectedCaseCount": 8,
+        "fingerprint": "e697bbacafd7d753d02edfa33026852b3192ef6f5b01654f0a938e7e32603240"
       },
       {
         "id": "interactive:HardwareGuide",
@@ -9365,10 +9337,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -9389,8 +9357,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "5b593175e28c74a66aab9d721c88115687c466765e51eac67b9d3a2677fc9b52"
+        "expectedCaseCount": 8,
+        "fingerprint": "7fbf144a3d9d6490d5ab5809f61aa0f8a2d31c5f3078362145368d7bc687618a"
       },
       {
         "id": "interactive:HumanoidPickHeight",
@@ -9420,10 +9388,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -9444,8 +9408,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "d4fdb9dee7a78d93e720085a7020c53edc8fce02fd9372ac136536ad4e16d5b4"
+        "expectedCaseCount": 8,
+        "fingerprint": "980ff5388284878db77ad583e6102961a0339e440d3f7ad1e6c42818a1970e8c"
       },
       {
         "id": "interactive:ImpedanceContactLab",
@@ -9547,10 +9511,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "pairwise-independent-controls",
             "kind": "pairwise",
             "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
@@ -9576,8 +9536,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 11,
-        "fingerprint": "e2bfdb4be1922a405b37af87b0d226a1de01b8bd281d0a522f1337472a0a8cfd"
+        "expectedCaseCount": 10,
+        "fingerprint": "1b53ebdafd34e61c6768d6a2aff42d80a975c284e9ac845cd6e53a38a2f0a5b2"
       },
       {
         "id": "interactive:JepaPlanning",
@@ -10236,10 +10196,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -10260,8 +10216,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "74854eb16e94c74d7595ccba75d87bd50e40da3025f7629358db0a099f55e707"
+        "expectedCaseCount": 8,
+        "fingerprint": "dfad3829d8d71a644d45621f3ecd6a8d875564950c36237d65675b6344638de6"
       },
       {
         "id": "interactive:NoiseOrEdit",
@@ -10291,10 +10247,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -10315,8 +10267,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "6f623a831e56df3b7da36ad309cdacdb1b34119dbf7a5cca91255e39d8a06ba4"
+        "expectedCaseCount": 8,
+        "fingerprint": "33b720b80c24e867e7c3ed5bd38051e4de7a605370d895322a79b25d9400484f"
       },
       {
         "id": "interactive:OfflineValueOverreach",
@@ -10715,10 +10667,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -10739,8 +10687,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "df3ce58f35c66463a3dd6506f9af923df5a4a0fb6a9dc0bd30d17bd001968869"
+        "expectedCaseCount": 8,
+        "fingerprint": "7646c978fc886f30c79bcc57e82e6f5620251a5a9954602ef233f21d50364171"
       },
       {
         "id": "interactive:QosQueueAge",
@@ -10770,10 +10718,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -10794,8 +10738,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "ac85b2bc7ad91a3d0b707e7abf371ed67126645e3a402c8a0332973309932c11"
+        "expectedCaseCount": 8,
+        "fingerprint": "95c20d39fb69660afbe8eea97580c19bc013378c7ba0f1fd54c95e18f3d02733"
       },
       {
         "id": "interactive:RealRobotRlGains",
@@ -10825,10 +10769,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -10849,8 +10789,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "025207ce4e94ccfa9cbdb619f659d4ad243649d90bae5206765ff23dbb773414"
+        "expectedCaseCount": 8,
+        "fingerprint": "1063fcd3153270248bc53dc5b6e0213fd856fd8620b6502f3f01e9b5a80d51f9"
       },
       {
         "id": "interactive:RecedingHorizon",
@@ -11012,10 +10952,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -11036,8 +10972,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "784e4800502d71e4115e803ba7f8be97b2c0818a10115ef51aeb6f5ac51b7396"
+        "expectedCaseCount": 8,
+        "fingerprint": "192a198fc4a6d05ea2c04422b4fabd7f4fbde7d5d5eb6cc1e5f0bb576755fc16"
       },
       {
         "id": "interactive:RetargetingGap",
@@ -11183,10 +11119,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -11207,8 +11139,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "b10c298434e87390917f41dbba0d4664e2a1b63e2af57861845d40209f6b02dd"
+        "expectedCaseCount": 8,
+        "fingerprint": "4f9ab018edf8c1d8800a2a3f60115687516274caf6912e72ce71bd36688b53cc"
       },
       {
         "id": "interactive:Ros2Interfaces",
@@ -11238,10 +11170,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -11262,8 +11190,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "2ea106a67ad4133488c3800bbf34e2cae55dfd3ba6d7aaec48a0a54627550f14"
+        "expectedCaseCount": 8,
+        "fingerprint": "c29cc721ca854360675e2948c0b8d0f2094fceb6e9a9fea86bac95fa6a764f08"
       },
       {
         "id": "interactive:Ros2PolicyLayout",
@@ -11498,10 +11426,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -11522,8 +11446,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "f49152d9e748a2cf905c0b1f741de7b10428fae1334e5ac3ff4b57e8210b34ed"
+        "expectedCaseCount": 8,
+        "fingerprint": "a05ee13d397de798ab7d50273fd1547398edc20fbda02d9c61e32a86e5f8c0f5"
       },
       {
         "id": "interactive:SceneRepresentationLadder",
@@ -11674,10 +11598,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -11698,8 +11618,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "8435953edd3c882bba27f2d353ce250cdbe0acbff1f105b2fc49d97a951b5871"
+        "expectedCaseCount": 8,
+        "fingerprint": "3736ba37065ba7ac93ca5383c9f12f19af45d0aad11316f0ac4763c2f65f45fc"
       },
       {
         "id": "interactive:TeacherStudent",
@@ -12071,10 +11991,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -12095,8 +12011,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "ccfe807b227b74db0b8b41c13edf5109b64f67b833e9d24dc178fa399518d678"
+        "expectedCaseCount": 8,
+        "fingerprint": "25ed0e594b3b9de22c2206df087ee5ea2e259b9d590b2398b98778817254e13b"
       },
       {
         "id": "interactive:WbcDecomposition",
@@ -12367,10 +12283,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -12391,8 +12303,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "982d675ed8620028c003f012e03e81782b6dc308774f5e780005766d4bd568ae"
+        "expectedCaseCount": 8,
+        "fingerprint": "b33e67319a947df35273b0d80b88e3f859c8efabcc13cf23b88fca58aa00485c"
       },
       {
         "id": "mount:/classical/calibration/:CalibrationChain:1",
@@ -12989,10 +12901,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -13013,8 +12921,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "9ca750cd81d1bc36c1ba0e8340052b59df7d62d71b608e61b565b6cba98df467"
+        "expectedCaseCount": 8,
+        "fingerprint": "48c2171529d69de40b7aeedd099aa25aac0dc912144ada9fcb144b14643497f8"
       },
       {
         "id": "mount:/classical/ros2-for-ml-engineers/:Ros2Interfaces:1",
@@ -13048,10 +12956,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -13072,8 +12976,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "6b54a6636ea6152cb40ff2ee4aa9408e52173467c700173e45691f95a69e1b62"
+        "expectedCaseCount": 8,
+        "fingerprint": "1fec0bd567da37dbd111fb5fadea1a053dbffcead198c617e8ce74463970983c"
       },
       {
         "id": "mount:/classical/ros2-for-ml-engineers/:Ros2PolicyLayout:1",
@@ -13852,10 +13756,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -13876,8 +13776,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "16bb97d51f4b65fad53faa86857f39fcb0c8fe42bc4b67b1653723a729964795"
+        "expectedCaseCount": 8,
+        "fingerprint": "e1386831c12487267d04489c50d1ca743ae0638f895a6340c9c83a59b3d61b1c"
       },
       {
         "id": "mount:/frontier/bear-case/:MilestonesWatchlist:1",
@@ -14621,10 +14521,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "pairwise-independent-controls",
             "kind": "pairwise",
             "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
@@ -14650,8 +14546,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 11,
-        "fingerprint": "40dbe02df8c6b26cfa15c976c95587bd3a48a571ae1aea5e20167167e528b5c9"
+        "expectedCaseCount": 10,
+        "fingerprint": "aac13277ab26bbdae7a89956627be3ceeb46a4b7da5e5378c405c97c8460ec93"
       },
       {
         "id": "mount:/manipulation/bc-foundations/:CompoundingError:1",
@@ -14936,10 +14832,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -14960,8 +14852,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "86e5f8f7a00de9184a4bf5a4582fab1e857ed4c3ea6b2a37c04eeb4d50fc0bbf"
+        "expectedCaseCount": 8,
+        "fingerprint": "df1116f947759efcb9aa9a64a229a76438e9e49012a10c92e9a0b5e4caa83cff"
       },
       {
         "id": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
@@ -15706,10 +15598,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -15730,8 +15618,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "d5dfa615b47883cba86889d1261ed8a69cea92b300a9df5913e2dd1d6520ba36"
+        "expectedCaseCount": 8,
+        "fingerprint": "ce6df10f6aeebb3302d009289b84b3508cc05b36e7adb5d4fd1e197281c3b8a3"
       },
       {
         "id": "mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1",
@@ -15771,10 +15659,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "pairwise-independent-controls",
             "kind": "pairwise",
             "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
@@ -15800,8 +15684,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 11,
-        "fingerprint": "7fb3d6c4ede018fe9cd7cc693120ae577139fb73b7170c7f25749397dc86ebaf"
+        "expectedCaseCount": 10,
+        "fingerprint": "824f7919f803c76929d9d7d0db4a2650a00f753f200157871d9a4d19ea9fbf34"
       },
       {
         "id": "mount:/manipulation/vla-models/:ActionTokenization:1",
@@ -15905,10 +15789,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -15929,8 +15809,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "97df5eb7335c91fc6be218e72905ac1636d48cffbb76dd4fd4ca38b81753a9ab"
+        "expectedCaseCount": 8,
+        "fingerprint": "44ec55e18f615a59312388bec0ea81f067b17e195ed3c7a55fd3e9bdce51325f"
       },
       {
         "id": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
@@ -16077,10 +15957,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16101,8 +15977,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "b03ea34121dd699663a07b732134b540fb9d6f85eaa5dd8fea8b34b334a1395b"
+        "expectedCaseCount": 8,
+        "fingerprint": "f6b6abdde98d5f3db265963b95f80d1982ed44d32910ac8562b940a82fcdd02b"
       },
       {
         "id": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1",
@@ -16243,10 +16119,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16267,8 +16139,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "24d2d0a5f8a21b51adf41c9536f56a598d6e68c35654990ceddac615e128096b"
+        "expectedCaseCount": 8,
+        "fingerprint": "8ce09ec1ce85cde14105864e8cebfe5998ebbeac4def0ec0b67babbdb0c9a456"
       },
       {
         "id": "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1",
@@ -16302,10 +16174,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16326,8 +16194,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "1df4bd82b49f4be64aba631da6941112a4b1d05b953fe22e63b8ebd977e62067"
+        "expectedCaseCount": 8,
+        "fingerprint": "3d6b9b3db6fd9cd57ab7599a5364580adeaba39831ac112d9d246238ded1e4cf"
       },
       {
         "id": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
@@ -16361,10 +16229,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16385,8 +16249,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "d7bba07ec12c3b2bb48785c5ab2c2e5a9b401129ad71ab79ab6800bd92d4798e"
+        "expectedCaseCount": 8,
+        "fingerprint": "3097d8beb9ea6608263ab0b8d24c003d66848c2243e79c94a457d7888969cc06"
       },
       {
         "id": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
@@ -16420,10 +16284,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16444,8 +16304,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "c130f12109cf3804c833783dc68d8656981e081b882660918515bbd5c318518b"
+        "expectedCaseCount": 8,
+        "fingerprint": "f875370edf0d1b16dc8699011bc8bb1a41ae29132eed046c58c818bf2b3cb69e"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
@@ -16661,10 +16521,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16685,8 +16541,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "4ce070853592f8d75663db4b55b9c29b2fe67bc939c5243bbe82c97ef06d8299"
+        "expectedCaseCount": 8,
+        "fingerprint": "d516f81ef69553142e53de9fa6f521a6e53b9dedfd8a270b7907e1b4b5e03864"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
@@ -16720,10 +16576,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16744,8 +16596,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "c8d3d950455b7ad0325be57f66b16c9fca7f1cb9be2bbb0200a08b7acf0c6b7d"
+        "expectedCaseCount": 8,
+        "fingerprint": "73531e9a2e34d49327a5807c2f1140338883678c9c3f1af5979f22e27e9bb5c4"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
@@ -16897,10 +16749,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -16921,8 +16769,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "47f2953db3aabc50e923e2a3f40dbc25789428f48ee20a6ca6de5a9da8a45f95"
+        "expectedCaseCount": 8,
+        "fingerprint": "dbcac11c6341b7cff2d8d6c83efa9b94a4ee9c66608e08fd364e8369797da23d"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
@@ -17096,10 +16944,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -17120,8 +16964,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "5595aa27bd1d29234d7207780f1454c0c694e4b0756bdba49c3c2a4b916774b7"
+        "expectedCaseCount": 8,
+        "fingerprint": "0d50d946b2db341deaa6ae8da151c9397c442784a74f221ae97d9b4190d996e2"
       },
       {
         "id": "mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
@@ -17155,10 +16999,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -17179,8 +17019,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "4cf4b9a1a6033735f7e5a3cf147da35b72a75241c035c8c7aaf237612df28de4"
+        "expectedCaseCount": 8,
+        "fingerprint": "2671e5bbc9d7fd2a9ce6cb9432027ec7f437b945f240a260cf698d39839db262"
       },
       {
         "id": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
@@ -17483,10 +17323,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -17507,8 +17343,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "3248e1e71c84c028d8a729d1aced94d4f9af2bd7bac2752ceb6c750998d490cd"
+        "expectedCaseCount": 8,
+        "fingerprint": "0eff4d666fcd4144a57e31c826fa5adffcdeee9f04bf121288dcf867ab3024d4"
       },
       {
         "id": "mount:/world-models/taxonomy/:WmDisambiguator:1",
@@ -17601,10 +17437,6 @@
             "expectedEnumeration": "every rendered discrete option independently"
           },
           {
-            "id": "reset",
-            "kind": "reset"
-          },
-          {
             "id": "loading-not-applicable",
             "kind": "exception",
             "notApplicableReason": "Source does not implement a loading state."
@@ -17625,8 +17457,8 @@
             "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
-        "expectedCaseCount": 9,
-        "fingerprint": "1ba5e4f70b7e6129b9fdfcc28392f4bde284214185029cc72add3964b36e14ea"
+        "expectedCaseCount": 8,
+        "fingerprint": "ab47f80ddba5c588281bfa3216038bc7e48cf1a5cc4777c6033ce2e5347f303d"
       }
     ]
   },
@@ -18829,5 +18661,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "b4a1516bafef1d0cf9ebfc3d69a5a9ff372e845135184d028fafa0e4fa9ef4cd"
+  "rootFingerprint": "d44ce9327c6f26bc499fbc5dba5a15b094c4deec1c491abcc8287ef5dc583a25"
 }

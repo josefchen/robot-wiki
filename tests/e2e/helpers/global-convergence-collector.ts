@@ -42,6 +42,12 @@ export type GlobalConvergenceCollectorInput = {
   compositionTolerancePx: number;
   /** The text contrast a declared material's ground has to clear for its own text. */
   materialContrastFloor: number;
+  /**
+   * When set, every finding also names the value of the closest ancestor
+   * carrying this attribute, so a sweep that marks regions (one per mounted
+   * interactive) can attribute each page finding to its region.
+   */
+  scopeAttribute?: string;
 };
 
 export type CollectedFinding = {
@@ -49,6 +55,8 @@ export type CollectedFinding = {
   element: string;
   detail: string;
   exemption: string | null;
+  /** Only with `scopeAttribute`: the marked region the element sits in. */
+  scope?: string | null;
 };
 
 export type CollectedTypeTuple = {
@@ -281,8 +289,14 @@ export function collectGlobalConvergence(
   };
   const findings: CollectedFinding[] = [];
   const seenFindings = new Set<string>();
+  const scopeAttribute = input.scopeAttribute;
   const find = (predicate: string, element: Element, detail: string) => {
-    const key = `${predicate} ${name(element)} ${detail}`;
+    // Two identical mounts on one page name identical elements, so the
+    // region is part of the key or the second mount's finding is lost.
+    const scope = scopeAttribute
+      ? (element.closest(`[${scopeAttribute}]`)?.getAttribute(scopeAttribute) ?? null)
+      : undefined;
+    const key = `${predicate} ${name(element)} ${detail}${scope === undefined ? '' : ` @${scope}`}`;
     if (seenFindings.has(key)) return;
     seenFindings.add(key);
     findings.push({
@@ -290,6 +304,7 @@ export function collectGlobalConvergence(
       element: name(element),
       detail,
       exemption: exemptionFor(element, predicate),
+      ...(scope === undefined ? {} : { scope }),
     });
   };
   const counts: Record<string, number> = {};
