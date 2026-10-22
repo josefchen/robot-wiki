@@ -23,7 +23,10 @@ export const metadata: Metadata = {
 
 export default function MarketMapPage() {
   return (
-    <div className="mx-auto w-full max-w-[84rem] px-6 pt-8 pb-24 sm:pt-12">
+    <div
+      data-page-frame="frame:map"
+      className="mx-auto w-full max-w-[84rem] px-6 pt-8 pb-24 sm:pt-12 md:px-8 lg:px-12"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: marketMapJsonLd(COMPANIES) }}
@@ -47,7 +50,7 @@ export default function MarketMapPage() {
           latest round and the sources behind each figure.
         </p>
       </div>
-      <div className="mt-9">
+      <div className="mt-8">
         <MarketMap companies={COMPANIES} />
       </div>
     </div>

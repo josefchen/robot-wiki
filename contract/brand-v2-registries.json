@@ -589,7 +589,7 @@
       "routeId": "route:/a-z/",
       "owner": "route:/a-z/",
       "ownerPath": "app/a-z/page.tsx",
-      "ownerSourceFingerprint": "a305ef8006f674cc0e5af0d0cf4a75f39b049e0d5958efa2930c08ea17073151",
+      "ownerSourceFingerprint": "be7b15d89d4f139109143a650600e26a6c5dbc08fc514edac7b2e7358725177b",
       "canonical": "https://robot-wiki.com/a-z/",
       "title": "A-Z Index",
       "description": "Every published Robot Wiki article and glossary term in one alphabetical list.",
@@ -630,14 +630,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "4376d0921248c7414e82a842e606b9232751e9f76936d6e96c31a35fc6cb6b6e"
+      "fingerprint": "4e195938bc9e8959b472955108a6f3d31b17c13a780a2dd410e52d42719e3c4e"
     },
     {
       "id": "metadata:/about/",
       "routeId": "route:/about/",
       "owner": "route:/about/",
       "ownerPath": "app/about/page.tsx",
-      "ownerSourceFingerprint": "e5365e2dbbe6fc021e4e0823f0b054b80b3b6dc347b02b56a4e6d07bd7cef0e6",
+      "ownerSourceFingerprint": "a4323f215e3596ad20b83712ef48cad9819f03d1e571d008f22cd75f3f0a30a1",
       "canonical": "https://robot-wiki.com/about/",
       "title": "About Robot Wiki: Scope and Reading Order",
       "description": "About Robot Wiki: what it covers and excludes, the order to read its articles in, what they assume you know and how its citations work.",
@@ -676,14 +676,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "fbaa448e72a02f75296909b881a600a31254e8109cf4777c990a28094316ab80"
+      "fingerprint": "da170ae5aee74c7e828935641eb305c9c23985fea9c483d47d8397c190001e70"
     },
     {
       "id": "metadata:/adjacent/",
       "routeId": "route:/adjacent/",
       "owner": "route:/adjacent/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/adjacent/",
       "title": "Adjacent Domains",
       "description": "Adjacent domains are robotics fields that meet the same problems under their own safety and certification rules: driving, drones, surgery and space.",
@@ -724,7 +724,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "81bba597a2a64cf614641ee57f5166497e1ccc1d349768c46c21441961a27d4c"
+      "fingerprint": "2dee33fa12635cdb867caa62f3601936fe9b36f5813adeb6ba69085b36c69085"
     },
     {
       "id": "metadata:/adjacent/autonomous-vehicles/",
@@ -923,7 +923,7 @@
       "routeId": "route:/classical/",
       "owner": "route:/classical/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/classical/",
       "title": "Classical Foundations",
       "description": "Classical robotics is the model-based stack that learned policies still run on: kinematics, planning, control, estimation, grasping, perception, mapping, calibration and ROS 2.",
@@ -964,7 +964,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0c9c1a1af7022cadf6cf53309f5e6e6369a1c84b52ee302b8f69e1e1c66b2c67"
+      "fingerprint": "b8086f232f6a9e0178800eac1a3abcc510842b1ebc641d4322e430dced8b576b"
     },
     {
       "id": "metadata:/classical/calibration/",
@@ -1403,7 +1403,7 @@
       "routeId": "route:/credits/",
       "owner": "route:/credits/",
       "ownerPath": "app/credits/page.tsx",
-      "ownerSourceFingerprint": "985fe47a406a48051dc08a9c30a3143e1d7974dac846a5a7424a843fd10ce848",
+      "ownerSourceFingerprint": "d112cca3abb0d9409514f9b492dad0b4f3066a1aa691d46a86c443ee0865701d",
       "canonical": "https://robot-wiki.com/credits/",
       "title": "Credits",
       "description": "Every photograph and diagram on Robot Wiki, with its creator, source, and licence.",
@@ -1442,14 +1442,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "a6ace2cc2f9231e05e48d12b3dfe8849a32589d876f7705f8fd25ce563cd9f46"
+      "fingerprint": "1bb0ce4ed2ff4f6d80f07036a25877744ccdeface52220cfc02140ac16ffd406"
     },
     {
       "id": "metadata:/data-hardware/",
       "routeId": "route:/data-hardware/",
       "owner": "route:/data-hardware/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/data-hardware/",
       "title": "Data, Hardware & Evaluation",
       "description": "Data, hardware and evaluation are what robot learning runs on: training data, the robots that collect it and the tests that score results.",
@@ -1490,7 +1490,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "25e9591d5a495f67b8c979af9c09616c08b4e087c307dd7375a2c5cfef00deaf"
+      "fingerprint": "56f18a5ca674ab7cbe805fade21dcaafd3f9c535977a08f036a5e133c1cf647e"
     },
     {
       "id": "metadata:/data-hardware/data-bottleneck/",
@@ -1833,7 +1833,7 @@
       "routeId": "route:/editorial-policy/",
       "owner": "route:/editorial-policy/",
       "ownerPath": "app/editorial-policy/page.tsx",
-      "ownerSourceFingerprint": "370b739d09d572ee63f7da88a39fc333824cde1408e856ec9118b35463a463b7",
+      "ownerSourceFingerprint": "564256b6fdcec99b6f324ab15bbad5e2a254d9784524732a5f0176456e8640db",
       "canonical": "https://robot-wiki.com/editorial-policy/",
       "title": "Editorial Policy: Sources, Review, Corrections",
       "description": "Robot Wiki's editorial policy: how its robotics articles are researched, cited, reviewed, corrected and updated, plus how to report an error.",
@@ -1872,14 +1872,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "2127e7e5cbb8cfcbd5943d14adc050f5d73abb48358c76e4b76169de4b8c2679"
+      "fingerprint": "7b271634d7153c1cc4b15cb6c3c2fa018e9ee45a61fb6398c7c61db033cb2034"
     },
     {
       "id": "metadata:/frontier/",
       "routeId": "route:/frontier/",
       "owner": "route:/frontier/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/frontier/",
       "title": "Frontier & Open Problems",
       "description": "Frontier problems are the open questions that keep robot demos from becoming products: reliability, dexterity, generalization and safety.",
@@ -1920,7 +1920,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0005d1dd7b199bc2e3c60eccdfe90ef3fbe94d2c48ce515015131686c7c66c09"
+      "fingerprint": "e239d2e27d6575766500fcb3aaeb6a04da0dc1be9d0cdba8c2cf6852fbd5a293"
     },
     {
       "id": "metadata:/frontier/bear-case/",
@@ -2307,7 +2307,7 @@
       "routeId": "route:/manipulation/",
       "owner": "route:/manipulation/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/manipulation/",
       "title": "Manipulation & Learned Policies",
       "description": "Manipulation is a robot handling objects with its arms and hands, and a learned policy maps what the robot senses to its next action.",
@@ -2348,7 +2348,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "397ba0900ea4e3d37422ceb0c6d92193bdd86acac70d8047d519532dba6fbcf5"
+      "fingerprint": "e2f09a6a4a170d178ec42186d3b3fdbed7731cdc6b42e9f4d2a12aeca6033327"
     },
     {
       "id": "metadata:/manipulation/action-chunking/",
@@ -3075,7 +3075,7 @@
       "routeId": "route:/market-map/",
       "owner": "route:/market-map/",
       "ownerPath": "app/market-map/page.tsx",
-      "ownerSourceFingerprint": "9ef5cf5bd4cb26d9cb7075a49b25138f5ffb6b1d7b2a8d18b51bc6ccac470b18",
+      "ownerSourceFingerprint": "d9ef367adea6206b57b274cf5f5f12a3329af48f2bf4dfd6c37cc7ea6c513e48",
       "canonical": "https://robot-wiki.com/market-map/",
       "title": "Market Map",
       "description": "The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.",
@@ -3114,14 +3114,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "9dc5c966f45e2eac085cc5bf2e114e4950a8cddc690adafbb57fb21ebf109ebd"
+      "fingerprint": "8b724a4ac8449bc4accd58d357c44142199c471faeedf1c29f28d4ddebef4dd9"
     },
     {
       "id": "metadata:/playground/",
       "routeId": "route:/playground/",
       "owner": "route:/playground/",
       "ownerPath": "app/playground/page.tsx",
-      "ownerSourceFingerprint": "24041b6b84528ea939e7e9d16fed2037be99cfedb8e8aa172abd596c7be406f9",
+      "ownerSourceFingerprint": "9593ca60b696b5b7a85555aed6813aa3a295a52ede7cf0cc5a508e9fd3416eac",
       "canonical": "https://robot-wiki.com/playground/",
       "title": "3D Kinematics Playground",
       "description": "A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.",
@@ -3160,14 +3160,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "454c8392d85ca7ac20c5ba2fa7d2294c98e18479ba4bd16b9fb4587c811e9449"
+      "fingerprint": "e8b2724f24be3b3c569131711ec782588891799cc78a089e66c5407e37921fe3"
     },
     {
       "id": "metadata:/privacy/",
       "routeId": "route:/privacy/",
       "owner": "route:/privacy/",
       "ownerPath": "app/privacy/page.tsx",
-      "ownerSourceFingerprint": "b88845c4c0031ee192d9f162ee84782ddf9ade9f39698647c48b99fb77d48a27",
+      "ownerSourceFingerprint": "e0168ee14c8897765d5205b76e28babf62f9942b07814662371f8b238df239ea",
       "canonical": "https://robot-wiki.com/privacy/",
       "title": "Privacy and Anonymous Analytics",
       "description": "Privacy on Robot Wiki: what anonymous traffic information it measures, why it is collected and what is deliberately excluded.",
@@ -3206,14 +3206,14 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "8b16ad9fc46fc3dc1e6b17fb31c1b1c7e6a3510d94ef6acac3b51a8cf948f9d8"
+      "fingerprint": "87c9853be4c63c493384c4b8736ed8ea23225562b488250110885ce85c66f36f"
     },
     {
       "id": "metadata:/rl-sim2real/",
       "routeId": "route:/rl-sim2real/",
       "owner": "route:/rl-sim2real/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/rl-sim2real/",
       "title": "RL, Sim-to-Real & Locomotion",
       "description": "Reinforcement learning (RL) is trial-and-error training of a robot controller, usually in simulation before transfer to hardware.",
@@ -3254,7 +3254,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "0013b906f53ee080c6c2d2db449354f857e5c795dccb31dc5000ea007aa9b558"
+      "fingerprint": "849ff1008ede92aa736f961cb2f82f609ba23fd040db74f5b6c44e3044db2746"
     },
     {
       "id": "metadata:/rl-sim2real/humanoid-wbc/",
@@ -3691,7 +3691,7 @@
       "routeId": "route:/world-models/",
       "owner": "route:/world-models/",
       "ownerPath": "app/(content)/[domain]/page.tsx",
-      "ownerSourceFingerprint": "d04c148d4352e380929705da12856dad9715db8370b23e355e0163301bea1bb6",
+      "ownerSourceFingerprint": "7d3feda2bbe40d0ae9f47c83c2003f674aa6ac2ab5699ac12b90771a08d91c1c",
       "canonical": "https://robot-wiki.com/world-models/",
       "title": "World Models",
       "description": "World models are learned models that predict how an environment changes when a robot acts, so it can plan, train or be tested on predictions. World-action models also predict actions and run as policies.",
@@ -3732,7 +3732,7 @@
       ],
       "themeColour": null,
       "notFoundPolicy": null,
-      "fingerprint": "b02dec477a92a4bbadc0a8edee8a108a3d3a2de6b3d20e534a9131e62dabf9c1"
+      "fingerprint": "bedc4a8e9b15a0be735cee18aacc8b4300ddf0680dbf8556c15c843d82b22bb9"
     },
     {
       "id": "metadata:/world-models/evaluation/",
@@ -18834,5 +18834,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "aee0314038772d029543842f9ee5087f87d433817443405069801aad7418aed2"
+  "rootFingerprint": "0303217c9959127357d3574f9b51bdffdced4e0e3df004df791532c0fb0a953b"
 }

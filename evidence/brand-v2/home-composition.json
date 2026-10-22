@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "886d0f28cc4b938bd01519fe8837452dbdc8ee331248d12f703941e0e4ab860b",
+  "fingerprint": "3b6eeee6fb165dae0ec7f0de6a960671d13741246104ea788a1266c7f0da7830",
   "viewport": "1440x900",
   "route": "/",
   "visibleTextLength": 2841,
@@ -38,8 +38,8 @@
       "href": "/manipulation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 327.55,
-      "bottomPx": 347.55
+      "topPx": 351.55,
+      "bottomPx": 371.55
     },
     {
       "controlId": "control:link-focus",
@@ -47,8 +47,8 @@
       "href": "/manipulation/bc-foundations/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 327.55,
-      "bottomPx": 345.55
+      "topPx": 351.55,
+      "bottomPx": 369.55
     },
     {
       "controlId": "control:link-focus",
@@ -56,8 +56,8 @@
       "href": "/manipulation/action-chunking/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 327.55,
-      "bottomPx": 345.55
+      "topPx": 351.55,
+      "bottomPx": 369.55
     },
     {
       "controlId": "control:link-focus",
@@ -65,8 +65,8 @@
       "href": "/manipulation/diffusion-policy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 327.55,
-      "bottomPx": 345.55
+      "topPx": 351.55,
+      "bottomPx": 369.55
     },
     {
       "controlId": "control:link-focus",
@@ -74,8 +74,8 @@
       "href": "/manipulation/vla-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 327.55,
-      "bottomPx": 365.84
+      "topPx": 351.55,
+      "bottomPx": 389.84
     },
     {
       "controlId": "control:link-focus",
@@ -83,8 +83,8 @@
       "href": "/manipulation/pi-line/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 347.84,
-      "bottomPx": 365.84
+      "topPx": 371.84,
+      "bottomPx": 389.84
     },
     {
       "controlId": "control:link-focus",
@@ -92,8 +92,8 @@
       "href": "/manipulation/generalist-policies/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 347.84,
-      "bottomPx": 365.84
+      "topPx": 371.84,
+      "bottomPx": 389.84
     },
     {
       "controlId": "control:link-focus",
@@ -101,8 +101,8 @@
       "href": "/manipulation/comparison-matrix/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 347.84,
-      "bottomPx": 365.84
+      "topPx": 371.84,
+      "bottomPx": 389.84
     },
     {
       "controlId": "control:link-focus",
@@ -110,8 +110,8 @@
       "href": "/manipulation/hierarchical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 347.84,
-      "bottomPx": 365.84
+      "topPx": 371.84,
+      "bottomPx": 389.84
     },
     {
       "controlId": "control:link-focus",
@@ -119,8 +119,8 @@
       "href": "/manipulation/rl-finetuning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 368.14,
-      "bottomPx": 386.14
+      "topPx": 392.14,
+      "bottomPx": 410.14
     },
     {
       "controlId": "control:link-focus",
@@ -128,8 +128,8 @@
       "href": "/manipulation/realtime-execution/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 368.14,
-      "bottomPx": 386.14
+      "topPx": 392.14,
+      "bottomPx": 410.14
     },
     {
       "controlId": "control:link-focus",
@@ -137,8 +137,8 @@
       "href": "/manipulation/cross-embodiment/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 368.14,
-      "bottomPx": 386.14
+      "topPx": 392.14,
+      "bottomPx": 410.14
     },
     {
       "controlId": "control:link-focus",
@@ -146,8 +146,8 @@
       "href": "/manipulation/knowledge-insulation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 368.14,
-      "bottomPx": 386.14
+      "topPx": 392.14,
+      "bottomPx": 410.14
     },
     {
       "controlId": "control:link-focus",
@@ -155,8 +155,8 @@
       "href": "/manipulation/robot-learning-roadmap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 388.44,
-      "bottomPx": 406.44
+      "topPx": 412.44,
+      "bottomPx": 430.44
     },
     {
       "controlId": "control:link-focus",
@@ -164,8 +164,8 @@
       "href": "/manipulation/action-spaces/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 388.44,
-      "bottomPx": 406.44
+      "topPx": 412.44,
+      "bottomPx": 430.44
     },
     {
       "controlId": "control:link-focus",
@@ -173,8 +173,8 @@
       "href": "/manipulation/foundation-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 388.44,
-      "bottomPx": 426.73
+      "topPx": 412.44,
+      "bottomPx": 450.73
     },
     {
       "controlId": "control:link-focus",
@@ -182,8 +182,8 @@
       "href": "/rl-sim2real/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 446.03,
-      "bottomPx": 466.03
+      "topPx": 470.03,
+      "bottomPx": 490.03
     },
     {
       "controlId": "control:link-focus",
@@ -191,8 +191,8 @@
       "href": "/rl-sim2real/rl-for-robotics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 446.03,
-      "bottomPx": 464.03
+      "topPx": 470.03,
+      "bottomPx": 488.03
     },
     {
       "controlId": "control:link-focus",
@@ -200,8 +200,8 @@
       "href": "/rl-sim2real/why-rl-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 446.03,
-      "bottomPx": 464.03
+      "topPx": 470.03,
+      "bottomPx": 488.03
     },
     {
       "controlId": "control:link-focus",
@@ -209,8 +209,8 @@
       "href": "/rl-sim2real/parallel-sim-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 446.03,
-      "bottomPx": 464.03
+      "topPx": 470.03,
+      "bottomPx": 488.03
     },
     {
       "controlId": "control:link-focus",
@@ -218,8 +218,8 @@
       "href": "/rl-sim2real/sim2real-transfer/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 446.03,
-      "bottomPx": 484.33
+      "topPx": 470.03,
+      "bottomPx": 508.33
     },
     {
       "controlId": "control:link-focus",
@@ -227,8 +227,8 @@
       "href": "/rl-sim2real/legged-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 466.33,
-      "bottomPx": 484.33
+      "topPx": 490.33,
+      "bottomPx": 508.33
     },
     {
       "controlId": "control:link-focus",
@@ -236,8 +236,8 @@
       "href": "/rl-sim2real/humanoid-wbc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 466.33,
-      "bottomPx": 484.33
+      "topPx": 490.33,
+      "bottomPx": 508.33
     },
     {
       "controlId": "control:link-focus",
@@ -245,8 +245,8 @@
       "href": "/rl-sim2real/reward-design-mpc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 466.33,
-      "bottomPx": 504.63
+      "topPx": 490.33,
+      "bottomPx": 528.63
     },
     {
       "controlId": "control:link-focus",
@@ -254,8 +254,8 @@
       "href": "/rl-sim2real/offline-rl/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 486.63,
-      "bottomPx": 504.63
+      "topPx": 510.63,
+      "bottomPx": 528.63
     },
     {
       "controlId": "control:link-focus",
@@ -263,8 +263,8 @@
       "href": "/world-models/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 523.92,
-      "bottomPx": 543.92
+      "topPx": 547.92,
+      "bottomPx": 567.92
     },
     {
       "controlId": "control:link-focus",
@@ -272,8 +272,8 @@
       "href": "/world-models/taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 523.92,
-      "bottomPx": 541.92
+      "topPx": 547.92,
+      "bottomPx": 565.92
     },
     {
       "controlId": "control:link-focus",
@@ -281,8 +281,8 @@
       "href": "/world-models/latent-dynamics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 523.92,
-      "bottomPx": 541.92
+      "topPx": 547.92,
+      "bottomPx": 565.92
     },
     {
       "controlId": "control:link-focus",
@@ -290,8 +290,8 @@
       "href": "/world-models/generative-video/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 523.92,
-      "bottomPx": 541.92
+      "topPx": 547.92,
+      "bottomPx": 565.92
     },
     {
       "controlId": "control:link-focus",
@@ -299,8 +299,8 @@
       "href": "/world-models/jepa/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 523.92,
-      "bottomPx": 562.22
+      "topPx": 547.92,
+      "bottomPx": 586.22
     },
     {
       "controlId": "control:link-focus",
@@ -308,8 +308,8 @@
       "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 544.22,
-      "bottomPx": 562.22
+      "topPx": 568.22,
+      "bottomPx": 586.22
     },
     {
       "controlId": "control:link-focus",
@@ -317,8 +317,8 @@
       "href": "/world-models/model-based-robot-learning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 544.22,
-      "bottomPx": 562.22
+      "topPx": 568.22,
+      "bottomPx": 586.22
     },
     {
       "controlId": "control:link-focus",
@@ -326,8 +326,8 @@
       "href": "/world-models/evaluation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 544.22,
-      "bottomPx": 582.52
+      "topPx": 568.22,
+      "bottomPx": 606.52
     },
     {
       "controlId": "control:link-focus",
@@ -335,8 +335,8 @@
       "href": "/world-models/world-models-vs-simulators/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 564.52,
-      "bottomPx": 582.52
+      "topPx": 588.52,
+      "bottomPx": 606.52
     },
     {
       "controlId": "control:link-focus",
@@ -344,8 +344,8 @@
       "href": "/data-hardware/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 601.81,
-      "bottomPx": 621.81
+      "topPx": 625.81,
+      "bottomPx": 645.81
     },
     {
       "controlId": "control:link-focus",
@@ -353,8 +353,8 @@
       "href": "/data-hardware/data-bottleneck/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 601.81,
-      "bottomPx": 619.81
+      "topPx": 625.81,
+      "bottomPx": 643.81
     },
     {
       "controlId": "control:link-focus",
@@ -362,8 +362,8 @@
       "href": "/data-hardware/datasets/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 601.81,
-      "bottomPx": 619.81
+      "topPx": 625.81,
+      "bottomPx": 643.81
     },
     {
       "controlId": "control:link-focus",
@@ -371,8 +371,8 @@
       "href": "/data-hardware/hardware-taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 601.81,
-      "bottomPx": 619.81
+      "topPx": 625.81,
+      "bottomPx": 643.81
     },
     {
       "controlId": "control:link-focus",
@@ -380,8 +380,8 @@
       "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 601.81,
-      "bottomPx": 619.81
+      "topPx": 625.81,
+      "bottomPx": 643.81
     },
     {
       "controlId": "control:link-focus",
@@ -389,8 +389,8 @@
       "href": "/data-hardware/evaluation-crisis/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 601.81,
-      "bottomPx": 640.11
+      "topPx": 625.81,
+      "bottomPx": 664.11
     },
     {
       "controlId": "control:link-focus",
@@ -398,8 +398,8 @@
       "href": "/data-hardware/industrial-deployment/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 622.11,
-      "bottomPx": 640.11
+      "topPx": 646.11,
+      "bottomPx": 664.11
     },
     {
       "controlId": "control:link-focus",
@@ -407,8 +407,8 @@
       "href": "/data-hardware/robot-learning-stack/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 622.11,
-      "bottomPx": 640.11
+      "topPx": 646.11,
+      "bottomPx": 664.11
     },
     {
       "controlId": "control:link-focus",
@@ -416,8 +416,8 @@
       "href": "/classical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 679.41
+      "topPx": 683.41,
+      "bottomPx": 703.41
     },
     {
       "controlId": "control:link-focus",
@@ -425,8 +425,8 @@
       "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 677.41
+      "topPx": 683.41,
+      "bottomPx": 701.41
     },
     {
       "controlId": "control:link-focus",
@@ -434,8 +434,8 @@
       "href": "/classical/motion-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 677.41
+      "topPx": 683.41,
+      "bottomPx": 701.41
     },
     {
       "controlId": "control:link-focus",
@@ -443,8 +443,8 @@
       "href": "/classical/control/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 677.41
+      "topPx": 683.41,
+      "bottomPx": 701.41
     },
     {
       "controlId": "control:link-focus",
@@ -452,8 +452,8 @@
       "href": "/classical/state-estimation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 677.41
+      "topPx": 683.41,
+      "bottomPx": 701.41
     },
     {
       "controlId": "control:link-focus",
@@ -461,8 +461,8 @@
       "href": "/classical/grasp-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 677.41
+      "topPx": 683.41,
+      "bottomPx": 701.41
     },
     {
       "controlId": "control:link-focus",
@@ -470,8 +470,8 @@
       "href": "/classical/perception/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 659.41,
-      "bottomPx": 697.7
+      "topPx": 683.41,
+      "bottomPx": 721.7
     },
     {
       "controlId": "control:link-focus",
@@ -479,8 +479,8 @@
       "href": "/classical/scene-representation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 679.7,
-      "bottomPx": 697.7
+      "topPx": 703.7,
+      "bottomPx": 721.7
     },
     {
       "controlId": "control:link-focus",
@@ -488,8 +488,8 @@
       "href": "/classical/calibration/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 679.7,
-      "bottomPx": 697.7
+      "topPx": 703.7,
+      "bottomPx": 721.7
     },
     {
       "controlId": "control:link-focus",
@@ -497,8 +497,8 @@
       "href": "/classical/ros2-for-ml-engineers/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 679.7,
-      "bottomPx": 718
+      "topPx": 703.7,
+      "bottomPx": 742
     },
     {
       "controlId": "control:link-focus",
@@ -506,8 +506,8 @@
       "href": "/frontier/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 757.3
+      "topPx": 761.3,
+      "bottomPx": 781.3
     },
     {
       "controlId": "control:link-focus",
@@ -515,8 +515,8 @@
       "href": "/frontier/reliability-gap/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 755.3
+      "topPx": 761.3,
+      "bottomPx": 779.3
     },
     {
       "controlId": "control:link-focus",
@@ -524,8 +524,8 @@
       "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 755.3
+      "topPx": 761.3,
+      "bottomPx": 779.3
     },
     {
       "controlId": "control:link-focus",
@@ -533,8 +533,8 @@
       "href": "/frontier/generalization/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 755.3
+      "topPx": 761.3,
+      "bottomPx": 779.3
     },
     {
       "controlId": "control:link-focus",
@@ -542,8 +542,8 @@
       "href": "/frontier/competing-theses/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 755.3
+      "topPx": 761.3,
+      "bottomPx": 779.3
     },
     {
       "controlId": "control:link-focus",
@@ -551,8 +551,8 @@
       "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 755.3
+      "topPx": 761.3,
+      "bottomPx": 779.3
     },
     {
       "controlId": "control:link-focus",
@@ -560,8 +560,8 @@
       "href": "/frontier/safety-and-assurance/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 737.3,
-      "bottomPx": 775.59
+      "topPx": 761.3,
+      "bottomPx": 799.59
     },
     {
       "controlId": "control:link-focus",
@@ -569,8 +569,8 @@
       "href": "/adjacent/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 794.89,
-      "bottomPx": 814.89
+      "topPx": 818.89,
+      "bottomPx": 838.89
     },
     {
       "controlId": "control:link-focus",
@@ -578,8 +578,8 @@
       "href": "/adjacent/autonomous-vehicles/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 794.89,
-      "bottomPx": 812.89
+      "topPx": 818.89,
+      "bottomPx": 836.89
     },
     {
       "controlId": "control:link-focus",
@@ -587,8 +587,8 @@
       "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 794.89,
-      "bottomPx": 812.89
+      "topPx": 818.89,
+      "bottomPx": 836.89
     },
     {
       "controlId": "control:link-focus",
@@ -596,8 +596,8 @@
       "href": "/adjacent/surgical/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 794.89,
-      "bottomPx": 812.89
+      "topPx": 818.89,
+      "bottomPx": 836.89
     },
     {
       "controlId": "control:link-focus",
@@ -605,8 +605,8 @@
       "href": "/adjacent/space/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 794.89,
-      "bottomPx": 812.89
+      "topPx": 818.89,
+      "bottomPx": 836.89
     },
     {
       "controlId": "control:link-focus",
@@ -614,8 +614,8 @@
       "href": "/world-models/taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 922.48,
-      "bottomPx": 964.48
+      "topPx": 970.48,
+      "bottomPx": 1012.48
     },
     {
       "controlId": "control:secondary-action",
@@ -623,8 +623,8 @@
       "href": null,
       "backgroundColour": "rgb(250, 250, 248)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1671.78,
-      "bottomPx": 1707.47
+      "topPx": 1743.78,
+      "bottomPx": 1779.47
     },
     {
       "controlId": "control:selection",
@@ -632,8 +632,8 @@
       "href": null,
       "backgroundColour": "rgb(240, 243, 246)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1740.47,
-      "bottomPx": 1768.47
+      "topPx": 1812.47,
+      "bottomPx": 1840.47
     },
     {
       "controlId": "control:selection",
@@ -641,8 +641,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(63, 63, 59)",
-      "topPx": 1740.47,
-      "bottomPx": 1768.47
+      "topPx": 1812.47,
+      "bottomPx": 1840.47
     },
     {
       "controlId": "control:selection",
@@ -650,8 +650,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(63, 63, 59)",
-      "topPx": 1740.47,
-      "bottomPx": 1768.47
+      "topPx": 1812.47,
+      "bottomPx": 1840.47
     },
     {
       "controlId": "control:selection",
@@ -659,8 +659,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(63, 63, 59)",
-      "topPx": 1740.47,
-      "bottomPx": 1768.47
+      "topPx": 1812.47,
+      "bottomPx": 1840.47
     },
     {
       "controlId": "control:selection",
@@ -668,8 +668,8 @@
       "href": null,
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(63, 63, 59)",
-      "topPx": 1740.47,
-      "bottomPx": 1768.47
+      "topPx": 1812.47,
+      "bottomPx": 1840.47
     },
     {
       "controlId": "control:secondary-action",
@@ -677,8 +677,8 @@
       "href": null,
       "backgroundColour": "rgb(240, 243, 246)",
       "colour": "rgb(63, 63, 59)",
-      "topPx": 1738.47,
-      "bottomPx": 1774.16
+      "topPx": 1810.47,
+      "bottomPx": 1846.16
     },
     {
       "controlId": "control:primary-action",
@@ -686,8 +686,8 @@
       "href": null,
       "backgroundColour": "rgb(28, 28, 26)",
       "colour": "rgb(255, 255, 255)",
-      "topPx": 1738.47,
-      "bottomPx": 1774.16
+      "topPx": 1810.47,
+      "bottomPx": 1846.16
     },
     {
       "controlId": "control:link-focus",
@@ -704,8 +704,8 @@
       "href": "/how-robots-work/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1802.86,
-      "bottomPx": 1821.86
+      "topPx": 1874.86,
+      "bottomPx": 1893.86
     },
     {
       "controlId": "control:link-focus",
@@ -713,8 +713,8 @@
       "href": "/rl-sim2real/humanoid-wbc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1802.86,
-      "bottomPx": 1821.86
+      "topPx": 1874.86,
+      "bottomPx": 1893.86
     },
     {
       "controlId": "control:link-focus",
@@ -722,8 +722,8 @@
       "href": "/rl-sim2real/why-rl-locomotion/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1925.77,
-      "bottomPx": 1946.77
+      "topPx": 2021.77,
+      "bottomPx": 2042.77
     },
     {
       "controlId": "control:link-focus",
@@ -731,8 +731,8 @@
       "href": "https://arxiv.org/abs/2109.11978",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1925.77,
-      "bottomPx": 1946.77
+      "topPx": 2021.77,
+      "bottomPx": 2042.77
     },
     {
       "controlId": "control:link-focus",
@@ -740,8 +740,8 @@
       "href": "/data-hardware/teleop-rigs/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 1984.67,
-      "bottomPx": 2005.67
+      "topPx": 2080.67,
+      "bottomPx": 2101.67
     },
     {
       "controlId": "control:link-focus",
@@ -749,8 +749,8 @@
       "href": "https://arxiv.org/abs/2304.13705",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 1984.67,
-      "bottomPx": 2005.67
+      "topPx": 2080.67,
+      "bottomPx": 2101.67
     },
     {
       "controlId": "control:link-focus",
@@ -758,8 +758,8 @@
       "href": "/frontier/dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2043.58,
-      "bottomPx": 2064.58
+      "topPx": 2139.58,
+      "bottomPx": 2160.58
     },
     {
       "controlId": "control:link-focus",
@@ -767,8 +767,8 @@
       "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(108, 107, 102)",
-      "topPx": 2043.58,
-      "bottomPx": 2064.58
+      "topPx": 2139.58,
+      "bottomPx": 2160.58
     },
     {
       "controlId": "control:link-focus",
@@ -776,8 +776,8 @@
       "href": "/world-models/generative-sim/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2179.89,
-      "bottomPx": 2203.89
+      "topPx": 2299.89,
+      "bottomPx": 2323.89
     },
     {
       "controlId": "control:link-focus",
@@ -785,8 +785,8 @@
       "href": "/world-models/generative-video/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2229.89,
-      "bottomPx": 2253.89
+      "topPx": 2349.89,
+      "bottomPx": 2373.89
     },
     {
       "controlId": "control:link-focus",
@@ -794,8 +794,8 @@
       "href": "/world-models/jepa/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2279.89,
-      "bottomPx": 2303.89
+      "topPx": 2399.89,
+      "bottomPx": 2423.89
     },
     {
       "controlId": "control:link-focus",
@@ -803,8 +803,8 @@
       "href": "/world-models/model-based-robot-learning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2329.89,
-      "bottomPx": 2353.89
+      "topPx": 2449.89,
+      "bottomPx": 2473.89
     },
     {
       "controlId": "control:link-focus",
@@ -812,8 +812,8 @@
       "href": "/rl-sim2real/humanoid-wbc/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2379.89,
-      "bottomPx": 2403.89
+      "topPx": 2499.89,
+      "bottomPx": 2523.89
     },
     {
       "controlId": "control:link-focus",
@@ -821,8 +821,8 @@
       "href": "/playground/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2475.89,
-      "bottomPx": 2494.89
+      "topPx": 2619.89,
+      "bottomPx": 2638.89
     },
     {
       "controlId": "control:link-focus",
@@ -830,8 +830,8 @@
       "href": "/how-robots-work/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2475.89,
-      "bottomPx": 2494.89
+      "topPx": 2619.89,
+      "bottomPx": 2638.89
     },
     {
       "controlId": "control:link-focus",
@@ -839,8 +839,8 @@
       "href": "/market-map/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
-      "topPx": 2475.89,
-      "bottomPx": 2494.89
+      "topPx": 2619.89,
+      "bottomPx": 2638.89
     }
   ],
   "highlights": [],
@@ -849,8 +849,8 @@
       "name": "Manipulation & Learned Policies",
       "href": "/manipulation/",
       "description": "From imitation to VLA models",
-      "topPx": 326.55,
-      "bottomPx": 366.73,
+      "topPx": 350.55,
+      "bottomPx": 390.73,
       "heightPx": 40.19,
       "bordered": false
     },
@@ -858,8 +858,8 @@
       "name": "RL, Sim-to-Real & Locomotion",
       "href": "/rl-sim2real/",
       "description": "Policies trained in simulation",
-      "topPx": 445.03,
-      "bottomPx": 485.22,
+      "topPx": 469.03,
+      "bottomPx": 509.22,
       "heightPx": 40.19,
       "bordered": false
     },
@@ -867,8 +867,8 @@
       "name": "World Models",
       "href": "/world-models/",
       "description": "Learned predictive simulators",
-      "topPx": 522.92,
-      "bottomPx": 563.11,
+      "topPx": 546.92,
+      "bottomPx": 587.11,
       "heightPx": 40.19,
       "bordered": false
     },
@@ -876,8 +876,8 @@
       "name": "Data, Hardware & Evaluation",
       "href": "/data-hardware/",
       "description": "Datasets, robots and benchmarks",
-      "topPx": 600.81,
-      "bottomPx": 641,
+      "topPx": 624.81,
+      "bottomPx": 665,
       "heightPx": 40.19,
       "bordered": false
     },
@@ -885,8 +885,8 @@
       "name": "Classical Foundations",
       "href": "/classical/",
       "description": "Kinematics to state estimation",
-      "topPx": 658.41,
-      "bottomPx": 698.59,
+      "topPx": 682.41,
+      "bottomPx": 722.59,
       "heightPx": 40.19,
       "bordered": false
     },
@@ -894,8 +894,8 @@
       "name": "Frontier & Open Problems",
       "href": "/frontier/",
       "description": "What still blocks deployment",
-      "topPx": 736.3,
-      "bottomPx": 776.48,
+      "topPx": 760.3,
+      "bottomPx": 800.48,
       "heightPx": 40.19,
       "bordered": false
     },
@@ -903,8 +903,8 @@
       "name": "Adjacent Domains",
       "href": "/adjacent/",
       "description": "Vehicles, drones, surgery and space",
-      "topPx": 793.89,
-      "bottomPx": 834.08,
+      "topPx": 817.89,
+      "bottomPx": 858.08,
       "heightPx": 40.19,
       "bordered": false
     }

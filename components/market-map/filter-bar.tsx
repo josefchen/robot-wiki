@@ -94,7 +94,7 @@ function SelectField({
           className={cx(
             'h-8 w-full min-w-0 cursor-pointer appearance-none border-0 border-b bg-transparent pr-5 pl-0 font-sans text-[14px] text-text',
             'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink',
-            value ? 'border-ink' : 'border-border-strong',
+            value ? 'border-ink' : 'border-text-dim',
           )}
         >
           {children}
@@ -180,7 +180,7 @@ export function FilterBar({
       >
         <div
           onFocus={revealTab}
-          className="flex w-max min-w-full gap-x-6 border-b border-border px-6 sm:px-0"
+          className="flex w-max min-w-full gap-x-3 border-b border-border px-6 sm:px-0"
         >
           <button
             ref={allTabRef}
@@ -234,7 +234,7 @@ export function FilterBar({
             className={cx(
               'h-9 w-full border-0 border-b bg-transparent px-0 font-sans text-[14px] text-text placeholder:text-text-dim',
               'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ink',
-              filters.query ? 'border-ink' : 'border-border-strong',
+              filters.query ? 'border-ink' : 'border-text-dim',
             )}
           />
         </div>
@@ -280,7 +280,7 @@ export function FilterBar({
           </button>
         ) : null}
 
-        <div role="group" aria-label="View" className="flex w-full gap-x-5 sm:ml-auto sm:w-auto">
+        <div role="group" aria-label="View" className="flex w-full gap-x-3 sm:ml-auto sm:w-auto">
           {VIEW_IDS.map((id) => (
             <button
               data-brand-control-id="control:selection"

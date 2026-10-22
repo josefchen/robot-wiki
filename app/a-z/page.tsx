@@ -114,7 +114,7 @@ export default function AzIndexPage() {
           <section
             key={group.letter}
             aria-labelledby={letterAnchorId(group.letter)}
-            className="pt-10"
+            className="pt-12 lg:pt-16"
           >
             {/* The jump-link and deep-link target for this letter group.
                 tabIndex={-1} makes fragment navigation move focus to the

@@ -69,7 +69,7 @@ function CitedText({ cited, stop = '' }: { cited: DomainCitedText; stop?: string
 
 function EvidenceTable({ rows }: { rows: readonly DomainEvidenceRow[] }) {
   return (
-    <section className="mt-10">
+    <section className="mt-16">
       <h2 id="evidence-bar" className="section-h2">
         How each field shows it is safe enough
       </h2>

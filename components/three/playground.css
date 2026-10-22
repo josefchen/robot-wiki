@@ -80,11 +80,14 @@
   color: var(--muted);
   text-align: center;
 }
+/* The loading line is the stage's one status line, in ink; its breath never
+   fades it below 4.5:1 on paper (ink at 0.65 still reads 5.2:1). */
+.playground .pg-status[data-loading] { color: var(--ink); }
 @media (prefers-reduced-motion: no-preference) {
   .playground .pg-status[data-loading] { animation: pg-breathe 1.6s ease-in-out infinite alternate; }
 }
 @keyframes pg-breathe {
-  from { opacity: 0.45; }
+  from { opacity: 0.65; }
   to { opacity: 1; }
 }
 
@@ -327,7 +330,7 @@
   min-width: 0;
   padding: 4px 0;
   border: 0;
-  border-bottom: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--muted);
   border-radius: 0;
   background: transparent;
   color: var(--ink);

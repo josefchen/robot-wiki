@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5da660773bfb5c7573d69a759f10f930046e857347e3895f831f61d82e7bf8d2",
+  "fingerprint": "5a4110954284b046de94d6abc7c5a9600697bc49aef57d48e5ba61dc12356f32",
   "viewports": [
     "375x812",
     "1440x900"
@@ -15327,7 +15327,7 @@
           "notDisclosedCells": 0,
           "notApplicableCells": 0,
           "scrollContainer": null,
-          "tableWidth": 874.66,
+          "tableWidth": 878.66,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         },

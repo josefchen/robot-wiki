@@ -306,8 +306,16 @@
   }
 }
 
+/* Major sections open 48 px apart on phones and tablets and 64 px on
+   desktop (VAL-B2-SPACE-003). */
 .sheet-section.home-section {
-  margin-top: 40px;
+  margin-top: 48px;
+}
+
+@media (min-width: 1024px) {
+  .sheet-section.home-section {
+    margin-top: 64px;
+  }
 }
 
 .home-section > .section-h2 {
@@ -632,7 +640,7 @@ article > hr {
 }
 
 .article-toc li + li {
-  margin-top: 13px;
+  margin-top: 12px;
 }
 
 .article-toc a,
@@ -764,7 +772,7 @@ article > hr {
 }
 
 .prose h3 {
-  margin: 36px 0 10px;
+  margin: 32px 0 10px;
   font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0;
@@ -991,7 +999,7 @@ article > hr {
 }
 
 .booktabs :where(th, td) {
-  padding: 9px 12px;
+  padding: 10px 12px;
   border: 0;
   vertical-align: top;
 }
@@ -1012,11 +1020,11 @@ article > hr {
 }
 
 .booktabs tbody tr:first-child :where(th, td) {
-  padding-top: 11px;
+  padding-top: 12px;
 }
 
 .booktabs tbody tr:last-child :where(th, td) {
-  padding-bottom: 11px;
+  padding-bottom: 12px;
 }
 
 .booktabs caption {
@@ -1044,7 +1052,7 @@ article > hr {
  * hairlines and the mono header are the old look and give way here.
  */
 .prose > [role='region']:has(> table) {
-  margin: 36px 0;
+  margin: 32px 0;
   border: 0;
   border-radius: 0;
   background: transparent;

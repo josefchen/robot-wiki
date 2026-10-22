@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   twitter: routeTwitter(title),
 };
 
-const heading = 'font-sans text-xl font-semibold tracking-tight text-text';
-const prose = 'mt-4 font-serif text-[1.0625rem] leading-relaxed text-text';
+const heading = 'section-h2';
+const prose = 'mt-4 font-serif text-base leading-[1.62] text-text';
 
 export default function PrivacyPage() {
   return (
-    <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <article data-page-frame="frame:narrow" className="mx-auto w-full max-w-[calc(65ch+4rem)] px-6 py-12 md:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
         <h1 className="display-h1">
           Privacy
         </h1>
-        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Robot Wiki uses Vercel Web Analytics to understand which pages are
           useful and how readers find them. The integration is limited to
           anonymous, aggregate traffic measurement. It does not use advertising
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
         </p>
       </header>
 
-      <section aria-labelledby="collected-heading" className="mt-12">
+      <section aria-labelledby="collected-heading" className="mt-16">
         <h2 id="collected-heading" className={heading}>
           What is measured
         </h2>
@@ -63,7 +63,7 @@ export default function PrivacyPage() {
         </p>
       </section>
 
-      <section aria-labelledby="excluded-heading" className="mt-12">
+      <section aria-labelledby="excluded-heading" className="mt-16">
         <h2 id="excluded-heading" className={heading}>
           What is excluded
         </h2>
@@ -76,7 +76,7 @@ export default function PrivacyPage() {
         </p>
       </section>
 
-      <section aria-labelledby="purpose-heading" className="mt-12">
+      <section aria-labelledby="purpose-heading" className="mt-16">
         <h2 id="purpose-heading" className={heading}>
           Purpose and questions
         </h2>

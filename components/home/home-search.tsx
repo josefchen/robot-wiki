@@ -40,7 +40,7 @@ export function HomeSearch({ className }: { className?: string }) {
         autoComplete="off"
         data-brand-control-id="control:input"
         data-brand-surface-id="surface:flat"
-        className="min-w-0 flex-1 border border-border-strong bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim"
+        className="min-w-0 flex-1 border border-text-dim bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim"
       />
       <Action variant="primary" type="submit">
         Search

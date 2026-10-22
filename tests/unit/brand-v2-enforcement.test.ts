@@ -105,6 +105,10 @@ import {
   marketMapCaseGroupMemberId,
 } from '@/lib/brand-v2-market-map-states';
 import { ogPopulations, readOgEvidence } from '@/lib/brand-v2-og-evidence';
+import {
+  TYPE_POPULATION_SOURCE,
+  TYPE_POPULATIONS,
+} from '@/lib/brand-v2-global-convergence-evidence';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -592,6 +596,9 @@ describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, (
           [MARKET_MAP_CASE_GROUP_POPULATION_SOURCE]: MARKET_MAP_CASE_GROUPS.map(
             marketMapCaseGroupMemberId,
           ),
+          // VAL-B2-TYPE-018, one member per sealed type population of the
+          // global convergence sweep.
+          [TYPE_POPULATION_SOURCE]: Object.keys(TYPE_POPULATIONS),
           // The Open Graph/X rows' populations, merged the same way from the
           // reader that decides them: the sealed cards, the site-card
           // destinations, the probed strings and the publication trees.

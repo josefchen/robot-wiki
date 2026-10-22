@@ -42,18 +42,18 @@ const MAP_TRACKS = 7;
 const LAYOUT = {
   full: {
     root: undefined,
-    map: 'grid grid-cols-1 gap-y-9 xl:grid-cols-7 xl:items-start xl:gap-x-5',
+    map: 'grid grid-cols-1 gap-y-8 xl:grid-cols-7 xl:items-start xl:gap-x-5',
     column:
-      'contents xl:flex xl:min-w-0 xl:flex-col xl:gap-y-9 xl:[grid-column:span_var(--map-span)/span_var(--map-span)]',
+      'contents xl:flex xl:min-w-0 xl:flex-col xl:gap-y-8 xl:[grid-column:span_var(--map-span)/span_var(--map-span)]',
     heading: 'xl:min-h-[3.25rem]',
     tiles:
       'grid grid-cols-2 gap-x-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:[grid-template-columns:repeat(var(--map-span),minmax(0,1fr))]',
   },
   beside: {
     root: '@container',
-    map: 'grid grid-cols-1 gap-y-9 @min-[77rem]:grid-cols-7 @min-[77rem]:items-start @min-[77rem]:gap-x-5',
+    map: 'grid grid-cols-1 gap-y-8 @min-[77rem]:grid-cols-7 @min-[77rem]:items-start @min-[77rem]:gap-x-5',
     column:
-      'contents @min-[77rem]:flex @min-[77rem]:min-w-0 @min-[77rem]:flex-col @min-[77rem]:gap-y-9 @min-[77rem]:[grid-column:span_var(--map-span)/span_var(--map-span)]',
+      'contents @min-[77rem]:flex @min-[77rem]:min-w-0 @min-[77rem]:flex-col @min-[77rem]:gap-y-8 @min-[77rem]:[grid-column:span_var(--map-span)/span_var(--map-span)]',
     heading: '@min-[77rem]:min-h-[3.25rem]',
     tiles:
       'grid grid-cols-2 gap-x-4 sm:max-md:grid-cols-3 md:max-lg:grid-cols-4 lg:@max-[77rem]:[grid-template-columns:repeat(auto-fill,minmax(10rem,1fr))] @min-[77rem]:[grid-template-columns:repeat(var(--map-span),minmax(0,1fr))]',
@@ -235,7 +235,7 @@ function MapTile({
         // rule is always present (transparent when unselected) so selecting
         // a tile does not move it.
         className={cx(
-          'flex w-full cursor-pointer flex-col items-start gap-[5px] border-l py-[7px] pr-1.5 pl-2 text-left transition-colors duration-150',
+          'flex w-full cursor-pointer flex-col items-start gap-1.5 border-l py-2 pr-1.5 pl-2 text-left transition-colors duration-150',
           'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-ink',
           selected ? 'border-l-ink' : 'border-l-transparent hover:border-l-border-strong',
         )}

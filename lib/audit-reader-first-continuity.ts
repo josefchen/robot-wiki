@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 2856878, sha256: '69cabad7fa7fbf011b08c942d66835ce18c9f7a77f8017201ba93f222ab1f510' };
+const reviewPin = { bytes: 2870297, sha256: 'b6dcde78792bc7c0e3b1c6e024ac26f5209d37edc80dc0c34beccd609b280447' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -104,7 +104,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/motion/chart/chart-marks.tsx', [8842, '58c6ac94596f4db2372de3a472756c1734ddcc18dc48040753888ec8721ae9ae']],
   ['components/motion/chart/chart-tokens.ts', [3513, 'fd36d19b545b4deb478c4f8e061ac11a8a4ececfee0f1bd515667ed305bf3f7e']],
   ['components/motion/clip.tsx', [6912, '57bd2898697b5d779ef2c40769fe102e8f9f6f719dc104c1e70659fbb2ddfd27']],
-  ['components/motion/figure-frame.tsx', [13373, '13d3145b5ecf6f9558429defff828536c56a4860eaf762ce3d4753e4f512effc']],
+  ['components/motion/figure-frame.tsx', [13373, 'fece57de710e48577af3679adb74db52342a77c8f7d7d4e33d85a23075a475f3']],
   ['components/motion/gripper-glyph.tsx', [1551, '5a2255d2268934f435fa0145b04ee526e166e0fe4f1d9b06d7b7c41af6d20335']],
   ['components/motion/motion-tokens.css', [2760, '0147a8766a15ad8078a1b97592e57ce149d0339ede9fa344152bf168e533845b']],
   ['components/motion/robot-dog.tsx', [12087, 'b242c176cb20ffdb06ae58f56b64c1207f068a2f66211f37859475b4ae745d2e']],
@@ -117,7 +117,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/motion/scenes/kalman-predict-update.tsx', [23962, 'dc30bbc875832a9ebd62219356052d7e4335e1f51288191d59c37aafea41d7df']],
   ['components/motion/scenes/sense-avoid.tsx', [17530, '35401bd3937aba29a94966fda192f755324edec8776f1e5dbd6b52b0b23eb2e6']],
   ['components/motion/scenes/tactile-slip.tsx', [16435, 'b7dee782ece5274bf08d6aa466c9bff021c9b8d541f9861a03c60c8afbd21f1e']],
-  ['components/motion/stage.css', [16031, 'b0eb1ada96813ecda93a3101c50b93d9356f3c48bdccc133959e183424c20f1e']],
+  ['components/motion/stage.css', [16031, '31376d5fbe35871fdfeb3323d4d91eed4afcf4d8896c034f5b0341e2a3f8fa67']],
   ['components/ui/chart-description.tsx', [7860, 'e4b15bd32ef9dd83d63c4a05b593cab3c94d53bc049146f13ee93a545b5beb93']],
   ['components/ui/figure.tsx', [8617, 'c8642d817015f3a216b62594fbac200404fc768bdd4a1c4d1bfb50cf0fc25b09']],
   ['components/ui/instrument.tsx', [14700, 'b98f135b1ff6534c8d6701b22224ea28c6236c96e39c0731ae4d12802c71413d']],
@@ -158,7 +158,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['library/design-system.md', [64830, '8a640cdd449a9441dab245dfa72b9602c5d01a4200f320e4255dc93c340826e5']],
   ['motion-tokens.json', [4797, '3779e28bc4113a627bd32b70b52efbcf17dad54418030ca1359b4747ae297156']],
   ['scripts/brand-v2-census.ts', [49244, 'fd65c1668aa993bd1b39b3ce6c2110808239e8b4582c02bff19d62c563347c0a']],
-  ['scripts/brand-v2-enforcement.ts', [209450, 'e5be49a99a61f5c01ec65f8ea864e68876aca41041f4461d82cccd971ad4a7da']],
+  ['scripts/brand-v2-enforcement.ts', [219008, 'bde751aafa133677d8e53d60b1fd0c43f23336f999be41c039484d4a7689bb2c']],
   ['scripts/generate-motion-tokens.ts', [16496, '736d58cc877152ee18c85482fa63344f7c7ab4a353a92a2506aa46250bb3f7c7']],
   ['scripts/motion/motion_theme.py', [2399, '687917773d46f9797efe92b24dfae9e302777f1ef22954765ce4e2d743deeeaf']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],

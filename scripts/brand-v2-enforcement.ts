@@ -258,6 +258,19 @@ import {
   responsiveOverflowVerdicts,
 } from '../lib/brand-v2-home-tools-evidence.ts';
 import {
+  CONVERGENCE_EXEMPTIONS,
+  GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES,
+  GLOBAL_CONVERGENCE_EVIDENCE_PATH,
+  GLOBAL_CONVERGENCE_SWEEP_MODULE,
+  GLOBAL_CONVERGENCE_VIEWPORTS,
+  ROUTE_ROW_PREDICATES,
+  TYPE_POPULATION_SOURCE,
+  TYPE_POPULATIONS,
+  globalConvergenceEvidenceFingerprint,
+  globalConvergenceVerdicts,
+  readGlobalConvergenceEvidence,
+} from '../lib/brand-v2-global-convergence-evidence.ts';
+import {
   HOME_ASSERTION_POPULATION_SOURCES,
   HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE,
   HOME_DOMAIN_DESTINATION_POPULATION_SOURCE,
@@ -389,9 +402,30 @@ function isMeasured(id: string): boolean {
     LINK_SAFETY_ASSERTIONS.has(id) ||
     SEARCH_ASSERTIONS.has(id) ||
     MAP_ASSERTIONS.has(id) ||
-    OG_ASSERTIONS.has(id)
+    OG_ASSERTIONS.has(id) ||
+    GLOBAL_CONVERGENCE_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The product-wide colour, component, spacing and type rows, routed to the
+ * three-width sweep of every public route in the built export.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/global-convergence.json` through a reader that throws
+ * on a stale fingerprint, the wrong viewports, a route set that disagrees
+ * with the registry in either direction, a duplicate or missing
+ * route/viewport pair, an empty page, a keyboard trace that reached
+ * nothing, an exemption the register does not grant for that predicate,
+ * route, property or value, a register clause the sweep never used, and an
+ * empty population. None of these rows is decidable from source: an action's
+ * fill, a label's contrast on the ground it composites onto, a section's
+ * opening gap and a heading broken inside a word are computed styles and
+ * laid-out boxes at one width.
+ */
+const GLOBAL_CONVERGENCE_ASSERTIONS = new Set(
+  Object.keys(GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES),
+);
 
 /**
  * The two dense-surface rows, routed to the two-width sweep of every
@@ -559,6 +593,7 @@ const REGISTRY = readJson(
   gridDevices: Array<Record<string, unknown>>;
   surfaces: Array<Record<string, unknown>>;
   controls: Array<Record<string, unknown>>;
+  pageFrames: Array<{ id: string; minimumPaddingPx: number }>;
 };
 type PrimitiveRegistryKey = 'gridDevices' | 'surfaces' | 'controls';
 
@@ -1109,6 +1144,31 @@ const HOME_TOOLS_OVERFLOW_VERDICTS = new Map(
   ),
 );
 
+const GLOBAL_CONVERGENCE_EVIDENCE = readGlobalConvergenceEvidence({
+  artifact: readJson(join(ROOT, GLOBAL_CONVERGENCE_EVIDENCE_PATH)),
+  fingerprint: globalConvergenceEvidenceFingerprint({
+    root: ROOT,
+    routeIds: REGISTRY.routes.public.map(({ id }) => id),
+  }),
+  routeIds: REGISTRY.routes.public.map(({ id }) => id),
+});
+const GLOBAL_CONVERGENCE_VERDICTS = globalConvergenceVerdicts(
+  GLOBAL_CONVERGENCE_EVIDENCE,
+);
+// The sweep's per-frame inline minimum is its own constant; it has to be
+// the one the page-frame registry declares, or VAL-B2-SPACE-002 would be
+// measured against a number nobody registered.
+for (const frame of REGISTRY.pageFrames) {
+  const swept = GLOBAL_CONVERGENCE_VIEWPORTS.find(
+    (viewport) => viewport.frame === frame.id,
+  );
+  if (!swept || swept.minimumInlinePaddingPx !== frame.minimumPaddingPx) {
+    throw new Error(
+      `${frame.id} registers a ${frame.minimumPaddingPx}px minimum inline padding, but the global convergence sweep ${swept ? `measures ${swept.minimumInlinePaddingPx}px` : 'never measures it'}`,
+    );
+  }
+}
+
 const HOME_POPULATIONS: Readonly<Record<string, string[]>> = {
   [HOME_HERO_LOCKUP_POPULATION_SOURCE]: homeHeroLockupMembers(HOME_EVIDENCE),
   [HOME_COMPOSITION_ANCHOR_POPULATION_SOURCE]: homeCompositionAnchorMembers(),
@@ -1487,6 +1547,7 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     ...SEARCH_POPULATIONS,
     ...MAP_POPULATIONS,
     ...OG_POPULATIONS,
+    [TYPE_POPULATION_SOURCE]: Object.keys(TYPE_POPULATIONS),
   };
 }
 
@@ -1513,6 +1574,8 @@ function populationSourceFor(id: string): string {
   if (figureSource) return figureSource;
   const tableMathSource = TABLE_MATH_ASSERTION_POPULATION_SOURCES[id];
   if (tableMathSource) return tableMathSource;
+  const globalSource = GLOBAL_CONVERGENCE_ASSERTION_POPULATION_SOURCES[id];
+  if (globalSource) return globalSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -1610,6 +1673,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // The three discovery-index rows are decided by what the built export
   // laid out and where a real fragment navigation left focus.
   if (INDEX_ASSERTIONS.has(id)) return 'browser-state';
+  // The global convergence rows read computed paint, laid-out boxes and a
+  // keyboard trace on every public route at three widths.
+  if (GLOBAL_CONVERGENCE_ASSERTIONS.has(id)) return 'browser-state';
   // A Tektur row whose predicate has a runtime clause is decided by the
   // persisted browser sweep, so it is a browser-state row; the three that
   // are entirely about the checked-in binaries stay machine-inspection rows.
@@ -2076,6 +2142,27 @@ const HOME_TOOLS_READER_TARGET = testTarget(
   'tests/unit/brand-v2-home-tools-evidence.test.ts',
   'home tools evidence > refuses stale, incomplete, and unmeasured home tool evidence',
   'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no featured scene, an unregistered scene, a comparison with the wrong article, a truncated key script, no tools-line link and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
+);
+
+const GLOBAL_CONVERGENCE_SWEEP_TARGET = testTarget(
+  GLOBAL_CONVERGENCE_SWEEP_MODULE,
+  'brand-v2 global type, colour, spacing and component convergence › every public route is read at each page-frame width',
+  'Loads every registry-derived public route in the built export at 375x812, 768x1024 and 1440x900, discovers actions, selections, links, inputs, cards, frames, citation marks, section heads, text runs and spacing values structurally from computed styles and the accessibility tree before reading any annotation, composites each label onto the ground it actually paints over, measures each section gap, inline inset, frame width and text box as laid out, and walks thirty real Tab stops reading the focus ring and whatever covers the focused control.',
+);
+const GLOBAL_CONVERGENCE_PLANT_TARGET = testTarget(
+  GLOBAL_CONVERGENCE_SWEEP_MODULE,
+  'brand-v2 global type, colour, spacing and component convergence › the global verdicts fail independently when their subjects are broken',
+  'Plants each route predicate on the last registered route of the corpus just measured and requires exactly the rows that own it to fail that route and no other, plants a signal-blue keyboard ring, an unregistered 7 px margin, an 8 px inset, a 40 px section gap, a 1100 px paragraph, an unowned h1, a word-broken heading and a covered focus stop against the frame rows, and a Tektur tuple into each type population, then proves the reader refuses a dropped route, a missing route/viewport reading, a stale fingerprint and an empty population.',
+);
+const GLOBAL_CONVERGENCE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-global-convergence-evidence.test.ts',
+  'global convergence evidence > refuses stale, incomplete, and vacuous convergence evidence',
+  'Proves the reader that gates all seventeen rows throws on a wrong version, a stale fingerprint, a dropped, extra or duplicated route, a missing viewport, a non-200 page, an empty page, a short keyboard trace, an exemption the register does not hold or does not grant for that predicate, route, property or value, a register clause the sweep never used, and an empty population.',
+);
+const GLOBAL_CONVERGENCE_VERDICT_TARGET = testTarget(
+  'tests/unit/brand-v2-global-convergence-evidence.test.ts',
+  'global convergence evidence > fails each planted violation under the rows that own it',
+  'Proves on a synthetic sweep that every route predicate, an off-ink, too-wide or unexcused offset keyboard ring, each spacing, separation, frame-geometry, ownership and collision defect, and a tuple outside each sealed type population fails its own row and member, and that an exempted finding fails nothing.',
 );
 
 const FIGURE_SWEEP_TARGET = testTarget(
@@ -2567,6 +2654,14 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (HOME_TOOLS_ASSERTIONS.has(id)) {
     return [HOME_TOOLS_SWEEP_TARGET, HOME_TOOLS_READER_TARGET];
+  }
+  if (GLOBAL_CONVERGENCE_ASSERTIONS.has(id)) {
+    return [
+      GLOBAL_CONVERGENCE_SWEEP_TARGET,
+      GLOBAL_CONVERGENCE_PLANT_TARGET,
+      GLOBAL_CONVERGENCE_READER_TARGET,
+      GLOBAL_CONVERGENCE_VERDICT_TARGET,
+    ];
   }
   if (IDENTITY_ASSERTIONS.has(id)) {
     return [
@@ -3807,6 +3902,53 @@ function homeToolsAssertionEvidence(
 }
 
 /**
+ * The product-wide colour, component, spacing and type rows, read off the
+ * persisted three-width sweep. A member the sweep never decided, or a
+ * verdict that recorded a failure, stops the corpus.
+ */
+function globalConvergenceAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts = GLOBAL_CONVERGENCE_VERDICTS[assertionId];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no global convergence verdict family`);
+  }
+  const verdict = verdicts.get(member);
+  if (!verdict) {
+    throw new Error(`${assertionId}: the global convergence sweep decided no member ${member}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${member}: ${verdict.failures.join('; ')}`);
+  }
+  const observed = verdict.observed as Record<string, number | string>;
+  const viewports = GLOBAL_CONVERGENCE_VIEWPORTS.map(({ id }) => id);
+  const exemptionIds = new Set(CONVERGENCE_EXEMPTIONS.map(({ id }) => id));
+  const exempted = Object.fromEntries(
+    Object.entries(observed)
+      .filter(([key]) => key.startsWith('exempted:') && exemptionIds.has(key.slice('exempted:'.length)))
+      .map(([key, count]) => [key.slice('exempted:'.length), count]),
+  );
+  const routeRow = assertionId in ROUTE_ROW_PREDICATES;
+  const actual = routeRow
+    ? `${member} at ${viewports.join(', ')}: no unexempted ${ROUTE_ROW_PREDICATES[assertionId].join(', ')} finding${Object.keys(exempted).length > 0 ? `; registered exemptions used: ${Object.entries(exempted).map(([id, count]) => `${id} x${count}`).join(', ')}` : ''}`
+    : assertionId === 'VAL-B2-TYPE-018'
+      ? `the ${member} population holds ${observed.elements} rendered elements in ${observed.forms} distinct tuples across every public route at ${viewports.join(', ')}, each inside a sealed form of the population${Number(observed.exempted) > 0 ? ` (${observed.exempted} under the owner-frozen explainer register)` : ''}`
+      : `${member} at ${observed.viewport}: all ${observed.routes} public routes hold the row, over ${observed.spacingValues} spacing values, ${observed.insetTextRuns} inset text runs, ${observed.sectionGaps} section gaps, ${observed.componentInteriors} component interiors, ${observed.controlGaps} control gaps, ${observed.collisionTextBoxes} text boxes and ${observed.focusStops} keyboard stops`;
+  return {
+    actual,
+    computed: {
+      member,
+      viewports,
+      observed,
+      ...(routeRow ? { predicates: ROUTE_ROW_PREDICATES[assertionId] } : {}),
+      evidence: [GLOBAL_CONVERGENCE_EVIDENCE_PATH],
+      tool: GLOBAL_CONVERGENCE_SWEEP_MODULE,
+    },
+  };
+}
+
+/**
  * The home-composition rows, read off the persisted desktop sweep of the
  * built page. Every branch throws on a member the sweep never decided or a
  * verdict that recorded a failure, so a regressed home stops the corpus
@@ -4154,6 +4296,19 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (GLOBAL_CONVERGENCE_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = globalConvergenceAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
   if (INDEX_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -4424,6 +4579,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at ${MARKET_MAP_VIEWPORT.id}, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (${MAP_PLAN.cases.length} in all, the pairwise rows from the pinned ${MAP_PLAN.generator.algorithm} generator with seed ${MAP_PLAN.generator.seed}) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
+              : GLOBAL_CONVERGENCE_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${GLOBAL_CONVERGENCE_VIEWPORTS.map(({ id: viewport }) => viewport).join('/')} sweep of every public route in the built export, reading each structurally discovered action, selection, link, input, card, frame, citation mark, section, text run and spacing value as the browser computed and laid it out plus a thirty-stop keyboard trace, decided against the research-page successor thresholds with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)

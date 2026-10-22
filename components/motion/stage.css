@@ -160,12 +160,12 @@ figure[data-figure-kind='official-mark'] {
   counter-increment: figure-number;
   display: flex;
   flex-direction: column;
-  margin-block: 36px 40px;
+  margin-block: 32px 40px;
   border: 1px solid var(--line);
   border-radius: 0;
   background: none;
   box-shadow: none;
-  padding: 24px 26px 18px;
+  padding: 24px 24px 18px;
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 13px;

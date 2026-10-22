@@ -17,16 +17,15 @@ export const metadata: Metadata = {
   twitter: routeTwitter(title),
 };
 
-const sectionHeading =
-  'font-sans text-xl font-semibold tracking-tight text-text';
+const sectionHeading = 'section-h2';
 const prose =
-  'mt-4 font-serif text-[1.0625rem] leading-relaxed text-text';
+  'mt-4 font-serif text-base leading-[1.62] text-text';
 const inlineLink =
   'ink-link';
 
 export default function EditorialPolicyPage() {
   return (
-    <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <article data-page-frame="frame:narrow" className="mx-auto w-full max-w-[calc(65ch+4rem)] px-6 py-12 md:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -42,14 +41,14 @@ export default function EditorialPolicyPage() {
         <h1 className="display-h1">
           Editorial policy
         </h1>
-        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Robot Wiki is an independent reference on modern robotics. It ranks
           no products and states uncertainty, deployment constraints and
           disagreement.
         </p>
       </header>
 
-      <section aria-labelledby="sources-heading" className="mt-12">
+      <section aria-labelledby="sources-heading" className="mt-16">
         <h2 id="sources-heading" className={sectionHeading}>
           Sources and evidence
         </h2>
@@ -62,7 +61,7 @@ export default function EditorialPolicyPage() {
         </p>
       </section>
 
-      <section aria-labelledby="review-heading" className="mt-12">
+      <section aria-labelledby="review-heading" className="mt-16">
         <h2 id="review-heading" className={sectionHeading}>
           Review and updates
         </h2>
@@ -76,7 +75,7 @@ export default function EditorialPolicyPage() {
         </p>
       </section>
 
-      <section aria-labelledby="expert-heading" className="mt-12">
+      <section aria-labelledby="expert-heading" className="mt-16">
         <h2 id="expert-heading" className={sectionHeading}>
           Expert criticism
         </h2>
@@ -88,7 +87,7 @@ export default function EditorialPolicyPage() {
         </p>
       </section>
 
-      <section aria-labelledby="corrections-heading" className="mt-12">
+      <section aria-labelledby="corrections-heading" className="mt-16">
         <h2 id="corrections-heading" className={sectionHeading}>
           Corrections
         </h2>

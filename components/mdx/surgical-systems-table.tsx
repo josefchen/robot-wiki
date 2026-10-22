@@ -67,7 +67,7 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
                   // autonomy level), and an uppercase letterspaced span
                   // would count against the micro-label
                   // budget alongside the sidebar's own labels.
-                  className="mt-1.5 block rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 text-center text-[10px] font-normal text-text-dim"
+                  className="mt-1.5 block rounded-xs border border-border bg-surface-2 px-1.5 py-0.5 text-center text-[11px] font-normal text-text-dim"
                 >
                   L{row.autonomyLevel}
                 </span>

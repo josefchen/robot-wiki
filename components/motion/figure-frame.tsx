@@ -172,7 +172,7 @@ export function FigureFrame({
   const captionClass = cx(FIGURE_TEXT_CLASS.caption, captionProps?.className);
   const rootProps = {
     'data-figure-frame': figureId,
-    className: cx('my-9 text-left', className),
+    className: cx('my-8 text-left', className),
     ...props,
   };
   // No frame text is a <p>: the article sheet measures every paragraph in

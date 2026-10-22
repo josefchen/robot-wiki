@@ -36,12 +36,9 @@ function ArticleLinkSection({
     <section
       aria-labelledby={headingId}
       data-section={section}
-      className="mt-14"
+      className="mt-16"
     >
-      <h2
-        id={headingId}
-        className="font-sans text-[1.375rem] font-semibold tracking-tight text-text"
-      >
+      <h2 id={headingId} className="section-h2">
         {heading}
       </h2>
       <ul className="mt-6 list-none space-y-5">

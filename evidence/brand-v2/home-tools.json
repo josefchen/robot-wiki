@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "77574e68829a2a0b28264f701d96433bf8ed3b743e8ee3c36dc909e4bc06633a",
+  "fingerprint": "e0dc23f3a9ba26a14f04fdf848cb5789e3cce4c71912889a097242586968678e",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -8,7 +8,7 @@
     "frameRole": "group",
     "frameAriaLabel": "3D explainer: Inside a humanoid",
     "describedByText": "Of a Unitree G1's 23 motors, 12 move its legs and keep it balanced.",
-    "graphicTopPx": 1124,
+    "graphicTopPx": 1196,
     "posterSrc": "/explainers/posters/humanoid.webp",
     "posterMarkCount": 1,
     "posterControls": [
@@ -27,7 +27,7 @@
     "graphicHeightPx": 598,
     "playerMountedAtFirstPaint": false,
     "idleFrameRequests": 0,
-    "playingFrameRequests": 50,
+    "playingFrameRequests": 55,
     "startControl": "Turn it in 3D",
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
@@ -93,8 +93,8 @@
     "graphicTag": "canvas",
     "graphicHeightPx": 541,
     "playerMountedAtFirstPaint": true,
-    "idleFrameRequests": 30,
-    "playingFrameRequests": 18,
+    "idleFrameRequests": 49,
+    "playingFrameRequests": 25,
     "startControl": null,
     "focusOutlineWidthPx": null,
     "focusOutlineStyle": null,
@@ -141,17 +141,17 @@
       {
         "text": "Playground",
         "path": "/playground/",
-        "topPx": 2476
+        "topPx": 2620
       },
       {
         "text": "How robots work",
         "path": "/how-robots-work/",
-        "topPx": 2476
+        "topPx": 2620
       },
       {
         "text": "Market Map",
         "path": "/market-map/",
-        "topPx": 2476
+        "topPx": 2620
       }
     ],
     "graphics": [],

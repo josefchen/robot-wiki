@@ -101,7 +101,7 @@ export default function CreditsPage() {
   const usage = imageUsage();
 
   return (
-    <div className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <div data-page-frame="frame:narrow" className="mx-auto w-full max-w-[calc(65ch+4rem)] px-6 py-12 md:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -124,13 +124,13 @@ export default function CreditsPage() {
         >
           Credits
         </h1>
-        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Every photograph and diagram on {PUBLIC_IDENTITY} is listed here
           with its creator, source page and licence. Article images are CC0,
           CC BY, CC BY-SA, public domain or used under a documented reuse
           permission. No image is AI-generated.
         </p>
-        <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="mt-4 font-serif text-base leading-[1.62] text-text">
           Market-map logos include official company marks, recorded as
           unlicensed or unknown where no reuse grant is named. The
           site&apos;s own text and original diagrams are licensed CC BY 4.0.
@@ -138,7 +138,7 @@ export default function CreditsPage() {
         {/* Author identity (VAL-DIST-009): the /credits occurrence of the
             owner-supplied name, byte-identical with meta[name=author] and
             the footer occurrence, linked to the external profile. */}
-        <p className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="mt-5 font-serif text-base leading-[1.62] text-text">
           Written and maintained by{' '}
           <a
             data-brand-control-id="control:link-focus"
@@ -158,14 +158,16 @@ export default function CreditsPage() {
           generated surface VAL-IMG-004 grades. The biography is rendered
           from AUTHOR_BIO rather than restated in JSX, so the owner's
           wording cannot drift here while lib/identity.ts changes. */}
-      <section aria-labelledby="about-heading" className="mt-12">
+      <section aria-labelledby="about-heading" className="mt-16">
+        {/* Set as a supporting head, not the uppercase section head: the
+            public identity inside it is always written "Robot Wiki". */}
         <h2
           id="about-heading"
-          className="font-sans text-lg font-semibold tracking-tight text-text"
+          className="font-display text-[18px] leading-[1.4] font-semibold text-text"
         >
           Who is behind {PUBLIC_IDENTITY}
         </h2>
-        <p className="mt-4 font-serif text-[1.0625rem] leading-relaxed text-text">
+        <p className="mt-4 font-serif text-base leading-[1.62] text-text">
           {AUTHOR_BIO}. What I needed over those years was scattered across
           papers that skip the deployment context and demos that never quote
           a failure rate. {PUBLIC_IDENTITY} collects it for engineers who come

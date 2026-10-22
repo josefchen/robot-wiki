@@ -22,7 +22,10 @@ export const metadata: Metadata = {
 
 export default function PlaygroundPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 py-8">
+    <div
+      data-page-frame="frame:playground"
+      className="mx-auto w-full max-w-6xl px-6 py-8 md:px-8 lg:px-12"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

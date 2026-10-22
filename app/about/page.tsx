@@ -19,9 +19,8 @@ export const metadata: Metadata = {
   twitter: routeTwitter(title),
 };
 
-const sectionHeading =
-  'font-sans text-xl font-semibold tracking-tight text-text';
-const prose = 'mt-4 font-serif text-[1.0625rem] leading-relaxed text-text';
+const sectionHeading = 'section-h2';
+const prose = 'mt-4 font-serif text-base leading-[1.62] text-text';
 const inlineLink =
   'ink-link';
 
@@ -34,7 +33,7 @@ const inlineLink =
 export default function AboutPage() {
   const paths = learningPaths();
   return (
-    <article className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    <article data-page-frame="frame:narrow" className="mx-auto w-full max-w-[calc(65ch+4rem)] px-6 py-12 md:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -51,7 +50,7 @@ export default function AboutPage() {
         </h1>
         <p
           data-about-scope
-          className="mt-5 font-serif text-[1.0625rem] leading-relaxed text-text"
+          className="mt-5 font-serif text-base leading-[1.62] text-text"
         >
           Robot Wiki covers modern robot learning, from{' '}
           {DOMAIN_META.manipulation.name} and{' '}
@@ -62,7 +61,7 @@ export default function AboutPage() {
         </p>
       </header>
 
-      <section aria-labelledby="reading-heading" data-pagefind-body className="mt-12">
+      <section aria-labelledby="reading-heading" data-pagefind-body className="mt-16">
         <h2 id="reading-heading" className={sectionHeading}>
           Reading the wiki
         </h2>
@@ -104,7 +103,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section aria-labelledby="paths-heading" data-pagefind-body className="mt-12">
+      <section aria-labelledby="paths-heading" data-pagefind-body className="mt-16">
         <h2 id="paths-heading" className={sectionHeading}>
           Reading paths
         </h2>
@@ -116,7 +115,7 @@ export default function AboutPage() {
           >
             <h3
               id={`reading-path-${path.id}`}
-              className="font-sans text-base font-semibold tracking-tight text-text"
+              className="font-display text-[16px] leading-[1.4] font-semibold text-text"
             >
               <IntentLink
                 data-brand-control-id="control:link-focus"
