@@ -6,6 +6,8 @@ import {
   DEFAULT_MARKET_MAP_FILTERS,
   filterCompanies,
 } from '@/lib/market-map';
+import type { Company } from '@/data/schemas/company';
+import { CompanyDetail } from '@/components/market-map/company-card';
 import { MarketMap } from '@/components/market-map/market-map';
 
 afterEach(() => {
@@ -21,6 +23,31 @@ function tile(id: string): HTMLElement {
   const el = document.querySelector<HTMLElement>(`button[data-map-tile="${id}"]`);
   if (!el) throw new Error(`no tile for ${id}`);
   return el;
+}
+
+/**
+ * The research-page selected state (VAL-B2-MAP-003 successor): the open
+ * company's tile reads in ink weight on a 1 px ink rule with no fill, tint
+ * or accent bar, and every other tile keeps the same 1 px rule, transparent,
+ * so selection does not move the layout.
+ */
+function expectSelectedTile(id: string) {
+  const selected = tile(id);
+  expect(selected).toHaveClass('border-l', 'border-l-ink');
+  for (const retired of ['border-l-2', 'border-l-accent', 'border-l-transparent']) {
+    expect(selected).not.toHaveClass(retired);
+  }
+  expect([...selected.classList].filter((name) => /(^|:)bg-/.test(name))).toEqual([]);
+  expect(selected.querySelector('[data-tile-name]')).toHaveClass('font-semibold');
+  const others = tiles().filter((el) => el !== selected);
+  expect(others.length).toBeGreaterThan(0);
+  for (const other of others) {
+    expect(other).toHaveClass('border-l', 'border-l-transparent');
+    expect(other).not.toHaveClass('border-l-ink');
+    expect([...other.classList].filter((name) => /(^|:)bg-/.test(name))).toEqual([]);
+    expect(other.querySelector('[data-tile-name]')).not.toHaveClass('font-semibold');
+    expect(other).toHaveAttribute('aria-expanded', 'false');
+  }
 }
 
 /** The open company's details (the side sheet at this width). */
@@ -187,6 +214,8 @@ describe('MarketMap', () => {
     expect(window.history.length).toBe(before + 1);
     expect(within(pi).getByRole('heading', { level: 2, name: 'Physical Intelligence' })).toHaveFocus();
     expect(tile('physical-intelligence')).toHaveAttribute('aria-expanded', 'true');
+    expect(tile('physical-intelligence')).toHaveAttribute('aria-controls', pi.id);
+    expectSelectedTile('physical-intelligence');
     expect(pi).toHaveTextContent(/vision-language-action/);
     expect(pi).toHaveTextContent('flow matching action expert');
     expect(pi.querySelector('[data-field="amount"]')).toHaveTextContent('$600M');
@@ -218,6 +247,39 @@ describe('MarketMap', () => {
     expect(window.location.hash).toBe('');
     expect(tile('physical-intelligence')).toHaveFocus();
     expect(tile('physical-intelligence')).toHaveAttribute('aria-expanded', 'false');
+  }, TIMEOUT);
+
+  it('shows every record\'s confidence as a labelled sheet row, a planted low tier included (VAL-MKT-013)', async () => {
+    // Every record's sheet names its own tier, by text.
+    const tiers = new Set<string>();
+    for (const company of COMPANIES) {
+      const { container, unmount } = render(
+        <CompanyDetail company={company} headingId="detail" onClose={() => {}} />,
+      );
+      const row = container.querySelector('[data-field="confidence"]');
+      expect(row?.previousElementSibling).toHaveTextContent(/^Confidence$/);
+      expect(row).toHaveTextContent(new RegExp(`^${company.confidence}$`));
+      tiers.add(row!.textContent!);
+      unmount();
+    }
+    // This revision has no low record (VAL-MKT-013 successor), so the low
+    // tier is proven by a planted one, opened through the map like any other.
+    expect([...tiers].sort()).toEqual(['high', 'medium']);
+    const planted: Company = { ...COMPANIES.find((x) => x.id === 'clone-robotics')!, confidence: 'low' };
+    const user = userEvent.setup();
+    render(
+      <MarketMap companies={COMPANIES.map((company) => (company.id === planted.id ? planted : company))} />,
+    );
+    await user.click(tile('clone-robotics'));
+    const low = sheet('Clone Robotics').querySelector('[data-field="confidence"]');
+    expect(low?.previousElementSibling).toHaveTextContent(/^Confidence$/);
+    expect(low).toHaveTextContent(/^low$/);
+    await user.click(tile('physical-intelligence'));
+    expect(sheet('Physical Intelligence').querySelector('[data-field="confidence"]')).toHaveTextContent(/^high$/);
+    await user.click(tile('1x-technologies'));
+    expect(sheet('1X Technologies').querySelector('[data-field="confidence"]')).toHaveTextContent(
+      new RegExp(`^${COMPANIES.find((x) => x.id === '1x-technologies')!.confidence}$`),
+    );
   }, TIMEOUT);
 
   it('dates round figures by the round source, not the first source', async () => {
@@ -253,6 +315,28 @@ describe('MarketMap', () => {
     // A company without a caveat shows none.
     await user.click(tile('genesis-ai'));
     expect(sheet('Genesis AI').querySelector('[data-round-caveat]')).toBeNull();
+  }, TIMEOUT);
+
+  it('keeps a reported raise visible without promoting it to a round (VAL-B2-MAP-009)', async () => {
+    const user = userEvent.setup();
+    render(<MarketMap companies={COMPANIES} />);
+    await user.click(tile('clone-robotics'));
+    const clone = sheet('Clone Robotics');
+    // The Rundown (9 April 2026) mentions "a reported $50M raise" with no
+    // date, round type or source: the card names it in a caveat linked to
+    // that page, and no funding field takes the figure.
+    const caveat = clone.querySelector('[data-round-caveat]') as HTMLElement;
+    expect(caveat).toHaveTextContent(
+      'Caveat: The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither. Source:',
+    );
+    const link = within(caveat).getByRole('link');
+    expect(link).toHaveAttribute('href', 'https://robotnews.therundown.ai/p/clone-20k-synthetic-human');
+    expect(link).toHaveTextContent("Clone's $20K synthetic human (The Rundown Robotics, 2026-04-09)");
+    for (const field of ['round-type', 'amount', 'date', 'valuation', 'total-raised']) {
+      expect(clone.querySelector(`[data-field="${field}"]`)).toHaveTextContent(/^not disclosed$/);
+    }
+    expect(clone.querySelector('[data-field="leads"]')).toHaveTextContent(/^not disclosed$/);
+    expect(clone).not.toHaveTextContent('$0');
   }, TIMEOUT);
 
   it('keeps same-round contradictions visible on the card (VAL-B2-MAP-009)', async () => {
@@ -528,7 +612,7 @@ describe('MarketMap', () => {
     await waitFor(() => {
       expect(screen.getByText('34 of 111 companies')).toBeInTheDocument();
     });
-    expect(tile('figure-ai')).toHaveClass('bg-surface-2');
+    expectSelectedTile('figure-ai');
     expect(tile('figure-ai')).toHaveAttribute('aria-expanded', 'true');
     expect(sheet('Figure AI')).toBeInTheDocument();
     // A selection that arrives with the page leaves focus alone.
@@ -543,7 +627,8 @@ describe('MarketMap', () => {
     await waitFor(() => {
       expect(screen.getByText('111 of 111 companies')).toBeInTheDocument();
     });
-    expect(tile('figure-ai')).toHaveClass('bg-surface-2');
+    expectSelectedTile('figure-ai');
+    expect(tile('figure-ai')).toHaveAttribute('aria-expanded', 'true');
     expect(window.location.search).toBe('');
     expect(window.location.hash).toBe('#company-figure-ai');
     // Closing a selection the page arrived with drops the hash in place.

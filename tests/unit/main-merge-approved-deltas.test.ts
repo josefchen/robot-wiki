@@ -1073,6 +1073,12 @@ const kolBatch20261021Appends = merged
 // per manifest for the canvas source from the redesign's endpoint.
 const playgroundReset20261022Appends = merged
   .filter(x => x.id.startsWith('playground-reset-20261022-')).map(x => x.id);
+// The market-map round-1 fixes of 2026-10-22 (the map-playground user
+// testing found a raise a cited source reports dropped without a caveat)
+// land after the playground reset and append their block last: one plain
+// edge for the Clone Robotics record from the field audit's endpoint.
+const marketMapRound1Fixes20261022Appends = merged
+  .filter(x => x.id.startsWith('market-map-round1-fixes-20261022-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -1091,7 +1097,7 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends,
   ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends,
   ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends,
-  ...playgroundReset20261022Appends];
+  ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -1252,7 +1258,8 @@ const kolBatch20261021Edges = (manifest: string, memberId: string) => merged
 const playgroundReset20261022Edges = (manifest: string, memberId: string) => merged
   .filter(x => playgroundReset20261022Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterKolBatch20261021 = merged.length - playgroundReset20261022Appends.length;
+const afterPlaygroundReset20261022 = merged.length - marketMapRound1Fixes20261022Appends.length;
+const afterKolBatch20261021 = afterPlaygroundReset20261022 - playgroundReset20261022Appends.length;
 const afterPlaygroundReach20261021 = afterKolBatch20261021 - kolBatch20261021Appends.length;
 const afterMarketMapViews20261021 = afterPlaygroundReach20261021 - playgroundReach20261021Appends.length;
 const afterAnatomyLoopB0120261020 = afterMarketMapViews20261021 - marketMapViews20261021Appends.length;
@@ -1375,8 +1382,10 @@ describe('two-parent exact approval reconciliation', () => {
     // KOL triage batch of the same day appends its block, the Anatomy
     // batch loop-b01 of the same day appends its block, and the market-map
     // views follow-up of 2026-10-21 appends its block, the playground reach
-    // framing of the same day appends its block, and the KOL triage batch of
-    // the same day appends its domain blocks last.
+    // framing of the same day appends its block, the KOL triage batch of
+    // the same day appends its domain blocks, the playground reset of
+    // 2026-10-22 appends its block, and the market-map round-1 fixes of the
+    // same day append theirs last.
     expect([main.length, local.length, localOnly.length, merged.length])
       .toEqual([1558, 1104, 7, 2026 + readerFirstAppends.length + howRobotsWorkAppends.length
         + readerFirstManipulationAppends.length + kolBacklog20261005Appends.length
@@ -1405,11 +1414,11 @@ describe('two-parent exact approval reconciliation', () => {
         + anatomyCrdaB0120261020Appends.length + kolBatch20261020Appends.length
         + anatomyLoopB0120261020Appends.length + marketMapViews20261021Appends.length
         + playgroundReach20261021Appends.length + kolBatch20261021Appends.length
-        + playgroundReset20261022Appends.length]);
+        + playgroundReset20261022Appends.length + marketMapRound1Fixes20261022Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -4459,11 +4468,15 @@ describe('two-parent exact approval reconciliation', () => {
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
       // The audit's edge is each member's last, except the Mitsubishi Motors
-      // record, renamed by the market-map views follow-up of 2026-10-21 as
-      // one edge from this entry's endpoint.
+      // record, renamed by the market-map views follow-up of 2026-10-21, and
+      // the Clone Robotics record, caveated by the market-map round-1 fixes
+      // of 2026-10-22, each as one edge from this entry's endpoint.
       const successors = edges.slice(edges.indexOf(entry) + 1);
-      expect(successors.map(x => x.id)).toEqual(entry.memberId === 'company:mitsubishi-robotics'
-        ? ['market-map-views-20261021-market-playground-company-mitsubishi-robotics'] : []);
+      const laterEdges: Record<string, string[]> = {
+        'company:mitsubishi-robotics': ['market-map-views-20261021-market-playground-company-mitsubishi-robotics'],
+        'company:clone-robotics': ['market-map-round1-fixes-20261022-market-playground-company-clone-robotics'],
+      };
+      expect(successors.map(x => x.id)).toEqual(laterEdges[entry.memberId] ?? []);
       for (const later of successors) expect(later.oldHash).toBe(entry.newHash);
       expect(marketMapAudit20261019Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
@@ -5101,7 +5114,8 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds the 2026-10-22 playground reset edges to the redesign\'s endpoint and the canvas as it ships', () => {
-    expect(merged.slice(afterKolBatch20261021).map(x => x.id)).toEqual(playgroundReset20261022Appends);
+    expect(merged.slice(afterKolBatch20261021, afterPlaygroundReset20261022).map(x => x.id))
+      .toEqual(playgroundReset20261022Appends);
     expect(playgroundReset20261022Appends).toEqual([
       'interactive-sources-mounts-source-playground-canvas-tsx',
       'market-playground-playground-source-playground-canvas-tsx',
@@ -5154,6 +5168,80 @@ describe('two-parent exact approval reconciliation', () => {
       .replace(/^[ \t]*\/\/.*\n/gm, '');
     expect(code(shipped)).toMatch(/\n[ \t]+<IkTargetForm\n[ \t]+key=\{viewResetToken\}\n/);
     expect(code(shipped).replace(/^[ \t]+key=\{viewResetToken\}\n/m, '')).toBe(code(redesigned));
+  });
+
+  it('binds the 2026-10-22 Clone Robotics caveat edge to the field audit endpoint and the record as it ships', () => {
+    expect(merged.slice(afterPlaygroundReset20261022).map(x => x.id)).toEqual(marketMapRound1Fixes20261022Appends);
+    expect(marketMapRound1Fixes20261022Appends).toEqual([
+      'market-map-round1-fixes-20261022-market-playground-company-clone-robotics',
+    ]);
+    const rundown = 'https://robotnews.therundown.ai/p/clone-20k-synthetic-human';
+    // The row the edge is held to: a figure a source reports stays visibly
+    // caveated rather than silently dropped.
+    expect(readFileSync('contract/design-integrity.md', 'utf8')).toContain(
+      '| `VAL-B2-MAP-009` | Missing disclosures render `not disclosed`; contradictory source pointers remain visibly caveated rather than silently dropped. |');
+    expect(readFileSync('audit/market-map.md', 'utf8'))
+      .toContain('## Clone Robotics\' reported raise (2026-10-22)');
+    const ledger: { companies: Array<{ id: string; rows: Array<{
+      field: string; value: unknown; verdict: string; passage?: string; source?: { url: string; status?: number } }> }> } =
+      JSON.parse(readFileSync('audit/market-map-ledger.json', 'utf8'));
+    const company = COMPANIES.find(x => x.id === 'clone-robotics')!;
+    const caveat = company.latestRound?.caveat;
+    expect(caveat?.sourceUrls).toEqual([rundown]);
+    expect(caveat?.text).toContain('a reported $50M raise');
+    // The ledger quotes the sentence the caveat rests on, from the cited page.
+    const row = ledger.companies.find(x => x.id === company.id)!.rows.filter(x => x.field === 'round.caveat');
+    expect(row).toHaveLength(1);
+    expect(row[0]).toMatchObject({ value: caveat!.text, verdict: 'added', source: { url: rundown, status: 200 } });
+    expect(row[0].passage).toContain('a reported $50M raise');
+    // The figure is caveated, not promoted: every funding field stays empty
+    // with its not-disclosed disposition.
+    expect(company.totalRaisedUsd).toBeNull();
+    expect([company.latestRound?.type, company.latestRound?.amountUsd, company.latestRound?.date,
+      company.latestRound?.valuationUsd]).toEqual([null, null, null, null]);
+    for (const field of ['totalRaisedUsd', 'round.type', 'round.amountUsd', 'round.date', 'round.valuationUsd']) {
+      expect(company.absent?.[field as keyof NonNullable<typeof company.absent>]?.state).toBe('not-disclosed');
+    }
+    for (const id of marketMapRound1Fixes20261022Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      expect([entry.manifest, entry.memberId]).toEqual(['market-playground', 'company:clone-robotics']);
+      // Approved under the owner's request of 2026-10-19 and the sealed rows
+      // it is held to, and not a release approval.
+      expect(entry.ownerApproval).toContain('"start the market map and playground"');
+      expect(entry.ownerApproval).toContain('VAL-B2-MAP-009');
+      expect(entry.ownerApproval).toContain('Not release approval.');
+      expect(entry.affectedAssertions)
+        .toEqual(expect.arrayContaining(['VAL-AUDIT-007', 'VAL-B2-MAP-009', 'VAL-B2-BASE-005']));
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      expect(edges.at(-1)).toBe(entry);
+      expect(edges.filter(x => marketMapRound1Fixes20261022Appends.includes(x.id))).toEqual([entry]);
+      const prior = edges.slice(0, edges.indexOf(entry));
+      // One plain edge from the field audit's endpoint.
+      expect(prior.at(-1)!.id).toBe('market-map-audit-20261019-market-playground-company-clone-robotics');
+      expect(entry.reason).toContain(prior.at(-1)!.id);
+      expect(entry.reconciles).toBeUndefined();
+      expect(entry.oldHash).toBe(prior.at(-1)!.newHash);
+      expect(entry.newHash).not.toBe(entry.oldHash);
+      // It ends at the record as it ships, hashed the way the baseline hashes it.
+      const hash = (value: unknown) => buildManifest('market-playground', [
+        { id: entry.memberId, value: JSON.parse(JSON.stringify(value)) },
+      ]).members[0].hash;
+      const shipped = JSON.parse(JSON.stringify(company)) as { latestRound: { caveat?: unknown } };
+      expect(entry.newHash).toBe(hash(shipped));
+      expect(entry.reason).toContain(`The ${company.name} record`);
+      expect(entry.reason).toContain('audit/market-map.md');
+      expect(entry.reason).toContain('No value, state, disposition or source changes');
+      // Only the caveat moved: taking it off gives the field audit's endpoint exactly.
+      delete shipped.latestRound.caveat;
+      expect(hash(shipped)).toBe(entry.oldHash);
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
   });
 
   it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {

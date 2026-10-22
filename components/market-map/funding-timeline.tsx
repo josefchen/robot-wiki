@@ -110,8 +110,8 @@ export function FundingTimeline({ companies, selectedId, onSelect }: FundingTime
               data-company-id={event.companyId}
               id={`company-${event.companyId}`}
               className={cx(
-                'scroll-mt-28 border-b border-l-2 border-b-border',
-                active ? 'border-l-accent bg-surface-2' : 'border-l-transparent',
+                'scroll-mt-28 border-b border-l border-b-border',
+                active ? 'border-l-ink' : 'border-l-transparent hover:border-l-border-strong',
               )}
             >
               <button
@@ -138,13 +138,17 @@ export function FundingTimeline({ companies, selectedId, onSelect }: FundingTime
                 className={cx(
                   'grid w-full cursor-pointer grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-0.5 py-2.5 pr-1 pl-2 text-left font-sans text-[14px] leading-5 transition-colors duration-150 sm:grid-cols-[6.5rem_minmax(0,1fr)_10rem_9rem]',
                   'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-ink',
-                  !active && 'hover:bg-surface-2',
                 )}
               >
                 <span className="col-span-2 text-[13px] leading-4 tabular-nums text-text-dim sm:col-span-1 sm:text-[14px] sm:leading-5">
                   {formatShortDate(event.date)}
                 </span>
-                <span className="truncate font-medium text-text">{event.companyName}</span>
+                <span
+                  data-timeline-name
+                  className={cx('truncate text-text', active ? 'font-semibold' : 'font-medium')}
+                >
+                  {event.companyName}
+                </span>
                 <span className="hidden truncate text-text-dim sm:block">
                   {event.type ?? event.typeAbsent}
                 </span>

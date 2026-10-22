@@ -1253,7 +1253,7 @@ the sources instead of dropping either figure.
 **Progress.** 111 of 111 records are audited: physical-intelligence, skild-ai, generalist-ai, dyna-robotics, sunday-robotics, field-ai, covariant, genesis-ai, rhoda-ai, mind-robotics, nvidia-robotics, google-deepmind-robotics, hugging-face-lerobot, applied-intuition, xdof, encord, micro1, figure-ai, 1x-technologies, agility-robotics, apptronik, tesla-optimus, boston-dynamics, unitree-robotics, ubtech-robotics, fourier-intelligence, galbot, agibot, sanctuary-ai, neura-robotics, humanoid-uk, spirit-ai, galaxea-ai, engineai, robot-era, tars-robotics, x-square-robot, deep-robotics, kepler-robot, limx-dynamics, wandercraft, clone-robotics, mentee-robotics, persona-ai, rainbow-robotics, symbotic, dexterity, berkshire-grey, amazon-robotics, nimble-robotics, locus-robotics, mujin, righthand-robotics, ambirobotics, plus-one-robotics, carbon-robotics, monarch-tractor, farm-ng, bedrock-robotics, chef-robotics, simbe-robotics, intuitive-surgical, cmr-surgical, moon-surgical, nuro, serve-robotics, gecko-robotics, standard-bots, collaborative-robotics, the-bot-company, weave-robotics, irobot, k-scale-labs, automata, lila-sciences, avidbots, harmonic-drive-systems, nabtesco, leaderdrive, sanhua, shadow-robot, sharpa, wonik-robotics, xela-robotics, openai-robotics, meta-robotics, assured-robot-intelligence, saronic, eka-robotics, foundry-robotics, mytra, formic, astribot, booster-robotics, leju-robotics, switchbot, hanson-robotics, paxini, miso-robotics, starship-technologies, coco-robotics, knightscope, brain-corp, pollen-robotics, diligent-robotics, fox-robotics, zebra-robotics-automation, anduril, robotphoenix, abb-robotics, mitsubishi-robotics.
 No record rests on search-snippet or identity-only evidence any more.
 
-**Ledger rows.** 1576 rows: 819 verified, 503 corrected, 167 added and 87 cut. The quoted passages come from a body fetched directly (912 rows), a page rendered in a headless browser (23) and a follow-up fetch (562).
+**Ledger rows.** 1578 rows: 819 verified, 504 corrected, 168 added and 87 cut. The quoted passages come from a body fetched directly (913 rows), a page rendered in a headless browser (23) and a follow-up fetch (563).
 
 **Empty fields.** Every rendered field a record leaves empty now carries a recorded disposition in the registry
 (`absent` in `research/04-market-map-companies.json`). `not-disclosed` means a value exists but no source
@@ -1298,6 +1298,7 @@ above, under which every empty list and a missing website read "n/a" whatever th
 | X Square Robot | Series C | X Square says the four rounds that ended with the Series C value it at more than $2.8 billion; it gives no amount for the round and no exact valuation. | https://www.therobotreport.com/x-square-robot-brings-valuation-2-8b-four-consecutive-funding-rounds/, https://en.wikipedia.org/wiki/X_Square_Robot |
 | Deep Robotics | Series C | Deep Robotics calls the round over 500 million yuan; the South China Morning Post reports 500 million yuan (US$70 million). | https://finance.yahoo.com/news/chinas-deep-robotics-raises-us-093000532.html, https://www.deeprobotics.cn/en |
 | Kepler Robot | Acquisition (controlling stake) | Kelin Electric will pay up to 300 million yuan (US$44.1 million) for 41.6% of Kepler; Blue Whale News works this out as a valuation of about 722 million yuan. No exact price is given. | https://english.sse.com.cn/news/newsrelease/voice/c/c_20260521_10819176.shtml, https://www.lanjinger.com/d/1779274842637520212 |
+| Clone Robotics | type not disclosed | The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither. | https://robotnews.therundown.ai/p/clone-20k-synthetic-human |
 | Symbotic | Public offering | Symbotic sold 6.5 million new shares at $55.00 each and a SoftBank affiliate sold 3.5 million of its own; the release gives no total for the raise. | https://www.globenewswire.com/news-release/2025/12/05/3200430/0/en/Symbotic-Announces-Pricing-of-Primary-and-Secondary-Offering-of-Class-A-Common-Stock.html |
 | Locus Robotics | Series G | The Series G is still open: Locus has raised $41.6 million from existing investors so far, and its Form D reports $41,599,804 sold. | https://www.supplychain247.com/article/locus-robotics-41-million-series-g-funding, https://www.sec.gov/Archives/edgar/data/1676668/000167666826000004/xslFormDX01/primary_doc.xml |
 | Mujin | Series D | The US$233 million first close is $133 million of equity and $100 million of debt; in June 2026 Mujin's CEO said an extension values it at more than $1 billion. | https://finance.yahoo.com/news/mujin-raises-us-233-million-140000051.html, https://www.ttnews.com/articles/mujin-robot-software-warehouse |
@@ -1504,6 +1505,7 @@ Every value the ledger does not mark verified, against the record at the audit's
 | Wandercraft | deployments | Clinical rehabilitation deployments | Atalante X at more than 150 clinical and research sites | the company's current count; the June 2025 release said more than 100 rehabilitation centers (https://www.wandercraft.eu/about-us) |
 | Clone Robotics | description | Develops biomimetic humanoid robots with musculoskeletal design and artificial muscles. | Develops biomimetic, musculoskeletal androids moved by its Myofiber artificial muscles; it takes reservations for the first 279 Clone Alpha units. | rewritten to what its sources state; each clause quoted from 3 sources in the ledger |
 | Clone Robotics | round type | Seed | not disclosed | only an aggregator profile called a seed round; The Rundown mentions a "reported $50M raise" with no date, type or source |
+| Clone Robotics | round caveat |  | The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither. | added 2026-10-22 (map-playground user testing round 1, VAL-B2-MAP-009): the raise was dropped with the round type and shown nowhere on the card; the live page, fetched again on 2026-10-22 (HTTP 200), still carries the passage. The page gives no date, round type, amount source or total, so total raised and every round field stay not disclosed (https://robotnews.therundown.ai/p/clone-20k-synthetic-human) |
 | Mentee Robotics | round amount | $900M | not disclosed | the $900 million is the purchase price for the whole company, so it is the deal value, not money raised; it moves to the valuation |
 | Mentee Robotics | round valuation |  | $900M | the purchase price for 100% of the shares, in cash and Mobileye Class A stock (https://www.sec.gov/Archives/edgar/data/1910139/000110465926010947/tm265388d1_8k.htm) |
 | Mentee Robotics | aka |  | Mentee by Mobileye | stated by https://www.menteebot.com |
@@ -1854,6 +1856,7 @@ Every value the ledger does not mark verified, against the record at the audit's
 | ABB Robotics | status | acquired | public | still a division of ABB Ltd; both releases expect the sale to close in mid-to-late 2026, and no fetched source reports that it has (https://www.abb.com/global/en/news/129685/abb-to-divest-robotics-division-to-softbank-group) |
 | ABB Robotics | deployments | Industrial robot installations worldwide | not disclosed | "industrial robot installations worldwide" names no installation, and no fetched source gives a count |
 | Mitsubishi (Robotics) | description | Mass-producing AI humanoid robots in Japan, converting an idle engine plant into a high-volume robot factory targeting 1,000 humanoids per month. | Mitsubishi Motors plans to mass-produce AI humanoid robots designed by the Tokyo startup Highlanders on an unused engine line at its Kyoto plant from the first half of 2027, up to 1,000 a month. | rewritten to what its sources state; each clause quoted from one source in the ledger |
+| Mitsubishi (Robotics) | name | Mitsubishi (Robotics) | Mitsubishi Motors | corrected 2026-10-21: each cited source and the website name Mitsubishi Motors (the website row's passage: "Global Website- MITSUBISHI MOTORS"); the id stays mitsubishi-robotics (https://www.assemblymag.com/articles/100290-mitsubishi-to-mass-produce-humanoid-robots-at-former-engine-plant) |
 | Mitsubishi (Robotics) | founded |  | 1970 | Mitsubishi Motors' founding; the robot programme has none of its own (https://en.wikipedia.org/wiki/Mitsubishi_Motors) |
 | Mitsubishi (Robotics) | website | https://www.mitsubishielectric.com | https://www.mitsubishi-motors.com/en/ | the plan is Mitsubishi Motors', not Mitsubishi Electric's (https://www.mitsubishi-motors.com/en/) |
 | Mitsubishi (Robotics) | deployments | 1,000 humanoids/month production target | n/a | a production target, not a deployment; the robots are to go first to its own plants once production starts in 2027 |
@@ -1988,6 +1991,7 @@ include its data.
 | Logo test, longer budget | `npx playwright test --timeout=180000 "tests/e2e/market-map-logos.spec.ts:83"` | pass, 1 passed in 55.9 s: every mark lays down ink and none is a block. The 30 s failure is the time limit on this loaded host. The test reads only the logo files, which this pass did not change. |
 | Visual check | dev server on port 3200, then a headless Chromium script opening the ABB Robotics, Anduril, Pollen Robotics, Spirit AI, TARS Robotics and Carbon Robotics cards at 1440 and 390 px | 12 screenshots, each examined: status, round, amount, date and caveat match the records above, with no horizontal overflow, no "$0" and 0 console errors |
 | Close-out: final gates | `npm run typecheck`, `npm run lint`, `npm run validate:content`, then `npx vitest run` on `tests/component/market-map.test.tsx`, `tests/unit/schemas.test.ts`, `companies.test.ts`, `market-map.test.ts`, `main-merge-approved-deltas.test.ts` and `reader-first-continuity.test.ts` | pass: exit 0 each; vitest 6 files, 190 passed |
+| Close-out: generated section | `node <mission library>/market-map-audit-20261019-report.mjs --check` | pass: the field-audit section matches the ledger (111 audited, 0 pending, 1576 rows, 533 changes, 33 caveats) |
 
 ## Mitsubishi Motors' display name (2026-10-21)
 
@@ -2014,4 +2018,25 @@ name it checked.
 The same follow-up gives the "every drawn mark lays down ink" test in `tests/e2e/market-map-logos.spec.ts` its own
 120 s budget with its assertions unchanged: it screenshots more than 100 marks, and took 55.9 s in the close-out's
 run and 41.5 s in this one, both past the 30 s default.
-| Close-out: generated section | `node <mission library>/market-map-audit-20261019-report.mjs --check` | pass: the field-audit section matches the ledger (111 audited, 0 pending, 1576 rows, 533 changes, 33 caveats) |
+
+## Clone Robotics' reported raise (2026-10-22)
+
+The map-playground user testing of 2026-10-22 (round 1, `VAL-B2-MAP-009`) found a figure dropped without a caveat.
+Clone Robotics cites The Rundown of 9 April 2026, which says "A Mountain View office and a reported $50M raise put
+Clone in the same conversation as Figure and 1X, but not on the same timeline." The field audit cut the record's
+round type ("Seed", from an aggregator profile only) and left every funding field not disclosed, but nothing on the
+card said a cited source mentions a raise. The live page was fetched again on 2026-10-22 (HTTP 200) and still
+carries the sentence; it gives no date, round type, source or total for the raise.
+
+| Record | Field | Was | Now | Basis |
+|---|---|---|---|---|
+| Clone Robotics | round caveat | none | The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither. | The Rundown's sentence above (the ledger's new `round.caveat` row) |
+
+The caveat cites The Rundown, one of the record's four sources, and the card prints it under the round with a link
+to that page. Total raised and the five round fields still read "not disclosed": a reported raise with no date or
+type is not a round, and one raise is not a total. `audit/market-map-ledger.json` gains the `round.caveat` row
+(added, quoting the sentence), the field-audit section above is regenerated from the ledger (1578 rows, 34
+caveats), and `contract/brand-v2-approved-deltas.json` gains one plain edge from the field audit's endpoint,
+`market-map-round1-fixes-20261022-market-playground-company-clone-robotics`. The generated section also picks up
+the ledger's Mitsubishi `name` row of 2026-10-21, under the name the audit checked; the close-out's gate row for
+the generated section, which had been left after the previous section, is back in its table.

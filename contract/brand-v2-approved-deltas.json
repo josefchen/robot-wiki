@@ -112645,6 +112645,25 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "market-map-round1-fixes-20261022-market-playground-company-clone-robotics",
+      "manifest": "market-playground",
+      "memberId": "company:clone-robotics",
+      "oldHash": "620f6ef10b31c2e2903146341380b8621297ca1d78b38222bdc0c7a5a4cafa47",
+      "newHash": "382a6fcb1710511b09ebf251325822a8a0e5270d2c54dc5f70acccd10f00acbc",
+      "reason": "The market-map round-1 fixes of 2026-10-22 (the map-playground user testing found a reported raise in a cited source dropped without a caveat), as one plain edge from its last approved endpoint, market-map-audit-20261019-market-playground-company-clone-robotics. The Clone Robotics record (research/04-market-map-companies.json, regenerated into data/companies.ts) cites The Rundown of 9 April 2026, which says \"A Mountain View office and a reported $50M raise put Clone in the same conversation as Figure and 1X, but not on the same timeline.\" and gives no date, round type or source for that raise; the field audit cut the round type and left every funding field not disclosed, with no visible note of the figure. The latest round gains a caveat citing The Rundown: \"The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither.\" No value, state, disposition or source changes; total raised and the five round fields still read not disclosed. Recorded in audit/market-map.md under \"Clone Robotics' reported raise (2026-10-22)\" and in the record's round.caveat row in audit/market-map-ledger.json.",
+      "ownerApproval": "Owner request of 2026-10-19 (Josef Chen): \"start the market map and playground\", which put the market map and its data provenance in scope, held to the owner-sealed rows VAL-B2-MAP-009 (missing disclosures render not disclosed; contradictory source pointers remain visibly caveated rather than silently dropped), VAL-B2-BASE-005 (an existing but undisclosed value renders exactly \"not disclosed\") and VAL-AUDIT-007 (the company dataset audits clean against its sources), and the standing instruction to preserve data truth (AGENTS.md); applied as the mission orchestrator's round-1 triage of the map-playground user testing directs: \"add clone-robotics.latestRound.caveat\" once the passage is verified against the live source, \"with that sourceUrl\". Not release approval.",
+      "responsibleMilestone": "brand-v2-map-playground",
+      "affectedAssertions": [
+        "VAL-AUDIT-007",
+        "VAL-B2-MAP-001",
+        "VAL-B2-MAP-009",
+        "VAL-B2-BASE-003",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
@@ -12,8 +12,25 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * real browser can show the tile landed in the viewport.
  */
 
-/** The accent, --color-signal #3B6EA8. */
-const ACCENT = 'rgb(59, 110, 168)';
+/** Ink, --color-ink #1C1C1A: the research-page selected rule. */
+const INK = 'rgb(28, 28, 26)';
+/** A computed background with no paint. */
+const NO_FILL = 'rgba(0, 0, 0, 0)';
+
+/**
+ * The research-page selected state (VAL-B2-MAP-003 successor): the open
+ * company's tile reads in ink weight on a 1 px ink rule, with no fill, tint,
+ * shadow or accent bar.
+ */
+async function expectSelectedTile(card: Locator) {
+  await expect(card).toHaveCSS('border-left-width', '1px');
+  await expect(card).toHaveCSS('border-left-style', 'solid');
+  await expect(card).toHaveCSS('border-left-color', INK);
+  await expect(card).toHaveCSS('background-color', NO_FILL);
+  await expect(card).toHaveCSS('background-image', 'none');
+  await expect(card).toHaveCSS('box-shadow', 'none');
+  await expect(card.locator('[data-tile-name]')).toHaveCSS('font-weight', '600');
+}
 
 let server: StaticExportServer | null = null;
 let BASE: string;
@@ -45,11 +62,16 @@ test.describe('market-map deep links on the static export', () => {
 
     const card = page.locator('button[data-map-tile="figure-ai"]');
     await expect(card).toBeVisible();
-    // Marked: the flat accent left rule only renders on the open company.
-    await expect(card).toHaveCSS('border-left-width', '2px');
-    await expect(card).toHaveCSS('border-left-color', ACCENT);
-    await expect(card).toHaveCSS('box-shadow', 'none');
+    // Marked: the ink rule and weight only render on the open company; a
+    // neighbour keeps the same 1 px rule, transparent, at regular weight.
+    await expectSelectedTile(card);
+    const neighbour = page.locator('button[data-map-tile="1x-technologies"]');
+    await expect(neighbour).toHaveCSS('border-left-width', '1px');
+    await expect(neighbour).toHaveCSS('border-left-color', NO_FILL);
+    await expect(neighbour.locator('[data-tile-name]')).toHaveCSS('font-weight', '500');
+    await expect(neighbour).toHaveAttribute('aria-expanded', 'false');
     await expect(card).toHaveAttribute('aria-expanded', 'true');
+    await expect(card).toHaveAttribute('aria-controls', 'market-map-company');
     // The scroll actually landed (what jsdom cannot prove).
     await expect(card).toBeInViewport({ ratio: 0.5 });
     // Its details are open, without taking focus from the page.
@@ -69,10 +91,9 @@ test.describe('market-map deep links on the static export', () => {
 
     const card = page.locator('button[data-map-tile="figure-ai"]');
     await expect(card).toBeVisible();
-    // Marked: the flat accent left rule only renders on the open company.
-    await expect(card).toHaveCSS('border-left-width', '2px');
-    await expect(card).toHaveCSS('border-left-color', ACCENT);
-    await expect(card).toHaveCSS('box-shadow', 'none');
+    // Marked: the ink rule and weight only render on the open company.
+    await expectSelectedTile(card);
+    await expect(card).toHaveAttribute('aria-expanded', 'true');
     await expect(card).toBeInViewport({ ratio: 0.5 });
     await expect(page.getByText('34 of 111 companies')).toBeVisible();
     await expect(page).toHaveURL(

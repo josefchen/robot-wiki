@@ -190,12 +190,13 @@ function MapTile({
           event.preventDefault();
           onArrow(event.key);
         }}
+        // Selected reads as ink weight on a 1 px ink rule, never a fill; the
+        // rule is always present (transparent when unselected) so selecting
+        // a tile does not move it.
         className={cx(
-          'flex w-full cursor-pointer flex-col items-start gap-[5px] border-l-2 py-[7px] pr-1.5 pl-2 text-left transition-colors duration-150',
+          'flex w-full cursor-pointer flex-col items-start gap-[5px] border-l py-[7px] pr-1.5 pl-2 text-left transition-colors duration-150',
           'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-[-1px] focus-visible:outline-ink',
-          selected
-            ? 'border-l-accent bg-surface-2'
-            : 'border-l-transparent hover:bg-surface-2',
+          selected ? 'border-l-ink' : 'border-l-transparent hover:border-l-border-strong',
         )}
       >
         {/* No mark to show (none registered, or the file is withheld):
@@ -206,7 +207,10 @@ function MapTile({
         <span className="flex w-full min-w-0 items-baseline justify-between gap-2">
           <span
             data-tile-name
-            className="min-w-0 font-sans text-[13px] leading-4 font-medium break-words text-text"
+            className={cx(
+              'min-w-0 font-sans text-[13px] leading-4 break-words text-text',
+              selected ? 'font-semibold' : 'font-medium',
+            )}
           >
             {companyShortName(company.name)}
           </span>

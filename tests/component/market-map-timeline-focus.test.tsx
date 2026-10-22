@@ -211,9 +211,33 @@ describe('FundingTimeline roving keyboard access', () => {
     // The row opens the company's details (MarketMap's sheet) and is marked.
     expect(figure.getAttribute('aria-expanded')).toBe('true');
     expect(figure.getAttribute('aria-controls')).toBe('market-map-company');
-    expect(figure.closest('li')).toHaveClass('border-l-accent');
+    // Marked in the research-page selected state (VAL-B2-MAP-003
+    // successor): a 1 px ink rule and the name in semibold, with no fill,
+    // tint or accent bar on the row or its button.
+    const row = figure.closest('li')!;
+    expect(row).toHaveClass('border-l', 'border-l-ink');
+    for (const retired of ['border-l-2', 'border-l-accent', 'border-l-transparent']) {
+      expect(row).not.toHaveClass(retired);
+    }
+    for (const element of [row, figure]) {
+      expect([...element.classList].filter((name) => /(^|:)bg-/.test(name))).toEqual([]);
+    }
+    expect(figure.querySelector('[data-timeline-name]')).toHaveClass('font-semibold');
+    // Every other row keeps the same 1 px rule, transparent, so the
+    // selection does not shift the list.
+    const others = [...document.querySelectorAll<HTMLElement>('li[data-timeline-id]')].filter(
+      (li) => li.dataset.companyId !== 'figure-ai',
+    );
+    expect(others.length).toBeGreaterThan(0);
+    for (const other of others) {
+      expect(other).toHaveClass('border-l', 'border-l-transparent');
+      expect(other).not.toHaveClass('border-l-ink');
+      expect(other.querySelector('[data-timeline-name]')).not.toHaveClass('font-semibold');
+    }
     fireEvent.click(figure);
     expect(figure.getAttribute('aria-expanded')).toBe('false');
+    expect(row).toHaveClass('border-l', 'border-l-transparent');
+    expect(figure.querySelector('[data-timeline-name]')).toHaveClass('font-medium');
     expect(firstEventId()).toBeTruthy();
   }, TIMEOUT);
 

@@ -65,8 +65,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Every interactive element has a visible 2px signal-blue focus outline with at least 2px offset or an equally visible component-specific treatment.",
-        "expected": "Every interactive element has a visible 2px signal-blue focus outline with at least 2px offset or an equally visible component-specific treatment.",
+        "statement": "Every interactive element shows a visible keyboard focus ring: a 1 px ink outline offset 2 px on `:focus-visible` only, or an equally visible component-specific treatment where an offset outline cannot show (an inset 1 px ink outline on a clipped map tile or timeline row, or the ring drawn around a focused chart mark); no element lacks a visible focus state, and no lime or retired signal blue (`#245FFF`, `#245EDB`) focus paint remains. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a 2px signal-blue outline with at least 2px offset. Same strength: every interactive element, visible focus, keyboard only.)",
+        "expected": "Every interactive element shows a visible keyboard focus ring: a 1 px ink outline offset 2 px on `:focus-visible` only, or an equally visible component-specific treatment where an offset outline cannot show (an inset 1 px ink outline on a clipped map tile or timeline row, or the ring drawn around a focused chart mark); no element lacks a visible focus state, and no lime or retired signal blue (`#245FFF`, `#245EDB`) focus paint remains. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a 2px signal-blue outline with at least 2px offset. Same strength: every interactive element, visible focus, keyboard only.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -26897,8 +26897,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Black primary actions, lime selection/highlight, and signal-blue link/focus behavior remain semantically consistent across all audited routes.",
-        "expected": "Black primary actions, lime selection/highlight, and signal-blue link/focus behavior remain semantically consistent across all audited routes.",
+        "statement": "Ink primary actions with white text, ink-weight selection with a 1 px ink rule or underline (never a colour fill), underlined ink links, the 1 px ink keyboard focus ring, and the one muted accent `#3B6EA8` reserved for the highlighted series, registration and active information paths remain semantically consistent across all audited routes; no lime or retired signal-blue paint appears. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required black primary actions, lime selection/highlight and signal-blue link/focus behaviour. Same strength: every audited route.)",
+        "expected": "Ink primary actions with white text, ink-weight selection with a 1 px ink rule or underline (never a colour fill), underlined ink links, the 1 px ink keyboard focus ring, and the one muted accent `#3B6EA8` reserved for the highlighted series, registration and active information paths remain semantically consistent across all audited routes; no lime or retired signal-blue paint appears. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required black primary actions, lime selection/highlight and signal-blue link/focus behaviour. Same strength: every audited route.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -40041,8 +40041,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Selected company/filter state uses lime plus text/shape/semantic confirmation.",
-        "expected": "Selected company/filter state uses lime plus text/shape/semantic confirmation.",
+        "statement": "Selected company/filter state uses the research-page selected state: selected segment, filter and view controls read in ink text with a 1 px ink rule or underline and expose `aria-pressed` (or the native equivalent); a selected company tile or timeline row reads in ink weight with a 1 px ink rule, exposes `aria-expanded` and names its open details, and has no colour fill, tinted ground, accent bar or lime; a selected plotted mark (Bubble/scatter, timeline plot) is distinguished without colour (larger radius or an ink ring) and may carry the one muted accent `#3B6EA8` only as that figure's single highlight under `VAL-B2-VIZ-003`. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, any accent bar, selection carried by colour alone, or a selected state without its semantic attribute. Same strength: at least two independent cues, one of them semantic, in Grid, Bubble/scatter and Funding timeline at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/shape/semantic confirmation.)",
+        "expected": "Selected company/filter state uses the research-page selected state: selected segment, filter and view controls read in ink text with a 1 px ink rule or underline and expose `aria-pressed` (or the native equivalent); a selected company tile or timeline row reads in ink weight with a 1 px ink rule, exposes `aria-expanded` and names its open details, and has no colour fill, tinted ground, accent bar or lime; a selected plotted mark (Bubble/scatter, timeline plot) is distinguished without colour (larger radius or an ink ring) and may carry the one muted accent `#3B6EA8` only as that figure's single highlight under `VAL-B2-VIZ-003`. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, any accent bar, selection carried by colour alone, or a selected state without its semantic attribute. Same strength: at least two independent cues, one of them semantic, in Grid, Bubble/scatter and Funding timeline at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/shape/semantic confirmation.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {
@@ -40081,8 +40081,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Signal blue identifies an active relationship, link, focus path, or timeline signal and does not encode warning.",
-        "expected": "Signal blue identifies an active relationship, link, focus path, or timeline signal and does not encode warning.",
+        "statement": "The one muted accent `#3B6EA8` (the runtime signal token of `VAL-B2-COL-002`) appears on the map only for the selected or highlighted company mark, an active timeline signal, or the focus path inside a chart, is never the sole cue, and never encodes warning; links are underlined ink, control focus is the 1 px ink ring of `VAL-B2-A11Y-002`, and no lime or retired signal blue (`#245FFF`, `#245EDB`) appears. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row had signal blue identify an active relationship, link, focus path or timeline signal. Same strength: no warning encoding, and the accent confined to its semantic roles.)",
+        "expected": "The one muted accent `#3B6EA8` (the runtime signal token of `VAL-B2-COL-002`) appears on the map only for the selected or highlighted company mark, an active timeline signal, or the focus path inside a chart, is never the sole cue, and never encodes warning; links are underlined ink, control focus is the 1 px ink ring of `VAL-B2-A11Y-002`, and no lime or retired signal blue (`#245FFF`, `#245EDB`) appears. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row had signal blue identify an active relationship, link, focus path or timeline signal. Same strength: no warning encoding, and the accent confined to its semantic roles.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 75,
         "omissionProof": {

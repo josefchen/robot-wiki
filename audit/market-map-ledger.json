@@ -7892,6 +7892,19 @@
           "note": "only an aggregator profile called a seed round; The Rundown mentions a \"reported $50M raise\" with no date, type or source"
         },
         {
+          "field": "round.caveat",
+          "value": "The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither.",
+          "verdict": "added",
+          "source": {
+            "url": "https://robotnews.therundown.ai/p/clone-20k-synthetic-human",
+            "route": "extra",
+            "status": 200,
+            "retrieved": "2026-10-19T15:32:35.771Z"
+          },
+          "passage": "A Mountain View office and a reported $50M raise put Clone in the same conversation as Figure and 1X, but not on the same timeline.",
+          "note": "added 2026-10-22 (map-playground user testing round 1, VAL-B2-MAP-009): the raise was dropped with the round type and shown nowhere on the card; the live page, fetched again on 2026-10-22 (HTTP 200), still carries the passage. The page gives no date, round type, amount source or total, so total raised and every round field stay not disclosed"
+        },
+        {
           "field": "description",
           "value": "Develops biomimetic, musculoskeletal androids moved by its Myofiber artificial muscles; it takes reservations for the first 279 Clone Alpha units.",
           "verdict": "corrected",

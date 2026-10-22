@@ -303,8 +303,15 @@ test.describe('timeline view roving keyboard affordances', () => {
     await page.goto(`${ROUTE}?view=timeline&country=CN#company-figure-ai`);
     const row = page.locator('[data-company-id="figure-ai"][data-timeline-id]');
     await expect(row).toHaveCount(1);
-    await expect(row).toHaveCSS('border-left-width', '2px');
+    // The research-page selected state (VAL-B2-MAP-003 successor): a 1 px
+    // ink rule and the name in semibold, with no fill, tint or shadow.
+    await expect(row).toHaveCSS('border-left-width', '1px');
+    await expect(row).toHaveCSS('border-left-color', 'rgb(28, 28, 26)');
+    await expect(row).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await expect(row.locator('button')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
     await expect(row).toHaveCSS('box-shadow', 'none');
+    await expect(row.locator('[data-timeline-name]')).toHaveCSS('font-weight', '600');
+    await expect(row.locator('button')).toHaveAttribute('aria-expanded', 'true');
     // The scroll actually landed (the a074903 contract).
     await expect(
       row.locator('button'),

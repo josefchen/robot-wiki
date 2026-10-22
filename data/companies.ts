@@ -3229,6 +3229,12 @@ const ROWS: Company[] = [
       date: null,
       valuationUsd: null,
       leadInvestors: [],
+      caveat: {
+        text: 'The Rundown (9 April 2026) mentions a reported $50M raise but gives no date, round type or source for it; no cited source states a round or a total raised, so the card gives neither.',
+        sourceUrls: [
+          'https://robotnews.therundown.ai/p/clone-20k-synthetic-human',
+        ],
+      },
     },
     status: 'private',
     deployments: [],
