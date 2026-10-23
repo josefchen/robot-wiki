@@ -112682,6 +112682,145 @@
         "VAL-B2-BASE-013"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20261023-prose-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "24ceb4e1249ca2c1b9a1629ba117ffbcb7432b9c36891280575229a05e4f9b0c",
+      "newHash": "f2f8187bfaa6a9dd6675a7ffe72d0bc59cf8f33a9cb65fcc239aec0fc727cdb4",
+      "reason": "VAL-EDU-045 clause (d) operating cue on classical/motion-planning: one short paragraph added directly before the RrtExplorer mount, reading: Drag the slider to step through the search, or press \"Grow the tree\" to replay it. The cue names the explorer's rendered slider (\"How far the search has grown\") and its \"Grow the tree\" button with a second-person instruction verb. No claim, number, citation, option text or mount default changes; the 2026-10-12 length-cut and the image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (images-a-20261013-prose-classical-motion-planning).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; brand-v2-interactives scrutiny round 1 (validation/brand-v2-interactives/scrutiny/synthesis.json at 5116b66b) found the clause unmet on these routes and dispatched brand-v2-interactives-scrutiny-r1-fixes to close it under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational-affordance repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20261023-prose-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "f8b22d2a92e33b375f3744de072ee5e5c28cb65f042d5d074ee8ef9b6242ddb2",
+      "newHash": "83f622cbb0784e49a1895d2a923547da281670b7fce92a02e35ff380898b0141",
+      "reason": "VAL-EDU-045 clause (d) operating cue on classical/perception: one short paragraph added under \"An illustrative positioning budget\", directly before the PerceptionErrorBudget mount, reading: Try the transparent bottle under \"Adjust more\": the depth term then dominates the budget. The cue names the rendered \"transparent bottle\" target control inside the instrument's \"Adjust more\" fold, and the statement is the instrument's own documented behaviour (the transparent case raises the depth floor, which then sets the depth term). No claim, number, citation, option text or mount default changes; the 2026-10-12 length-cut and the image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (polish-1019-prose-article-classical-perception).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; brand-v2-interactives scrutiny round 1 (validation/brand-v2-interactives/scrutiny/synthesis.json at 5116b66b) found the clause unmet on these routes and dispatched brand-v2-interactives-scrutiny-r1-fixes to close it under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational-affordance repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "educational-cue-20261023-prose-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "bd4aca967173ddfdd217d9a422bff1c895da689b5d6d2d39a8372456871d0690",
+      "reason": "VAL-EDU-045 clause (d) operating cue on manipulation/generalist-policies: the timeline sentence of the paragraph adjacent to the GeneralistReleaseTimeline mount now reads: Toggle \"Downloadable only\" to filter the timeline's 13 selected records, an authored selection. It replaces: Filter the timeline's 13 selected records, an authored selection, with Downloadable only. The rendered \"Downloadable only\" control is now named with an instruction verb the cue clause accepts, and the pinned phrase \"13 selected records, an authored selection\" is kept verbatim. No claim, number, citation, option text or mount default changes; the 2026-10-12 length-cut and the image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 19 earlier approved edges exactly, ending with kol-batch-20261021-manipulation-prose-generalist-policies.",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-045 clause (d) requires an operating cue within the two paragraphs adjacent to the first interactive that names a rendered control of that interactive, and a generic reference does not satisfy it; brand-v2-interactives scrutiny round 1 (validation/brand-v2-interactives/scrutiny/synthesis.json at 5116b66b) found the clause unmet on these routes and dispatched brand-v2-interactives-scrutiny-r1-fixes to close it under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational-affordance repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-045"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "oft-gemini-oxe-20260908-3",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "b0d9127ac3bef7bed9b28c8f87905c443ff2f58a2daf92f1892b8895b59d0e3b"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-5",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-2",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-1",
+          "oldHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951"
+        },
+        {
+          "id": "four-local-truth-repairs-20260922-1",
+          "oldHash": "a38e7023403782407cace0c918dc1f149234149748e62e9c57fe9d03d3166951",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4"
+        },
+        {
+          "id": "crossdomain-closure-20260923-1",
+          "oldHash": "bd4a5abdc213e0ef0102c1a3427a1eb6ad49db0f784dfdbe582d70ee0f1a1df4",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0140-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "6309e206061df1481bc9e606d5a83a26b866859b4889a2cb7f08d8772b0f0646"
+        },
+        {
+          "id": "humanizer-manipulation-v3-20260925-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "7c0fd3cef651f4e97cf6b32181db26d53bec8eeda1433d63db6d1d0060aebcbe"
+        },
+        {
+          "id": "educational-cue-20260926-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "e8ad571aa51f67edebeef1383eb79df06f749ca8199c51693e2f3a567e6d41df"
+        },
+        {
+          "id": "seo-pass-20261002-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "2e80b0706d877102f600ddd127b860ee052bf6eb4b1b1942a544b882cf499bc1"
+        },
+        {
+          "id": "reader-first-20261003-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "a52436bd5e9e4bc660b8bdfe0081cf753d2cfe2da56329415fcdf3614c28b5bc"
+        },
+        {
+          "id": "domain-pass-20261006-g3-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "83b1f584530b16bee39365bc1f91fa2d6c2b406464dee90214a904194048b2b8"
+        },
+        {
+          "id": "domain-pass-20261006-g5-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "375fa401bcd684d16d115413f132e4b0d13158b5a05a088bc6380d9502810a0f"
+        },
+        {
+          "id": "humanize-20261012-manipulation-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "b52ddad0439468a5159ef59f678b9a55e26dab65223167e31b4130f8f20311cc"
+        },
+        {
+          "id": "images-a-20261013-prose-manipulation-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "845a237a2e05581497764b3ed3c135cac996156d37f71a8248ac7ff99e435097"
+        },
+        {
+          "id": "kol-batch-20261021-manipulation-prose-generalist-policies",
+          "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+          "newHash": "95b1757eaacb9bdad629f2413b5f4b487398fc6b21a024a08345b9d97c4d03b9"
+        }
+      ]
     }
   ]
 }

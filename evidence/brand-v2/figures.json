@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "76f64c3523e5786c426077f2715a6a1488c356488e1845ef9ee0558edc39b21e",
+  "fingerprint": "a7fe25a7a1b1ec9b1a8642d333fe1f99a88d647c99332a4997bcbc267719e8d0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -981,7 +981,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26727,
+      "visibleTextLength": 26812,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -1074,7 +1074,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 33348,
+      "visibleTextLength": 33440,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -13799,7 +13799,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 19639,
+      "visibleTextLength": 19645,
       "figures": [
         {
           "imageId": "gemini-robotics-apollo-franka-2025",
@@ -17447,7 +17447,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36260,
+      "visibleTextLength": 36345,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -17540,7 +17540,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 43186,
+      "visibleTextLength": 43278,
       "figures": [
         {
           "imageId": "realsense-d435-depth-camera",
@@ -30265,7 +30265,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25117,
+      "visibleTextLength": 25123,
       "figures": [
         {
           "imageId": "gemini-robotics-apollo-franka-2025",

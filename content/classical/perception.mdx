@@ -82,6 +82,8 @@ Perception for manipulation turns camera and depth data into object poses in the
 
 ## An illustrative positioning budget
 
+Try the transparent bottle under "Adjust more": the depth term then dominates the budget.
+
 <PerceptionErrorBudget className="my-6" />
 
 The instrument combines authored hand-eye, depth and pose magnitudes by root-sum-of-squares, with depth fixed at a 0.5 m standoff and the hand-eye term growing with working distance up to 1.5 m. Its 15 mm and 30 mm bands are teaching thresholds: a 90 mm opening around a 60 mm part leaves $(90-60)/2=15$ mm per side, and one reported assembly task had only 0.5 mm contact clearance <Cite id="play2perfect-2026" />.

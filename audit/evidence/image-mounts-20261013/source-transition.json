@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-21T11:31:59Z",
+  "observedAt": "2026-10-22T23:49:20Z",
   "sources": [
     {
       "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
@@ -238,16 +238,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "eb4dc9adc06f2b3ee31761b6b528549c7177a60e",
       "before": {
         "path": "content/classical/motion-planning.mdx",
-        "bytes": 18180,
-        "sha256": "08b977f8e99614a478e64d76ac324f38b6a09aa2d8b34ce9256a0ee135fb3d85"
+        "bytes": 18264,
+        "sha256": "d84e4d6f47107e3c3292427cabb1f377cec59f97ac4b04a5628ac296ad70ee71"
       },
       "after": {
         "path": "content/classical/motion-planning.mdx",
-        "bytes": 18261,
-        "sha256": "b9bf3ac50a85dbe34c942f6a7df3490ab044570e9e30a71ae4cd9cfeac65f3cc"
+        "bytes": 18345,
+        "sha256": "5971af8f62c33546c994c2ac715474ef3f59ea7e891a85f47feb93784352fcd6"
       },
       "mounts": [
         "pr2-willow-garage-2010",
@@ -265,16 +265,16 @@
       ]
     },
     {
-      "archivedFrom": "5ad6d6c364eb4b0ea930ea4124f17c4445319a94",
+      "archivedFrom": "eb4dc9adc06f2b3ee31761b6b528549c7177a60e",
       "before": {
         "path": "content/classical/perception.mdx",
-        "bytes": 21570,
-        "sha256": "8249636c985991580da6988301c71e99e18e48db73998a82dda89c1335d0440c"
+        "bytes": 21661,
+        "sha256": "626c83e23b525154b234668f6f019805f2f1f1cd0395b096a8b2197ed77571aa"
       },
       "after": {
         "path": "content/classical/perception.mdx",
-        "bytes": 21653,
-        "sha256": "5377e9b86f325dcf85a1655d9fde3d05be3636fd9c3ac5e31fce1f364599ce82"
+        "bytes": 21744,
+        "sha256": "7338584d0ddec293b3c43931fcde06d7e2e537c175a405db57db870942b716e6"
       },
       "mounts": [
         "realsense-d435-depth-camera",
@@ -953,16 +953,16 @@
       ]
     },
     {
-      "archivedFrom": "af06bc71994dffbdf952efb70178717393ed08e4",
+      "archivedFrom": "eb4dc9adc06f2b3ee31761b6b528549c7177a60e",
       "before": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 11189,
-        "sha256": "e83a7d7c5d57e6facb97631d0a1bfc369e09ed02bc2b702557d785aba17cf3d0"
+        "bytes": 11195,
+        "sha256": "65017b77792f36b851d754b8d6c609466986169b574b789225d00d66fe7576bd"
       },
       "after": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 11335,
-        "sha256": "416b72fd5bfca8b5338d249ee3b8ce9a39d24c307dbe37125a1ca6fc004e8cd6"
+        "bytes": 11341,
+        "sha256": "97da58646f07c48b8b144f7fe3d6d1565a45df52a32fae4243ee87f4ffea8123"
       },
       "mounts": [
         "gemini-robotics-apollo-franka-2025",

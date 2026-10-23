@@ -403,6 +403,34 @@ export function kolBatch20261021Endpoint(
 }
 
 /**
+ * Edges the brand-v2 interactives cue fix of 2026-10-23 appended as one block
+ * after the market-map round-2 fixes: one prose edge per article whose first
+ * interactive gained an operating cue (motion planning, perception, generalist
+ * policies).
+ */
+export const isEducationalCue20261023Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('educational-cue-20261023-');
+
+/**
+ * The hash the 2026-10-23 cue fix leaves on a member whose chain ends at
+ * `from`: its one edge on the member must continue `from`, as a plain edge or
+ * as a resolution that reconciles it; an untouched member stays at `from`.
+ */
+export function educationalCue20261023Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isEducationalCue20261023Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-23 cue edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * Edges the manipulation isometric figures of 2026-10-15 (batch
  * manipulation-b04) appended as one block after the data-hardware images: one
  * prose edge per article that gained a figure mount (action spaces, the

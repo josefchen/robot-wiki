@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3e2e35db1dc6a4e261d5268cb442ead1b95f8f01a0b64aabdbda3e5ca462741c",
+  "fingerprint": "74baff932aa9a193b1c6d97987aac7609437309e36d81958be158bbeead66c6b",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3050,
+      "visibleTextLength": 3021,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1779,7 +1779,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 36260,
+      "visibleTextLength": 36345,
       "route": "/classical/motion-planning/",
       "viewport": "1440x900"
     },
@@ -1897,7 +1897,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 43186,
+      "visibleTextLength": 43278,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -5555,7 +5555,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25117,
+      "visibleTextLength": 25123,
       "route": "/manipulation/generalist-policies/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3075,
+      "visibleTextLength": 3046,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10675,7 +10675,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26727,
+      "visibleTextLength": 26812,
       "route": "/classical/motion-planning/",
       "viewport": "375x812"
     },
@@ -10793,7 +10793,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33348,
+      "visibleTextLength": 33440,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -14451,7 +14451,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19639,
+      "visibleTextLength": 19645,
       "route": "/manipulation/generalist-policies/",
       "viewport": "375x812"
     },

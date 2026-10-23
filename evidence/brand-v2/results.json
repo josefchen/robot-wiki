@@ -173337,7 +173337,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to 24ceb4e1249ca2c1b9a1629ba117ffbcb7432b9c36891280575229a05e4f9b0c exactly as approved delta images-a-20261013-prose-classical-motion-planning permits: Images bundle A of 2026-10-13 (the manipulation, world-models, classical and rl-sim2real image batches, integrated on the length-cut articles), as one plain edge from the member's last approved endpoint (humanize-20261012-classical-prose-motion-planning). The article gains 2 registered images, each a one-line <Image id=\"...\" /> mount on its own line between blank lines: pr2-willow-garage-2010 after the lead paragraph and atlas-vrc-simulation-2013 in \"TrajOpt: penalties, trust regions, and collision limits\". No prose, number, citation, link target, glossary id, frontmatter field, import or other mount changes. The image-mount continuity review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds the article's earlier bytes from the live file by taking out exactly these mounts.",
+      "actual": "prose member article:classical/motion-planning moved from c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79 to f2f8187bfaa6a9dd6675a7ffe72d0bc59cf8f33a9cb65fcc239aec0fc727cdb4 exactly as approved delta educational-cue-20261023-prose-motion-planning permits: VAL-EDU-045 clause (d) operating cue on classical/motion-planning: one short paragraph added directly before the RrtExplorer mount, reading: Drag the slider to step through the search, or press \"Grow the tree\" to replay it. The cue names the explorer's rendered slider (\"How far the search has grown\") and its \"Grow the tree\" button with a second-person instruction verb. No claim, number, citation, option text or mount default changes; the 2026-10-12 length-cut and the image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (images-a-20261013-prose-classical-motion-planning).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -173349,9 +173349,9 @@
           "manifest": "prose",
           "member": "article:classical/motion-planning",
           "baselineHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
-          "currentHash": "24ceb4e1249ca2c1b9a1629ba117ffbcb7432b9c36891280575229a05e4f9b0c",
+          "currentHash": "f2f8187bfaa6a9dd6675a7ffe72d0bc59cf8f33a9cb65fcc239aec0fc727cdb4",
           "status": "approved-delta",
-          "approvedDelta": "images-a-20261013-prose-classical-motion-planning"
+          "approvedDelta": "educational-cue-20261023-prose-motion-planning"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -173365,7 +173365,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to f8b22d2a92e33b375f3744de072ee5e5c28cb65f042d5d074ee8ef9b6242ddb2 exactly as approved delta polish-1019-prose-article-classical-perception permits: Polish of 2026-10-19 (queue item 4q, polish-1019, built by the owner session), as one plain edge from the member's last approved endpoint (images-a-20261013-prose-classical-perception). The article had ten `<br className=\"lg:hidden\" />` breaks written directly before a citation chip (since 2026-09-09), so below 1024 px nine of those citation numbers stood alone at the start of a line at 390 px. Each break is removed and the chip is written after its word with one space, the corpus's form, which lib/rehype-cite-punctuation.mjs binds to the preceding word and its trailing punctuation. No prose, number, citation, link target, glossary id, frontmatter field, import or mount changes. The length-cut review (audit/evidence/length-cut-20261012/source-transition.json) records the break-free text as the article's successor bytes, and the image-mount review (audit/evidence/image-mounts-20261013/source-transition.json) rebuilds them from the live file by taking out exactly its two image mounts.",
+      "actual": "prose member article:classical/perception moved from 1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8 to 83f622cbb0784e49a1895d2a923547da281670b7fce92a02e35ff380898b0141 exactly as approved delta educational-cue-20261023-prose-perception permits: VAL-EDU-045 clause (d) operating cue on classical/perception: one short paragraph added under \"An illustrative positioning budget\", directly before the PerceptionErrorBudget mount, reading: Try the transparent bottle under \"Adjust more\": the depth term then dominates the budget. The cue names the rendered \"transparent bottle\" target control inside the instrument's \"Adjust more\" fold, and the statement is the instrument's own documented behaviour (the transparent case raises the depth floor, which then sets the depth term). No claim, number, citation, option text or mount default changes; the 2026-10-12 length-cut and the image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (polish-1019-prose-article-classical-perception).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -173377,9 +173377,9 @@
           "manifest": "prose",
           "member": "article:classical/perception",
           "baselineHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
-          "currentHash": "f8b22d2a92e33b375f3744de072ee5e5c28cb65f042d5d074ee8ef9b6242ddb2",
+          "currentHash": "83f622cbb0784e49a1895d2a923547da281670b7fce92a02e35ff380898b0141",
           "status": "approved-delta",
-          "approvedDelta": "polish-1019-prose-article-classical-perception"
+          "approvedDelta": "educational-cue-20261023-prose-perception"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -174037,7 +174037,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to 95b1757eaacb9bdad629f2413b5f4b487398fc6b21a024a08345b9d97c4d03b9 exactly as approved delta kol-batch-20261021-manipulation-prose-generalist-policies permits: KOL triage batch of 2026-10-21 (notes older than 72 hours) on manipulation/generalist-policies: adds one dated paragraph at the end of \"Human-video transfer\": Steertuning (Lerrel Pinto and colleagues at NYU, October 2026) pretrains a 400M-parameter diffusion policy on egocentric human video alone and adapts it to a new task from 5 human demonstrations with 2 minutes of LoRA fine-tuning and steering toward the closest demonstration; the authors report 71% average success over 12 new tasks (9 in a rented home, 3 in their lab), and on the lab tasks 25 of 30 trials against 7 with steering alone and none with the short fine-tune alone (steertuning-2026, arXiv 2610.18711). No other text changes; the 2026-10-12 length-cut and image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 18 earlier approved edges exactly, ending with images-a-20261013-prose-manipulation-generalist-policies.",
+      "actual": "prose member article:manipulation/generalist-policies moved from 2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6 to bd4aca967173ddfdd217d9a422bff1c895da689b5d6d2d39a8372456871d0690 exactly as approved delta educational-cue-20261023-prose-generalist-policies permits: VAL-EDU-045 clause (d) operating cue on manipulation/generalist-policies: the timeline sentence of the paragraph adjacent to the GeneralistReleaseTimeline mount now reads: Toggle \"Downloadable only\" to filter the timeline's 13 selected records, an authored selection. It replaces: Filter the timeline's 13 selected records, an authored selection, with Downloadable only. The rendered \"Downloadable only\" control is now named with an instruction verb the cue clause accepts, and the pinned phrase \"13 selected records, an authored selection\" is kept verbatim. No claim, number, citation, option text or mount default changes; the 2026-10-12 length-cut and the image-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 19 earlier approved edges exactly, ending with kol-batch-20261021-manipulation-prose-generalist-policies.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -174049,9 +174049,9 @@
           "manifest": "prose",
           "member": "article:manipulation/generalist-policies",
           "baselineHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
-          "currentHash": "95b1757eaacb9bdad629f2413b5f4b487398fc6b21a024a08345b9d97c4d03b9",
+          "currentHash": "bd4aca967173ddfdd217d9a422bff1c895da689b5d6d2d39a8372456871d0690",
           "status": "approved-delta",
-          "approvedDelta": "kol-batch-20261021-manipulation-prose-generalist-policies"
+          "approvedDelta": "educational-cue-20261023-prose-generalist-policies"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -195828,7 +195828,7 @@
           "observed": {
             "focusStops": 90,
             "links": 528,
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "viewports": 3
           },
           "predicates": [
@@ -195870,7 +195870,7 @@
           "observed": {
             "focusStops": 90,
             "links": 585,
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "viewports": 3
           },
           "predicates": [
@@ -201777,7 +201777,7 @@
             "1440x900"
           ],
           "observed": {
-            "textRuns": 1567,
+            "textRuns": 1570,
             "fields": 0,
             "viewports": 3
           },
@@ -201815,7 +201815,7 @@
             "1440x900"
           ],
           "observed": {
-            "textRuns": 1720,
+            "textRuns": 1723,
             "fields": 0,
             "viewports": 3
           },
@@ -204601,7 +204601,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "viewports": 3
           },
           "predicates": [
@@ -204637,7 +204637,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "viewports": 3
           },
           "predicates": [
@@ -225004,7 +225004,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "At 375, 768 and 1440px every major block (the page h1, each direct child of the page frame that owns it, and each direct child of the prose column) starts, ends or centres within 4px of a line of that frame: its content edges, its centre line, or a track edge or track centre of its own grid; spacing keeps the 8px base rhythm with 4px fine alignment of the `VAL-B2-SPACE-001` ladder. The owner-frozen `/how-robots-work/` explainers (Josef, 12 October 2026) are measured and reported, not realigned. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`: \"Content column centred, 960 px\"; the brand-v2 row aligned composition to 12, 8 and 4 columns. Same strength: every major block of every public route at every frame width.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes set 2619 major blocks on a line of the frame that owns them, within 4px, over 36310 spacing values on the ladder",
+      "actual": "frame:mobile at 375x812: all 75 public routes set 2621 major blocks on a line of the frame that owns them, within 4px, over 36312 spacing values on the ladder",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225020,14 +225020,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -225049,7 +225049,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "At 375, 768 and 1440px every major block (the page h1, each direct child of the page frame that owns it, and each direct child of the prose column) starts, ends or centres within 4px of a line of that frame: its content edges, its centre line, or a track edge or track centre of its own grid; spacing keeps the 8px base rhythm with 4px fine alignment of the `VAL-B2-SPACE-001` ladder. The owner-frozen `/how-robots-work/` explainers (Josef, 12 October 2026) are measured and reported, not realigned. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`: \"Content column centred, 960 px\"; the brand-v2 row aligned composition to 12, 8 and 4 columns. Same strength: every major block of every public route at every frame width.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes set 2619 major blocks on a line of the frame that owns them, within 4px, over 36343 spacing values on the ladder",
+      "actual": "frame:tablet at 768x1024: all 75 public routes set 2621 major blocks on a line of the frame that owns them, within 4px, over 36345 spacing values on the ladder",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225065,14 +225065,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -225094,7 +225094,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "At 375, 768 and 1440px every major block (the page h1, each direct child of the page frame that owns it, and each direct child of the prose column) starts, ends or centres within 4px of a line of that frame: its content edges, its centre line, or a track edge or track centre of its own grid; spacing keeps the 8px base rhythm with 4px fine alignment of the `VAL-B2-SPACE-001` ladder. The owner-frozen `/how-robots-work/` explainers (Josef, 12 October 2026) are measured and reported, not realigned. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`: \"Content column centred, 960 px\"; the brand-v2 row aligned composition to 12, 8 and 4 columns. Same strength: every major block of every public route at every frame width.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes set 2619 major blocks on a line of the frame that owns them, within 4px, over 47126 spacing values on the ladder",
+      "actual": "frame:desktop at 1440x900: all 75 public routes set 2621 major blocks on a line of the frame that owns them, within 4px, over 47128 spacing values on the ladder",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225110,14 +225110,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -225898,7 +225898,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "proseRuns": 1487,
+            "proseRuns": 1491,
             "viewports": 3
           },
           "predicates": [
@@ -225937,7 +225937,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "proseRuns": 1512,
+            "proseRuns": 1517,
             "viewports": 3
           },
           "predicates": [
@@ -236701,7 +236701,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/: 1 registered device(s) at 375x812, 1 registered device(s) at 768x1024, 1 registered device(s) at 1440x900, never more on a narrower width, and the same 122 reachable strings at every width",
+      "actual": "route:/: 1 registered device(s) at 375x812, 1 registered device(s) at 768x1024, 1 registered device(s) at 1440x900, never more on a narrower width, and the same 123 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -236716,7 +236716,7 @@
           ],
           "observed": {
             "devices@1440x900": 1,
-            "contentStrings": 122,
+            "contentStrings": 123,
             "devices@375x812": 1,
             "devices@768x1024": 1,
             "viewports": 3
@@ -237169,7 +237169,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/classical/motion-planning/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 595 reachable strings at every width",
+      "actual": "route:/classical/motion-planning/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 596 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -237184,7 +237184,7 @@
           ],
           "observed": {
             "devices@1440x900": 2,
-            "contentStrings": 595,
+            "contentStrings": 596,
             "devices@375x812": 2,
             "devices@768x1024": 2,
             "viewports": 3
@@ -237205,7 +237205,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/classical/perception/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 716 reachable strings at every width",
+      "actual": "route:/classical/perception/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 717 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -237220,7 +237220,7 @@
           ],
           "observed": {
             "devices@1440x900": 2,
-            "contentStrings": 716,
+            "contentStrings": 717,
             "devices@375x812": 2,
             "devices@768x1024": 2,
             "viewports": 3
@@ -248698,7 +248698,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6125 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6067 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -249312,7 +249312,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 62987 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/motion-planning/ rendered no v1 identity spelling and no v1 descriptor in 63157 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -249359,7 +249359,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 76534 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/classical/perception/ rendered no v1 identity spelling and no v1 descriptor in 76718 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -250816,7 +250816,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44756 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/generalist-policies/ rendered no v1 identity spelling and no v1 descriptor in 44768 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342795,7 +342795,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":27,\"maxLatencyMs\":27}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":27.6,\"maxLatencyMs\":27.6}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342816,8 +342816,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 27,
-          "maxLatencyMs": 27,
+          "medianLatencyMs": 27.6,
+          "maxLatencyMs": 27.6,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342833,7 +342833,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":7.4,\"maxLatencyMs\":19.5}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":7.3,\"maxLatencyMs\":19.9}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342854,8 +342854,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 7.4,
-          "maxLatencyMs": 19.5,
+          "medianLatencyMs": 7.3,
+          "maxLatencyMs": 19.9,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342871,7 +342871,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.6,\"maxLatencyMs\":65.2}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.6,\"maxLatencyMs\":65.3}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342896,7 +342896,7 @@
           "nonEmptyCases": 257,
           "timedCases": 258,
           "medianLatencyMs": 5.6,
-          "maxLatencyMs": 65.2,
+          "maxLatencyMs": 65.3,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342912,7 +342912,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":13.95,\"maxLatencyMs\":113}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":11.5,\"maxLatencyMs\":35.6}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342936,8 +342936,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 13.95,
-          "maxLatencyMs": 113,
+          "medianLatencyMs": 11.5,
+          "maxLatencyMs": 35.6,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342953,7 +342953,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":20.25,\"maxLatencyMs\":2358.3,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":10.7,\"maxLatencyMs\":180.6,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342977,8 +342977,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 20.25,
-          "maxLatencyMs": 2358.3,
+          "medianLatencyMs": 10.7,
+          "maxLatencyMs": 180.6,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -343014,7 +343014,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":20.3,\"maxLatencyMs\":42.6}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":21.4,\"maxLatencyMs\":33.6}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343038,8 +343038,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 20.3,
-          "maxLatencyMs": 42.6,
+          "medianLatencyMs": 21.4,
+          "maxLatencyMs": 33.6,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343151,7 +343151,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":19.3,\"maxLatencyMs\":40.7}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":18,\"maxLatencyMs\":41.8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343172,8 +343172,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 19.3,
-          "maxLatencyMs": 40.7,
+          "medianLatencyMs": 18,
+          "maxLatencyMs": 41.8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -385424,7 +385424,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36310 spacing values, 34737 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55372 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36312 spacing values, 34739 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55375 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385440,14 +385440,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -385469,7 +385469,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36343 spacing values, 35959 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40509 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36345 spacing values, 35961 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40511 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385485,14 +385485,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -385514,7 +385514,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47126 spacing values, 42060 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43104 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47128 spacing values, 42062 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43106 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385530,14 +385530,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -385559,7 +385559,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36310 spacing values, 34737 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55372 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36312 spacing values, 34739 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55375 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385575,14 +385575,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -385604,7 +385604,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36343 spacing values, 35959 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40509 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36345 spacing values, 35961 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40511 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385620,14 +385620,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -385649,7 +385649,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47126 spacing values, 42060 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43104 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47128 spacing values, 42062 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43106 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385665,14 +385665,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -385694,7 +385694,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36310 spacing values, 34737 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55372 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36312 spacing values, 34739 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55375 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385710,14 +385710,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -385739,7 +385739,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36343 spacing values, 35959 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40509 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36345 spacing values, 35961 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40511 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385755,14 +385755,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -385784,7 +385784,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47126 spacing values, 42060 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43104 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47128 spacing values, 42062 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43106 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385800,14 +385800,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -385829,7 +385829,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36310 spacing values, 34737 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55372 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36312 spacing values, 34739 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55375 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385845,14 +385845,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -385874,7 +385874,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36343 spacing values, 35959 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40509 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36345 spacing values, 35961 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40511 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385890,14 +385890,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -385919,7 +385919,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47126 spacing values, 42060 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43104 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47128 spacing values, 42062 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43106 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385935,14 +385935,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -385964,7 +385964,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36310 spacing values, 34737 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55372 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36312 spacing values, 34739 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55375 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -385980,14 +385980,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386009,7 +386009,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36343 spacing values, 35959 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40509 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36345 spacing values, 35961 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40511 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386025,14 +386025,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386054,7 +386054,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47126 spacing values, 42060 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43104 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47128 spacing values, 42062 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43106 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386070,14 +386070,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386099,7 +386099,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36310 spacing values, 34737 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55372 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36312 spacing values, 34739 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55375 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386115,14 +386115,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36310,
-            "insetTextRuns": 34737,
+            "spacingValues": 36312,
+            "insetTextRuns": 34739,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55372,
+            "collisionTextBoxes": 55375,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386144,7 +386144,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36343 spacing values, 35959 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40509 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36345 spacing values, 35961 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40511 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386160,14 +386160,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36343,
-            "insetTextRuns": 35959,
+            "spacingValues": 36345,
+            "insetTextRuns": 35961,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40509,
+            "collisionTextBoxes": 40511,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386189,7 +386189,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47126 spacing values, 42060 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43104 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47128 spacing values, 42062 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43106 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386205,14 +386205,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2619,
+            "compositionBlocks": 2621,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47126,
-            "insetTextRuns": 42060,
+            "spacingValues": 47128,
+            "insetTextRuns": 42062,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43104,
+            "collisionTextBoxes": 43106,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386730,7 +386730,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "viewports": 3
           },
           "predicates": [
@@ -386767,7 +386767,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "viewports": 3
           },
           "predicates": [
@@ -394895,7 +394895,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "viewports": 3
           },
           "predicates": [
@@ -394931,7 +394931,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "viewports": 3
           },
           "predicates": [
@@ -397595,7 +397595,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "viewports": 3
           },
           "predicates": [
@@ -397631,7 +397631,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "viewports": 3
           },
           "predicates": [
@@ -400321,7 +400321,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -400359,7 +400359,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -403171,7 +403171,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -403209,7 +403209,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -405995,7 +405995,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 9107,
+            "paintedElements": 9110,
             "viewports": 3
           },
           "predicates": [
@@ -406031,7 +406031,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5897,
+            "paintedElements": 5900,
             "viewports": 3
           },
           "predicates": [
@@ -418298,7 +418298,7 @@
             {
               "id": "/classical/motion-planning/",
               "observed": {
-                "paragraphCount": 41,
+                "paragraphCount": 42,
                 "familyHeads": [
                   "geist"
                 ],
@@ -418339,7 +418339,7 @@
             {
               "id": "/classical/perception/",
               "observed": {
-                "paragraphCount": 41,
+                "paragraphCount": 42,
                 "familyHeads": [
                   "geist"
                 ],
@@ -425657,7 +425657,7 @@
             {
               "id": "/classical/motion-planning/",
               "observed": {
-                "paragraphCount": 82,
+                "paragraphCount": 84,
                 "registeredFrameParagraphCount": 8,
                 "offendingFamilies": []
               }
@@ -425694,7 +425694,7 @@
             {
               "id": "/classical/perception/",
               "observed": {
-                "paragraphCount": 82,
+                "paragraphCount": 84,
                 "registeredFrameParagraphCount": 14,
                 "offendingFamilies": []
               }
@@ -456007,7 +456007,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. The sealed ranges are the research-page roles: page and article h1 in DM Sans 400 at 40–48 px on phones and 84–92 px at 1440 px, line height 0.90–0.96; section display in DM Sans 600 uppercase at 20–20.5 px, tracked 0.05–0.06 em; supporting heads in DM Sans 600 at 14–18 px; UI body in Geist 400–600 at 11–16 px (or a listed entry title in DM Sans 600 at 15–16 px); data/control in Geist Mono at 11–24 px; registration labels in Geist 500 uppercase at 11–14 px, tracked about 0.08 em. Every other rendered text run belongs to a sealed population too: the 16 px / 1.62 Geist reading body, sub- and superscripts at 0.60–0.85 of their line, home's featured title and dek, and the DM Sans wordmark instance, so no text falls outside every range. The 768 px tablet frame takes the union of the phone and desktop h1 ranges. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row sealed Tektur display, IBM Plex Sans and IBM Plex Mono ranges. Same strength: every rendered text run on every public route at 375, 768 and 1440 px, each population non-empty.)",
-      "actual": "the reading-body population holds 3708 rendered elements in 1 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population",
+      "actual": "the reading-body population holds 3714 rendered elements in 1 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population",
       "selectorOrRegistryId": "lib/brand-v2-global-convergence-evidence.ts#TYPE_POPULATIONS",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -456021,7 +456021,7 @@
             "1440x900"
           ],
           "observed": {
-            "elements": 3708,
+            "elements": 3714,
             "forms": 1,
             "exempted": 0
           },
@@ -458192,28 +458192,28 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "f97dcf3931f8ab7bfc035b76c105d92ed3e952809db4500ea585c203a3d79191",
+              "sha256": "a247771b891d8967d03cad64cf0d6a3c54d5b5463f0622b8ffde610270aff597",
               "widthPx": 327,
               "heightPx": 655
             },
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "5ffa5c44537a65b1bb56f1cb11e8e5dc2aa2f74fd0d06c908a448ee71ad36aea",
+              "sha256": "11b625f53cd664bec5b9a7e507bc8ea22de2b348dd1b8d8a8c98fe7990bff829",
               "widthPx": 327,
               "heightPx": 637
             },
             {
               "viewport": "1440x900",
               "state": "default",
-              "sha256": "2929ab5d6edb7cc7048636dd6b43602bbd54b53103c4e0b097da6ff0ffe51e6f",
+              "sha256": "2145a4458c01af3083475f0f0d21294becd8ffe8b59175de9fea7e86d4c8848d",
               "widthPx": 930,
               "heightPx": 949
             },
             {
               "viewport": "1440x900",
               "state": "changed",
-              "sha256": "ef1b8e00524a669445db8f9188b62a3174d3648550fc628ce993f450eae49033",
+              "sha256": "d162c73a5fb0d8299b35540c9f3b72eeeb42daf105341a077eb1b4c6083dd58c",
               "widthPx": 930,
               "heightPx": 949
             }
@@ -458267,28 +458267,28 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "3de63d214c68894e41f95f382db685cd7222a313b885d45f70371e7952de9b34",
+              "sha256": "b8e28654bbc9aa255e7a288753790e328c211f8b22613388cccdd607939e4f29",
               "widthPx": 327,
-              "heightPx": 695
+              "heightPx": 694
             },
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "560cb9339a0c8889d5a3b55f1fe006e12ee23f25c8f368aa6657e7c7ec8e6f9a",
+              "sha256": "4f272726c978be8f868ad70e9a60f5705ba435538641d68a43de1bd5aba89545",
               "widthPx": 327,
-              "heightPx": 695
+              "heightPx": 694
             },
             {
               "viewport": "1440x900",
               "state": "default",
-              "sha256": "61bbeec406e9ab6b7fa9672f1083f63329055c9b842a42f410ea072220146065",
+              "sha256": "ecf46b7d3f0fb35812d9424b16e093e2ba687d4e2f908b795e318e944d43d910",
               "widthPx": 930,
               "heightPx": 851
             },
             {
               "viewport": "1440x900",
               "state": "changed",
-              "sha256": "ea8edd22aa3dec39d83183d809a3fab2c317e314f472668ae3ffae1d0a06a240",
+              "sha256": "7c005127b34bcf521a1f83f312026c3235e3830986aed88c8ddcaee795b6ca6e",
               "widthPx": 930,
               "heightPx": 851
             }

@@ -4,7 +4,7 @@
   "reviewedBy": "implementation workers for the manipulation, classical and rl-sim2real humanize passes of 2026-10-12, combined into one review by the integration lane (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
   "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
-  "observedAt": "2026-10-21T11:22:54Z",
+  "observedAt": "2026-10-22T23:49:19Z",
   "sources": [
     {
       "archivedFrom": "08955866d1810a79371706218a7cd4e8be9e0b4e",
@@ -819,13 +819,13 @@
       },
       "after": {
         "path": "content/classical/motion-planning.mdx",
-        "bytes": 18180,
-        "sha256": "08b977f8e99614a478e64d76ac324f38b6a09aa2d8b34ce9256a0ee135fb3d85"
+        "bytes": 18264,
+        "sha256": "d84e4d6f47107e3c3292427cabb1f377cec59f97ac4b04a5628ac296ad70ee71"
       },
       "edits": [
         {
           "before": "Motion planning is the computation of a collision-free route from a robot's current configuration to a goal <Cite id=\"lavalle-2006\" />. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id=\"ratliff-2009\" /><Cite id=\"schulman-2013\" />. [Kinematics](/classical/kinematics) maps joint angles to poses, and planning sequences them.\n",
-          "after": "Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id=\"lavalle-2006\" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id=\"ratliff-2009\" /><Cite id=\"schulman-2013\" />.\n"
+          "after": "Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id=\"lavalle-2006\" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id=\"ratliff-2009\" /><Cite id=\"schulman-2013\" />.\n\nDrag the slider to step through the search, or press \"Grow the tree\" to replay it.\n"
         },
         {
           "before": "Shrinking the robot to a point and growing each obstacle by its shape reduces collision checking to point membership. Planning becomes the search for a continuous curve in $\\mathcal{C}_{free}$ from $q_{start}$ to $q_{goal}$ <Cite id=\"lozano-perez-1983\" />. Explicit boundary or solid models of $\\mathcal{C}_{obs}$ are difficult to build, though semi-algebraic models for chains and trees can be generated automatically. The basic semi-algebraic mover problem is PSPACE-hard when the number of <Term id=\"degrees-of-freedom\">degrees of freedom</Term> is unbounded <Cite id=\"lavalle-2006\" />. Hardness holds for a planar linkage with multiple links and for a multi-arm robot among 3D polyhedra; Canny's roadmap method is singly exponential <Cite id=\"solovey-complexity-2020\" />.\n",
@@ -1167,13 +1167,17 @@
       },
       "after": {
         "path": "content/classical/perception.mdx",
-        "bytes": 21570,
-        "sha256": "8249636c985991580da6988301c71e99e18e48db73998a82dda89c1335d0440c"
+        "bytes": 21661,
+        "sha256": "626c83e23b525154b234668f6f019805f2f1f1cd0395b096a8b2197ed77571aa"
       },
       "edits": [
         {
           "before": "Perception for manipulation is the pipeline that turns camera and depth data into object poses in the robot's own frame. Calibration, depth sensing, detection, segmentation and pose estimation feed it, and DOPE's pose network was accurate enough for a real robot to grasp known household objects in clutter <Cite id=\"dope-2018\" />. [Grasp planning](/classical/grasp-planning) then computes grasps against that pose.\n",
           "after": "Perception for manipulation turns camera and depth data into object poses in the robot's own frame, through calibration, depth sensing, detection, segmentation and pose estimation, and [grasp planning](/classical/grasp-planning) computes grasps against those poses. DOPE's pose network was accurate enough for a real robot to grasp known household objects in clutter <Cite id=\"dope-2018\" />.\n"
+        },
+        {
+          "before": "## An illustrative positioning budget\n\n",
+          "after": "## An illustrative positioning budget\n\nTry the transparent bottle under \"Adjust more\": the depth term then dominates the budget.\n\n"
         },
         {
           "before": "The instrument combines authored hand-eye, depth and pose magnitudes by root-sum-of-squares, with depth fixed at a 0.5 m standoff and the hand-eye term growing with working distance up to 1.5 m. Its 15 mm and 30 mm bands are teaching thresholds: a 90 mm opening around a 60 mm part leaves $(90-60)/2=15$ mm per side. One reported assembly task had only 0.5 mm contact clearance <Cite id=\"play2perfect-2026\" />.\n",
@@ -4509,13 +4513,17 @@
       },
       "after": {
         "path": "content/manipulation/generalist-policies.mdx",
-        "bytes": 11189,
-        "sha256": "e83a7d7c5d57e6facb97631d0a1bfc369e09ed02bc2b702557d785aba17cf3d0"
+        "bytes": 11195,
+        "sha256": "65017b77792f36b851d754b8d6c609466986169b574b789225d00d66fe7576bd"
       },
       "edits": [
         {
           "before": "  - roboarena-2025\n",
           "after": "  - roboarena-2025\n  - steertuning-2026\n"
+        },
+        {
+          "before": "Outside the [VLA line](/manipulation/vla-models/) and [Physical Intelligence's π models](/manipulation/pi-line/), the main 2026 lines are Google DeepMind's Gemini Robotics <Cite id=\"gemini-robotics-2-2026\" />, NVIDIA's GR00T, Figure's Helix, AgiBot's GO series, Skild AI and Generalist AI. Filter the timeline's 13 selected records, an authored selection, with Downloadable only.\n",
+          "after": "Outside the [VLA line](/manipulation/vla-models/) and [Physical Intelligence's π models](/manipulation/pi-line/), the main 2026 lines are Google DeepMind's Gemini Robotics <Cite id=\"gemini-robotics-2-2026\" />, NVIDIA's GR00T, Figure's Helix, AgiBot's GO series, Skild AI and Generalist AI. Toggle \"Downloadable only\" to filter the timeline's 13 selected records, an authored selection.\n"
         },
         {
           "before": "DeepMind's March 2025 report introduces a Gemini 2.0-based family. Gemini Robotics-ER extends spatial and temporal understanding for pointing, trajectory prediction and grasp prediction, and Gemini Robotics builds on ER to produce robot actions <Cite id=\"gemini-robotics-2025\" />. The March 12, 2025 launch post says Gemini Robotics more than doubles performance on a comprehensive generalization benchmark against other state-of-the-art VLAs, announces an Apptronik humanoid partnership and gives ER to trusted testers <Cite id=\"gemini-robotics-blog-2025\" />.\n",

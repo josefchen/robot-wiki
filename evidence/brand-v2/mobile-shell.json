@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3075,
+      "visibleTextLength": 3046,
       "header": {
         "present": true,
         "display": "flex",
@@ -2180,7 +2180,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 26727,
+      "visibleTextLength": 26812,
       "header": {
         "present": true,
         "display": "flex",
@@ -2342,7 +2342,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 33348,
+      "visibleTextLength": 33440,
       "header": {
         "present": true,
         "display": "flex",
@@ -7356,7 +7356,7 @@
     },
     {
       "route": "/manipulation/generalist-policies/",
-      "visibleTextLength": 19639,
+      "visibleTextLength": 19645,
       "header": {
         "present": true,
         "display": "flex",

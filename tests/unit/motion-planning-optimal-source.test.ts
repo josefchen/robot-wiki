@@ -8,8 +8,8 @@ import { committedSource } from '../helpers/continuation-integration';
 import { preFigureMigration } from '../helpers/figure-migration';
 import { preDomainPass, preSeoPassText } from '../helpers/seo-pass';
 import {
-  classicalPassEndpoint, domainPassEndpoint, humanize20261012Endpoint, imagesA20261013Endpoint, isDomainPassEdge,
-  kolQueue20261012Endpoint, preDomainPassCitations,
+  classicalPassEndpoint, domainPassEndpoint, educationalCue20261023Endpoint, humanize20261012Endpoint,
+  imagesA20261013Endpoint, isDomainPassEdge, kolQueue20261012Endpoint, preDomainPassCitations,
 } from '../helpers/domain-pass';
 const read = (p: string) => fs.readFileSync(p, 'utf8');
 const endpoints = [
@@ -100,8 +100,8 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       // The 2026-10-06 domain pass, which rewrote the article from the
       // owner's draft, continues the SEO endpoint; the later classical pass,
       // the 2026-10-12 KOL triage batch, the 2026-10-12 classical humanize
-      // pass and images bundle A of 2026-10-13 carry that endpoint to the
-      // live article.
+      // pass, images bundle A of 2026-10-13 and the 2026-10-23 cue fix carry
+      // that endpoint to the live article.
       const domainPass = entries.find((entry) => isDomainPassEdge(entry) && entry.manifest === 'prose' &&
         entry.memberId === memberId && (entry.oldHash === seo[0].newHash ||
           (entry.reconciles ?? []).some((binding) => binding.newHash === seo[0].newHash)));
@@ -109,8 +109,9 @@ describe('Optimal sampling and OMPL source-bound endpoints', () => {
       const classicalEnd = classicalPassEndpoint(entries, 'prose', memberId,
         domainPassEndpoint(entries, domainPass!).newHash);
       expect(classicalEnd).not.toBe(digest(read(e.path)));
-      expect(imagesA20261013Endpoint(entries, 'prose', memberId, humanize20261012Endpoint(entries, 'prose', memberId,
-        kolQueue20261012Endpoint(entries, 'prose', memberId, classicalEnd)))).toBe(digest(read(e.path)));
+      expect(educationalCue20261023Endpoint(entries, 'prose', memberId, imagesA20261013Endpoint(entries, 'prose', memberId,
+        humanize20261012Endpoint(entries, 'prose', memberId,
+          kolQueue20261012Endpoint(entries, 'prose', memberId, classicalEnd))))).toBe(digest(read(e.path)));
       if (e.id.startsWith('row9-')) {
         expect(read(e.path)).toContain('which excludes differential constraints');
         expect(read(e.path)).toContain('the conservative one is');
