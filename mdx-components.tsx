@@ -12,6 +12,7 @@ import {
   KeyValue,
   Stat,
 } from '@/components/ui';
+import { CopyButton } from '@/components/ui/copy-button';
 import { CiteRef } from '@/components/mdx/cite-ref';
 import { FigureReuse } from '@/components/motion/figure-reuse';
 import { ImageRef } from '@/components/mdx/image-ref';
@@ -88,9 +89,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // rehype-pretty-code wraps a fenced sample in a <figure> with a
     // <figcaption> title bar. A code listing is prose, not a figure, so the
     // wrapper and its title render as plain elements that keep their data
-    // hooks and the id the scroll region borrows its name from.
-    figure: (props: ComponentPropsWithoutRef<'figure'>) =>
-      'data-rehype-pretty-code-figure' in props ? <div {...props} /> : <figure {...props} />,
+    // hooks and the id the scroll region borrows its name from. The copy
+    // control sits in the block's top-right corner, level with the title,
+    // and reads the block's code when pressed.
+    figure: ({ children, className, ...props }: ComponentPropsWithoutRef<'figure'>) =>
+      'data-rehype-pretty-code-figure' in props ? (
+        <div {...props} className={`relative ${className ?? ''}`.trim()}>
+          {children}
+          <span className="absolute right-6 top-[11px]">
+            <CopyButton />
+          </span>
+        </div>
+      ) : (
+        <figure {...props} className={className}>
+          {children}
+        </figure>
+      ),
     // rehype-pretty-code emits the highlighted block's title bar and its
     // bordered <pre>; both are painted planes the surface registry governs,
     // and neither passes through a first-party component where the

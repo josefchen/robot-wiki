@@ -684,6 +684,12 @@ article > hr {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition: color 160ms ease;
+}
+
+/* The top bar's links answer the pointer the same way: ink steps to muted. */
+.article-contents summary:hover {
+  color: var(--muted);
 }
 
 .article-contents summary::-webkit-details-marker {

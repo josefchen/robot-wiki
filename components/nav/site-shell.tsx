@@ -147,7 +147,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               aria-current={pathname === '/' ? 'page' : undefined}
               data-tektur-role="shell-wordmark"
               data-brand-control-id="control:link-focus"
-              className="inline-flex min-h-6 items-center font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text"
+              className="inline-flex min-h-6 items-center font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text transition-colors hover:text-text-dim"
             >
               {PUBLIC_IDENTITY}
             </Link>
@@ -230,7 +230,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                     onClick={() => setDrawerOpen(false)}
                     data-tektur-role="shell-wordmark"
                     data-brand-control-id="control:link-focus"
-                    className="inline-flex min-h-6 items-center font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text"
+                    className="inline-flex min-h-6 items-center font-display-shell text-[17px] leading-none tracking-[-0.01em] text-text transition-colors hover:text-text-dim"
                   >
                     {PUBLIC_IDENTITY}
                   </Link>

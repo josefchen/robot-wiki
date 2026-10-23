@@ -313,7 +313,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         {TARGET_CLASSES.map((option) => (
           <label
             key={option.id}
-            className="inline-flex min-h-9 cursor-pointer items-center gap-1.5 font-sans text-sm text-text"
+            className="inline-flex min-h-9 cursor-pointer items-center gap-1.5 font-sans text-sm text-text transition-colors hover:text-text-dim"
           >
             <input
               type="radio"
@@ -324,7 +324,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
               onChange={() => setParam('target', option.id as TargetId)}
               aria-label={option.label}
               data-testid={`perception-target-${option.id}`}
-              className="h-4 w-4 cursor-pointer accent-highlight"
+              className="h-4 w-4 cursor-pointer accent-ink"
             />
             <span>
               {option.label}{' '}

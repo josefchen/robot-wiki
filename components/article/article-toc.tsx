@@ -93,7 +93,7 @@ export function ArticleToc({ items: initial, startId }: ArticleTocProps) {
         {list}
       </nav>
       <details className="article-contents">
-        <summary>Contents</summary>
+        <summary data-brand-control-id="control:secondary-action">Contents</summary>
         <nav aria-label="Contents">{list}</nav>
       </details>
     </div>

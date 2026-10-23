@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9dfa079751c6377241a7e140f8b8df3e12b9c1338aec27e27f5c011a9d9b0522",
+  "fingerprint": "582518950dc9e4d5472b2b9fd212b537f8c09af869dfbbddba9a3ea4ae32f24a",
   "viewports": [
     "375x812",
     "1440x900"
@@ -9528,12 +9528,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "f1937c43e951ff0658fdecc742b5a672c82d45f4064cadeccc5a95beb791c6a2",
+          "sha256": "9eaff989d5a298cd85b6fd1dcd285a068b4a1a8c759d18b9e3e045ce33eb90b3",
           "widthPx": 327,
           "heightPx": 646,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.56,
+          "luminanceSpread": 28.15,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -9543,12 +9543,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Injected inference delay, currently 240 ms\" 200 to 240",
-          "sha256": "07054f6c603a42db7fd211a38bbcfa558b97af1101c87c60c3ab2c79101e0f20",
+          "sha256": "6b6b24b64d379be36b09c8816699bff0cfaabcfc0cb4caed0e7dcbc02f8f27ea",
           "widthPx": 327,
           "heightPx": 646,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.02,
+          "luminanceSpread": 27.61,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -22043,8 +22043,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-07.jpg",
-      "sha256": "39d02a7b3205ca35b86cf10db59fc26076e211b7b2fce455a0fe8eee1f681e51",
-      "bytes": 243173,
+      "sha256": "709a4b988d7dc2fbf3b5a7f15c8e12648f815c4c608f582caeec89e048b1d278",
+      "bytes": 242884,
       "mountIds": [
         "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
         "mount:/manipulation/action-chunking/:LatencyComparison:1",
@@ -22080,11 +22080,11 @@
         },
         {
           "key": "mount:/manipulation/action-chunking/:LatencyComparison:1@375x812:default",
-          "sha256": "f1937c43e951ff0658fdecc742b5a672c82d45f4064cadeccc5a95beb791c6a2"
+          "sha256": "9eaff989d5a298cd85b6fd1dcd285a068b4a1a8c759d18b9e3e045ce33eb90b3"
         },
         {
           "key": "mount:/manipulation/action-chunking/:LatencyComparison:1@375x812:changed",
-          "sha256": "07054f6c603a42db7fd211a38bbcfa558b97af1101c87c60c3ab2c79101e0f20"
+          "sha256": "6b6b24b64d379be36b09c8816699bff0cfaabcfc0cb4caed0e7dcbc02f8f27ea"
         },
         {
           "key": "mount:/manipulation/action-spaces/:ImpedancePress:1@1440x900:default",
