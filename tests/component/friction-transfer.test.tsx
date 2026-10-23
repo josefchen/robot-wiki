@@ -2,7 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { FrictionTransfer } from '@/components/interactive/friction-transfer';
+import { FrictionTransfer, readoutSpots } from '@/components/interactive/friction-transfer';
+import { drCurvePoints, drSuccess, formatPct, pointCurvePoints, pointSuccess } from '@/lib/sim2real';
 
 function realMuSlider() {
   return screen.getByRole('slider', { name: /real robot friction/i });
@@ -167,6 +168,69 @@ describe('FrictionTransfer', () => {
     expect(wide).toMatch(/band is marked wide at the selected half-width/);
     const key = (text: string) => text.toLowerCase().replace(/\d+/g, '#');
     expect(key(ordinary)).not.toBe(key(wide));
+  });
+});
+
+describe('FrictionTransfer readout spots', () => {
+  // Independent of the component: the plot spans x 72 to 326 and y 210 (0%)
+  // to 86 (100%) in the 340-wide view.
+  const x = (mu: number) => 72 + ((mu - 0.2) / 1.3) * 254;
+  const y = (s: number) => 210 - s * 124;
+  const curve = (fn: (mu: number) => number) =>
+    Array.from({ length: 1301 }, (_, i) => 0.2 + i / 1000).map((mu) => [x(mu), y(fn(mu))] as const);
+
+  it('keeps both readouts clear of the curves, the line, the dots and each other on every floor and spread', () => {
+    const failures: string[] = [];
+    for (let r = 10; r <= 65; r += 5) {
+      const range = r / 100;
+      const drStage = drCurvePoints(range).map((p) => [x(p.mu), y(p.success)] as [number, number]);
+      const pointStage = pointCurvePoints().map((p) => [x(p.mu), y(p.success)] as [number, number]);
+      const dense = [curve(pointSuccess), curve((mu) => drSuccess(mu, range))];
+      for (let m = 20; m <= 150; m++) {
+        const mu = m / 100;
+        const lineX = x(mu);
+        const [p, d] = [pointSuccess(mu), drSuccess(mu, range)];
+        const spots = readoutSpots({
+          lineX,
+          pointY: y(p),
+          drY: y(d),
+          pointText: formatPct(p),
+          drText: formatPct(d),
+          curves: [pointStage, drStage],
+        });
+        const at = `mu ${mu} range ${range}`;
+        for (const [name, spot, dotY] of [['point', spots.point, y(p)], ['dr', spots.dr, y(d)]] as const) {
+          const b = spot.box;
+          if (!Number.isFinite(spot.cost)) failures.push(`${at}: ${name} has no clear spot`);
+          if (b.x0 <= lineX && lineX <= b.x1) failures.push(`${at}: ${name} crosses the real-floor line`);
+          if (b.y0 < 86 || b.y1 > 210 || b.x0 < 72 || b.x1 > 340) failures.push(`${at}: ${name} leaves the plot`);
+          for (const pts of dense) {
+            if (pts.some(([cx, cy]) => cx >= b.x0 - 1 && cx <= b.x1 + 1 && cy >= b.y0 - 1 && cy <= b.y1 + 1)) {
+              failures.push(`${at}: ${name} sits on a curve`);
+            }
+          }
+          // Beside the line it reads as the real floor's at any height; out in the plot it must stay near its dot.
+          const out = (spot.anchor === 'start' ? b.x0 - lineX : lineX - b.x1) - 9;
+          if (out >= 10 && Math.hypot(out, (b.y0 + b.y1) / 2 - dotY) > 50) failures.push(`${at}: ${name} strays from its dot`);
+        }
+        const [a, b] = [spots.point.box, spots.dr.box];
+        if (a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1) failures.push(`${at}: readouts overlap`);
+      }
+    }
+    expect(failures).toEqual([]);
+  });
+
+  it('opens with 97% right of the spike and 74% left of the line, both above the plateau', () => {
+    render(<FrictionTransfer />);
+    const [pointLabel, drLabel] = [...screen.getByTestId('real-floor-values').querySelectorAll('text')];
+    const lineX = Number(screen.getByTestId('real-line').querySelector('line')!.getAttribute('x1'));
+    expect(pointLabel).toHaveTextContent('97%');
+    expect(pointLabel).toHaveAttribute('text-anchor', 'start');
+    expect(Number(pointLabel.getAttribute('x'))).toBeGreaterThan(lineX);
+    expect(drLabel).toHaveTextContent('74%');
+    expect(drLabel).toHaveAttribute('text-anchor', 'end');
+    expect(Number(drLabel.getAttribute('x'))).toBeLessThan(lineX);
+    for (const label of [pointLabel, drLabel]) expect(Number(label.getAttribute('y'))).toBeLessThan(y(0.74));
   });
 });
 

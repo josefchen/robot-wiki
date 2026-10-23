@@ -11129,9 +11129,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -11140,7 +11140,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "4f9ab018edf8c1d8800a2a3f60115687516274caf6912e72ce71bd36688b53cc"
+        "fingerprint": "dfa78a2a9b176b40f0e75fb956523aa8b86f0a98bc7d51ab5e7c777e8f9035a0"
       },
       {
         "id": "interactive:Ros2Interfaces",
@@ -16294,9 +16294,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -16305,7 +16305,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "f875370edf0d1b16dc8699011bc8bb1a41ae29132eed046c58c818bf2b3cb69e"
+        "fingerprint": "ae004e23472b1844304d2c072d24df0aa6f8478ada6b9765948c3b82b2de33c4"
       },
       {
         "id": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
@@ -18661,5 +18661,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "d44ce9327c6f26bc499fbc5dba5a15b094c4deec1c491abcc8287ef5dc583a25"
+  "rootFingerprint": "dc7ea61629db1cc8f5366c139f7c4ec587049f7702dbdf7c152eec19c7614fc7"
 }

@@ -7,6 +7,8 @@ import {
   geometryClassOf,
   INTERACTIVE_DATA_CLASSIFICATION,
   nonColourDistinct,
+  paintHex,
+  RETIRED_PAINTS,
   STATUS_LABEL_VOCABULARY,
   tableSortCensus,
   tableSortKindOf,
@@ -14,18 +16,80 @@ import {
 } from '../../lib/brand-v2-interactive-data';
 
 describe('brand-v2 interactive data: resolved paint classification', () => {
-  it('maps rendered rgb() strings to their data tokens', () => {
-    expect(classifyResolvedPaint('rgb(36, 95, 255)')).toBe('accent');
-    expect(classifyResolvedPaint('rgb(198, 255, 25)')).toBe('highlight');
-    expect(classifyResolvedPaint('rgb(165, 42, 30)')).toBe('error');
-    expect(classifyResolvedPaint('rgb(11, 11, 12)')).toBe('text');
-    expect(classifyResolvedPaint('rgb(36, 45, 51)')).toBe('text-dim');
-    // Scaffold paints are neutral, never a data series token.
-    expect(classifyResolvedPaint('rgb(217, 218, 219)')).toBe('neutral');
-    expect(classifyResolvedPaint('rgb(141, 145, 148)')).toBe('neutral');
+  const theme = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+  const token = (name: string) => {
+    const value = new RegExp(`${name}:\\s*(#[0-9A-Fa-f]{6});`).exec(theme)?.[1];
+    if (!value) throw new Error(`${name} is not declared as a hex in app/globals.css`);
+    return value;
+  };
+  const rgb = (hex: string, alpha?: number) => {
+    const [r, g, b] = [1, 3, 5].map((at) => parseInt(hex.slice(at, at + 2), 16));
+    return alpha === undefined ? `rgb(${r}, ${g}, ${b})` : `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  it('classifies the research-page accent as accent, solid and from a quarter opacity up', () => {
+    expect(token('--color-signal')).toBe('#3B6EA8');
+    expect(classifyResolvedPaint('rgb(59, 110, 168)')).toBe('accent');
+    expect(classifyResolvedPaint('#3B6EA8')).toBe('accent');
+    expect(classifyResolvedPaint(rgb('#3B6EA8', 0.25))).toBe('accent');
+    expect(classifyResolvedPaint(rgb('#3B6EA8', 0.6))).toBe('accent');
+    // A wash under a quarter opacity is scaffold, not a series paint.
+    expect(classifyResolvedPaint(rgb('#3B6EA8', 0.13))).toBe('neutral');
+  });
+
+  it('reads every whitespace form the browser serialises the same way', () => {
+    for (const form of [
+      'rgb(59, 110, 168)',
+      'rgb(59,110,168)',
+      'rgb(59 110 168)',
+      'rgba(59,110,168,0.5)',
+      'rgba(59, 110, 168, 0.5)',
+      'rgb(59 110 168 / 0.5)',
+      ' rgb(59, 110, 168) ',
+    ]) {
+      expect(classifyResolvedPaint(form), form).toBe('accent');
+    }
+  });
+
+  it('classifies the grayscale chart tones and the page grounds as neutral scaffold', () => {
+    for (const name of [
+      '--color-concrete',
+      '--color-highlight',
+      '--color-graphite',
+      '--color-paper',
+      '--color-white',
+      '--color-surface-2',
+    ]) {
+      expect(classifyResolvedPaint(rgb(token(name))), name).toBe('neutral');
+    }
+    expect(classifyResolvedPaint('rgba(28, 28, 26, 0.14)')).toBe('neutral');
+    expect(classifyResolvedPaint('rgba(28, 28, 26, 0.22)')).toBe('neutral');
     expect(classifyResolvedPaint('none')).toBe('neutral');
-    expect(classifyResolvedPaint('rgb(26, 111, 69)')).toBe('ok');
-    expect(classifyResolvedPaint('rgb(138, 90, 0)')).toBe('warn');
+    expect(classifyResolvedPaint('transparent')).toBe('neutral');
+  });
+
+  it('classifies ink, the muted text tone and the outcome marks by their tokens', () => {
+    expect(classifyResolvedPaint(rgb(token('--color-ink')))).toBe('text');
+    expect(classifyResolvedPaint(rgb(token('--color-text-dim')))).toBe('text-dim');
+    expect(classifyResolvedPaint(rgb(token('--color-ok')))).toBe('ok');
+    expect(classifyResolvedPaint(rgb(token('--color-warn')))).toBe('warn');
+    expect(classifyResolvedPaint(rgb(token('--color-error')))).toBe('error');
+  });
+
+  it('classifies each retired brand-v2 paint as retired at any opacity, never as accent', () => {
+    expect(RETIRED_PAINTS).toEqual(['#C6FF19', '#245FFF', '#245EDB']);
+    for (const hex of RETIRED_PAINTS) {
+      expect(classifyResolvedPaint(rgb(hex)), hex).toBe('retired');
+      expect(classifyResolvedPaint(rgb(hex, 0.1)), `${hex} at 10%`).toBe('retired');
+      expect(classifyResolvedPaint(hex.toLowerCase()), hex).toBe('retired');
+    }
+    expect(classifyResolvedPaint('rgb(36,95,255)')).toBe('retired');
+    expect(classifyResolvedPaint(rgb('#245FFF', 0))).toBe('neutral');
+  });
+
+  it('reads a color-mix() result in srgb units', () => {
+    expect(paintHex('color(srgb 0.231373 0.431373 0.658824)')).toEqual({ hex: '#3B6EA8', alpha: 1 });
+    expect(classifyResolvedPaint('color(srgb 0.905725 0.905725 0.895216)')).toBe('neutral');
   });
 
   it('classifies url() pattern paints as their own geometry-bearing token', () => {

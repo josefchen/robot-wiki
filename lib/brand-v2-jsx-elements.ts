@@ -98,6 +98,12 @@ export function maskScriptComments(text: string): string {
       index += 1;
       continue;
     }
+    // A quote between two letters is an apostrophe in JSX text ("robot's");
+    // read as a string it would flip every later quote and hide comments.
+    if (char === "'" && /[A-Za-z0-9]/.test(text[index - 1] ?? '') && /[A-Za-z]/.test(text[index + 1] ?? '')) {
+      index += 1;
+      continue;
+    }
     if (char === '"' || char === "'" || char === '`') {
       quote = char;
       index += 1;

@@ -41,7 +41,7 @@ import {
   pointCurvePoints,
   pointSuccess,
 } from '@/lib/sim2real';
-import { MOTION_STAGE } from '@/lib/motion-tokens';
+import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 
 /**
  * FrictionTransfer draws authored success curves, not trained policies.
@@ -83,9 +83,17 @@ const Y_TICKS = [0, 0.5, 1] as const;
 
 const POINT_POINTS = pointCurvePoints();
 
-function polyline(points: Array<{ mu: number; success: number }>): string {
-  return points.map((p) => `${xFor(p.mu)},${yFor(p.success)}`).join(' ');
+function stagePoints(points: Array<{ mu: number; success: number }>): Array<[number, number]> {
+  return points.map((p) => [xFor(p.mu), yFor(p.success)]);
 }
+
+function polyline(points: Array<{ mu: number; success: number }>): string {
+  return stagePoints(points)
+    .map(([x, y]) => `${x},${y}`)
+    .join(' ');
+}
+
+const POINT_STAGE = stagePoints(POINT_POINTS);
 
 const formatSuccessTick = (t: number) => `${Math.round(t * 100)}%`;
 
@@ -106,29 +114,163 @@ function floorWords(mu: number): string {
 const spreadWords = (range: number) =>
   range <= 0.15 ? 'a narrow spread' : range <= 0.4 ? 'a middling spread' : 'a wide spread';
 
-/** Clearance between the two dot labels, in stage units: one label line. */
-const VALUE_LABEL_GAP = CHART_TYPE.labelPx * 1.2;
+/**
+ * Label type at its largest against the drawing: stage units per em on the
+ * narrowest full-size stage (a 375 px phone), so a spot clear there is clear
+ * at every width.
+ */
+const LABEL_EM = (CHART_TYPE.labelPx * WIDTH) / MOTION_STAGE_TYPE.fullSizeMinStagePx;
+/** Room kept between a readout's glyphs and any mark: two units of air plus half a trace. */
+const READOUT_CLEARANCE = 2 + (CHART_STROKE.trace * WIDTH) / MOTION_STAGE_TYPE.fullSizeMinStagePx / 2;
+/** The nearest a readout's edge comes to the real-floor line. */
+const READOUT_OFFSET = 9;
+
+type Point = readonly [number, number];
+type Box = { x0: number; y0: number; x1: number; y1: number };
+type ReadoutSpot = { x: number; y: number; anchor: 'start' | 'end'; box: Box; cost: number };
+
+/** A percentage readout's box in stage units, generous for the widest digits. */
+const readoutWidth = (text: string) => LABEL_EM * (0.6 * (text.length - 1) + 0.9);
+const readoutHeight = LABEL_EM * (CHART_TYPE.ascent + CHART_TYPE.descent);
+
+function boxesMeet(a: Box, b: Box): boolean {
+  return a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+}
+
+/** Whether segment a-b passes through the box (Liang-Barsky clipping). */
+function segmentMeetsBox([ax, ay]: Point, [bx, by]: Point, box: Box): boolean {
+  if (Math.max(ax, bx) < box.x0 || Math.min(ax, bx) > box.x1) return false;
+  if (Math.max(ay, by) < box.y0 || Math.min(ay, by) > box.y1) return false;
+  let t0 = 0;
+  let t1 = 1;
+  const dx = bx - ax;
+  const dy = by - ay;
+  for (const [p, q] of [
+    [-dx, ax - box.x0],
+    [dx, box.x1 - ax],
+    [-dy, ay - box.y0],
+    [dy, box.y1 - ay],
+  ]) {
+    if (p === 0) {
+      if (q < 0) return false;
+      continue;
+    }
+    const r = q / p;
+    if (p < 0) t0 = Math.max(t0, r);
+    else t1 = Math.min(t1, r);
+    if (t0 > t1) return false;
+  }
+  return true;
+}
 
 /**
- * Where the two dots' value labels sit: beside the real-floor line, on the
- * side with room, each at its dot's height and pushed apart when the dots
- * are close, inside the plot.
+ * Offsets from a dot, nearest first. Sliding along the line costs half what
+ * leaving it does: a readout beside the line still reads as the real floor's,
+ * one out in the plot reads as whichever curve it lands on.
  */
-export function valueLabelSpots(lineX: number, pointY: number, drY: number) {
-  const right = lineX <= PLOT.right - 44;
-  const x = f(right ? lineX + 9 : lineX - 9);
-  const anchor = right ? ('start' as const) : ('end' as const);
-  let [p, d] = [pointY, drY];
-  if (Math.abs(p - d) < VALUE_LABEL_GAP) {
-    const mid = (p + d) / 2;
-    const half = VALUE_LABEL_GAP / 2;
-    [p, d] = p <= d ? [mid - half, mid + half] : [mid + half, mid - half];
+const READOUT_OFFSETS = (() => {
+  const offsets: Array<{ across: boolean; dx: number; dy: number; cost: number }> = [];
+  for (const across of [false, true]) {
+    for (let dx = 0; dx <= 64; dx += 2) {
+      for (let dy = -112; dy <= 112; dy += 2) {
+        offsets.push({ across, dx, dy, cost: Math.abs(dy) + 2 * dx + (across ? 10 : 0) });
+      }
+    }
   }
-  const top = PLOT.top + CHART_TYPE.labelPx * 0.7;
-  const bottom = PLOT.bottom - CHART_TYPE.labelPx * 0.4;
-  const shift = Math.max(0, top - Math.min(p, d)) - Math.max(0, Math.max(p, d) - bottom);
-  const baseline = (y: number) => f(y + shift + CHART_TYPE.labelPx * 0.35);
-  return { x, anchor, point: baseline(p), dr: baseline(d) };
+  return offsets.sort((a, b) => a.cost - b.cost);
+})();
+
+/**
+ * Where the two dots' readouts sit: inside the plot (below the line's own
+ * label), beside the real-floor line, as near each dot as a spot clear of
+ * both curves, the line, the dots, the plot's rules and each other allows,
+ * stacked in the dots' order. Spots are measured with the type at its
+ * largest, so they hold at any width. The fallback, at the dots' heights, is
+ * never reached on the slider's grid (the component test walks all of it).
+ */
+export function readoutSpots({
+  lineX,
+  pointY,
+  drY,
+  pointText,
+  drText,
+  curves,
+}: {
+  lineX: number;
+  pointY: number;
+  drY: number;
+  pointText: string;
+  drText: string;
+  curves: ReadonlyArray<ReadonlyArray<Point>>;
+}): { point: ReadoutSpot; dr: ReadoutSpot } {
+  const preferRight = lineX <= PLOT.right - 44;
+  const marker = CHART_STROKE.markerRadius;
+  const segments: Array<[Point, Point]> = [
+    ...curves.flatMap((pts) => pts.slice(1).map((p, i) => [pts[i], p] as [Point, Point])),
+    [[lineX, PLOT.top - 2], [lineX, PLOT.bottom]],
+    ...Y_TICKS.map((t) => [[PLOT.left, yFor(t)], [PLOT.right, yFor(t)]] as [Point, Point]),
+    [[PLOT.left, PLOT.top], [PLOT.left, PLOT.bottom]],
+  ];
+  const dots: Box[] = [pointY, drY].map((y) => ({ x0: lineX - marker, x1: lineX + marker, y0: y - marker, y1: y + marker }));
+  const inner: Box = { x0: PLOT.left, x1: WIDTH, y0: PLOT.top, y1: PLOT.bottom };
+
+  function place(dotY: number, text: string, taken: Box[], order: (box: Box) => boolean): ReadoutSpot | null {
+    const width = readoutWidth(text);
+    for (const { across, dx, dy, cost } of READOUT_OFFSETS) {
+      const right = preferRight !== across;
+      const near = right ? lineX + READOUT_OFFSET + dx : lineX - READOUT_OFFSET - dx;
+      const x0 = right ? near : near - width;
+      const y0 = dotY + dy - readoutHeight / 2;
+      const glyphs: Box = { x0, x1: x0 + width, y0, y1: y0 + readoutHeight };
+      const clear: Box = {
+        x0: glyphs.x0 - READOUT_CLEARANCE,
+        x1: glyphs.x1 + READOUT_CLEARANCE,
+        y0: glyphs.y0 - READOUT_CLEARANCE,
+        y1: glyphs.y1 + READOUT_CLEARANCE,
+      };
+      if (clear.x0 < inner.x0 || clear.x1 > inner.x1 || clear.y0 < inner.y0 || clear.y1 > inner.y1) continue;
+      if (!order(glyphs)) continue;
+      if ([...dots, ...taken].some((b) => boxesMeet(clear, b))) continue;
+      if (segments.some(([a, b]) => segmentMeetsBox(a, b, clear))) continue;
+      return { x: f(near), y: f(y0 + LABEL_EM * CHART_TYPE.ascent), anchor: right ? 'start' : 'end', box: glyphs, cost };
+    }
+    return null;
+  }
+
+  // On one side of the line, the lower dot's readout stays the lower one.
+  const mid = (b: Box) => (b.y0 + b.y1) / 2;
+  const rightOfLine = (b: Box) => b.x0 >= lineX;
+  const fallback = (dotY: number, text: string): ReadoutSpot => {
+    const x0 = preferRight ? lineX + READOUT_OFFSET : lineX - READOUT_OFFSET - readoutWidth(text);
+    const y0 = dotY - readoutHeight / 2;
+    return {
+      x: f(preferRight ? lineX + READOUT_OFFSET : lineX - READOUT_OFFSET),
+      y: f(y0 + LABEL_EM * CHART_TYPE.ascent),
+      anchor: preferRight ? 'start' : 'end',
+      box: { x0, x1: x0 + readoutWidth(text), y0, y1: y0 + readoutHeight },
+      cost: Infinity,
+    };
+  };
+
+  let best: { point: ReadoutSpot; dr: ReadoutSpot } | null = null;
+  for (const pointFirst of [true, false]) {
+    const first = pointFirst ? place(pointY, pointText, [], () => true) : place(drY, drText, [], () => true);
+    if (!first) continue;
+    const keepsOrder = (box: Box) => {
+      if (rightOfLine(box) !== rightOfLine(first.box)) return true;
+      const [p, d] = pointFirst ? [first.box, box] : [box, first.box];
+      if (pointY > drY + 0.5) return mid(p) > mid(d);
+      if (drY > pointY + 0.5) return mid(d) > mid(p);
+      return true;
+    };
+    const second = pointFirst
+      ? place(drY, drText, [first.box], keepsOrder)
+      : place(pointY, pointText, [first.box], keepsOrder);
+    if (!second) continue;
+    const [point, dr] = pointFirst ? [first, second] : [second, first];
+    if (!best || point.cost + dr.cost < best.point.cost + best.dr.cost) best = { point, dr };
+  }
+  return best ?? { point: fallback(pointY, pointText), dr: fallback(drY, drText) };
 }
 
 function annotationLines(realMu: number, point: number, dr: number): string[] {
@@ -214,7 +356,14 @@ export function FrictionTransfer({
   const greyColour = roleColour('reference');
   const highlightColour = roleColour('highlight');
   const realLabelX = Math.min(PLOT.right - 34, Math.max(PLOT.left + 34, lineX));
-  const values = valueLabelSpots(lineX, yFor(point), yFor(dr));
+  const values = readoutSpots({
+    lineX,
+    pointY: yFor(point),
+    drY: yFor(dr),
+    pointText: formatPct(point),
+    drText: formatPct(dr),
+    curves: [POINT_STAGE, stagePoints(drCurvePoints(range))],
+  });
   const practiceX = xFor(MU_TRAIN);
   const onPracticeFloor = Math.abs(realMu - MU_TRAIN) < 0.05;
   const higher = point > dr ? 'point curve is higher' : 'DR curve is higher';
@@ -414,19 +563,12 @@ export function FrictionTransfer({
             <g data-testid="dr-marker" data-series="dr-policy">
               <PointMarker x={lineX} y={yFor(dr)} role="value" />
             </g>
-            {/* Each robot's chance of success on the real floor, haloed so a curve under it never cuts the digits. */}
-            <g
-              data-testid="real-floor-values"
-              stroke={MOTION_STAGE.background}
-              strokeWidth={4}
-              strokeLinejoin="round"
-              paintOrder="stroke"
-              fontWeight={600}
-            >
-              <DirectLabel x={values.x} y={values.point} anchor={values.anchor} role="reference">
+            {/* Each robot's chance of success on the real floor, placed clear of every mark, so it needs no halo. */}
+            <g data-testid="real-floor-values" fontWeight={600}>
+              <DirectLabel x={values.point.x} y={values.point.y} anchor={values.point.anchor} role="reference">
                 {formatPct(point)}
               </DirectLabel>
-              <DirectLabel x={values.x} y={values.dr} anchor={values.anchor} role="value">
+              <DirectLabel x={values.dr.x} y={values.dr.y} anchor={values.dr.anchor} role="value">
                 {formatPct(dr)}
               </DirectLabel>
             </g>

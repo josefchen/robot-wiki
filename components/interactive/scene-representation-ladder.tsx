@@ -310,9 +310,19 @@ function RoomNames() {
   );
 }
 
+/** The dotted shade an unknown cell and its legend swatch share. */
+function UnknownCellPattern({ id }: { id: string }) {
+  const s = UNKNOWN_DOT_SPACING;
+  return (
+    <pattern id={id} width={s} height={s} patternUnits="userSpaceOnUse">
+      <rect width={s} height={s} fill={CHART_STRUCTURE.labelSecondary} fillOpacity={UNKNOWN_SHADE_OPACITY} />
+      <circle cx={s / 2} cy={s / 2} r={1.1} fill={CHART_STRUCTURE.labelSecondary} />
+    </pattern>
+  );
+}
+
 function OccupancyPanel({ cellCm, patternId }: { cellCm: number; patternId: string }) {
   const cells = occupancyCells(cellCm);
-  const s = UNKNOWN_DOT_SPACING;
   // Cell boundaries are structure, drawn once over the cell fills, so a free
   // cell is the empty space between lines and a name over it sits on no mark.
   const cols = Math.round(Math.max(...cells.map((c) => c.x)) / cellCm) + 1;
@@ -326,10 +336,7 @@ function OccupancyPanel({ cellCm, patternId }: { cellCm: number; patternId: stri
   return (
     <g>
       <defs>
-        <pattern id={patternId} width={s} height={s} patternUnits="userSpaceOnUse">
-          <rect width={s} height={s} fill={CHART_STRUCTURE.labelSecondary} fillOpacity={UNKNOWN_SHADE_OPACITY} />
-          <circle cx={s / 2} cy={s / 2} r={1.1} fill={CHART_STRUCTURE.labelSecondary} />
-        </pattern>
+        <UnknownCellPattern id={patternId} />
       </defs>
       <SceneFrame showShadow={false} />
       {cells.map((cell) => (
@@ -511,28 +518,52 @@ const LEGEND: Record<RepresentationId, readonly LegendEntry[]> = {
   ],
 };
 
-/** A legend swatch repeating the panel's own mark for each entry. */
-function SceneSwatch({ kind }: { kind: SwatchKind }) {
+/**
+ * A legend swatch repeating the panel's own mark for each entry. A cell
+ * swatch draws the cell and then its boundary as structure, the way the
+ * occupancy panel draws its grid over the cells, and an unknown cell takes
+ * the panel's own dotted pattern.
+ */
+function SceneSwatch({ kind, patternId }: { kind: SwatchKind; patternId: string }) {
   if (kind === 'dot') return <LegendSwatch role="measurement" mark="dot" />;
   if (kind === 'band') return <LegendSwatch role="state" mark="band" />;
   if (kind === 'line') return <LegendSwatch role="state" mark="line" />;
   const h = CHART_TYPE.tickPx;
   const w = h * 2;
-  const grid = { stroke: CHART_STRUCTURE.axes, strokeOpacity: CELL_LINE_OPACITY, strokeWidth: 1 };
+  const cell = { x: 0.5, y: 0.5, width: w - 1, height: h - 1 };
+  const boundary = (
+    <rect
+      data-scene-structure=""
+      {...cell}
+      fill="none"
+      stroke={CHART_STRUCTURE.axes}
+      strokeOpacity={CELL_LINE_OPACITY}
+      strokeWidth={1}
+    />
+  );
   const dashed = { fill: 'none', strokeWidth: 1, strokeDasharray: UNMEASURED_DASH };
   return (
     <svg aria-hidden="true" focusable="false" width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="shrink-0">
       {kind === 'cell-occupied' && (
-        <rect x={0.5} y={0.5} width={w - 1} height={h - 1} fill={STATE} fillOpacity={OCCUPIED_OPACITY} {...grid} />
+        <>
+          <rect {...cell} fill={STATE} fillOpacity={OCCUPIED_OPACITY} />
+          {boundary}
+        </>
       )}
-      {kind === 'cell-free' && <rect x={0.5} y={0.5} width={w - 1} height={h - 1} fill="none" {...grid} />}
+      {kind === 'cell-free' && (
+        <>
+          <rect {...cell} fill="none" />
+          {boundary}
+        </>
+      )}
       {kind === 'cell-unknown' && (
-        <g>
-          <rect x={0.5} y={0.5} width={w - 1} height={h - 1} fill={CHART_STRUCTURE.labelSecondary} fillOpacity={UNKNOWN_SHADE_OPACITY} {...grid} />
-          {[w / 4, w / 2, (3 * w) / 4].map((cx) => (
-            <circle key={cx} cx={cx} cy={h / 2} r={1.1} fill={CHART_STRUCTURE.labelSecondary} />
-          ))}
-        </g>
+        <>
+          <defs>
+            <UnknownCellPattern id={patternId} />
+          </defs>
+          <rect {...cell} fill={`url(#${patternId})`} />
+          {boundary}
+        </>
       )}
       {kind === 'shade' && <rect x={0} y={0} width={w} height={h} fill={CHART_STRUCTURE.labelSecondary} fillOpacity={SHADOW_OPACITY * 2} />}
       {kind === 'ring' && <circle cx={w / 2} cy={h / 2} r={h / 2 - 2} stroke={MEASUREMENT} {...dashed} />}
@@ -784,7 +815,7 @@ export function SceneRepresentationLadder({
                   <LegendItem
                     key={entry.series}
                     series={entry.series}
-                    swatch={<SceneSwatch kind={entry.kind} />}
+                    swatch={<SceneSwatch kind={entry.kind} patternId={`${patternId}-legend`} />}
                   >
                     {entry.label}
                   </LegendItem>

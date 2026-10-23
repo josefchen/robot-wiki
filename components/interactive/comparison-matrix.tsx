@@ -578,7 +578,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
               <YearStrip shown={shown} />
             </div>
             {rows.length === 0 ? (
-              <div role="status" className="mt-4">
+              <div role="status" data-state="empty" className="mt-4">
                 <div className="text-text">No methods match these filters.</div>
                 <div className="mt-1 text-text-dim">
                   Undisclosed rows only match the Not disclosed representation

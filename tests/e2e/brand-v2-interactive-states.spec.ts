@@ -6,6 +6,7 @@ import {
   validateInteractiveCaseAccounting,
   type InteractiveStateCase,
 } from '../../lib/brand-v2-interactive-accounting';
+import { implementsState, type ImplementedState } from '../../lib/brand-v2-census';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
@@ -199,14 +200,17 @@ async function exerciseNonSelectorCase(
       await exerciseReset(root);
       return true;
     case 'discrete-options': {
-      const witness = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1];
+      const witness = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1] as
+        | ImplementedState
+        | undefined;
       expect(
         witness,
         `${component}:${stateCase.id} identifies a bounded implemented-state witness`,
       ).toBeTruthy();
       const source = readFileSync(join(process.cwd(), sourcePath), 'utf8');
+      // The census reads code only; a state named in a comment is not a witness.
       expect(
-        new RegExp(`\\b${witness}\\b`, 'i').test(source),
+        implementsState(source, witness!),
         `${component}:${stateCase.id} has an implemented source witness`,
       ).toBe(true);
       expect(

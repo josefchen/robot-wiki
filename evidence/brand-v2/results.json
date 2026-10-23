@@ -195954,7 +195954,7 @@
           "observed": {
             "focusStops": 90,
             "links": 545,
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "viewports": 3
           },
           "predicates": [
@@ -204709,7 +204709,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "viewports": 3
           },
           "predicates": [
@@ -342795,7 +342795,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":27,\"maxLatencyMs\":27}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":25.9,\"maxLatencyMs\":25.9}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342816,8 +342816,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 27,
-          "maxLatencyMs": 27,
+          "medianLatencyMs": 25.9,
+          "maxLatencyMs": 25.9,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342833,7 +342833,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":19,\"maxLatencyMs\":30.8}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":19.3,\"maxLatencyMs\":31.1}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342854,8 +342854,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 19,
-          "maxLatencyMs": 30.8,
+          "medianLatencyMs": 19.3,
+          "maxLatencyMs": 31.1,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342871,7 +342871,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.7,\"maxLatencyMs\":57.7}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":6.6,\"maxLatencyMs\":127.7}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342895,8 +342895,8 @@
           "observedRenderedTotal": 907,
           "nonEmptyCases": 257,
           "timedCases": 258,
-          "medianLatencyMs": 5.7,
-          "maxLatencyMs": 57.7,
+          "medianLatencyMs": 6.6,
+          "maxLatencyMs": 127.7,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342912,7 +342912,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":13.25,\"maxLatencyMs\":127.2}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":12.95,\"maxLatencyMs\":138.8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342936,8 +342936,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 13.25,
-          "maxLatencyMs": 127.2,
+          "medianLatencyMs": 12.95,
+          "maxLatencyMs": 138.8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342953,7 +342953,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":17.5,\"maxLatencyMs\":1253.3,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":15.8,\"maxLatencyMs\":595.2,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342977,8 +342977,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 17.5,
-          "maxLatencyMs": 1253.3,
+          "medianLatencyMs": 15.8,
+          "maxLatencyMs": 595.2,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -343014,7 +343014,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":16.8,\"maxLatencyMs\":31.8}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":19.4,\"maxLatencyMs\":32.8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343038,8 +343038,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 16.8,
-          "maxLatencyMs": 31.8,
+          "medianLatencyMs": 19.4,
+          "maxLatencyMs": 32.8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343151,7 +343151,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":32.3,\"maxLatencyMs\":85.9}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":18.3,\"maxLatencyMs\":37.6}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343172,8 +343172,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 32.3,
-          "maxLatencyMs": 85.9,
+          "medianLatencyMs": 18.3,
+          "maxLatencyMs": 37.6,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -386841,7 +386841,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "viewports": 3
           },
           "predicates": [
@@ -395003,7 +395003,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "viewports": 3
           },
           "predicates": [
@@ -397703,7 +397703,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "viewports": 3
           },
           "predicates": [
@@ -400435,7 +400435,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -403285,7 +403285,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -406103,7 +406103,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8877,
+            "paintedElements": 8874,
             "viewports": 3
           },
           "predicates": [
@@ -458642,28 +458642,28 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "7b52870d473bbc894c315d5f831d36231b7e97513f2df39f24bde752b498e15c",
+              "sha256": "fde8409c2786f40a5eba0a0db393a821f70933d1ba1877d62c8710d636f538cf",
               "widthPx": 327,
               "heightPx": 963
             },
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "243ee872364ab5f180256bdd39b2fb40610bce5d7baeac21cdd59e5dde233b15",
+              "sha256": "ad517d85c56df30d4602e91e1f21c9b65ac79cf56d038b5d103f70592719b765",
               "widthPx": 327,
               "heightPx": 963
             },
             {
               "viewport": "1440x900",
               "state": "default",
-              "sha256": "64672ee1d427b95b735b736ce42716599b005e73fb5d4bd82ee7735ed4b39445",
+              "sha256": "d7fe4482348a7595f5aee24d118413455b3a5e7b7ee3b526d56336a260a37b9e",
               "widthPx": 930,
               "heightPx": 702
             },
             {
               "viewport": "1440x900",
               "state": "changed",
-              "sha256": "9bac324e19979600ca79bf03a7e88918f0288abfa0bd9b5243d0a991d458c043",
+              "sha256": "77b3ed77ab209f4a2c63ffed0e3f49c55b41586261c01a37eba16141484ff583",
               "widthPx": 930,
               "heightPx": 702
             }
@@ -462992,28 +462992,28 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "11d3f85b7325dffa6c81390639147509d04495e84c3ef529a6984587a83a40fb",
+              "sha256": "7eb2762721934dae95aad470d0f72814bc0347fefcca322180eedb5523d947c0",
               "widthPx": 327,
               "heightPx": 605
             },
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "b2e58c8c4378ead8261dbdc4efb1876c666e9252d20fd23a479134eaced36216",
+              "sha256": "67c8ed525cb74e0e7287b3dabdac52631f06a7a57e0e2252ba0282e9d36735c1",
               "widthPx": 327,
               "heightPx": 587
             },
             {
               "viewport": "1440x900",
               "state": "default",
-              "sha256": "af14b8149398df9f47546320851fc59bb08d370f50ef522389fbcca15d48101e",
+              "sha256": "6417eb420b81e9ec9b2a1f45d56ffbf8a84adc70cf6f52a3ac4ed42be0dad3c2",
               "widthPx": 930,
               "heightPx": 678
             },
             {
               "viewport": "1440x900",
               "state": "changed",
-              "sha256": "f89b9f6143011fd9c7d5f9579f39c72718827f512c86420f1d91f6af0c542324",
+              "sha256": "055c9276451df834eabdff1651a20ca137c983e559b20686adfbe3992e5b194f",
               "widthPx": 930,
               "heightPx": 678
             }
