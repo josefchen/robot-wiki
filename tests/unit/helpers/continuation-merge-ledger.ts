@@ -406,6 +406,11 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   interactives cue fix of 2026-10-23 rewrote the generalist timeline
  *   sentence into an operating cue, one resolution from the sealed hash
  *   because the member's chain already holds one.
+ * - `interactives-r1-20261023-prose-classical-calibration` (exact id): the
+ *   brand-v2 interactives round-1 fix of 2026-10-23 rebalanced the
+ *   calibration self-check's options, one plain edge from the images bundle A
+ *   endpoint that ends the member's re-anchored chain. Its other prose edges
+ *   continue chains that end at no head re-anchor.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -460,6 +465,8 @@ export const LATER_REANCHOR_PREFIXES = [
   'kol-batch-20261021-',
   // Exact id: the other two 2026-10-23 cue edges are plain edges.
   'educational-cue-20261023-prose-generalist-policies',
+  // Exact id: only this 2026-10-23 round-1 edge continues a re-anchored chain.
+  'interactives-r1-20261023-prose-classical-calibration',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

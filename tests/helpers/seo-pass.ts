@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { answerOptionsPredecessor } from '../../lib/audit-answer-options-continuity.ts';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
 import { imageMountPredecessor } from '../../lib/audit-image-mount-continuity.ts';
@@ -160,10 +161,20 @@ export function preLateFigureMounts(path: string): Buffer {
 /**
  * The bytes the scene-craft layer of 2026-10-18 hands every check older than
  * that pass: the rebuilt pre-pass scene source while the live scene is the
- * reviewed successor, otherwise the live bytes.
+ * reviewed successor, otherwise the bytes the newer answer-options read
+ * hands on.
  */
 export function preSceneCraft(path: string): Buffer {
-  return sceneCraftPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return sceneCraftPredecessor(root, { path, bytes: 0, sha256: '' }, preAnswerOptions(path));
+}
+
+/**
+ * The bytes the answer-options layer of 2026-10-23 hands every check older
+ * than the self-check option rebalance: the rebuilt pre-rebalance article
+ * while the live article is the reviewed successor, otherwise the live bytes.
+ */
+export function preAnswerOptions(path: string): Buffer {
+  return answerOptionsPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
 }
 
 /**

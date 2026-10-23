@@ -192,6 +192,7 @@ function main(paths: string[]): void {
 /** Reads every recorded successor back through the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-reader-first-continuity.ts');
+  const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { lengthCutPredecessor } = await import('../lib/audit-length-cut-continuity.ts');
   const { kolBacklogPredecessor } = await import('../lib/audit-kol-backlog-continuity.ts');
@@ -217,7 +218,7 @@ async function verify(): Promise<boolean> {
           parallelLocalPredecessor(root, source.before,
             reskinPredecessor(root, source.before, frontierLengthCutPredecessor(root, source.before,
               dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before,
-                figureMountPredecessor(root, source.before, sceneCraftPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))))))))));
+                figureMountPredecessor(root, source.before, sceneCraftPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))))))))))));
       const prior = layer.readerFirstPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

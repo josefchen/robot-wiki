@@ -40,7 +40,7 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 223278, sha256: '10764a1e76c318df37a0cce97f9b8630a72ab2508fa57d15b1a8ac79fefb2c21' };
+const reviewPin = { bytes: 224565, sha256: 'ce1e435c09abeafad4cb209de667ce3f931bac9734392532aa01b910ef6ce8b9' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -64,7 +64,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/article/references.tsx', [4522, 'fed962d668a021e3f70b7a198766ef66ba5c8bbf03895c53913b66e92dd9d0e7']],
   ['components/home/contents-index.tsx', [2671, 'b737e6f7c1990c2732b651495c24562d479b630487b69f5d028472fdb19538b6']],
   ['components/home/did-you-know.tsx', [2070, 'd0057d92372801782ed7f3d1121a227934c77dab4a1c91ac4102a5a7b74072d1']],
-  ['components/home/home-search.tsx', [1555, '34497e010c08772608f61c7160319348efc5918c10ea100e24ec731977eebe6c']],
+  ['components/home/home-search.tsx', [1803, '8ac129af385e3ee51481f9d40a29cd26d0447d99150c1e3e89626b187a1bb9fb']],
   ['components/nav/nav-tree.tsx', [7461, '45c349bc17cc35b756995ad76e07e8dc0337cf47d09bd334f143f165b4614602']],
   ['components/nav/search-box.tsx', [2330, 'b7c20da06d0bad70111694d3ad0611c9d7e02ce34197610ae0f54a8e3210b78b']],
   ['components/nav/site-footer.tsx', [5628, 'cd64ff68d483ec143ce64241ec39998907fd323946e80fa845ab92a774403c02']],

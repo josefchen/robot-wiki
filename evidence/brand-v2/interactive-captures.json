@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "7e2ec278f2c9e89148c6761df4fe332db9415b6bb847e842fa902f947d895c98",
+  "fingerprint": "65ebf24d649555a925bcfc7209119f69324c18f0aaa77082871fb861dfc46f4b",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1418,12 +1418,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "31ef9c0315bbcb617b436e823c76af42b6f97134351ab77e653b42702000b38a",
+          "sha256": "c01d1819204ee8f242ad3e71693bf273532e9673037d3846d77cc8f1229cd7ed",
           "widthPx": 327,
           "heightPx": 601,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.98,
+          "luminanceSpread": 29.97,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -1433,12 +1433,12 @@
           "state": "changed",
           "caseId": "focus-each-control",
           "control": "keyboard focus on summary \"How this was made\"",
-          "sha256": "75f66717849d96302ffe77c1d6843f611eafbfb56cb069953df4049b1712205b",
+          "sha256": "2d06f80fbdc390292ee473cf574fd048393e6dcdf61db9cedf635235c42fe609",
           "widthPx": 327,
           "heightPx": 601,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 31.31,
+          "luminanceSpread": 31.29,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -1618,7 +1618,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "b481b882a67fcb7d5b8609a3bc5a41adc7fa18b1320fa7e7de0008270f7b8247",
+          "sha256": "d6d59cb71b6c6cec5d1f3e4a1e5d463bda2d82b08bedf2ee058d732d3dbc7b59",
           "widthPx": 327,
           "heightPx": 556,
           "settleAttempts": 2,
@@ -1633,7 +1633,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Camera poses, currently 20\" 3 to 20",
-          "sha256": "99200e74ca9fcc3ec0896012e887766a33feef410e7e7ac8d4c42485eaecf8b5",
+          "sha256": "e18d2a3de4f0a34105ff429f68518b5f00aeb527da6ef614732f4e73431ea336",
           "widthPx": 327,
           "heightPx": 556,
           "settleAttempts": 2,
@@ -1834,7 +1834,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "9cfcaaae3276c81153a5052d6fac4baeccd41370e84ff82b939a738ed4e95de2",
+          "sha256": "162254a65ec7b5b5d58f69ff7f101be450bb8f70696c632b1756cbfa5817bd07",
           "widthPx": 327,
           "heightPx": 587,
           "settleAttempts": 2,
@@ -1849,7 +1849,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Hand speed, in centimetres a second, currently 100\" 50 to 100",
-          "sha256": "677c9ede1bd0fcf04d0c2cdacf1ccf96f22e077ce55cf3a48d86e8e7541ae7fa",
+          "sha256": "a950c59319515311f36ad93b9a27874b8f0b5ae805e8b24bfa983af3b1d6e352",
           "widthPx": 327,
           "heightPx": 587,
           "settleAttempts": 2,
@@ -21160,12 +21160,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "10ac0fd2b674426c00eb284448bfe40d0a8a99daff244d50f6cef364591cdc97",
+          "sha256": "b4178acf6c6c7151ac50736cd906ce7190570aed6993f20e55b15b64de2b50e8",
           "widthPx": 327,
-          "heightPx": 654,
+          "heightPx": 655,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 26.57,
+          "luminanceSpread": 26.55,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -21175,12 +21175,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Only inside the data\"",
-          "sha256": "155d6b7fbc3753de0925228af44558e686a9801f2e2323390abf6110309856e0",
+          "sha256": "6e415febd30f9fade26abe2c6836b90fee935c7d658d11ee827fb31ed724dbc8",
           "widthPx": 327,
-          "heightPx": 654,
+          "heightPx": 655,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 26.93,
+          "luminanceSpread": 26.91,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -21371,8 +21371,8 @@
   "sheets": [
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-01.jpg",
-      "sha256": "169f21d6b1ee2c177373b1d487d049d9ea6fd634e6babb7b1c91bdda48f5a72f",
-      "bytes": 186289,
+      "sha256": "cc75bd84f3ad81b732c9edca55e3a834a947739719d2c363dadc48b41659f8be",
+      "bytes": 186251,
       "mountIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
         "mount:/adjacent/surgical/:MotionPantograph:1",
@@ -21440,11 +21440,11 @@
         },
         {
           "key": "mount:/classical/calibration/:CalibrationChain:1@375x812:default",
-          "sha256": "31ef9c0315bbcb617b436e823c76af42b6f97134351ab77e653b42702000b38a"
+          "sha256": "c01d1819204ee8f242ad3e71693bf273532e9673037d3846d77cc8f1229cd7ed"
         },
         {
           "key": "mount:/classical/calibration/:CalibrationChain:1@375x812:changed",
-          "sha256": "75f66717849d96302ffe77c1d6843f611eafbfb56cb069953df4049b1712205b"
+          "sha256": "2d06f80fbdc390292ee473cf574fd048393e6dcdf61db9cedf635235c42fe609"
         },
         {
           "key": "mount:/classical/calibration/:HandEyePoses:1@1440x900:default",
@@ -21456,11 +21456,11 @@
         },
         {
           "key": "mount:/classical/calibration/:HandEyePoses:1@375x812:default",
-          "sha256": "b481b882a67fcb7d5b8609a3bc5a41adc7fa18b1320fa7e7de0008270f7b8247"
+          "sha256": "d6d59cb71b6c6cec5d1f3e4a1e5d463bda2d82b08bedf2ee058d732d3dbc7b59"
         },
         {
           "key": "mount:/classical/calibration/:HandEyePoses:1@375x812:changed",
-          "sha256": "99200e74ca9fcc3ec0896012e887766a33feef410e7e7ac8d4c42485eaecf8b5"
+          "sha256": "e18d2a3de4f0a34105ff429f68518b5f00aeb527da6ef614732f4e73431ea336"
         },
         {
           "key": "mount:/classical/calibration/:TimeOffsetMiss:1@1440x900:default",
@@ -21472,11 +21472,11 @@
         },
         {
           "key": "mount:/classical/calibration/:TimeOffsetMiss:1@375x812:default",
-          "sha256": "9cfcaaae3276c81153a5052d6fac4baeccd41370e84ff82b939a738ed4e95de2"
+          "sha256": "162254a65ec7b5b5d58f69ff7f101be450bb8f70696c632b1756cbfa5817bd07"
         },
         {
           "key": "mount:/classical/calibration/:TimeOffsetMiss:1@375x812:changed",
-          "sha256": "677c9ede1bd0fcf04d0c2cdacf1ccf96f22e077ce55cf3a48d86e8e7541ae7fa"
+          "sha256": "a950c59319515311f36ad93b9a27874b8f0b5ae805e8b24bfa983af3b1d6e352"
         }
       ],
       "renderedTwiceIdentical": true
@@ -22939,8 +22939,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-15.jpg",
-      "sha256": "e202e08b9464dadf60b78e545db66938bcf2b3035e914738b3253c7e6e24f441",
-      "bytes": 87250,
+      "sha256": "cbe432c0d7fdabd5f008ee5b21a46be66eabce9a99c4163b68a2809ec3164955",
+      "bytes": 87804,
       "mountIds": [
         "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
         "mount:/world-models/taxonomy/:WmDisambiguator:1",
@@ -22989,11 +22989,11 @@
         },
         {
           "key": "mount:/world-models/world-models-vs-simulators/:PlannerExploit:1@375x812:default",
-          "sha256": "10ac0fd2b674426c00eb284448bfe40d0a8a99daff244d50f6cef364591cdc97"
+          "sha256": "b4178acf6c6c7151ac50736cd906ce7190570aed6993f20e55b15b64de2b50e8"
         },
         {
           "key": "mount:/world-models/world-models-vs-simulators/:PlannerExploit:1@375x812:changed",
-          "sha256": "155d6b7fbc3753de0925228af44558e686a9801f2e2323390abf6110309856e0"
+          "sha256": "6e415febd30f9fade26abe2c6836b90fee935c7d658d11ee827fb31ed724dbc8"
         }
       ],
       "renderedTwiceIdentical": true

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "d7e7da2de8570fecfdadb390ba185c0bed4eb7b05c520d4afb0af8dff8189a35",
+  "fingerprint": "55813da6ccb1c66894fb697ec69c45d2d7fc9fedc7dac9a2dbd0d5b85ca9165e",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3021,
+      "visibleTextLength": 3078,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -1307,7 +1307,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20559,
+      "visibleTextLength": 20570,
       "route": "/classical/calibration/",
       "viewport": "1440x900"
     },
@@ -3195,7 +3195,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23816,
+      "visibleTextLength": 23824,
       "route": "/data-hardware/robot-learning-stack/",
       "viewport": "1440x900"
     },
@@ -8151,7 +8151,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23016,
+      "visibleTextLength": 23019,
       "route": "/world-models/evaluation/",
       "viewport": "1440x900"
     },
@@ -8741,7 +8741,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20990,
+      "visibleTextLength": 20995,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "1440x900"
     },
@@ -8977,7 +8977,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26717,
+      "visibleTextLength": 26720,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3046,
+      "visibleTextLength": 3103,
       "route": "/",
       "viewport": "375x812"
     },
@@ -10203,7 +10203,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15479,
+      "visibleTextLength": 15490,
       "route": "/classical/calibration/",
       "viewport": "375x812"
     },
@@ -12091,7 +12091,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17712,
+      "visibleTextLength": 17720,
       "route": "/data-hardware/robot-learning-stack/",
       "viewport": "375x812"
     },
@@ -17047,7 +17047,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16246,
+      "visibleTextLength": 16249,
       "route": "/world-models/evaluation/",
       "viewport": "375x812"
     },
@@ -17637,7 +17637,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15686,
+      "visibleTextLength": 15691,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "375x812"
     },
@@ -17873,7 +17873,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21240,
+      "visibleTextLength": 21243,
       "route": "/world-models/world-models-vs-simulators/",
       "viewport": "375x812"
     }

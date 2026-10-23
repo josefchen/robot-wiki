@@ -84,6 +84,7 @@ function main(paths: string[]): void {
 /** Reads every recorded successor back through the written layer and the figure-mount layer under it. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-word-budget-trim-continuity.ts');
+  const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { lengthCutPredecessor } = await import('../lib/audit-length-cut-continuity.ts');
   const mounts = await import('../lib/audit-figure-mount-continuity.ts');
@@ -94,11 +95,11 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadWordBudgetTrimReview(root).sources) {
     try {
-      // The newer figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
+      // The newer answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut, length-cut (manipulation, classical and
       // rl-sim2real) and world-models length-cut layers hand back the word-budget trim successor first.
       const prior = layer.wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before,
         lengthCutPredecessor(root, source.before,
-          frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, mounts.figureMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))));
+          frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, mounts.figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       if (mounts.figureMountSuccessorPaths().includes(source.after.path)) {
         mounts.figureMountPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, prior);

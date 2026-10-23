@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "41d1bf7d0f3604a74451ed0adabcba2f24f11837a5c551bef1ad833ad2545b56",
+  "fingerprint": "fbc0aa43d517572a685c258d0382f7270fee47c079d1c9e0c97323c70b870ab3",
   "viewports": [
     "375x812",
     "1440x900"
@@ -567,7 +567,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15479,
+      "visibleTextLength": 15490,
       "figures": [
         {
           "imageId": "leica-laser-tracker-ats600",
@@ -12076,7 +12076,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17712,
+      "visibleTextLength": 17720,
       "figures": [
         {
           "imageId": "openvla-overview-2024",
@@ -15623,7 +15623,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16246,
+      "visibleTextLength": 16249,
       "figures": [
         {
           "imageId": "simpler-real-vs-sim-2024",
@@ -16172,7 +16172,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15686,
+      "visibleTextLength": 15691,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -16400,7 +16400,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21240,
+      "visibleTextLength": 21243,
       "figures": [
         {
           "imageId": "isaac-lab-assembly-sim-2025",
@@ -17033,7 +17033,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 20559,
+      "visibleTextLength": 20570,
       "figures": [
         {
           "imageId": "leica-laser-tracker-ats600",
@@ -28542,7 +28542,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23816,
+      "visibleTextLength": 23824,
       "figures": [
         {
           "imageId": "openvla-overview-2024",
@@ -32089,7 +32089,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23016,
+      "visibleTextLength": 23019,
       "figures": [
         {
           "imageId": "simpler-real-vs-sim-2024",
@@ -32638,7 +32638,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 20990,
+      "visibleTextLength": 20995,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -32866,7 +32866,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26717,
+      "visibleTextLength": 26720,
       "figures": [
         {
           "imageId": "isaac-lab-assembly-sim-2025",

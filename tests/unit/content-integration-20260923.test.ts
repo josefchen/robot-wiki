@@ -107,8 +107,9 @@ describe('content integration of 2026-09-23', () => {
         // two articles that gained a figure mount on 2026-10-15 (batch
         // world-models-b03), one more plain edge from the images endpoint
         // moves them on. The KOL triage batch of 2026-10-21 then adds one
-        // plain edge from that endpoint to the live body where it added a
-        // paragraph.
+        // plain edge from that endpoint where it added a paragraph, and the
+        // 2026-10-23 interactives round-1 fix one more plain edge to the live
+        // body where it rebalanced the self-check options.
         const slug = entry.memberId.slice('article:world-models/'.length);
         const later = approvals.find(a => a.id === `kol-backlog-20261001-world-models-prose-${slug}`);
         if (later) expect(later.oldHash).toBe(next?.newHash);
@@ -125,7 +126,9 @@ describe('content integration of 2026-09-23', () => {
         if (figures) expect(figures.oldHash).toBe(images.newHash);
         const kol = approvals.find(a => a.id === `kol-batch-20261021-world-models-prose-${slug}`);
         if (kol) expect(kol.oldHash).toBe((figures ?? images).newHash);
-        expect((kol ?? figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));
+        const options = approvals.find(a => a.id === `interactives-r1-20261023-prose-world-models-${slug}`);
+        if (options) expect(options.oldHash).toBe((kol ?? figures ?? images).newHash);
+        expect((options ?? kol ?? figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));
       } else {
         expect(head.newHash).toBe(currentHash(entry.manifest, entry.memberId));
       }

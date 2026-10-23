@@ -206,6 +206,8 @@ Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`, recorded in `library/desi
 
 ## 7. Components
 
+Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): selected and current states use ink, weight and a 1 px ink rule or underline, never a colour fill, and the site has no rounded pills; lime is retired. `VAL-B2-COMP-007` below moved at the same strength, the way its sibling rows `VAL-B2-COL-005`, `VAL-B2-DISC-003` and `VAL-B2-MAP-003` already had: every registered chip member still needs two independent selection cues, one of them semantic, at 375 and 1440 px. Recorded as an owner-approved successor on 23 October 2026 from the brand-v2-interactives round-1 triage.
+
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-COMP-001` | Primary actions are ink filled with accessible light text. Secondary actions are outlined/transparent by default and tertiary actions remain quiet; no action carries a colour fill (no lime, retired signal blue or accent fill). Disabled actions may use documented neutral treatments and are exempt from active-action colour requirements. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row allowed lime on a registered emphasized secondary, which the research-page standard retires. Same strength: every primary, secondary and disabled action on every public route at 375, 768 and 1440 px.) |
@@ -214,7 +216,7 @@ Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`, recorded in `library/desi
 | `VAL-B2-COMP-004` | Every input has a persistent visible label; placeholder text is not the label. |
 | `VAL-B2-COMP-005` | Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable. |
 | `VAL-B2-COMP-006` | Cards group real content/interaction and do not create a homogeneous universal bento layout. |
-| `VAL-B2-COMP-007` | Selected chips use lime plus text/icon/semantic confirmation. Status chips use dedicated semantic colours. |
+| `VAL-B2-COMP-007` | Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.) |
 | `VAL-B2-COMP-008` | Citation callouts use explicit source language and preserve claim-to-source relationships. |
 | `VAL-B2-COMP-009` | Tables preserve semantic headers, use `aria-sort` where sortable, keep numeric alignment, and scroll within a labelled focusable region at narrow widths. |
 | `VAL-B2-COMP-010` | Tables distinguish source states exactly: published value, `not disclosed` for an undisclosed value, and `n/a` only when genuinely inapplicable; `0`, blank ambiguity, and invented substitutes fail. |
@@ -271,6 +273,8 @@ Owner decision of 10 October 2026 (`PANTHEON-SPEC.md`): selected facets move fro
 
 Owner decision of 19 October 2026 (owner session, queue item polish-1019), on the research-page standard of 10 October 2026 (`PANTHEON-SPEC.md`: one muted blue accent, `#3B6EA8`, for the one highlighted series of a figure, which is the runtime signal token of `VAL-B2-COL-002`) and the isometric figure directive of 12 October 2026 (each isometric figure has one lit part): the brand-v2 rule that kept the bright signal blue off figure marks moves to the accent. `VAL-B2-VIZ-003` below moved at the same strength or stronger, and the light-stage sweep (`tests/e2e/figure-light-stage.spec.ts`) enforces it on every figure at 375 and 1440 px, with planted marks that prove each clause fails.
 
+Owner decision of 2 October 2026 (reader-first figures, 13:15 addendum, item 4: "no 'Reset' unless it is truly needed"), under the research-page standard of 10 October 2026: a figure needs no reset control. `VAL-B2-VIZ-007` below moved at the same strength. Every registered mount still returns to a deterministic default by keyboard, through its reset control where it has one and otherwise by returning each changed control to its default value, and the default state is measured. Recorded as an owner-approved successor on 23 October 2026 from the brand-v2-interactives round-1 triage.
+
 | ID | Requirement |
 | --- | --- |
 | `VAL-B2-VIZ-001` | Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description. |
@@ -279,7 +283,7 @@ Owner decision of 19 October 2026 (owner session, queue item polish-1019), on th
 | `VAL-B2-VIZ-004` | Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone. |
 | `VAL-B2-VIZ-005` | Source values remain source-backed and unknowns remain explicitly unknown. |
 | `VAL-B2-VIZ-006` | Every schematic labels itself and every generated/non-source signal labels its generative status. |
-| `VAL-B2-VIZ-007` | Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset. |
+| `VAL-B2-VIZ-007` | Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no "Reset" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.) |
 | `VAL-B2-VIZ-008` | No explanatory sequence autoplays and no visualization contains decorative fake telemetry. |
 | `VAL-B2-VIZ-009` | Reduced motion produces an immediate, understandable state without losing data, controls, or direct manipulation. |
 

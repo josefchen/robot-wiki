@@ -63,7 +63,7 @@ Robot calibration estimates the parameters that make a robot's measurements and 
 <Image id="leica-laser-tracker-ats600" />
 
 <SelfCheck
-  prompt="A grasp misses by the same small offset in one direction on many objects, and the miss grows with distance from the wrist camera. What should you inspect first?"
+  prompt="On many objects, a grasp misses by a small offset in one direction that grows with distance from the wrist camera. What should you inspect first?"
   options={[
     {
       value: 'hand-eye',
@@ -72,12 +72,12 @@ Robot calibration estimates the parameters that make a robot's measurements and 
     },
     {
       value: 'more-data',
-      label: 'Collect more demonstrations',
+      label: 'Collect more demonstrations at longer distances',
       why: 'More data can teach a stable bias, but the distance-dependent systematic direction points to geometry. Fixing the transform removes the error for every policy and dataset.'
     },
     {
       value: 'larger-model',
-      label: 'Use a larger vision encoder',
+      label: 'Fine-tune a larger vision encoder',
       why: 'Capacity does not make the camera and robot frames agree. A larger model may conceal the bias on familiar poses and retain the same physical defect.'
     }
   ]}

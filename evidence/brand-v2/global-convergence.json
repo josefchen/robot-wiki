@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "4affede75945b5b4e6b087385110a8fc88e8f816a1790f4bcf812aa984a2fb01",
+  "fingerprint": "72aef152d000bb112af2082bdabd9ee7589845a5113485bd518cc29f97c5c3d9",
   "viewports": [
     "375x812",
     "768x1024",
@@ -91,24 +91,24 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 275,
+          "paintedElements": 277,
           "actions": 105,
           "secondaryActions": 2,
           "primaryActions": 2,
           "disabledActions": 1,
           "persistentStates": 2,
           "links": 95,
-          "textRuns": 138,
+          "textRuns": 139,
           "disabledTextRuns": 1,
           "fields": 1,
           "frames": 0,
           "citationLabels": 3,
-          "insetTextRuns": 155,
-          "collisionTextBoxes": 184,
+          "insetTextRuns": 156,
+          "collisionTextBoxes": 186,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
-          "spacingValues": 132,
+          "spacingValues": 133,
           "registeredDevices": 1,
           "alignedDevices": 1,
           "decorativeLayers": 3,
@@ -117,7 +117,7 @@
           "rails": 22,
           "shellGrounds": 6,
           "materialSurfaces": 1,
-          "transformedLabels": 6,
+          "transformedLabels": 7,
           "compositionBlocks": 4
         },
         "findings": [
@@ -253,6 +253,21 @@
             "count": 9,
             "element": "span",
             "text": "57 articles",
+            "exemption": null
+          },
+          {
+            "population": "registration-label",
+            "family": "Geist",
+            "weight": 500,
+            "sizePx": 13,
+            "lineHeightRatio": 1.2,
+            "trackingEm": 0.08,
+            "transform": "uppercase",
+            "parentSizeRatio": 1,
+            "maxLineWidthPx": 317,
+            "count": 2,
+            "element": "label.eyebrow.mb-2!.block",
+            "text": "Search articles, sources and glossary",
             "exemption": null
           },
           {
@@ -429,25 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 186,
+            "maxLineWidthPx": 201,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Motion Planning",
-            "exemption": null
-          },
-          {
-            "population": "registration-label",
-            "family": "Geist",
-            "weight": 500,
-            "sizePx": 13,
-            "lineHeightRatio": 1.2,
-            "trackingEm": 0.08,
-            "transform": "uppercase",
-            "parentSizeRatio": 1,
-            "maxLineWidthPx": 47,
-            "count": 1,
-            "element": "span.eyebrow",
-            "text": "Tools",
+            "text": "Robot Calibration",
             "exemption": null
           },
           {
@@ -690,7 +690,7 @@
         ],
         "content": {
           "strings": 123,
-          "digest": "e611856e"
+          "digest": "63c70d04"
         }
       },
       "focus": [
@@ -1003,24 +1003,24 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 275,
+          "paintedElements": 277,
           "actions": 105,
           "secondaryActions": 2,
           "primaryActions": 2,
           "disabledActions": 1,
           "persistentStates": 2,
           "links": 95,
-          "textRuns": 138,
+          "textRuns": 139,
           "disabledTextRuns": 1,
           "fields": 1,
           "frames": 0,
           "citationLabels": 3,
-          "insetTextRuns": 155,
-          "collisionTextBoxes": 169,
+          "insetTextRuns": 156,
+          "collisionTextBoxes": 170,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
-          "spacingValues": 132,
+          "spacingValues": 133,
           "registeredDevices": 1,
           "alignedDevices": 1,
           "decorativeLayers": 3,
@@ -1029,7 +1029,7 @@
           "rails": 22,
           "shellGrounds": 6,
           "materialSurfaces": 1,
-          "transformedLabels": 6,
+          "transformedLabels": 7,
           "compositionBlocks": 4
         },
         "findings": [
@@ -1165,6 +1165,21 @@
             "count": 9,
             "element": "span",
             "text": "57 articles",
+            "exemption": null
+          },
+          {
+            "population": "registration-label",
+            "family": "Geist",
+            "weight": 500,
+            "sizePx": 13,
+            "lineHeightRatio": 1.2,
+            "trackingEm": 0.08,
+            "transform": "uppercase",
+            "parentSizeRatio": 1,
+            "maxLineWidthPx": 317,
+            "count": 2,
+            "element": "label.eyebrow.mb-2!.block",
+            "text": "Search articles, sources and glossary",
             "exemption": null
           },
           {
@@ -1341,25 +1356,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 213,
+            "maxLineWidthPx": 250,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Motion Planning",
-            "exemption": null
-          },
-          {
-            "population": "registration-label",
-            "family": "Geist",
-            "weight": 500,
-            "sizePx": 13,
-            "lineHeightRatio": 1.2,
-            "trackingEm": 0.08,
-            "transform": "uppercase",
-            "parentSizeRatio": 1,
-            "maxLineWidthPx": 47,
-            "count": 1,
-            "element": "span.eyebrow",
-            "text": "Tools",
+            "text": "Robot Calibration",
             "exemption": null
           },
           {
@@ -1609,7 +1609,7 @@
         ],
         "content": {
           "strings": 123,
-          "digest": "e611856e"
+          "digest": "63c70d04"
         }
       },
       "focus": [
@@ -1922,24 +1922,24 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 275,
+          "paintedElements": 277,
           "actions": 105,
           "secondaryActions": 2,
           "primaryActions": 2,
           "disabledActions": 1,
           "persistentStates": 2,
           "links": 95,
-          "textRuns": 138,
+          "textRuns": 139,
           "disabledTextRuns": 1,
           "fields": 1,
           "frames": 0,
           "citationLabels": 3,
-          "insetTextRuns": 155,
-          "collisionTextBoxes": 163,
+          "insetTextRuns": 156,
+          "collisionTextBoxes": 164,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
-          "spacingValues": 148,
+          "spacingValues": 149,
           "autoMargins": 16,
           "registeredDevices": 1,
           "alignedDevices": 1,
@@ -1949,7 +1949,7 @@
           "rails": 22,
           "shellGrounds": 6,
           "materialSurfaces": 1,
-          "transformedLabels": 6,
+          "transformedLabels": 7,
           "compositionBlocks": 4
         },
         "findings": [
@@ -2085,6 +2085,21 @@
             "count": 9,
             "element": "span",
             "text": "57 articles",
+            "exemption": null
+          },
+          {
+            "population": "registration-label",
+            "family": "Geist",
+            "weight": 500,
+            "sizePx": 13,
+            "lineHeightRatio": 1.2,
+            "trackingEm": 0.08,
+            "transform": "uppercase",
+            "parentSizeRatio": 1,
+            "maxLineWidthPx": 317,
+            "count": 2,
+            "element": "label.eyebrow.mb-2!.block",
+            "text": "Search articles, sources and glossary",
             "exemption": null
           },
           {
@@ -2261,25 +2276,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 213,
+            "maxLineWidthPx": 250,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Motion Planning",
-            "exemption": null
-          },
-          {
-            "population": "registration-label",
-            "family": "Geist",
-            "weight": 500,
-            "sizePx": 13,
-            "lineHeightRatio": 1.2,
-            "trackingEm": 0.08,
-            "transform": "uppercase",
-            "parentSizeRatio": 1,
-            "maxLineWidthPx": 47,
-            "count": 1,
-            "element": "span.eyebrow",
-            "text": "Tools",
+            "text": "Robot Calibration",
             "exemption": null
           },
           {
@@ -2529,7 +2529,7 @@
         ],
         "content": {
           "strings": 123,
-          "digest": "e611856e"
+          "digest": "63c70d04"
         }
       },
       "focus": [
@@ -21858,7 +21858,7 @@
           "cards": 1,
           "citationMarks": 30,
           "insetTextRuns": 431,
-          "collisionTextBoxes": 612,
+          "collisionTextBoxes": 613,
           "headings": 14,
           "paragraphs": 103,
           "sectionHeads": 12,
@@ -21867,7 +21867,7 @@
           "alignedDevices": 2,
           "decorativeLayers": 42,
           "hiddenTextRuns": 40,
-          "proseRuns": 214,
+          "proseRuns": 215,
           "borderedSides": 9,
           "rails": 5,
           "shellGrounds": 10,
@@ -22051,10 +22051,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 262,
+            "maxLineWidthPx": 280,
             "count": 1,
             "element": "legend#_R_2lav5ubsnmtb_-prompt.font-display.text-[16px].font-semibold",
-            "text": "A grasp misses by the same small offset ",
+            "text": "On many objects, a grasp misses by a sma",
             "exemption": null
           },
           {
@@ -22066,7 +22066,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 242,
+            "maxLineWidthPx": 262,
             "count": 3,
             "element": "span",
             "text": "Check the hand-eye rotation and its resi",
@@ -22513,7 +22513,7 @@
         "controlGaps": [],
         "content": {
           "strings": 473,
-          "digest": "1a2e0eba"
+          "digest": "48425101"
         }
       },
       "focus": [
@@ -23031,7 +23031,7 @@
             "maxLineWidthPx": 646,
             "count": 1,
             "element": "legend#_R_2lav5ubsnmtb_-prompt.font-display.text-[16px].font-semibold",
-            "text": "A grasp misses by the same small offset ",
+            "text": "On many objects, a grasp misses by a sma",
             "exemption": null
           },
           {
@@ -23043,7 +23043,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 298,
+            "maxLineWidthPx": 332,
             "count": 3,
             "element": "span",
             "text": "Check the hand-eye rotation and its resi",
@@ -23469,7 +23469,7 @@
         "controlGaps": [],
         "content": {
           "strings": 473,
-          "digest": "1a2e0eba"
+          "digest": "48425101"
         }
       },
       "focus": [
@@ -24031,10 +24031,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 851,
+            "maxLineWidthPx": 836,
             "count": 1,
             "element": "legend#_R_2lav5ubsnmtb_-prompt.font-display.text-[16px].font-semibold",
-            "text": "A grasp misses by the same small offset ",
+            "text": "On many objects, a grasp misses by a sma",
             "exemption": null
           },
           {
@@ -24046,7 +24046,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 298,
+            "maxLineWidthPx": 332,
             "count": 3,
             "element": "span",
             "text": "Check the hand-eye rotation and its resi",
@@ -24493,7 +24493,7 @@
         "controlGaps": [],
         "content": {
           "strings": 473,
-          "digest": "1a2e0eba"
+          "digest": "48425101"
         }
       },
       "focus": [
@@ -74595,7 +74595,7 @@
         "controlGaps": [],
         "content": {
           "strings": 440,
-          "digest": "6c7ff7f3"
+          "digest": "84f84367"
         }
       },
       "focus": [
@@ -75111,7 +75111,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 421,
+            "maxLineWidthPx": 458,
             "count": 3,
             "element": "span",
             "text": "A compressed video and a final success l",
@@ -75517,7 +75517,7 @@
         "controlGaps": [],
         "content": {
           "strings": 440,
-          "digest": "6c7ff7f3"
+          "digest": "84f84367"
         }
       },
       "focus": [
@@ -76079,7 +76079,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 421,
+            "maxLineWidthPx": 458,
             "count": 3,
             "element": "span",
             "text": "A compressed video and a final success l",
@@ -76506,7 +76506,7 @@
         "controlGaps": [],
         "content": {
           "strings": 440,
-          "digest": "6c7ff7f3"
+          "digest": "84f84367"
         }
       },
       "focus": [
@@ -187368,7 +187368,7 @@
         "controlGaps": [],
         "content": {
           "strings": 378,
-          "digest": "f765dcb4"
+          "digest": "b7466baa"
         }
       },
       "focus": [
@@ -187898,7 +187898,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 441,
+            "maxLineWidthPx": 460,
             "count": 3,
             "element": "span",
             "text": "Its policy ranking agrees with repeated ",
@@ -188363,7 +188363,7 @@
         "controlGaps": [],
         "content": {
           "strings": 378,
-          "digest": "f765dcb4"
+          "digest": "b7466baa"
         }
       },
       "focus": [
@@ -188940,7 +188940,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 441,
+            "maxLineWidthPx": 460,
             "count": 3,
             "element": "span",
             "text": "Its policy ranking agrees with repeated ",
@@ -189426,7 +189426,7 @@
         "controlGaps": [],
         "content": {
           "strings": 378,
-          "digest": "f765dcb4"
+          "digest": "b7466baa"
         }
       },
       "focus": [
@@ -201305,10 +201305,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 256,
+            "maxLineWidthPx": 257,
             "count": 3,
             "element": "span",
-            "text": "The model is useful because its videos l",
+            "text": "The model is useful for planning because",
             "exemption": null
           },
           {
@@ -201722,7 +201722,7 @@
         "controlGaps": [],
         "content": {
           "strings": 390,
-          "digest": "07777ba6"
+          "digest": "bc6c6478"
         }
       },
       "focus": [
@@ -202256,7 +202256,7 @@
             "maxLineWidthPx": 496,
             "count": 3,
             "element": "span",
-            "text": "The model is useful because its videos l",
+            "text": "The model is useful for planning because",
             "exemption": null
           },
           {
@@ -202649,7 +202649,7 @@
         "controlGaps": [],
         "content": {
           "strings": 390,
-          "digest": "07777ba6"
+          "digest": "bc6c6478"
         }
       },
       "focus": [
@@ -203229,7 +203229,7 @@
             "maxLineWidthPx": 496,
             "count": 3,
             "element": "span",
-            "text": "The model is useful because its videos l",
+            "text": "The model is useful for planning because",
             "exemption": null
           },
           {
@@ -203643,7 +203643,7 @@
         "controlGaps": [],
         "content": {
           "strings": 390,
-          "digest": "07777ba6"
+          "digest": "bc6c6478"
         }
       },
       "focus": [
@@ -207258,7 +207258,7 @@
           "cards": 1,
           "citationMarks": 33,
           "insetTextRuns": 429,
-          "collisionTextBoxes": 1022,
+          "collisionTextBoxes": 1023,
           "headings": 19,
           "paragraphs": 102,
           "sectionHeads": 13,
@@ -207267,7 +207267,7 @@
           "alignedDevices": 2,
           "decorativeLayers": 39,
           "hiddenTextRuns": 37,
-          "proseRuns": 629,
+          "proseRuns": 630,
           "borderedSides": 15,
           "rails": 11,
           "shellGrounds": 10,
@@ -207469,7 +207469,7 @@
             "maxLineWidthPx": 262,
             "count": 3,
             "element": "span",
-            "text": "Replace the entire simulator with an unc",
+            "text": "Replace the entire physics simulator wit",
             "exemption": null
           },
           {
@@ -207974,7 +207974,7 @@
         "controlGaps": [],
         "content": {
           "strings": 476,
-          "digest": "44ee85f3"
+          "digest": "da7bfff4"
         }
       },
       "focus": [
@@ -208505,10 +208505,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 478,
+            "maxLineWidthPx": 525,
             "count": 3,
             "element": "span",
-            "text": "Replace the entire simulator with an unc",
+            "text": "Replace the entire physics simulator wit",
             "exemption": null
           },
           {
@@ -208992,7 +208992,7 @@
         "controlGaps": [],
         "content": {
           "strings": 476,
-          "digest": "44ee85f3"
+          "digest": "da7bfff4"
         }
       },
       "focus": [
@@ -209569,10 +209569,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 478,
+            "maxLineWidthPx": 525,
             "count": 3,
             "element": "span",
-            "text": "Replace the entire simulator with an unc",
+            "text": "Replace the entire physics simulator wit",
             "exemption": null
           },
           {
@@ -210077,7 +210077,7 @@
         "controlGaps": [],
         "content": {
           "strings": 476,
-          "digest": "44ee85f3"
+          "digest": "da7bfff4"
         }
       },
       "focus": [

@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3046,
+      "visibleTextLength": 3103,
       "header": {
         "present": true,
         "display": "flex",
@@ -1532,7 +1532,7 @@
     },
     {
       "route": "/classical/calibration/",
-      "visibleTextLength": 15479,
+      "visibleTextLength": 15490,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 17712,
+      "visibleTextLength": 17720,
       "header": {
         "present": true,
         "display": "flex",
@@ -10904,7 +10904,7 @@
     },
     {
       "route": "/world-models/evaluation/",
-      "visibleTextLength": 16246,
+      "visibleTextLength": 16249,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 15686,
+      "visibleTextLength": 15691,
       "header": {
         "present": true,
         "display": "flex",
@@ -12038,7 +12038,7 @@
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
-      "visibleTextLength": 21240,
+      "visibleTextLength": 21243,
       "header": {
         "present": true,
         "display": "flex",

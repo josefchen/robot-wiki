@@ -60,7 +60,7 @@ A robot-learning system is a pipeline from physical events to decisions and back
 Machine learning systems often incur massive ongoing maintenance costs from data dependencies, configuration issues and hidden feedback loops <Cite id="hidden-technical-debt-2015" />. Splitting the stack into seven contracts, each with an artifact and a test, lets a failure be traced to one boundary. Try the check below; video alone only replays an episode.
 
 <SelfCheck
-  prompt="Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code have changed?"
+  prompt="Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code change?"
   options={[
     {
       value: 'video-only',
@@ -69,7 +69,7 @@ Machine learning systems often incur massive ongoing maintenance costs from data
     },
     {
       value: 'tensor-only',
-      label: 'The normalized tensors consumed by one training run',
+      label: 'The normalized, synchronized tensors consumed by one training run',
       why: 'Tensors help exact reruns but hide how units, frames and synchronization were derived. They cannot be reprocessed safely when the schema changes.'
     },
     {

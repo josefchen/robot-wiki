@@ -59,11 +59,11 @@ Model-based robot learning is the family of methods that learn how the world res
 The loop predicts futures under candidate actions, scores them, acts, observes the real transition and updates the model. Sutton proposed integrated architectures for learning, planning and reacting in 1990 <Cite id="dyna-1990" />.
 
 <SelfCheck
-  prompt="A learned dynamics model produces sharp videos but predicts nearly the same future for three different gripper actions. What is the correct diagnosis?"
+  prompt="A learned dynamics model produces sharp videos but predicts nearly the same future for three different gripper actions. What is the diagnosis?"
   options={[
     {
       value: 'useful-model',
-      label: 'The model is useful because its videos look realistic',
+      label: 'The model is useful for planning because its videos look photorealistic',
       why: 'Visual fidelity cannot select among actions when the rollout ignores the candidate action. The model may be a good generator and a poor control model.'
     },
     {
@@ -73,7 +73,7 @@ The loop predicts futures under candidate actions, scores them, acts, observes t
     },
     {
       value: 'longer-rollout',
-      label: 'The planner only needs a longer prediction horizon',
+      label: 'The planner needs a longer prediction horizon',
       why: 'A longer rollout compounds the same missing action dependence. Horizon cannot recover information the one-step transition failed to encode.'
     }
   ]}

@@ -470,8 +470,8 @@ Requirements:
 ### 10.5 Badges, chips, and status
 
 - Chips are for filters, compact provenance, state, or taxonomy.
-- Selected filters use lime plus an independent selected indicator.
-- Status uses semantic colour and text.
+- Selected chips and filter tokens are unfilled and read in ink with a 1 px ink rule or underline (or a weight step of at least 200), plus a text, icon or shape confirmation and the semantic state (`aria-pressed`, `aria-selected` or native checked). No lime, colour fill, tint or rounded pill carries selection, and colour is never the only cue (owner decision of 10 October 2026, `VAL-B2-COMP-007`).
+- Status chips use the dedicated status colours (green and red outcome marks only) with a text label.
 - Do not convert ordinary category or metadata prose into pill rows.
 
 ### 10.6 Callouts and citations
@@ -577,7 +577,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 
 - The main view (header, stage, controls and caption at settle) carries no symbol and no bare unit: no Greek letter or one- or two-letter variable used as a quantity, no sub- or superscript, power or formula, no Hz, ms, rad or "/step". The same line may gloss one in plain words ("10 times a second (10 Hz)"). %, currency, dates, and kg, km, km/h, m, cm and mm after a number are everyday forms. Maths and units live in the article text or "How this was made". `lib/figure-main-view.ts` holds the pattern list.
 - Data marks use the stage role palette (`--role-*-stage`): the role hues darkened to at least 4.5:1 on paper. A figure uses one focus colour plus greys: the one muted accent, painted only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); the retired bright signal blue appears on no figure mark (owner decisions of 10 and 19 October 2026, `VAL-B2-VIZ-003`). Status colours mark status only. The constraint red appears only as a hatch. The mark group the annotation points at is the only one at full emphasis; the annotation and its leader take the dark-green highlight role, and lime at most haloes the one highlighted point.
-- Figure controls are the site's quiet controls: one hairline segmented row for named presets, hairline buttons with sans labels and no underline, and thin graphite sliders with plain labels. The selected option reads in weight, an ink hairline and a tinted tile. Lime never fills a control. Reset lives in "Adjust more" unless the figure truly needs it in view.
+- Figure controls are the site's quiet controls: one hairline segmented row for named presets, hairline buttons with sans labels and no underline, and thin graphite sliders with plain labels. The selected option takes the research-page selected state: ink weight or a 1 px ink rule, never a colour fill or tint, and a reader's committed answer in a prediction step or self-check also carries the "Your pick" marker. Lime never fills a control. Reset lives in "Adjust more" unless the figure truly needs it in view.
 - No furniture that needs explaining sits on the stage: no "catalogue ends here" lines, "availability unverified" legends, inline source chips or "current generation" links. Sources go on the source line or in "How this was made", and details sit below the figure as page text, not as a card.
 - Stage text is IBM Plex Sans at 14px displayed, in at most three sizes across the frame (16px headline, 14px stage, caption and controls, 12px kicker and source). IBM Plex Mono is for numeric readouts only. Each axis has at most five labelled ticks.
 - Robots, arms, hands, legs, drones and handled objects are drawn so a lay reader recognises them; no box on sticks stands in for one.
@@ -595,7 +595,7 @@ Both folds are closed at settle and keep their content in the served HTML. Nothi
 
 - Search, A–Z, glossary, and domain indexes share the same display, rail, filter, and selection language.
 - Search empty, loading, results, filtered, no-results, and error states are explicit.
-- Selected filters use lime with text/icon confirmation.
+- Selected filters use the research-page selected state of 10.5 (`VAL-B2-DISC-003`, `VAL-B2-COMP-007`): unfilled, an ink label with a 1 px ink rule, and a semantic plus text or icon confirmation.
 - Search-result titles remain links using signal blue or a strong ink treatment with an explicit hover/focus underline.
 - Match excerpts preserve source wording and never fabricate context.
 - Keyboard users can reach, change, clear, and reset every filter.
@@ -615,7 +615,7 @@ An interactive is an explanatory instrument.
 - Values are source-backed; unknowns read `not disclosed`.
 - Schematics label themselves.
 - First render is deterministic.
-- Keyboard controls, visible focus, a working reset, and a current-state description are mandatory.
+- Keyboard controls, visible focus, a current-state description and a deterministic return to the default are mandatory. Where the figure has a reset control, activating it by keyboard restores the exact default state; where it has none, returning each changed control to its default value by keyboard restores the same default state, each control states its default in its visible readout, and a started run ends or can be stopped on the default frame (owner decision of 2 October 2026, no "Reset" unless it is truly needed; `VAL-B2-VIZ-007`).
 - No autoplay teaching sequence, fake telemetry, decorative waveform, or fabricated progress.
 - Figures and interactives draw on the light page stage (13.4). Dark surfaces stay for code, media frames and the 3D playground (5.4).
 

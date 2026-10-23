@@ -11,7 +11,7 @@ import {
   keepsFigureMountObligations, loadFigureMountReview, verifyFigureMountSource, withoutFigureMounts,
   type FigureMountReview, type FigureMountSource,
 } from '../../lib/audit-figure-mount-continuity';
-import { preWordBudgetTrim } from '../helpers/seo-pass';
+import { preSceneCraft, preWordBudgetTrim } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 /**
@@ -35,9 +35,9 @@ const AFTER_IMAGES = [
 const isLate = (review: FigureMountReview, source: FigureMountSource) =>
   AFTER_IMAGES.includes(source.after.path) && review.sources.filter(({ after }) => after.path === source.after.path).at(-1) === source;
 // The newer word-budget trim layer hands back the figure-mount successor first; for the mounts that came after the
-// image mounts the live article is itself the successor.
+// image mounts the successor is the live article, or the bytes the newer answer-options and scene-craft layers hand on.
 const read = (review: FigureMountReview, source: FigureMountSource) =>
-  (isLate(review, source) ? readFileSync(join(root, source.after.path)) : preWordBudgetTrim(source.after.path));
+  (isLate(review, source) ? preSceneCraft(source.after.path) : preWordBudgetTrim(source.after.path));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /figure mount continuity drift/;
 const blank = { bytes: 0, sha256: '' };
