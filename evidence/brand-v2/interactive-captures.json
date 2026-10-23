@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "516a45a735697959798d99a8903c6e95611ab090159becdd5ae0bcf30c0b6fce",
+  "fingerprint": "7160964e26105c562eae1e86eff4e4353d95427bc0d05b6d5a1a7196a2c239d5",
   "viewports": [
     "375x812",
     "1440x900"
@@ -4438,12 +4438,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "7b52870d473bbc894c315d5f831d36231b7e97513f2df39f24bde752b498e15c",
+          "sha256": "fde8409c2786f40a5eba0a0db393a821f70933d1ba1877d62c8710d636f538cf",
           "widthPx": 327,
           "heightPx": 963,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 33.68,
+          "luminanceSpread": 33.69,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -4453,12 +4453,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Detail, currently 10 centimetres per cell\" 1 to 3",
-          "sha256": "243ee872364ab5f180256bdd39b2fb40610bce5d7baeac21cdd59e5dde233b15",
+          "sha256": "ad517d85c56df30d4602e91e1f21c9b65ac79cf56d038b5d103f70592719b765",
           "widthPx": 327,
           "heightPx": 963,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 34.56,
+          "luminanceSpread": 34.57,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -4571,7 +4571,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "64672ee1d427b95b735b736ce42716599b005e73fb5d4bd82ee7735ed4b39445",
+          "sha256": "d7fe4482348a7595f5aee24d118413455b3a5e7b7ee3b526d56336a260a37b9e",
           "widthPx": 930,
           "heightPx": 702,
           "settleAttempts": 2,
@@ -4586,12 +4586,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Detail, currently 10 centimetres per cell\" 1 to 3",
-          "sha256": "9bac324e19979600ca79bf03a7e88918f0288abfa0bd9b5243d0a991d458c043",
+          "sha256": "77b3ed77ab209f4a2c63ffed0e3f49c55b41586261c01a37eba16141484ff583",
           "widthPx": 930,
           "heightPx": 702,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 30.43,
+          "luminanceSpread": 30.44,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -16722,11 +16722,11 @@
           "detail": "Source does not implement a error state."
         },
         {
-          "caseId": "empty-witness",
-          "kind": "discrete-options",
-          "status": "observed",
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
           "matched": null,
-          "detail": "the empty state is implemented in components/interactive/robots-per-gpu.tsx"
+          "detail": "Source does not implement a empty state."
         },
         {
           "caseId": "unavailable-not-applicable",
@@ -16830,11 +16830,11 @@
           "detail": "Source does not implement a error state."
         },
         {
-          "caseId": "empty-witness",
-          "kind": "discrete-options",
-          "status": "observed",
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
           "matched": null,
-          "detail": "the empty state is implemented in components/interactive/robots-per-gpu.tsx"
+          "detail": "Source does not implement a empty state."
         },
         {
           "caseId": "unavailable-not-applicable",
@@ -18260,12 +18260,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "11d3f85b7325dffa6c81390639147509d04495e84c3ef529a6984587a83a40fb",
+          "sha256": "7eb2762721934dae95aad470d0f72814bc0347fefcca322180eedb5523d947c0",
           "widthPx": 327,
           "heightPx": 605,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.25,
+          "luminanceSpread": 28.39,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -18275,12 +18275,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Real robot friction, currently 1.50\" 80 to 150",
-          "sha256": "b2e58c8c4378ead8261dbdc4efb1876c666e9252d20fd23a479134eaced36216",
+          "sha256": "67c8ed525cb74e0e7287b3dabdac52631f06a7a57e0e2252ba0282e9d36735c1",
           "widthPx": 327,
           "heightPx": 587,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.46,
+          "luminanceSpread": 27.56,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -18379,12 +18379,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "af14b8149398df9f47546320851fc59bb08d370f50ef522389fbcca15d48101e",
+          "sha256": "6417eb420b81e9ec9b2a1f45d56ffbf8a84adc70cf6f52a3ac4ed42be0dad3c2",
           "widthPx": 930,
           "heightPx": 678,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 18.95,
+          "luminanceSpread": 18.99,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -18394,12 +18394,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Real robot friction, currently 1.50\" 80 to 150",
-          "sha256": "f89b9f6143011fd9c7d5f9579f39c72718827f512c86420f1d91f6af0c542324",
+          "sha256": "055c9276451df834eabdff1651a20ca137c983e559b20686adfbe3992e5b194f",
           "widthPx": 930,
           "heightPx": 678,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 18.36,
+          "luminanceSpread": 18.42,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -21595,8 +21595,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-03.jpg",
-      "sha256": "de6919e0f053f5dca5ff60c087e6f206860b7f75c461f827acea48478326327d",
-      "bytes": 187299,
+      "sha256": "19aa93d14b770c531b8f83b9a75db1e82e97dd0c39d0fc39b812b3a5c7d55cc6",
+      "bytes": 187336,
       "mountIds": [
         "mount:/classical/ros2-for-ml-engineers/:QosQueueAge:1",
         "mount:/classical/ros2-for-ml-engineers/:Ros2Interfaces:1",
@@ -21672,19 +21672,19 @@
         },
         {
           "key": "mount:/classical/scene-representation/:SceneRepresentationLadder:1@1440x900:default",
-          "sha256": "64672ee1d427b95b735b736ce42716599b005e73fb5d4bd82ee7735ed4b39445"
+          "sha256": "d7fe4482348a7595f5aee24d118413455b3a5e7b7ee3b526d56336a260a37b9e"
         },
         {
           "key": "mount:/classical/scene-representation/:SceneRepresentationLadder:1@1440x900:changed",
-          "sha256": "9bac324e19979600ca79bf03a7e88918f0288abfa0bd9b5243d0a991d458c043"
+          "sha256": "77b3ed77ab209f4a2c63ffed0e3f49c55b41586261c01a37eba16141484ff583"
         },
         {
           "key": "mount:/classical/scene-representation/:SceneRepresentationLadder:1@375x812:default",
-          "sha256": "7b52870d473bbc894c315d5f831d36231b7e97513f2df39f24bde752b498e15c"
+          "sha256": "fde8409c2786f40a5eba0a0db393a821f70933d1ba1877d62c8710d636f538cf"
         },
         {
           "key": "mount:/classical/scene-representation/:SceneRepresentationLadder:1@375x812:changed",
-          "sha256": "243ee872364ab5f180256bdd39b2fb40610bce5d7baeac21cdd59e5dde233b15"
+          "sha256": "ad517d85c56df30d4602e91e1f21c9b65ac79cf56d038b5d103f70592719b765"
         },
         {
           "key": "mount:/classical/state-estimation/:LinearizationGap:1@1440x900:default",
@@ -22715,8 +22715,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-13.jpg",
-      "sha256": "60aa2da8b8c19f083d4c292d0573a9d6bd582a200e930fcabdc454b3496190a0",
-      "bytes": 164968,
+      "sha256": "eaeb183d620d8956432af82fd91833f7e0ef613a0e4337cde16b80f0916fbd1d",
+      "bytes": 165091,
       "mountIds": [
         "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
         "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
@@ -22760,19 +22760,19 @@
         },
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1@1440x900:default",
-          "sha256": "af14b8149398df9f47546320851fc59bb08d370f50ef522389fbcca15d48101e"
+          "sha256": "6417eb420b81e9ec9b2a1f45d56ffbf8a84adc70cf6f52a3ac4ed42be0dad3c2"
         },
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1@1440x900:changed",
-          "sha256": "f89b9f6143011fd9c7d5f9579f39c72718827f512c86420f1d91f6af0c542324"
+          "sha256": "055c9276451df834eabdff1651a20ca137c983e559b20686adfbe3992e5b194f"
         },
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1@375x812:default",
-          "sha256": "11d3f85b7325dffa6c81390639147509d04495e84c3ef529a6984587a83a40fb"
+          "sha256": "7eb2762721934dae95aad470d0f72814bc0347fefcca322180eedb5523d947c0"
         },
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1@375x812:changed",
-          "sha256": "b2e58c8c4378ead8261dbdc4efb1876c666e9252d20fd23a479134eaced36216"
+          "sha256": "67c8ed525cb74e0e7287b3dabdac52631f06a7a57e0e2252ba0282e9d36735c1"
         },
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1@1440x900:default",

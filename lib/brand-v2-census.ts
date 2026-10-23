@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { maskScriptComments } from './brand-v2-jsx-elements.ts';
 
 export type JsonValue =
   | string
@@ -31,6 +32,25 @@ export type StateCase = {
   expectedEnumeration?: string;
   notApplicableReason?: string;
 };
+
+/** The implemented states a component source can witness by name. */
+export const IMPLEMENTED_STATES = ['loading', 'error', 'empty', 'unavailable'] as const;
+export type ImplementedState = (typeof IMPLEMENTED_STATES)[number];
+
+/**
+ * A component source with its comments blanked, which is what the state
+ * census reads: a note such as "the list is never empty" or a commented-out
+ * `aria-pressed` describes the code, it is not code, and must not register a
+ * state or a control the component does not render.
+ */
+export function stateCensusText(source: string): string {
+  return maskScriptComments(source);
+}
+
+/** Whether a source's code, comments aside, names an implemented state. */
+export function implementsState(source: string, state: ImplementedState): boolean {
+  return new RegExp(`\\b${state}\\b`, 'i').test(stateCensusText(source));
+}
 
 export type InteractiveSourceRecord = {
   id: string;

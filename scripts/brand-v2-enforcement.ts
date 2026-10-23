@@ -1824,8 +1824,8 @@ const INTERACTIVE_DATA_TARGETS: Readonly<Record<string, TestTarget>> = {
   ),
   'VAL-B2-VIZ-003': testTarget(
     'tests/e2e/brand-v2-interactive-data.spec.ts',
-    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-003 the lead series carries the signal paint and lime stays selection-only',
-    'Resolves the lead series computed paint against the registered lead paints and rejects highlight lime without selection semantics.',
+    'brand-v2 interactive data legends and render parity › VAL-B2-VIZ-003 the accent marks only the lead series through its role and no retired paint is drawn',
+    'Sweeps every registry mount at mark level: rejects any retired paint and any accent paint that does not follow the highlight role or the lit part, confines the accent to the registered lead series (or one series), holds the lead to its registered paints, and proves each clause fails on planted marks.',
   ),
   'VAL-B2-VIZ-004': testTarget(
     'tests/e2e/brand-v2-interactive-data.spec.ts',

@@ -153,7 +153,7 @@ export function DeploymentDashboard({ className, deploymentRows = DEPLOYMENT_ROW
           }
         >
           {rows.length === 0 ? (
-            <div className="px-3 pt-3 pb-1 font-sans text-sm text-text-dim">
+            <div data-state="empty" className="px-3 pt-3 pb-1 font-sans text-sm text-text-dim">
               No records in this group.{' '}
               <button
                 type="button"

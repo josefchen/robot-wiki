@@ -142,6 +142,15 @@ describe('jsx element tree', () => {
     expect(masked).toContain("'//not a comment'");
   });
 
+  it('reads an apostrophe in JSX text as text, so the comments after it stay masked', () => {
+    const text = "<p>The robot's grip</p>\n{/* hidden note */}\nconst url = 'https://x.org';";
+    const masked = maskScriptComments(text);
+    expect(masked).toHaveLength(text.length);
+    expect(masked).toContain("The robot's grip");
+    expect(masked).not.toContain('hidden note');
+    expect(masked).toContain("'https://x.org'");
+  });
+
   it('separates value imports from the type names a generic would look like', () => {
     const names = importedNames(
       [

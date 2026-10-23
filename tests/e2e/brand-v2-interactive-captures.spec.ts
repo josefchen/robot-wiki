@@ -39,6 +39,7 @@ import {
   type InteractiveCaptureSheet,
   type InteractiveCapturesEvidence,
 } from '../../lib/brand-v2-interactive-captures';
+import { implementsState, type ImplementedState } from '../../lib/brand-v2-census';
 
 /**
  * `VAL-B2-VIZ-012`: every production mount of every interactive source,
@@ -389,9 +390,11 @@ async function observeCases(root: Locator, mount: CapturePlanMount): Promise<Int
       });
       continue;
     }
-    const witness = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1];
+    const witness = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1] as
+      | ImplementedState
+      | undefined;
     if (stateCase.kind === 'discrete-options' && witness) {
-      const present = new RegExp(`\\b${witness}\\b`, 'i').test(source);
+      const present = implementsState(source, witness);
       cases.push({
         ...base,
         status: present ? 'observed' : 'missing',

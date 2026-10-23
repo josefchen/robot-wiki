@@ -27,6 +27,9 @@ import {
 } from '../lib/brand-v2-jsx-elements.ts';
 import {
   APPROVED_TAB_ICONS,
+  IMPLEMENTED_STATES,
+  implementsState,
+  stateCensusText,
   configurationFingerprint,
   reconcileNamedSets,
   validateApprovedTabIcons,
@@ -447,11 +450,12 @@ function implementsReset(text: string): boolean {
   );
 }
 
-function stateCases(text: string, inheritedControlText = ''): StateCase[] {
+function stateCases(source: string, inheritedControlText = ''): StateCase[] {
   // Control shapes may live in the shared instrument primitives the
   // interactive mounts; everything below that is a fact about this file
   // (the reset action it names, the states it implements) stays read from
-  // `text` alone.
+  // `text` alone, and only from its code: a comment is not markup.
+  const text = stateCensusText(source);
   const controlText = inheritedControlText
     ? `${text}\n${inheritedControlText}`
     : text;
@@ -509,8 +513,8 @@ function stateCases(text: string, inheritedControlText = ''): StateCase[] {
         'deterministic IPOG pairwise combinations, seed brand-v2-state-v1',
     });
   }
-  for (const state of ['loading', 'error', 'empty', 'unavailable'] as const) {
-    if (new RegExp(`\\b${state}\\b`, 'i').test(text)) {
+  for (const state of IMPLEMENTED_STATES) {
+    if (implementsState(source, state)) {
       cases.push({
         id: `${state}-witness`,
         kind: 'discrete-options',
@@ -742,7 +746,7 @@ function interactiveRegistry() {
       const relativePath = relative(ROOT, path);
       const text = readFileSync(path, 'utf8');
       const component = sourceComponentName(text, relativePath);
-      const cases = stateCases(text, inheritedInstrumentControlText(text));
+      const cases = stateCases(text, inheritedInstrumentControlText(stateCensusText(text)));
       return stableRecord({
         id: `interactive:${component}`,
         component,

@@ -327,6 +327,7 @@ export function HardwareGuide({ className }: HardwareGuideProps) {
       {rows.length === 0 ? (
         <div
           role="status"
+          data-state="empty"
           className="mt-4 rounded-none border border-dashed px-4 py-6 text-center [border-color:var(--line-strong)]"
         >
           <p className="font-sans text-sm text-text">

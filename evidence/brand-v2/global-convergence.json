@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "255241ea8235138a887e94d49b8ba49a4df06ca20f11144ef8e6f5618f58f4c8",
+  "fingerprint": "6ccd974a80c5e922e080857f4f46a439138f35160d9e1cca0aa1b76020953fe8",
   "viewports": [
     "375x812",
     "768x1024",
@@ -42527,7 +42527,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2895,
+          "paintedElements": 2894,
           "actions": 191,
           "secondaryActions": 17,
           "persistentStates": 1,
@@ -43423,7 +43423,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2895,
+          "paintedElements": 2894,
           "actions": 191,
           "secondaryActions": 17,
           "persistentStates": 1,
@@ -44326,7 +44326,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3087,
+          "paintedElements": 3086,
           "actions": 247,
           "secondaryActions": 17,
           "persistentStates": 2,

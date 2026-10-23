@@ -120,6 +120,68 @@ test.describe('sim2real-transfer module', () => {
     await expect(friction(page).getByTestId('dr-readout')).toHaveText('74%');
   });
 
+  for (const width of [375, 1440]) {
+    test(`friction readouts clear the curves, the real-floor line, the dots and each other at ${width}`, async ({ page }, testInfo) => {
+      await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
+      await page.goto(ROUTE);
+      await page.evaluate(() => document.fonts.ready);
+      const panel = friction(page);
+      const mu = panel.getByRole('slider', { name: /real robot friction/i });
+      await waitForHydration(mu);
+      await openAdjustMore(panel);
+      const range = panel.getByRole('slider', { name: /randomization half-width/i });
+      const collisions: string[] = [];
+      for (const [spread, floor] of [[35, 80], [35, 35], [35, 110], [35, 150], [10, 80], [10, 35], [65, 80], [65, 20]] as const) {
+        await setSlider(range, spread);
+        await setSlider(mu, floor);
+        await expect(panel.getByTestId('real-mu-readout')).toHaveText((floor / 100).toFixed(2));
+        collisions.push(
+          ...(await panel.evaluate((root, at) => {
+            const out: string[] = [];
+            const svg = root.querySelector('[data-testid="real-floor-values"]')!.closest('svg')!;
+            const labels = [...svg.querySelectorAll<SVGTextElement>('[data-testid="real-floor-values"] text')];
+            const boxes = labels.map((t) => t.getBBox());
+            const near = (b: DOMRect, x: number, y: number, pad: number) =>
+              x >= b.x - pad && x <= b.x + b.width + pad && y >= b.y - pad && y <= b.y + b.height + pad;
+            for (const id of ['point-curve', 'dr-curve']) {
+              const curve = svg.querySelector<SVGPolylineElement>(`[data-testid="${id}"]`)!;
+              const pad = parseFloat(getComputedStyle(curve).strokeWidth) / 2;
+              const length = curve.getTotalLength();
+              boxes.forEach((b, i) => {
+                for (let s = 0; s <= length; s += 0.5) {
+                  const p = curve.getPointAtLength(s);
+                  if (near(b, p.x, p.y, pad)) {
+                    out.push(`${at}: "${labels[i].textContent}" meets ${id}`);
+                    break;
+                  }
+                }
+              });
+            }
+            const line = svg.querySelector<SVGLineElement>('[data-testid="real-line"] line')!;
+            const lineX = line.x1.baseVal.value;
+            const dots = [...svg.querySelectorAll<SVGCircleElement>('[data-testid$="-marker"] circle')];
+            boxes.forEach((b, i) => {
+              if (lineX >= b.x - 1 && lineX <= b.x + b.width + 1) out.push(`${at}: "${labels[i].textContent}" crosses the real-floor line`);
+              for (const dot of dots) {
+                const r = dot.r.baseVal.value;
+                if (near(b, dot.cx.baseVal.value, dot.cy.baseVal.value, r)) out.push(`${at}: "${labels[i].textContent}" covers a dot`);
+              }
+            });
+            const [a, b] = boxes;
+            if (a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height) {
+              out.push(`${at}: the readouts overlap`);
+            }
+            return out;
+          }, `half-width ${spread / 100}, friction ${floor / 100}`)),
+        );
+        if (spread === 35 && floor === 80) {
+          await panel.locator('[data-figure-stage]').first().screenshot({ path: testInfo.outputPath(`friction-readouts-${width}.png`) });
+        }
+      }
+      expect(collisions).toEqual([]);
+    });
+  }
+
   test('teacher-student panel: degradation drives divergence up', async ({
     page,
   }) => {

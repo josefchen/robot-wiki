@@ -35,17 +35,23 @@ export interface InteractiveDataSpec {
    */
   leadSeriesId?: string;
   /**
-   * Paints the lead series may legitimately resolve to. Signal is the
-   * default; a registered second entry is a state semantic the chart
-   * discloses (a regime flip), never a decorative alternative.
+   * Data-bearing paints the lead series may resolve to. The grayscale chart
+   * tones of its stage role are always allowed, since the research-page
+   * standard draws the lead at full emphasis in its role and leaves the
+   * accent optional. The accent is the default entry; any other is a state
+   * semantic the chart discloses (a regime flip), never a decorative
+   * alternative.
    */
   leadPaints?: ReadonlyArray<'accent' | 'error' | 'warn' | 'ok' | 'text' | 'text-dim'>;
 }
 
-/** Resolved-paint tokens the gates treat as data-bearing. */
+/**
+ * Resolved-paint tokens the gates treat as data-bearing. `retired` is a
+ * superseded brand-v2 paint, which no figure may draw (VAL-B2-VIZ-003).
+ */
 export type DataPaintToken =
   | 'accent'
-  | 'highlight'
+  | 'retired'
   | 'error'
   | 'warn'
   | 'ok'
@@ -53,44 +59,88 @@ export type DataPaintToken =
   | 'text-dim'
   | 'pattern';
 
-const PAINT_RGB: Record<string, DataPaintToken | 'neutral'> = {
-  // highlight #C6FF19
-  'rgb(198, 255, 25)': 'highlight',
-  // signal #245FFF
-  'rgb(36, 95, 255)': 'accent',
-  // error #A52A1E
-  'rgb(165, 42, 30)': 'error',
-  // warn #8A5A00
-  'rgb(138, 90, 0)': 'warn',
-  // ok #1A6F45
-  'rgb(26, 111, 69)': 'ok',
-  // ink #0B0B0C
-  'rgb(11, 11, 12)': 'text',
-  // graphite #242D33
-  'rgb(36, 45, 51)': 'text-dim',
-  // concrete #D9DADB and the border-strong mix are scaffold paints
-  'rgb(217, 218, 219)': 'neutral',
-  'rgb(141, 145, 148)': 'neutral',
-  'rgb(176, 178, 180)': 'neutral',
-  'rgb(226, 227, 228)': 'neutral',
-  'rgb(245, 246, 247)': 'neutral',
-  'rgb(255, 255, 255)': 'neutral',
-  none: 'neutral',
-  transparent: 'neutral',
+/**
+ * The research-page palette (app/globals.css, owner decision of 10 October
+ * 2026), keyed by `#RRGGBB`. Browsers serialise a computed colour with or
+ * without spaces depending on who reads it, so every lookup goes through
+ * `paintHex` and never through the string it was given.
+ */
+const PAINT_BY_HEX: Readonly<Record<string, DataPaintToken | 'neutral'>> = {
+  // The one muted accent, --color-signal (and its --color-accent alias).
+  '#3B6EA8': 'accent',
+  // Outcome marks, and the offline clip theme's outcome pair the motion
+  // tokens fall back to.
+  '#A52A1E': 'error',
+  '#C4473A': 'error',
+  '#8A5A00': 'warn',
+  '#1A6F45': 'ok',
+  '#3F8F4F': 'ok',
+  // Ink and the muted text tone.
+  '#1C1C1A': 'text',
+  '#6C6B66': 'text-dim',
+  // The grayscale chart tones and the page grounds are scaffold.
+  '#DEDEDB': 'neutral',
+  '#A3A39E': 'neutral',
+  '#3F3F3B': 'neutral',
+  '#FAFAF8': 'neutral',
+  '#F0F3F6': 'neutral',
+  '#FFFFFF': 'neutral',
 };
+
+/**
+ * The superseded brand-v2 paints: highlight lime, the brand-v2 signal blue
+ * and the earlier blue VAL-B2-RES-003 retires. They fail at any opacity.
+ */
+export const RETIRED_PAINTS = ['#C6FF19', '#245FFF', '#245EDB'] as const;
+
+/** A resolved paint as `#RRGGBB` plus its alpha, or null for no paint. */
+export function paintHex(resolved: string): { hex: string; alpha: number } | null {
+  const value = resolved.trim().toLowerCase();
+  const short = /^#([0-9a-f]{3})$/.exec(value);
+  if (short) {
+    return { hex: `#${[...short[1]].map((digit) => digit + digit).join('')}`.toUpperCase(), alpha: 1 };
+  }
+  const long = /^#([0-9a-f]{6})([0-9a-f]{2})?$/.exec(value);
+  if (long) {
+    return {
+      hex: `#${long[1]}`.toUpperCase(),
+      alpha: long[2] === undefined ? 1 : parseInt(long[2], 16) / 255,
+    };
+  }
+  // A color-mix() result computes to `color(srgb r g b / a)` in 0..1 units.
+  const srgb = /^color\(srgb\s+([^)]*)\)$/.exec(value);
+  const functional = srgb ?? /^rgba?\(([^)]*)\)$/.exec(value);
+  if (!functional) return null;
+  const parts = functional[1].split(/[\s,/]+/).filter(Boolean);
+  if (parts.length < 3) return null;
+  const channels = parts.slice(0, 3).map((part) => Number(part) * (srgb ? 255 : 1));
+  if (channels.some((channel) => !Number.isFinite(channel))) return null;
+  const alphaPart = parts[3];
+  const alpha =
+    alphaPart === undefined
+      ? 1
+      : alphaPart.endsWith('%')
+        ? Number(alphaPart.slice(0, -1)) / 100
+        : Number(alphaPart);
+  return {
+    hex: `#${channels
+      .map((channel) => Math.round(channel).toString(16).padStart(2, '0'))
+      .join('')}`.toUpperCase(),
+    alpha,
+  };
+}
 
 /** Classify one resolved fill/stroke string into a data token. */
 export function classifyResolvedPaint(resolved: string): DataPaintToken | 'neutral' {
-  if (resolved.startsWith('url(')) return 'pattern';
-  if (PAINT_RGB[resolved]) return PAINT_RGB[resolved];
+  if (resolved.trim().startsWith('url(')) return 'pattern';
+  const paint = paintHex(resolved);
+  if (!paint || paint.alpha === 0) return 'neutral';
+  if ((RETIRED_PAINTS as readonly string[]).includes(paint.hex)) return 'retired';
   // Low-alpha washes of a data colour (an uncertainty band at 13 percent)
   // are scaffold, not a series paint; stronger alphas classify by their
   // colour so a translucent mark still counts as its token.
-  const rgba = /^rgba\((\d+),(\d+),(\d+),(\d*\.?\d+)\)$/.exec(resolved);
-  if (rgba && Number(rgba[4]) >= 0.25) {
-    return PAINT_RGB[`rgb(${rgba[1]},${rgba[2]},${rgba[3]})`] ?? 'neutral';
-  }
-  return 'neutral';
+  if (paint.alpha < 0.25) return 'neutral';
+  return PAINT_BY_HEX[paint.hex] ?? 'neutral';
 }
 
 export type MarkGeometry =

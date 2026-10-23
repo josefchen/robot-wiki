@@ -6,8 +6,11 @@ import { DOMAINS, publishedModules } from '@/data/modules';
 import { scanAnnotationAssignments } from '@/lib/brand-v2-annotation-scan';
 import {
   APPROVED_TAB_ICONS,
+  IMPLEMENTED_STATES,
   configurationFingerprint,
+  implementsState,
   isApprovedTabIconDeclaration,
+  stateCensusText,
   reconcileNamedSets,
   validateApprovedTabIcons,
   validateExactRegistryParity,
@@ -406,14 +409,14 @@ describe('brand-v2 canonical census', () => {
       cases.some(({ kind }) => kind === 'reset'),
     );
     const renderingReset = registry.interactive.sources.filter(({ sourcePath }) =>
-      implementsReset(readFileSync(join(ROOT, sourcePath), 'utf8')),
+      implementsReset(stateCensusText(readFileSync(join(ROOT, sourcePath), 'utf8'))),
     );
     expect(renderingReset.length).toBeGreaterThan(0);
     expect(withReset.map(({ id }) => id)).toEqual(
       renderingReset.map(({ id }) => id),
     );
     const presetOnly = registry.interactive.sources.filter(({ sourcePath }) => {
-      const text = readFileSync(join(ROOT, sourcePath), 'utf8');
+      const text = stateCensusText(readFileSync(join(ROOT, sourcePath), 'utf8'));
       return /Preset/.test(text) && !implementsReset(text);
     });
     expect(presetOnly.length).toBeGreaterThan(0);
@@ -431,6 +434,37 @@ describe('brand-v2 canonical census', () => {
         sourceById.get(mount.sourceId)!.cases.some(({ kind }) => kind === 'reset'),
       );
     }
+  });
+
+  it('reads implemented states from code, never from a comment that names one', () => {
+    const lines = (...text: string[]) => text.join('\n');
+    expect(implementsState(lines('// The list is never empty.', 'export const rows = [1];'), 'empty')).toBe(false);
+    expect(implementsState(lines('/**', ' * An explicit empty state with a clear-filter action.', ' */'), 'empty')).toBe(false);
+    expect(implementsState('<div>{/* loading spinner removed */}<p>Ready</p></div>', 'loading')).toBe(false);
+    expect(implementsState('<div data-state="empty">No rows match.</div>', 'empty')).toBe(true);
+    expect(implementsState("const status = 'error';", 'error')).toBe(true);
+    // JSX text apostrophes are not string quotes: the comment after them is still a comment.
+    expect(
+      implementsState(lines("<p>The robot's hand and the tool's grip.</p>", '{/* shown when unavailable */}'), 'unavailable'),
+    ).toBe(false);
+    // A URL's slashes inside a string are not a comment, so code after them still counts.
+    expect(implementsState("const href = 'https://example.org'; const state = 'loading';", 'loading')).toBe(true);
+  });
+
+  it('registers a state witness exactly where the source code implements the state', () => {
+    for (const source of registry.interactive.sources) {
+      const text = readFileSync(join(ROOT, source.sourcePath), 'utf8');
+      for (const state of IMPLEMENTED_STATES) {
+        const ids = source.cases.map(({ id }) => id);
+        expect(ids, `${source.id} ${state}`).toContain(
+          implementsState(text, state) ? `${state}-witness` : `${state}-not-applicable`,
+        );
+      }
+    }
+    // RobotsPerGpu names "empty" only in its doc comment (tiles "fill or empty"); it renders no empty state.
+    const robots = registry.interactive.sources.find(({ component }) => component === 'RobotsPerGpu')!;
+    expect(robots.cases.map(({ id }) => id)).toContain('empty-not-applicable');
+    expect(new RegExp('\\bempty\\b', 'i').test(readFileSync(join(ROOT, robots.sourcePath), 'utf8'))).toBe(true);
   });
 
   it('registers complete grid, surface, and control primitive contracts', () => {

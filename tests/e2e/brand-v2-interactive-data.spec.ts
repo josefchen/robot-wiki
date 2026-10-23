@@ -4,9 +4,11 @@ import type { Browser, Locator } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import { forEachInOwnContext } from './helpers/per-route-context';
 import { mountRoots } from './helpers/interactive-mount-roots';
+import { ACCENT_ROLE_PROPERTIES } from './helpers/figure-light-stage';
 import { buildInteractiveExecutionPlan } from '../../lib/brand-v2-runners';
 import {
   INTERACTIVE_DATA_CLASSIFICATION,
+  RETIRED_PAINTS,
   STATUS_LABEL_EXCEPTIONS,
   NA_CELL_FAMILIES,
   STATUS_LABEL_VOCABULARY,
@@ -83,24 +85,9 @@ function sortableTableCensus() {
   );
 }
 
-const TOKEN_VARS = [
-  '--color-accent',
-  '--color-highlight',
-  '--color-error',
-  '--color-warn',
-  '--color-ok',
-  '--color-text',
-  '--color-text-dim',
-  '--color-border',
-  '--color-border-strong',
-  '--color-surface',
-  '--color-surface-2',
-  '--color-bg',
-] as const;
-
 const DATA_TOKENS = new Set([
   'accent',
-  'highlight',
+  'retired',
   'error',
   'warn',
   'ok',
@@ -130,7 +117,15 @@ type SeriesEvidence = {
   marks: number;
 };
 
-type LimeMark = { paint: string; geometry: string; selection: boolean };
+/**
+ * One geometry painted in the accent (#3B6EA8, at any opacity): the
+ * `data-series` holder it sits in, and whether the paint follows one of
+ * ACCENT_ROLE_PROPERTIES.
+ */
+type AccentMark = { seriesId: string | null; onRole: boolean; at: string };
+
+/** One geometry painted in a RETIRED_PAINTS colour, at any opacity. */
+type RetiredMark = { paint: string; at: string };
 
 type CircleEvidence = { cx: number; cy: number; r: number };
 
@@ -155,7 +150,8 @@ type FrameEvidence = {
   routeText: string;
   legend: LegendEntry[];
   series: Record<string, SeriesEvidence>;
-  limeMarks: LimeMark[];
+  accentMarks: AccentMark[];
+  retiredMarks: RetiredMark[];
   canvasCount: number;
   circles: CircleEvidence[];
   seriesRects: Array<{ seriesId: string; x: number; y: number; width: number; height: number }>;
@@ -172,29 +168,47 @@ type SweepEvidence = {
 
 /**
  * The in-page observer. Playwright serializes this function into the page,
- * so it must close over nothing: the palette variables are passed in.
- * It resolves every mark's computed paint, geometry tag, dash state, and
- * label presence, plus the legend swatches, table cells, circles, and
- * per-series rect geometry the parity anchors compare against.
+ * so it must close over nothing: the accent role properties and the retired
+ * paints are passed in. It resolves every mark's computed paint, geometry
+ * tag, dash state, and label presence, plus the legend swatches, table
+ * cells, circles, and per-series rect geometry the parity anchors compare
+ * against, and every geometry drawn in the accent or a retired paint.
  */
 async function collectFrame(
   frame: Locator,
 ): Promise<Omit<FrameEvidence, 'route' | 'routeText' | 'mountId' | 'sourceId'>> {
-  return frame.evaluate((frameElement, tokenVars) => {
-    const interesting: string[] = [];
-    {
+  return frame.evaluate((frameElement, { accentRoles, retired }) => {
+    const hexOf = (value: string): string | null => {
+      const srgb = /^color\(srgb\s+([^)]*)\)$/.exec(value);
+      const functional = srgb ?? /^rgba?\(([^)]*)\)$/.exec(value);
+      if (!functional) return null;
+      const parts = functional[1].split(/[\s,/]+/).filter(Boolean).map(Number);
+      if (parts.length < 3 || parts[3] === 0) return null;
+      return `#${parts
+        .slice(0, 3)
+        .map((channel) => Math.round(channel * (srgb ? 255 : 1)).toString(16).padStart(2, '0'))
+        .join('')}`.toUpperCase();
+    };
+    // The one muted accent is the runtime signal token (VAL-B2-COL-002), as
+    // tests/e2e/helpers/figure-light-stage.ts reads it.
+    const accent = (() => {
       const probe = document.createElement('span');
       probe.style.display = 'none';
+      probe.style.color = 'var(--color-signal)';
       frameElement.appendChild(probe);
-      const dataVarNames = tokenVars.filter((name: string) =>
-        /--color-(accent|highlight|error|warn|ok|text)$/.test(name),
-      );
-      for (const name of dataVarNames) {
-        probe.style.color = `var(${name}, none)`;
-        interesting.push(getComputedStyle(probe).color.replace(/\s+/g, ''));
-      }
+      const colour = hexOf(getComputedStyle(probe).color);
       probe.remove();
-    }
+      return colour;
+    })();
+    if (!accent) throw new Error('--color-signal does not resolve');
+    const retiredHexes = new Set(retired.map((colour: string) => colour.toUpperCase()));
+    const describe = (el: Element) => {
+      const data = [...el.attributes]
+        .filter((attribute) => attribute.name.startsWith('data-'))
+        .slice(0, 2)
+        .map((attribute) => `${attribute.name}="${attribute.value.slice(0, 40)}"`);
+      return `<${[el.tagName.toLowerCase(), ...data].join(' ')}>`;
+    };
     const geometryClassOf = (obs: { tag: string; dashed: boolean; filled: boolean }) => {
       switch (obs.tag) {
         case 'polyline':
@@ -227,7 +241,16 @@ async function collectFrame(
         const svg = item.querySelector('svg');
         let swatch: (typeof legend)[number]['swatch'] = null;
         if (svg) {
-          const mark = svg.querySelector('line, path, polyline, polygon, rect, circle, ellipse');
+          // The swatch's mark is the first shape it draws: a pattern tile
+          // in its defs is part of a fill, and a structure line framing the
+          // mark is not the series.
+          const mark = Array.from(
+            svg.querySelectorAll('line, path, polyline, polygon, rect, circle, ellipse'),
+          ).find(
+            (shape) =>
+              !shape.closest('defs, pattern, clipPath, mask') &&
+              !shape.hasAttribute('data-scene-structure'),
+          );
           if (mark) {
             const cs = getComputedStyle(mark);
             swatch = {
@@ -254,7 +277,8 @@ async function collectFrame(
       string,
       { paints: string[]; geometries: string[]; labelled: boolean; marks: number }
     > = {};
-    const limeMarks: Array<{ paint: string; geometry: string; selection: boolean }> = [];
+    const accentMarks: Array<{ seriesId: string | null; onRole: boolean; at: string }> = [];
+    const retiredMarks: Array<{ paint: string; at: string }> = [];
     const circles: Array<{ cx: number; cy: number; r: number }> = [];
     const seriesRects: Array<{
       seriesId: string;
@@ -279,8 +303,9 @@ async function collectFrame(
       for (const holder of Array.from(svg.querySelectorAll<SVGElement>('[data-series]'))) {
         // A mark tagged directly and a group tagged around its marks are
         // both holders; skip holders nested in another holder so no mark
-        // is counted twice.
-        if (holder.closest('[data-series]') !== holder) continue;
+        // is counted twice. `closest` starts at the holder itself, so the
+        // search starts at its parent.
+        if (holder.parentElement?.closest('[data-series]')) continue;
         const seriesId = holder.getAttribute('data-series');
         if (!seriesId) continue;
         const shapes = holder.matches(SHAPES)
@@ -326,36 +351,63 @@ async function collectFrame(
           }
         }
       }
+    }
 
-      // The lime sweep stays mark-level: any highlight-painted mark must
-      // carry selection semantics, tagged or not.
-      for (const el of Array.from(svg.querySelectorAll<SVGElement>(SHAPES))) {
-        const cs = getComputedStyle(el);
-        const tag = el.tagName.toLowerCase();
-        for (const value of [cs.stroke, cs.fill]) {
-          if (!isPaint(value)) continue;
-          const m = /^rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(value);
-          if (
-            m &&
-            Math.abs(Number(m[1]) - 198) < 2 &&
-            Math.abs(Number(m[2]) - 255) < 2 &&
-            Math.abs(Number(m[3]) - 25) < 2
-          ) {
-            limeMarks.push({
-              paint: value.replace(/\s+/g, ''),
-              geometry: geometryClassOf({
-                tag,
-                dashed: Boolean(cs.strokeDasharray && cs.strokeDasharray !== 'none'),
-                filled: isPaint(cs.fill),
-              }),
-              selection: Boolean(
-                el.closest('[aria-selected], [aria-pressed], [aria-checked], [data-selection]'),
-              ),
-            });
-          }
-        }
+    // The accent and retired sweep is mark-level, tagged or not, legend
+    // swatches included. Which accent paints come through an allowed role is
+    // read the way figure-light-stage reads it: each role property is set
+    // inline on every element of the frame to a sentinel no figure uses, a
+    // paint that follows it came through that property, and everything is
+    // put back before the paints are read.
+    const shapes = Array.from(frameElement.querySelectorAll<SVGElement>(`svg :is(${SHAPES})`));
+    const SENTINEL = 'rgb(1, 2, 3)';
+    const planted: Array<[HTMLElement | SVGElement, string]> = [];
+    for (const el of [frameElement, ...frameElement.querySelectorAll('*')] as Array<
+      HTMLElement | SVGElement
+    >) {
+      for (const name of accentRoles) {
+        if (el.style.getPropertyValue(name)) continue;
+        el.style.setProperty(name, SENTINEL);
+        planted.push([el, name]);
       }
     }
+    const onRole = shapes.map((el) => {
+      const cs = getComputedStyle(el);
+      return { stroke: cs.stroke === SENTINEL, fill: cs.fill === SENTINEL };
+    });
+    for (const [el, name] of planted) el.style.removeProperty(name);
+    // A mark belongs to its outermost holder, as the series rows count it.
+    const seriesOf = (el: Element) => {
+      let holder: Element | null = null;
+      for (
+        let node = el.closest('[data-series]');
+        node;
+        node = node.parentElement?.closest('[data-series]') ?? null
+      ) {
+        holder = node;
+      }
+      return holder?.getAttribute('data-series') ?? null;
+    };
+    shapes.forEach((el, index) => {
+      const cs = getComputedStyle(el);
+      for (const [kind, value] of [
+        ['stroke', cs.stroke],
+        ['fill', cs.fill],
+      ] as const) {
+        if (!isPaint(value)) continue;
+        const hex = hexOf(value);
+        if (hex && retiredHexes.has(hex)) {
+          retiredMarks.push({ paint: hex, at: `${describe(el)} ${kind}` });
+        }
+        if (hex === accent) {
+          accentMarks.push({
+            seriesId: seriesOf(el),
+            onRole: onRole[index][kind],
+            at: `${describe(el)} ${kind}`,
+          });
+        }
+      }
+    });
 
     const tables: Array<{
       headers: string[];
@@ -441,14 +493,15 @@ async function collectFrame(
     return {
       legend,
       series,
-      limeMarks,
+      accentMarks,
+      retiredMarks,
       canvasCount: frameElement.querySelectorAll('canvas').length,
       circles,
       seriesRects,
       text: (frameElement.textContent ?? '').replace(/\s+/g, ' ').trim(),
       tables,
     };
-  }, [...TOKEN_VARS]);
+  }, { accentRoles: [...ACCENT_ROLE_PROPERTIES], retired: [...RETIRED_PAINTS] });
 }
 
 let sweepPromise: Promise<SweepEvidence> | null = null;
@@ -540,6 +593,8 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
               evidence.legend.push(entry);
             }
           }
+          evidence.accentMarks.push(...state.accentMarks);
+          evidence.retiredMarks.push(...state.retiredMarks);
         }
       }
       frames.push({
@@ -621,6 +676,76 @@ function near(actual: number, expected: number, tolerance = 0.75): boolean {
   return Math.abs(actual - expected) <= tolerance;
 }
 
+/**
+ * The VAL-B2-VIZ-003 judgement (contract/design-integrity.md), one list per
+ * clause:
+ * - `retired`: a geometry painted in a retired paint, at any opacity;
+ * - `offRole`: an accent geometry whose paint does not come through
+ *   ACCENT_ROLE_PROPERTIES;
+ * - `offLead`: an accent-painted series other than the source's registered
+ *   lead or, where none is registered, a second accent-painted series. A
+ *   mark outside every series (an annotation leader, a marker) is held to
+ *   the role clause only;
+ * - `lead`: a registered lead series with no marks, or resolving a
+ *   data-bearing paint its row does not register. The grayscale chart tones
+ *   are not data-bearing, so the lead is never required to carry the accent.
+ */
+function viz003Violations(frames: readonly FrameEvidence[]) {
+  const found = {
+    lead: [] as string[],
+    offLead: [] as string[],
+    offRole: [] as string[],
+    retired: [] as string[],
+  };
+  for (const frame of frames) {
+    for (const mark of frame.retiredMarks) {
+      found.retired.push(`${frame.mountId}: ${mark.at} paints the retired ${mark.paint}`);
+    }
+    for (const mark of frame.accentMarks) {
+      if (!mark.onRole) {
+        found.offRole.push(
+          `${frame.mountId}: ${mark.at} paints the accent outside ${ACCENT_ROLE_PROPERTIES.join(', ')}`,
+        );
+      }
+    }
+    const spec = INTERACTIVE_DATA_CLASSIFICATION[frame.sourceId];
+    const lead = spec?.leadSeriesId;
+    const accentSeries = [
+      ...new Set(
+        frame.accentMarks
+          .map(({ seriesId }) => seriesId)
+          .filter((seriesId): seriesId is string => seriesId !== null),
+      ),
+    ];
+    const offLead = lead
+      ? accentSeries.filter((seriesId) => seriesId !== lead)
+      : accentSeries.slice(1);
+    for (const seriesId of offLead) {
+      found.offLead.push(
+        lead
+          ? `${frame.mountId}: series "${seriesId}" carries the accent, which marks only the lead "${lead}"`
+          : `${frame.mountId}: series "${seriesId}" carries the accent beside "${accentSeries[0]}"`,
+      );
+    }
+    if (!lead) continue;
+    const row = frame.series[lead];
+    if (!row) {
+      found.lead.push(`${frame.mountId}: lead series "${lead}" carries no data-series marks`);
+      continue;
+    }
+    const allowed: readonly string[] = spec.leadPaints ?? ['accent'];
+    for (const paint of row.paints) {
+      const token = classifyResolvedPaint(paint);
+      if (DATA_TOKENS.has(token) && !allowed.includes(token)) {
+        found.lead.push(
+          `${frame.mountId}: lead series "${lead}" resolves ${token} (${paint}); allowed: ${allowed.join(', ')}`,
+        );
+      }
+    }
+  }
+  return found;
+}
+
 test.describe('brand-v2 interactive data legends and render parity', () => {
   test('VAL-B2-VIZ-002 every plotted series stays distinguishable without colour', async ({
     browser,
@@ -657,7 +782,7 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     expect(violations, 'colour-only series pairs').toEqual([]);
   });
 
-  test('VAL-B2-VIZ-003 the lead series carries the signal paint and lime stays selection-only', async ({
+  test('VAL-B2-VIZ-003 the accent marks only the lead series through its role and no retired paint is drawn', async ({
     browser,
     staticBase,
   }) => {
@@ -666,52 +791,101 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     const leadRows = Object.entries(INTERACTIVE_DATA_CLASSIFICATION).filter(
       ([, spec]) => spec.leadSeriesId,
     );
-    const violations: string[] = [];
-    for (const [sourceId, spec] of leadRows) {
-      const leadId = spec.leadSeriesId!;
-      const allowed = spec.leadPaints ?? ['accent'];
-      const mountedFrames = frameFor(sourceId, frames);
-      expect(
-        mountedFrames.length,
-        `${sourceId} lead series has a rendered mount`,
-      ).toBeGreaterThan(0);
-      for (const frame of mountedFrames) {
-        const row = frame.series[leadId];
-        if (!row) {
-          violations.push(`${frame.mountId}: lead series "${leadId}" carries no data-series marks`);
-          continue;
-        }
-        for (const paint of row.paints) {
-          const token = classifyResolvedPaint(paint);
-          if (!DATA_TOKENS.has(token)) continue;
-          if (!allowed.includes(token as never)) {
-            violations.push(
-              `${frame.mountId}: lead series "${leadId}" resolves ${token} (${paint}); allowed: ${allowed.join(', ')}`,
-            );
-          }
-        }
-      }
-    }
     expect(
       leadRows.length,
       'the classification registers lead-series charts (population is not vacuous)',
     ).toBeGreaterThanOrEqual(3);
-
-    const limeViolations: string[] = [];
-    for (const frame of frames) {
-      for (const mark of frame.limeMarks) {
-        const entry = frame.legend.find((item) =>
-          /(select|highlight|current|chosen|you|your)/i.test(item.text),
-        );
-        if (!mark.selection && !entry) {
-          limeViolations.push(
-            `${frame.mountId}: a ${mark.geometry} mark resolves highlight lime with no selection semantics`,
-          );
-        }
-      }
+    for (const [sourceId] of leadRows) {
+      expect(
+        frameFor(sourceId, frames).length,
+        `${sourceId} lead series has a rendered mount`,
+      ).toBeGreaterThan(0);
     }
-    expect(violations, 'lead-series paint violations').toEqual([]);
-    expect(limeViolations, 'decorative lime marks').toEqual([]);
+    // The sweep reads the accent where the corpus draws it, and the role
+    // probe recognises it there, so the clauses below judge real paints.
+    expect(
+      frames.filter(({ accentMarks }) => accentMarks.some(({ onRole }) => onRole)).length,
+      'frames whose accent the role probe traced to an allowed role',
+    ).toBeGreaterThanOrEqual(50);
+    const found = viz003Violations(frames);
+    expect(found.lead, 'lead-series paint violations').toEqual([]);
+    expect(found.offLead, 'the accent on a series other than the lead').toEqual([]);
+    expect(found.offRole, 'the accent outside the highlight role and the lit part').toEqual([]);
+    expect(found.retired, 'a retired paint on an instrument geometry').toEqual([]);
+
+    // The same collector and judgement fail on planted marks: an off-role
+    // accent, an accent series beside the registered lead and two retired
+    // paints, while the accent through the highlight role on the lead
+    // passes and a holder nested in another holder counts once.
+    const plan = buildInteractiveExecutionPlan(brandV2Registry);
+    const route = '/manipulation/rl-finetuning/';
+    const mounts = plan.mounts.filter((mount) => mount.route === route);
+    const index = mounts.findIndex((mount) => mount.sourceId === 'interactive:ExpoFtResults');
+    expect(index, 'the EXPO-FT results mount, whose lead series is registered').toBeGreaterThanOrEqual(0);
+    const context = await browser.newContext({ viewport: VIEWPORT });
+    try {
+      const page = await context.newPage();
+      await page.goto(`${staticBase}${route}`);
+      const frame = (await mountRoots(page, route, mountIdentities(plan, mounts)))[index];
+      const judge = async () => {
+        const evidence = await collectFrame(frame);
+        return {
+          evidence,
+          found: viz003Violations([
+            {
+              ...evidence,
+              route,
+              routeText: '',
+              mountId: mounts[index].id,
+              sourceId: mounts[index].sourceId,
+            },
+          ]),
+        };
+      };
+      const before = await judge();
+      expect(before.found, 'the unplanted frame passes').toEqual({
+        lead: [],
+        offLead: [],
+        offRole: [],
+        retired: [],
+      });
+      const planted = await frame.evaluate((root) => {
+        const stage = root.querySelector('[data-figure-stage]') ?? root;
+        stage.insertAdjacentHTML(
+          'beforeend',
+          `<svg data-planted="drawing" viewBox="0 0 200 20" width="200" height="20" role="img" aria-label="planted marks">
+            <rect data-planted="off-role" x="0" y="0" width="10" height="10" fill="#3B6EA8" />
+            <g data-series="planted-other"><rect data-planted="off-lead" x="20" y="0" width="10" height="10" style="fill: var(--role-highlight-graphic)" /></g>
+            <rect data-planted="retired-blue" x="40" y="0" width="10" height="10" fill="#245FFF" />
+            <line data-planted="retired-lime" x1="60" y1="5" x2="80" y2="5" stroke="#C6FF19" />
+            <g data-series="expo-ft"><rect data-planted="lead-role" x="100" y="0" width="10" height="10" style="fill: var(--role-highlight-graphic)" /></g>
+            <g data-series="planted-outer"><rect data-planted="outer" x="120" y="0" width="10" height="10" fill="#3F3F3B" /><g data-series="planted-inner"><rect data-planted="inner" x="140" y="0" width="10" height="10" fill="#3F3F3B" /></g></g>
+          </svg>`,
+        );
+        return Boolean(root.querySelector('[data-planted="drawing"]'));
+      });
+      expect(planted, 'the planted drawing sits in the frame').toBe(true);
+      const after = await judge();
+      const named = (list: string[]) =>
+        list.map((at) => at.match(/data-planted="([^"]+)"/)?.[1] ?? at).sort();
+      // Each clause fails on its own planted mark and on nothing else.
+      expect(named(after.found.retired)).toEqual(['retired-blue', 'retired-lime']);
+      expect(named(after.found.offRole)).toEqual(['off-role']);
+      expect(after.found.offLead).toEqual([
+        `${mounts[index].id}: series "planted-other" carries the accent, which marks only the lead "expo-ft"`,
+      ]);
+      // The accent through the highlight role on the lead itself passes.
+      expect(after.found.lead).toEqual([]);
+      expect(
+        after.evidence.accentMarks.some(({ at, onRole }) => at.includes('lead-role') && onRole),
+      ).toBe(true);
+      // A holder inside another holder adds no series and counts no mark
+      // twice: both rects belong to the outer series.
+      expect(after.evidence.series['planted-inner']).toBeUndefined();
+      expect(after.evidence.series['planted-outer']?.marks).toBe(2);
+    } finally {
+      await context.close();
+    }
   });
 
   test('VAL-B2-VIZ-004 legends map bijectively to marks and name things, not colours', async ({
