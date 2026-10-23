@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { FrictionTransfer } from '@/components/interactive/friction-transfer';
@@ -166,5 +167,13 @@ describe('FrictionTransfer', () => {
     expect(wide).toMatch(/band is marked wide at the selected half-width/);
     const key = (text: string) => text.toLowerCase().replace(/\d+/g, '#');
     expect(key(ordinary)).not.toBe(key(wide));
+  });
+});
+
+describe('FrictionTransfer series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<FrictionTransfer />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['dr-policy', 'point-policy', 'real-robot']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

@@ -78,13 +78,14 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
             data-testid="twin-stage"
             data-correlation={sim.text}
           >
-            <StageAnnotation x={LEFT} y={16} lines={[`${sim.text}: ${STATEMENT[simId]}`]} />
-            <text x={LEFT} y={36} fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
-              {sim.note}
-            </text>
             <rect x={LEFT} y={BAR_Y} width={RIGHT - LEFT} height={BAR_HEIGHT} fill="none" stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure} />
-            <g data-series="correlation" data-chart-role="highlight">
-              <rect data-testid="twin-bar" x={LEFT} y={BAR_Y} width={f(end - LEFT)} height={BAR_HEIGHT} fill={accent} />
+            {/* The bar's own label: the note above it reads its value and what it means. */}
+            <g data-series="correlation">
+              <StageAnnotation x={LEFT} y={16} lines={[`${sim.text}: ${STATEMENT[simId]}`]} />
+              <text x={LEFT} y={36} fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
+                {sim.note}
+              </text>
+              <rect data-testid="twin-bar" data-chart-role="highlight" x={LEFT} y={BAR_Y} width={f(end - LEFT)} height={BAR_HEIGHT} fill={accent} />
             </g>
             <g data-series="other" data-testid="twin-other" data-chart-role="reference">
               <line

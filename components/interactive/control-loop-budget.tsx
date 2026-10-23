@@ -300,14 +300,15 @@ export function ControlLoopBudget({
             aria-label={`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}
             aria-describedby={descriptionId}
           >
-            <DirectLabel x={LEFT} y={BRAIN_LABEL_Y}>
-              The brain working out the next move
-            </DirectLabel>
             <g data-series="clb-inference" data-testid="inference-bar">
+              <DirectLabel x={LEFT} y={BRAIN_LABEL_Y}>
+                The brain working out the next move
+              </DirectLabel>
               <Bar x={LEFT} y={BAR_TOP} width={withinW} height={BAR_H} />
             </g>
             {inferenceMs > CONTROL_PERIOD_MS ? (
-              <g data-series="clb-overrun">
+              // The same call running on past the first beat, hatched, under the same label.
+              <g data-series="clb-overrun" data-series-labelled="">
                 <ConstraintHatch
                   id={hatchId}
                   x={budgetX}

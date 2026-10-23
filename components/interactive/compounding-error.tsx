@@ -666,7 +666,8 @@ export function CompoundingError({
                 εT
               </DirectLabel>
             </g>
-            <g data-series="summed-deviation">
+            {/* The one solid trace is the quantity the y axis names ("summed deviation"); the dashed curves carry their own labels. */}
+            <g data-series="summed-deviation" data-series-labelled="">
               <path
                 d={bounds.simPath}
                 fill="none"

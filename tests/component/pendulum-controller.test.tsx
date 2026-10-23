@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -550,5 +551,15 @@ describe('PendulumController served HTML', () => {
     expect(violations.map(formatViolation)).toEqual([]);
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
+  });
+});
+
+describe('PendulumController series encoding (VAL-B2-VIZ-002/004)', () => {
+  beforeEach(() => mockReducedMotion(false));
+
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<PendulumController />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['pendulum-pole']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

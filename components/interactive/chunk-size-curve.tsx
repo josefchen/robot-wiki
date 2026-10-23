@@ -39,7 +39,7 @@ import { MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
  * per decision, on a log axis so the measured rise from 1 to 100 fills most
  * of the plot. Only the two anchors (1% at one move, 44% at 100) have
  * published numbers; the line between them is a drawn interpolation and the
- * taper past 100 is a pale estimate band. Under the plot, one tick per decision
+ * taper past 100 is a dashed estimate line. Under the plot, one tick per decision
  * in a 400-move task shows what chunking shrinks. The main view offers the
  * two measured settings; the free slider and Reset sit in "Adjust more".
  */
@@ -153,7 +153,7 @@ export function ChunkSizeCurve({
   }, [chunkSize, success, peakK]);
 
   // Sampled from successAtChunkSize, the same function the path is drawn
-  // from; the provenance column carries the estimate band's qualification
+  // from; the provenance column carries the estimate line's qualification
   // into the table rather than leaving it to the picture.
   const sampleRows = useMemo(() => {
     const measuredK = new Set(ACT_CHUNK_ANCHORS.map((a) => a.k));
@@ -172,7 +172,7 @@ export function ChunkSizeCurve({
     success,
   )} success against ${decisions} closed-loop ${
     decisions === 1 ? 'decision' : 'decisions'
-  } per ${episodeSteps}-step episode; the pale estimate band past k = 100 stands in for the slight decline the ACT ablation reports at k = 200 and k = 400 without exact numbers.`;
+  } per ${episodeSteps}-step episode; the dashed estimate line past k = 100 stands in for the slight decline the ACT ablation reports at k = 200 and k = 400 without exact numbers.`;
 
   function reset() {
     setChunkSize(defaultChunkSize);
@@ -241,7 +241,7 @@ export function ChunkSizeCurve({
                 success, <span data-testid="chunk-decisions-readout">{decisions}</span>{' '}
                 {decisions === 1 ? 'decision' : 'decisions'} per {episodeSteps}-move task
               </StageReadout>
-              <StageStatus>Only the two dots have published numbers; the line between and the pale band are estimates.</StageStatus>
+              <StageStatus>Only the two dots have published numbers; the line and dashed taper are authored estimates.</StageStatus>
             </>
           }
         >
@@ -344,7 +344,7 @@ export function ChunkSizeCurve({
             simulated tasks, Cube Transfer and Bimanual Insertion, each trained on scripted and on human
             demonstrations with temporal ensembling disabled. The paper plots the other chunk sizes it
             trained but gives numbers only for these two. The line between them is a log-linear
-            interpolation drawn for reading, and the pale band past k = 100 is an estimate: the paper
+            interpolation drawn for reading, and the dashed line past k = 100 is an estimate: the paper
             reports a slight decline at k = 200 and k = 400 without exact numbers.
           </p>
           <p>

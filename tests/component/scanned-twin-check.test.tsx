@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import { JSDOM } from 'jsdom';
 import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -65,5 +66,13 @@ describe('ScannedTwinCheck served HTML', () => {
   });
   it('shows no symbol, formula or bare unit in the main view', () => {
     expect(mainViewSymbolHits(new JSDOM(html).window.document.querySelector('[data-figure-frame]')!)).toEqual([]);
+  });
+});
+
+describe('ScannedTwinCheck series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = renderFigure();
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['correlation', 'other']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

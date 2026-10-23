@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "37dc59bfc439ec7fab79c52096cf3c8657f20bdc1b5fe6282e71b2d45fcc1414",
+  "fingerprint": "255241ea8235138a887e94d49b8ba49a4df06ca20f11144ef8e6f5618f58f4c8",
   "viewports": [
     "375x812",
     "768x1024",
@@ -12310,7 +12310,7 @@
         "controlGaps": [],
         "content": {
           "strings": 555,
-          "digest": "4866a4e7"
+          "digest": "aa36c76d"
         }
       },
       "focus": [
@@ -13202,7 +13202,7 @@
         "controlGaps": [],
         "content": {
           "strings": 555,
-          "digest": "4866a4e7"
+          "digest": "aa36c76d"
         }
       },
       "focus": [
@@ -14161,7 +14161,7 @@
         "controlGaps": [],
         "content": {
           "strings": 555,
-          "digest": "4866a4e7"
+          "digest": "aa36c76d"
         }
       },
       "focus": [
@@ -108189,7 +108189,7 @@
         "controlGaps": [],
         "content": {
           "strings": 611,
-          "digest": "6ea53c73"
+          "digest": "d3d44c8e"
         }
       },
       "focus": [
@@ -109287,7 +109287,7 @@
         "controlGaps": [],
         "content": {
           "strings": 611,
-          "digest": "6ea53c73"
+          "digest": "d3d44c8e"
         }
       },
       "focus": [
@@ -110452,7 +110452,7 @@
         "controlGaps": [],
         "content": {
           "strings": 611,
-          "digest": "6ea53c73"
+          "digest": "d3d44c8e"
         }
       },
       "focus": [
@@ -142262,7 +142262,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2266,
+          "paintedElements": 2267,
           "actions": 207,
           "secondaryActions": 29,
           "persistentStates": 2,
@@ -143282,7 +143282,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2266,
+          "paintedElements": 2267,
           "actions": 207,
           "secondaryActions": 29,
           "persistentStates": 2,
@@ -144309,7 +144309,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2485,
+          "paintedElements": 2486,
           "actions": 283,
           "secondaryActions": 29,
           "persistentStates": 3,

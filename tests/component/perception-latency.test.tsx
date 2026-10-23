@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import { describe, expect, it } from 'vitest';
-import { PerceptionLatency, SLOW, corridorAt, runAt } from '@/components/interactive/perception-latency';
+import { PerceptionLatency, RIDER_HINT, SLOW, corridorAt, runAt } from '@/components/interactive/perception-latency';
 import {
   DRONE_REACH,
   RANGE_M,
@@ -237,5 +238,16 @@ describe('latency corridor model', () => {
     const { blind } = rig.ridersAt(0, 1, 7);
     expect(blind.outline).toBeTruthy();
     expect(SENSORS[0].rangeM).toBe(RANGE_M);
+  });
+});
+
+describe('PerceptionLatency series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<PerceptionLatency />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['avoidance-maneuver', 'perception-latency']);
+    // The still stage's hint is what names both riders, so it must say both.
+    expect(RIDER_HINT).toMatch(/^Lit: .*before the camera reports\. Plain: swerve$/);
+    expect(container.textContent).toContain(RIDER_HINT);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

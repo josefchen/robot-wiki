@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -496,5 +497,15 @@ describe('RrtExplorer served HTML', () => {
     expect(lines.some((line) => /units|iteration|nodes/.test(line))).toBe(false);
     const svg = frame.querySelector('svg.iso-svg')!;
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
+  });
+});
+
+describe('RrtExplorer series encoding (VAL-B2-VIZ-002/004)', () => {
+  beforeEach(() => mockReducedMotion(false));
+
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<RrtExplorer />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['rrt-tree']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

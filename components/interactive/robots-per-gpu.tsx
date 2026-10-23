@@ -119,8 +119,9 @@ export function RobotsPerGpu({ className }: { className?: string }) {
 
   const liveView = (id: LiveId) => {
     if (id === 'tiles') {
+      // The drawing carries no words; the stage hint under it names the tiles ("Each lit tile on the chip is 128 robots").
       return (
-        <g key={id} ref={tilesRef} data-series="robots">
+        <g key={id} ref={tilesRef} data-series="robots" data-series-labelled="">
           {TILE_PATHS.map((d, k) => (
             <g key={k} data-square={k} data-chart-role={k === 0 ? 'highlight' : 'value'}>
               <path className="iso-top" style={TILE_STYLE} d={d} />

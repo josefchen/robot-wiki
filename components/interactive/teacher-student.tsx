@@ -260,15 +260,16 @@ export function TeacherStudent({
               {readings.map((v, i) => {
                 const x = f(PLOT_LEFT + i * CELL_W + 1);
                 if (occluded[i]) {
-                  // A lost reading is a short grey stub, so the gap reads without the hue.
+                  // A lost reading is a short grey dashed stub in the same strip, so the
+                  // gap reads without the hue; the method names it.
                   return (
                     <line
                       key={i}
-                      data-series="occluded"
                       x1={x}
                       x2={f(x + CELL_W - 3)}
                       y1={STRIP.baseline - 1}
                       y2={STRIP.baseline - 1}
+                      fill="none"
                       stroke={CHART_STRUCTURE.axes}
                       strokeWidth={CHART_STROKE.trace}
                       strokeDasharray="2 2"

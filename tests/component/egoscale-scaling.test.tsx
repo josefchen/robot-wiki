@@ -1,7 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
+import { INTERACTIVE_DATA_CLASSIFICATION } from '@/lib/brand-v2-interactive-data';
 import {
   SLIDER_MAX,
   SLIDER_MIN,
@@ -193,5 +195,17 @@ describe('EgoScaleScaling', () => {
     const { rerender } = render(<EgoScaleScaling defaultHorizonHours={250_000} />);
     rerender(<EgoScaleScaling />);
     expect(screen.getByTestId('horizon-readout')).toHaveTextContent('100k h');
+  });
+});
+
+describe('EgoScaleScaling series encoding (VAL-B2-VIZ-003/004)', () => {
+  it('draws the classified lead series at settle, with data marks the presets move along', () => {
+    const { container } = render(<EgoScaleScaling />);
+    const lead = INTERACTIVE_DATA_CLASSIFICATION['interactive:EgoScaleScaling'].leadSeriesId;
+    expect(lead).toBeTruthy();
+    const encodings = seriesEncodings(container);
+    expect(encodings[lead!]?.marks ?? 0).toBeGreaterThan(0);
+    expect(Object.keys(encodings).sort()).toEqual(['completion-fit', 'measured']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

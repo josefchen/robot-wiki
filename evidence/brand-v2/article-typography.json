@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "b34a5cfc0a643f758dbb9b0b1b9d7a469f9e476c9f64f192ce712831aec048bd",
+  "fingerprint": "27812ae58a730bce300679291b154dfdeea122a2fd67d6d3445bf35c4e292713",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2018,7 +2018,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22731,
+      "visibleTextLength": 22734,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26272,7 +26272,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Only the two dots have published numbers; the line between a"
+          "text": "Only the two dots have published numbers; the line and dashe"
         },
         {
           "familyHead": "geist",
@@ -58949,7 +58949,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33552,
+      "visibleTextLength": 33555,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82928,7 +82928,7 @@
           "widthPx": 878.66,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Only the two dots have published numbers; the line between a"
+          "text": "Only the two dots have published numbers; the line and dashe"
         },
         {
           "familyHead": "geist",

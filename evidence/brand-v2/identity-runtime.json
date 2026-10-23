@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "74baff932aa9a193b1c6d97987aac7609437309e36d81958be158bbeead66c6b",
+  "fingerprint": "c286a780322d2cbfba1c9957d160743fac6ca0427c191a3b42ee89ffa9ff0ce3",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -835,7 +835,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 33552,
+      "visibleTextLength": 33555,
       "route": "/adjacent/drones/",
       "viewport": "1440x900"
     },
@@ -9731,7 +9731,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22731,
+      "visibleTextLength": 22734,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "644e522b57706d2d64aae2a143fb136fc8f7936f29a2627d2998ad371c4927ec",
+  "fingerprint": "516a45a735697959798d99a8903c6e95611ab090159becdd5ae0bcf30c0b6fce",
   "viewports": [
     "375x812",
     "1440x900"
@@ -720,12 +720,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "3b411fed345e999d6fbeae765177c2fe933ed007bdab4f3e4b2466b295c76524",
+          "sha256": "06d733332916d8b97f94d516ff690cec461398b3b2db1c1f945410e8feb5f5dd",
           "widthPx": 327,
           "heightPx": 893,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 30.92,
+          "luminanceSpread": 30.94,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -735,12 +735,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Camera delay (perception latency), currently 200 ms\" 70 to 200",
-          "sha256": "ec573b3bea1066e61951626f62606029ef44635ca34a99bbcf87f01da3de72be",
+          "sha256": "586050b1e83a02fdb9f173f75700cdfd41385156767f87fc1054d3b7e470fd6e",
           "widthPx": 327,
           "heightPx": 893,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.71,
+          "luminanceSpread": 29.73,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -853,12 +853,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "190b94829c4d97ef103a82778cea91003590fdb5365fc322237af2927238a7ef",
+          "sha256": "b3d7dca3d0381520715ee6a5f1692945f4e8c5fa20878c8e78d1739755ffd1f6",
           "widthPx": 930,
           "heightPx": 1020,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 20.26,
+          "luminanceSpread": 20.27,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -868,12 +868,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Camera delay (perception latency), currently 200 ms\" 70 to 200",
-          "sha256": "3ff37fe673424434564c3f295e7f5e56ed432024de0ea2c93c4ad6c442791257",
+          "sha256": "192cb67e6acd866b9b1806f523ce5e1810e56dfcd87bcf6ba7ac6ded87b05e10",
           "widthPx": 930,
           "heightPx": 1020,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 19.66,
+          "luminanceSpread": 19.67,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -5916,12 +5916,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "70958bf67dd9f0969bfc231bb38c360e7548930572cbb5dc5f3042c35feddc70",
+          "sha256": "f1f09c748d577bcbb9c56b5c8b839714d7e48deb870e1de45fd5df8776739cb0",
           "widthPx": 327,
           "heightPx": 703,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.1,
+          "luminanceSpread": 28.08,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -5931,12 +5931,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time to fix each jam (jam-clearing time), currently 5 minute\" 15 to 300",
-          "sha256": "cb88d6ad80d2bba319e4b24ac81b86c1a1a56a9e6616dea8d09991e87a7efdf6",
+          "sha256": "89055ffb4f27faacd835a32a212fc8219070e9865db1726705690350a142d9c7",
           "widthPx": 327,
           "heightPx": 703,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.04,
+          "luminanceSpread": 28.02,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -6049,12 +6049,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "15a70f6f0df3154c666fc1561c180667f325b41963941a5b7ad7cc299cd86662",
+          "sha256": "22061dcecaab2a0f4a97cd42f26ec6b185f161ce90d7956a47446288481a4da7",
           "widthPx": 930,
           "heightPx": 751,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 20.53,
+          "luminanceSpread": 20.5,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -6064,12 +6064,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time to fix each jam (jam-clearing time), currently 5 minute\" 15 to 300",
-          "sha256": "7237e594c975956771a91c74a042f81e3eb9e5dd3502ba93f7899cae6058d9e9",
+          "sha256": "ac23f9bd00f9a137333f53552bcf8ccb626e284fda6e8b2f265502176867e51f",
           "widthPx": 930,
           "heightPx": 751,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 20.51,
+          "luminanceSpread": 20.48,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -9262,7 +9262,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "9dc13881d51fe58152cf222571f87b4bb78f1f98e25cc8e166e0a9da2c37be67",
+          "sha256": "39259f79984d18b679de10a0ef7d7371aad5619863fbaff90ff388c25d39f132",
           "widthPx": 327,
           "heightPx": 718,
           "settleAttempts": 2,
@@ -9277,12 +9277,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Chunk size k, currently 400\" 100 to 400",
-          "sha256": "586ab5a4c63f12dee5b5a68d8552037e1570cdffc05ead46a9c2aa386c200ffa",
+          "sha256": "a682332098513af15df44b5871645c42d34c5916f228005f8db81d7ea4bf8992",
           "widthPx": 327,
           "heightPx": 718,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.65,
+          "luminanceSpread": 29.64,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -9395,7 +9395,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "597b3e99955ce0e3569d3c4b82e92430f44a4b135906d99b1996cca134dcc530",
+          "sha256": "9270323785a5aeaa657ece67b6a1c3fe03282cea6a140fbb6df5c18b7039cc9e",
           "widthPx": 930,
           "heightPx": 780,
           "settleAttempts": 2,
@@ -9410,7 +9410,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Chunk size k, currently 400\" 100 to 400",
-          "sha256": "bdec702dd6ba3c2b65734dcca28268f898c5a4d3ce0baf17ab0ec5b6470d1042",
+          "sha256": "7db9d6a0b9c645c141da899426ee62c52ab479d21f994d8d4cc413af1ddc8d9a",
           "widthPx": 930,
           "heightPx": 780,
           "settleAttempts": 2,
@@ -21371,8 +21371,8 @@
   "sheets": [
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-01.jpg",
-      "sha256": "3b09a17fec425488d4e9861f95c1476e5cc5adbd042f462841cad17de2837338",
-      "bytes": 186164,
+      "sha256": "995913b05397f01b0fb10d780d647c5d64e3bad16b9a471ccbc5766b68d6265f",
+      "bytes": 186207,
       "mountIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
         "mount:/adjacent/surgical/:MotionPantograph:1",
@@ -21384,19 +21384,19 @@
       "captures": [
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@1440x900:default",
-          "sha256": "190b94829c4d97ef103a82778cea91003590fdb5365fc322237af2927238a7ef"
+          "sha256": "b3d7dca3d0381520715ee6a5f1692945f4e8c5fa20878c8e78d1739755ffd1f6"
         },
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@1440x900:changed",
-          "sha256": "3ff37fe673424434564c3f295e7f5e56ed432024de0ea2c93c4ad6c442791257"
+          "sha256": "192cb67e6acd866b9b1806f523ce5e1810e56dfcd87bcf6ba7ac6ded87b05e10"
         },
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@375x812:default",
-          "sha256": "3b411fed345e999d6fbeae765177c2fe933ed007bdab4f3e4b2466b295c76524"
+          "sha256": "06d733332916d8b97f94d516ff690cec461398b3b2db1c1f945410e8feb5f5dd"
         },
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@375x812:changed",
-          "sha256": "ec573b3bea1066e61951626f62606029ef44635ca34a99bbcf87f01da3de72be"
+          "sha256": "586050b1e83a02fdb9f173f75700cdfd41385156767f87fc1054d3b7e470fd6e"
         },
         {
           "key": "mount:/adjacent/surgical/:MotionPantograph:1@1440x900:default",
@@ -21707,8 +21707,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-04.jpg",
-      "sha256": "54bae7f7f3f0dfc13a646fa6bd536999b42a26b90a7cf5bfd0cd89cbf303b9b0",
-      "bytes": 324229,
+      "sha256": "50336f8a7864332267c6794c1388b019ad58e1b3749ea11422797edf40a1bf7b",
+      "bytes": 324220,
       "mountIds": [
         "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
         "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -21784,19 +21784,19 @@
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@1440x900:default",
-          "sha256": "15a70f6f0df3154c666fc1561c180667f325b41963941a5b7ad7cc299cd86662"
+          "sha256": "22061dcecaab2a0f4a97cd42f26ec6b185f161ce90d7956a47446288481a4da7"
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@1440x900:changed",
-          "sha256": "7237e594c975956771a91c74a042f81e3eb9e5dd3502ba93f7899cae6058d9e9"
+          "sha256": "ac23f9bd00f9a137333f53552bcf8ccb626e284fda6e8b2f265502176867e51f"
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@375x812:default",
-          "sha256": "70958bf67dd9f0969bfc231bb38c360e7548930572cbb5dc5f3042c35feddc70"
+          "sha256": "f1f09c748d577bcbb9c56b5c8b839714d7e48deb870e1de45fd5df8776739cb0"
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@375x812:changed",
-          "sha256": "cb88d6ad80d2bba319e4b24ac81b86c1a1a56a9e6616dea8d09991e87a7efdf6"
+          "sha256": "89055ffb4f27faacd835a32a212fc8219070e9865db1726705690350a142d9c7"
         },
         {
           "key": "mount:/data-hardware/robot-learning-stack/:SceneSplit:1@1440x900:default",
@@ -22043,8 +22043,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-07.jpg",
-      "sha256": "ac10882cb14c76af630c8af1bdcae32a7898d42129a2f106ff905ec21138af52",
-      "bytes": 243160,
+      "sha256": "39d02a7b3205ca35b86cf10db59fc26076e211b7b2fce455a0fe8eee1f681e51",
+      "bytes": 243173,
       "mountIds": [
         "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
         "mount:/manipulation/action-chunking/:LatencyComparison:1",
@@ -22056,19 +22056,19 @@
       "captures": [
         {
           "key": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1@1440x900:default",
-          "sha256": "597b3e99955ce0e3569d3c4b82e92430f44a4b135906d99b1996cca134dcc530"
+          "sha256": "9270323785a5aeaa657ece67b6a1c3fe03282cea6a140fbb6df5c18b7039cc9e"
         },
         {
           "key": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1@1440x900:changed",
-          "sha256": "bdec702dd6ba3c2b65734dcca28268f898c5a4d3ce0baf17ab0ec5b6470d1042"
+          "sha256": "7db9d6a0b9c645c141da899426ee62c52ab479d21f994d8d4cc413af1ddc8d9a"
         },
         {
           "key": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1@375x812:default",
-          "sha256": "9dc13881d51fe58152cf222571f87b4bb78f1f98e25cc8e166e0a9da2c37be67"
+          "sha256": "39259f79984d18b679de10a0ef7d7371aad5619863fbaff90ff388c25d39f132"
         },
         {
           "key": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1@375x812:changed",
-          "sha256": "586ab5a4c63f12dee5b5a68d8552037e1570cdffc05ead46a9c2aa386c200ffa"
+          "sha256": "a682332098513af15df44b5871645c42d34c5916f228005f8db81d7ea4bf8992"
         },
         {
           "key": "mount:/manipulation/action-chunking/:LatencyComparison:1@1440x900:default",

@@ -14,7 +14,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { StageNumber } from '@/components/motion/figure-frame';
-import { Bar, ConstraintHatch, LegendSwatch, roleColour } from '@/components/motion/chart';
+import { Bar, CHART_STROKE, CHART_TYPE, ConstraintHatch, LegendSwatch, roleColour } from '@/components/motion/chart';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
@@ -436,14 +436,10 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
                         >
                           {segment.key === 'jamClearing' ? (
                             <ConstraintHatch id={hatchId} x={segment.x} y={HOUR_FACE.bandY} width={segment.width} height={HOUR_FACE.bandHeight} />
+                          ) : segment.key === 'downtime' ? (
+                            <DowntimeOutline x={segment.x} y={HOUR_FACE.bandY} width={segment.width} height={HOUR_FACE.bandHeight} />
                           ) : (
-                            <Bar
-                              x={segment.x}
-                              y={HOUR_FACE.bandY}
-                              width={segment.width}
-                              height={HOUR_FACE.bandHeight}
-                              role={segment.key === 'productive' ? 'value' : 'reference'}
-                            />
+                            <Bar x={segment.x} y={HOUR_FACE.bandY} width={segment.width} height={HOUR_FACE.bandHeight} role="value" />
                           )}
                         </g>
                       ))}
@@ -485,7 +481,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
               <LegendItem series="economics-jam-clearing" swatch={<LegendSwatch role="constraint" mark="hatch" />}>
                 <span data-testid="hour-legend-jams">a person fixing jams</span>
               </LegendItem>
-              <LegendItem series="economics-downtime" swatch={<LegendSwatch role="reference" mark="bar" />}>
+              <LegendItem series="economics-downtime" swatch={<DowntimeSwatch />}>
                 <span data-testid="hour-legend-downtime">stopped for upkeep</span>
               </LegendItem>
             </InstrumentLegend>
@@ -558,5 +554,37 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
         </>
       }
     />
+  );
+}
+
+/**
+ * Downtime is the hour's idle stretch: an outline with no fill, so it parts
+ * from the filled picking band and the hatched jam band without its tone. A
+ * path, not a rect, because the isometric sheet keeps only path and circle
+ * strokes at screen width under the face matrix.
+ */
+function DowntimeOutline({ x, y, width, height }: { x: number; y: number; width: number; height: number }) {
+  if (width <= 0) return null;
+  return (
+    <path
+      data-chart-mark="outline"
+      data-chart-role="reference"
+      d={`M${x} ${y}H${x + width}V${y + height}H${x}Z`}
+      fill="none"
+      stroke={roleColour('reference')}
+      strokeWidth={CHART_STROKE.structure}
+    />
+  );
+}
+
+/** The downtime legend swatch: the same unfilled outline. */
+function DowntimeSwatch() {
+  const h = CHART_TYPE.tickPx;
+  const w = h * 2;
+  const inset = CHART_STROKE.structure / 2;
+  return (
+    <svg aria-hidden="true" focusable="false" width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="shrink-0">
+      <rect x={inset} y={h / 3} width={w - 2 * inset} height={h / 3} fill="none" stroke={roleColour('reference')} strokeWidth={CHART_STROKE.structure} />
+    </svg>
   );
 }

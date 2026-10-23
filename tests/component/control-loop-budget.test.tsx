@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ControlLoopBudget } from '@/components/interactive/control-loop-budget';
@@ -149,5 +150,13 @@ describe('ControlLoopBudget', () => {
     rerender(<ControlLoopBudget defaultParamsB={3} />);
     expect(slider()).toHaveValue('3');
     expect(screen.getByTestId('latency-readout')).toHaveTextContent('52.6 ms');
+  });
+});
+
+describe('ControlLoopBudget series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<ControlLoopBudget />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['clb-inference', 'clb-overrun']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

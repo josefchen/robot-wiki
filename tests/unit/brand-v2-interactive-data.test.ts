@@ -8,6 +8,8 @@ import {
   INTERACTIVE_DATA_CLASSIFICATION,
   nonColourDistinct,
   STATUS_LABEL_VOCABULARY,
+  tableSortCensus,
+  tableSortKindOf,
   type MarkObservation,
 } from '../../lib/brand-v2-interactive-data';
 
@@ -124,5 +126,45 @@ describe('brand-v2 interactive data: classification registry', () => {
   it('keeps the status vocabulary non-empty and pattern-only', () => {
     expect(STATUS_LABEL_VOCABULARY.source).toBeTruthy();
     expect(STATUS_LABEL_VOCABULARY.source).toBeInstanceOf(RegExp);
+  });
+});
+
+describe('brand-v2 interactive data: sortable-table census', () => {
+  it('reads a sortable Table column as a header sort', () => {
+    expect(
+      tableSortKindOf(`const COLUMNS = [{ key: 'year', header: 'Year', sortable: true, numeric: true }];`),
+    ).toBe('header-sort');
+  });
+
+  it('reads a "Sort by" preset group over aria-sort headers as a control sort', () => {
+    const source = `
+      <PresetGroup label="Sort by" presets={SORT_PRESETS} />
+      <th
+        scope="col"
+        aria-sort={sort.key === 'dof' ? 'descending' : undefined}
+      >DoF</th>`;
+    expect(tableSortKindOf(source)).toBe('control-sort');
+  });
+
+  it('does not count a table that only describes sorting, or a sort control with no sorted header', () => {
+    expect(tableSortKindOf('/* sort headers (aria-pressed / aria-sort) */ <th scope="col">Year</th>')).toBeNull();
+    expect(tableSortKindOf('<PresetGroup label="Sort by" presets={P} /><th scope="col">Year</th>')).toBeNull();
+    expect(tableSortKindOf(`{ key: 'name', header: 'Name', sortable: false }`)).toBeNull();
+  });
+
+  it('finds the five registered instruments that sort a table, four in headers and one by its visible control', () => {
+    const registry = JSON.parse(
+      readFileSync(join(process.cwd(), 'contract', 'brand-v2-registries.json'), 'utf8'),
+    ) as { interactive: { sources: Array<{ id: string; sourcePath?: string }> } };
+    const census = tableSortCensus(registry.interactive.sources, (path) =>
+      readFileSync(join(process.cwd(), path), 'utf8'),
+    );
+    expect(Object.fromEntries([...census].sort(([a], [b]) => a.localeCompare(b)))).toEqual({
+      'interactive:ComparisonMatrix': 'header-sort',
+      'interactive:DatasetTable': 'header-sort',
+      'interactive:HandComparison': 'control-sort',
+      'interactive:HardwareGuide': 'header-sort',
+      'interactive:TeleopRigMatrix': 'header-sort',
+    });
   });
 });

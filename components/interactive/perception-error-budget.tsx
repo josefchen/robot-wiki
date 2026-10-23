@@ -511,26 +511,27 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           </g>
         );
       })}
-      <line
-        data-series="model-band"
-        x1={x(CLEARANCE_MM)}
-        y1={BAND_TOP}
-        x2={x(CLEARANCE_MM)}
-        y2={AXIS_Y}
-        stroke={reference}
-        strokeWidth={CHART_STROKE.reference}
-        strokeDasharray={CHART_STROKE.dash}
-      />
-      <text
-        data-testid="perception-clearance-label"
-        data-chart-label=""
-        x={f(x(CLEARANCE_MM) + 4)}
-        y={BAND_TOP - 8}
-        fontSize={CHART_TYPE.axisPx}
-        fill={reference}
-      >
-        model band {CLEARANCE_MM} mm
-      </text>
+      <g data-series="model-band">
+        <line
+          x1={x(CLEARANCE_MM)}
+          y1={BAND_TOP}
+          x2={x(CLEARANCE_MM)}
+          y2={AXIS_Y}
+          stroke={reference}
+          strokeWidth={CHART_STROKE.reference}
+          strokeDasharray={CHART_STROKE.dash}
+        />
+        <text
+          data-testid="perception-clearance-label"
+          data-chart-label=""
+          x={f(x(CLEARANCE_MM) + 4)}
+          y={BAND_TOP - 8}
+          fontSize={CHART_TYPE.axisPx}
+          fill={reference}
+        >
+          model band {CLEARANCE_MM} mm
+        </text>
+      </g>
       <line
         x1={PAD_L}
         y1={AXIS_Y}

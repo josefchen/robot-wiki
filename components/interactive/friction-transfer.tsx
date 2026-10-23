@@ -402,11 +402,11 @@ export function FrictionTransfer({
                   setRealMu(muFromPointer(e.clientX));
                 }}
               />
+              {/* On the practice floor the two would share one line, so the label says so. */}
+              <DirectLabel x={realLabelX} y={PLOT.top - 8} anchor="middle" role="highlight">
+                {onPracticeFloor ? 'real floor is the practice floor' : 'real floor'}
+              </DirectLabel>
             </g>
-            {/* On the practice floor the two would share one line, so the label says so. */}
-            <DirectLabel x={realLabelX} y={PLOT.top - 8} anchor="middle" role="highlight">
-              {onPracticeFloor ? 'real floor is the practice floor' : 'real floor'}
-            </DirectLabel>
 
             <g data-testid="point-marker" data-series="point-policy">
               <PointMarker x={lineX} y={yFor(point)} role="reference" />
