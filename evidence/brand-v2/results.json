@@ -177840,7 +177840,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/action-chunking/ ships 81 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 208 stops",
+      "actual": "/manipulation/action-chunking/ ships 81 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 81 outbound anchor occurrences on it with a visible focus ring in 209 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -177860,7 +177860,7 @@
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 78,
           "reachedByTab": 81,
-          "tabStops": 208,
+          "tabStops": 209,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -196851,7 +196851,7 @@
           "observed": {
             "focusStops": 90,
             "links": 410,
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "viewports": 3
           },
           "predicates": [
@@ -205473,7 +205473,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "viewports": 3
           },
           "predicates": [
@@ -208467,7 +208467,7 @@
           ],
           "observed": {
             "primaryActions": 0,
-            "secondaryActions": 60,
+            "secondaryActions": 63,
             "disabledActions": 0,
             "viewports": 3
           },
@@ -208959,7 +208959,7 @@
           ],
           "observed": {
             "primaryActions": 0,
-            "secondaryActions": 87,
+            "secondaryActions": 90,
             "disabledActions": 0,
             "viewports": 3
           },
@@ -209961,29 +209961,244 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-002",
+      "resultId": "result:VAL-B2-COMP-002:control:primary-action",
       "assertionId": "VAL-B2-COMP-002",
-      "populationMemberId": "population:contract/brand-v2-registries.json#controls",
+      "populationMemberId": "control:primary-action",
       "coveredPopulationMemberIds": [
-        "control:primary-action",
-        "control:secondary-action",
-        "control:selection",
-        "control:link-focus",
-        "control:segmented",
-        "control:input",
-        "control:disabled"
+        "control:primary-action"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "control:primary-action: 8 rendered instances on 6 route/viewport pages, 8 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "rendered": 8,
+          "renderedPages": 6,
+          "variants": 8,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "hoverMeasured": 8,
+          "pressedMeasured": 8,
+          "focusVisibleMeasured": 8,
+          "offscreenUntilFocus": 0,
+          "selectedMeasured": 0,
+          "disabledMeasured": 0,
+          "exempted": 4,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
         }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-002:control:secondary-action",
+      "assertionId": "VAL-B2-COMP-002",
+      "populationMemberId": "control:secondary-action",
+      "coveredPopulationMemberIds": [
+        "control:secondary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
+      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 3347,
+          "renderedPages": 154,
+          "variants": 829,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "hoverMeasured": 829,
+          "pressedMeasured": 829,
+          "focusVisibleMeasured": 821,
+          "offscreenUntilFocus": 0,
+          "selectedMeasured": 0,
+          "disabledMeasured": 10,
+          "exempted": 10,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-002:control:selection",
+      "assertionId": "VAL-B2-COMP-002",
+      "populationMemberId": "control:selection",
+      "coveredPopulationMemberIds": [
+        "control:selection"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
+      "actual": "control:selection: 1072 rendered instances on 114 route/viewport pages, 280 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 1072,
+          "renderedPages": 114,
+          "variants": 280,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "hoverMeasured": 280,
+          "pressedMeasured": 280,
+          "focusVisibleMeasured": 280,
+          "offscreenUntilFocus": 0,
+          "selectedMeasured": 176,
+          "disabledMeasured": 0,
+          "exempted": 8,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-002:control:link-focus",
+      "assertionId": "VAL-B2-COMP-002",
+      "populationMemberId": "control:link-focus",
+      "coveredPopulationMemberIds": [
+        "control:link-focus"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
+      "actual": "control:link-focus: 22124 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 22124,
+          "renderedPages": 154,
+          "variants": 1726,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "hoverMeasured": 1572,
+          "pressedMeasured": 1572,
+          "focusVisibleMeasured": 1726,
+          "offscreenUntilFocus": 154,
+          "selectedMeasured": 0,
+          "disabledMeasured": 0,
+          "exempted": 2,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-002:control:segmented",
+      "assertionId": "VAL-B2-COMP-002",
+      "populationMemberId": "control:segmented",
+      "coveredPopulationMemberIds": [
+        "control:segmented"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
+      "actual": "control:segmented: 120 rendered instances on 78 route/viewport pages, 78 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 120,
+          "renderedPages": 78,
+          "variants": 78,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "hoverMeasured": 78,
+          "pressedMeasured": 78,
+          "focusVisibleMeasured": 78,
+          "offscreenUntilFocus": 0,
+          "selectedMeasured": 78,
+          "disabledMeasured": 0,
+          "exempted": 0,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-002:control:input",
+      "assertionId": "VAL-B2-COMP-002",
+      "populationMemberId": "control:input",
+      "coveredPopulationMemberIds": [
+        "control:input"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
+      "actual": "control:input: 200 rendered instances on 90 route/viewport pages, 94 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 200,
+          "renderedPages": 90,
+          "variants": 94,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "hoverMeasured": 94,
+          "pressedMeasured": 0,
+          "focusVisibleMeasured": 94,
+          "offscreenUntilFocus": 0,
+          "selectedMeasured": 0,
+          "disabledMeasured": 0,
+          "exempted": 0,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-002:control:disabled",
+      "assertionId": "VAL-B2-COMP-002",
+      "populationMemberId": "control:disabled",
+      "coveredPopulationMemberIds": [
+        "control:disabled"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
+      "actual": "control:disabled: nothing of it for VAL-B2-COMP-002 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:disabled",
+        "detail": "control:disabled has mount state library-only: the sweep over 77 route states at 375x812 and 1440x900 rendered it 0 times, so no rendered member exists to measure."
       }
     },
     {
@@ -210039,29 +210254,157 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-005",
+      "resultId": "result:VAL-B2-COMP-005:control:primary-action",
       "assertionId": "VAL-B2-COMP-005",
-      "populationMemberId": "population:contract/brand-v2-registries.json#controls",
+      "populationMemberId": "control:primary-action",
       "coveredPopulationMemberIds": [
-        "control:primary-action",
-        "control:secondary-action",
-        "control:selection",
-        "control:link-focus",
-        "control:segmented",
-        "control:input",
-        "control:disabled"
+        "control:primary-action"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "control:primary-action: nothing of it for VAL-B2-COMP-005 to decide across 77 swept route states at 375x812 and 1440x900",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:primary-action",
+        "detail": "control:primary-action (action) performed none of the clear, copy, sort, reset, disclosure or close actions on any of the 77 swept route states at either width."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-005:control:secondary-action",
+      "assertionId": "VAL-B2-COMP-005",
+      "populationMemberId": "control:secondary-action",
+      "coveredPopulationMemberIds": [
+        "control:secondary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
+      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "rendered": 3347,
+          "renderedPages": 154,
+          "variants": 829,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "actions": 541,
+          "byKind": {
+            "clear": 8,
+            "copy-link": 114,
+            "copy-code": 2,
+            "sort": 12,
+            "reset": 118,
+            "disclosure": 285,
+            "close": 2
+          },
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
         }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-005:control:selection",
+      "assertionId": "VAL-B2-COMP-005",
+      "populationMemberId": "control:selection",
+      "coveredPopulationMemberIds": [
+        "control:selection"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
+      "actual": "control:selection: nothing of it for VAL-B2-COMP-005 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:selection",
+        "detail": "control:selection (persistent-selection) performed none of the clear, copy, sort, reset, disclosure or close actions on any of the 77 swept route states at either width."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-005:control:link-focus",
+      "assertionId": "VAL-B2-COMP-005",
+      "populationMemberId": "control:link-focus",
+      "coveredPopulationMemberIds": [
+        "control:link-focus"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
+      "actual": "control:link-focus: nothing of it for VAL-B2-COMP-005 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:link-focus",
+        "detail": "control:link-focus (information-path) performed none of the clear, copy, sort, reset, disclosure or close actions on any of the 77 swept route states at either width."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-005:control:segmented",
+      "assertionId": "VAL-B2-COMP-005",
+      "populationMemberId": "control:segmented",
+      "coveredPopulationMemberIds": [
+        "control:segmented"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
+      "actual": "control:segmented: nothing of it for VAL-B2-COMP-005 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:segmented",
+        "detail": "control:segmented (discrete-selection) performed none of the clear, copy, sort, reset, disclosure or close actions on any of the 77 swept route states at either width."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-005:control:input",
+      "assertionId": "VAL-B2-COMP-005",
+      "populationMemberId": "control:input",
+      "coveredPopulationMemberIds": [
+        "control:input"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
+      "actual": "control:input: nothing of it for VAL-B2-COMP-005 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:input",
+        "detail": "control:input (input) performed none of the clear, copy, sort, reset, disclosure or close actions on any of the 77 swept route states at either width."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-005:control:disabled",
+      "assertionId": "VAL-B2-COMP-005",
+      "populationMemberId": "control:disabled",
+      "coveredPopulationMemberIds": [
+        "control:disabled"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
+      "actual": "control:disabled: nothing of it for VAL-B2-COMP-005 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:disabled",
+        "detail": "control:disabled has mount state library-only: the sweep over 77 route states at 375x812 and 1440x900 rendered it 0 times, so no rendered member exists to measure."
       }
     },
     {
@@ -212990,29 +213333,164 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-007",
+      "resultId": "result:VAL-B2-COMP-007:control:primary-action",
       "assertionId": "VAL-B2-COMP-007",
-      "populationMemberId": "population:contract/brand-v2-registries.json#controls",
+      "populationMemberId": "control:primary-action",
       "coveredPopulationMemberIds": [
-        "control:primary-action",
-        "control:secondary-action",
-        "control:selection",
-        "control:link-focus",
-        "control:segmented",
-        "control:input",
-        "control:disabled"
+        "control:primary-action"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "control:primary-action: nothing of it for VAL-B2-COMP-007 to decide across 77 swept route states at 375x812 and 1440x900",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:primary-action",
+        "detail": "control:primary-action (action) registers no selected state, so it is not a chip or filter token."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-007:control:secondary-action",
+      "assertionId": "VAL-B2-COMP-007",
+      "populationMemberId": "control:secondary-action",
+      "coveredPopulationMemberIds": [
+        "control:secondary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+      "actual": "control:secondary-action: nothing of it for VAL-B2-COMP-007 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:secondary-action",
+        "detail": "control:secondary-action (action) registers no selected state, so it is not a chip or filter token."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-007:control:selection",
+      "assertionId": "VAL-B2-COMP-007",
+      "populationMemberId": "control:selection",
+      "coveredPopulationMemberIds": [
+        "control:selection"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+      "actual": "control:selection: 1072 rendered instances on 114 route/viewport pages, 280 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "rendered": 1072,
+          "renderedPages": 114,
+          "variants": 280,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "selectedChips": 172,
+          "openers": 4,
+          "statusChips": 80,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
         }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-007:control:link-focus",
+      "assertionId": "VAL-B2-COMP-007",
+      "populationMemberId": "control:link-focus",
+      "coveredPopulationMemberIds": [
+        "control:link-focus"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+      "actual": "control:link-focus: nothing of it for VAL-B2-COMP-007 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:link-focus",
+        "detail": "control:link-focus (information-path) registers no selected state, so it is not a chip or filter token."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-007:control:segmented",
+      "assertionId": "VAL-B2-COMP-007",
+      "populationMemberId": "control:segmented",
+      "coveredPopulationMemberIds": [
+        "control:segmented"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+      "actual": "control:segmented: 120 rendered instances on 78 route/viewport pages, 78 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 120,
+          "renderedPages": 78,
+          "variants": 78,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "selectedChips": 78,
+          "openers": 0,
+          "statusChips": 80,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-007:control:input",
+      "assertionId": "VAL-B2-COMP-007",
+      "populationMemberId": "control:input",
+      "coveredPopulationMemberIds": [
+        "control:input"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+      "actual": "control:input: nothing of it for VAL-B2-COMP-007 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:input",
+        "detail": "control:input (input) registers no selected state, so it is not a chip or filter token."
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-007:control:disabled",
+      "assertionId": "VAL-B2-COMP-007",
+      "populationMemberId": "control:disabled",
+      "coveredPopulationMemberIds": [
+        "control:disabled"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+      "actual": "control:disabled: nothing of it for VAL-B2-COMP-007 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:disabled",
+        "detail": "control:disabled has mount state library-only: the sweep over 77 route states at 375x812 and 1440x900 rendered it 0 times, so no rendered member exists to measure."
       }
     },
     {
@@ -215918,29 +216396,226 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-011",
+      "resultId": "result:VAL-B2-COMP-011:control:primary-action",
       "assertionId": "VAL-B2-COMP-011",
-      "populationMemberId": "population:contract/brand-v2-registries.json#controls",
+      "populationMemberId": "control:primary-action",
       "coveredPopulationMemberIds": [
-        "control:primary-action",
-        "control:secondary-action",
-        "control:selection",
-        "control:link-focus",
-        "control:segmented",
-        "control:input",
-        "control:disabled"
+        "control:primary-action"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "control:primary-action: 8 rendered instances on 6 route/viewport pages, 8 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "rendered": 8,
+          "renderedPages": 6,
+          "variants": 8,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "functionalIcons": 0,
+          "decorativeIconsOutsideControls": 16,
+          "informativeIconsOutsideControls": 0,
+          "figureIcons": 276,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
         }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-011:control:secondary-action",
+      "assertionId": "VAL-B2-COMP-011",
+      "populationMemberId": "control:secondary-action",
+      "coveredPopulationMemberIds": [
+        "control:secondary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
+      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 3347,
+          "renderedPages": 154,
+          "variants": 829,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "functionalIcons": 912,
+          "decorativeIconsOutsideControls": 16,
+          "informativeIconsOutsideControls": 0,
+          "figureIcons": 276,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-011:control:selection",
+      "assertionId": "VAL-B2-COMP-011",
+      "populationMemberId": "control:selection",
+      "coveredPopulationMemberIds": [
+        "control:selection"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
+      "actual": "control:selection: 1072 rendered instances on 114 route/viewport pages, 280 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 1072,
+          "renderedPages": 114,
+          "variants": 280,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "functionalIcons": 16,
+          "decorativeIconsOutsideControls": 16,
+          "informativeIconsOutsideControls": 0,
+          "figureIcons": 276,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-011:control:link-focus",
+      "assertionId": "VAL-B2-COMP-011",
+      "populationMemberId": "control:link-focus",
+      "coveredPopulationMemberIds": [
+        "control:link-focus"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
+      "actual": "control:link-focus: 22124 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 22124,
+          "renderedPages": 154,
+          "variants": 1726,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "functionalIcons": 0,
+          "decorativeIconsOutsideControls": 16,
+          "informativeIconsOutsideControls": 0,
+          "figureIcons": 276,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-011:control:segmented",
+      "assertionId": "VAL-B2-COMP-011",
+      "populationMemberId": "control:segmented",
+      "coveredPopulationMemberIds": [
+        "control:segmented"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
+      "actual": "control:segmented: 120 rendered instances on 78 route/viewport pages, 78 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 120,
+          "renderedPages": 78,
+          "variants": 78,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "functionalIcons": 0,
+          "decorativeIconsOutsideControls": 16,
+          "informativeIconsOutsideControls": 0,
+          "figureIcons": 276,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-011:control:input",
+      "assertionId": "VAL-B2-COMP-011",
+      "populationMemberId": "control:input",
+      "coveredPopulationMemberIds": [
+        "control:input"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
+      "actual": "control:input: 200 rendered instances on 90 route/viewport pages, 94 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 200,
+          "renderedPages": 90,
+          "variants": 94,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "functionalIcons": 0,
+          "decorativeIconsOutsideControls": 16,
+          "informativeIconsOutsideControls": 0,
+          "figureIcons": 276,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-011:control:disabled",
+      "assertionId": "VAL-B2-COMP-011",
+      "populationMemberId": "control:disabled",
+      "coveredPopulationMemberIds": [
+        "control:disabled"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
+      "actual": "control:disabled: nothing of it for VAL-B2-COMP-011 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:disabled",
+        "detail": "control:disabled has mount state library-only: the sweep over 77 route states at 375x812 and 1440x900 rendered it 0 times, so no rendered member exists to measure."
       }
     },
     {
@@ -217015,6 +217690,7 @@
             "disabled"
           ],
           "ownerRouteOrMount": [
+            "components/article/article-toc.tsx",
             "components/article/author-list.tsx",
             "components/article/commit-to-reveal.tsx",
             "components/article/heading-permalink.tsx",
@@ -217023,6 +217699,7 @@
             "components/interactive/action-conditioning.tsx",
             "components/interactive/action-tokenization.tsx",
             "components/interactive/actuator-gap.tsx",
+            "components/interactive/advantage-scrubber.tsx",
             "components/interactive/appearance-physics-push.tsx",
             "components/interactive/chunk-buffer.tsx",
             "components/interactive/collaborative-operation-modes.tsx",
@@ -217081,6 +217758,7 @@
             "components/three/technical-names.tsx",
             "components/three/trajectory-panel.tsx",
             "components/ui/chart-description.tsx",
+            "components/ui/copy-button.tsx",
             "components/ui/instrument.tsx",
             "components/ui/table.tsx"
           ],
@@ -217776,29 +218454,220 @@
       }
     },
     {
-      "resultId": "result:VAL-B2-COMP-015",
+      "resultId": "result:VAL-B2-COMP-015:control:primary-action",
       "assertionId": "VAL-B2-COMP-015",
-      "populationMemberId": "population:contract/brand-v2-registries.json#controls",
+      "populationMemberId": "control:primary-action",
       "coveredPopulationMemberIds": [
-        "control:primary-action",
-        "control:secondary-action",
-        "control:selection",
-        "control:link-focus",
-        "control:segmented",
-        "control:input",
-        "control:disabled"
+        "control:primary-action"
       ],
-      "coverageKind": "population-wide",
+      "coverageKind": "per-member",
       "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
-      "actual": "awaiting responsible rollout milestone",
+      "actual": "control:primary-action: 8 rendered instances on 6 route/viewport pages, 8 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
-      "status": "pending",
+      "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "status": "pending"
+          "rendered": 8,
+          "renderedPages": 6,
+          "variants": 8,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "transientMeasured": 8,
+          "disabledMeasured": 0,
+          "disabledException": null,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
         }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-015:control:secondary-action",
+      "assertionId": "VAL-B2-COMP-015",
+      "populationMemberId": "control:secondary-action",
+      "coveredPopulationMemberIds": [
+        "control:secondary-action"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
+      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 3347,
+          "renderedPages": 154,
+          "variants": 829,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "transientMeasured": 829,
+          "disabledMeasured": 10,
+          "disabledException": null,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-015:control:selection",
+      "assertionId": "VAL-B2-COMP-015",
+      "populationMemberId": "control:selection",
+      "coveredPopulationMemberIds": [
+        "control:selection"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
+      "actual": "control:selection: 1072 rendered instances on 114 route/viewport pages, 280 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 1072,
+          "renderedPages": 114,
+          "variants": 280,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "transientMeasured": 280,
+          "disabledMeasured": 0,
+          "disabledException": null,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-015:control:link-focus",
+      "assertionId": "VAL-B2-COMP-015",
+      "populationMemberId": "control:link-focus",
+      "coveredPopulationMemberIds": [
+        "control:link-focus"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
+      "actual": "control:link-focus: 22124 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 22124,
+          "renderedPages": 154,
+          "variants": 1726,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "transientMeasured": 1572,
+          "disabledMeasured": 0,
+          "disabledException": null,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-015:control:segmented",
+      "assertionId": "VAL-B2-COMP-015",
+      "populationMemberId": "control:segmented",
+      "coveredPopulationMemberIds": [
+        "control:segmented"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
+      "actual": "control:segmented: 120 rendered instances on 78 route/viewport pages, 78 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 120,
+          "renderedPages": 78,
+          "variants": 78,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "transientMeasured": 78,
+          "disabledMeasured": 0,
+          "disabledException": null,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-015:control:input",
+      "assertionId": "VAL-B2-COMP-015",
+      "populationMemberId": "control:input",
+      "coveredPopulationMemberIds": [
+        "control:input"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
+      "actual": "control:input: 200 rendered instances on 90 route/viewport pages, 94 distinct variants measured at 375x812 and 1440x900, no failure",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "browser-state",
+        "computed": {
+          "rendered": 200,
+          "renderedPages": 90,
+          "variants": 94,
+          "viewports": [
+            "375x812",
+            "1440x900"
+          ],
+          "transientMeasured": 94,
+          "disabledMeasured": 0,
+          "disabledException": null,
+          "evidence": [
+            "evidence/brand-v2/control-states.json"
+          ],
+          "tool": "tests/e2e/brand-v2-control-states.spec.ts"
+        }
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-COMP-015:control:disabled",
+      "assertionId": "VAL-B2-COMP-015",
+      "populationMemberId": "control:disabled",
+      "coveredPopulationMemberIds": [
+        "control:disabled"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
+      "actual": "control:disabled: nothing of it for VAL-B2-COMP-015 to decide across 77 swept route states at 375x812 and 1440x900",
+      "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
+      "exceptionVerdict": "none",
+      "status": "not-applicable",
+      "notApplicableReason": {
+        "code": "unsupported-state",
+        "registryId": "control:disabled",
+        "detail": "control:disabled has mount state library-only: the sweep over 77 route states at 375x812 and 1440x900 rendered it 0 times, so no rendered member exists to measure."
       }
     },
     {
@@ -342767,7 +343636,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":45.8,\"maxLatencyMs\":45.8}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":32.2,\"maxLatencyMs\":32.2}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342788,8 +343657,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 45.8,
-          "maxLatencyMs": 45.8,
+          "medianLatencyMs": 32.2,
+          "maxLatencyMs": 32.2,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342805,7 +343674,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":17.9,\"maxLatencyMs\":20.2}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":7.5,\"maxLatencyMs\":19.5}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342826,8 +343695,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 17.9,
-          "maxLatencyMs": 20.2,
+          "medianLatencyMs": 7.5,
+          "maxLatencyMs": 19.5,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342843,7 +343712,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":15.15,\"maxLatencyMs\":281.2}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":11.2,\"maxLatencyMs\":110.8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342867,8 +343736,8 @@
           "observedRenderedTotal": 907,
           "nonEmptyCases": 257,
           "timedCases": 258,
-          "medianLatencyMs": 15.15,
-          "maxLatencyMs": 281.2,
+          "medianLatencyMs": 11.2,
+          "maxLatencyMs": 110.8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342884,7 +343753,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":15.7,\"maxLatencyMs\":56.7}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":19.35,\"maxLatencyMs\":71.1}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342908,8 +343777,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 15.7,
-          "maxLatencyMs": 56.7,
+          "medianLatencyMs": 19.35,
+          "maxLatencyMs": 71.1,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342925,7 +343794,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":17.7,\"maxLatencyMs\":869.6,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":18.9,\"maxLatencyMs\":2443.8,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342949,8 +343818,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 17.7,
-          "maxLatencyMs": 869.6,
+          "medianLatencyMs": 18.9,
+          "maxLatencyMs": 2443.8,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -342986,7 +343855,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":20.9,\"maxLatencyMs\":32.4}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":16.8,\"maxLatencyMs\":142.9}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343010,8 +343879,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 20.9,
-          "maxLatencyMs": 32.4,
+          "medianLatencyMs": 16.8,
+          "maxLatencyMs": 142.9,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343123,7 +343992,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":17.8,\"maxLatencyMs\":115.9}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":13.6,\"maxLatencyMs\":50.1}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343144,8 +344013,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 17.8,
-          "maxLatencyMs": 115.9,
+          "medianLatencyMs": 13.6,
+          "maxLatencyMs": 50.1,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -387629,7 +388498,7 @@
           ],
           "observed": {
             "exempted:code-block-radius": 6,
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "viewports": 3
           },
           "predicates": [
@@ -395767,7 +396636,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "viewports": 3
           },
           "predicates": [
@@ -398467,7 +399336,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "viewports": 3
           },
           "predicates": [
@@ -401243,7 +402112,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -404093,7 +404962,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -406867,7 +407736,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5178,
+            "paintedElements": 5193,
             "viewports": 3
           },
           "predicates": [
@@ -460189,14 +461058,14 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "f1937c43e951ff0658fdecc742b5a672c82d45f4064cadeccc5a95beb791c6a2",
+              "sha256": "9eaff989d5a298cd85b6fd1dcd285a068b4a1a8c759d18b9e3e045ce33eb90b3",
               "widthPx": 327,
               "heightPx": 646
             },
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "07054f6c603a42db7fd211a38bbcfa558b97af1101c87c60c3ab2c79101e0f20",
+              "sha256": "6b6b24b64d379be36b09c8816699bff0cfaabcfc0cb4caed0e7dcbc02f8f27ea",
               "widthPx": 327,
               "heightPx": 646
             },

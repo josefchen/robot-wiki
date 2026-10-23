@@ -81,7 +81,7 @@ export function SiteFooter({ inert = false }: { inert?: boolean }) {
             href="/"
             data-tektur-role="shell-wordmark"
             data-brand-control-id="control:link-focus"
-            className="inline-block font-display-shell text-[15px] tracking-[-0.01em] text-text"
+            className="inline-block font-display-shell text-[15px] tracking-[-0.01em] text-text transition-colors hover:text-text-dim"
           >
             {PUBLIC_IDENTITY}
           </Link>

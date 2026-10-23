@@ -58,12 +58,14 @@ export const EVIDENCE_CLOSURE_FILES = [
   'tests/e2e/helpers/per-route-context.ts',
   'tests/e2e/helpers/global-convergence-collector.ts',
   'tests/e2e/helpers/interactive-mount-roots.ts',
+  'tests/e2e/helpers/playground.ts',
   // The capture sweep launches with the config's SwiftShader flags, which
   // decide how its pixels rasterise.
   'playwright.config.ts',
   'tests/e2e/brand-v2-article.spec.ts',
   'tests/e2e/brand-v2-article-apparatus.spec.ts',
   'tests/e2e/brand-v2-article-tables-math.spec.ts',
+  'tests/e2e/brand-v2-control-states.spec.ts',
   'tests/e2e/brand-v2-figures.spec.ts',
   'tests/e2e/brand-v2-global-convergence.spec.ts',
   'tests/e2e/brand-v2-home.spec.ts',

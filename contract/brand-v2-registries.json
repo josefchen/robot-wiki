@@ -18013,6 +18013,7 @@
         "disabled"
       ],
       "definedIn": [
+        "components/article/article-toc.tsx",
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
@@ -18022,6 +18023,7 @@
         "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
+        "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/chunk-buffer.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
@@ -18087,6 +18089,7 @@
         "components/ui/table.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/article/article-toc.tsx",
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
@@ -18095,6 +18098,7 @@
         "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
+        "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/chunk-buffer.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
@@ -18153,6 +18157,7 @@
         "components/three/technical-names.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/chart-description.tsx",
+        "components/ui/copy-button.tsx",
         "components/ui/instrument.tsx",
         "components/ui/table.tsx"
       ],
@@ -18170,7 +18175,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "638652289ae0a923e6943eb450ce4672f620a35eec0c87e849377b5a8df92517"
+      "fingerprint": "991af42054a53eaec41a8902fb31416187ca99b496be134777e8fd111dc8e04a"
     },
     {
       "id": "control:selection",
@@ -18661,5 +18666,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "dc7ea61629db1cc8f5366c139f7c4ec587049f7702dbdf7c152eec19c7614fc7"
+  "rootFingerprint": "ea2c2fa113e47ade610e4fffce9cffc6f8c2e89a226fb6c3a4a530857f79bea8"
 }

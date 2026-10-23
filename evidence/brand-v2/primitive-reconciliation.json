@@ -499,9 +499,10 @@
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "638652289ae0a923e6943eb450ce4672f620a35eec0c87e849377b5a8df92517",
+      "fingerprint": "991af42054a53eaec41a8902fb31416187ca99b496be134777e8fd111dc8e04a",
       "mountState": "production",
       "definedIn": [
+        "components/article/article-toc.tsx",
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
@@ -511,6 +512,7 @@
         "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
+        "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/chunk-buffer.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
@@ -576,6 +578,7 @@
         "components/ui/table.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/article/article-toc.tsx",
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
@@ -584,6 +587,7 @@
         "components/interactive/action-conditioning.tsx",
         "components/interactive/action-tokenization.tsx",
         "components/interactive/actuator-gap.tsx",
+        "components/interactive/advantage-scrubber.tsx",
         "components/interactive/appearance-physics-push.tsx",
         "components/interactive/chunk-buffer.tsx",
         "components/interactive/collaborative-operation-modes.tsx",
@@ -642,6 +646,7 @@
         "components/three/technical-names.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/chart-description.tsx",
+        "components/ui/copy-button.tsx",
         "components/ui/instrument.tsx",
         "components/ui/table.tsx"
       ],

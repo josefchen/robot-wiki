@@ -29153,20 +29153,80 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-002",
-          "mechanism": "VAL-B2-COMP-002 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:primary-action",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:selection",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:link-focus",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:segmented",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:input",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-002:control:disabled",
+          "mechanism": "VAL-B2-COMP-002 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › sweeps every registered control at 375 and 1440 px and persists the control-states evidence",
+          "mechanism": "Loads every registry-derived public route state in the built export at 375x812 and 1440x900, discovers controls structurally (native controls, widget roles, keyboard stops) before reading their registry annotation and fails any unregistered one, and reads each distinct rendered variant at rest, under a real pointer, with the pointer held down and under keyboard focus, the ARIA of the whole document across those moments, every selected state against its unselected sibling or by keyboard activation and undo, every disabled instance under click and keys, every icon against its owner, and every clear, copy, sort, reset, disclosure and close action from the keyboard; it requires every production control and every action kind to be non-empty at both widths."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › VAL-B2-COMP-002 every registered control paints hover, pressed, focus-visible, selected and disabled distinctly from rest at 375 and 1440 px",
+          "mechanism": "Decides VAL-B2-COMP-002 for every registered control from the persisted sweep through the verdict the generator applies, and requires no failure."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › a stripped focus outline fails only the focus-visible clause",
+          "mechanism": "Strips the keyboard outline from the section-link controls of a built article, measures the control with the same probe, and requires the paint verdict to fail on focus-visible alone while the transient-ARIA verdict stays clean."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › aria-pressed set on hover fails only the transient ARIA clause",
+          "mechanism": "Makes the pointer entering a section-link control set aria-pressed, measures it with the same probe, and requires the transient-ARIA verdict to fail while the paint verdict stays clean."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › an empty population and a stale or incomplete artifact are refused",
+          "mechanism": "Hands the reader an artifact with no routes, a stale fingerprint and no pages, and requires each to throw, and requires a production control the sweep never rendered to fail its row."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > refuses stale, incomplete, and malformed control-state evidence",
+          "mechanism": "Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > fails each planted violation under its own clause",
+          "mechanism": "Proves on a synthetic sweep that a hover, pressed or focus paint equal to rest, transient ARIA, a selected state equal to unselected, a filled, lime or pill chip, a colour-only selection, an uncoloured status chip, an activatable or unexposed disabled control, an action that did nothing or lost its visible text from its name, an unnamed functional icon, an exposed decorative icon, an uncopied code block, an unrendered production control and an unused exemption clause each fail their own row, and that a library-only control is not applicable."
         }
       ],
       "enforcementMode": "browser-state",
@@ -29183,7 +29243,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-002"
+          "result:VAL-B2-COMP-002:control:primary-action",
+          "result:VAL-B2-COMP-002:control:secondary-action",
+          "result:VAL-B2-COMP-002:control:selection",
+          "result:VAL-B2-COMP-002:control:link-focus",
+          "result:VAL-B2-COMP-002:control:segmented",
+          "result:VAL-B2-COMP-002:control:input",
+          "result:VAL-B2-COMP-002:control:disabled"
         ]
       }
     },
@@ -29273,20 +29339,74 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-005",
-          "mechanism": "VAL-B2-COMP-005 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:primary-action",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:selection",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:link-focus",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:segmented",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:input",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-005:control:disabled",
+          "mechanism": "VAL-B2-COMP-005 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › sweeps every registered control at 375 and 1440 px and persists the control-states evidence",
+          "mechanism": "Loads every registry-derived public route state in the built export at 375x812 and 1440x900, discovers controls structurally (native controls, widget roles, keyboard stops) before reading their registry annotation and fails any unregistered one, and reads each distinct rendered variant at rest, under a real pointer, with the pointer held down and under keyboard focus, the ARIA of the whole document across those moments, every selected state against its unselected sibling or by keyboard activation and undo, every disabled instance under click and keys, every icon against its owner, and every clear, copy, sort, reset, disclosure and close action from the keyboard; it requires every production control and every action kind to be non-empty at both widths."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › VAL-B2-COMP-005 every clear, copy, sort, reset, disclosure and close action works from the keyboard, code-block copy included",
+          "mechanism": "Decides VAL-B2-COMP-005 for every registered control from the persisted sweep through the verdict the generator applies, and requires no failure."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › a filled selected chip, an active disabled control and a broken copy each fail their own clause",
+          "mechanism": "Fills the selected market-map chips with the retired lime, makes the playground’s unavailable Export action activatable while it keeps its disabled look, and stubs the clipboard under a code-block copy, and requires the chip, disabled-exposure and action verdicts each to fail on its own clause."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › an empty population and a stale or incomplete artifact are refused",
+          "mechanism": "Hands the reader an artifact with no routes, a stale fingerprint and no pages, and requires each to throw, and requires a production control the sweep never rendered to fail its row."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > refuses stale, incomplete, and malformed control-state evidence",
+          "mechanism": "Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > fails each planted violation under its own clause",
+          "mechanism": "Proves on a synthetic sweep that a hover, pressed or focus paint equal to rest, transient ARIA, a selected state equal to unselected, a filled, lime or pill chip, a colour-only selection, an uncoloured status chip, an activatable or unexposed disabled control, an action that did nothing or lost its visible text from its name, an unnamed functional icon, an exposed decorative icon, an uncopied code block, an unrendered production control and an unused exemption clause each fail their own row, and that a library-only control is not applicable."
         }
       ],
       "enforcementMode": "browser-state",
@@ -29303,7 +29423,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-005"
+          "result:VAL-B2-COMP-005:control:primary-action",
+          "result:VAL-B2-COMP-005:control:secondary-action",
+          "result:VAL-B2-COMP-005:control:selection",
+          "result:VAL-B2-COMP-005:control:link-focus",
+          "result:VAL-B2-COMP-005:control:segmented",
+          "result:VAL-B2-COMP-005:control:input",
+          "result:VAL-B2-COMP-005:control:disabled"
         ]
       }
     },
@@ -29809,20 +29935,74 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-007",
-          "mechanism": "VAL-B2-COMP-007 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:primary-action",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:selection",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:link-focus",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:segmented",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:input",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-007:control:disabled",
+          "mechanism": "VAL-B2-COMP-007 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › sweeps every registered control at 375 and 1440 px and persists the control-states evidence",
+          "mechanism": "Loads every registry-derived public route state in the built export at 375x812 and 1440x900, discovers controls structurally (native controls, widget roles, keyboard stops) before reading their registry annotation and fails any unregistered one, and reads each distinct rendered variant at rest, under a real pointer, with the pointer held down and under keyboard focus, the ARIA of the whole document across those moments, every selected state against its unselected sibling or by keyboard activation and undo, every disabled instance under click and keys, every icon against its owner, and every clear, copy, sort, reset, disclosure and close action from the keyboard; it requires every production control and every action kind to be non-empty at both widths."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › VAL-B2-COMP-007 every selected chip is unfilled ink with a non-colour cue and a semantic state, and every status chip carries text",
+          "mechanism": "Decides VAL-B2-COMP-007 for every registered control from the persisted sweep through the verdict the generator applies, and requires no failure."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › a filled selected chip, an active disabled control and a broken copy each fail their own clause",
+          "mechanism": "Fills the selected market-map chips with the retired lime, makes the playground’s unavailable Export action activatable while it keeps its disabled look, and stubs the clipboard under a code-block copy, and requires the chip, disabled-exposure and action verdicts each to fail on its own clause."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › an empty population and a stale or incomplete artifact are refused",
+          "mechanism": "Hands the reader an artifact with no routes, a stale fingerprint and no pages, and requires each to throw, and requires a production control the sweep never rendered to fail its row."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > refuses stale, incomplete, and malformed control-state evidence",
+          "mechanism": "Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > fails each planted violation under its own clause",
+          "mechanism": "Proves on a synthetic sweep that a hover, pressed or focus paint equal to rest, transient ARIA, a selected state equal to unselected, a filled, lime or pill chip, a colour-only selection, an uncoloured status chip, an activatable or unexposed disabled control, an action that did nothing or lost its visible text from its name, an unnamed functional icon, an exposed decorative icon, an uncopied code block, an unrendered production control and an unused exemption clause each fail their own row, and that a library-only control is not applicable."
         }
       ],
       "enforcementMode": "browser-state",
@@ -29839,7 +30019,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-007"
+          "result:VAL-B2-COMP-007:control:primary-action",
+          "result:VAL-B2-COMP-007:control:secondary-action",
+          "result:VAL-B2-COMP-007:control:selection",
+          "result:VAL-B2-COMP-007:control:link-focus",
+          "result:VAL-B2-COMP-007:control:segmented",
+          "result:VAL-B2-COMP-007:control:input",
+          "result:VAL-B2-COMP-007:control:disabled"
         ]
       }
     },
@@ -30443,20 +30629,74 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-011",
-          "mechanism": "VAL-B2-COMP-011 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:primary-action",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:selection",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:link-focus",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:segmented",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:input",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-011:control:disabled",
+          "mechanism": "VAL-B2-COMP-011 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › sweeps every registered control at 375 and 1440 px and persists the control-states evidence",
+          "mechanism": "Loads every registry-derived public route state in the built export at 375x812 and 1440x900, discovers controls structurally (native controls, widget roles, keyboard stops) before reading their registry annotation and fails any unregistered one, and reads each distinct rendered variant at rest, under a real pointer, with the pointer held down and under keyboard focus, the ARIA of the whole document across those moments, every selected state against its unselected sibling or by keyboard activation and undo, every disabled instance under click and keys, every icon against its owner, and every clear, copy, sort, reset, disclosure and close action from the keyboard; it requires every production control and every action kind to be non-empty at both widths."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › VAL-B2-COMP-011 every functional icon is named and every decorative icon is hidden",
+          "mechanism": "Decides VAL-B2-COMP-011 for every registered control from the persisted sweep through the verdict the generator applies, and requires no failure."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › an icon-only button stripped of its name fails only the functional icon clause",
+          "mechanism": "Removes the accessible name from one icon-only control on a built article and requires the icon verdict to report exactly that control as a functional icon without a name."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › an empty population and a stale or incomplete artifact are refused",
+          "mechanism": "Hands the reader an artifact with no routes, a stale fingerprint and no pages, and requires each to throw, and requires a production control the sweep never rendered to fail its row."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > refuses stale, incomplete, and malformed control-state evidence",
+          "mechanism": "Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > fails each planted violation under its own clause",
+          "mechanism": "Proves on a synthetic sweep that a hover, pressed or focus paint equal to rest, transient ARIA, a selected state equal to unselected, a filled, lime or pill chip, a colour-only selection, an uncoloured status chip, an activatable or unexposed disabled control, an action that did nothing or lost its visible text from its name, an unnamed functional icon, an exposed decorative icon, an uncopied code block, an unrendered production control and an unused exemption clause each fail their own row, and that a library-only control is not applicable."
         }
       ],
       "enforcementMode": "browser-state",
@@ -30473,7 +30713,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-011"
+          "result:VAL-B2-COMP-011:control:primary-action",
+          "result:VAL-B2-COMP-011:control:secondary-action",
+          "result:VAL-B2-COMP-011:control:selection",
+          "result:VAL-B2-COMP-011:control:link-focus",
+          "result:VAL-B2-COMP-011:control:segmented",
+          "result:VAL-B2-COMP-011:control:input",
+          "result:VAL-B2-COMP-011:control:disabled"
         ]
       }
     },
@@ -30801,20 +31047,80 @@
       "enforcementTargets": [
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-COMP-015",
-          "mechanism": "VAL-B2-COMP-015 pending rollout evidence over contract/brand-v2-registries.json#controls"
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:primary-action",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:secondary-action",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:selection",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:link-focus",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:segmented",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:input",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-COMP-015:control:disabled",
+          "mechanism": "VAL-B2-COMP-015 per-member evidence derived from the persisted 375x812/1440x900 control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over contract/brand-v2-registries.json#controls"
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › sweeps every registered control at 375 and 1440 px and persists the control-states evidence",
+          "mechanism": "Loads every registry-derived public route state in the built export at 375x812 and 1440x900, discovers controls structurally (native controls, widget roles, keyboard stops) before reading their registry annotation and fails any unregistered one, and reads each distinct rendered variant at rest, under a real pointer, with the pointer held down and under keyboard focus, the ARIA of the whole document across those moments, every selected state against its unselected sibling or by keyboard activation and undo, every disabled instance under click and keys, every icon against its owner, and every clear, copy, sort, reset, disclosure and close action from the keyboard; it requires every production control and every action kind to be non-empty at both widths."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › VAL-B2-COMP-015 transient paint never becomes persistent ARIA and disabled controls are exposed, inert and neutral",
+          "mechanism": "Decides VAL-B2-COMP-015 for every registered control from the persisted sweep through the verdict the generator applies, and requires no failure."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › aria-pressed set on hover fails only the transient ARIA clause",
+          "mechanism": "Makes the pointer entering a section-link control set aria-pressed, measures it with the same probe, and requires the transient-ARIA verdict to fail while the paint verdict stays clean."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › a filled selected chip, an active disabled control and a broken copy each fail their own clause",
+          "mechanism": "Fills the selected market-map chips with the retired lime, makes the playground’s unavailable Export action activatable while it keeps its disabled look, and stubs the clipboard under a code-block copy, and requires the chip, disabled-exposure and action verdicts each to fail on its own clause."
+        },
+        {
+          "kind": "test",
+          "file": "tests/e2e/brand-v2-control-states.spec.ts",
+          "title": "brand-v2 control states sweep › an empty population and a stale or incomplete artifact are refused",
+          "mechanism": "Hands the reader an artifact with no routes, a stale fingerprint and no pages, and requires each to throw, and requires a production control the sweep never rendered to fail its row."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > refuses stale, incomplete, and malformed control-state evidence",
+          "mechanism": "Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-control-states-evidence.test.ts",
+          "title": "control states evidence > fails each planted violation under its own clause",
+          "mechanism": "Proves on a synthetic sweep that a hover, pressed or focus paint equal to rest, transient ARIA, a selected state equal to unselected, a filled, lime or pill chip, a colour-only selection, an uncoloured status chip, an activatable or unexposed disabled control, an action that did nothing or lost its visible text from its name, an unnamed functional icon, an exposed decorative icon, an uncopied code block, an unrendered production control and an unused exemption clause each fail their own row, and that a library-only control is not applicable."
         }
       ],
       "enforcementMode": "browser-state",
@@ -30831,7 +31137,13 @@
       },
       "producedResult": {
         "resultIds": [
-          "result:VAL-B2-COMP-015"
+          "result:VAL-B2-COMP-015:control:primary-action",
+          "result:VAL-B2-COMP-015:control:secondary-action",
+          "result:VAL-B2-COMP-015:control:selection",
+          "result:VAL-B2-COMP-015:control:link-focus",
+          "result:VAL-B2-COMP-015:control:segmented",
+          "result:VAL-B2-COMP-015:control:input",
+          "result:VAL-B2-COMP-015:control:disabled"
         ]
       }
     },

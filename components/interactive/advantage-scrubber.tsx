@@ -323,7 +323,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
   const controls = (
     <>
       <button
-        data-brand-control-id="control:selection"
+        data-brand-control-id="control:secondary-action"
         data-testid="advantage-play"
         type="button"
         onClick={playing ? stop : play}

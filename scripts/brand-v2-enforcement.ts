@@ -11,9 +11,20 @@ import {
   type EnforcementMap,
 } from '../lib/brand-v2-enforcement.ts';
 import {
+  derivePrimitiveSweepRouteStates,
   readPrimitiveReconciliation,
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
+import {
+  CONTROL_STATE_ASSERTIONS,
+  CONTROL_STATES_EVIDENCE_PATH,
+  CONTROL_STATES_SWEEP_MODULE,
+  controlStateVerdict,
+  controlStatesEvidenceFingerprint,
+  readControlStatesEvidence,
+  type ControlStateAssertion,
+  type ControlStateRegistry,
+} from '../lib/brand-v2-control-states-evidence.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
 import { testTitlesIn } from '../lib/test-title-index.ts';
 import {
@@ -382,6 +393,21 @@ const RECONCILED_PRIMITIVE_ASSERTIONS = new Map<string, PrimitiveRegistryKey>([
 ]);
 
 /**
+ * The control-state rows, routed to the two-width sweep of every registered
+ * control on every public route state
+ * (evidence/brand-v2/control-states.json, written by
+ * tests/e2e/brand-v2-control-states.spec.ts).
+ *
+ * Membership grants nothing. Each row is decided per registered control
+ * from what the sweep observed: its paint at rest, under the pointer, held
+ * down and under keyboard focus, the ARIA of the document across those
+ * moments, its selected and disabled states, its icons and the actions it
+ * performed. The reader throws on stale, incomplete or malformed evidence,
+ * and a verdict that recorded a failure stops the corpus.
+ */
+const CONTROL_STATE_ASSERTION_IDS = new Set<string>(CONTROL_STATE_ASSERTIONS);
+
+/**
  * The token assertions, routed to the tokens their own contract rows name.
  *
  * Membership grants nothing. It previously did: the four IDs were declared
@@ -404,6 +430,7 @@ function isMeasured(id: string): boolean {
   return (
     TEKTUR_ASSERTIONS.has(id) ||
     RECONCILED_PRIMITIVE_ASSERTIONS.has(id) ||
+    CONTROL_STATE_ASSERTION_IDS.has(id) ||
     TOKEN_ASSERTIONS.has(id) ||
     IDENTITY_ASSERTIONS.has(id) ||
     SHELL_ASSERTIONS.has(id) ||
@@ -626,6 +653,21 @@ const RECONCILIATION_PATH = join(
 const RECONCILIATION = readPrimitiveReconciliation({
   artifact: readJson(RECONCILIATION_PATH),
   registry: REGISTRY as unknown as PrimitiveRegistrySlice,
+});
+
+const CONTROL_STATE_ROUTES = derivePrimitiveSweepRouteStates(
+  REGISTRY as unknown as PrimitiveRegistrySlice,
+);
+const CONTROL_STATE_REGISTRY = REGISTRY as unknown as ControlStateRegistry;
+const CONTROL_STATES = readControlStatesEvidence({
+  artifact: readJson(join(ROOT, CONTROL_STATES_EVIDENCE_PATH)),
+  fingerprint: controlStatesEvidenceFingerprint({
+    root: ROOT,
+    routes: CONTROL_STATE_ROUTES,
+    registry: CONTROL_STATE_REGISTRY,
+  }),
+  routes: CONTROL_STATE_ROUTES,
+  registry: CONTROL_STATE_REGISTRY,
 });
 
 const TOKEN_SOURCES = {
@@ -1711,6 +1753,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // so both stay browser-state rows rather than becoming source-build ones.
   if (TOKEN_ASSERTIONS.has(id)) return 'browser-state';
   if (RECONCILED_PRIMITIVE_ASSERTIONS.has(id)) return 'browser-state';
+  // A control-state row's evidence is what a pointer, a held button and a
+  // keyboard did to each rendered control, so it is a browser-state row.
+  if (CONTROL_STATE_ASSERTION_IDS.has(id)) return 'browser-state';
   // An identity row's evidence is what a built page rendered at two
   // viewports, so it is a browser-state row even where a supporting clause
   // also counts source occurrences.
@@ -2246,6 +2291,83 @@ const GLOBAL_CONVERGENCE_VERDICT_TARGET = testTarget(
   'Proves on a synthetic sweep that every route predicate, an off-ink, too-wide or unexcused offset keyboard ring, each spacing, separation, frame-geometry, ownership, composition and collision defect, a tuple outside each sealed type population, a narrow width with more devices or less content than the desktop, and a surface with no device, no sound material or an unstable card fails its own row and member, and that an exempted finding fails nothing.',
 );
 
+const CONTROL_STATES_SUITE = 'brand-v2 control states sweep';
+const CONTROL_STATES_SWEEP_TARGET = testTarget(
+  CONTROL_STATES_SWEEP_MODULE,
+  `${CONTROL_STATES_SUITE} › sweeps every registered control at 375 and 1440 px and persists the control-states evidence`,
+  'Loads every registry-derived public route state in the built export at 375x812 and 1440x900, discovers controls structurally (native controls, widget roles, keyboard stops) before reading their registry annotation and fails any unregistered one, and reads each distinct rendered variant at rest, under a real pointer, with the pointer held down and under keyboard focus, the ARIA of the whole document across those moments, every selected state against its unselected sibling or by keyboard activation and undo, every disabled instance under click and keys, every icon against its owner, and every clear, copy, sort, reset, disclosure and close action from the keyboard; it requires every production control and every action kind to be non-empty at both widths.',
+);
+const CONTROL_STATES_ASSERTION_TITLES: Readonly<Record<ControlStateAssertion, string>> = {
+  'VAL-B2-COMP-002':
+    'VAL-B2-COMP-002 every registered control paints hover, pressed, focus-visible, selected and disabled distinctly from rest at 375 and 1440 px',
+  'VAL-B2-COMP-005':
+    'VAL-B2-COMP-005 every clear, copy, sort, reset, disclosure and close action works from the keyboard, code-block copy included',
+  'VAL-B2-COMP-007':
+    'VAL-B2-COMP-007 every selected chip is unfilled ink with a non-colour cue and a semantic state, and every status chip carries text',
+  'VAL-B2-COMP-011':
+    'VAL-B2-COMP-011 every functional icon is named and every decorative icon is hidden',
+  'VAL-B2-COMP-015':
+    'VAL-B2-COMP-015 transient paint never becomes persistent ARIA and disabled controls are exposed, inert and neutral',
+};
+const CONTROL_STATES_PLANT_TARGETS: Readonly<Record<ControlStateAssertion, TestTarget[]>> = (() => {
+  const focus = testTarget(
+    CONTROL_STATES_SWEEP_MODULE,
+    `${CONTROL_STATES_SUITE} › a stripped focus outline fails only the focus-visible clause`,
+    'Strips the keyboard outline from the section-link controls of a built article, measures the control with the same probe, and requires the paint verdict to fail on focus-visible alone while the transient-ARIA verdict stays clean.',
+  );
+  const transient = testTarget(
+    CONTROL_STATES_SWEEP_MODULE,
+    `${CONTROL_STATES_SUITE} › aria-pressed set on hover fails only the transient ARIA clause`,
+    'Makes the pointer entering a section-link control set aria-pressed, measures it with the same probe, and requires the transient-ARIA verdict to fail while the paint verdict stays clean.',
+  );
+  const icon = testTarget(
+    CONTROL_STATES_SWEEP_MODULE,
+    `${CONTROL_STATES_SUITE} › an icon-only button stripped of its name fails only the functional icon clause`,
+    'Removes the accessible name from one icon-only control on a built article and requires the icon verdict to report exactly that control as a functional icon without a name.',
+  );
+  const composite = testTarget(
+    CONTROL_STATES_SWEEP_MODULE,
+    `${CONTROL_STATES_SUITE} › a filled selected chip, an active disabled control and a broken copy each fail their own clause`,
+    'Fills the selected market-map chips with the retired lime, makes the playground’s unavailable Export action activatable while it keeps its disabled look, and stubs the clipboard under a code-block copy, and requires the chip, disabled-exposure and action verdicts each to fail on its own clause.',
+  );
+  const refused = testTarget(
+    CONTROL_STATES_SWEEP_MODULE,
+    `${CONTROL_STATES_SUITE} › an empty population and a stale or incomplete artifact are refused`,
+    'Hands the reader an artifact with no routes, a stale fingerprint and no pages, and requires each to throw, and requires a production control the sweep never rendered to fail its row.',
+  );
+  return {
+    'VAL-B2-COMP-002': [focus, transient, refused],
+    'VAL-B2-COMP-005': [composite, refused],
+    'VAL-B2-COMP-007': [composite, refused],
+    'VAL-B2-COMP-011': [icon, refused],
+    'VAL-B2-COMP-015': [transient, composite, refused],
+  };
+})();
+const CONTROL_STATES_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-control-states-evidence.test.ts',
+  'control states evidence > refuses stale, incomplete, and malformed control-state evidence',
+  'Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route.',
+);
+const CONTROL_STATES_VERDICT_TARGET = testTarget(
+  'tests/unit/brand-v2-control-states-evidence.test.ts',
+  'control states evidence > fails each planted violation under its own clause',
+  'Proves on a synthetic sweep that a hover, pressed or focus paint equal to rest, transient ARIA, a selected state equal to unselected, a filled, lime or pill chip, a colour-only selection, an uncoloured status chip, an activatable or unexposed disabled control, an action that did nothing or lost its visible text from its name, an unnamed functional icon, an exposed decorative icon, an uncopied code block, an unrendered production control and an unused exemption clause each fail their own row, and that a library-only control is not applicable.',
+);
+
+function controlStateTargetsFor(id: ControlStateAssertion): TestTarget[] {
+  return [
+    CONTROL_STATES_SWEEP_TARGET,
+    testTarget(
+      CONTROL_STATES_SWEEP_MODULE,
+      `${CONTROL_STATES_SUITE} › ${CONTROL_STATES_ASSERTION_TITLES[id]}`,
+      `Decides ${id} for every registered control from the persisted sweep through the verdict the generator applies, and requires no failure.`,
+    ),
+    ...CONTROL_STATES_PLANT_TARGETS[id],
+    CONTROL_STATES_READER_TARGET,
+    CONTROL_STATES_VERDICT_TARGET,
+  ];
+}
+
 const FIGURE_SWEEP_TARGET = testTarget(
   'tests/e2e/brand-v2-figures.spec.ts',
   'brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths',
@@ -2699,6 +2821,9 @@ function ogTargetsFor(id: string): TestTarget[] {
 
 function testTargetsFor(id: string): TestTarget[] {
   if (OG_ASSERTIONS.has(id)) return ogTargetsFor(id);
+  if (CONTROL_STATE_ASSERTION_IDS.has(id)) {
+    return controlStateTargetsFor(id as ControlStateAssertion);
+  }
   // Figure rows are decided by the figure sweep and its reader. They used to
   // fall through to the generic route census and flow, so the corpus named a
   // pair of tests that never look at a figure as the evidence for every
@@ -4213,6 +4338,48 @@ function resultFor(
       },
     };
   }
+  if (CONTROL_STATE_ASSERTION_IDS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = controlStateVerdict(
+      assertionId as ControlStateAssertion,
+      member,
+      CONTROL_STATES,
+      CONTROL_STATE_REGISTRY,
+    );
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${member}: ${verdict.failures.join('; ')}`);
+    }
+    const viewports = CONTROL_STATES.viewports.join(' and ');
+    if (verdict.status === 'not-applicable') {
+      return {
+        ...common,
+        status: 'not-applicable' as const,
+        actual: `${member}: nothing of it for ${assertionId} to decide across ${CONTROL_STATES.routes.length} swept route states at ${viewports}`,
+        notApplicableReason: {
+          code: 'unsupported-state' as const,
+          registryId: member,
+          detail: verdict.notApplicable ?? `${member} has nothing for ${assertionId} to decide.`,
+        },
+      };
+    }
+    const observed = verdict.observed as Record<string, unknown>;
+    return {
+      ...common,
+      actual: `${member}: ${String(observed.rendered)} rendered instances on ${String(observed.renderedPages)} route/viewport pages, ${String(observed.variants)} distinct variants measured at ${viewports}, no failure`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          ...observed,
+          evidence: [CONTROL_STATES_EVIDENCE_PATH],
+          tool: CONTROL_STATES_SWEEP_MODULE,
+        },
+      },
+    };
+  }
   if (IDENTITY_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -4718,6 +4885,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted ${GLOBAL_CONVERGENCE_VIEWPORTS.map(({ id: viewport }) => viewport).join('/')} sweep of every public route in the built export, reading each structurally discovered action, selection, link, input, card, frame, citation mark, section, text run, spacing value, device, rule, decorative layer, transformed label, material surface and major block as the browser computed and laid it out, the content each width can reach, and a thirty-stop keyboard trace (the social-artwork surface read off the generated card manifest), decided against the research-page successor thresholds with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
+              : CONTROL_STATE_ASSERTION_IDS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${CONTROL_STATES.viewports.join('/')} control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)
                 ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
                 : TEKTUR_ASSERTIONS.has(id)

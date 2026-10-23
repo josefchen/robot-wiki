@@ -112937,6 +112937,21 @@
         "VAL-EDU-041"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "control-states-20261023-interactive-sources-mounts-source-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "4960cfd405cb8c998e9c96320035c0fa3486471fa940a6fdd40438b295aaae9c",
+      "newHash": "d890abef1e19ca0de40bcc1430bac48c07280934746038ef3bd1ee03a54a0929",
+      "reason": "VAL-B2-COMP-002 hover and selected states on the perception error budget's target-surface radios: the control-states sweep (tests/e2e/brand-v2-control-states.spec.ts) found each radio label painting the same under the pointer as at rest. Each label gains transition-colors hover:text-text-dim, the hover the commit-to-reveal option labels already use, and each radio's checked mark moves from accent-highlight (the grey #A3A39E, about 2.5:1 on paper) to accent-ink, the ink selected state the research-page standard sets and the commit-to-reveal radios already draw. Two class lists are all that moved: every option, label text, value, default, accessible-name expression, mark and the budget arithmetic are unchanged. This edge moves the member from its last approved endpoint (series-label-20261023-interactive-sources-mounts-source-perception-error-budget).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-COMP-002 requires hover, pressed, selected and focus-visible states to be visually distinct for every registered control, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md: selected and current states use ink, never a colour fill). brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found COMP-002 without population-wide browser evidence and dispatched interactives-r1-control-state-evidence to measure every registered control and fix the offenders it finds. Presentation-only state repair; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-COMP-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

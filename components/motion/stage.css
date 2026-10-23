@@ -537,9 +537,16 @@ details[data-figure-fold='method']:not([open])::details-content {
   opacity: 0.45;
 }
 
-/* The one action that starts a figure: the same text action, in ink. */
+/* The one action that starts a figure: the same text action, in ink. It is
+   already ink at rest, so the pointer reads on it as a 1 px underline. */
 .figure-action.figure-action-primary {
   color: var(--ink);
+}
+
+.figure-action.figure-action-primary:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
 }
 
 /*
