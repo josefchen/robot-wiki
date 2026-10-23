@@ -1,7 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
-import { ChunkSizeCurve } from '@/components/interactive/chunk-size-curve';
+import { ChunkSizeCurve, chunkScaleX, chunkScaleY } from '@/components/interactive/chunk-size-curve';
+import { CHART_STROKE } from '@/components/motion/chart/chart-tokens';
+import { STATUS_LABEL_VOCABULARY } from '@/lib/brand-v2-interactive-data';
+import { ACT_CHUNK_ANCHORS } from '@/lib/chunk-size';
 
 describe('ChunkSizeCurve', () => {
   it('renders the slider, chart, readouts, and reset control', () => {
@@ -50,6 +53,30 @@ describe('ChunkSizeCurve', () => {
     const value = Number(readout?.replace(/[^0-9.]/g, ''));
     expect(value).toBeGreaterThan(15);
     expect(value).toBeLessThan(44);
+  });
+
+  it('labels its own status on the stage: only the two dots are published', () => {
+    const { container } = render(<ChunkSizeCurve />);
+    const status = container.querySelector('[data-figure-status]');
+    expect(status?.textContent).toMatch(STATUS_LABEL_VOCABULARY.source);
+    expect(status?.textContent).toMatch(/only the two dots have published numbers/i);
+  });
+
+  it('places the two measured anchors at the published chunk sizes, a marker-radius dot each', () => {
+    const { container } = render(<ChunkSizeCurve />);
+    const dots = [...container.querySelectorAll('circle[data-chart-mark="dot"]')];
+    expect(dots.map((dot) => Number(dot.getAttribute('cx')))).toEqual(
+      ACT_CHUNK_ANCHORS.map((anchor) => chunkScaleX(anchor.k)),
+    );
+    expect(dots.map((dot) => Number(dot.getAttribute('cy')))).toEqual(
+      ACT_CHUNK_ANCHORS.map((anchor) => chunkScaleY(anchor.success)),
+    );
+    for (const dot of dots) {
+      expect(Number(dot.getAttribute('r'))).toBe(CHART_STROKE.markerRadius);
+    }
+    const playhead = container.querySelector('circle[data-chart-mark="playhead"]');
+    expect(Number(playhead?.getAttribute('r'))).toBe(CHART_STROKE.markerRadius + 2);
+    expect(Number(playhead?.getAttribute('cx'))).toBe(chunkScaleX(100));
   });
 
   it('marks the interpolated region as not measured', () => {
@@ -103,7 +130,7 @@ describe('ChunkSizeCurve', () => {
   it('renders a table-form chart description that names the dashed region', () => {
     const { container } = render(<ChunkSizeCurve />);
     const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/pale estimate band past k = 100/i);
+    expect(desc?.textContent).toMatch(/dashed estimate line past k = 100/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');
     expect(details?.querySelectorAll('tbody tr').length).toBeGreaterThanOrEqual(5);

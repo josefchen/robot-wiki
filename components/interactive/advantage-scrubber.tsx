@@ -509,16 +509,6 @@ export function AdvantageScrubber({ className }: { className?: string }) {
         );
       })}
 
-      {/* The value score as the chance this ends well, ends in words. */}
-      <text
-        x={PLOT.left}
-        y={TITLE_BASELINE}
-        fontSize={CHART_TYPE.labelPx}
-        fill={valueColour}
-        fontWeight={600}
-      >
-        Chance this ends well
-      </text>
       {[V_MAX, V_MIN].map((v) => (
         <line
           key={v}
@@ -548,25 +538,35 @@ export function AdvantageScrubber({ className }: { className?: string }) {
         unlikely
       </text>
 
-      {/* Value trace: the full episode faint, the elapsed part at trace weight. */}
-      <polyline
-        data-series="value"
-        points={tracePoints(EPISODE_LENGTH_S)}
-        fill="none"
-        stroke={valueColour}
-        strokeOpacity={0.35}
-        strokeWidth={CHART_STROKE.structure}
-      />
-      {playhead > 0 && (
+      {/* Value trace: the full episode faint, the elapsed part at trace weight,
+          under its own title, the value score as the chance this ends well. */}
+      <g data-series="value">
+        <text
+          x={PLOT.left}
+          y={TITLE_BASELINE}
+          fontSize={CHART_TYPE.labelPx}
+          fill={valueColour}
+          fontWeight={600}
+        >
+          Chance this ends well
+        </text>
         <polyline
-          data-series="value"
-          points={tracePoints(playhead)}
+          points={tracePoints(EPISODE_LENGTH_S)}
           fill="none"
           stroke={valueColour}
-          strokeWidth={CHART_STROKE.trace}
-          strokeLinejoin="round"
+          strokeOpacity={0.35}
+          strokeWidth={CHART_STROKE.structure}
         />
-      )}
+        {playhead > 0 && (
+          <polyline
+            points={tracePoints(playhead)}
+            fill="none"
+            stroke={valueColour}
+            strokeWidth={CHART_STROKE.trace}
+            strokeLinejoin="round"
+          />
+        )}
+      </g>
 
       {/* Time axis in seconds; the end label carries the unit in words. */}
       <line

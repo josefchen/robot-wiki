@@ -1,4 +1,5 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it } from 'vitest';
 import { DeploymentEconomics } from '../../components/interactive/deployment-economics';
@@ -204,5 +205,16 @@ describe('DeploymentEconomics component', () => {
     // The one lit part: the poise.
     expect(svg.querySelectorAll('[data-testid="steelyard-beam"] [data-lit]').length).toBeGreaterThan(0);
     expect(svg.querySelectorAll('[data-lit]').length).toBe(svg.querySelectorAll('[data-testid="steelyard-beam"] [data-lit]').length);
+  });
+});
+
+describe('DeploymentEconomics series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = mount();
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['economics-downtime', 'economics-jam-clearing', 'economics-productive']);
+    const encodings = seriesEncodings(container);
+    // Downtime is drawn as an outline beside the filled productive bar.
+    expect(encodings['economics-downtime'].geometries).not.toEqual(encodings['economics-productive'].geometries);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

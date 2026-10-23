@@ -86,10 +86,10 @@ export function CubeTrials({ className }: { className?: string }) {
                   </g>
                 );
               })}
+              <DirectLabel x={LEFT} y={TOP + CELL + 22}>
+                filled: finished all {SUBGOALS} steps of the scramble
+              </DirectLabel>
             </g>
-            <DirectLabel x={LEFT} y={TOP + CELL + 22}>
-              filled: finished all {SUBGOALS} steps of the scramble
-            </DirectLabel>
             <text x={LEFT} y={TOP + CELL + 40} fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
               a tally, not trial order
             </text>

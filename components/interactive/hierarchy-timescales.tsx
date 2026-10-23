@@ -353,7 +353,8 @@ export function HierarchyTimescales({
                       />
                     ))}
                   </g>
-                  <g data-series="fired">
+                  {/* Labelled in the plot: the lane's name sits right above these ticks, and the settle note counts them. */}
+                  <g data-series="fired" data-series-labelled="">
                     {firedTicks.map((t) => (
                       <line
                         key={t}

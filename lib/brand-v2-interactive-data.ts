@@ -269,6 +269,47 @@ export const NA_CELL_FAMILIES: ReadonlyArray<NaCellFamily> = [
 ];
 
 /**
+ * How an instrument lets the reader reorder its table (VAL-B2-COMP-009),
+ * read from the module source the registry names:
+ * - `header-sort`: a `Table` column declared `sortable: true`, which
+ *   renders a "Sort by <column>" button inside that column's header.
+ * - `control-sort`: a visible "Sort by" preset group in the figure header
+ *   orders the rows and the table's own headers carry `aria-sort`. This
+ *   is the shape the figure system (library/design-system.md 13.4) gives a
+ *   figure whose two visible controls include the sort and whose data
+ *   table sits in "How this was made".
+ * A module that does both counts as `header-sort`.
+ */
+export type TableSortKind = 'header-sort' | 'control-sort';
+
+export function tableSortKindOf(sourceText: string): TableSortKind | null {
+  if (/\bsortable:\s*true\b/.test(sourceText)) return 'header-sort';
+  if (/<th\b[^>]*\baria-sort=/.test(sourceText) && /\blabel="Sort by"/.test(sourceText)) {
+    return 'control-sort';
+  }
+  return null;
+}
+
+/**
+ * The sortable-table census over the registry's interactive sources: each
+ * source whose module sorts a table, with how. `read` returns a module's
+ * text by its repository path, so the browser gate and the unit suite
+ * derive the same population from the same files.
+ */
+export function tableSortCensus(
+  sources: ReadonlyArray<{ id: string; sourcePath?: string }>,
+  read: (sourcePath: string) => string,
+): Map<string, TableSortKind> {
+  const census = new Map<string, TableSortKind>();
+  for (const source of sources) {
+    if (!source.sourcePath) continue;
+    const kind = tableSortKindOf(read(source.sourcePath));
+    if (kind) census.set(source.id, kind);
+  }
+  return census;
+}
+
+/**
  * The value-to-coordinate parity anchors (VAL-B2-VIZ-013). Each anchor
  * names the exported scale and constants its component ships, so the
  * expectation is computed from source data, never copied from the
@@ -415,8 +456,13 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:EgoScaleScaling': {
     // The EgoScale law with a scenario band "not a confidence interval".
+    // Lead: the completion fit, the one line the main view draws and the
+    // presets move along. The reader-first rewrite (fb57886c, owner
+    // decision of 2 October 2026: two visible controls, everything else in
+    // "Adjust more") moved the loss law behind its "Show the paper's error
+    // measure" toggle, so it no longer renders by default.
     kind: 'authored-model',
-    leadSeriesId: 'loss-law',
+    leadSeriesId: 'completion-fit',
     leadPaints: ['accent'],
   },
   'interactive:EurekaLoop': {

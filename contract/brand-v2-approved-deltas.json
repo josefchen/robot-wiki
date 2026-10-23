@@ -112821,6 +112821,21 @@
           "newHash": "95b1757eaacb9bdad629f2413b5f4b487398fc6b21a024a08345b9d97c4d03b9"
         }
       ]
+    },
+    {
+      "id": "interactive-data-20261023-interactive-sources-mounts-source-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "9f870af68adb21d46571de5d4ceafe6e6abffd230ba4b11b4df59acdc3379b63",
+      "newHash": "83bf8ac3a1b342f192f1021ba719cf98fbb58f12d056bf0d1a129a2283fda10f",
+      "reason": "VAL-B2-VIZ-004 series naming on the perception error budget chart: the dashed 15 mm model-band line and its existing \"model band 15 mm\" label now sit in one <g data-series=\"model-band\"> group, so the line carries its in-plot label the way the input bars and the composed total already do, and the interactive-data gate (tests/e2e/brand-v2-interactive-data.spec.ts) reads the series as named. The label text, its position and paint, the line geometry, dash and role, every control, value, default, accessible-name expression and the budget arithmetic are unchanged. This edge moves the member from its last approved endpoint (anatomy-classical-b03-figures-20261015-interactive-sources-mounts-source-perception-error-budget).",
+      "ownerApproval": "Sealed mission contract authority: contract/design-integrity.md VAL-B2-VIZ-004 requires every plotted series to carry a legend entry or an in-plot label, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md: direct in-plot labels in ink and grayscale, no boxed legends). brand-v2-interactives scrutiny round 1 found the model-band series unnamed by the gate and dispatched brand-v2-interactive-data-drift-convergence to fix the instrument under the AGENTS.md brand-v2 operating authority. Fact-preserving markup repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-004",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

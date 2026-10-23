@@ -74,6 +74,8 @@ export const SLOW = 10;
 const HOLD_S = 1.2;
 /** How long the rig takes to roll back to the gate, in seconds. */
 const RESET_S = 1.1;
+/** The still stage's hint: it names both gauge riders, the lit one and the plain one. */
+export const RIDER_HINT = 'Lit: flown before the camera reports. Plain: swerve';
 
 type CameraId = 'stereo' | 'event' | 'custom';
 type AgilityId = `${(typeof AGILITY_STEPS)[number]}`;
@@ -365,10 +367,11 @@ export function PerceptionLatency({ className }: { className?: string }) {
       case 'track-0':
         return (
           <g data-testid="gauge-riders">
-            <g data-testid="latency-band" data-series="perception-latency" data-metres={blindM.toFixed(2)}>
+            {/* The drawing carries no words; the still stage's hint under it names both riders (RIDER_HINT). */}
+            <g data-testid="latency-band" data-series="perception-latency" data-series-labelled={running ? undefined : ''} data-metres={blindM.toFixed(2)}>
               <Solid paths={riders.blind} tone="hi" lit />
             </g>
-            <g data-testid="avoid-band" data-series="avoidance-maneuver" data-metres={swerveM.toFixed(2)}>
+            <g data-testid="avoid-band" data-series="avoidance-maneuver" data-series-labelled={running ? undefined : ''} data-metres={swerveM.toFixed(2)}>
               <Solid paths={riders.swerve} tone="hi" />
             </g>
           </g>
@@ -449,7 +452,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={RIG.WIDTH}
-          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : 'Lit: the stretch flown before the camera reports'}
+          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : RIDER_HINT}
           readout={
             <>
               {cameraWords} · {swerveWords} · top safe speed <span data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</span>

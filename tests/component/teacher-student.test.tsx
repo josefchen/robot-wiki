@@ -1,4 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { legendSeriesIds, seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { DEFAULT_DEGRADATION, occludedCells } from '@/lib/sim2real';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { TeacherStudent } from '@/components/interactive/teacher-student';
@@ -111,5 +113,21 @@ describe('TeacherStudent', () => {
     await user.click(screen.getByRole('button', { name: 'Very noisy' }));
     expect(slider()).toHaveValue('60');
     expect(container.querySelector('[data-figure-annotation]')).toHaveTextContent(/drifts from the real ground/);
+  });
+});
+
+describe('TeacherStudent series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<TeacherStudent />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['readings', 'reconstruction', 'terrain']);
+    expect(legendSeriesIds(container).sort()).toEqual(['readings', 'reconstruction', 'terrain']);
+    // A lost reading is a dashed stub inside the readings strip, not a series of its own.
+    const strip = container.querySelector('[data-testid="student-panel"]')!;
+    const stubs = strip.querySelectorAll('line[stroke-dasharray]');
+    expect(stubs.length).toBe(occludedCells(DEFAULT_DEGRADATION).filter(Boolean).length);
+    expect(stubs.length).toBeGreaterThan(0);
+    for (const stub of stubs) expect(stub.hasAttribute('data-series')).toBe(false);
+    expect(seriesEncodings(container).readings.geometries.sort()).toEqual(['bar', 'dashed-outline']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

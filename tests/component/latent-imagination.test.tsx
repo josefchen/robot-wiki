@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
@@ -146,5 +147,13 @@ describe('LatentImagination', () => {
     const texts = [...container.querySelectorAll('[data-chart-description]')].map((el) => el.textContent ?? '');
     expect(texts.some((t) => /latent deviation grows from 0 at step 0 to 0\.301 units at the current 15-step horizon/.test(t))).toBe(true);
     expect(texts.some((t) => /imagines 15 steps ahead, at 2\.0% off per step, is 0\.301 units/.test(t))).toBe(true);
+  });
+});
+
+describe('LatentImagination series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<LatentImagination />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['deviation', 'typical-range']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

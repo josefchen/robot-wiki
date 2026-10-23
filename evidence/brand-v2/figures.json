@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a7fe25a7a1b1ec9b1a8642d333fe1f99a88d647c99332a4997bcbc267719e8d0",
+  "fingerprint": "28e5b843baea663daa2b03cedd647ec7849ea9e3632cd42c5acdb9e59b1603b2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -204,7 +204,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22731,
+      "visibleTextLength": 22734,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",
@@ -16670,7 +16670,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 33552,
+      "visibleTextLength": 33555,
       "figures": [
         {
           "imageId": "racing-quadrotor-minion-220-2016",

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import type { Browser, Locator } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import { forEachInOwnContext } from './helpers/per-route-context';
@@ -11,7 +13,9 @@ import {
   classifyLegendText,
   classifyResolvedPaint,
   nonColourDistinct,
+  tableSortCensus,
   type MarkObservation,
+  type TableSortKind,
 } from '../../lib/brand-v2-interactive-data';
 import { ACT_CHUNK_ANCHORS, successAtChunkSize } from '../../lib/chunk-size';
 import { COMPLETION_POINTS } from '../../lib/egoscale-law';
@@ -26,6 +30,7 @@ import {
   panelLeft,
 } from '../../components/interactive/expo-ft-results';
 import { xFor } from '../../components/interactive/egoscale-scaling';
+import { CHART_STROKE } from '../../components/motion/chart/chart-tokens';
 
 /**
  * The interactive data/legend gates (VAL-B2-VIZ-002/003/004/005/006/013/015,
@@ -66,6 +71,16 @@ function mountIdentities(plan: ExecutionPlan, mounts: readonly ExecutionPlan['mo
     component: sourceById.get(sourceId)?.component ?? sourceId,
     ordinal,
   }));
+}
+
+/**
+ * The sortable-table census (VAL-B2-COMP-009): the registered sources whose
+ * modules sort a table, read by the predicate the unit suite pins.
+ */
+function sortableTableCensus() {
+  return tableSortCensus(brandV2Registry.interactive.sources, (path) =>
+    readFileSync(join(process.cwd(), path), 'utf8'),
+  );
 }
 
 const TOKEN_VARS = [
@@ -932,9 +947,17 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     }
 
     // Chunk-size curve: the playhead marker and the measured anchors
-    // recompute from chunkScaleX/chunkScaleY over the ACT data.
+    // recompute from chunkScaleX/chunkScaleY over the ACT data. The two
+    // radii that tell them apart come from the chart's marker token, the
+    // way the coordinates come from its scales: a data point is
+    // CHART_STROKE.markerRadius and the playhead ring two units wider.
+    // Successor of the literal 3.5 and 4.5 pins, which the research-page
+    // restyle (2c66acda, owner decision of 10 October 2026) superseded
+    // when it set the marker radius from twice the trace to trace + 1.
+    const anchorRadius = CHART_STROKE.markerRadius;
+    const playheadRadius = CHART_STROKE.markerRadius + 2;
     for (const frame of frameFor('interactive:ChunkSizeCurve', frames)) {
-      const marker = frame.circles.find((circle) => Math.abs(circle.r - 4.5) < 0.5);
+      const marker = frame.circles.find((circle) => Math.abs(circle.r - playheadRadius) < 0.5);
       if (!marker) {
         violations.push(`${frame.mountId}: playhead marker circle not found`);
       } else {
@@ -950,7 +973,7 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
       for (const anchor of ACT_CHUNK_ANCHORS) {
         const circle = frame.circles.find(
           (candidate) =>
-            Math.abs(candidate.r - 3.5) < 0.5 &&
+            Math.abs(candidate.r - anchorRadius) < 0.5 &&
             near(candidate.cx, chunkScaleX(anchor.k), 1.5),
         );
         if (!circle) {
@@ -1024,7 +1047,25 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     test.setTimeout(600_000);
     const { frames } = await sweep(browser, staticBase);
     const violations: string[] = [];
-    let sortableTables = 0;
+    // The sortable population is the census of registered sources that
+    // sort a table (lib/brand-v2-interactive-data.ts tableSortCensus),
+    // reconciled with the rendered frames in both directions. Successor of
+    // a bare "at least five tables with header sort buttons" count, fixed
+    // on 26 September 2026 before the reader-first figure rewrite (owner
+    // decision of 2 October 2026, library/design-system.md 13.4) moved the
+    // hand comparison's sort out of its table headers into a visible
+    // "Sort by" preset group, with the table in "How this was made". The
+    // floor of five stays; the census now names which five, and a
+    // control-sorted table must expose its sort state on one header.
+    const census = sortableTableCensus();
+    const { mounts } = buildInteractiveExecutionPlan(brandV2Registry);
+    const censusMounts = (kind: TableSortKind) =>
+      mounts
+        .filter((mount) => census.get(mount.sourceId) === kind)
+        .map((mount) => mount.id)
+        .sort();
+    const headerSorted = new Set<string>();
+    const controlSorted = new Set<string>();
     for (const frame of frames) {
       for (const table of frame.tables) {
         if (table.thCount > 0 && table.scopedThCount !== table.thCount) {
@@ -1039,11 +1080,28 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
             );
           }
         }
-        if (table.sortable) sortableTables += 1;
+        if (table.sortable) headerSorted.add(frame.mountId);
+        if (census.get(frame.sourceId) === 'control-sort') {
+          if (table.ariaSortCount === 1) {
+            controlSorted.add(frame.mountId);
+          } else {
+            violations.push(
+              `${frame.mountId}: a control-sorted table exposes its sort state on ${table.ariaSortCount} headers, not one`,
+            );
+          }
+        }
       }
     }
     expect(
-      sortableTables,
+      [...headerSorted].sort(),
+      'the tables with header sort buttons are exactly the census header-sort mounts',
+    ).toEqual(censusMounts('header-sort'));
+    expect(
+      [...controlSorted].sort(),
+      'the control-sorted tables are exactly the census control-sort mounts',
+    ).toEqual(censusMounts('control-sort'));
+    expect(
+      headerSorted.size + controlSorted.size,
       'the sweep found sortable instrument tables (population is not vacuous)',
     ).toBeGreaterThanOrEqual(5);
     expect(violations, 'static table-semantics violations').toEqual([]);
@@ -1106,6 +1164,18 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
     const plan = buildInteractiveExecutionPlan(brandV2Registry);
     const sourceById = new Map(plan.sources.map((source) => [source.id, source]));
     const mountsByRoute = Map.groupBy(plan.mounts, (mount) => mount.route);
+    // Every census mount is sorted the way a reader sorts it, and its
+    // table header announces the new order. Successor of "click the first
+    // visible 'Sort by' header button on at least five frames", fixed on
+    // 26 September 2026 before the reader-first figure rewrite (owner
+    // decision of 2 October 2026, library/design-system.md 13.4) put the
+    // comparison matrix's sortable table in its closed "Adjust more" fold
+    // and moved the hand comparison's sort into a visible "Sort by" preset
+    // group over a table in "How this was made". A header-sort table is
+    // reached by opening the fold that holds it; a control-sort table is
+    // reordered by a preset it is not already on. The floor of five stays,
+    // and the exercised set must equal the census.
+    const census = sortableTableCensus();
     const sortableRoutes: string[] = [];
     await forEachInOwnContext(
       browser,
@@ -1121,17 +1191,59 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
         const roots = await mountRoots(page, route, mountIdentities(plan, mounts));
         for (let index = 0; index < mounts.length; index += 1) {
           const frame = roots[index];
+          const mountId = mounts[index].id;
+          const kind = census.get(mounts[index].sourceId);
+          if (kind === 'control-sort') {
+            sortableRoutes.push(mountId);
+            const preset = frame
+              .getByRole('group', { name: 'Sort by', exact: true })
+              .locator('button[aria-pressed="false"]')
+              .first();
+            const sortState = () =>
+              frame.evaluate((root) =>
+                [...root.querySelectorAll('table thead th')]
+                  .map((th) => `${(th.textContent ?? '').trim()}=${th.getAttribute('aria-sort') ?? ''}`)
+                  .join('|'),
+              );
+            const before = await sortState();
+            const name = await preset.innerText();
+            await preset.click();
+            await expect
+              .poll(sortState, {
+                message: `${mountId}: choosing "${name}" moves the table's aria-sort (before: ${before})`,
+                timeout: 5_000,
+              })
+              .not.toBe(before);
+            expect(
+              await frame.locator('table thead th[aria-sort]').count(),
+              `${mountId}: one header carries the sort after choosing "${name}"`,
+            ).toBe(1);
+            continue;
+          }
+          if (kind === 'header-sort') {
+            const closedFolds = frame.locator('details:not([open])').filter({
+              has: page.locator('th button'),
+            });
+            const toOpen = await closedFolds.count();
+            for (let opened = 0; opened < toOpen; opened += 1) {
+              await closedFolds.first().locator('summary').first().click();
+            }
+            await expect(
+              closedFolds,
+              `${mountId}: every fold holding a sortable table opens`,
+            ).toHaveCount(0);
+          }
           const sortButtons = frame.getByRole('button', { name: /^Sort by / });
           const buttonCount = await sortButtons.count();
           if (buttonCount === 0) continue;
-          sortableRoutes.push(`${mounts[index].id}`);
+          sortableRoutes.push(mountId);
           const button = sortButtons.first();
           const th = button.locator('xpath=ancestor::th[1]');
           const before = await th.getAttribute('aria-sort');
           await button.click();
           await expect
             .poll(() => th.getAttribute('aria-sort'), {
-              message: `${mounts[index].id}: clicking a sort header sets aria-sort (before: ${before})`,
+              message: `${mountId}: clicking a sort header sets aria-sort (before: ${before})`,
               timeout: 5_000,
             })
             .not.toBe(before);
@@ -1147,6 +1259,15 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
       new Set(sortableRoutes).size,
       'each sortable instrument exercised once',
     ).toBe(sortableRoutes.length);
+    expect(
+      [...sortableRoutes].sort(),
+      'the exercised instruments are exactly the sortable-table census',
+    ).toEqual(
+      plan.mounts
+        .filter((mount) => census.has(mount.sourceId))
+        .map((mount) => mount.id)
+        .sort(),
+    );
     expect(sourceById.size, 'the plan resolves its sources').toBeGreaterThan(0);
   });
 });

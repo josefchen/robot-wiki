@@ -1,4 +1,5 @@
 import { act, fireEvent, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -315,5 +316,13 @@ describe('PerceptionErrorBudget bench model', () => {
     }
     // The rail's ruler reads the distance from the lens: one metre is U units of rail.
     expect(LENS_X - staffX(1)).toBe(U);
+  });
+});
+
+describe('PerceptionErrorBudget series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<PerceptionErrorBudget />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['input', 'model-band', 'total']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

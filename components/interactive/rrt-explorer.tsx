@@ -351,7 +351,8 @@ export function RrtExplorer({ className }: { className?: string }) {
                 if (part.slot === 'ink') {
                   return (
                     <g key="ink" data-part="ink">
-                      <g data-testid="rrt-tree" data-series="rrt-tree">
+                      {/* The drawing carries no words; every stage hint and readout under it names the tree or its branches. */}
+                      <g data-testid="rrt-tree" data-series="rrt-tree" data-series-labelled="">
                         {edges.map((edge) => {
                           const [a, b] = branchInk(edge.from, edge.to);
                           return (

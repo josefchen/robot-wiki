@@ -1,4 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { AdvantageScrubber, VIEW_NOTE_CLEAR_MS } from '@/components/interactive/advantage-scrubber';
@@ -227,3 +228,11 @@ describe('AdvantageScrubber', () => {
     await user.click(screen.getByRole('button', { name: /^the attempt$/i }));
     expect(read()).toMatch(/dashed arc/);
   });
+
+describe('AdvantageScrubber series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<AdvantageScrubber />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['low', 'value']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
+  });
+});

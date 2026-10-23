@@ -1,4 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
@@ -298,5 +299,13 @@ describe('HierarchyTimescales', () => {
     expect(screen.getByTestId('lane-row-planner')).toHaveTextContent(
       /schematic/i,
     );
+  });
+});
+
+describe('HierarchyTimescales series encoding (VAL-B2-VIZ-002/004)', () => {
+  it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
+    const { container } = render(<HierarchyTimescales />);
+    expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['fired']);
+    expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

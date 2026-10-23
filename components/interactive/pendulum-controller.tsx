@@ -162,8 +162,9 @@ function StandSlot({ part, theta, torque, pull, trail }: {
   }
   if (part.slot === 'pole') {
     const pole = poleParts(theta);
+    // The drawing carries no words; the stage status under it names the pole.
     return (
-      <g data-series="pendulum-pole" data-part="pole">
+      <g data-series="pendulum-pole" data-series-labelled="" data-part="pole">
         <g data-testid="pendulum-rod">
           {pole.rod.map((p, i) => (p.kind === 'slot' ? null : <PartView key={i} part={p} />))}
         </g>
