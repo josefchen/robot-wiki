@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "55813da6ccb1c66894fb697ec69c45d2d7fc9fedc7dac9a2dbd0d5b85ca9165e",
+  "fingerprint": "16705db3c08362f40b2138202ef3d7e0a5b0d495f6c3b1d2dc211a5aff49410f",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -4493,7 +4493,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 706,
+      "visibleTextLength": 697,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -5070,15 +5070,15 @@
       ],
       "symbolNodesInLockups": [],
       "metadata": {
-        "title": "VLA Model Comparison Table for Robot Policies | Robot Wiki",
-        "description": "Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.",
+        "title": "VLA Model Architecture Matrix: RT-1 to Pi0.7 | Robot Wiki",
+        "description": "VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Comparison Matrix",
-        "ogDescription": "Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.",
+        "ogDescription": "VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Comparison Matrix",
         "ogImage": "https://robot-wiki.com/og/manipulation/comparison-matrix.png",
         "twitterTitle": "Comparison Matrix",
-        "twitterDescription": "Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.",
+        "twitterDescription": "VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.",
         "canonical": "https://robot-wiki.com/manipulation/comparison-matrix/"
       },
       "repositoryHref": "https://github.com/josefchen",
@@ -13966,15 +13966,15 @@
       ],
       "symbolNodesInLockups": [],
       "metadata": {
-        "title": "VLA Model Comparison Table for Robot Policies | Robot Wiki",
-        "description": "Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.",
+        "title": "VLA Model Architecture Matrix: RT-1 to Pi0.7 | Robot Wiki",
+        "description": "VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.",
         "ogSiteName": "Robot Wiki",
         "ogTitle": "Comparison Matrix",
-        "ogDescription": "Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.",
+        "ogDescription": "VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.",
         "ogImageAlt": "Open graph card for the Robot Wiki article Comparison Matrix",
         "ogImage": "https://robot-wiki.com/og/manipulation/comparison-matrix.png",
         "twitterTitle": "Comparison Matrix",
-        "twitterDescription": "Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.",
+        "twitterDescription": "VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.",
         "canonical": "https://robot-wiki.com/manipulation/comparison-matrix/"
       },
       "repositoryHref": "https://github.com/josefchen",

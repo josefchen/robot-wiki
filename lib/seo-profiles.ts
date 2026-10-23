@@ -149,11 +149,11 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['generalist robot policy', 'robot foundation model companies', 'Helix vs GR00T vs Gemini Robotics'],
   },
   '/manipulation/comparison-matrix/': {
-    title: 'VLA Model Comparison Table for Robot Policies',
-    headTerm: 'VLA model comparison',
+    title: 'VLA Model Architecture Matrix: RT-1 to Pi0.7',
+    headTerm: 'VLA model architecture',
     description:
-      'Side-by-side VLA model comparison from RT-1 to pi0.7, GR00T and Gemini Robotics: action head, chunk horizon, control rate, backbone and open weights.',
-    queries: ['VLA comparison', 'robot policy comparison table'],
+      'VLA model architecture across 18 robot policies, RT-1 to pi0.7, GR00T and Helix: action head, chunk horizon, control rate, backbone, hierarchy and weights.',
+    queries: ['VLA model architecture', 'VLA architecture'],
   },
   '/manipulation/hierarchical/': {
     title: 'Hierarchical Robot Policies: Planners and VLAs',

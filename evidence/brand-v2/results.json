@@ -250365,7 +250365,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1412 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/how-robots-work/ rendered no v1 identity spelling and no v1 descriptor in 1403 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342767,7 +342767,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":33.1,\"maxLatencyMs\":33.1}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":45.8,\"maxLatencyMs\":45.8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342788,8 +342788,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 33.1,
-          "maxLatencyMs": 33.1,
+          "medianLatencyMs": 45.8,
+          "maxLatencyMs": 45.8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342805,7 +342805,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":8.2,\"maxLatencyMs\":8.6}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":17.9,\"maxLatencyMs\":20.2}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342826,8 +342826,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 8.2,
-          "maxLatencyMs": 8.6,
+          "medianLatencyMs": 17.9,
+          "maxLatencyMs": 20.2,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342843,7 +342843,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":6.2,\"maxLatencyMs\":66.1}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":15.15,\"maxLatencyMs\":281.2}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342867,8 +342867,8 @@
           "observedRenderedTotal": 907,
           "nonEmptyCases": 257,
           "timedCases": 258,
-          "medianLatencyMs": 6.2,
-          "maxLatencyMs": 66.1,
+          "medianLatencyMs": 15.15,
+          "maxLatencyMs": 281.2,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342884,7 +342884,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":16.299999999999997,\"maxLatencyMs\":42.6}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":15.7,\"maxLatencyMs\":56.7}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342908,8 +342908,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 16.299999999999997,
-          "maxLatencyMs": 42.6,
+          "medianLatencyMs": 15.7,
+          "maxLatencyMs": 56.7,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -342925,7 +342925,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":17.2,\"maxLatencyMs\":737,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":17.7,\"maxLatencyMs\":869.6,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -342949,8 +342949,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 17.2,
-          "maxLatencyMs": 737,
+          "medianLatencyMs": 17.7,
+          "maxLatencyMs": 869.6,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -342986,7 +342986,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":18.4,\"maxLatencyMs\":129}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":20.9,\"maxLatencyMs\":32.4}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343010,8 +343010,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 18.4,
-          "maxLatencyMs": 129,
+          "medianLatencyMs": 20.9,
+          "maxLatencyMs": 32.4,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343123,7 +343123,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":38.3,\"maxLatencyMs\":1634.9}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":17.8,\"maxLatencyMs\":115.9}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343144,8 +343144,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 38.3,
-          "maxLatencyMs": 1634.9,
+          "medianLatencyMs": 17.8,
+          "maxLatencyMs": 115.9,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
