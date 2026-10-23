@@ -12325,11 +12325,6 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:2",
-          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
-        },
-        {
-          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/action-tokenization.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -21265,7 +21260,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1992,
+        "populationSize": 1991,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21480,7 +21475,6 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/explainers/how-robots-work.tsx:aria-labelledby:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:1",
-          "result:VAL-B2-BASE-002:accessible-names:literal:components/home/home-search.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/action-tokenization.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/advantage-scrubber.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/appearance-physics-push.tsx:aria-label:1",
@@ -29833,8 +29827,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Selected chips use lime plus text/icon/semantic confirmation. Status chips use dedicated semantic colours.",
-        "expected": "Selected chips use lime plus text/icon/semantic confirmation. Status chips use dedicated semantic colours.",
+        "statement": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
+        "expected": "Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 7,
         "omissionProof": {
@@ -68461,8 +68455,8 @@
       ],
       "enforcementMode": "browser-state",
       "machinePredicate": {
-        "statement": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset.",
-        "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset.",
+        "statement": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
+        "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
         "actualSource": "evidence/brand-v2/results.json",
         "populationSize": 88,
         "omissionProof": {

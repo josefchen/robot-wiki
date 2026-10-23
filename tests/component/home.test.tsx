@@ -51,8 +51,16 @@ describe('Home page', () => {
     render(<Home />);
     const form = screen.getByRole('search', { name: 'Search the wiki' });
     const box = within(form).getByRole('searchbox', {
-      name: 'Search articles, sources and glossary terms',
-    });
+      name: 'Search articles, sources and glossary',
+    }) as HTMLInputElement;
+    // VAL-B2-COMP-004: the name comes from one persistent visible label, not
+    // from an aria-label or the placeholder.
+    expect(box).not.toHaveAttribute('aria-label');
+    expect(box).not.toHaveAttribute('aria-labelledby');
+    expect(box.labels).toHaveLength(1);
+    expect(box.labels?.[0]?.textContent?.trim()).toBe('Search articles, sources and glossary');
+    expect(box.labels?.[0]?.htmlFor).toBe(box.id);
+    expect(box.placeholder).not.toBe(box.labels?.[0]?.textContent?.trim());
     await user.type(box, 'diffusion policy');
     await user.click(within(form).getByRole('button', { name: 'Search' }));
     expect(mockPush).toHaveBeenCalledWith('/search/?q=diffusion%20policy');

@@ -19,6 +19,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from './audit-domain-pass-continuity.ts';
+import { answerOptionsPredecessor } from './audit-answer-options-continuity.ts';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { imageMountPredecessor } from './audit-image-mount-continuity.ts';
 import { kolBacklogPredecessor } from './audit-kol-backlog-continuity.ts';
@@ -365,7 +366,9 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * live bytes, a path with no reviewed successor, and any bytes other than the
  * reviewed successor come back unchanged, so those checks still decide them.
  * The reviewed successor is verified, and its rebuilt predecessor returned.
- * The newer layers see the live bytes first: the 2026-10-18 scene-craft
+ * The newer layers see the live bytes first: the 2026-10-23 answer-options
+ * layer, for the articles whose self-check option sets it rebalanced; then
+ * the 2026-10-18 scene-craft
  * layer, for the motion scenes it changed after older proofs pinned them;
  * then the figure-mount layer, for the
  * two frontier figures it admitted on 2026-10-15 after the image mounts
@@ -389,7 +392,7 @@ export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffe
       wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
         parallelLocalPredecessor(root, ref, reskinPredecessor(root, ref,
           frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref,
-            figureMountPredecessor(root, ref, sceneCraftPredecessor(root, ref, liveBytes)))))))))))))));
+            figureMountPredecessor(root, ref, sceneCraftPredecessor(root, ref, answerOptionsPredecessor(root, ref, liveBytes))))))))))))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

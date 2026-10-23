@@ -107,10 +107,15 @@ test.describe('home front page', () => {
     }
 
     const counts = homeCounts();
+    // The research-page meta line sets the three counts apart with
+    // aria-hidden middots, so a screen reader hears the counts alone.
     const printed = squash(await page.locator('[data-home-counts]').innerText());
     expect(printed).toBe(
-      `${counts.articles} articles ${counts.sources} sources ${counts.glossaryTerms} glossary terms`,
+      `${counts.articles} articles · ${counts.sources} sources · ${counts.glossaryTerms} glossary terms`,
     );
+    const separators = page.locator('[data-home-counts] > [aria-hidden="true"]');
+    await expect(separators).toHaveCount(2);
+    for (const text of await separators.allInnerTexts()) expect(text.trim()).toBe('·');
     expect(counts.articles).toBe(publishedModules().length);
 
     const introText = await page
@@ -119,8 +124,23 @@ test.describe('home front page', () => {
     expect(introText).not.toMatch(/[\u2013\u2014]/);
 
     const search = page.getByRole('searchbox', {
-      name: 'Search articles, sources and glossary terms',
+      name: 'Search articles, sources and glossary',
     });
+    // VAL-B2-COMP-004: the name is a persistent visible label, kept beside
+    // the box at both stated widths, never an aria-label.
+    await expect(search).not.toHaveAttribute('aria-label');
+    const label = page.locator('label[for="home-search-input"]');
+    await expect(label).toHaveCount(1);
+    for (const width of [375, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect(label).toBeVisible();
+      await expect(label).toHaveText('Search articles, sources and glossary');
+      const [labelBox, inputBox] = await Promise.all([label.boundingBox(), search.boundingBox()]);
+      expect(labelBox!.height, `label renders at ${width}px`).toBeGreaterThan(0);
+      expect(labelBox!.y + labelBox!.height, `label sits above the box at ${width}px`).toBeLessThanOrEqual(inputBox!.y);
+      expect(inputBox!.y - (labelBox!.y + labelBox!.height), `label stays beside the box at ${width}px`).toBeLessThan(24);
+    }
+    await page.setViewportSize({ width: 1440, height: 900 });
     await search.fill('ALOHA');
     await search.press('Enter');
     await expect(page).toHaveURL(/\/search\/\?q=ALOHA$/);

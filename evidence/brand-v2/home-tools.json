@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "9c3e3374aa2b4d87a9f616a253beaa900cafb94970d911b3a4defe32a7009789",
+  "fingerprint": "f6d8b8c3ddf3f24557580ee61944c0e7a3c0e6085ea277e2ee88570c22b20862",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -27,7 +27,7 @@
     "graphicHeightPx": 598,
     "playerMountedAtFirstPaint": false,
     "idleFrameRequests": 0,
-    "playingFrameRequests": 53,
+    "playingFrameRequests": 47,
     "startControl": "Turn it in 3D",
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
@@ -93,8 +93,8 @@
     "graphicTag": "canvas",
     "graphicHeightPx": 541,
     "playerMountedAtFirstPaint": true,
-    "idleFrameRequests": 48,
-    "playingFrameRequests": 23,
+    "idleFrameRequests": 41,
+    "playingFrameRequests": 15,
     "startControl": null,
     "focusOutlineWidthPx": null,
     "focusOutlineStyle": null,
@@ -2893,7 +2893,7 @@
       "documentScrollWidthPx": 320,
       "documentClientWidthPx": 320,
       "failures": [],
-      "measuredMembers": 260
+      "measuredMembers": 262
     },
     {
       "id": "profile:home-zoom-200-equivalent",
@@ -2904,7 +2904,7 @@
       "documentScrollWidthPx": 720,
       "documentClientWidthPx": 720,
       "failures": [],
-      "measuredMembers": 260
+      "measuredMembers": 262
     },
     {
       "id": "profile:home-text-200",
@@ -2915,7 +2915,7 @@
       "documentScrollWidthPx": 1440,
       "documentClientWidthPx": 1440,
       "failures": [],
-      "measuredMembers": 142
+      "measuredMembers": 143
     }
   ],
   "progressCounters": [
@@ -3080,6 +3080,13 @@
   ],
   "designBounds": {
     "microLabels": [
+      {
+        "text": "SEARCH ARTICLES, SOURCES AND GLOSSARY",
+        "fontSizePx": 13,
+        "family": "Geist",
+        "tag": "label",
+        "role": null
+      },
       {
         "text": "CONTENTS",
         "fontSizePx": 20.32,

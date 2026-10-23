@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "answer-options-continuity-v1",
+  "name": "answer-options-20261023",
+  "reviewedBy": "implementation worker for the brand-v2-interactives round-1 product fixes of 2026-10-23 (not independent acceptance)",
+  "rationale": "VAL-EDU-041 bounds how much an option set gives away by its shape: in every answer-feedback region the correct option may be at most 1.5 times as long as its shortest distractor, and it may be the longest option (ties counted) in no more than a third of the regions plus one. The 2026-10-10 word-budget trim pushed the calibration self-check to 1.63, and the correct option was the longest in 12 of 21 regions. The fix of 2026-10-23 lengthens or qualifies distractors and rewords a few prompts so that no option set leaks its answer, without trimming any correct option. Each change is recorded here as exact edits over the bytes the article had before it. An article may differ from those bytes only in the text of self-check prompts and option labels: its frontmatter, prose, mounts, option values, explanations, takeaways, answer, option order and every number, citation, link and glossary occurrence are unchanged. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-041 bounds the option-length ratio and the share of regions whose correct option is the longest; brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found both unmet and dispatched interactives-r1-product-fixes-and-successors to rebalance the option sets under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational repair, not new factual claims. Not release approval.",
+  "observedAt": "2026-10-23T12:13:18Z",
+  "sources": [
+    {
+      "archivedFrom": "436a1c94ffcc6bba7cc1933e924f9a55748030af",
+      "before": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 8186,
+        "sha256": "1be288684890f4acb3526b0054ded937aacbe67aee8caa185089e12c86bb2c9d"
+      },
+      "after": {
+        "path": "content/classical/calibration.mdx",
+        "bytes": 8197,
+        "sha256": "7274fffbdf172e28e1c0878915d0199cd60181eb30608f0661672070723fd7fc"
+      },
+      "edits": [
+        {
+          "before": "  prompt=\"A grasp misses by the same small offset in one direction on many objects, and the miss grows with distance from the wrist camera. What should you inspect first?\"\n",
+          "after": "  prompt=\"On many objects, a grasp misses by a small offset in one direction that grows with distance from the wrist camera. What should you inspect first?\"\n"
+        },
+        {
+          "before": "      label: 'Collect more demonstrations',\n",
+          "after": "      label: 'Collect more demonstrations at longer distances',\n"
+        },
+        {
+          "before": "      label: 'Use a larger vision encoder',\n",
+          "after": "      label: 'Fine-tune a larger vision encoder',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "436a1c94ffcc6bba7cc1933e924f9a55748030af",
+      "before": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10400,
+        "sha256": "d99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7"
+      },
+      "after": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10408,
+        "sha256": "1d8f59aa897c1843cc5586d3ca1278e68093a3e24b34523abf17ee761fd05432"
+      },
+      "edits": [
+        {
+          "before": "  prompt=\"Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code have changed?\"\n",
+          "after": "  prompt=\"Which dataset record is sufficient to reconstruct one policy transition after the camera mount and training code change?\"\n"
+        },
+        {
+          "before": "      label: 'The normalized tensors consumed by one training run',\n",
+          "after": "      label: 'The normalized, synchronized tensors consumed by one training run',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "436a1c94ffcc6bba7cc1933e924f9a55748030af",
+      "before": {
+        "path": "content/world-models/evaluation.mdx",
+        "bytes": 9650,
+        "sha256": "7e097f28165e752ab573e215f3048f29d2d11ca2600b4e63661fedeecb61a094"
+      },
+      "after": {
+        "path": "content/world-models/evaluation.mdx",
+        "bytes": 9653,
+        "sha256": "be1e584cecb03b2515224dad0c7fe70e5148a2bb47aa7dff47ef5aebc5492409"
+      },
+      "edits": [
+        {
+          "before": "      label: 'Its generated frames receive the best perceptual sharpness score',\n",
+          "after": "      label: 'Its generated frames receive the highest perceptual sharpness score',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "436a1c94ffcc6bba7cc1933e924f9a55748030af",
+      "before": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 9724,
+        "sha256": "41530e485435afc6e57c2b25f627f6c5dfcb920897c1b9016752c5cfde559f28"
+      },
+      "after": {
+        "path": "content/world-models/model-based-robot-learning.mdx",
+        "bytes": 9729,
+        "sha256": "316e1072720a5dbc76bc681f8435703ab4f2249f8c83e1e581df19ed298ed3ec"
+      },
+      "edits": [
+        {
+          "before": "  prompt=\"A learned dynamics model produces sharp videos but predicts nearly the same future for three different gripper actions. What is the correct diagnosis?\"\n",
+          "after": "  prompt=\"A learned dynamics model produces sharp videos but predicts nearly the same future for three different gripper actions. What is the diagnosis?\"\n"
+        },
+        {
+          "before": "      label: 'The model is useful because its videos look realistic',\n",
+          "after": "      label: 'The model is useful for planning because its videos look photorealistic',\n"
+        },
+        {
+          "before": "      label: 'The planner only needs a longer prediction horizon',\n",
+          "after": "      label: 'The planner needs a longer prediction horizon',\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "436a1c94ffcc6bba7cc1933e924f9a55748030af",
+      "before": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 11575,
+        "sha256": "6df3698ece3b73c20a741500c0daf5545c08c49420ccc46b178c5e103de641b5"
+      },
+      "after": {
+        "path": "content/world-models/world-models-vs-simulators.mdx",
+        "bytes": 11578,
+        "sha256": "3c1cbd85e88bf016113192ad2baff6d097079fc5d1dffd83b121f655747d3676"
+      },
+      "edits": [
+        {
+          "before": "      label: 'Replace the entire simulator with an unconstrained video world model',\n",
+          "after": "      label: 'Replace the entire physics simulator with an unconstrained video world model',\n"
+        },
+        {
+          "before": "      label: 'Randomize only the rendered textures',\n",
+          "after": "      label: 'Randomize the rendered textures',\n"
+        }
+      ]
+    }
+  ]
+}

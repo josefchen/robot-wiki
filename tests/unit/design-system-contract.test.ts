@@ -527,3 +527,199 @@ describe('identity geometry and typography stay aligned', () => {
     expect(existsSync(join(process.cwd(), 'components/market-map/market-map-poster.tsx'))).toBe(false);
   });
 });
+
+/**
+ * Owner-approved successors recorded on 23 October 2026 (brand-v2-interactives
+ * round-1 triage): VAL-B2-COMP-007 leaves lime selection for the research-page
+ * selected state (owner decision of 10 October 2026), and VAL-B2-VIZ-007 no
+ * longer requires a reset control on every mount (owner decision of 2 October
+ * 2026, reader-first figures addendum item 4). Each row is pinned verbatim, each
+ * clause is pinned on its own so a planted deletion names it, and each row's
+ * population is derived from the census registry and must be non-empty.
+ */
+describe('research-page successors of the chip and figure-default rows', () => {
+  type Control = { id: string; treatment: string; persistentAria: string[]; definedIn: string[] };
+  type InteractiveSource = { id: string; cases: Array<{ id: string; kind: string }> };
+  type InteractiveMount = { id: string; sourceId: string };
+  type Registries = {
+    controls: Control[];
+    interactive: { sources: InteractiveSource[]; mounts: InteractiveMount[] };
+  };
+  type EnforcementRow = {
+    assertionId: string;
+    canonicalPopulationSource: string;
+    machinePredicate: { populationSize: number; statement: string; expected: string };
+  };
+  const registries: Registries = JSON.parse(read('contract/brand-v2-registries.json'));
+  const enforcement: { rows: EnforcementRow[] } = JSON.parse(read('contract/brand-v2-enforcement-map.json'));
+  const rowIn = (text: string, id: string) =>
+    text.split('\n').find((line) => line.startsWith(`| \`${id}\``)) ?? '';
+  const missing = (line: string, clauses: readonly string[]) => clauses.filter((clause) => !line.includes(clause));
+  const withoutClause = (line: string, clause: string) => line.split(clause).join('');
+
+  const COMP_007 =
+    '| `VAL-B2-COMP-007` | Selected chips and filter tokens are unfilled, read in ink with a 1 px ink rule or underline (or a weight step of at least 200), and carry a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked); status chips use the dedicated status colours (green and red outcome marks only) with a text label. Fail on any lime (`#C6FF19`) paint, any colour fill or tint carrying selection, a rounded pill, or a selection carried by colour alone. Same strength: two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`; the brand-v2 row required lime plus text/icon/semantic confirmation.) |';
+  const COMP_007_SUPERSEDED =
+    '| `VAL-B2-COMP-007` | Selected chips use lime plus text/icon/semantic confirmation. Status chips use dedicated semantic colours. |';
+  const COMP_007_CLAUSES = [
+    'Selected chips and filter tokens are unfilled',
+    'read in ink with a 1 px ink rule or underline',
+    '(or a weight step of at least 200)',
+    'a text, icon or shape confirmation plus the semantic state (`aria-pressed`, `aria-selected` or native checked)',
+    'status chips use the dedicated status colours (green and red outcome marks only) with a text label',
+    'Fail on any lime (`#C6FF19`) paint',
+    'any colour fill or tint carrying selection',
+    'a rounded pill',
+    'a selection carried by colour alone',
+    'two independent cues, one of them semantic, on every registered chip member at 375 and 1440 px',
+    'Owner decision of 10 October 2026, `PANTHEON-SPEC.md`, `VAL-B2-COL-005`',
+  ] as const;
+
+  const VIZ_007 =
+    '| `VAL-B2-VIZ-007` | Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no "Reset" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.) |';
+  const VIZ_007_SUPERSEDED =
+    '| `VAL-B2-VIZ-007` | Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default through reset. |';
+  const VIZ_007_CLAUSES = [
+    'Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default:',
+    'where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped)',
+    'where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest',
+    'the default value of each control is stated in its visible readout',
+    'any started run ends or can be stopped on the default frame',
+    'Owner decision of 2 October 2026, reader-first figures addendum item 4, no "Reset" unless it is truly needed',
+    'Same strength: every registered mount, by keyboard, with the default state measured.',
+  ] as const;
+
+  /** Selection controls: the registered members whose persistent state is aria-pressed or aria-selected. */
+  const chipMembers = (controls: readonly Control[]) =>
+    controls.filter((control) => control.persistentAria.some((aria) => /aria-(?:pressed|selected)/.test(aria)));
+  /**
+   * A chip member breaks the row when its registered treatment is a fill, a
+   * tint, lime or a pill. The segmented row registers its outer frame; its
+   * options paint through the same ink-and-underline tab as a selection chip.
+   */
+  const chipTreatmentFindings = (controls: readonly Control[]) =>
+    chipMembers(controls)
+      .filter((control) => /lime|fill|tint|pill/i.test(control.treatment))
+      .map((control) => control.id);
+  /** The row's two branches, each of which must quantify over at least one registered source. */
+  const resetBranches = (sources: readonly InteractiveSource[]) => ({
+    withReset: sources.filter((source) => source.cases.some((c) => c.kind === 'reset')),
+    withoutReset: sources.filter((source) => !source.cases.some((c) => c.kind === 'reset')),
+  });
+  const enforcementRow = (id: string) => enforcement.rows.find((row) => row.assertionId === id);
+  /** The requirement cell of a contract row, which the generated enforcement map copies as its predicate. */
+  const requirementOf = (line: string, id: string) => line.slice(`| \`${id}\` | `.length, -' |'.length);
+
+  it('carries the VAL-B2-COMP-007 successor verbatim over a non-empty registered chip population', () => {
+    const line = rowIn(integrity, 'VAL-B2-COMP-007');
+    expect(line).toBe(COMP_007);
+    expect(missing(line, COMP_007_CLAUSES)).toEqual([]);
+    expect(integrity).not.toContain(COMP_007_SUPERSEDED);
+
+    const chips = chipMembers(registries.controls);
+    expect(chips.length, 'no registered chip member carries persistent selection').toBeGreaterThan(0);
+    expect(chips.map((control) => control.id)).toContain('control:selection');
+    expect(registries.controls.find((control) => control.id === 'control:selection')?.treatment).toBe(
+      'ink-weight-plus-ink-rule',
+    );
+    for (const chip of chips) expect(chip.definedIn.length, `${chip.id} has no defining source`).toBeGreaterThan(0);
+    expect(chipTreatmentFindings(registries.controls)).toEqual([]);
+
+    const mapped = enforcementRow('VAL-B2-COMP-007');
+    expect(mapped?.canonicalPopulationSource).toBe('contract/brand-v2-registries.json#controls');
+    expect(mapped?.machinePredicate.populationSize).toBe(registries.controls.length);
+    expect(mapped?.machinePredicate.statement).toBe(requirementOf(COMP_007, 'VAL-B2-COMP-007'));
+    expect(mapped?.machinePredicate.expected).toBe(requirementOf(COMP_007, 'VAL-B2-COMP-007'));
+  });
+
+  it('fails the VAL-B2-COMP-007 pin on each planted clause deletion, the superseded row and a broken population', () => {
+    for (const clause of COMP_007_CLAUSES) {
+      expect(missing(withoutClause(COMP_007, clause), COMP_007_CLAUSES)).toEqual([clause]);
+    }
+    expect(missing(COMP_007_SUPERSEDED, COMP_007_CLAUSES)).toEqual([...COMP_007_CLAUSES]);
+    expect(chipMembers([])).toEqual([]);
+    expect(
+      chipMembers(registries.controls.map((control) => ({ ...control, persistentAria: [] }))),
+      'stripping the semantic state leaves no chip member',
+    ).toEqual([]);
+    const planted = registries.controls.map((control) =>
+      control.id === 'control:selection' ? { ...control, treatment: 'lime-fill-plus-icon' } : control,
+    );
+    expect(chipTreatmentFindings(planted)).toEqual(['control:selection']);
+    const tinted = registries.controls.map((control) =>
+      control.id === 'control:segmented' ? { ...control, treatment: 'tinted-tile' } : control,
+    );
+    expect(chipTreatmentFindings(tinted)).toEqual(['control:segmented']);
+  });
+
+  it('carries the VAL-B2-VIZ-007 successor verbatim over non-empty reset and no-reset mount populations', () => {
+    const line = rowIn(integrity, 'VAL-B2-VIZ-007');
+    expect(line).toBe(VIZ_007);
+    expect(missing(line, VIZ_007_CLAUSES)).toEqual([]);
+    expect(integrity).not.toContain(VIZ_007_SUPERSEDED);
+
+    const { sources, mounts } = registries.interactive;
+    expect(sources.length, 'no registered interactive source').toBeGreaterThan(0);
+    expect(mounts.length, 'no registered interactive mount').toBeGreaterThan(0);
+    const ids = new Set(sources.map((source) => source.id));
+    expect(mounts.filter((mount) => !ids.has(mount.sourceId)).map((mount) => mount.id)).toEqual([]);
+    const { withReset, withoutReset } = resetBranches(sources);
+    expect(withReset.length, 'the reset branch quantifies over no source').toBeGreaterThan(0);
+    expect(withoutReset.length, 'the no-reset branch quantifies over no source').toBeGreaterThan(0);
+    expect(withReset.length + withoutReset.length).toBe(sources.length);
+
+    const mapped = enforcementRow('VAL-B2-VIZ-007');
+    expect(mapped?.canonicalPopulationSource).toBe('contract/brand-v2-registries.json#interactive.sources');
+    expect(mapped?.machinePredicate.populationSize).toBe(sources.length);
+    expect(mapped?.machinePredicate.statement).toBe(requirementOf(VIZ_007, 'VAL-B2-VIZ-007'));
+    expect(mapped?.machinePredicate.expected).toBe(requirementOf(VIZ_007, 'VAL-B2-VIZ-007'));
+  });
+
+  it('fails the VAL-B2-VIZ-007 pin on each planted clause deletion, the superseded row and an empty branch', () => {
+    for (const clause of VIZ_007_CLAUSES) {
+      expect(missing(withoutClause(VIZ_007, clause), VIZ_007_CLAUSES)).toEqual([clause]);
+    }
+    expect(missing(VIZ_007_SUPERSEDED, VIZ_007_CLAUSES)).toEqual([...VIZ_007_CLAUSES]);
+    const everyReset = registries.interactive.sources.map((source) => ({
+      ...source,
+      cases: [...source.cases.filter((c) => c.kind !== 'reset'), { id: 'reset', kind: 'reset' }],
+    }));
+    expect(resetBranches(everyReset).withoutReset).toEqual([]);
+    const noReset = registries.interactive.sources.map((source) => ({
+      ...source,
+      cases: source.cases.filter((c) => c.kind !== 'reset'),
+    }));
+    expect(resetBranches(noReset).withReset).toEqual([]);
+    expect(resetBranches([])).toEqual({ withReset: [], withoutReset: [] });
+  });
+
+  /** Mirror lines the design system must carry, and the superseded wording it must not. */
+  const MIRROR = [
+    'Selected chips and filter tokens are unfilled and read in ink with a 1 px ink rule or underline (or a weight step of at least 200), plus a text, icon or shape confirmation and the semantic state (`aria-pressed`, `aria-selected` or native checked).',
+    'No lime, colour fill, tint or rounded pill carries selection, and colour is never the only cue (owner decision of 10 October 2026, `VAL-B2-COMP-007`).',
+    'Status chips use the dedicated status colours (green and red outcome marks only) with a text label.',
+    'Where the figure has a reset control, activating it by keyboard restores the exact default state; where it has none, returning each changed control to its default value by keyboard restores the same default state',
+    '(owner decision of 2 October 2026, no "Reset" unless it is truly needed; `VAL-B2-VIZ-007`)',
+    'The selected option takes the research-page selected state: ink weight or a 1 px ink rule, never a colour fill or tint, and a reader\'s committed answer in a prediction step or self-check also carries the "Your pick" marker.',
+  ] as const;
+  const RETIRED = [
+    'Selected filters use lime plus an independent selected indicator.',
+    'Selected filters use lime with text/icon confirmation.',
+    'a working reset',
+    'an ink hairline and a tinted tile',
+  ] as const;
+  const mirrorFindings = (text: string) => [
+    ...missing(text, MIRROR).map((line) => `missing: ${line}`),
+    ...RETIRED.filter((line) => text.includes(line)).map((line) => `retired: ${line}`),
+  ];
+
+  it('mirrors both successors and the research-page selected option in the design system', () => {
+    expect(mirrorFindings(spec)).toEqual([]);
+    for (const line of MIRROR) expect(spec.split(line)).toHaveLength(2);
+  });
+
+  it('fails the mirror on each planted deletion and each restored retired line', () => {
+    for (const line of MIRROR) expect(mirrorFindings(spec.replace(line, ''))).toEqual([`missing: ${line}`]);
+    for (const line of RETIRED) expect(mirrorFindings(`${spec}\n${line}`)).toEqual([`retired: ${line}`]);
+  });
+});

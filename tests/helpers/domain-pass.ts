@@ -431,6 +431,36 @@ export function educationalCue20261023Endpoint(
 }
 
 /**
+ * Edges the brand-v2 interactives round-1 fixes of 2026-10-23 appended as one
+ * block after the series-label fix: one accessible-names edge ending the home
+ * search input's aria-label, and one plain prose edge per article whose
+ * self-check options were rebalanced (calibration, world-models evaluation,
+ * world models vs simulators, model-based robot learning, the robot learning
+ * stack).
+ */
+export const isInteractivesR120261023Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('interactives-r1-20261023-');
+
+/**
+ * The hash the 2026-10-23 round-1 fixes leave on a member whose chain ends at
+ * `from`: its one edge on the member must continue `from` as a plain edge; an
+ * untouched member stays at `from`.
+ */
+export function interactivesR120261023Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isInteractivesR120261023Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-23 round-1 edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from || edge.reconciles !== undefined) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * Edges the manipulation isometric figures of 2026-10-15 (batch
  * manipulation-b04) appended as one block after the data-hardware images: one
  * prose edge per article that gained a figure mount (action spaces, the

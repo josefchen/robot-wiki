@@ -579,8 +579,11 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * the answer by shape. The route list is derived from the module
    * registry, not hardcoded, so a region added on any published route is
    * visited here; the per-kind counts at the end are the drift guard.
+   * The correct option counts as longest when it ties the longest
+   * distractor, and the corpus bound is the contract's ceil(R/3) + 1 over
+   * the R regions the walk found.
    */
-  test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ browser }) => {
+  test('corpus sweep: option sets across every published region (VAL-EDU-017, VAL-EDU-041)', async ({ browser }) => {
     test.setTimeout(CORPUS_SWEEP_TIMEOUT_MS);
     const HEDGE = /\b(only|could|may|might|unless|depends|typically|generally|usually|tends to|at least|roughly|approximately)\b/i;
     const FILLER = /\ball of the (above|these)\b|\bnone of the\b/i;
@@ -630,7 +633,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
           correct.length / maxD,
           `${route} ${kind}: correct label exceeds 1.5x longest distractor`,
         ).toBeLessThanOrEqual(1.5);
-        if (correct.length > maxD) longestCount += 1;
+        if (correct.length >= maxD) longestCount += 1;
         const correctHedged = HEDGE.test(correct);
         const anyDistractorHedged = distractors.some((l) => HEDGE.test(l));
         expect(
@@ -669,8 +672,8 @@ test.describe('prediction step (PredictThenReveal)', () => {
     );
     expect(
       longestCount,
-      `correct-is-longest exceeds half of ${regionCount}`,
-    ).toBeLessThanOrEqual(Math.floor(regionCount / 2));
+      `correct option is longest (ties counted) in ${longestCount} of ${regionCount} regions, above ceil(R/3) + 1`,
+    ).toBeLessThanOrEqual(Math.ceil(regionCount / 3) + 1);
     for (const pos of [1, 2, 3]) {
       expect(
         hist[pos],

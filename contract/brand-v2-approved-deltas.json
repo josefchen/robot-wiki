@@ -112851,6 +112851,92 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "interactives-r1-20261023-accessible-names-home-search-input",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/home/home-search.tsx:aria-label:2",
+      "oldHash": "c15234e752dded73685e2dcd70b7a3b41bccc9c9f85e79ec3f719d24fc17d400",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-COMP-004 persistent visible label on the home search input: the input's aria-label \"Search articles, sources and glossary terms\" is removed because a visible <label for=\"home-search-input\"> in the research-page eyebrow style now names it, reading \"Search articles, sources and glossary\" (five words, so <main> stays within its 250-word VAL-OPUS-021 budget). The label is the accessible name; the form keeps its \"Search the wiki\" search landmark name (aria-label:1). The removed literal member ends here, from its last approved endpoint (opus-homepage-20260930-accessible-names-home-search-input). The site-foundation re-skin continuity review records the new source bytes.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-COMP-004 requires a persistent visible label on every input, and a placeholder or aria-label alone does not satisfy it; brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found the home search input named only by an aria-label and dispatched interactives-r1-product-fixes-and-successors to add the visible label under the AGENTS.md research-page standard (owner decision of 10 October 2026, PANTHEON-SPEC.md). Accessible naming only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-COMP-004",
+        "VAL-OPUS-014",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "interactives-r1-20261023-prose-classical-calibration",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "d6b88d65a8ef2c17592f32ab71a18c62963b7ecc543011a547149ee0f9a1c582",
+      "newHash": "2e309f85ba6d018455c415631e06c4c1a8c4b67c25d28c020ea1e45d7af0db5c",
+      "reason": "VAL-EDU-041 option shape on classical/calibration: the self-check prompt now reads \"On many objects, a grasp misses by a small offset in one direction that grows with distance from the wrist camera. What should you inspect first?\", and its two distractors now read \"Collect more demonstrations at longer distances\" (47 characters) and \"Fine-tune a larger vision encoder\" (33). The correct \"Check the hand-eye rotation and its residual\" (44) drops from 1.63 times its distractors to 0.94 of the longest and 1.33 of the shortest, and is no longer the longest option. No option value, explanation, takeaway, answer, number, citation, link or mount changes, and the article keeps its word count; the 2026-10-23 answer-options continuity review records the new successor bytes. This edge moves the member from its last approved endpoint (images-a-20261013-prose-classical-calibration).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-041 bounds the option shape of every answer-feedback region (the correct label at most 1.5 times the longest distractor, and the longest label, ties counted, in at most Math.ceil(R / 3) + 1 regions); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found the calibration ratio at 1.63 and the correct option longest in 12 of 21 regions, and dispatched interactives-r1-product-fixes-and-successors to rebalance the option sets, preferring a lengthened or qualified distractor over a trimmed correct option, under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-041"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "interactives-r1-20261023-prose-world-models-evaluation",
+      "manifest": "prose",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "4a7a8cdcf790d945259a1b04f3f5c0876ef05687450a0d7a6cbadcf7dd3d5811",
+      "newHash": "b5db324786e8ae6e8cfea8141bfa46dc31acf5bd6ee8c5a96a35bb63015efe85",
+      "reason": "VAL-EDU-041 option shape on world-models/evaluation: the self-check distractor \"Its generated frames receive the best perceptual sharpness score\" (64 characters, tied with the correct option) now reads \"Its generated frames receive the highest perceptual sharpness score\" (67), so the correct \"Its policy ranking agrees with repeated real-world policy trials\" (64) no longer ties for the longest option. No option value, explanation, takeaway, answer, number, citation, link or mount changes, and the article keeps its word count; the 2026-10-23 answer-options continuity review records the new successor bytes. This edge moves the member from its last approved endpoint (images-a-20261013-prose-world-models-evaluation).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-041 bounds the option shape of every answer-feedback region (the correct label at most 1.5 times the longest distractor, and the longest label, ties counted, in at most Math.ceil(R / 3) + 1 regions); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found the calibration ratio at 1.63 and the correct option longest in 12 of 21 regions, and dispatched interactives-r1-product-fixes-and-successors to rebalance the option sets, preferring a lengthened or qualified distractor over a trimmed correct option, under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-041"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "interactives-r1-20261023-prose-world-models-world-models-vs-simulators",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "78396342ddf857b2e2fe1a9a5af773701c620a1a81e173eedcb6c7ebdd25c26c",
+      "newHash": "63b342b4215139465b02209d0a586ebe474975c360c2c023ad2f1cf624c9f740",
+      "reason": "VAL-EDU-041 option shape on world-models/world-models-vs-simulators: the self-check distractors now read \"Replace the entire physics simulator with an unconstrained video world model\" (76 characters, was \"Replace the entire simulator ...\") and \"Randomize the rendered textures\" (31, was \"Randomize only the rendered textures\", which keeps the word count), so the correct \"Learn an actuator residual while retaining explicit geometry and physics\" (72) is no longer the longest option. No option value, explanation, takeaway, answer, number, citation, link or mount changes, and the article keeps its word count; the 2026-10-23 answer-options continuity review records the new successor bytes. This edge moves the member from its last approved endpoint (anatomy-wm-b03-figures-20261015-prose-world-models-vs-simulators).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-041 bounds the option shape of every answer-feedback region (the correct label at most 1.5 times the longest distractor, and the longest label, ties counted, in at most Math.ceil(R / 3) + 1 regions); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found the calibration ratio at 1.63 and the correct option longest in 12 of 21 regions, and dispatched interactives-r1-product-fixes-and-successors to rebalance the option sets, preferring a lengthened or qualified distractor over a trimmed correct option, under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-041"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "interactives-r1-20261023-prose-world-models-model-based-robot-learning",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "867f93ea9964be843fa24d4daa4ed29eab363033bfe5599b1928544cdc412763",
+      "newHash": "eefd364feb3a5308edcb410a036e314d893172a8a6c0e50dd49577bbe0f5e52a",
+      "reason": "VAL-EDU-041 option shape on world-models/model-based-robot-learning: the self-check prompt now ends \"What is the diagnosis?\" (was \"What is the correct diagnosis?\"), and its distractors now read \"The model is useful for planning because its videos look photorealistic\" (71 characters, was \"The model is useful because its videos look realistic\") and \"The planner needs a longer prediction horizon\" (45, was \"The planner only needs ...\", which keeps the word count), so the correct \"The model has action-conditioning collapse and cannot support planning\" (70) is no longer the longest option. No option value, explanation, takeaway, answer, number, citation, link or mount changes, and the article keeps its word count; the 2026-10-23 answer-options continuity review records the new successor bytes. This edge moves the member from its last approved endpoint (kol-batch-20261021-world-models-prose-model-based-robot-learning).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-041 bounds the option shape of every answer-feedback region (the correct label at most 1.5 times the longest distractor, and the longest label, ties counted, in at most Math.ceil(R / 3) + 1 regions); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found the calibration ratio at 1.63 and the correct option longest in 12 of 21 regions, and dispatched interactives-r1-product-fixes-and-successors to rebalance the option sets, preferring a lengthened or qualified distractor over a trimmed correct option, under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-041"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "interactives-r1-20261023-prose-data-hardware-robot-learning-stack",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "ed6c817e7ef8350ad958444a1aff2af28a32ddc7ac0bfa95b267d6f25512e966",
+      "newHash": "b900b40e03584b0ef40a1b7d87b6634666da9b543f4a8b282314138ec00f5db1",
+      "reason": "VAL-EDU-041 option shape on data-hardware/robot-learning-stack: the self-check prompt now ends \"after the camera mount and training code change?\" (was \"have changed?\"), and its distractor \"The normalized tensors consumed by one training run\" now reads \"The normalized, synchronized tensors consumed by one training run\" (65 characters), so the correct \"Versioned raw streams with actions, transforms and calibration\" (62) is no longer the longest option. No option value, explanation, takeaway, answer, number, citation, link or mount changes, and the article keeps its word count; the 2026-10-23 answer-options continuity review records the new successor bytes. This edge moves the member from its last approved endpoint (images-dh-20261015-prose-data-hardware-robot-learning-stack).",
+      "ownerApproval": "Sealed mission contract authority: contract/educational-ux.md VAL-EDU-041 bounds the option shape of every answer-feedback region (the correct label at most 1.5 times the longest distractor, and the longest label, ties counted, in at most Math.ceil(R / 3) + 1 regions); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found the calibration ratio at 1.63 and the correct option longest in 12 of 21 regions, and dispatched interactives-r1-product-fixes-and-successors to rebalance the option sets, preferring a lengthened or qualified distractor over a trimmed correct option, under the AGENTS.md brand-v2 operating authority and the owner directive of 2026-10-12 16:50 (no AI slop, short text). Fact-preserving educational repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-041"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -63,7 +63,7 @@ Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator
   options={[
     {
       value: 'replace-all',
-      label: 'Replace the entire simulator with an unconstrained video world model',
+      label: 'Replace the entire physics simulator with an unconstrained video world model',
       why: 'This discards useful geometry and asks limited robot data to relearn every transition. It also makes forces and constraints harder to inspect.'
     },
     {
@@ -73,7 +73,7 @@ Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator
     },
     {
       value: 'random-textures',
-      label: 'Randomize only the rendered textures',
+      label: 'Randomize the rendered textures',
       why: 'Texture randomization can improve visual transfer, but it does not correct a systematic actuator-dynamics error.'
     }
   ]}

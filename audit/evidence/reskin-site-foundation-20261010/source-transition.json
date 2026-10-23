@@ -3,7 +3,7 @@
   "name": "reskin-site-foundation-20261010",
   "reviewedBy": "implementation worker for the site-foundation re-skin of 2026-10-10 (not independent acceptance)",
   "rationale": "On 2026-10-10 the owner replaced the brand-v2 visual identity with the Pantheon research-page standard (PANTHEON-SPEC.md): paper and ink tokens, DM Sans, Geist and Geist Mono, a single top bar, and an article template with an eyebrow, a display title, a sticky contents rail, margin sidenotes, numbered findings and booktabs tables, carried to the home, hub, glossary, A-Z and search pages. The change is presentation only. Each presentation source it touched is recorded here as exact edits over the bytes it had before, and the earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-22T20:28:31Z",
+  "observedAt": "2026-10-23T12:44:28Z",
   "sources": [
     {
       "archivedFrom": "b2a67337a3cb72e0533074a1981a60b3a8a91b2d",
@@ -1066,17 +1066,17 @@
       },
       "after": {
         "path": "components/home/home-search.tsx",
-        "bytes": 1555,
-        "sha256": "34497e010c08772608f61c7160319348efc5918c10ea100e24ec731977eebe6c"
+        "bytes": 1803,
+        "sha256": "8ac129af385e3ee51481f9d40a29cd26d0447d99150c1e3e89626b187a1bb9fb"
       },
       "edits": [
         {
           "before": "      className={cx('flex max-w-xl items-stretch gap-2', className)}\n",
-          "after": "      className={cx('flex max-w-xl items-stretch gap-3', className)}\n"
+          "after": "      className={cx('max-w-xl', className)}\n"
         },
         {
-          "before": "        className=\"min-w-0 flex-1 rounded-sm border border-border-strong bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim\"\n",
-          "after": "        className=\"min-w-0 flex-1 border border-text-dim bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim\"\n"
+          "before": "      <input\n        id=\"home-search-input\"\n        name=\"q\"\n        type=\"search\"\n        value={query}\n        onChange={(event) => setQuery(event.target.value)}\n        aria-label=\"Search articles, sources and glossary terms\"\n        placeholder=\"ALOHA, diffusion policy\"\n        autoComplete=\"off\"\n        data-brand-control-id=\"control:input\"\n        data-brand-surface-id=\"surface:flat\"\n        className=\"min-w-0 flex-1 rounded-sm border border-border-strong bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim\"\n      />\n      <Action variant=\"primary\" type=\"submit\">\n        Search\n      </Action>\n",
+          "after": "      {/* mb-2! outranks the masthead's 24px eyebrow margin, so the label stays with its box. */}\n      <label htmlFor=\"home-search-input\" className=\"eyebrow mb-2! block text-balance\">\n        Search articles, sources and glossary\n      </label>\n      <div className=\"flex items-stretch gap-3\">\n        <input\n          id=\"home-search-input\"\n          name=\"q\"\n          type=\"search\"\n          value={query}\n          onChange={(event) => setQuery(event.target.value)}\n          placeholder=\"ALOHA, diffusion policy\"\n          autoComplete=\"off\"\n          data-brand-control-id=\"control:input\"\n          data-brand-surface-id=\"surface:flat\"\n          className=\"min-w-0 flex-1 border border-text-dim bg-surface px-3 py-2 text-[15px] text-text placeholder:text-text-dim\"\n        />\n        <Action variant=\"primary\" type=\"submit\">\n          Search\n        </Action>\n      </div>\n"
         }
       ]
     },
