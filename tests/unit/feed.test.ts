@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildFeed, escapeXml, GET } from '@/app/feed.xml/route';
 import { publishedModules } from '@/data/modules';
+import { articleDateModified, articleDatePublished } from '@/lib/content-dates';
+import { moduleDatePublished } from '@/lib/module-source';
 import { SITE_URL } from '@/lib/site';
 
 describe('RSS feed', () => {
@@ -14,6 +16,36 @@ describe('RSS feed', () => {
       const url = `${SITE_URL}/${entry.domain}/${entry.slug}/`;
       expect(feed).toContain(`<guid isPermaLink="true">${url}</guid>`);
     }
+  });
+
+  it('dates items by datePublished and the channel by the newest dateModified', () => {
+    const feed = buildFeed();
+    const rssDate = (isoDate: string) =>
+      new Date(`${isoDate}T00:00:00.000Z`).toUTCString();
+    const pubDates = new Map(
+      [...feed.matchAll(/<guid[^>]*>([^<]+)<\/guid>[\s\S]*?<pubDate>([^<]+)<\/pubDate>/g)].map(
+        ([, link, pubDate]) => [link, pubDate],
+      ),
+    );
+    let newestModified = '';
+    for (const entry of publishedModules()) {
+      const url = `${SITE_URL}/${entry.domain}/${entry.slug}/`;
+      const published = articleDatePublished(
+        entry.domain,
+        entry.slug,
+        moduleDatePublished(entry.domain, entry.slug),
+      );
+      expect(pubDates.get(url), url).toBe(rssDate(published));
+      const modified = articleDateModified(entry.domain, entry.slug);
+      if (modified > newestModified) newestModified = modified;
+    }
+    expect(feed).toContain(
+      `<lastBuildDate>${rssDate(newestModified)}</lastBuildDate>`,
+    );
+    // The article's git publication day, not its later review date.
+    expect(pubDates.get(`${SITE_URL}/manipulation/diffusion-policy/`)).toBe(
+      'Sat, 08 Aug 2026 00:00:00 GMT',
+    );
   });
 
   it('escapes XML-sensitive source text', () => {
