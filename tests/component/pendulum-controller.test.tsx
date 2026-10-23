@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -382,7 +382,7 @@ describe('PendulumController', () => {
   it('opens on the motor pushing back against gravity, with no outcome shown yet', () => {
     const { container } = render(<PendulumController defaultKp={9.5} />);
     expect(screen.getByTestId('pendulum-motor')).toBeInTheDocument();
-    // The gauge's two needles stand for the push and the pull, and the hint names each, so neither reads as a stray mark.
+    // The gauge's two needles stand for the push and the pull, and the keys name each, so neither reads as a stray mark.
     const push = Number(screen.getByTestId('pendulum-push-arrow').getAttribute('data-push-sweep-deg'));
     const pull = Number(screen.getByTestId('pendulum-gravity-arrow').getAttribute('data-pull-sweep-deg'));
     const torque = controlTorque(INITIAL_STATE, { ...DEFAULT_GAINS, kp: 9.5 }, PENDULUM_PARAMS);
@@ -390,9 +390,13 @@ describe('PendulumController', () => {
     expect(pull).toBeCloseTo(gravityPull(INITIAL_STATE.theta) * DEG_PER_NM, 1);
     // Too gentle: at release the push is short of the pull.
     expect(push).toBeLessThan(pull);
-    expect(container.querySelector('[data-anatomy-hint]')?.textContent).toBe(
-      "Long needle: the motor's push. Short needle: gravity's pull.",
-    );
+    const keys = [...container.querySelectorAll('[data-anatomy-keys] [data-legend-item]')];
+    expect(keys.map((key) => [key.getAttribute('data-legend-series'), key.textContent])).toEqual([
+      ['pendulum-pole', 'Pole: 1 kg weight, 1 m rod'],
+      [null, "Long needle: the motor's push"],
+      [null, "Short needle: gravity's pull"],
+    ]);
+    expect(container.querySelector('[data-anatomy-hint]')?.textContent).toBe('');
     expect(container.querySelector('[data-readout]')?.textContent).toBe('Released 12 degrees off upright');
     // The one lit part is the push needle.
     const lit = screen.getByTestId('pendulum-scene').querySelectorAll('.iso-solid[data-lit]');
@@ -560,6 +564,10 @@ describe('PendulumController series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<PendulumController />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['pendulum-pole']);
+    // The drawing carries no words, so the pole is named by the key under it.
+    expect(seriesNames(container)).toEqual({ 'pendulum-pole': ['Pole: 1 kg weight, 1 m rod'] });
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

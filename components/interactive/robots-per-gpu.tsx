@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import { InstrumentFigure, PresetGroup, type Preset } from '@/components/ui/instrument';
-import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { AnatomyStage, type AnatomyKey } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { LENS, PARTS, TILES, TILE_PATHS, WIDTH, HEIGHT, type LiveId, type Part } from '@/components/iso/figures/gpu-test-bench';
@@ -37,6 +37,9 @@ const thousands = (n: number) => n.toLocaleString('en-US');
 const countOf = (id: CountId) => COUNTS.find((c) => c.id === id)!;
 /** How many tiles a count lights: one per 128 robots. */
 export const tilesFor = (robots: number) => robots / ROBOTS_PER_SQUARE;
+
+/** The key under the drawing that names the robots series. */
+export const TILE_KEY: AnatomyKey = { series: 'robots', words: `Each lit tile on the chip is ${ROBOTS_PER_SQUARE} robots` };
 
 /** The readout: the count and how it compares with the CPU era, from the same table as the tiles. */
 export function readoutFor(id: CountId): string {
@@ -119,9 +122,9 @@ export function RobotsPerGpu({ className }: { className?: string }) {
 
   const liveView = (id: LiveId) => {
     if (id === 'tiles') {
-      // The drawing carries no words; the stage hint under it names the tiles ("Each lit tile on the chip is 128 robots").
+      // The drawing carries no words; the key under it names the tiles (TILE_KEY).
       return (
-        <g key={id} ref={tilesRef} data-series="robots" data-series-labelled="">
+        <g key={id} ref={tilesRef} data-series="robots">
           {TILE_PATHS.map((d, k) => (
             <g key={k} data-square={k} data-chart-role={k === 0 ? 'highlight' : 'value'}>
               <path className="iso-top" style={TILE_STYLE} d={d} />
@@ -152,7 +155,7 @@ export function RobotsPerGpu({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Each lit tile on the chip is 128 robots"
+          keys={[TILE_KEY]}
           readout={readoutFor(countId)}
           status="Counts from the paper; one tile per 128 robots"
           data-testid="robots-stage"

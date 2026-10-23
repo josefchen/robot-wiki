@@ -639,6 +639,7 @@ export function CompoundingError({
               yTicks={DEVIATION_AXIS_TICKS}
               xLabel="step"
               yLabel="summed deviation, log scale"
+              yLabelFor="summed-deviation"
             />
             <g data-series="quadratic-reference">
               <path
@@ -649,7 +650,7 @@ export function CompoundingError({
                 strokeWidth={CHART_STROKE.reference}
                 strokeDasharray={CHART_STROKE.dash}
               />
-              <DirectLabel x={QUADRATIC_LABEL_RIGHT} y={bounds.quadraticLabelY} role="reference" anchor="end">
+              <DirectLabel x={QUADRATIC_LABEL_RIGHT} y={bounds.quadraticLabelY} role="reference" anchor="end" seriesFor="quadratic-reference">
                 εT(T+1)/2
               </DirectLabel>
             </g>
@@ -662,12 +663,12 @@ export function CompoundingError({
                 strokeWidth={CHART_STROKE.reference}
                 strokeDasharray={CHART_STROKE.dash}
               />
-              <DirectLabel x={PLOT_RIGHT + 8} y={bounds.linearLabelY} role="reference">
+              <DirectLabel x={PLOT_RIGHT + 8} y={bounds.linearLabelY} role="reference" seriesFor="linear-reference">
                 εT
               </DirectLabel>
             </g>
             {/* The one solid trace is the quantity the y axis names ("summed deviation"); the dashed curves carry their own labels. */}
-            <g data-series="summed-deviation" data-series-labelled="">
+            <g data-series="summed-deviation">
               <path
                 d={bounds.simPath}
                 fill="none"

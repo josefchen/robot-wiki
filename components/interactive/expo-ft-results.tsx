@@ -160,6 +160,7 @@ export function ExpoFtResults({ className }: { className?: string }) {
                 <g key={method.id} data-expo-row={method.id} data-expo-lead-row={lead ? '' : undefined}>
                   <text
                     data-scene-tick=""
+                    data-series-label-for={method.id}
                     x={PLOT.left}
                     y={rowTop(mi) + NAME_BASELINE}
                     fontSize={CHART_TYPE.tickPx}

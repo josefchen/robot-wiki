@@ -58,6 +58,7 @@ export function ChartAxes({
   formatY = String,
   xLabel,
   yLabel,
+  yLabelFor,
   grid = true,
   yAxis = true,
 }: {
@@ -70,6 +71,8 @@ export function ChartAxes({
   formatY?: (value: number) => string;
   xLabel?: string;
   yLabel?: string;
+  /** The `data-series` id the y-axis title names, when the panel plots that one quantity. */
+  yLabelFor?: string;
   grid?: boolean;
   /** False draws the x axis alone, as the shared axis of small multiples. */
   yAxis?: boolean;
@@ -150,6 +153,7 @@ export function ChartAxes({
       {yLabel ? (
         <text
           data-scene-axis=""
+          data-series-label-for={yLabelFor}
           x={plot.left}
           y={plot.top - tick}
           textAnchor="start"

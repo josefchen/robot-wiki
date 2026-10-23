@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "faf0a3416e1e759fbb9289f0a22c5816aaa08faddd17b9be2ad479b4bf4f8172",
+  "fingerprint": "3df5731f108a3f404d14985297eeaad99ede2828c2ac3868e9b08e43e871bdd7",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5255,7 +5255,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23739,
+      "visibleTextLength": 23744,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5410,7 +5410,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative simulation: 1 kg on a 1 m pole"
+          "text": "Illustrative simulation"
         },
         {
           "familyHead": "geist",
@@ -7828,7 +7828,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26814,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62142,7 +62142,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30306,
+      "visibleTextLength": 30311,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -62297,7 +62297,7 @@
           "widthPx": 878.66,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Illustrative simulation: 1 kg on a 1 m pole"
+          "text": "Illustrative simulation"
         },
         {
           "familyHead": "geist",
@@ -64682,7 +64682,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36345,
+      "visibleTextLength": 36347,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

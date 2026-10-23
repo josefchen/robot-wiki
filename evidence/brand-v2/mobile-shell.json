@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0cc36ce3a026db22c339837d539b32af43520fc476936aae80b0c70c157d4181",
+  "fingerprint": "7d4dc314939081ea1223a28092867b3a9b3d1f5ae6ffb98e75568403e10087e2",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -1694,7 +1694,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 23739,
+      "visibleTextLength": 23744,
       "header": {
         "present": true,
         "display": "flex",
@@ -2180,7 +2180,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26814,
       "header": {
         "present": true,
         "display": "flex",

@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/instrument';
 import { StageNumber } from '@/components/motion/figure-frame';
 import { roleColour } from '@/components/motion/chart';
-import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { AnatomyStage, type AnatomyKey } from '@/components/iso/anatomy-stage';
 import { PartView } from '@/components/iso/part-view';
 import { Dots, Line } from '@/components/iso/react/draw';
 import { Stage } from '@/components/iso/react/live';
@@ -80,14 +80,17 @@ function statusText(iteration: number, goalIteration: number | null): string {
   return 'exploring free space';
 }
 
+/** The key under the drawing that names the tree series; the drawing itself carries no words. */
+export const TREE_KEY: AnatomyKey = { series: 'rrt-tree', words: 'Thin lines: the tree' };
+
 /**
  * The one stage hint and where the pen stands: once a branch reaches the
- * goal the path is inked and the gantry parks clear of the map, otherwise
+ * goal the path is inked in the lit pen and the gantry parks clear of the map, otherwise
  * the pen stands on the newest branch tip, or on the start before the tree
  * has grown.
  */
 export function stageNote(result: RrtResult, iteration: number, goalReached: boolean): { text: string; at: Vec2 } {
-  if (goalReached) return { text: 'The first branch to reach the goal becomes the path', at: PARK };
+  if (goalReached) return { text: 'Lit: the first branch to reach the goal', at: PARK };
   if (iteration <= 0) return { text: 'The tree grows from the start', at: RRT_SCENE.start };
   return {
     text: 'New branches reach toward random spots, so they fill open space first',
@@ -99,7 +102,7 @@ export function stageNote(result: RrtResult, iteration: number, goalReached: boo
 export function readoutFor(iteration: number, goalReached: boolean): string {
   if (iteration <= 0) return 'No branches yet';
   const grown = `${iteration} ${iteration === 1 ? 'branch' : 'branches'}`;
-  return goalReached ? `${grown} · the path is found` : `${grown} · still exploring`;
+  return goalReached ? `${grown} · path found` : `${grown} · still exploring`;
 }
 
 /** How quickly the gantry glides to the pen's next place, in seconds. */
@@ -331,6 +334,7 @@ export function RrtExplorer({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
+          keys={[TREE_KEY]}
           hint={note.text}
           readout={readoutFor(iteration, goalReached)}
           status="Illustrative: one run on a made-up map"
@@ -351,8 +355,8 @@ export function RrtExplorer({ className }: { className?: string }) {
                 if (part.slot === 'ink') {
                   return (
                     <g key="ink" data-part="ink">
-                      {/* The drawing carries no words; every stage hint and readout under it names the tree or its branches. */}
-                      <g data-testid="rrt-tree" data-series="rrt-tree" data-series-labelled="">
+                      {/* The drawing carries no words; the key under it names the tree (TREE_KEY). */}
+                      <g data-testid="rrt-tree" data-series="rrt-tree">
                         {edges.map((edge) => {
                           const [a, b] = branchInk(edge.from, edge.to);
                           return (

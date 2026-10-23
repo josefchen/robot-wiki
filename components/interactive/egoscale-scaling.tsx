@@ -468,6 +468,7 @@ export function EgoScaleScaling({
                   yTicks={LOSS_TICKS}
                   formatY={formatLossTick}
                   yLabel="prediction error, lower is better"
+                  yLabelFor="loss-law"
                 />
                 {extrapolatedLoss ? (
                   <g data-testid="uncertainty-band">
@@ -554,7 +555,7 @@ export function EgoScaleScaling({
                 />
               ) : null}
               {extrapolatedFit ? (
-                <DirectLabel x={f(boundaryX + 6)} y={yScore(0.58)} role="value">
+                <DirectLabel x={f(boundaryX + 6)} y={yScore(0.58)} role="value" seriesFor="completion-fit">
                   if the trend held
                 </DirectLabel>
               ) : null}
@@ -566,7 +567,7 @@ export function EgoScaleScaling({
                   <PointMarker x={xFor(p.hours)} y={yScore(p.score)} />
                 </g>
               ))}
-              <DirectLabel x={LEFT + 8} y={yScore(0.62)} role="measurement">
+              <DirectLabel x={LEFT + 8} y={yScore(0.62)} role="measurement" seriesFor="measured">
                 measured
               </DirectLabel>
             </g>

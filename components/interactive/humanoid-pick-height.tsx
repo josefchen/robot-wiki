@@ -222,7 +222,7 @@ export function HumanoidPickHeight({ className }: { className?: string }) {
             </text>
             <g data-series="insertion">
               <line x1={insertionX} y1={22} x2={insertionX} y2={AXIS_Y} stroke={muted} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
-              <text x={BAR_RIGHT} y={14} textAnchor="end" fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
+              <text data-series-label-for="insertion" x={BAR_RIGHT} y={14} textAnchor="end" fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
                 gripper insertion {formatSuccess(INSERTION_RATE)}
               </text>
             </g>

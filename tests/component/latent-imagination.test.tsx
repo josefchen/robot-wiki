@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
@@ -154,6 +154,13 @@ describe('LatentImagination series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<LatentImagination />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['deviation', 'typical-range']);
+    // The curve is named by the y-axis title that names its quantity, the band by its own note.
+    expect(seriesNames(container)).toEqual({
+      deviation: ['how far off'],
+      'typical-range': ['shaded: an illustrative 3 to 15 steps'],
+    });
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

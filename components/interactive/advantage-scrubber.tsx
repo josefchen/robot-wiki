@@ -493,6 +493,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             </g>
             <text
               data-scene-tick=""
+              data-series-label-for={segment.tag}
               x={labelX}
               y={LABEL_ROW[0]}
               textAnchor={last ? 'end' : 'middle'}
@@ -542,6 +543,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           under its own title, the value score as the chance this ends well. */}
       <g data-series="value">
         <text
+          data-series-label-for="value"
           x={PLOT.left}
           y={TITLE_BASELINE}
           fontSize={CHART_TYPE.labelPx}

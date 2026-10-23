@@ -81,7 +81,7 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
             <rect x={LEFT} y={BAR_Y} width={RIGHT - LEFT} height={BAR_HEIGHT} fill="none" stroke={CHART_STRUCTURE.grid} strokeWidth={CHART_STROKE.structure} />
             {/* The bar's own label: the note above it reads its value and what it means. */}
             <g data-series="correlation">
-              <StageAnnotation x={LEFT} y={16} lines={[`${sim.text}: ${STATEMENT[simId]}`]} />
+              <StageAnnotation x={LEFT} y={16} lines={[`${sim.text}: ${STATEMENT[simId]}`]} seriesFor="correlation" />
               <text x={LEFT} y={36} fontSize={CHART_TYPE.labelPx} fill="var(--role-reference-text)">
                 {sim.note}
               </text>
@@ -98,6 +98,7 @@ export function ScannedTwinCheck({ className }: { className?: string }) {
                 strokeDasharray={CHART_STROKE.dash}
               />
               <text
+                data-series-label-for="other"
                 x={f(sx(other.correlation))}
                 y={BAR_Y - 10}
                 textAnchor={other.correlation > 0.5 ? 'end' : 'start'}
