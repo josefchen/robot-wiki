@@ -552,7 +552,7 @@ export function FrictionTransfer({
                 }}
               />
               {/* On the practice floor the two would share one line, so the label says so. */}
-              <DirectLabel x={realLabelX} y={PLOT.top - 8} anchor="middle" role="highlight">
+              <DirectLabel x={realLabelX} y={PLOT.top - 8} anchor="middle" role="highlight" seriesFor="real-robot">
                 {onPracticeFloor ? 'real floor is the practice floor' : 'real floor'}
               </DirectLabel>
             </g>

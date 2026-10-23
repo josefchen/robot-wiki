@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "704f9123bfdb7ac0d415bbaa99b44415a481ae233122f9a829ac34670e5b07b8",
+  "fingerprint": "b67be7746aa48ab9d13d45319b085e0eef1f13cb1fe11c1d71c1c22de78b2550",
   "viewports": [
     "375x812",
     "1440x900"
@@ -543,7 +543,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23739,
+      "visibleTextLength": 23744,
       "tables": [],
       "equations": [
         {
@@ -1973,7 +1973,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26814,
       "tables": [
         {
           "index": 0,
@@ -8528,7 +8528,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30306,
+      "visibleTextLength": 30311,
       "tables": [],
       "equations": [
         {
@@ -9958,7 +9958,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 36345,
+      "visibleTextLength": 36347,
       "tables": [
         {
           "index": 0,

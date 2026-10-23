@@ -173,14 +173,14 @@ function ScoreChart({ delayMs }: { delayMs: number }) {
       <g data-series="lc-score-rtc">
         <LineTrace role="value" points={line(rtcThroughput)} />
         <PointMarker x={playX} y={scoreY(rtcThroughput(delayMs))} role="value" />
-        <DirectLabel x={SCORE_PLOT.right} y={f(SCORE_PLOT.top - CHART_STROKE.tickLength)} role="value" anchor="end">
+        <DirectLabel x={SCORE_PLOT.right} y={f(SCORE_PLOT.top - CHART_STROKE.tickLength)} role="value" anchor="end" seriesFor="lc-score-rtc">
           real-time chunking
         </DirectLabel>
       </g>
       <g data-series="lc-score">
         <LineTrace role="state" points={line(teThroughput)} />
         <PointMarker x={playX} y={scoreY(teThroughput(delayMs))} role="state" />
-        <DirectLabel x={delayX(124)} y={f(SCORE_PLOT.bottom - 8)} role="state">
+        <DirectLabel x={delayX(124)} y={f(SCORE_PLOT.bottom - 8)} role="state" seriesFor="lc-score">
           averaging plans
         </DirectLabel>
       </g>

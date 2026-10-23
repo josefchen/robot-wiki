@@ -272,7 +272,7 @@ export function ChunkSizeCurve({
                 strokeDasharray={CHART_STROKE.dash}
                 strokeLinecap="round"
               />
-              <DirectLabel x={PLOT.right} y={taperEnd + 22} role="value" anchor="end">
+              <DirectLabel x={PLOT.right} y={taperEnd + 22} role="value" anchor="end" seriesFor="illustrative-taper">
                 estimate
               </DirectLabel>
             </g>
@@ -284,10 +284,10 @@ export function ChunkSizeCurve({
                 strokeWidth={CHART_STROKE.reference}
                 strokeLinejoin="round"
               />
-              <DirectLabel x={oneAnchor.cx + 4} y={oneAnchor.cy - 14} role="value">
+              <DirectLabel x={oneAnchor.cx + 4} y={oneAnchor.cy - 14} role="value" seriesFor="measured-rise">
                 {`${formatPercent(oneAnchor.success)}, measured`}
               </DirectLabel>
-              <DirectLabel x={peakAnchor.cx} y={peakAnchor.cy - 12} role="value" anchor="middle">
+              <DirectLabel x={peakAnchor.cx} y={peakAnchor.cy - 12} role="value" anchor="middle" seriesFor="measured-rise">
                 {`${formatPercent(peakAnchor.success)}, measured`}
               </DirectLabel>
             </g>

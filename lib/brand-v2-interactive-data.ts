@@ -185,7 +185,7 @@ export interface MarkObservation {
   paint: DataPaintToken | 'neutral';
   /** Every geometry class the series renders (a band plus its line, say). */
   geometries: ReadonlyArray<MarkGeometry>;
-  /** The mark (or its group) carries a per-series text label in the plot. */
+  /** Visible in-plot text names the series (`labelledSeriesIds(labels, 'label-for')`). */
   labelled: boolean;
 }
 
@@ -236,6 +236,49 @@ export function classifyLegendText(text: string): 'named' | 'colour-name-only' |
   // Nothing but shape words and colour words: the entry relies on colour.
   if (meaningful.some(isColourWord)) return 'colour-name-only';
   return 'named';
+}
+
+/**
+ * Rendered text that claims to name plotted series (VAL-B2-VIZ-004): text
+ * tied to them by `data-series-label-for` (an in-plot SVG text, DirectLabel
+ * or StageAnnotation), or a legend entry whose `data-legend-series` names
+ * one. A marker attribute on the series itself is not a label. The
+ * collectors keep in `visibleText` only the runs a reader can see and list
+ * every dropped run in `hidden` with the reason: aria-hidden, screen-reader
+ * only, not displayed, unpainted, no box, or outside the frame.
+ */
+export type SeriesLabelEvidence = {
+  seriesIds: string[];
+  via: 'label-for' | 'legend';
+  visibleText: string;
+  /** Every visible run sits inside an SVG drawing. */
+  inPlot: boolean;
+  hidden: string[];
+};
+
+/**
+ * Whether the label's visible text names something: words, not numerals
+ * or colour names alone. A `label-for` text must also sit in the plot; text
+ * outside the drawing names a series only as a legend entry.
+ */
+export function seriesLabelNames(label: SeriesLabelEvidence): boolean {
+  if (!/\p{L}/u.test(label.visibleText)) return false;
+  if (classifyLegendText(label.visibleText) !== 'named') return false;
+  return label.via === 'legend' || label.inPlot;
+}
+
+/** The series that visible labels of one kind (or of either kind) name. */
+export function labelledSeriesIds(
+  labels: ReadonlyArray<SeriesLabelEvidence>,
+  via?: SeriesLabelEvidence['via'],
+): Set<string> {
+  const named = new Set<string>();
+  for (const label of labels) {
+    if (via && label.via !== via) continue;
+    if (!seriesLabelNames(label)) continue;
+    for (const id of label.seriesIds) named.add(id);
+  }
+  return named;
 }
 
 /**

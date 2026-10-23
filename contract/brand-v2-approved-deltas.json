@@ -112836,6 +112836,21 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "series-label-20261023-interactive-sources-mounts-source-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "83bf8ac3a1b342f192f1021ba719cf98fbb58f12d056bf0d1a129a2283fda10f",
+      "newHash": "4960cfd405cb8c998e9c96320035c0fa3486471fa940a6fdd40438b295aaae9c",
+      "reason": "VAL-B2-VIZ-004 series naming by rendered text on the perception error budget chart: the interactive-data gate (tests/e2e/brand-v2-interactive-data.spec.ts) and its jsdom helper (tests/helpers/series-encoding.ts) now count a series as named only by visible text tied to it by data-series-label-for or by a legend entry, no longer by text that merely sits inside the series group. Each row's existing name text gains data-series-label-for={isTotal ? 'total' : 'input'} and the existing \"model band {CLEARANCE_MM} mm\" label gains data-series-label-for=\"model-band\", so the words a reader already sees are tied to the series they name. Two attributes are all that moved: the label text, positions and paint, every mark, control, value, default, accessible-name expression and the budget arithmetic are unchanged. This edge moves the member from its last approved endpoint (interactive-data-20261023-interactive-sources-mounts-source-perception-error-budget).",
+      "ownerApproval": "Sealed mission contract authority: contract/design-integrity.md VAL-B2-VIZ-004 requires legends and labels to name the series they mark, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md: direct in-plot labels in ink and grayscale, no boxed legends). brand-v2-interactives scrutiny round 2 found the gate accepting a marker attribute as proof of a label and dispatched brand-v2-interactive-series-label-rendered-text to make the gate read rendered text and to tie each instrument's visible labels to its series under the AGENTS.md brand-v2 operating authority. Fact-preserving markup repair, not new factual claims. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-004",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

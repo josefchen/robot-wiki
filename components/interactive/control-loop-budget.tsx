@@ -301,14 +301,14 @@ export function ControlLoopBudget({
             aria-describedby={descriptionId}
           >
             <g data-series="clb-inference" data-testid="inference-bar">
-              <DirectLabel x={LEFT} y={BRAIN_LABEL_Y}>
+              <DirectLabel x={LEFT} y={BRAIN_LABEL_Y} seriesFor="clb-inference clb-overrun">
                 The brain working out the next move
               </DirectLabel>
               <Bar x={LEFT} y={BAR_TOP} width={withinW} height={BAR_H} />
             </g>
             {inferenceMs > CONTROL_PERIOD_MS ? (
               // The same call running on past the first beat, hatched, under the same label.
-              <g data-series="clb-overrun" data-series-labelled="">
+              <g data-series="clb-overrun">
                 <ConstraintHatch
                   id={hatchId}
                   x={budgetX}

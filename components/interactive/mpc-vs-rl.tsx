@@ -242,6 +242,7 @@ export function MpcVsRl({ className }: { className?: string }) {
                     />
                   </g>
                   <text
+                    data-series-label-for={id}
                     x={x}
                     y={GROUND_Y + 20}
                     textAnchor="middle"

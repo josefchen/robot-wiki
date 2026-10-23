@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "7160964e26105c562eae1e86eff4e4353d95427bc0d05b6d5a1a7196a2c239d5",
+  "fingerprint": "7e2ec278f2c9e89148c6761df4fe332db9415b6bb847e842fa902f947d895c98",
   "viewports": [
     "375x812",
     "1440x900"
@@ -720,12 +720,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "06d733332916d8b97f94d516ff690cec461398b3b2db1c1f945410e8feb5f5dd",
+          "sha256": "3de6455e231b0a377aafa7439bf1334f3ce8560d972cdcb479d30e14ca4a6443",
           "widthPx": 327,
-          "heightPx": 893,
+          "heightPx": 911,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 30.94,
+          "luminanceSpread": 30.65,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -735,12 +735,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Camera delay (perception latency), currently 200 ms\" 70 to 200",
-          "sha256": "586050b1e83a02fdb9f173f75700cdfd41385156767f87fc1054d3b7e470fd6e",
+          "sha256": "4e84106bdd86d1f58bd32f2b41a748cf04bf6807714190315ca03dce29530a7e",
           "widthPx": 327,
-          "heightPx": 893,
+          "heightPx": 911,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.73,
+          "luminanceSpread": 29.46,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -853,12 +853,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "b3d7dca3d0381520715ee6a5f1692945f4e8c5fa20878c8e78d1739755ffd1f6",
+          "sha256": "70c1f70d0cc0860165aa2c8f3cbc6264c09ac08a2fc629b9df4e018fbd6b454a",
           "widthPx": 930,
           "heightPx": 1020,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 20.27,
+          "luminanceSpread": 20.22,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -868,12 +868,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Camera delay (perception latency), currently 200 ms\" 70 to 200",
-          "sha256": "192cb67e6acd866b9b1806f523ce5e1810e56dfcd87bcf6ba7ac6ded87b05e10",
+          "sha256": "ff87cf296231914d95ff173bfe15d8d549d62f061c17b8edaf9cbb3c3d512dc9",
           "widthPx": 930,
           "heightPx": 1020,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 19.67,
+          "luminanceSpread": 19.63,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -2050,7 +2050,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "e03e9946e89911859cdd2f400253153f3fb3fbdaaca8db25a4c84c14f4cbda0e",
+          "sha256": "a6b79e385cbeb095b84152a91fcc7d6fab1cd8bb7d81fccd247aa0d4c532a5f2",
           "widthPx": 327,
           "heightPx": 800,
           "settleAttempts": 2,
@@ -2065,7 +2065,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Softness: desired stiffness in newtons per metre, currently \" 800 to 20000",
-          "sha256": "5bfddd95b1f2b938b6d144b1eed7d6f5956b214127145fe05b6e5db1a0a0fc1e",
+          "sha256": "45a16fcb7307356c300794ab4f6fead86c5cc04f4fc0e857c1043f042064a86a",
           "widthPx": 327,
           "heightPx": 800,
           "settleAttempts": 2,
@@ -2316,12 +2316,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "57d11dff11a2d5bad866c1f9783f13fc07d39042dd67d3f05412f9e938fdbe1c",
+          "sha256": "4f2e8b5033ffcd0dd27660bb7825e49adcfd5dd70c10ede7a2955f052588c111",
           "widthPx": 327,
-          "heightPx": 621,
+          "heightPx": 639,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 24.97,
+          "luminanceSpread": 24.78,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -2331,12 +2331,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"React to the lean (P): proportional gain Kp, currently 40.0\" 9.5 to 40",
-          "sha256": "f92e8dd17d4e20cedda6c49f072f5e08567cd354649c34ab1801a48bcb25135e",
+          "sha256": "c84c957940dd079bfb7ca7d6f1603a919772c3d83014ffecd46b82ee004ae5c3",
           "widthPx": 327,
-          "heightPx": 621,
+          "heightPx": 639,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 24.39,
+          "luminanceSpread": 24.21,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -2449,12 +2449,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "22905a468d34c5443ae1e45e9397a0ecdf2237894c91f3bcbcf09e0d6a9e0715",
+          "sha256": "9b6635225ef64ce41eea0ba22acd3886f1f113d03c9d74f6afef0da3d063cd43",
           "widthPx": 930,
           "heightPx": 883,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 13.21,
+          "luminanceSpread": 13.28,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -2464,12 +2464,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"React to the lean (P): proportional gain Kp, currently 40.0\" 9.5 to 40",
-          "sha256": "bdf1ff838e91232e231be3caebff734e4e7da368ef69ea80a69a9884cd5cb94c",
+          "sha256": "e85b44efbf42aab979de9706f31cf51f0cdcf0b823483f8798ba64371c2c8f3a",
           "widthPx": 930,
           "heightPx": 883,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 12.93,
+          "luminanceSpread": 13,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -3086,12 +3086,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "a247771b891d8967d03cad64cf0d6a3c54d5b5463f0622b8ffde610270aff597",
+          "sha256": "51eb09d35f3ed9bf9ea4e555386119ce12326739d8b79ff3ea22eb8bbe0da5af",
           "widthPx": 327,
-          "heightPx": 655,
+          "heightPx": 659,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.59,
+          "luminanceSpread": 25.29,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -3101,12 +3101,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far the search has grown: exploration iteration 0 of 288\" 288 to 0",
-          "sha256": "11b625f53cd664bec5b9a7e507bc8ea22de2b348dd1b8d8a8c98fe7990bff829",
+          "sha256": "5a68d032b3d087d706bf46f049b75db5415847b8cc153470663729fb60184a18",
           "widthPx": 327,
           "heightPx": 637,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 24.7,
+          "luminanceSpread": 25,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -3205,12 +3205,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "2145a4458c01af3083475f0f0d21294becd8ffe8b59175de9fea7e86d4c8848d",
+          "sha256": "8b195623e48c88ba89dc113424da8dd01be60c3e584f786769c3a1b55c99c382",
           "widthPx": 930,
           "heightPx": 949,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 16.13,
+          "luminanceSpread": 16.04,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -3220,12 +3220,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far the search has grown: exploration iteration 0 of 288\" 288 to 0",
-          "sha256": "d162c73a5fb0d8299b35540c9f3b72eeeb42daf105341a077eb1b4c6083dd58c",
+          "sha256": "fc3287305482bd0868558f6f4addacfaec0d63e0b60154b15ef498ac64ed1613",
           "widthPx": 930,
           "heightPx": 949,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15,
+          "luminanceSpread": 15.13,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -21371,8 +21371,8 @@
   "sheets": [
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-01.jpg",
-      "sha256": "995913b05397f01b0fb10d780d647c5d64e3bad16b9a471ccbc5766b68d6265f",
-      "bytes": 186207,
+      "sha256": "169f21d6b1ee2c177373b1d487d049d9ea6fd634e6babb7b1c91bdda48f5a72f",
+      "bytes": 186289,
       "mountIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
         "mount:/adjacent/surgical/:MotionPantograph:1",
@@ -21384,19 +21384,19 @@
       "captures": [
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@1440x900:default",
-          "sha256": "b3d7dca3d0381520715ee6a5f1692945f4e8c5fa20878c8e78d1739755ffd1f6"
+          "sha256": "70c1f70d0cc0860165aa2c8f3cbc6264c09ac08a2fc629b9df4e018fbd6b454a"
         },
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@1440x900:changed",
-          "sha256": "192cb67e6acd866b9b1806f523ce5e1810e56dfcd87bcf6ba7ac6ded87b05e10"
+          "sha256": "ff87cf296231914d95ff173bfe15d8d549d62f061c17b8edaf9cbb3c3d512dc9"
         },
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@375x812:default",
-          "sha256": "06d733332916d8b97f94d516ff690cec461398b3b2db1c1f945410e8feb5f5dd"
+          "sha256": "3de6455e231b0a377aafa7439bf1334f3ce8560d972cdcb479d30e14ca4a6443"
         },
         {
           "key": "mount:/adjacent/drones/:PerceptionLatency:1@375x812:changed",
-          "sha256": "586050b1e83a02fdb9f173f75700cdfd41385156767f87fc1054d3b7e470fd6e"
+          "sha256": "4e84106bdd86d1f58bd32f2b41a748cf04bf6807714190315ca03dce29530a7e"
         },
         {
           "key": "mount:/adjacent/surgical/:MotionPantograph:1@1440x900:default",
@@ -21483,8 +21483,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-02.jpg",
-      "sha256": "5da1b55e0c8a4244797478bd49cb86e116568a1d60d6cf5acead37a033c0e12b",
-      "bytes": 184796,
+      "sha256": "b482e6b60c1b6bffc1ddd56fef6f038368efe637110edd1e3e98b4290c0ec2eb",
+      "bytes": 185257,
       "mountIds": [
         "mount:/classical/control/:ImpedanceContactLab:1",
         "mount:/classical/control/:PendulumController:1",
@@ -21504,27 +21504,27 @@
         },
         {
           "key": "mount:/classical/control/:ImpedanceContactLab:1@375x812:default",
-          "sha256": "e03e9946e89911859cdd2f400253153f3fb3fbdaaca8db25a4c84c14f4cbda0e"
+          "sha256": "a6b79e385cbeb095b84152a91fcc7d6fab1cd8bb7d81fccd247aa0d4c532a5f2"
         },
         {
           "key": "mount:/classical/control/:ImpedanceContactLab:1@375x812:changed",
-          "sha256": "5bfddd95b1f2b938b6d144b1eed7d6f5956b214127145fe05b6e5db1a0a0fc1e"
+          "sha256": "45a16fcb7307356c300794ab4f6fead86c5cc04f4fc0e857c1043f042064a86a"
         },
         {
           "key": "mount:/classical/control/:PendulumController:1@1440x900:default",
-          "sha256": "22905a468d34c5443ae1e45e9397a0ecdf2237894c91f3bcbcf09e0d6a9e0715"
+          "sha256": "9b6635225ef64ce41eea0ba22acd3886f1f113d03c9d74f6afef0da3d063cd43"
         },
         {
           "key": "mount:/classical/control/:PendulumController:1@1440x900:changed",
-          "sha256": "bdf1ff838e91232e231be3caebff734e4e7da368ef69ea80a69a9884cd5cb94c"
+          "sha256": "e85b44efbf42aab979de9706f31cf51f0cdcf0b823483f8798ba64371c2c8f3a"
         },
         {
           "key": "mount:/classical/control/:PendulumController:1@375x812:default",
-          "sha256": "57d11dff11a2d5bad866c1f9783f13fc07d39042dd67d3f05412f9e938fdbe1c"
+          "sha256": "4f2e8b5033ffcd0dd27660bb7825e49adcfd5dd70c10ede7a2955f052588c111"
         },
         {
           "key": "mount:/classical/control/:PendulumController:1@375x812:changed",
-          "sha256": "f92e8dd17d4e20cedda6c49f072f5e08567cd354649c34ab1801a48bcb25135e"
+          "sha256": "c84c957940dd079bfb7ca7d6f1603a919772c3d83014ffecd46b82ee004ae5c3"
         },
         {
           "key": "mount:/classical/grasp-planning/:GraspWrenchLab:1@1440x900:default",
@@ -21560,19 +21560,19 @@
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@1440x900:default",
-          "sha256": "2145a4458c01af3083475f0f0d21294becd8ffe8b59175de9fea7e86d4c8848d"
+          "sha256": "8b195623e48c88ba89dc113424da8dd01be60c3e584f786769c3a1b55c99c382"
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@1440x900:changed",
-          "sha256": "d162c73a5fb0d8299b35540c9f3b72eeeb42daf105341a077eb1b4c6083dd58c"
+          "sha256": "fc3287305482bd0868558f6f4addacfaec0d63e0b60154b15ef498ac64ed1613"
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@375x812:default",
-          "sha256": "a247771b891d8967d03cad64cf0d6a3c54d5b5463f0622b8ffde610270aff597"
+          "sha256": "51eb09d35f3ed9bf9ea4e555386119ce12326739d8b79ff3ea22eb8bbe0da5af"
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@375x812:changed",
-          "sha256": "11b625f53cd664bec5b9a7e507bc8ea22de2b348dd1b8d8a8c98fe7990bff829"
+          "sha256": "5a68d032b3d087d706bf46f049b75db5415847b8cc153470663729fb60184a18"
         },
         {
           "key": "mount:/classical/perception/:PerceptionErrorBudget:1@1440x900:default",

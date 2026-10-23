@@ -463,6 +463,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           <g key={row.key} data-series={isTotal ? 'total' : 'input'}>
             <text
               data-chart-label=""
+              data-series-label-for={isTotal ? 'total' : 'input'}
               x={PAD_L - 8}
               y={y + BAR_H / 2}
               textAnchor="end"
@@ -524,6 +525,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
         <text
           data-testid="perception-clearance-label"
           data-chart-label=""
+          data-series-label-for="model-band"
           x={f(x(CLEARANCE_MM) + 4)}
           y={BAND_TOP - 8}
           fontSize={CHART_TYPE.axisPx}

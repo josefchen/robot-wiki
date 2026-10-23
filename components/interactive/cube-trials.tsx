@@ -86,7 +86,7 @@ export function CubeTrials({ className }: { className?: string }) {
                   </g>
                 );
               })}
-              <DirectLabel x={LEFT} y={TOP + CELL + 22}>
+              <DirectLabel x={LEFT} y={TOP + CELL + 22} seriesFor="trials">
                 filled: finished all {SUBGOALS} steps of the scramble
               </DirectLabel>
             </g>

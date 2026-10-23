@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import { describe, expect, it } from 'vitest';
-import { PerceptionLatency, RIDER_HINT, SLOW, corridorAt, runAt } from '@/components/interactive/perception-latency';
+import { PerceptionLatency, RIDER_KEYS, SLOW, corridorAt, runAt } from '@/components/interactive/perception-latency';
 import {
   DRONE_REACH,
   RANGE_M,
@@ -245,9 +245,20 @@ describe('PerceptionLatency series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<PerceptionLatency />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['avoidance-maneuver', 'perception-latency']);
-    // The still stage's hint is what names both riders, so it must say both.
-    expect(RIDER_HINT).toMatch(/^Lit: .*before the camera reports\. Plain: swerve$/);
-    expect(container.textContent).toContain(RIDER_HINT);
+    // The drawing carries no words, so the keys under it name both riders, each tied to its own.
+    expect(RIDER_KEYS).toEqual([
+      { series: 'perception-latency', words: 'Lit: flown before the camera reports' },
+      { series: 'avoidance-maneuver', words: 'Dashed: swerve' },
+    ]);
+    expect(seriesNames(container)).toEqual({
+      'perception-latency': ['Lit: flown before the camera reports'],
+      'avoidance-maneuver': ['Dashed: swerve'],
+    });
+    // Like-shaped slabs end to end: the swerve's dashed outline tells them apart once the lit tint is gone.
+    expect(seriesEncodings(container)['avoidance-maneuver'].geometries).toContain('dashed-line');
+    expect(seriesEncodings(container)['perception-latency'].geometries).not.toContain('dashed-line');
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

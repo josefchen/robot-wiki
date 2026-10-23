@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
@@ -259,6 +259,14 @@ describe('CompoundingError series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<CompoundingError />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['linear-reference', 'quadratic-reference', 'summed-deviation']);
+    // The solid trace is named by the y-axis title that names its quantity, each dashed curve by its own label.
+    expect(seriesNames(container)).toEqual({
+      'summed-deviation': ['summed deviation, log scale'],
+      'quadratic-reference': ['εT(T+1)/2'],
+      'linear-reference': ['εT'],
+    });
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import { JSDOM } from 'jsdom';
 import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -81,6 +81,10 @@ describe('RobotsPerGpu series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = renderFigure();
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['robots']);
+    // The drawing carries no words, so the tiles are named by the key under it.
+    expect(seriesNames(container)).toEqual({ robots: ['Each lit tile on the chip is 128 robots'] });
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

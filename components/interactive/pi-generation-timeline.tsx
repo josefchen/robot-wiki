@@ -346,6 +346,7 @@ export function PiGenerationTimeline({
                 />
                 <text
                   data-scene-note=""
+                  data-series-label-for="downloadable"
                   x={f((bracket.from + bracket.to) / 2)}
                   y={BRACKET_LABEL_Y}
                   textAnchor="middle"

@@ -179,25 +179,29 @@ export function UncertaintyBand({
 
 /**
  * A label set beside the mark it names, in the mark's role colour. Leave the
- * role out for a plain stage label.
+ * role out for a plain stage label. `seriesFor` names the `data-series` id(s)
+ * the label names, which is what ties it to the series for VAL-B2-VIZ-004.
  */
 export function DirectLabel({
   x,
   y,
   role,
   anchor = 'start',
+  seriesFor,
   children,
 }: {
   x: number;
   y: number;
   role?: ChartRole;
   anchor?: 'start' | 'middle' | 'end';
+  seriesFor?: string;
   children: ReactNode;
 }) {
   return (
     <text
       data-chart-label=""
       data-chart-role={role}
+      data-series-label-for={seriesFor}
       x={x}
       y={y}
       textAnchor={anchor}
@@ -257,10 +261,13 @@ export function StageAnnotation({
   from,
   pointer = 'ring',
   stack = 'down',
+  seriesFor,
 }: {
   x: number;
   y: number;
   lines: readonly string[];
+  /** The `data-series` id(s) the note names, when it names a plotted series. */
+  seriesFor?: string;
   anchor?: 'start' | 'middle' | 'end';
   /** The point the note names. */
   target?: ChartPoint;
@@ -297,7 +304,14 @@ export function StageAnnotation({
           <circle cx={target[0]} cy={target[1]} r={CHART_STROKE.markerRadius + 1} fill="none" stroke={colour} strokeWidth={CHART_STROKE.structure} />
         </>
       ) : null}
-      <text x={x} y={fromBelow ? y + block : y} textAnchor={anchor} fontSize={CHART_TYPE.labelPx} fill={colour}>
+      <text
+        data-series-label-for={seriesFor}
+        x={x}
+        y={fromBelow ? y + block : y}
+        textAnchor={anchor}
+        fontSize={CHART_TYPE.labelPx}
+        fill={colour}
+      >
         {lines.map((line, i) => (
           <tspan key={line} x={x} dy={i === 0 ? firstDy : `${LINE_STEP_EM}em`}>{line}</tspan>
         ))}

@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { HierarchyTimescales } from '@/components/interactive/hierarchy-timescales';
@@ -306,6 +306,15 @@ describe('HierarchyTimescales series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<HierarchyTimescales />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['fired']);
+    // Each lane's name, right above its ticks, names the updates fired on that lane.
+    expect(seriesNames(container).fired).toEqual([
+      'The task, given once',
+      'Next step, in words',
+      'Short plan of moves',
+      'Motor commands',
+    ]);
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

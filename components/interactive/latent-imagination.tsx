@@ -278,15 +278,15 @@ export function LatentImagination({
       aria-describedby={descriptionId}
     >
       {/* Labelled by the "shaded: …" note drawn after the axes. */}
-      <rect data-testid="typical-range-band" data-series="typical-range" data-series-labelled="" data-chart-role="reference" x={bandX} y={PLOT.top} width={bandWidth} height={PLOT.bottom - PLOT.top} fill={reference} fillOpacity={CHART_UNCERTAINTY.fillAlpha} stroke="none" />
-      <ChartAxes plot={PLOT} x={stepX} y={deviationY} xTicks={STEP_TICKS} yTicks={DEVIATION_TICKS} xLabel="steps imagined ahead" yLabel="how far off" />
-      <text data-scene-axis="" x={bandX} y={BAND_NOTE_Y} fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
+      <rect data-testid="typical-range-band" data-series="typical-range" data-chart-role="reference" x={bandX} y={PLOT.top} width={bandWidth} height={PLOT.bottom - PLOT.top} fill={reference} fillOpacity={CHART_UNCERTAINTY.fillAlpha} stroke="none" />
+      <ChartAxes plot={PLOT} x={stepX} y={deviationY} xTicks={STEP_TICKS} yTicks={DEVIATION_TICKS} xLabel="steps imagined ahead" yLabel="how far off" yLabelFor="deviation" />
+      <text data-scene-axis="" data-series-label-for="typical-range" x={bandX} y={BAND_NOTE_Y} fontSize={CHART_TYPE.axisPx} fill={CHART_STRUCTURE.labelSecondary}>
         shaded: an illustrative {TYPICAL_HORIZON[0]} to {TYPICAL_HORIZON[1]} steps
       </text>
       {/* The one curve is the quantity the y axis names ("how far off"), solid to the horizon and dashed past it. */}
-      <path data-testid="deviation-curve" data-series="deviation" data-series-labelled="" data-chart-role="state" d={path(fullDeviation.slice(0, horizon + 1).map((d, t) => [stepX(t), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" strokeLinejoin="round" />
+      <path data-testid="deviation-curve" data-series="deviation" data-chart-role="state" d={path(fullDeviation.slice(0, horizon + 1).map((d, t) => [stepX(t), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.trace} strokeLinecap="round" strokeLinejoin="round" />
       {horizon < MAX_HORIZON ? (
-        <path data-series="deviation" data-series-labelled="" data-chart-role="state" d={path(fullDeviation.slice(horizon).map((d, i) => [stepX(horizon + i), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
+        <path data-series="deviation" data-chart-role="state" d={path(fullDeviation.slice(horizon).map((d, i) => [stepX(horizon + i), deviationY(d)] as ChartPoint))} fill="none" stroke={state} strokeWidth={CHART_STROKE.reference} strokeDasharray={CHART_STROKE.dash} />
       ) : null}
       <circle data-chart-mark="playhead" data-chart-role="highlight" cx={stepX(horizon)} cy={deviationY(deviationNow)} r={CHART_STROKE.markerRadius + 2} fill="none" stroke={highlight} strokeWidth={CHART_STROKE.trace} />
     </PlotStage>

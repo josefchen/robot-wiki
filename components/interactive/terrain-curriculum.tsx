@@ -214,9 +214,9 @@ export function TerrainCurriculum({ className }: { className?: string }) {
                 );
               })}
               {/* The robots' labels: the round's tally and, once they move, the key to their marks. */}
-              <StageAnnotation x={LEFT} y={20} lines={[statusLine(round)]} />
+              <StageAnnotation x={LEFT} y={20} lines={[statusLine(round)]} seriesFor="robots" />
               {round > 0 ? (
-                <text x={LEFT} y={38} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>
+                <text data-series-label-for="robots" x={LEFT} y={38} fontSize={CHART_TYPE.labelPx} fill={CHART_STRUCTURE.labelSecondary}>
                   filled moved up, rings moved down, small stayed
                 </text>
               ) : null}

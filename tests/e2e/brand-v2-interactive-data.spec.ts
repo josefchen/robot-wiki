@@ -14,9 +14,11 @@ import {
   STATUS_LABEL_VOCABULARY,
   classifyLegendText,
   classifyResolvedPaint,
+  labelledSeriesIds,
   nonColourDistinct,
   tableSortCensus,
   type MarkObservation,
+  type SeriesLabelEvidence,
   type TableSortKind,
 } from '../../lib/brand-v2-interactive-data';
 import { ACT_CHUNK_ANCHORS, successAtChunkSize } from '../../lib/chunk-size';
@@ -148,6 +150,7 @@ type FrameEvidence = {
   mountId: string;
   sourceId: string;
   routeText: string;
+  labels: SeriesLabelEvidence[];
   legend: LegendEntry[];
   series: Record<string, SeriesEvidence>;
   accentMarks: AccentMark[];
@@ -167,14 +170,29 @@ type SweepEvidence = {
 };
 
 /**
+ * One frame's evidence, with each series marked labelled only when visible
+ * in-plot text names it, by the judgement the jsdom helper
+ * (tests/helpers/series-encoding.ts) applies too.
+ */
+async function collectFrame(
+  frame: Locator,
+): Promise<Omit<FrameEvidence, 'route' | 'routeText' | 'mountId' | 'sourceId'>> {
+  const evidence = await observeFrame(frame);
+  const inPlot = labelledSeriesIds(evidence.labels, 'label-for');
+  for (const [seriesId, row] of Object.entries(evidence.series)) row.labelled = inPlot.has(seriesId);
+  return evidence;
+}
+
+/**
  * The in-page observer. Playwright serializes this function into the page,
  * so it must close over nothing: the accent role properties and the retired
  * paints are passed in. It resolves every mark's computed paint, geometry
- * tag, dash state, and label presence, plus the legend swatches, table
- * cells, circles, and per-series rect geometry the parity anchors compare
- * against, and every geometry drawn in the accent or a retired paint.
+ * tag and dash state, the visible runs of every text that names a series,
+ * plus the legend swatches, table cells, circles, and per-series rect
+ * geometry the parity anchors compare against, and every geometry drawn in
+ * the accent or a retired paint.
  */
-async function collectFrame(
+function observeFrame(
   frame: Locator,
 ): Promise<Omit<FrameEvidence, 'route' | 'routeText' | 'mountId' | 'sourceId'>> {
   return frame.evaluate((frameElement, { accentRoles, retired }) => {
@@ -318,11 +336,6 @@ async function collectFrame(
           labelled: false,
           marks: 0,
         });
-        // A visible in-plot label: the holder is marked as labelled, or it
-        // contains a rendered text node beside its marks.
-        const labelled =
-          holder.hasAttribute('data-series-labelled') ||
-          Boolean(holder.querySelector('text'));
         for (const el of shapes) {
           const cs = getComputedStyle(el);
           const tag = el.tagName.toLowerCase();
@@ -334,7 +347,6 @@ async function collectFrame(
             filled: isPaint(cs.fill),
           });
           row.marks += 1;
-          row.labelled = row.labelled || labelled;
           if (!row.geometries.includes(geometry)) row.geometries.push(geometry);
           for (const paint of [stroke, fill]) {
             if (paint && !row.paints.includes(paint)) row.paints.push(paint);
@@ -490,7 +502,119 @@ async function collectFrame(
       });
     }
 
+    // The labels that name series (VAL-B2-VIZ-004): text tied to a series
+    // by data-series-label-for and every legend entry with a series id,
+    // each kept to the runs a reader can see. A series drawn in a closed
+    // fold is seen only once the fold opens, so its labels are measured
+    // with the frame's folds open and the folds are closed again after.
+    const labels: Array<{
+      seriesIds: string[];
+      via: 'label-for' | 'legend';
+      visibleText: string;
+      inPlot: boolean;
+      hidden: string[];
+    }> = [];
+    const closedFolds = Array.from(frameElement.querySelectorAll('details')).filter(
+      (fold) => !fold.open,
+    );
+    for (const fold of closedFolds) fold.open = true;
+    try {
+      const frameBox = frameElement.getBoundingClientRect();
+      // Only a fourth (alpha) component of 0 is transparent: rgb(0, 0, 0) is opaque black.
+      const zeroAlpha = (value: string) => {
+        const trimmed = value.trim();
+        if (trimmed === 'none' || trimmed === 'transparent') return true;
+        const channels = trimmed.match(/^rgba?\(([^)]*)\)$/)?.[1].split(/[\s,/]+/).filter(Boolean);
+        return channels?.length === 4 && parseFloat(channels[3]) === 0;
+      };
+      const hiddenBy = (el: Element): string | null => {
+        for (let node: Element | null = el; node; node = node.parentElement) {
+          if (node.getAttribute('aria-hidden') === 'true') return 'aria-hidden';
+          if (node.classList.contains('sr-only')) return 'screen-reader only';
+          const cs = getComputedStyle(node);
+          if (cs.display === 'none') return 'not displayed';
+          if (Number(cs.opacity) === 0) return 'opacity 0';
+          if (/^inset\(50%/.test(cs.clipPath) || (cs.position === 'absolute' && cs.clip.startsWith('rect('))) {
+            return 'clipped away';
+          }
+          if (node instanceof HTMLElement && cs.overflow !== 'visible') {
+            const box = node.getBoundingClientRect();
+            if (box.width <= 1 || box.height <= 1) return 'clipped to a pixel';
+          }
+          if (node === frameElement) break;
+        }
+        return getComputedStyle(el).visibility === 'visible' ? null : 'visibility hidden';
+      };
+      const unrendered = (node: Text, parent: Element): string | null => {
+        const cs = getComputedStyle(parent);
+        if (parent instanceof SVGElement) {
+          const filled = !zeroAlpha(cs.fill) && Number(cs.fillOpacity) > 0;
+          const stroked = !zeroAlpha(cs.stroke) && Number(cs.strokeOpacity) > 0 && parseFloat(cs.strokeWidth) > 0;
+          if (!filled && !stroked) return 'unpainted';
+        } else if (zeroAlpha(cs.color)) {
+          return 'unpainted';
+        }
+        let box: DOMRect;
+        if (parent instanceof SVGElement) {
+          box = parent.getBoundingClientRect();
+        } else {
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          box = range.getBoundingClientRect();
+        }
+        if (box.width < 1 || box.height < 1) return 'no box';
+        if (
+          box.left < frameBox.left - 1 ||
+          box.right > frameBox.right + 1 ||
+          box.top < frameBox.top - 1 ||
+          box.bottom > frameBox.bottom + 1
+        ) {
+          return 'outside the frame';
+        }
+        return null;
+      };
+      const read = (el: Element) => {
+        const runs: string[] = [];
+        const hidden: string[] = [];
+        let inPlot = true;
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        for (let node = walker.nextNode() as Text | null; node; node = walker.nextNode() as Text | null) {
+          const text = (node.textContent ?? '').replace(/\s+/g, ' ').trim();
+          if (!text) continue;
+          const parent = node.parentElement;
+          if (!parent || parent.closest('title, desc, style, script, defs')) {
+            hidden.push(`"${text}": not rendered`);
+            continue;
+          }
+          const reason = hiddenBy(parent) ?? unrendered(node, parent);
+          if (reason) {
+            hidden.push(`"${text}": ${reason}`);
+            continue;
+          }
+          runs.push(text);
+          if (!parent.closest('svg')) inPlot = false;
+        }
+        return { visibleText: runs.join(' '), inPlot: runs.length > 0 && inPlot, hidden };
+      };
+      for (const el of Array.from(frameElement.querySelectorAll('[data-series-label-for]'))) {
+        labels.push({
+          seriesIds: (el.getAttribute('data-series-label-for') ?? '').split(/\s+/).filter(Boolean),
+          via: 'label-for',
+          ...read(el),
+        });
+      }
+      for (const band of Array.from(frameElement.querySelectorAll('[data-instrument-legend]'))) {
+        for (const item of Array.from(band.querySelectorAll('[data-legend-item]'))) {
+          const seriesId = item.getAttribute('data-legend-series');
+          if (seriesId) labels.push({ seriesIds: [seriesId], via: 'legend', ...read(item) });
+        }
+      }
+    } finally {
+      for (const fold of closedFolds) fold.open = false;
+    }
+
     return {
+      labels,
       legend,
       series,
       accentMarks,
@@ -587,6 +711,7 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
               if (!target.paints.includes(paint)) target.paints.push(paint);
             }
           }
+          evidence.labels.push(...state.labels);
           for (const entry of state.legend) {
             const key = `${entry.seriesId ?? ''}:${entry.text}`;
             if (!evidence.legend.some((existing) => `${existing.seriesId ?? ''}:${existing.text}` === key)) {
@@ -674,6 +799,45 @@ function observationOf(frame: FrameEvidence, seriesId: string): MarkObservation 
 
 function near(actual: number, expected: number, tolerance = 0.75): boolean {
   return Math.abs(actual - expected) <= tolerance;
+}
+
+/**
+ * The VAL-B2-VIZ-004 judgement, one list per clause:
+ * - `naming`: a legend entry whose words are colour names alone;
+ * - `dangling`: a legend entry naming a series that renders no marks;
+ * - `unexplained`: a series that no visible text names, neither in-plot
+ *   text tied to it by data-series-label-for nor a legend entry whose
+ *   data-legend-series names it (`labelledSeriesIds`). Each line lists the
+ *   label runs that were dropped as unseen, so a failure says why.
+ */
+function viz004Violations(frames: readonly FrameEvidence[]) {
+  const found = { naming: [] as string[], dangling: [] as string[], unexplained: [] as string[] };
+  for (const frame of frames) {
+    for (const entry of frame.legend) {
+      const classification = classifyLegendText(entry.text);
+      if (classification !== 'named') {
+        found.naming.push(`${frame.mountId}: legend entry "${entry.text}" is ${classification}`);
+      }
+      if (entry.seriesId && !frame.series[entry.seriesId]) {
+        found.dangling.push(
+          `${frame.mountId}: legend entry "${entry.text}" names series "${entry.seriesId}" which renders no marks`,
+        );
+      }
+    }
+    const named = labelledSeriesIds(frame.labels);
+    for (const seriesId of Object.keys(frame.series)) {
+      if (named.has(seriesId)) continue;
+      const unseen = frame.labels
+        .filter((label) => label.seriesIds.includes(seriesId))
+        .flatMap((label) => label.hidden);
+      found.unexplained.push(
+        `${frame.mountId}: series "${seriesId}" has neither a legend entry nor an in-plot label${
+          unseen.length > 0 ? ` (unseen: ${unseen.join('; ')})` : ''
+        }`,
+      );
+    }
+  }
+  return found;
 }
 
 /**
@@ -894,34 +1058,80 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
   }) => {
     test.setTimeout(600_000);
     const { frames } = await sweep(browser, staticBase);
-    const naming: string[] = [];
-    const dangling: string[] = [];
-    const unexplained: string[] = [];
-    for (const frame of frames) {
-      for (const entry of frame.legend) {
-        const classification = classifyLegendText(entry.text);
-        if (classification !== 'named') {
-          naming.push(`${frame.mountId}: legend entry "${entry.text}" is ${classification}`);
-        }
-        if (entry.seriesId && !frame.series[entry.seriesId]) {
-          dangling.push(
-            `${frame.mountId}: legend entry "${entry.text}" names series "${entry.seriesId}" which renders no marks`,
-          );
-        }
-      }
-      for (const seriesId of Object.keys(frame.series)) {
-        const row = frame.series[seriesId];
-        const hasLegendEntry = frame.legend.some((item) => item.seriesId === seriesId);
-        if (!hasLegendEntry && !row.labelled) {
-          unexplained.push(
-            `${frame.mountId}: series "${seriesId}" has neither a legend entry nor an in-plot label`,
-          );
-        }
-      }
+    const found = viz004Violations(frames);
+    expect(found.naming, 'legend entries that rely on colour words alone').toEqual([]);
+    expect(found.dangling, 'legend entries with no marks').toEqual([]);
+    expect(found.unexplained, 'plotted series with no legend and no label').toEqual([]);
+    expect(
+      frames.filter((frame) => labelledSeriesIds(frame.labels, 'label-for').size > 0).length,
+      'frames whose series visible in-plot text names',
+    ).toBeGreaterThanOrEqual(15);
+
+    // The same collector and judgement fail a series that carries a marker
+    // attribute and no visible text, and every label a reader cannot see,
+    // while visible in-plot text and a visible legend entry pass.
+    const plan = buildInteractiveExecutionPlan(brandV2Registry);
+    const route = '/classical/motion-planning/';
+    const mounts = plan.mounts.filter((mount) => mount.route === route);
+    const index = mounts.findIndex((mount) => mount.sourceId === 'interactive:RrtExplorer');
+    expect(index, 'the RRT explorer mount').toBeGreaterThanOrEqual(0);
+    const context = await browser.newContext({ viewport: VIEWPORT });
+    try {
+      const page = await context.newPage();
+      await page.goto(`${staticBase}${route}`);
+      const frame = (await mountRoots(page, route, mountIdentities(plan, mounts)))[index];
+      const judge = async () => {
+        const evidence = await collectFrame(frame);
+        return viz004Violations([
+          { ...evidence, route, routeText: '', mountId: 'planted', sourceId: mounts[index].sourceId },
+        ]).unexplained;
+      };
+      expect(await judge(), 'the unplanted frame passes').toEqual([]);
+      const planted = await frame.evaluate((root) => {
+        const stage = root.querySelector('[data-figure-stage]') ?? root;
+        const mark = '<line x1="0" y1="10" x2="20" y2="10" stroke="#3F3F3B" />';
+        stage.insertAdjacentHTML(
+          'beforeend',
+          `<svg data-planted="drawing" viewBox="0 0 400 40" width="400" height="40" role="img" aria-label="planted series">
+            <g data-series="attribute-only" data-series-labelled="">${mark}</g>
+            <g data-series="aria-hidden">${mark}<text data-series-label-for="aria-hidden" aria-hidden="true" x="30" y="14" font-size="12">aria hidden</text></g>
+            <g data-series="screen-reader-only">${mark}<text data-series-label-for="screen-reader-only" class="sr-only" x="30" y="14" font-size="12">screen reader only</text></g>
+            <g data-series="no-box">${mark}<text data-series-label-for="no-box" x="30" y="14" font-size="0">no box</text></g>
+            <g data-series="unpainted">${mark}<text data-series-label-for="unpainted" fill="none" x="30" y="14" font-size="12">unpainted</text></g>
+            <g data-series="outside">${mark}<text data-series-label-for="outside" x="30" y="-4000" font-size="12">outside the frame</text></g>
+            <g data-series="title-only">${mark}<title data-series-label-for="title-only">title only</title></g>
+            <g data-series="numeral-only">${mark}<text data-series-label-for="numeral-only" x="30" y="14" font-size="12">0.5</text></g>
+            <g data-series="contained-only">${mark}<text x="30" y="14" font-size="12">contained only</text></g>
+            <g data-series="in-plot">${mark}<text data-series-label-for="in-plot" x="200" y="14" font-size="12">named in the plot</text></g>
+            <g data-series="legend-named">${mark}</g>
+            <g data-series="legend-hidden">${mark}</g>
+          </svg>
+          <div data-instrument-legend="" data-planted="legend">
+            <span data-legend-item="" data-legend-series="legend-named">named in the legend</span>
+            <span data-legend-item="" data-legend-series="legend-hidden" class="sr-only">hidden legend entry</span>
+          </div>`,
+        );
+        return Boolean(root.querySelector('[data-planted="drawing"]'));
+      });
+      expect(planted, 'the planted drawing sits in the frame').toBe(true);
+      const unnamed = (await judge()).map((line) => line.match(/series "([^"]+)"/)?.[1] ?? line).sort();
+      expect(unnamed).toEqual(
+        [
+          'attribute-only',
+          'aria-hidden',
+          'screen-reader-only',
+          'no-box',
+          'unpainted',
+          'outside',
+          'title-only',
+          'numeral-only',
+          'contained-only',
+          'legend-hidden',
+        ].sort(),
+      );
+    } finally {
+      await context.close();
     }
-    expect(naming, 'legend entries that rely on colour words alone').toEqual([]);
-    expect(dangling, 'legend entries with no marks').toEqual([]);
-    expect(unexplained, 'plotted series with no legend and no label').toEqual([]);
   });
 
   test('VAL-B2-COL-010 legend swatches repeat the rendered marks exactly', async ({

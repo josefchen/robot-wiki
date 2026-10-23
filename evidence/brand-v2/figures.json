@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c20c30359e8300957429414d055d78e8688b27d11ed7393989b4d40335840435",
+  "fingerprint": "41d1bf7d0f3604a74451ed0adabcba2f24f11837a5c551bef1ad833ad2545b56",
   "viewports": [
     "375x812",
     "1440x900"
@@ -660,7 +660,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 23739,
+      "visibleTextLength": 23744,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -981,7 +981,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26812,
+      "visibleTextLength": 26814,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",
@@ -17126,7 +17126,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30306,
+      "visibleTextLength": 30311,
       "figures": [
         {
           "imageId": "centrifugal-governor-queen-street-mill",
@@ -17447,7 +17447,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 36345,
+      "visibleTextLength": 36347,
       "figures": [
         {
           "imageId": "pr2-willow-garage-2010",

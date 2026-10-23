@@ -353,7 +353,7 @@ export function DataScaleChart({
           >
             {/* Panel A, top: chatbot text, in tokens. */}
             <g data-testid="token-ruler" data-series="llm-corpus">
-              <DirectLabel x={LEFT} y={TOKEN_TITLE_Y}>
+              <DirectLabel x={LEFT} y={TOKEN_TITLE_Y} seriesFor="llm-corpus">
                 <tspan fontWeight={600}>Chatbot training text, in word pieces</tspan>
               </DirectLabel>
               {LLM_POINTS.map((p, index) => {
@@ -412,7 +412,7 @@ export function DataScaleChart({
                     data-picked={picked ? 'true' : 'false'}
                     opacity={picked ? 1 : 0.3}
                   >
-                    <DirectLabel x={NAME_X} y={f(y + MIDDLE)}>
+                    <DirectLabel x={NAME_X} y={f(y + MIDDLE)} seriesFor={human ? 'human-video' : 'robot-data'}>
                       {p.label}
                     </DirectLabel>
                     <circle
@@ -533,6 +533,7 @@ export function DataScaleChart({
                 x={LEFT}
                 y={NOTE_Y}
                 lines={annotationLines}
+                seriesFor="farm-projection"
                 from={[f(Math.min(farmX, LEFT + 40)), f(NOTE_Y + LINE + 6)]}
                 target={[farmX, FARM_Y]}
               />

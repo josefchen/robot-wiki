@@ -13,7 +13,7 @@ import {
   PresetGroup,
   SliderEnds,
 } from '@/components/ui/instrument';
-import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { AnatomyStage, type AnatomyKey } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { useEasedValue } from '@/components/motion/use-eased-value';
@@ -74,8 +74,15 @@ export const SLOW = 10;
 const HOLD_S = 1.2;
 /** How long the rig takes to roll back to the gate, in seconds. */
 const RESET_S = 1.1;
-/** The still stage's hint: it names both gauge riders, the lit one and the plain one. */
-export const RIDER_HINT = 'Lit: flown before the camera reports. Plain: swerve';
+/**
+ * The keys under the drawing: they name both gauge riders. The two are
+ * like-shaped slabs end to end, so the swerve's dashed outline, not the
+ * lit tint alone, is what tells them apart without colour.
+ */
+export const RIDER_KEYS: readonly AnatomyKey[] = [
+  { series: 'perception-latency', words: 'Lit: flown before the camera reports' },
+  { series: 'avoidance-maneuver', words: 'Dashed: swerve' },
+];
 
 type CameraId = 'stereo' | 'event' | 'custom';
 type AgilityId = `${(typeof AGILITY_STEPS)[number]}`;
@@ -367,12 +374,12 @@ export function PerceptionLatency({ className }: { className?: string }) {
       case 'track-0':
         return (
           <g data-testid="gauge-riders">
-            {/* The drawing carries no words; the still stage's hint under it names both riders (RIDER_HINT). */}
-            <g data-testid="latency-band" data-series="perception-latency" data-series-labelled={running ? undefined : ''} data-metres={blindM.toFixed(2)}>
+            {/* The drawing carries no words; the keys under it name both riders (RIDER_KEYS). */}
+            <g data-testid="latency-band" data-series="perception-latency" data-metres={blindM.toFixed(2)}>
               <Solid paths={riders.blind} tone="hi" lit />
             </g>
-            <g data-testid="avoid-band" data-series="avoidance-maneuver" data-series-labelled={running ? undefined : ''} data-metres={swerveM.toFixed(2)}>
-              <Solid paths={riders.swerve} tone="hi" />
+            <g data-testid="avoid-band" data-series="avoidance-maneuver" data-metres={swerveM.toFixed(2)}>
+              <Solid paths={riders.swerve} tone="hi" dashed />
             </g>
           </g>
         );
@@ -452,7 +459,8 @@ export function PerceptionLatency({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={RIG.WIDTH}
-          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : RIDER_HINT}
+          keys={RIDER_KEYS}
+          hint={running ? `Flying at its top safe speed, slowed ${SLOW} times` : undefined}
           readout={
             <>
               {cameraWords} · {swerveWords} · top safe speed <span data-testid="speedometer-reading">{`about ${speedKmh} km/h`}</span>

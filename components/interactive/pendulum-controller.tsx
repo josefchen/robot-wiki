@@ -29,7 +29,7 @@ import {
   type Preset,
 } from '@/components/ui/instrument';
 import { roleColour } from '@/components/motion/chart';
-import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { AnatomyStage, type AnatomyKey } from '@/components/iso/anatomy-stage';
 import { PartView } from '@/components/iso/part-view';
 import { Dots, Line, Solid } from '@/components/iso/react/draw';
 import { Stage } from '@/components/iso/react/live';
@@ -92,6 +92,13 @@ const STAGE_WORD: Record<Stability, string> = {
  * call that balanced.
  */
 const BALANCED_LEAN_RAD = (10 * Math.PI) / 180;
+
+/** The keys under the drawing: the pole, which is the plotted series, and the gauge's two needles. */
+export const STAGE_KEYS: readonly AnatomyKey[] = [
+  { series: 'pendulum-pole', words: `Pole: ${PENDULUM_PARAMS.massKg} kg weight, ${PENDULUM_PARAMS.lengthM} m rod` },
+  { words: "Long needle: the motor's push" },
+  { words: "Short needle: gravity's pull" },
+];
 function stageWord(stability: Stability, theta: number): string {
   if (stability === 'settled' && Math.abs(theta) > BALANCED_LEAN_RAD) return 'stuck leaning';
   return STAGE_WORD[stability];
@@ -162,9 +169,9 @@ function StandSlot({ part, theta, torque, pull, trail }: {
   }
   if (part.slot === 'pole') {
     const pole = poleParts(theta);
-    // The drawing carries no words; the stage status under it names the pole.
+    // The drawing carries no words; the key under it names the pole (STAGE_KEYS).
     return (
-      <g data-series="pendulum-pole" data-series-labelled="" data-part="pole">
+      <g data-series="pendulum-pole" data-part="pole">
         <g data-testid="pendulum-rod">
           {pole.rod.map((p, i) => (p.kind === 'slot' ? null : <PartView key={i} part={p} />))}
         </g>
@@ -373,9 +380,9 @@ export function PendulumController({
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Long needle: the motor's push. Short needle: gravity's pull."
+          keys={STAGE_KEYS}
           readout={stageReadout}
-          status="Illustrative simulation: 1 kg on a 1 m pole"
+          status="Illustrative simulation"
           data-testid="pendulum-stage-frame"
         >
           <Stage className="iso-stage">

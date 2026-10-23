@@ -354,7 +354,7 @@ export function HierarchyTimescales({
                     ))}
                   </g>
                   {/* Labelled in the plot: the lane's name sits right above these ticks, and the settle note counts them. */}
-                  <g data-series="fired" data-series-labelled="">
+                  <g data-series="fired">
                     {firedTicks.map((t) => (
                       <line
                         key={t}
@@ -406,13 +406,14 @@ export function HierarchyTimescales({
               </g>
             ))}
 
-            {/* Lane names sit above their lines, in the playhead's gaps. */}
+            {/* Lane names sit above their lines, in the playhead's gaps, and name the updates ticked on them. */}
             {system.lanes.map((lane, i) => {
               const baseline = laneTop(i) + LABEL_DY;
               return (
                 <g key={lane.id}>
                   <text
                     data-scene-axis=""
+                    data-series-label-for="fired pending"
                     x={LABEL_X}
                     y={baseline}
                     fontSize={CHART_TYPE.axisPx}

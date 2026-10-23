@@ -30,10 +30,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: [],
   },
   '/market-map/': {
-    title: 'Market Map: Robotics and Embodied AI Companies',
+    title: 'Market Map: Robotics Companies and Funding',
     headTerm: 'market map',
     description:
-      'Market map of the embodied-AI industry: robotics companies across six segments, filterable by approach, geography, stage and funding.',
+      'Market map of over 100 robotics and embodied-AI companies in six segments, from humanoids to foundation models, with disclosed funding and its sources.',
     queries: [],
   },
   '/playground/': {
@@ -114,10 +114,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['behavior cloning robotics', 'imitation learning compounding error', 'DAgger'],
   },
   '/manipulation/action-chunking/': {
-    title: 'Action Chunking for Robotics: ACT and ALOHA',
+    title: 'Action Chunking: ACT, Real-Time Chunking, PACE',
     headTerm: 'action chunking',
     description:
-      'Action chunking predicts a sequence of robot actions per inference. How ACT and ALOHA use it, the chunk-size tradeoff, temporal ensembling and theory.',
+      'Action chunking in ACT, ALOHA, real-time chunking (RTC) and PACE. In ACT\'s simulated ablation, success rose from 1% at chunk size 1 to 44% at 100.',
     queries: ['action chunking', 'ACT ALOHA', 'action chunking transformer'],
   },
   '/manipulation/diffusion-policy/': {
@@ -128,24 +128,24 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['diffusion policy', 'diffusion policy robotics'],
   },
   '/manipulation/vla-models/': {
-    title: 'Vision-Language-Action Models (VLAs) Explained',
+    title: 'Vision-Language-Action Models: RT-2 to OpenVLA',
     headTerm: 'vision-language-action models',
     description:
-      'What vision-language-action models (VLAs) are and how they work: RT-2, OpenVLA, Octo and pi0, and action tokens versus continuous action heads.',
+      'Vision-language-action models from RT-1 and RT-2 to Octo and OpenVLA. OpenVLA decodes 7 action tokens per step and runs at about 6 Hz on one RTX 4090.',
     queries: ['what is a VLA model', 'vision-language-action model'],
   },
   '/manipulation/pi-line/': {
-    title: 'Pi0 to Pi0.7: Physical Intelligence VLA Models',
+    title: 'Pi0, Pi0.5, Pi0.7: Physical Intelligence VLAs',
     headTerm: 'pi0',
     description:
-      'Physical Intelligence\'s pi0, pi0-FAST, pi0.5, pi0.6 and pi0.7: flow-matching action experts, FAST tokens, RL from experience, memory and open checkpoints.',
+      'Physical Intelligence\'s pi0, pi0-FAST, pi0.5, pi0.6 and pi0.7 explained. pi0 samples an action chunk in 10 flow-matching steps; pi0.6 and pi0.7 use five.',
     queries: ['pi0', 'Physical Intelligence pi0', 'pi0.5', 'pi0.7'],
   },
   '/manipulation/generalist-policies/': {
-    title: 'Generalist Robot Policies: Gemini, GR00T, Helix',
+    title: 'Generalist Robot Policies: GR00T, Helix, Skild',
     headTerm: 'generalist robot policies',
     description:
-      'Generalist robot policies compared: Gemini Robotics 2, GR00T, Helix 2.5, GEN-1.5, Skild S1 and GO-2 by architecture, evidence quality and open weights.',
+      'Generalist robot policies: Gemini Robotics, GR00T, Helix, GO-2, Skild and GEN-1.5. GR00T N1.7 has public 3B weights; Figure gives no Helix trial counts.',
     queries: ['generalist robot policy', 'robot foundation model companies', 'Helix vs GR00T vs Gemini Robotics'],
   },
   '/manipulation/comparison-matrix/': {
@@ -163,10 +163,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['hierarchical VLA', 'LLM robot planning', 'SayCan code as policies'],
   },
   '/manipulation/rl-finetuning/': {
-    title: 'RL Fine-Tuning for VLA Robot Policies',
+    title: 'RL Fine-Tuning for VLAs: Recap, HIL-SERL, DPPO',
     headTerm: 'RL fine-tuning',
     description:
-      'RL fine-tuning of robot policies and VLAs: HIL-SERL, DPPO, Recap, pi_RL, RL tokens and EXPO-FT, with reported results and caveats.',
+      'RL fine-tuning for robot policies and VLAs: DPPO, Recap, pi_RL, HIL-SERL and EXPO-FT. HIL-SERL trains most tasks on the real robot in 1 to 2.5 hours.',
     queries: ['RL fine-tuning VLA', 'reinforcement learning robot policy fine-tuning'],
   },
   '/manipulation/realtime-execution/': {
@@ -184,10 +184,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['cross-embodiment robot learning', 'human video to robot transfer'],
   },
   '/manipulation/knowledge-insulation/': {
-    title: 'Knowledge Insulation for VLA Training',
+    title: 'Knowledge Insulation in VLAs: The Pi0.5 Recipe',
     headTerm: 'knowledge insulation',
     description:
-      'Knowledge insulation trains a VLA backbone on FAST action tokens while a flow-matching action expert learns behind a stop-gradient. Recipe and results.',
+      'Knowledge insulation trains a VLA backbone on FAST tokens and blocks expert gradients. pi0 needs 7.5x the training steps of pi0.5 + KI on table bussing.',
     queries: ['knowledge insulation VLA', 'stop gradient VLA training'],
   },
   '/manipulation/robot-learning-roadmap/': {
@@ -380,10 +380,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['JEPA world model', 'V-JEPA 2', 'JEPA vs generative'],
   },
   '/world-models/generative-sim/': {
-    title: 'Generative Simulation for Robot Learning',
+    title: 'Generative Simulation: RoboGen and RoboCasa',
     headTerm: 'generative simulation',
     description:
-      'Generative simulation uses AI to author scenes, assets and tasks inside a physics engine: RoboGen, RoboCasa365, SimFoundry, Genesis World, Marble.',
+      'Generative simulation in RoboGen, Holodeck and RoboCasa. Going from 100 to 3,000 generated demos per task lifted RoboCasa success from 26.3% to 47.6%.',
     queries: ['generative simulation robotics', 'AI-generated simulation environments'],
   },
   '/world-models/model-based-robot-learning/': {
@@ -429,10 +429,10 @@ export const ROUTE_SEO_PROFILES: Readonly<Record<string, RouteSeoProfile>> = {
     queries: ['robot dexterity', 'dexterous robot hands', 'tactile sensing robot hand'],
   },
   '/frontier/generalization/': {
-    title: 'Robot Generalization in Unseen Homes',
+    title: 'Robot Generalization: Pi0.5, Pi0.7, Helix 2.5',
     headTerm: 'robot generalization',
     description:
-      'Robot generalization: how far policies transfer to unseen homes, from π0.5 and π0.7 to Figure\'s 30-home Helix 2.5 test, and what scaling laws measure.',
+      'Robot generalization in unseen homes: pi0.5, pi0.7 and Helix 2.5. Figure reports 56% zero-shot success in 30 homes, against 9% without Index pretraining.',
     queries: ['robot generalization', 'zero-shot robot unseen homes', 'generalist robot policy'],
   },
   '/frontier/competing-theses/': {

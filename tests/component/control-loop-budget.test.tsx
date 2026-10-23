@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { ControlLoopBudget } from '@/components/interactive/control-loop-budget';
@@ -157,6 +157,13 @@ describe('ControlLoopBudget series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<ControlLoopBudget />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['clb-inference', 'clb-overrun']);
+    // One label names the call, both its part inside the first beat and its hatched overrun.
+    expect(seriesNames(container)).toEqual({
+      'clb-inference': ['The brain working out the next move'],
+      'clb-overrun': ['The brain working out the next move'],
+    });
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
+import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -340,7 +340,7 @@ describe('RrtExplorer', () => {
     const hint = () => container.querySelector('[data-anatomy-hint]')?.textContent;
     const pen = () => screen.getByTestId('rrt-pen').getAttribute('data-at')!.split(' ').map(Number);
     const at = (p: { x: number; y: number }) => [Number(p.x.toFixed(2)), Number(p.y.toFixed(2))];
-    expect(hint()).toBe('The first branch to reach the goal becomes the path');
+    expect(hint()).toBe('Lit: the first branch to reach the goal');
     // With the path inked, the gantry parks past the map's right edge so the whole path shows.
     expect(pen()).toEqual(at(PARK));
     expect(PARK.x).toBeGreaterThan(RRT_SCENE.width);
@@ -354,7 +354,7 @@ describe('RrtExplorer', () => {
 
   it('reads the growth in plain words on the stage', () => {
     const { container } = render(<RrtExplorer />);
-    expect(container.querySelector('[data-readout]')?.textContent).toBe(`${TOTAL} branches · the path is found`);
+    expect(container.querySelector('[data-readout]')?.textContent).toBe(`${TOTAL} branches · path found`);
     fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), { target: { value: '1' } });
     expect(container.querySelector('[data-readout]')?.textContent).toBe('1 branch · still exploring');
     expect(readoutFor(0, false)).toBe('No branches yet');
@@ -491,9 +491,10 @@ describe('RrtExplorer served HTML', () => {
     const frame = new JSDOM(html).window.document.querySelector('[data-figure-frame]')!;
     expect(mainViewSymbolHits(frame)).toEqual([]);
     const { lines } = mainViewText(frame);
-    // The start peg and the goal ring are named in words by the stage's hint and readout, never by text in the drawing.
-    expect(lines.some((line) => line.includes('The first branch to reach the goal becomes the path'))).toBe(true);
-    expect(lines.some((line) => line.includes(`${TOTAL} branches · the path is found`))).toBe(true);
+    // The tree, the path and the goal are named in words by the key, the hint and the readout under the drawing, never by text in it.
+    expect(lines.some((line) => line.includes('Thin lines: the tree'))).toBe(true);
+    expect(lines.some((line) => line.includes('Lit: the first branch to reach the goal'))).toBe(true);
+    expect(lines.some((line) => line.includes(`${TOTAL} branches · path found`))).toBe(true);
     expect(lines.some((line) => /units|iteration|nodes/.test(line))).toBe(false);
     const svg = frame.querySelector('svg.iso-svg')!;
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
@@ -506,6 +507,15 @@ describe('RrtExplorer series encoding (VAL-B2-VIZ-002/004)', () => {
   it('names every plotted series in the plot or the legend and tells each pair apart without colour', () => {
     const { container } = render(<RrtExplorer />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['rrt-tree']);
+    // The drawing carries no words, so the tree is named by the unboxed key under it.
+    expect(seriesNames(container)).toEqual({ 'rrt-tree': ['Thin lines: the tree'] });
+    expect(container.querySelector('[data-anatomy-keys] [data-legend-series="rrt-tree"]')?.closest('[data-figure-stage]')).not.toBeNull();
+    // Visible text tied to each series names it; no series vouches for itself with a marker attribute.
+    expect(container.querySelector('[data-series-labelled]')).toBeNull();
+    expect(seriesEncodingViolations(container)).toEqual([]);
+    // The key names the tree at every stage of its growth, not only at settle.
+    fireEvent.change(screen.getByRole('slider', { name: /exploration iteration/i }), { target: { value: '1' } });
+    expect(seriesNames(container)).toEqual({ 'rrt-tree': ['Thin lines: the tree'] });
     expect(seriesEncodingViolations(container)).toEqual([]);
   });
 });

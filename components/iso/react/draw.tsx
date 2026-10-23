@@ -17,12 +17,14 @@ interface SolidProps {
   halo?: boolean;
   lit?: boolean;
   flat?: boolean;
+  /** A dashed outline, so a part reads apart from a like-shaped neighbour without colour. */
+  dashed?: boolean;
   className?: string;
   inner?: React.ReactNode;
   children?: React.ReactNode;
 }
 
-export function Solid({ paths, tone = "hi", crease = "faint", halo = false, lit = false, flat = false, className, inner, children }: SolidProps) {
+export function Solid({ paths, tone = "hi", crease = "faint", halo = false, lit = false, flat = false, dashed, className, inner, children }: SolidProps) {
   return (
     <g className={className ? `iso-solid ${className}` : "iso-solid"} data-lit={lit ? "" : undefined}>
       {halo ? <path className="iso-halo" d={paths.fill} /> : null}
@@ -32,7 +34,7 @@ export function Solid({ paths, tone = "hi", crease = "faint", halo = false, lit 
       {crease === "none" || !paths.crease ? null : <path className="iso-line iso-crease" data-tone={crease} d={paths.crease} />}
       {crease === "none" || !paths.bevel ? null : <path className="iso-line iso-bevel" data-tone={crease} d={paths.bevel} />}
       {inner}
-      <path className="iso-line iso-edge" data-tone={tone} d={paths.outline} />
+      <path className="iso-line iso-edge" data-tone={tone} data-dashed={dashed ? "" : undefined} d={paths.outline} />
       {children}
     </g>
   );
