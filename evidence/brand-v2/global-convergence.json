@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "237409fc5cd0fd4a3d34acb8ca9f6e340892e3bba0787dda53e603ba25aee7fb",
+  "fingerprint": "37dc59bfc439ec7fab79c52096cf3c8657f20bdc1b5fe6282e71b2d45fcc1414",
   "viewports": [
     "375x812",
     "768x1024",
@@ -104,7 +104,7 @@
           "frames": 0,
           "citationLabels": 3,
           "insetTextRuns": 155,
-          "collisionTextBoxes": 186,
+          "collisionTextBoxes": 184,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
@@ -417,7 +417,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-21",
+            "text": "2026-10-23",
             "exemption": null
           },
           {
@@ -429,10 +429,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 202,
+            "maxLineWidthPx": 186,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Generative Simulation",
+            "text": "Motion Planning",
             "exemption": null
           },
           {
@@ -689,8 +689,8 @@
           }
         ],
         "content": {
-          "strings": 122,
-          "digest": "0a99ac5d"
+          "strings": 123,
+          "digest": "e611856e"
         }
       },
       "focus": [
@@ -1329,7 +1329,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-21",
+            "text": "2026-10-23",
             "exemption": null
           },
           {
@@ -1341,10 +1341,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 322,
+            "maxLineWidthPx": 213,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Generative Simulation",
+            "text": "Motion Planning",
             "exemption": null
           },
           {
@@ -1608,8 +1608,8 @@
           }
         ],
         "content": {
-          "strings": 122,
-          "digest": "0a99ac5d"
+          "strings": 123,
+          "digest": "e611856e"
         }
       },
       "focus": [
@@ -2249,7 +2249,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-21",
+            "text": "2026-10-23",
             "exemption": null
           },
           {
@@ -2261,10 +2261,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 322,
+            "maxLineWidthPx": 213,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Generative Simulation",
+            "text": "Motion Planning",
             "exemption": null
           },
           {
@@ -2528,8 +2528,8 @@
           }
         ],
         "content": {
-          "strings": 122,
-          "digest": "0a99ac5d"
+          "strings": 123,
+          "digest": "e611856e"
         }
       },
       "focus": [
@@ -33695,30 +33695,30 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2969,
+          "paintedElements": 2970,
           "actions": 171,
           "secondaryActions": 14,
           "links": 153,
-          "textRuns": 479,
+          "textRuns": 480,
           "frames": 3,
           "citationMarks": 62,
-          "insetTextRuns": 782,
-          "collisionTextBoxes": 987,
+          "insetTextRuns": 783,
+          "collisionTextBoxes": 989,
           "headings": 15,
-          "paragraphs": 140,
+          "paragraphs": 141,
           "sectionHeads": 9,
-          "spacingValues": 770,
+          "spacingValues": 771,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 47,
           "hiddenTextRuns": 45,
-          "proseRuns": 580,
+          "proseRuns": 582,
           "borderedSides": 10,
           "rails": 10,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 73
+          "compositionBlocks": 74
         },
         "findings": [],
         "typeTuples": [
@@ -33867,7 +33867,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 41,
+            "count": 42,
             "element": "p",
             "text": "Motion planning computes a collision-fre",
             "exemption": null
@@ -34149,7 +34149,7 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 49,
+            "count": 50,
             "element": "p",
             "exemption": null
           },
@@ -34322,8 +34322,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 595,
-          "digest": "1382bbc1"
+          "strings": 596,
+          "digest": "7dd9648e"
         }
       },
       "focus": [
@@ -34636,30 +34636,30 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2969,
+          "paintedElements": 2970,
           "actions": 171,
           "secondaryActions": 14,
           "links": 153,
-          "textRuns": 479,
+          "textRuns": 480,
           "frames": 3,
           "citationMarks": 62,
-          "insetTextRuns": 922,
-          "collisionTextBoxes": 692,
+          "insetTextRuns": 923,
+          "collisionTextBoxes": 693,
           "headings": 15,
-          "paragraphs": 140,
+          "paragraphs": 141,
           "sectionHeads": 9,
-          "spacingValues": 770,
+          "spacingValues": 771,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 47,
           "hiddenTextRuns": 45,
-          "proseRuns": 409,
+          "proseRuns": 410,
           "borderedSides": 10,
           "rails": 10,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 73
+          "compositionBlocks": 74
         },
         "findings": [],
         "typeTuples": [
@@ -34808,7 +34808,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 41,
+            "count": 42,
             "element": "p",
             "text": "Motion planning computes a collision-fre",
             "exemption": null
@@ -35104,7 +35104,7 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 49,
+            "count": 50,
             "element": "p",
             "exemption": null
           },
@@ -35270,8 +35270,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 595,
-          "digest": "1382bbc1"
+          "strings": 596,
+          "digest": "7dd9648e"
         }
       },
       "focus": [
@@ -35584,32 +35584,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3169,
+          "paintedElements": 3170,
           "actions": 240,
           "secondaryActions": 14,
           "persistentStates": 1,
           "links": 222,
-          "textRuns": 609,
+          "textRuns": 610,
           "frames": 3,
           "citationMarks": 62,
-          "insetTextRuns": 1052,
-          "collisionTextBoxes": 773,
+          "insetTextRuns": 1053,
+          "collisionTextBoxes": 774,
           "headings": 15,
-          "paragraphs": 140,
+          "paragraphs": 141,
           "sectionHeads": 9,
-          "spacingValues": 1026,
+          "spacingValues": 1027,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 47,
           "hiddenTextRuns": 45,
-          "proseRuns": 498,
+          "proseRuns": 499,
           "borderedSides": 8,
           "rails": 8,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 73
+          "compositionBlocks": 74
         },
         "findings": [],
         "typeTuples": [
@@ -35773,7 +35773,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 927,
-            "count": 41,
+            "count": 42,
             "element": "p",
             "text": "Motion planning computes a collision-fre",
             "exemption": null
@@ -36092,7 +36092,7 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 49,
+            "count": 50,
             "element": "p",
             "exemption": null
           },
@@ -36107,14 +36107,14 @@
             "valuePx": 4.55,
             "property": "marginTop",
             "count": 62,
-            "element": "span#_R_140lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "element": "span#_R_280lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
             "count": 62,
-            "element": "span#_R_140lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "element": "span#_R_280lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
@@ -36286,8 +36286,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 595,
-          "digest": "1382bbc1"
+          "strings": 596,
+          "digest": "7dd9648e"
         }
       },
       "focus": [
@@ -36600,31 +36600,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1900,
+          "paintedElements": 1901,
           "actions": 204,
           "secondaryActions": 28,
           "svgGradients": 1,
           "links": 172,
-          "textRuns": 531,
+          "textRuns": 532,
           "frames": 3,
           "citationMarks": 60,
-          "insetTextRuns": 777,
-          "collisionTextBoxes": 1197,
+          "insetTextRuns": 778,
+          "collisionTextBoxes": 1200,
           "headings": 16,
-          "paragraphs": 174,
+          "paragraphs": 175,
           "sectionHeads": 12,
-          "spacingValues": 719,
+          "spacingValues": 720,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 66,
           "hiddenTextRuns": 64,
-          "proseRuns": 625,
+          "proseRuns": 628,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 69
+          "compositionBlocks": 70
         },
         "findings": [],
         "typeTuples": [
@@ -36773,7 +36773,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 46,
+            "count": 47,
             "element": "p",
             "text": "Perception for manipulation turns camera",
             "exemption": null
@@ -37010,7 +37010,7 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 46,
+            "count": 47,
             "element": "p",
             "exemption": null
           },
@@ -37205,8 +37205,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 716,
-          "digest": "11b6cd4f"
+          "strings": 717,
+          "digest": "58973d3b"
         }
       },
       "focus": [
@@ -37351,7 +37351,7 @@
           "offsetExemption": null
         },
         {
-          "element": "input#_R_43lav5ubsnmtb_-handeye[data-brand-control-id=\"control:input\"][data-testid=\"perception-handeye-slider\"]",
+          "element": "input#_R_44lav5ubsnmtb_-handeye[data-brand-control-id=\"control:input\"][data-testid=\"perception-handeye-slider\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -37361,7 +37361,7 @@
           "offsetExemption": null
         },
         {
-          "element": "input#_R_43lav5ubsnmtb_-distance[data-brand-control-id=\"control:input\"][data-testid=\"perception-distance-slider\"]",
+          "element": "input#_R_44lav5ubsnmtb_-distance[data-brand-control-id=\"control:input\"][data-testid=\"perception-distance-slider\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -37519,31 +37519,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1900,
+          "paintedElements": 1901,
           "actions": 204,
           "secondaryActions": 28,
           "svgGradients": 1,
           "links": 172,
-          "textRuns": 531,
+          "textRuns": 532,
           "frames": 3,
           "citationMarks": 60,
-          "insetTextRuns": 812,
-          "collisionTextBoxes": 789,
+          "insetTextRuns": 813,
+          "collisionTextBoxes": 790,
           "headings": 16,
-          "paragraphs": 174,
+          "paragraphs": 175,
           "sectionHeads": 12,
-          "spacingValues": 719,
+          "spacingValues": 720,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 66,
           "hiddenTextRuns": 64,
-          "proseRuns": 402,
+          "proseRuns": 403,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 69
+          "compositionBlocks": 70
         },
         "findings": [],
         "typeTuples": [
@@ -37692,7 +37692,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 703,
-            "count": 46,
+            "count": 47,
             "element": "p",
             "text": "Perception for manipulation turns camera",
             "exemption": null
@@ -37943,7 +37943,7 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 46,
+            "count": 47,
             "element": "p",
             "exemption": null
           },
@@ -38131,8 +38131,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 716,
-          "digest": "11b6cd4f"
+          "strings": 717,
+          "digest": "58973d3b"
         }
       },
       "focus": [
@@ -38277,7 +38277,7 @@
           "offsetExemption": null
         },
         {
-          "element": "input#_R_43lav5ubsnmtb_-handeye[data-brand-control-id=\"control:input\"][data-testid=\"perception-handeye-slider\"]",
+          "element": "input#_R_44lav5ubsnmtb_-handeye[data-brand-control-id=\"control:input\"][data-testid=\"perception-handeye-slider\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -38287,7 +38287,7 @@
           "offsetExemption": null
         },
         {
-          "element": "input#_R_43lav5ubsnmtb_-distance[data-brand-control-id=\"control:input\"][data-testid=\"perception-distance-slider\"]",
+          "element": "input#_R_44lav5ubsnmtb_-distance[data-brand-control-id=\"control:input\"][data-testid=\"perception-distance-slider\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -38445,33 +38445,33 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2097,
+          "paintedElements": 2098,
           "actions": 273,
           "secondaryActions": 28,
           "persistentStates": 1,
           "svgGradients": 1,
           "links": 241,
-          "textRuns": 658,
+          "textRuns": 659,
           "frames": 3,
           "citationMarks": 60,
-          "insetTextRuns": 939,
-          "collisionTextBoxes": 865,
+          "insetTextRuns": 940,
+          "collisionTextBoxes": 866,
           "headings": 16,
-          "paragraphs": 174,
+          "paragraphs": 175,
           "sectionHeads": 12,
-          "spacingValues": 966,
+          "spacingValues": 967,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 66,
           "hiddenTextRuns": 64,
-          "proseRuns": 485,
+          "proseRuns": 486,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 69
+          "compositionBlocks": 70
         },
         "findings": [],
         "typeTuples": [
@@ -38635,7 +38635,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 928,
-            "count": 46,
+            "count": 47,
             "element": "p",
             "text": "Perception for manipulation turns camera",
             "exemption": null
@@ -38909,7 +38909,7 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 46,
+            "count": 47,
             "element": "p",
             "exemption": null
           },
@@ -39125,8 +39125,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 716,
-          "digest": "11b6cd4f"
+          "strings": 717,
+          "digest": "58973d3b"
         }
       },
       "focus": [
@@ -39371,7 +39371,7 @@
           "offsetExemption": null
         },
         {
-          "element": "input#_R_43lav5ubsnmtb_-handeye[data-brand-control-id=\"control:input\"][data-testid=\"perception-handeye-slider\"]",
+          "element": "input#_R_44lav5ubsnmtb_-handeye[data-brand-control-id=\"control:input\"][data-testid=\"perception-handeye-slider\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -39381,7 +39381,7 @@
           "offsetExemption": null
         },
         {
-          "element": "input#_R_43lav5ubsnmtb_-distance[data-brand-control-id=\"control:input\"][data-testid=\"perception-distance-slider\"]",
+          "element": "input#_R_44lav5ubsnmtb_-distance[data-brand-control-id=\"control:input\"][data-testid=\"perception-distance-slider\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -128953,7 +128953,7 @@
         "controlGaps": [],
         "content": {
           "strings": 451,
-          "digest": "dc6dc673"
+          "digest": "973f6e18"
         }
       },
       "focus": [
@@ -129810,7 +129810,7 @@
         "controlGaps": [],
         "content": {
           "strings": 451,
-          "digest": "dc6dc673"
+          "digest": "973f6e18"
         }
       },
       "focus": [
@@ -130735,7 +130735,7 @@
         "controlGaps": [],
         "content": {
           "strings": 451,
-          "digest": "dc6dc673"
+          "digest": "973f6e18"
         }
       },
       "focus": [

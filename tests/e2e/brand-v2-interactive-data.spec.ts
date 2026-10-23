@@ -1,6 +1,7 @@
-import type { Browser, Locator, Page } from '@playwright/test';
+import type { Browser, Locator } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import { forEachInOwnContext } from './helpers/per-route-context';
+import { mountRoots } from './helpers/interactive-mount-roots';
 import { buildInteractiveExecutionPlan } from '../../lib/brand-v2-runners';
 import {
   INTERACTIVE_DATA_CLASSIFICATION,
@@ -31,10 +32,14 @@ import { xFor } from '../../components/interactive/egoscale-scaling';
  * VAL-B2-COL-010, VAL-B2-COMP-009/010).
  *
  * The population is the registry's own execution plan: every mount of every
- * registered interactive source, zipped one-to-one with the rendered
- * instrument frames on its route, or for a plain prose table with its
- * unframed table (the zip is asserted, so a route whose frame count drifts
- * from its mount count fails instead of mis-binding).
+ * registered interactive source, bound by tests/e2e/helpers/
+ * interactive-mount-roots.ts to the instrument frame that names its
+ * component (the ordinal-th such frame on its route), or for a plain prose
+ * table to its unframed table. Paused motion scenes and clips share the frame
+ * primitive but own separate contracts, so they are not in this corpus. The
+ * binding asserts one frame per framed mount and every frame bound exactly
+ * once, so a route whose frames drift from its mounts fails instead of
+ * handing a mount its neighbour's instrument.
  * Evidence is observed in the live DOM - computed paints, dash arrays,
  * geometry tags, legend swatches, table cells - and classified by the pure
  * predicates in lib/brand-v2-interactive-data.ts, which a unit test keeps
@@ -46,50 +51,21 @@ import { xFor } from '../../components/interactive/egoscale-scaling';
  * worker); every assertion below reads the same evidence.
  */
 const VIEWPORT = { width: 1440, height: 900 } as const;
-// This corpus grades registered exploratory labs. Paused motion scenes and
-// clips own separate teaching/evidence contracts and share the frame primitive.
-const FRAME_SELECTOR = '[data-brand-module-signature="instrument-frame"]:not([data-motion-scene]):not([data-motion-clip])';
-// A plain prose table is not a figure, so its mount has no frame: its root is
-// the block around the shared table region that no frame contains. Its table
-// still answers to the same table-semantics and honesty gates below.
-const PLAIN_TABLE_SOURCES = new Set([
-  'interactive:DatasetTable',
-  'interactive:HardwareGuide',
-  'interactive:TeleopRigMatrix',
-]);
-const UNFRAMED_TABLE_REGION =
-  'main [data-brand-frame-interior-registered="table"]:not([data-brand-module-signature="instrument-frame"] *)';
+
+type ExecutionPlan = ReturnType<typeof buildInteractiveExecutionPlan>;
 
 /**
- * Each mount's root on its route, in registry order: the next frame, or for
- * a plain-table mount the block around the next unframed table region. Both
- * counts are asserted so a mount can never bind to another mount's markup.
+ * The identities `mountRoots` binds by. A registry mount records its source,
+ * not its component, so the component comes from that source.
  */
-async function mountRoots(
-  page: Page,
-  route: string,
-  mounts: readonly { sourceId: string }[],
-): Promise<Locator[]> {
-  const plainCount = mounts.filter((mount) => PLAIN_TABLE_SOURCES.has(mount.sourceId)).length;
-  const frames = page.locator(FRAME_SELECTOR);
-  const regions = page.locator(UNFRAMED_TABLE_REGION);
-  expect(
-    await frames.count(),
-    `${route} renders one instrument frame per framed registry mount (${mounts.length - plainCount})`,
-  ).toBe(mounts.length - plainCount);
-  if (plainCount > 0) {
-    expect(
-      await regions.count(),
-      `${route} renders one unframed table per plain-table mount (${plainCount})`,
-    ).toBe(plainCount);
-  }
-  let frameIndex = 0;
-  let regionIndex = 0;
-  return mounts.map((mount) =>
-    PLAIN_TABLE_SOURCES.has(mount.sourceId)
-      ? regions.nth(regionIndex++).locator('xpath=..')
-      : frames.nth(frameIndex++),
-  );
+function mountIdentities(plan: ExecutionPlan, mounts: readonly ExecutionPlan['mounts'][number][]) {
+  const sourceById = new Map(plan.sources.map((source) => [source.id, source]));
+  return mounts.map(({ id, sourceId, ordinal }) => ({
+    id,
+    sourceId,
+    component: sourceById.get(sourceId)?.component ?? sourceId,
+    ordinal,
+  }));
 }
 
 const TOKEN_VARS = [
@@ -484,7 +460,7 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
     await page.setViewportSize(VIEWPORT);
     await page.goto(`${staticBase}${route}`);
     const routeText = (await page.locator('main').innerText()).replace(/\s+/g, ' ').trim();
-    const roots = await mountRoots(page, route, mounts);
+    const roots = await mountRoots(page, route, mountIdentities(plan, mounts));
     routeCanvasCounts.push({
       route,
       count: await page.locator('canvas').count(),
@@ -1142,7 +1118,7 @@ test.describe('brand-v2 interactive data legends and render parity', () => {
             Object.keys(element).some((key) => key.startsWith('__reactFiber$')),
           ),
         );
-        const roots = await mountRoots(page, route, mounts);
+        const roots = await mountRoots(page, route, mountIdentities(plan, mounts));
         for (let index = 0; index < mounts.length; index += 1) {
           const frame = roots[index];
           const sortButtons = frame.getByRole('button', { name: /^Sort by / });

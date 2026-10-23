@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176644, sha256: 'eb58a669984841e3d50e4ca5d4a9076d53416e944024be31d7d95cce3962314b' };
+const reviewPin = { bytes: 176644, sha256: '6b0a92c50838953a06d788c9bfee27f056dc9ab3249e1a7a755163760c3e1d39' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -182,8 +182,8 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/control.mdx', [16856, 'b9262408942a654683cd35db3711dbb3d94611b14007855651a6b8a3a2e4a54a']],
   ['content/classical/grasp-planning.mdx', [12638, '319462256bce91bc457ae3ce5a91bd36f7b8418244a4e0ea331438e4167cf00c']],
   ['content/classical/kinematics.mdx', [10771, 'ba9f8e122801d873d4b13b4ee118a6166a976a9420f84c485e614e04716c81f6']],
-  ['content/classical/motion-planning.mdx', [18261, 'b9bf3ac50a85dbe34c942f6a7df3490ab044570e9e30a71ae4cd9cfeac65f3cc']],
-  ['content/classical/perception.mdx', [21653, '5377e9b86f325dcf85a1655d9fde3d05be3636fd9c3ac5e31fce1f364599ce82']],
+  ['content/classical/motion-planning.mdx', [18345, '5971af8f62c33546c994c2ac715474ef3f59ea7e891a85f47feb93784352fcd6']],
+  ['content/classical/perception.mdx', [21744, '7338584d0ddec293b3c43931fcde06d7e2e537c175a405db57db870942b716e6']],
   ['content/classical/ros2-for-ml-engineers.mdx', [8903, '676d1a3e723e9478440dba49b0e10f70bd4f37e5b68bea5d1c8daa2d6730a520']],
   ['content/classical/scene-representation.mdx', [16376, '6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc']],
   ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],
@@ -207,7 +207,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/cross-embodiment.mdx', [9803, '4cb0ce6f4c00c06f350e83304a3557bd0db30ea2fd542287fbcbccfeccfdefa2']],
   ['content/manipulation/diffusion-policy.mdx', [9652, '54f0f2f2c5f094a44a386c62dc1ee14a9fc9f8aa5e1d3b6c33920556f8053dc9']],
   ['content/manipulation/foundation-models.mdx', [10345, '6a5c7383f6078015d5dd2401cc6474093200bcc048a976f9695e1016bede4747']],
-  ['content/manipulation/generalist-policies.mdx', [11335, '416b72fd5bfca8b5338d249ee3b8ce9a39d24c307dbe37125a1ca6fc004e8cd6']],
+  ['content/manipulation/generalist-policies.mdx', [11341, '97da58646f07c48b8b144f7fe3d6d1565a45df52a32fae4243ee87f4ffea8123']],
   ['content/manipulation/hierarchical.mdx', [11881, '8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691']],
   ['content/manipulation/knowledge-insulation.mdx', [8651, 'b97c1b7b1971dd73d103fa5479680813c69375fda35f1dd791553d76de904d9b']],
   ['content/manipulation/pi-line.mdx', [12914, '22b3e62a57a42dda336cda4619dc08bfaf177e094f4d7586044f8ee47bbd077c']],

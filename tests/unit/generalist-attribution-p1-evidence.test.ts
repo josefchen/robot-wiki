@@ -13,7 +13,8 @@ import { headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, s
 import { committedSource } from '../helpers/continuation-integration';
 import { preDomainPass, preSeoPassHash, preSeoPassText } from '../helpers/seo-pass';
 import {
-  domainPassEndpoint, humanize20261012Endpoint, imagesA20261013Endpoint, kolBatch20261021Endpoint, preDomainPassCitations,
+  domainPassEndpoint, educationalCue20261023Endpoint, humanize20261012Endpoint, imagesA20261013Endpoint,
+  kolBatch20261021Endpoint, preDomainPassCitations,
 } from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -178,7 +179,8 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
         && !a.id.startsWith('humanizer-manipulation-v3-') && !a.id.startsWith('educational-cue-20260926-')
         && !a.id.startsWith('seo-pass-20261002-') && !a.id.startsWith('reader-first-20261003-')
         && !a.id.startsWith('domain-pass-20261006-') && !a.id.startsWith('humanize-20261012-manipulation-')
-        && !a.id.startsWith('images-a-20261013-') && !a.id.startsWith('kol-batch-20261021-'))
+        && !a.id.startsWith('images-a-20261013-') && !a.id.startsWith('kol-batch-20261021-')
+        && !a.id.startsWith('educational-cue-20261023-'))
       .at(-1)!.newHash;
     expect(hashOf(corrected)).toBe(lastPrePassAnchor);
     // The cue re-anchor is a sealed resolution that binds every prior
@@ -198,13 +200,15 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
     // its edge reconciles the reader-first endpoint, the 2026-10-12
     // manipulation humanize pass carries its last batch on, and images bundle
     // A of 2026-10-13 carries that on; the KOL triage batch of 2026-10-21
-    // carries it to the live article with the Steertuning paragraph.
+    // adds the Steertuning paragraph, and the 2026-10-23 cue fix carries it
+    // to the live article with the timeline's operating cue.
     const domainPass = approvals.find(a => a.id === 'domain-pass-20261006-g3-prose-generalist-policies')!;
     expect(domainPass.reconciles?.some(binding => binding.id === readerFirst.id && binding.newHash === readerFirst.newHash)).toBe(true);
-    expect(hashOf(read(articlePath))).toBe(kolBatch20261021Endpoint(approvals, 'prose',
-      'article:manipulation/generalist-policies', imagesA20261013Endpoint(approvals, 'prose',
-        'article:manipulation/generalist-policies', humanize20261012Endpoint(approvals, 'prose',
-          'article:manipulation/generalist-policies', domainPassEndpoint(approvals, domainPass).newHash))));
+    expect(hashOf(read(articlePath))).toBe(educationalCue20261023Endpoint(approvals, 'prose',
+      'article:manipulation/generalist-policies', kolBatch20261021Endpoint(approvals, 'prose',
+        'article:manipulation/generalist-policies', imagesA20261013Endpoint(approvals, 'prose',
+          'article:manipulation/generalist-policies', humanize20261012Endpoint(approvals, 'prose',
+            'article:manipulation/generalist-policies', domainPassEndpoint(approvals, domainPass).newHash)))));
     expect(article.split(newSpan.replace('Its inspected v4 methods describe', 'Its inspected methods describe'))).toHaveLength(2);
     expect(matter(article).data).toEqual(matter(before(articlePath)).data);
     expect(article).not.toContain('GO-1 was open-sourced alongside');
@@ -380,11 +384,12 @@ describe('generalist originals 15 and 21, exact attribution and metadata correct
             || (domainPass.reconciles ?? []).some(binding => binding.newHash === seo?.newHash)).toBe(true);
         }
         // The 2026-10-12 manipulation humanize pass, then images bundle A of
-        // 2026-10-13, then the KOL triage batch of 2026-10-21, carry the
-        // member on to HEAD.
+        // 2026-10-13, then the KOL triage batch of 2026-10-21, then the
+        // 2026-10-23 cue fix, carry the member on to HEAD.
         if (seo) {
-          expect(kolBatch20261021Endpoint(approvals, manifest, memberId, imagesA20261013Endpoint(approvals, manifest, memberId,
-            humanize20261012Endpoint(approvals, manifest, memberId, domainPass?.newHash ?? seo.newHash))))
+          expect(educationalCue20261023Endpoint(approvals, manifest, memberId,
+            kolBatch20261021Endpoint(approvals, manifest, memberId, imagesA20261013Endpoint(approvals, manifest, memberId,
+              humanize20261012Endpoint(approvals, manifest, memberId, domainPass?.newHash ?? seo.newHash)))))
             .toBe(currentHash(manifest, memberId));
         }
         expect(a?.newHash).toBe(endpoint);

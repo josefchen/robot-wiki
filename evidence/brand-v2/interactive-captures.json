@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6a9117d6be6ad1d8191de8bf5d3708a120fd3473eb07b349eae2d52d3987637c",
+  "fingerprint": "644e522b57706d2d64aae2a143fb136fc8f7936f29a2627d2998ad371c4927ec",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3086,7 +3086,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "f97dcf3931f8ab7bfc035b76c105d92ed3e952809db4500ea585c203a3d79191",
+          "sha256": "a247771b891d8967d03cad64cf0d6a3c54d5b5463f0622b8ffde610270aff597",
           "widthPx": 327,
           "heightPx": 655,
           "settleAttempts": 2,
@@ -3101,7 +3101,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far the search has grown: exploration iteration 0 of 288\" 288 to 0",
-          "sha256": "5ffa5c44537a65b1bb56f1cb11e8e5dc2aa2f74fd0d06c908a448ee71ad36aea",
+          "sha256": "11b625f53cd664bec5b9a7e507bc8ea22de2b348dd1b8d8a8c98fe7990bff829",
           "widthPx": 327,
           "heightPx": 637,
           "settleAttempts": 2,
@@ -3205,7 +3205,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "2929ab5d6edb7cc7048636dd6b43602bbd54b53103c4e0b097da6ff0ffe51e6f",
+          "sha256": "2145a4458c01af3083475f0f0d21294becd8ffe8b59175de9fea7e86d4c8848d",
           "widthPx": 930,
           "heightPx": 949,
           "settleAttempts": 2,
@@ -3220,7 +3220,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far the search has grown: exploration iteration 0 of 288\" 288 to 0",
-          "sha256": "ef1b8e00524a669445db8f9188b62a3174d3648550fc628ce993f450eae49033",
+          "sha256": "d162c73a5fb0d8299b35540c9f3b72eeeb42daf105341a077eb1b4c6083dd58c",
           "widthPx": 930,
           "heightPx": 949,
           "settleAttempts": 2,
@@ -3324,12 +3324,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "3de63d214c68894e41f95f382db685cd7222a313b885d45f70371e7952de9b34",
+          "sha256": "b8e28654bbc9aa255e7a288753790e328c211f8b22613388cccdd607939e4f29",
           "widthPx": 327,
-          "heightPx": 695,
+          "heightPx": 694,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.26,
+          "luminanceSpread": 28.28,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -3339,12 +3339,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far the camera is tilted: the hand-eye rotation error in\" 0.5 to 3",
-          "sha256": "560cb9339a0c8889d5a3b55f1fe006e12ee23f25c8f368aa6657e7c7ec8e6f9a",
+          "sha256": "4f272726c978be8f868ad70e9a60f5705ba435538641d68a43de1bd5aba89545",
           "widthPx": 327,
-          "heightPx": 695,
+          "heightPx": 694,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.27,
+          "luminanceSpread": 28.29,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -3457,7 +3457,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "61bbeec406e9ab6b7fa9672f1083f63329055c9b842a42f410ea072220146065",
+          "sha256": "ecf46b7d3f0fb35812d9424b16e093e2ba687d4e2f908b795e318e944d43d910",
           "widthPx": 930,
           "heightPx": 851,
           "settleAttempts": 2,
@@ -3472,7 +3472,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far the camera is tilted: the hand-eye rotation error in\" 0.5 to 3",
-          "sha256": "ea8edd22aa3dec39d83183d809a3fab2c317e314f472668ae3ffae1d0a06a240",
+          "sha256": "7c005127b34bcf521a1f83f312026c3235e3830986aed88c8ddcaee795b6ca6e",
           "widthPx": 930,
           "heightPx": 851,
           "settleAttempts": 2,
@@ -21483,8 +21483,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-02.jpg",
-      "sha256": "de7fe0810a6011af9529fc61a530dde0c7f95bd632fc90aee58dc539847b4e90",
-      "bytes": 185052,
+      "sha256": "5da1b55e0c8a4244797478bd49cb86e116568a1d60d6cf5acead37a033c0e12b",
+      "bytes": 184796,
       "mountIds": [
         "mount:/classical/control/:ImpedanceContactLab:1",
         "mount:/classical/control/:PendulumController:1",
@@ -21560,35 +21560,35 @@
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@1440x900:default",
-          "sha256": "2929ab5d6edb7cc7048636dd6b43602bbd54b53103c4e0b097da6ff0ffe51e6f"
+          "sha256": "2145a4458c01af3083475f0f0d21294becd8ffe8b59175de9fea7e86d4c8848d"
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@1440x900:changed",
-          "sha256": "ef1b8e00524a669445db8f9188b62a3174d3648550fc628ce993f450eae49033"
+          "sha256": "d162c73a5fb0d8299b35540c9f3b72eeeb42daf105341a077eb1b4c6083dd58c"
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@375x812:default",
-          "sha256": "f97dcf3931f8ab7bfc035b76c105d92ed3e952809db4500ea585c203a3d79191"
+          "sha256": "a247771b891d8967d03cad64cf0d6a3c54d5b5463f0622b8ffde610270aff597"
         },
         {
           "key": "mount:/classical/motion-planning/:RrtExplorer:1@375x812:changed",
-          "sha256": "5ffa5c44537a65b1bb56f1cb11e8e5dc2aa2f74fd0d06c908a448ee71ad36aea"
+          "sha256": "11b625f53cd664bec5b9a7e507bc8ea22de2b348dd1b8d8a8c98fe7990bff829"
         },
         {
           "key": "mount:/classical/perception/:PerceptionErrorBudget:1@1440x900:default",
-          "sha256": "61bbeec406e9ab6b7fa9672f1083f63329055c9b842a42f410ea072220146065"
+          "sha256": "ecf46b7d3f0fb35812d9424b16e093e2ba687d4e2f908b795e318e944d43d910"
         },
         {
           "key": "mount:/classical/perception/:PerceptionErrorBudget:1@1440x900:changed",
-          "sha256": "ea8edd22aa3dec39d83183d809a3fab2c317e314f472668ae3ffae1d0a06a240"
+          "sha256": "7c005127b34bcf521a1f83f312026c3235e3830986aed88c8ddcaee795b6ca6e"
         },
         {
           "key": "mount:/classical/perception/:PerceptionErrorBudget:1@375x812:default",
-          "sha256": "3de63d214c68894e41f95f382db685cd7222a313b885d45f70371e7952de9b34"
+          "sha256": "b8e28654bbc9aa255e7a288753790e328c211f8b22613388cccdd607939e4f29"
         },
         {
           "key": "mount:/classical/perception/:PerceptionErrorBudget:1@375x812:changed",
-          "sha256": "560cb9339a0c8889d5a3b55f1fe006e12ee23f25c8f368aa6657e7c7ec8e6f9a"
+          "sha256": "4f272726c978be8f868ad70e9a60f5705ba435538641d68a43de1bd5aba89545"
         }
       ],
       "renderedTwiceIdentical": true

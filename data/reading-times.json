@@ -20,7 +20,7 @@
     "minutes": 9
   },
   "manipulation/generalist-policies": {
-    "words": 1591,
+    "words": 1592,
     "minutes": 8
   },
   "manipulation/comparison-matrix": {
@@ -156,7 +156,7 @@
     "minutes": 9
   },
   "classical/motion-planning": {
-    "words": 2769,
+    "words": 2785,
     "minutes": 14
   },
   "classical/control": {
@@ -172,7 +172,7 @@
     "minutes": 9
   },
   "classical/perception": {
-    "words": 3000,
+    "words": 3014,
     "minutes": 15
   },
   "classical/scene-representation": {
