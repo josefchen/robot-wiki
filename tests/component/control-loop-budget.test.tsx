@@ -90,6 +90,16 @@ describe('ControlLoopBudget', () => {
     expect(screen.getByTestId('missed-readout')).toHaveTextContent('12');
   });
 
+  it('names the slider by its visible label and says the latency in its value text', () => {
+    render(<ControlLoopBudget />);
+    expect(slider().getAttribute('aria-label')).toMatch(/^Model size on the robot's own computer, teaching curve/);
+    expect(slider()).toHaveAttribute('aria-valuetext', '3.0 billion parameters, 52.6 ms per inference');
+    fireEvent.change(slider(), { target: { value: '9.1' } });
+    const latency = screen.getByTestId('latency-readout').textContent ?? '';
+    expect(latency).toBe('256.4 ms');
+    expect(slider()).toHaveAttribute('aria-valuetext', `9.1 billion parameters, ${latency} per inference`);
+  });
+
   it('shows the sourced reference latencies', () => {
     render(<ControlLoopBudget />);
     expect(screen.getByTestId('ref-pi06-h100')).toHaveTextContent('63 ms');

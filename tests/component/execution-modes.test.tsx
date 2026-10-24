@@ -55,6 +55,14 @@ describe('ExecutionModes', () => {
     expect(screen.getAllByText(/0.30/).length).toBeGreaterThan(0);
   });
 
+  it('names the delay slider starting with its visible label', () => {
+    render(<ExecutionModes />);
+    const label = (slider() as HTMLInputElement).labels![0].cloneNode(true) as HTMLElement;
+    label.querySelector('[data-figure-control-value]')?.remove();
+    expect(label.textContent).toBe('Inference delay, any value');
+    expect(slider()).toHaveAttribute('aria-label', 'Inference delay, any value: inference delay in milliseconds, currently 200');
+  });
+
   it('covers a delay range of 0 to 200 ms', () => {
     render(<ExecutionModes />);
     expect(slider()).toHaveAttribute('min', '0');

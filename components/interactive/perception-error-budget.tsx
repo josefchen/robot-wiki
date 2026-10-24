@@ -322,7 +322,6 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
               value={option.id}
               checked={params.target === option.id}
               onChange={() => setParam('target', option.id as TargetId)}
-              aria-label={option.label}
               data-testid={`perception-target-${option.id}`}
               className="h-4 w-4 cursor-pointer accent-ink"
             />
@@ -412,7 +411,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           step={SLIDER_SPECS.depth.step}
           value={params.depthPct}
           onChange={(e) => setParam('depthPct', Number(e.target.value))}
-          aria-label={`Depth error as a percentage of range, currently ${params.depthPct.toFixed(1)}`}
+          aria-label={`Depth error (% of range), currently ${params.depthPct.toFixed(1)}`}
           data-testid="perception-depth-slider"
           className={INSTRUMENT_SLIDER_CLASS}
         />
@@ -433,7 +432,7 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
           step={SLIDER_SPECS.pose.step}
           value={params.poseMm}
           onChange={(e) => setParam('poseMm', Number(e.target.value))}
-          aria-label={`Object-pose translation error in millimetres, currently ${params.poseMm.toFixed(1)}`}
+          aria-label={`Object pose (mm): the translation error in millimetres, currently ${params.poseMm.toFixed(1)}`}
           data-testid="perception-pose-slider"
           className={INSTRUMENT_SLIDER_CLASS}
         />

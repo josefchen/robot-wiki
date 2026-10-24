@@ -105,7 +105,7 @@ for (const width of [375, 1440]) {
       await page.mouse.move(0, 0);
       if (route.slug === 'realtime-execution') {
         await openAdjustMore(page.locator('main [data-figure-frame="control-loop-budget"]'));
-        const sliders = page.getByRole('slider', { name: /Model size in billions/ });
+        const sliders = page.getByRole('slider', { name: /Model size on the robot's own computer, teaching curve, in billions/ });
         await expect(sliders).toHaveCount(1);
         for (let i = 0; i < 1; i++) {
           const slider = sliders.nth(i);
@@ -123,7 +123,7 @@ for (const width of [375, 1440]) {
           controls.push({ name: `budget-${i}`, initial, changed });
         }
         await openAdjustMore(page.locator('main [data-figure-frame="execution-modes"]'));
-        const delay = page.getByRole('slider', { name: /Inference delay in milliseconds/ });
+        const delay = page.getByRole('slider', { name: /Inference delay, any value: inference delay in milliseconds/ });
         await delay.focus();
         const initial = await delay.inputValue();
         await page.screenshot({ caret: 'initial', path: info.outputPath('execution-default.png') });

@@ -668,9 +668,11 @@ describe('research-page successors of the chip and figure-default rows', () => {
     expect(withoutReset.length, 'the no-reset branch quantifies over no source').toBeGreaterThan(0);
     expect(withReset.length + withoutReset.length).toBe(sources.length);
 
+    // The row is decided per production mount by the keyboard transition
+    // ledger, so it quantifies over every registered mount.
     const mapped = enforcementRow('VAL-B2-VIZ-007');
-    expect(mapped?.canonicalPopulationSource).toBe('contract/brand-v2-registries.json#interactive.sources');
-    expect(mapped?.machinePredicate.populationSize).toBe(sources.length);
+    expect(mapped?.canonicalPopulationSource).toBe('contract/brand-v2-registries.json#interactive.mounts');
+    expect(mapped?.machinePredicate.populationSize).toBe(mounts.length);
     expect(mapped?.machinePredicate.statement).toBe(requirementOf(VIZ_007, 'VAL-B2-VIZ-007'));
     expect(mapped?.machinePredicate.expected).toBe(requirementOf(VIZ_007, 'VAL-B2-VIZ-007'));
   });

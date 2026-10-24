@@ -17,7 +17,7 @@ import {
 } from '@/lib/action-tokenization';
 
 function slider() {
-  return screen.getByRole('slider', { name: /control step/i });
+  return screen.getByRole('slider', { name: 'Moment in the movement' });
 }
 
 function binReadout() {
@@ -65,6 +65,19 @@ describe('ActionTokenization', () => {
     render(<ActionTokenization />);
     expect(slider()).toHaveAttribute('min', '0');
     expect(slider()).toHaveAttribute('max', '15');
+  });
+
+  it('says the same one-based moment in the slider value text, the value readout and the stage readout', () => {
+    const { container } = render(<ActionTokenization />);
+    expect(slider()).toHaveAttribute('aria-valuetext', '8 of 16');
+    expect(container.querySelector('label[for="at-step"] [data-figure-control-value]')).toHaveTextContent('8 of 16');
+    expect(container.querySelector('[data-readout]')!.textContent).toMatch(/^At moment 8 of 16, /);
+    fireEvent.change(slider(), { target: { value: '8' } });
+    expect(slider()).toHaveAttribute('aria-valuetext', '9 of 16');
+    expect(container.querySelector('label[for="at-step"] [data-figure-control-value]')).toHaveTextContent('9 of 16');
+    // The stage readout is what is spoken when "Write the next moment" moves
+    // the value without a slider press, so it says the whole value too.
+    expect(container.querySelector('[data-readout]')!.textContent).toMatch(/^At moment 9 of 16, /);
   });
 
   it('shows the continuous value, its bin, and its token for the selected step', () => {
@@ -240,9 +253,10 @@ describe('ActionTokenization rack model', () => {
     expect(write).toHaveFocus();
     expect(write).not.toHaveAttribute('aria-pressed');
     // A second press during the write changes nothing.
-    const during = slider().getAttribute('aria-label');
+    const during = slider().getAttribute('aria-valuetext');
+    expect(during).toBe('8 of 16');
     fireEvent.click(write);
-    expect(slider().getAttribute('aria-label')).toBe(during);
+    expect(slider().getAttribute('aria-valuetext')).toBe(during);
     expect(write).toHaveTextContent('Writing the seven words');
     // Scrubbing takes over from a write in progress.
     fireEvent.change(slider(), { target: { value: '3' } });

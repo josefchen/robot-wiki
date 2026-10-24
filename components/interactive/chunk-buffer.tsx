@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useId, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
 import { INSTRUMENT_SECONDARY_CONTROL_CLASS, INSTRUMENT_SLIDER_CLASS, InstrumentFigure, SliderRow } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
 import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
@@ -20,11 +20,35 @@ import { CHUNK_MAX, CHUNK_MIN, ENOUGH, SLOW, STILL_CHUNK, STILL_MS, TICKS_PER_SE
  * one leaves slots empty, ticks the arm waits. The model is
  * lib/chunk-buffer.ts. The still pose is a deck of 16 just after an answer
  * landed. The slider sets the deck; "Run the clock" plays half a second of
- * robot time, slowed twenty times. Reduced motion jumps to its end.
+ * robot time, slowed twenty times, and ends back on the still pose; "Stop the
+ * clock" goes back there at once. Reduced motion steps through the run in
+ * four jumps instead of playing it.
  */
 
 /** A run plays this much robot time: two answers. */
 export const RUN_MS = 500;
+
+/**
+ * Where a run under reduced motion stops, in robot milliseconds after the
+ * still pose, each held for an equal share of the run. Whole ticks apart, so
+ * every stop shows the belt at rest, just as the still pose does.
+ */
+export const RUN_STOPS = [100, 200, 300, 400] as const;
+
+/**
+ * How far into its robot time a run is `elapsed` wall milliseconds after it
+ * started, or null once it has ended and the figure is back on the still pose.
+ * Under reduced motion (`calm`) it jumps from stop to stop.
+ */
+export function runOffset(elapsed: number, calm: boolean): number | null {
+  const clock = Math.max(0, elapsed);
+  if (calm) {
+    const index = Math.floor(clock / ((RUN_MS * SLOW) / RUN_STOPS.length));
+    return index < RUN_STOPS.length ? RUN_STOPS[index] : null;
+  }
+  const offset = clock / SLOW;
+  return offset < RUN_MS ? offset : null;
+}
 
 /** What the slider's value means, for assistive technology. */
 export function valueTextFor(chunk: number): string {
@@ -53,32 +77,29 @@ export function ChunkBuffer({ className }: { className?: string }) {
   const drawingId = `${useId()}-drawing`;
   const [chunk, setChunk] = useState(STILL_CHUNK);
   const [ms, setMs] = useState(STILL_MS);
-  const msRef = useRef(STILL_MS);
   const [running, setRunning] = useState(false);
   const moving = useMemo(() => movingAt({ chunk, ms }), [chunk, ms]);
   const pose = poseAt({ chunk, ms });
   const onBelt = beltCards({ chunk, ms }).length;
 
-  const showMs = useCallback((value: number) => {
-    msRef.current = value;
-    setMs(value);
-  }, []);
-
-  // "Run the clock": two answers of robot time, slowed twenty times.
+  // "Run the clock": two answers of robot time, slowed twenty times, then back to the still pose.
   useEffect(() => {
     if (!running) return;
     let frame = 0;
-    const from = msRef.current;
     const start = performance.now();
     const tick = (now: number) => {
-      const next = Math.min(from + RUN_MS, from + (now - start) / SLOW);
-      showMs(Number(next.toFixed(3)));
-      if (next < from + RUN_MS) frame = requestAnimationFrame(tick);
-      else setRunning(false);
+      const offset = runOffset(now - start, typeof window.matchMedia === 'function' && asksForStillness());
+      if (offset === null) {
+        setMs(STILL_MS);
+        setRunning(false);
+        return;
+      }
+      setMs(Number((STILL_MS + offset).toFixed(3)));
+      frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [running, showMs]);
+  }, [running]);
 
   return (
     <InstrumentFigure
@@ -109,11 +130,10 @@ export function ChunkBuffer({ className }: { className?: string }) {
             onClick={() => {
               if (running) {
                 setRunning(false);
+                setMs(STILL_MS);
                 return;
               }
-              // Reduced motion jumps to the end of the run instead of playing it.
-              if (typeof window.matchMedia === 'function' && asksForStillness()) showMs(msRef.current + RUN_MS);
-              else setRunning(true);
+              setRunning(true);
             }}
             data-testid="chunk-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}

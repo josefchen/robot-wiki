@@ -7,6 +7,7 @@ import {
   READOUT_CLEAR_MS,
   READOUT_SETTLE_MS,
   RUN_REACH_MS,
+  alreadySaid,
   valueTextCovers,
 } from '@/components/iso/anatomy-stage';
 
@@ -42,6 +43,47 @@ function Harness({ valueText }: { valueText?: (value: number) => string }) {
         }}
       />
       <AnatomyStage viewWidth={100} readout={readout}>
+        <svg />
+      </AnatomyStage>
+    </figure>
+  );
+}
+
+/** A figure with its own live readout beside the stage, as an instrument figure has. */
+function LiveReadoutHarness({ sentence }: { sentence: (km: number) => string }) {
+  const [km, setKm] = useState(70);
+  return (
+    <figure data-figure-frame="">
+      <button type="button" onClick={() => setKm(80)}>
+        Faster camera
+      </button>
+      <p aria-live="polite" data-figure-readout="">
+        {sentence(km)}
+      </p>
+      <AnatomyStage viewWidth={100} readout={`top safe speed about ${km} km/h`}>
+        <svg />
+      </AnatomyStage>
+    </figure>
+  );
+}
+
+/** A slider figure whose live readout re-renders on the slider's input event, before its change event. */
+function LiveSliderHarness() {
+  const [km, setKm] = useState(70);
+  return (
+    <figure data-figure-frame="">
+      <input
+        type="range"
+        aria-label="Camera speed"
+        min={60}
+        max={90}
+        value={km}
+        onChange={(e) => setKm(Number(e.target.value))}
+      />
+      <p aria-live="polite" data-figure-readout="">
+        At about {km} kilometres an hour the drone flies about 0.3 metres blind.
+      </p>
+      <AnatomyStage viewWidth={100} readout={`top safe speed about ${km} km/h`}>
         <svg />
       </AnatomyStage>
     </figure>
@@ -215,6 +257,54 @@ describe('AnatomyStage readout announcements', () => {
     fireEvent.change(slider, { target: { value: '3' } });
     await settle();
     expect(announcer().textContent).toBe('speed 3 · stops in 6 cm');
+  });
+});
+
+describe('AnatomyStage beside a live readout', () => {
+  it('stays quiet when the figure’s live readout already said the stage’s numbers for the action', async () => {
+    render(<LiveReadoutHarness sentence={(km) => `At about ${km} kilometres an hour the drone flies about 0.3 metres blind.`} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Faster camera' }));
+    await settle();
+    expect(screen.getByText(/At about 80 kilometres/)).toBeInTheDocument();
+    expect(announcer().textContent).toBe('');
+  });
+
+  it('stays quiet after a slider key press whose change event follows the live readout’s render', async () => {
+    render(<LiveSliderHarness />);
+    const slider = screen.getByRole('slider', { name: 'Camera speed' });
+    slider.focus();
+    fireEvent.keyDown(slider, { key: 'ArrowRight' });
+    fireEvent.input(slider, { target: { value: '71' } });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    // A heavy figure's render takes a while before the browser fires change for the same press.
+    act(() => {
+      vi.advanceTimersByTime(30);
+    });
+    fireEvent.change(slider);
+    await settle();
+    expect(screen.getByText(/At about 71 kilometres/)).toBeInTheDocument();
+    expect(announcer().textContent).toBe('');
+  });
+
+  it('speaks when the live readout said something else', async () => {
+    render(<LiveReadoutHarness sentence={() => 'The camera is faster.'} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Faster camera' }));
+    await settle();
+    expect(announcer().textContent).toBe('top safe speed about 80 km/h');
+  });
+});
+
+describe('alreadySaid', () => {
+  it('reads an announcement as said when the words or every printed number were spoken', () => {
+    expect(alreadySaid('At about 80 kilometres an hour the drone flies 0.3 m blind', 'top safe speed about 80 km/h')).toBe(true);
+    expect(alreadySaid('At about 83 kilometres an hour it flies about 0.0 metres blind', 'Camera 0 ms late · about 83 km/h')).toBe(true);
+    expect(alreadySaid('Grip holds.', 'grip holds')).toBe(true);
+    expect(alreadySaid('shoulder 110°; hand at x -0.23, y -0.30', 'Shoulder 110 degrees · hand 0.23 left, 0.30 back')).toBe(true);
+    expect(alreadySaid('At about 80 kilometres an hour', 'top safe speed about 80 km/h · 12 cm margin')).toBe(false);
+    expect(alreadySaid('The camera is faster.', 'Grip holds')).toBe(false);
+    expect(alreadySaid('', 'top safe speed about 80 km/h')).toBe(false);
   });
 });
 

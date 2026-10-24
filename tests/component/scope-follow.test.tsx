@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CAMERA_MODES, ScopeFollow, readoutFor } from '@/components/interactive/scope-follow';
-import { STILL_POSE, STILL_TIP, TASK_SECONDS, inView, taskTipAt } from '@/components/iso/figures/lap-trainer';
+import { PEGS, STILL_POSE, STILL_TIP, TASK_PEGS, TASK_SECONDS, inView } from '@/components/iso/figures/lap-trainer';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -48,7 +48,7 @@ describe('ScopeFollow', () => {
     );
   });
 
-  it('holds the scope still when the surgeon places it, and the drill takes the tip out of view', async () => {
+  it('holds the scope still when the surgeon places it, and the drill takes the tip out of view and back', async () => {
     vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
     render(<ScopeFollow />);
     const placed = screen.getByTestId('scope-mode-placed');
@@ -72,12 +72,64 @@ describe('ScopeFollow', () => {
     await act(async () => {
       vi.advanceTimersByTime(TASK_SECONDS * 1000);
     });
-    // The drill ends on its last peg, outside the held view, and the run button keeps no pressed state.
-    const end = taskTipAt(TASK_SECONDS);
+    // The drill ends back on the peg it started from, inside the held view, and the run button keeps no pressed state.
     expect(run).toHaveTextContent('Run the drill');
-    expect(drawing).toHaveAttribute('data-tip', `${end[0]},${end[1]}`);
-    expect(drawing).toHaveAttribute('data-seen', 'no');
+    expect(drawing).toHaveAttribute('data-tip', `${STILL_TIP[0]},${STILL_TIP[1]}`);
+    expect(drawing).toHaveAttribute('data-seen', 'yes');
     expect(drawing.getAttribute('data-aim')).toBe(aim);
+  });
+
+  it('ends a followed drill on the very pose it started from', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    const { container } = render(<ScopeFollow />);
+    const drawing = screen.getByTestId('scope-drawing');
+    const before = container.innerHTML;
+    fireEvent.click(screen.getByTestId('scope-run'));
+    await act(async () => {
+      vi.advanceTimersByTime(1500);
+    });
+    expect(container.innerHTML).not.toBe(before);
+    await act(async () => {
+      vi.advanceTimersByTime(TASK_SECONDS * 1000 + 3000);
+    });
+    expect(screen.getByTestId('scope-run')).toHaveTextContent('Run the drill');
+    expect(drawing).toHaveAttribute('data-aim', `${STILL_POSE.aim[0]},${STILL_POSE.aim[1]}`);
+    expect(container.innerHTML).toBe(before);
+  });
+
+  it('stops the drill mid-run back on the frame it started from, under both motion settings and in both camera modes', async () => {
+    for (const calm of [false, true]) {
+      for (const mode of ['follow', 'placed'] as const) {
+        vi.unstubAllGlobals();
+        if (calm) reduceMotion();
+        vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+        const { container, unmount } = render(<ScopeFollow />);
+        fireEvent.click(screen.getByTestId(`scope-mode-${mode}`));
+        await act(async () => {
+          vi.advanceTimersByTime(3000);
+        });
+        const before = container.innerHTML;
+        const drawing = screen.getByTestId('scope-drawing');
+        const start = { tip: drawing.getAttribute('data-tip'), aim: drawing.getAttribute('data-aim') };
+        const run = screen.getByTestId('scope-run');
+        fireEvent.click(run);
+        await act(async () => {
+          vi.advanceTimersByTime((TASK_SECONDS * 1000) / 2);
+        });
+        // Mid-drill the tip is away from where it started.
+        expect(drawing.getAttribute('data-tip'), `${mode}, calm ${calm}`).not.toBe(start.tip);
+        fireEvent.click(run);
+        expect(run).toHaveTextContent('Run the drill');
+        expect(drawing).toHaveAttribute('data-tip', start.tip!);
+        expect(drawing).toHaveAttribute('data-aim', start.aim!);
+        await act(async () => {
+          vi.advanceTimersByTime(3000);
+        });
+        expect(container.innerHTML, `${mode}, calm ${calm}`).toBe(before);
+        unmount();
+        vi.useRealTimers();
+      }
+    }
   });
 
   it('follows the tip through the drill when following is on', async () => {
@@ -100,18 +152,29 @@ describe('ScopeFollow', () => {
     expect(drawing.getAttribute('data-aim')).toBe(aim);
   });
 
-  it('jumps under reduced motion: the drill to its end, following straight onto the tip', () => {
+  it('jumps under reduced motion: the drill steps peg to peg and back, following straight onto the tip', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
     reduceMotion();
-    render(<ScopeFollow />);
-    fireEvent.click(screen.getByTestId('scope-mode-placed'));
-    fireEvent.click(screen.getByTestId('scope-run'));
+    const { container } = render(<ScopeFollow />);
+    const before = container.innerHTML;
     const drawing = screen.getByTestId('scope-drawing');
-    const end = taskTipAt(TASK_SECONDS);
-    expect(drawing).toHaveAttribute('data-tip', `${end[0]},${end[1]}`);
+    const stops = [STILL_TIP, ...TASK_PEGS.map((index) => PEGS[index]!), STILL_TIP].map(([x, y]) => `${x},${y}`);
+    fireEvent.click(screen.getByTestId('scope-run'));
+    expect(screen.getByTestId('scope-run')).toHaveTextContent('Stop the drill');
+    const visited: string[] = [];
+    for (let elapsed = 0; elapsed < TASK_SECONDS * 1000 + 500; elapsed += 100) {
+      await act(async () => {
+        vi.advanceTimersByTime(100);
+      });
+      const tip = drawing.getAttribute('data-tip')!;
+      // Every frame shows a stop, never a tip between two, and the scope sits right on it.
+      expect(stops).toContain(tip);
+      expect(drawing).toHaveAttribute('data-aim', tip);
+      if (visited.at(-1) !== tip) visited.push(tip);
+    }
+    expect(visited).toEqual(stops);
     expect(screen.getByTestId('scope-run')).toHaveTextContent('Run the drill');
-    fireEvent.click(screen.getByTestId('scope-mode-follow'));
-    expect(drawing).toHaveAttribute('data-aim', `${end[0]},${end[1]}`);
-    expect(drawing).toHaveAttribute('data-seen', 'yes');
+    expect(container.innerHTML).toBe(before);
   });
 
   it('server-renders the still pose it hydrates', () => {

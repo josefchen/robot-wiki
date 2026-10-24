@@ -1,8 +1,9 @@
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { seriesEncodingViolations, seriesEncodings, seriesNames } from '../helpers/series-encoding';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { LatentImagination } from '@/components/interactive/latent-imagination';
+import { READOUT_SETTLE_MS } from '@/components/motion/settled-speech';
 import { REACH, ROUTE_R, SPREAD, angleOf, offsetOf, trackPoints } from '@/components/iso/figures/track-laying-bench';
 import { MAX_HORIZON, imagineDeviation } from '@/lib/latent-imagination';
 
@@ -115,6 +116,27 @@ describe('LatentImagination', () => {
     expect(screen.getByTestId('reward-error-bars')).toHaveTextContent(/at step 4/);
     expect(screen.getByTestId('reward-error-readout')).toHaveTextContent('0.105');
     expect(screen.getByTestId('imagined-head')).toBeInTheDocument();
+  });
+
+  it('says the TD-MPC2 reward error in the stage readout, which the stage announcer speaks', async () => {
+    vi.useFakeTimers();
+    try {
+      const { container } = render(<LatentImagination />);
+      const readout = container.querySelector('[data-readout]')!;
+      expect(readout.textContent).toBe('15 steps ahead · 0.301 off the route');
+      fireEvent.click(within(adjustFold(container)).getByRole('button', { name: /td-mpc2/i }));
+      expect(readout.textContent).toBe('15 steps ahead · 0.301 off the route · reward error 0.105');
+      expect(readout.textContent).toContain(screen.getByTestId('reward-error-readout').textContent!);
+      await act(async () => {
+        await Promise.resolve();
+      });
+      act(() => {
+        vi.advanceTimersByTime(READOUT_SETTLE_MS + 60);
+      });
+      expect(container.querySelector('[data-anatomy-announcer]')!.textContent).toBe(readout.textContent);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('reset restores the look-ahead, the step accuracy and the Dreamer view', async () => {

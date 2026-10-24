@@ -73,6 +73,18 @@ describe('RecedingHorizon', () => {
     expect(screen.getByTestId('rh-commit-readout')).toHaveTextContent('0.4 s');
   });
 
+  it('names each slider by its visible label and says the clamped steps acted on', () => {
+    const { container } = render(<RecedingHorizon />);
+    expect(predictedSlider().getAttribute('aria-label')).toMatch(/^Steps planned/);
+    expect(executedSlider().getAttribute('aria-label')).toMatch(/^Steps acted on/);
+    expect(predictedSlider()).toHaveAttribute('aria-valuetext', '16 steps planned, 8 acted on');
+    expect(executedSlider()).toHaveAttribute('aria-valuetext', '8 steps acted on');
+    fireEvent.change(predictedSlider(), { target: { value: '4' } });
+    expect(predictedSlider()).toHaveAttribute('aria-valuetext', '4 steps planned, 4 acted on');
+    // The acted-on value readout the clamp changed prints only numbers the operated slider says.
+    expect(container.querySelector('label[for="rh-ta"] [data-figure-control-value]')!.textContent).toBe('4 steps');
+  });
+
   it('distinguishes committed actions from predicted ones in the plan', () => {
     render(<RecedingHorizon />);
     expect(screen.getAllByTestId('rh-committed').length).toBeGreaterThan(0);

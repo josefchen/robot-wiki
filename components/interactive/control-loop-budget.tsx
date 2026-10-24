@@ -262,8 +262,8 @@ export function ControlLoopBudget({
                 setOnServer(false);
                 setParamsB(Number(e.target.value));
               }}
-              aria-label={`Model size in billions of parameters, currently ${paramsB.toFixed(1)}`}
-              aria-valuetext={`${paramsB.toFixed(1)} billion parameters`}
+              aria-label="Model size on the robot's own computer, teaching curve, in billions of parameters"
+              aria-valuetext={`${paramsB.toFixed(1)} billion parameters, ${formatMs(curveMs)} per inference`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "0827eefd368a4ad12cf9e5f8a22ec91657485be563f8ab5789b37abfb28010e7",
+  "fingerprint": "2fdb7ac77fe9a71db08b5630b81adc563b74e415ce2327c38b2c4996721336be",
   "viewports": [
     "375x812",
     "1440x900"
@@ -33192,7 +33192,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22151,
+      "visibleTextLength": 22159,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -38804,7 +38804,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21987,
+      "visibleTextLength": 21976,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -43244,7 +43244,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20411,
+      "visibleTextLength": 20406,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44005,7 +44005,7 @@
         },
         {
           "tag": "button",
-          "text": "Start over",
+          "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -44113,7 +44113,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18280,
+      "visibleTextLength": 18271,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89760,7 +89760,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27931,
+      "visibleTextLength": 27939,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -95306,7 +95306,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29391,
+      "visibleTextLength": 29380,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -99724,7 +99724,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26243,
+      "visibleTextLength": 26238,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -100485,7 +100485,7 @@
         },
         {
           "tag": "button",
-          "text": "Start over",
+          "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -100582,7 +100582,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23631,
+      "visibleTextLength": 23622,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

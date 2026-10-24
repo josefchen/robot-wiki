@@ -363,7 +363,8 @@ export function ActionTokenization({
               step={1}
               value={step}
               onChange={(e) => scrub(Number(e.target.value))}
-              aria-label={`Control step, currently ${step} of ${CHUNK_STEPS - 1}`}
+              aria-label="Moment in the movement"
+              aria-valuetext={`${step + 1} of ${CHUNK_STEPS}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="start" high="finish" />
@@ -438,7 +439,7 @@ export function ActionTokenization({
           readout={
             <>
               <span ref={phaseRef} data-tok-phase="" />
-              At moment {step + 1}, the {gloss} nudge <span data-testid="tok-value-readout">{value.toFixed(3)}</span> lands in{' '}
+              At moment {step + 1} of {CHUNK_STEPS}, the {gloss} nudge <span data-testid="tok-value-readout">{value.toFixed(3)}</span> lands in{' '}
               <span data-testid="tok-bin-readout">
                 slot {bin} of {BIN_COUNT}
               </span>{' '}
@@ -506,7 +507,7 @@ export function ActionTokenization({
             })}
           </IsoFigure>
           <div className="mt-3 font-sans text-[12px]">
-            <div className="text-text-dim">The seven words for this moment, written one after another:</div>
+            <div className="text-text-dim">The seven words for this moment, in order:</div>
             <ol data-testid="token-stream" className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
               {ACTION_DIMS.map((d, i) => (
                 <li

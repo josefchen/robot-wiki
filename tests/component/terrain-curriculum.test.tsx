@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 import { JSDOM } from 'jsdom';
 import type { ReactNode } from 'react';
@@ -44,7 +44,7 @@ describe('TerrainCurriculum', () => {
     expect(ROUNDS.some((round) => tally(round).loop > 0)).toBe(true);
   });
 
-  it('opens after a few rounds and runs one more with the button, or starts over', () => {
+  it('opens after a few rounds and runs one more with the button, or goes back to the opening round', () => {
     renderFigure();
     const stage = screen.getByTestId('curriculum-stage');
     expect(stage).toHaveAttribute('data-round', String(DEFAULT_ROUND));
@@ -52,9 +52,33 @@ describe('TerrainCurriculum', () => {
     expect(stage).toHaveAttribute('data-round', String(DEFAULT_ROUND + 1));
     const { up, down } = tally(ROUNDS[DEFAULT_ROUND + 1]);
     expect(screen.getByTestId('curriculum-live')).toHaveTextContent(`Round ${DEFAULT_ROUND + 1}: ${up} moved up, ${down} moved down`);
-    fireEvent.click(screen.getByRole('button', { name: 'Start over' }));
-    expect(stage).toHaveAttribute('data-round', '0');
-    expect(screen.getByTestId('curriculum-live')).toHaveTextContent('every robot starts on the easiest ground');
+    fireEvent.click(screen.getByRole('button', { name: 'Reset' }));
+    expect(stage).toHaveAttribute('data-round', String(DEFAULT_ROUND));
+    const opening = tally(ROUNDS[DEFAULT_ROUND]);
+    expect(screen.getByTestId('curriculum-live')).toHaveTextContent(`Round ${DEFAULT_ROUND}: ${opening.up} moved up, ${opening.down} moved down`);
+  });
+
+  it('restores the exact opening state with its reset, even mid-glide and after several rounds', async () => {
+    const { container } = renderFigure();
+    const opening = container.innerHTML;
+    const reset = screen.getByTestId('curriculum-reset');
+    // The reset keeps its registered identity and the instruments' shared name.
+    expect(reset).toHaveAttribute('data-instrument-reset');
+    expect(reset).toHaveAttribute('data-brand-control-id', 'control:secondary-action');
+    expect(reset).toHaveAccessibleName('Reset');
+    const run = screen.getByRole('button', { name: 'Run a training round' });
+    for (let i = 0; i < 3; i += 1) fireEvent.click(run);
+    expect(container.innerHTML).not.toBe(opening);
+    // Pressed while the last round still glides: the opening round is drawn finished at once.
+    fireEvent.click(reset);
+    expect(container.innerHTML).toBe(opening);
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 900));
+    });
+    expect(container.innerHTML).toBe(opening);
+    // And the next round glides on from there as it did from the start.
+    fireEvent.click(run);
+    expect(screen.getByTestId('curriculum-stage')).toHaveAttribute('data-round', String(DEFAULT_ROUND + 1));
   });
 
   it('keeps focus on the round button once the last round has run', () => {

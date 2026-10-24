@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "582518950dc9e4d5472b2b9fd212b537f8c09af869dfbbddba9a3ea4ae32f24a",
+  "fingerprint": "0c453b530168921f08a5203cae01835da88935da28dd913c4e07d79cbb77d754",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1849,12 +1849,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Hand speed, in centimetres a second, currently 100\" 50 to 100",
-          "sha256": "a950c59319515311f36ad93b9a27874b8f0b5ae805e8b24bfa983af3b1d6e352",
+          "sha256": "188fd97bd7f1437eec9e3b61af9823ac0e5f42b50b481a8eb45d78edb39e1fe6",
           "widthPx": 327,
-          "heightPx": 587,
+          "heightPx": 607,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.94,
+          "luminanceSpread": 26.14,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7337,12 +7337,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time on the clock\" 7 to 20",
-          "sha256": "8fd338b4d27056babd8465aa492bb870e34d8448836f2fd6133b2d66089e1830",
+          "sha256": "de62f986fb25f2df8296edf2c20cf011bdc001ede9a0fe9b00f1dba5b4a08fb3",
           "widthPx": 327,
-          "heightPx": 685,
+          "heightPx": 705,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.66,
+          "luminanceSpread": 28.75,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -9061,12 +9061,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Along the stroke\" 50 to 100",
-          "sha256": "c701fec6eb99ec96fd17217bd85b4006a3b01bf419012ee717ec33fc6f04daef",
+          "sha256": "3c9122ae0600c670bfc77784c29d1c2ec288ed6b550a2ece8122a367554f813a",
           "widthPx": 327,
           "heightPx": 645,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 26.15,
+          "luminanceSpread": 26.51,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -9169,12 +9169,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Along the stroke\" 50 to 100",
-          "sha256": "90789518514eee04bcf8f1bf7f78d529e69a76b792a1a8f8e5bdb60b135d8309",
+          "sha256": "58dc15a6f4937cd57c37eb33192a114a5d8e1034b3c7ccb605bfaaa83d1951d1",
           "widthPx": 930,
           "heightPx": 931,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.48,
+          "luminanceSpread": 15.64,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -9276,7 +9276,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Chunk size k, currently 400\" 100 to 400",
+          "control": "input[type=range] \"Moves per plan, any value: chunk size k, currently 400\" 100 to 400",
           "sha256": "a682332098513af15df44b5871645c42d34c5916f228005f8db81d7ea4bf8992",
           "widthPx": 327,
           "heightPx": 718,
@@ -9409,7 +9409,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Chunk size k, currently 400\" 100 to 400",
+          "control": "input[type=range] \"Moves per plan, any value: chunk size k, currently 400\" 100 to 400",
           "sha256": "7db9d6a0b9c645c141da899426ee62c52ab479d21f994d8d4cc413af1ddc8d9a",
           "widthPx": 930,
           "heightPx": 780,
@@ -9542,7 +9542,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Injected inference delay, currently 240 ms\" 200 to 240",
+          "control": "input[type=range] \"Thinking delay, any value: injected inference delay, current\" 200 to 240",
           "sha256": "6b6b24b64d379be36b09c8816699bff0cfaabcfc0cb4caed0e7dcbc02f8f27ea",
           "widthPx": 327,
           "heightPx": 646,
@@ -9675,7 +9675,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Injected inference delay, currently 240 ms\" 200 to 240",
+          "control": "input[type=range] \"Thinking delay, any value: injected inference delay, current\" 200 to 240",
           "sha256": "b43002eef5bf09143fb8eb397add95f5165c45f2108f8f8855579c3d4e87d073",
           "widthPx": 930,
           "heightPx": 807,
@@ -11222,7 +11222,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Predicted horizon T_p, currently 32\" 16 to 32",
+          "control": "input[type=range] \"Steps planned, the predicted horizon\" 16 to 32",
           "sha256": "f4206d752f8e4bc12a714c84a0d3ea895019723fd09774b03d1a60bf9c6e91e1",
           "widthPx": 327,
           "heightPx": 681,
@@ -11355,7 +11355,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Predicted horizon T_p, currently 32\" 16 to 32",
+          "control": "input[type=range] \"Steps planned, the predicted horizon\" 16 to 32",
           "sha256": "5a1d8a636cd9cbded4f0de6f94b8bb7d7c20fcfa2140eebbcc86927caeffdd17",
           "widthPx": 930,
           "heightPx": 764,
@@ -11724,7 +11724,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Playhead position in milliseconds, currently 0\" 2000 to 0",
+          "control": "input[type=range] \"Point in the 2 seconds: playhead position in milliseconds, c\" 2000 to 0",
           "sha256": "f67b2e645109ad1e694c1a8c5f19920cc1d077e578e2c6423c3cde495af7135f",
           "widthPx": 327,
           "heightPx": 655,
@@ -11857,7 +11857,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Playhead position in milliseconds, currently 0\" 2000 to 0",
+          "control": "input[type=range] \"Point in the 2 seconds: playhead position in milliseconds, c\" 2000 to 0",
           "sha256": "20c04c53812e10136d961ddbe26edee46e31fea2318466014cdb3b234f7a58b6",
           "widthPx": 930,
           "heightPx": 683,
@@ -11976,12 +11976,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "e115ecdd25a13dee45a2aa20dbbdd31b9f3f3ee3521d8d73fddebfd36ef93191",
+          "sha256": "e59dfd4dafb19735badb526fe12f8276d876a5d95a0fa47f4dd44ee8027f582d",
           "widthPx": 327,
-          "heightPx": 753,
+          "heightPx": 772,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 24.61,
+          "luminanceSpread": 24.33,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -12084,12 +12084,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "b0581ad9202bdaaa267709c9a63f48e2a6b404a792fed87a020c7317a02f6a15",
+          "sha256": "340d567ba25f25477259efc51db7005f1631f2db41089da08404a2eb85e6a95b",
           "widthPx": 930,
           "heightPx": 1129,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.26,
+          "luminanceSpread": 15.4,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -12206,7 +12206,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Pass depth, currently 0 of 8 layers\" 8 to 0",
+          "control": "input[type=range] \"Pass depth\" 8 to 0",
           "sha256": "4fbcfac55412a774244cc904797d6b8e1b8419f3fe688046c61f1aab567a7614",
           "widthPx": 327,
           "heightPx": 738,
@@ -12339,7 +12339,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Pass depth, currently 0 of 8 layers\" 8 to 0",
+          "control": "input[type=range] \"Pass depth\" 8 to 0",
           "sha256": "0bd3b00b88eebf692ad1f187565a3f0d75d9ea7d3edb5d1f8001c57726c31d82",
           "widthPx": 930,
           "heightPx": 984,
@@ -12472,7 +12472,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Integration steps, currently 50 of 50\" 10 to 50",
+          "control": "input[type=range] \"Refining steps, any number: integration steps, currently 50 \" 10 to 50",
           "sha256": "13d51c877d34a927b36c125db10fa07ba35cdb8f7466a54c8c674d43e5db2505",
           "widthPx": 327,
           "heightPx": 687,
@@ -12605,7 +12605,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Integration steps, currently 50 of 50\" 10 to 50",
+          "control": "input[type=range] \"Refining steps, any number: integration steps, currently 50 \" 10 to 50",
           "sha256": "f2e4d55b1808b978c6781873198dc02d5d7a19e9efcf9a175e12c6d1ac58e41e",
           "widthPx": 930,
           "heightPx": 875,
@@ -12974,7 +12974,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Model size in billions of parameters, currently 9.1\" 3 to 9.1",
+          "control": "input[type=range] \"Model size on the robot's own computer, teaching curve, in b\" 3 to 9.1",
           "sha256": "4a2ba6f1a4fa5a09e0723a742b1fb67ace91fc56f1589fec9faedb6790fd577b",
           "widthPx": 327,
           "heightPx": 587,
@@ -13107,7 +13107,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Model size in billions of parameters, currently 9.1\" 3 to 9.1",
+          "control": "input[type=range] \"Model size on the robot's own computer, teaching curve, in b\" 3 to 9.1",
           "sha256": "5f6e5cd7d8fca7feaf9f2e820d10d4abcf35ff6c32018ab6f14fce1dbe1e3db3",
           "widthPx": 930,
           "heightPx": 528,
@@ -13240,7 +13240,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Inference delay in milliseconds, currently 0\" 200 to 0",
+          "control": "input[type=range] \"Inference delay, any value: inference delay in milliseconds,\" 200 to 0",
           "sha256": "8e953ffbed1f519a015b8799545e9b0aadbcd1baf9741499b2f84604f02ec3ab",
           "widthPx": 327,
           "heightPx": 662,
@@ -13373,7 +13373,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Inference delay in milliseconds, currently 0\" 200 to 0",
+          "control": "input[type=range] \"Inference delay, any value: inference delay in milliseconds,\" 200 to 0",
           "sha256": "2a41911e16ae18cc2c64b92322f6c920e0463b7688c7d353742c903fa117c391",
           "widthPx": 930,
           "heightPx": 805,
@@ -14418,12 +14418,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "7d077051417231766dddd2d4cd7291f6776d16d4ab133f81e62fdef2bbe8d6eb",
+          "sha256": "bd8ad518575a2c8b514e7103e8dfa8da2da3024ba772eda02d881317b3bc0e49",
           "widthPx": 327,
-          "heightPx": 1004,
+          "heightPx": 988,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 30.05,
+          "luminanceSpread": 30.23,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14432,13 +14432,13 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Control step, currently 15 of 15\" 7 to 15",
-          "sha256": "0f075ce9d68389fff63d5644142eb9eb2f1157f666acf008e77020eeeb5460a0",
+          "control": "input[type=range] \"Moment in the movement\" 7 to 15",
+          "sha256": "bc02b77d15695513826838f20bbd6f9c1a0668837d7dce41271a752eecdeb4a3",
           "widthPx": 327,
-          "heightPx": 1004,
+          "heightPx": 988,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.94,
+          "luminanceSpread": 30.12,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14551,12 +14551,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "8bf3ee49177bedfbc3bf3c903f6b854edc144e774232dee14cad6ea8b758039b",
+          "sha256": "65ed9a13e1c6a0aeb3036d3f29181ed71cc0541b518ddc4d3aff87949419b4b4",
           "widthPx": 930,
           "heightPx": 1145,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 19.85,
+          "luminanceSpread": 19.83,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -14565,13 +14565,13 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Control step, currently 15 of 15\" 7 to 15",
-          "sha256": "eeada0a362c020876df9c87dca23b82ccccbadc435e6eb31330d39c212cf788d",
+          "control": "input[type=range] \"Moment in the movement\" 7 to 15",
+          "sha256": "1fe869b9e5ca94732cdad8fcb2d1b38b5e55b5e2449290b30d1c358f352dcd9a",
           "widthPx": 930,
           "heightPx": 1145,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 19.79,
+          "luminanceSpread": 19.77,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -15566,12 +15566,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "8f0067bbe43f74a5485601b1c7a708eb0b82adf72d25ac27df70f0aaea9e1f44",
+          "sha256": "1e640db0f3dc024b30b51cbfc7a3f3b64c9d2aeab1e7c761c953572027d5bf38",
           "widthPx": 327,
           "heightPx": 476,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.87,
+          "luminanceSpread": 27.81,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -15581,12 +15581,12 @@
           "state": "changed",
           "caseId": "reset",
           "control": "button \"Run a training round\"",
-          "sha256": "e343b7fa2f671f2062b1c2f3f667da856aa56252fc75450029ab4a623e0750de",
+          "sha256": "a24974294161eefb869dbc9d6f598a878986123ecee5e3155147f863da803849",
           "widthPx": 327,
           "heightPx": 476,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.83,
+          "luminanceSpread": 27.76,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -15595,8 +15595,8 @@
       ],
       "reset": {
         "present": 1,
-        "restoredDefault": false,
-        "restoredRestart": true
+        "restoredDefault": true,
+        "restoredRestart": null
       },
       "cases": [
         {
@@ -15677,12 +15677,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "31141be095f92a5ee3fc40bb0dce25c8609a25e990d5399cea88c398df6f0286",
+          "sha256": "1788a44b38d040d706e908ba409373a1f0e8fc6edd49fdb15d71a643cb912b6c",
           "widthPx": 930,
           "heightPx": 617,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.29,
+          "luminanceSpread": 17.26,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -15692,12 +15692,12 @@
           "state": "changed",
           "caseId": "reset",
           "control": "button \"Run a training round\"",
-          "sha256": "63f4f00d5e099c463a3090996618003ea7ed0b185be81291733c4a881cb4ca8a",
+          "sha256": "c928189c7d283951eaac279601e7aa3aed11cdea428e608ba34c04c59c0d5a8a",
           "widthPx": 930,
           "heightPx": 617,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.22,
+          "luminanceSpread": 17.19,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -15706,8 +15706,8 @@
       ],
       "reset": {
         "present": 1,
-        "restoredDefault": false,
-        "restoredRestart": true
+        "restoredDefault": true,
+        "restoredRestart": null
       },
       "cases": [
         {
@@ -15788,12 +15788,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "c9aec19d2f5aeef08a268a7dce4aa526920a20ec348c6e43c633725b4457e88b",
+          "sha256": "65df4ac9a8ef866da96867c7b616dfb4f7c7f0ed5684d16f93e0940defd52534",
           "widthPx": 327,
           "heightPx": 604,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.93,
+          "luminanceSpread": 27.67,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -15803,12 +15803,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Caution about untried actions, from 0 to 10, currently 10\" 0 to 10",
-          "sha256": "64c0a3572e013a66abaa68096e78a6c3c4ab641f873a4106e5f2dab653663aef",
+          "sha256": "632fd163f1f4cc513cdf75c2db339a326bd2c22e34a01a7666d8b4faeae5c185",
           "widthPx": 327,
-          "heightPx": 604,
+          "heightPx": 624,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.95,
+          "luminanceSpread": 27.88,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -15896,12 +15896,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "edeb2f3ad4248530e479ed2981ddf1394e603aa3c4447f16549e411a6593f477",
+          "sha256": "57a6225abb9404bba6da7fb6139cc083e9417f5b569103ff4a0c8a54e8f38ccf",
           "widthPx": 930,
           "heightPx": 796,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.26,
+          "luminanceSpread": 17.27,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -15911,12 +15911,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Caution about untried actions, from 0 to 10, currently 10\" 0 to 10",
-          "sha256": "3bd450ff9a3d4f00607521982e9ed1ce80dde09df7ea7cc76c1825a1eac3ed95",
+          "sha256": "ab56dc85d392dbc5f45019702e7a9152cfa31f1006c3bfc04eb0e02ff200067c",
           "widthPx": 930,
           "heightPx": 796,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.31,
+          "luminanceSpread": 17.34,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -18274,7 +18274,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Real robot friction, currently 1.50\" 80 to 150",
+          "control": "input[type=range] \"Real floor: much grippier; real robot friction, currently 1.\" 80 to 150",
           "sha256": "67c8ed525cb74e0e7287b3dabdac52631f06a7a57e0e2252ba0282e9d36735c1",
           "widthPx": 327,
           "heightPx": 587,
@@ -18393,7 +18393,7 @@
         {
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
-          "control": "input[type=range] \"Real robot friction, currently 1.50\" 80 to 150",
+          "control": "input[type=range] \"Real floor: much grippier; real robot friction, currently 1.\" 80 to 150",
           "sha256": "055c9276451df834eabdff1651a20ca137c983e559b20686adfbe3992e5b194f",
           "widthPx": 930,
           "heightPx": 678,
@@ -21371,8 +21371,8 @@
   "sheets": [
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-01.jpg",
-      "sha256": "cc75bd84f3ad81b732c9edca55e3a834a947739719d2c363dadc48b41659f8be",
-      "bytes": 186251,
+      "sha256": "806a24bcd6080a7d9a6eafd2c25a6f4ad169fe237faf0a23bbacd542432aa510",
+      "bytes": 186627,
       "mountIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
         "mount:/adjacent/surgical/:MotionPantograph:1",
@@ -21476,7 +21476,7 @@
         },
         {
           "key": "mount:/classical/calibration/:TimeOffsetMiss:1@375x812:changed",
-          "sha256": "a950c59319515311f36ad93b9a27874b8f0b5ae805e8b24bfa983af3b1d6e352"
+          "sha256": "188fd97bd7f1437eec9e3b61af9823ac0e5f42b50b481a8eb45d78edb39e1fe6"
         }
       ],
       "renderedTwiceIdentical": true
@@ -21819,8 +21819,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-05.jpg",
-      "sha256": "4a72139374f0a7e2e44ce6ae79d7ced8e4b5b677155569ad2b6d3841504491bf",
-      "bytes": 274889,
+      "sha256": "3d11ea8bdce7ffc10fbfd57da358f39bfba0230b52307e17ba2d262dceb0302c",
+      "bytes": 275077,
       "mountIds": [
         "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
         "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -21908,7 +21908,7 @@
         },
         {
           "key": "mount:/frontier/competing-theses/:HelixClockwork:1@375x812:changed",
-          "sha256": "8fd338b4d27056babd8465aa492bb870e34d8448836f2fd6133b2d66089e1830"
+          "sha256": "de62f986fb25f2df8296edf2c20cf011bdc001ede9a0fe9b00f1dba5b4a08fb3"
         },
         {
           "key": "mount:/frontier/competing-theses/:ThesisExplorer:1@1440x900:default",
@@ -21931,8 +21931,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-06.jpg",
-      "sha256": "a9c1fc71eff8d5e591dad4f3df21f21dfee3ccaceb6cc785a9269f9246996bc7",
-      "bytes": 202898,
+      "sha256": "951ca228b17fee181be2ec2ebc624aa918f66ebc579ef8f0850f87785bbf3e1b",
+      "bytes": 203001,
       "mountIds": [
         "mount:/frontier/dexterity/:HandComparison:1",
         "mount:/frontier/generalization/:EgoScaleScaling:1",
@@ -22028,7 +22028,7 @@
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@1440x900:changed",
-          "sha256": "90789518514eee04bcf8f1bf7f78d529e69a76b792a1a8f8e5bdb60b135d8309"
+          "sha256": "58dc15a6f4937cd57c37eb33192a114a5d8e1034b3c7ccb605bfaaa83d1951d1"
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@375x812:default",
@@ -22036,15 +22036,15 @@
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@375x812:changed",
-          "sha256": "c701fec6eb99ec96fd17217bd85b4006a3b01bf419012ee717ec33fc6f04daef"
+          "sha256": "3c9122ae0600c670bfc77784c29d1c2ec288ed6b550a2ece8122a367554f813a"
         }
       ],
       "renderedTwiceIdentical": true
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-07.jpg",
-      "sha256": "709a4b988d7dc2fbf3b5a7f15c8e12648f815c4c608f582caeec89e048b1d278",
-      "bytes": 242884,
+      "sha256": "b9fb907fa3e326e3a465261b3a9e0c355aece42f84e7cdd3dafeed5c6006cbe4",
+      "bytes": 244070,
       "mountIds": [
         "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
         "mount:/manipulation/action-chunking/:LatencyComparison:1",
@@ -22155,8 +22155,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
-      "sha256": "b68640557736885ae6f19f61d1c5380a1c437a4e4926e0353c78ca2f2e7648cd",
-      "bytes": 193487,
+      "sha256": "2a6449945d800e9d5201e759859174e49d64834ef7f2ac279a062769adad6d7b",
+      "bytes": 193659,
       "mountIds": [
         "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
         "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
@@ -22248,7 +22248,7 @@
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@1440x900:default",
-          "sha256": "b0581ad9202bdaaa267709c9a63f48e2a6b404a792fed87a020c7317a02f6a15"
+          "sha256": "340d567ba25f25477259efc51db7005f1631f2db41089da08404a2eb85e6a95b"
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@1440x900:changed",
@@ -22256,7 +22256,7 @@
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@375x812:default",
-          "sha256": "e115ecdd25a13dee45a2aa20dbbdd31b9f3f3ee3521d8d73fddebfd36ef93191"
+          "sha256": "e59dfd4dafb19735badb526fe12f8276d876a5d95a0fa47f4dd44ee8027f582d"
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@375x812:changed",
@@ -22267,8 +22267,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-09.jpg",
-      "sha256": "7aad133934deccf255de144e07844bd5df5736ddadcb900a1fe34945963fcbdd",
-      "bytes": 184111,
+      "sha256": "01235c32c82ccd3f94b2da86ddf6797bb9dcb79dcf96055cb8b1e00c0fb69bc8",
+      "bytes": 184389,
       "mountIds": [
         "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
         "mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
@@ -22379,8 +22379,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-10.jpg",
-      "sha256": "0e23c7f1e369615ee2fdc282595b685cb47cbf2bbc71a036c42b8b677b4d0b2b",
-      "bytes": 192576,
+      "sha256": "03ffd54f3bc1ca51493908dcc6219625fa025ba821adaedaabc1d979f90797bd",
+      "bytes": 192329,
       "mountIds": [
         "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
         "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
@@ -22440,19 +22440,19 @@
         },
         {
           "key": "mount:/manipulation/vla-models/:ActionTokenization:1@1440x900:default",
-          "sha256": "8bf3ee49177bedfbc3bf3c903f6b854edc144e774232dee14cad6ea8b758039b"
+          "sha256": "65ed9a13e1c6a0aeb3036d3f29181ed71cc0541b518ddc4d3aff87949419b4b4"
         },
         {
           "key": "mount:/manipulation/vla-models/:ActionTokenization:1@1440x900:changed",
-          "sha256": "eeada0a362c020876df9c87dca23b82ccccbadc435e6eb31330d39c212cf788d"
+          "sha256": "1fe869b9e5ca94732cdad8fcb2d1b38b5e55b5e2449290b30d1c358f352dcd9a"
         },
         {
           "key": "mount:/manipulation/vla-models/:ActionTokenization:1@375x812:default",
-          "sha256": "7d077051417231766dddd2d4cd7291f6776d16d4ab133f81e62fdef2bbe8d6eb"
+          "sha256": "bd8ad518575a2c8b514e7103e8dfa8da2da3024ba772eda02d881317b3bc0e49"
         },
         {
           "key": "mount:/manipulation/vla-models/:ActionTokenization:1@375x812:changed",
-          "sha256": "0f075ce9d68389fff63d5644142eb9eb2f1157f666acf008e77020eeeb5460a0"
+          "sha256": "bc02b77d15695513826838f20bbd6f9c1a0668837d7dce41271a752eecdeb4a3"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@1440x900:default",
@@ -22491,8 +22491,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-11.jpg",
-      "sha256": "50175ca7275a3ba3ecf8b9e3a7c8f3a8785c17880881688a6ac58b0e24086270",
-      "bytes": 148955,
+      "sha256": "18171c8f35ecc6e634134f733eb78dd1f8b106ca69d2c69ad5e55ca6044fc42c",
+      "bytes": 149477,
       "mountIds": [
         "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
         "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
@@ -22536,35 +22536,35 @@
         },
         {
           "key": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1@1440x900:default",
-          "sha256": "31141be095f92a5ee3fc40bb0dce25c8609a25e990d5399cea88c398df6f0286"
+          "sha256": "1788a44b38d040d706e908ba409373a1f0e8fc6edd49fdb15d71a643cb912b6c"
         },
         {
           "key": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1@1440x900:changed",
-          "sha256": "63f4f00d5e099c463a3090996618003ea7ed0b185be81291733c4a881cb4ca8a"
+          "sha256": "c928189c7d283951eaac279601e7aa3aed11cdea428e608ba34c04c59c0d5a8a"
         },
         {
           "key": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1@375x812:default",
-          "sha256": "8f0067bbe43f74a5485601b1c7a708eb0b82adf72d25ac27df70f0aaea9e1f44"
+          "sha256": "1e640db0f3dc024b30b51cbfc7a3f3b64c9d2aeab1e7c761c953572027d5bf38"
         },
         {
           "key": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1@375x812:changed",
-          "sha256": "e343b7fa2f671f2062b1c2f3f667da856aa56252fc75450029ab4a623e0750de"
+          "sha256": "a24974294161eefb869dbc9d6f598a878986123ecee5e3155147f863da803849"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1@1440x900:default",
-          "sha256": "edeb2f3ad4248530e479ed2981ddf1394e603aa3c4447f16549e411a6593f477"
+          "sha256": "57a6225abb9404bba6da7fb6139cc083e9417f5b569103ff4a0c8a54e8f38ccf"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1@1440x900:changed",
-          "sha256": "3bd450ff9a3d4f00607521982e9ed1ce80dde09df7ea7cc76c1825a1eac3ed95"
+          "sha256": "ab56dc85d392dbc5f45019702e7a9152cfa31f1006c3bfc04eb0e02ff200067c"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1@375x812:default",
-          "sha256": "c9aec19d2f5aeef08a268a7dce4aa526920a20ec348c6e43c633725b4457e88b"
+          "sha256": "65df4ac9a8ef866da96867c7b616dfb4f7c7f0ed5684d16f93e0940defd52534"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1@375x812:changed",
-          "sha256": "64c0a3572e013a66abaa68096e78a6c3c4ab641f873a4106e5f2dab653663aef"
+          "sha256": "632fd163f1f4cc513cdf75c2db339a326bd2c22e34a01a7666d8b4faeae5c185"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1@1440x900:default",
@@ -22715,8 +22715,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-13.jpg",
-      "sha256": "eaeb183d620d8956432af82fd91833f7e0ef613a0e4337cde16b80f0916fbd1d",
-      "bytes": 165091,
+      "sha256": "6fa411447d8bc5f2aab1b7df53dc875317c685b5f482ab1fd86ba54756cda1f0",
+      "bytes": 165886,
       "mountIds": [
         "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
         "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",

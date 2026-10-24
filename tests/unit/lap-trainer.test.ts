@@ -26,6 +26,7 @@ import {
   movingAt,
   poolOf,
   scopePose,
+  taskStopAt,
   taskTipAt,
 } from '@/components/iso/figures/lap-trainer';
 
@@ -126,12 +127,16 @@ describe('the camera: what the scope sees', () => {
     const following = playDrill(true);
     expect(following.every(Boolean)).toBe(true);
     const held = playDrill(false);
-    // Held where it was put, the scope sees the tip at the start of the drill, then loses it for good once it leaves.
+    // Held where it was put, the scope sees the tip at the start of the drill, loses it once it leaves,
+    // and sees it again only when the drill brings it back to the still peg.
     expect(held[0]).toBe(true);
     const lost = held.indexOf(false);
+    const back = held.lastIndexOf(false) + 1;
     expect(lost).toBeGreaterThan(0);
-    expect(held.slice(lost).every((seen) => !seen)).toBe(true);
-    expect(held.filter((seen) => !seen).length / held.length).toBeGreaterThan(0.7);
+    expect(back).toBeLessThan(held.length);
+    expect(held.slice(lost, back).every((seen) => !seen)).toBe(true);
+    expect(held.slice(back).every(Boolean)).toBe(true);
+    expect(held.filter((seen) => !seen).length / held.length).toBeGreaterThan(0.6);
     // Every peg is in view when the scope follows, and only the still pose's peg when it is held at the still pose.
     for (const [x, y] of PEGS) {
       const tip: P3 = [x, y, TIP_Z];
@@ -140,17 +145,24 @@ describe('the camera: what the scope sees', () => {
     }
   });
 
-  it('plays a drill from wherever the tip is to each peg it lists, ending on the last, without jumps', () => {
+  it('plays a drill from wherever the tip is to each peg it lists and back to where it started, without jumps', () => {
     const last = PEGS[TASK_PEGS.at(-1)!]!;
     for (const from of [STILL_TIP, [last[0], last[1], TIP_Z] as P3, clampTip([-99, 99])]) {
       const drill = Array.from({ length: Math.ceil(TASK_SECONDS * 100) + 1 }, (_, k) => taskTipAt(k / 100, from));
       expect(drill[0]).toEqual(from);
-      expect(taskTipAt(TASK_SECONDS, from)).toEqual([last[0], last[1], TIP_Z]);
+      expect(taskTipAt(TASK_SECONDS, from)).toEqual(from);
       for (const index of TASK_PEGS) {
         const [x, y] = PEGS[index]!;
         expect(drill.some((tip) => Math.hypot(tip[0] - x, tip[1] - y) < 1e-6)).toBe(true);
       }
       for (let k = 1; k < drill.length; k++) expect(length3(sub(drill[k]!, drill[k - 1]!))).toBeLessThan(1.2);
+      // Reduced motion: the same drill as jumps, resting on each stop and only ever on a stop.
+      const stops = [from, ...TASK_PEGS.map((index) => [...PEGS[index]!, TIP_Z] as P3), from];
+      const stepped = Array.from({ length: Math.ceil(TASK_SECONDS * 100) + 1 }, (_, k) => taskStopAt(k / 100, from));
+      expect(stepped[0]).toEqual(from);
+      expect(taskStopAt(TASK_SECONDS, from)).toEqual(from);
+      for (const tip of stepped) expect(stops.some((stop) => stop.every((v, i) => v === tip[i]))).toBe(true);
+      for (const stop of stops) expect(stepped.some((tip) => stop.every((v, i) => v === tip[i]))).toBe(true);
     }
     // The drill's pegs are on the right instrument's side, inside the field a drag may reach.
     for (const index of TASK_PEGS) expect(clampTip(PEGS[index]!)).toEqual([...PEGS[index]!, TIP_Z]);

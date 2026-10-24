@@ -61,7 +61,7 @@ test.describe('RL reward-design and MPC module', () => {
     // accessible name. The label check runs before every replay, so a
     // registered click is never toggled back off.
     const playButton = page.getByRole('button', { name: /play rollout preview/i });
-    const pauseButton = page.getByRole('button', { name: 'Pause rollout preview' });
+    const pauseButton = page.getByRole('button', { name: 'Stop rollout preview' });
     for (let attempt = 0; attempt < 60; attempt += 1) {
       if ((await pauseButton.count()) === 1) break;
       if ((await playButton.count()) === 1) await playButton.click();

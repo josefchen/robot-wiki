@@ -17,6 +17,19 @@ function readout(id: string) {
   return screen.getByTestId(id).textContent ?? '';
 }
 
+const words = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+
+/** The slider's visible label, without its value slot, as the label-in-name check reads it. */
+function visibleLabel(input: HTMLElement) {
+  return [...((input as HTMLInputElement).labels ?? [])]
+    .map((label) => {
+      const copy = label.cloneNode(true) as HTMLElement;
+      copy.querySelectorAll('[data-figure-control-value], [aria-hidden="true"]').forEach((node) => node.remove());
+      return copy.textContent ?? '';
+    })
+    .join(' ');
+}
+
 describe('FrictionTransfer', () => {
   it('renders both curves, the DR band, the real-robot line, readouts, and reset', () => {
     render(<FrictionTransfer />);
@@ -239,5 +252,25 @@ describe('FrictionTransfer series encoding (VAL-B2-VIZ-002/004)', () => {
     const { container } = render(<FrictionTransfer />);
     expect(Object.keys(seriesEncodings(container)).sort()).toEqual(['dr-policy', 'point-policy', 'real-robot']);
     expect(seriesEncodingViolations(container)).toEqual([]);
+  });
+
+  it('names each slider starting with its visible label, also when the real-floor words change', () => {
+    render(<FrictionTransfer />);
+    for (const value of ['80', '20', '150']) {
+      fireEvent.change(realMuSlider(), { target: { value } });
+      for (const slider of [realMuSlider(), rangeSlider()]) {
+        const label = words(visibleLabel(slider));
+        expect(label).not.toBe('');
+        expect(words(slider.getAttribute('aria-label') ?? '').startsWith(label)).toBe(true);
+      }
+    }
+    expect(realMuSlider()).toHaveAttribute(
+      'aria-label',
+      'Real floor: much grippier; real robot friction, currently 1.50',
+    );
+    expect(rangeSlider()).toHaveAttribute(
+      'aria-label',
+      'Range of practice floors: randomization half-width, currently plus or minus 0.35',
+    );
   });
 });

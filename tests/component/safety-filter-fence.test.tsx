@@ -2,6 +2,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { RUN_SECONDS, STILL_PERCENT, SafetyFilterFence, readoutFor } from '@/components/interactive/safety-filter-fence';
+import { READOUT_SETTLE_MS } from '@/components/motion/settled-speech';
 import {
   DEEPEST_T,
   ENTER_T,
@@ -89,7 +90,7 @@ describe('the safety filter model', () => {
     expect(readoutFor(0.05)).toBe('Aim outside · pen follows exactly');
     expect(readoutFor(DEEPEST_T)).toBe('Aim inside · pen held at the fence');
     expect(readoutFor((LEAVE_T + 1) / 2)).toBe('Aim outside again · pen follows exactly');
-    expect(readoutFor(1)).toBe('Done · changed only at the fence');
+    expect(readoutFor(1)).toBe('Done at 100% · changed only at the fence');
   });
 });
 
@@ -153,6 +154,31 @@ describe('SafetyFilterFence', () => {
     const { container } = render(<SafetyFilterFence />);
     fireEvent.click(container.querySelector('[data-testid="fence-run"]')!);
     expect(container.querySelector('[data-testid="fence-drawing"]')).toHaveAttribute('data-phase', 'done');
+  });
+
+  it('ends a run by saying, once, the percentage the slider moved to', async () => {
+    vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} }));
+    vi.useFakeTimers();
+    try {
+      const { container } = render(<SafetyFilterFence />);
+      fireEvent.click(screen.getByTestId('fence-run'));
+      const percent = screen.getByTestId('fence-percent').textContent!;
+      expect(percent).toBe('100%');
+      const readout = container.querySelector('[data-readout]')!;
+      expect(readout.textContent).toBe(`Done at ${percent} · changed only at the fence`);
+      await act(async () => {
+        await Promise.resolve();
+      });
+      act(() => {
+        vi.advanceTimersByTime(READOUT_SETTLE_MS + 60);
+      });
+      const spoken = [...container.querySelectorAll('[role="status"], [aria-live]:not([aria-live="off"])')]
+        .map((region) => region.textContent ?? '')
+        .filter(Boolean);
+      expect(spoken).toEqual([readout.textContent]);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('server-renders the still pose it hydrates', () => {

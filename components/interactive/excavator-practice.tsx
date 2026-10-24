@@ -19,7 +19,7 @@ import {
   EARLIER_MINUTES,
   ENSEMBLE_MEMBERS,
   PRACTICE,
-  RUN_SECONDS,
+  runAt,
   STILL_PRACTICE,
   STILL_S,
   practiceOf,
@@ -38,13 +38,15 @@ import {
  * goes next. The trainer's dial counts the minutes of practice against the
  * 100 to 150 minutes earlier learned controllers were given. Picking the
  * minutes changes how far the guesses fan out and how far the ink wanders;
- * "Trace the path" runs the arm along the whole path. Numbers and words come
- * from lib/excavator-practice.ts. Reduced motion jumps instead of moving.
+ * "Trace the path" runs the arm along the whole path and back to the still
+ * pose; "Stop the arm" puts it back there at once. Numbers and words come
+ * from lib/excavator-practice.ts. Reduced motion jumps instead of moving: the
+ * run steps along the path.
  */
 
-/** The readout, in words: what the paper reports at this point, or how far a run has got. */
-export function readoutFor(practice: Practice, s: number, running: boolean) {
-  if (!running) return practice.reads;
+/** The readout, in words: what the paper reports at this point, or how far a run's trace has got. */
+export function readoutFor(practice: Practice, s: number, tracing: boolean) {
+  if (!tracing) return practice.reads;
   return `${practice.minutes} minutes · tracing, ${Math.round(s * 100)}% of the path`;
 }
 
@@ -90,6 +92,8 @@ export function ExcavatorPractice({ className }: { className?: string }) {
   const [practiceId, setPracticeId] = useState<PracticeId>(STILL_PRACTICE);
   const [s, setS] = useState(STILL_S);
   const [running, setRunning] = useState(false);
+  /** Whether a run is still on its way along the path (not yet gliding back). */
+  const [tracing, setTracing] = useState(false);
   /** The practice the drawing shows, eased toward the chosen one. */
   const [shown, setShown] = useState<Practice>(practiceOf(STILL_PRACTICE));
   const shownRef = useRef(shown);
@@ -112,20 +116,29 @@ export function ExcavatorPractice({ className }: { className?: string }) {
     return () => cancelAnimationFrame(frame);
   }, [practice]);
 
-  // "Trace the path": the shovel runs the whole path from the start.
+  // "Trace the path": the shovel runs the whole path from the start and glides back to the still pose.
   useEffect(() => {
     if (!running) return;
     let frame = 0;
     const start = performance.now();
     const tick = (now: number) => {
-      const next = Math.min(1, (now - start) / (RUN_SECONDS * 1000));
+      const calm = typeof window.matchMedia === 'function' && asksForStillness();
+      const { s: next, phase } = runAt((now - start) / 1000, calm);
       setS(next);
-      if (next < 1) frame = requestAnimationFrame(tick);
-      else setRunning(false);
+      setTracing(phase === 'tracing');
+      if (phase === 'done') setRunning(false);
+      else frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [running]);
+
+  /** Ends a run where the figure rests: the still pose. */
+  const stop = () => {
+    setRunning(false);
+    setTracing(false);
+    setS(STILL_S);
+  };
 
   const arm = useMemo(() => armParts(tracedAt(shown, s)), [shown, s]);
   const marks = useMemo(() => boardMarks(shown, s), [shown, s]);
@@ -154,7 +167,7 @@ export function ExcavatorPractice({ className }: { className?: string }) {
   };
 
   const choose = (id: PracticeId) => {
-    setRunning(false);
+    stop();
     // Reduced motion jumps straight to the new preset instead of easing to it.
     if (typeof window.matchMedia === 'function' && asksForStillness()) {
       shownRef.current = practiceOf(id);
@@ -184,15 +197,12 @@ export function ExcavatorPractice({ className }: { className?: string }) {
             data-pagefind-ignore
             onClick={() => {
               if (running) {
-                setRunning(false);
+                stop();
                 return;
               }
-              // Reduced motion jumps to the end of the path instead of tracing it.
-              if (typeof window.matchMedia === 'function' && asksForStillness()) setS(1);
-              else {
-                setS(0);
-                setRunning(true);
-              }
+              setS(0);
+              setTracing(true);
+              setRunning(true);
             }}
             data-testid="excavator-run"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
@@ -205,7 +215,7 @@ export function ExcavatorPractice({ className }: { className?: string }) {
         <AnatomyStage
           viewWidth={WIDTH}
           hint="Faint: the five models' guesses. Blue: where the shovel went"
-          readout={readoutFor(practice, s, running)}
+          readout={readoutFor(practice, s, tracing)}
           status="Checkpoints from the paper; the path and the guesses' spread are illustrative"
           data-testid="excavator-stage-frame"
         >

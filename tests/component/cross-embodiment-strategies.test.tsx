@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodiment-strategies';
 import { renderWithCitations } from '../helpers/widget-citations';
+import { seriesEncodingViolations, seriesEncodings } from '../helpers/series-encoding';
 
 const render = renderWithCitations('CrossEmbodimentStrategies');
 
@@ -159,6 +160,27 @@ describe('CrossEmbodimentStrategies', () => {
     );
     expect(screen.getByTestId('row-arm')).toHaveTextContent(/8 shared dims/);
     expect(screen.queryAllByText(/zero-padded/)).toHaveLength(0);
+  });
+
+  it('tells every slot series apart without colour under every way, drawing fresh strip slots for each (VAL-B2-VIZ-002)', () => {
+    const { container } = render(<CrossEmbodimentStrategies />);
+    const stripSlots = () => [...container.querySelectorAll('[data-testid^="row-"] rect[data-series]')];
+    for (const name of ["Pad each robot's own list", 'Translate between bodies', 'Describe where the hand goes', "Pad each robot's own list"]) {
+      const before = stripSlots();
+      fireEvent.click(strategyButton(name));
+      // A driven slot is a filled bar, an unused one an empty outline, zero-padding a dashed outline,
+      // and the illustrative link a hatched bar, in the grid and in every strip.
+      const encodings = seriesEncodings(container);
+      expect(encodings.active?.geometries, name).toEqual(['bar']);
+      expect(encodings.active?.pattern, name).toBe(false);
+      expect(encodings.blocked?.geometries, name).toEqual(['outline']);
+      if (encodings.zeroed) expect(encodings.zeroed.geometries, name).toEqual(['dashed-outline']);
+      if (encodings.latent) expect(encodings.latent, name).toMatchObject({ geometries: ['bar'], pattern: true });
+      expect(seriesEncodingViolations(container), name).toEqual([]);
+      // Each new way draws new slot elements: none of the strips' slots is an old one repainted.
+      const after = new Set(stripSlots());
+      expect(before.filter((slot) => after.has(slot)), name).toEqual([]);
+    }
   });
 
   it('links every strategy to its source', () => {

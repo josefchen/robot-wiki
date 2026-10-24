@@ -1,8 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { JSDOM } from 'jsdom';
 import type { ReactNode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
 import { CAMERA_DELAY_S, REST_X, TimeOffsetMiss, gapMm, handAt } from '@/components/interactive/time-offset-miss';
 import { TRAVEL } from '@/components/iso/figures/time-offset-bench';
@@ -17,6 +17,10 @@ const Wrapper = ({ children }: { children: ReactNode }) => (
 const renderFigure = () => render(<TimeOffsetMiss />, { wrapper: Wrapper });
 
 describe('TimeOffsetMiss', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it('leads with the kicker, the takeaway headline and a one-sentence caption', () => {
     const { container } = renderFigure();
     expect(container.querySelector('[data-figure-kicker]')).toHaveTextContent('Time calibration');
@@ -67,6 +71,27 @@ describe('TimeOffsetMiss', () => {
     expect(container.querySelector('[data-readout]')).toHaveTextContent('photo 55 mm behind');
     fireEvent.change(slider, { target: { value: '0' } });
     expect(container.querySelector('[data-readout]')).toHaveTextContent('Standing still: no gap');
+  });
+
+  it('stops the running bench back in the still pose it opened on', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    const { container } = renderFigure();
+    const drawing = () => container.querySelector('[data-anatomy-stage] svg')!.innerHTML;
+    const readout = () => container.querySelector('[data-readout]')!.textContent;
+    const still = { drawing: drawing(), readout: readout() };
+    fireEvent.click(screen.getByTestId('time-offset-run'));
+    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Stop the bench');
+    await act(async () => {
+      vi.advanceTimersByTime(2500);
+    });
+    expect(drawing()).not.toBe(still.drawing);
+    fireEvent.click(screen.getByTestId('time-offset-run'));
+    await act(async () => {
+      vi.advanceTimersByTime(500);
+    });
+    expect(screen.getByTestId('time-offset-run')).toHaveTextContent('Run the bench');
+    expect(drawing()).toBe(still.drawing);
+    expect(readout()).toBe(still.readout);
   });
 
   it('names the stage and links the measured delay to its source', () => {

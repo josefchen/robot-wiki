@@ -238,9 +238,11 @@ export function LatentImagination({
     pictures: mode === 'decoder' ? pictureSteps(horizon) : [],
     visibleGap: VISIBLE_GAP,
   });
+  // TD-MPC2 shows its drift as reward error, so the stage says that number too.
+  const rewardWords = mode === 'decoder-free' ? ` · reward error ${formatUnits(rewardError)}` : '';
   const readout =
     laying === null
-      ? `${stepsWord(horizon)} ahead · ${formatUnits(deviationNow)} off the route`
+      ? `${stepsWord(horizon)} ahead · ${formatUnits(deviationNow)} off the route${rewardWords}`
       : `laying step ${shown} of ${horizon} · ${formatUnits(shownDeviation)} off the route`;
 
   const rolloutStage = (

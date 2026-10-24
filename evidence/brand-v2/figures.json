@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "af52b750fd32245b245052a88abbeb14566c0a5d54db9563e385c28827fa202d",
+  "fingerprint": "60082b125f6d9231ef4be51b26e07a019e07af4f10096e44fd5de0c7e722372f",
   "viewports": [
     "375x812",
     "1440x900"
@@ -13934,7 +13934,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22151,
+      "visibleTextLength": 22159,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -14618,7 +14618,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21987,
+      "visibleTextLength": 21976,
       "figures": [
         {
           "imageId": "gemini-robotics-aloha-dexterous-2025",
@@ -14888,7 +14888,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20411,
+      "visibleTextLength": 20406,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -15065,7 +15065,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18280,
+      "visibleTextLength": 18271,
       "figures": [
         {
           "imageId": "isaac-gym-trifinger-env-2021",
@@ -30400,7 +30400,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27931,
+      "visibleTextLength": 27939,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -31084,7 +31084,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 29391,
+      "visibleTextLength": 29380,
       "figures": [
         {
           "imageId": "gemini-robotics-aloha-dexterous-2025",
@@ -31354,7 +31354,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26243,
+      "visibleTextLength": 26238,
       "figures": [
         {
           "imageId": "spot-boston-dynamics-2023",
@@ -31531,7 +31531,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 23631,
+      "visibleTextLength": 23622,
       "figures": [
         {
           "imageId": "isaac-gym-trifinger-env-2021",

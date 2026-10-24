@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { ChunkBuffer, RUN_MS, valueTextFor } from '@/components/interactive/chunk-buffer';
+import { ChunkBuffer, RUN_MS, RUN_STOPS, runOffset, valueTextFor } from '@/components/interactive/chunk-buffer';
 import { CARD_W, PITCH, WELL_X, beltCards, indexShare, poseAt } from '@/components/iso/figures/card-feeder';
 import { ANSWER_MS, SLOW, STILL_CHUNK, STILL_MS, TICK_MS, actionOfTick, actionsLeft, firstTickOf, leftOver } from '@/lib/chunk-buffer';
 
@@ -96,10 +96,11 @@ describe('ChunkBuffer', () => {
     expect(valueTextFor(13)).toBe('13 actions per chunk: 13 or more, so every tick has an action');
   });
 
-  it('runs the clock only when asked, slowed, with no pressed state, and jumps to the end under reduced motion', async () => {
+  it('runs the clock only when asked, slowed, with no pressed state, and ends back on the still pose', async () => {
     vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
     try {
-      render(<ChunkBuffer />);
+      const { container } = render(<ChunkBuffer />);
+      const still = container.innerHTML;
       const run = screen.getByTestId('chunk-run');
       expect(run).not.toHaveAttribute('aria-pressed');
       expect(run).toHaveTextContent('Run the clock');
@@ -113,18 +114,71 @@ describe('ChunkBuffer', () => {
       const between = Number(drawing.getAttribute('data-ms'));
       expect(between).toBeGreaterThan(STILL_MS + 90);
       expect(between).toBeLessThan(STILL_MS + 110);
+      expect(container.innerHTML).not.toBe(still);
       await act(async () => {
         vi.advanceTimersByTime(RUN_MS * SLOW);
       });
-      expect(drawing).toHaveAttribute('data-ms', String(STILL_MS + RUN_MS));
+      // The run ends on the exact frame it started from, every readout as it was.
       expect(run).toHaveTextContent('Run the clock');
+      expect(drawing).toHaveAttribute('data-ms', String(STILL_MS));
+      expect(container.innerHTML).toBe(still);
     } finally {
       vi.useRealTimers();
     }
+  });
+
+  it('stops the clock mid-run back on the still pose', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      const { container } = render(<ChunkBuffer />);
+      const still = container.innerHTML;
+      const run = screen.getByTestId('chunk-run');
+      fireEvent.click(run);
+      await act(async () => {
+        vi.advanceTimersByTime(230 * SLOW);
+      });
+      expect(Number(screen.getByTestId('chunk-drawing').getAttribute('data-ms'))).toBeGreaterThan(STILL_MS + 200);
+      fireEvent.click(run);
+      expect(run).toHaveTextContent('Run the clock');
+      expect(container.innerHTML).toBe(still);
+      await act(async () => {
+        vi.advanceTimersByTime(RUN_MS * SLOW);
+      });
+      expect(container.innerHTML).toBe(still);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('steps through the run in jumps under reduced motion, then returns to the still pose', async () => {
     vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce'), media: query, addEventListener() {}, removeEventListener() {} }));
-    const { container } = render(<ChunkBuffer />);
-    fireEvent.click(container.querySelector('[data-testid="chunk-run"]')!);
-    expect(container.querySelector('[data-testid="chunk-drawing"]')).toHaveAttribute('data-ms', String(STILL_MS + RUN_MS));
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      const { container } = render(<ChunkBuffer />);
+      const still = container.innerHTML;
+      const run = screen.getByTestId('chunk-run');
+      const drawing = screen.getByTestId('chunk-drawing');
+      fireEvent.click(run);
+      expect(run).toHaveTextContent('Stop the clock');
+      const shown: number[] = [];
+      for (let elapsed = 0; elapsed < RUN_MS * SLOW + 500; elapsed += 100) {
+        await act(async () => {
+          vi.advanceTimersByTime(100);
+        });
+        const at = Number(drawing.getAttribute('data-ms'));
+        // Every frame is a stop or the still pose, never a moment between two.
+        expect([STILL_MS, ...RUN_STOPS.map((offset) => STILL_MS + offset)]).toContain(at);
+        if (shown.at(-1) !== at) shown.push(at);
+      }
+      expect(shown).toEqual([...RUN_STOPS.map((offset) => STILL_MS + offset), STILL_MS]);
+      expect(run).toHaveTextContent('Run the clock');
+      expect(container.innerHTML).toBe(still);
+    } finally {
+      vi.useRealTimers();
+    }
+    expect(runOffset(0, true)).toBe(RUN_STOPS[0]);
+    expect(runOffset(RUN_MS * SLOW, true)).toBeNull();
+    expect(runOffset(RUN_MS * SLOW, false)).toBeNull();
   });
 
   it('server-renders the still pose it hydrates', () => {

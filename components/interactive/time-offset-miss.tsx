@@ -28,8 +28,9 @@ import { HEIGHT, PARTS, PHONE_FIT, TRAVEL, WIDTH, beamTo, slideTo, type Group, t
  * The one control is the gripper's speed. The bench stands still with the
  * gripper mid-stroke and the spot at the steady gap; "Run the bench" sweeps
  * the gripper along the rail, slowed down for the eye, with the spot
- * following the gripper's position 55 milliseconds earlier. Reduced motion
- * keeps the still pose. The palm is the one lit part.
+ * following the gripper's position 55 milliseconds earlier, until "Stop the
+ * bench" puts it back in the still pose. Reduced motion keeps the still
+ * pose. The palm is the one lit part.
  */
 
 /** Camera delay in seconds: Realtime-VLA V2, t_camera on the DOS W1 rig. */
@@ -98,6 +99,8 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
   const delaySource = citationFor('realtime-vla-v2-2026');
   const [speed, setSpeed] = useState(DEFAULT_SPEED_CM_S);
   const [running, setRunning] = useState(false);
+  /** Bumped on every stop, so the drawing the loop moved is drawn afresh in the still pose. */
+  const [stops, setStops] = useState(0);
   const gap = gapMm(speed);
   const shownGap = useEasedValue(gap);
 
@@ -176,7 +179,10 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
             <button
               type="button"
               data-brand-control-id="control:secondary-action"
-              onClick={() => setRunning((r) => !r)}
+              onClick={() => {
+                if (running) setStops((n) => n + 1);
+                setRunning(!running);
+              }}
               data-testid="time-offset-run"
               className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
             >
@@ -207,10 +213,10 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
                     <PartView key={k} part={part} />
                   ),
                 );
-                if (run.group === 'static') return <g key={index}>{body}</g>;
+                if (run.group === 'static') return <g key={`${index}-${stops}`}>{body}</g>;
                 return (
                   <g
-                    key={index}
+                    key={`${index}-${stops}`}
                     ref={run.group === 'hand' ? handRef : run.group === 'pointer' ? pointerRef : spotRef}
                     transform={groupTransform(run.group)}
                     data-testid={`time-offset-${run.group}`}

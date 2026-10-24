@@ -33,17 +33,20 @@ const smooth = (x: number) => x * x * (3 - 2 * x);
 /** The slider's value, in words. */
 export function shareValue(share: number): string {
   const place = placeOf(share);
-  if (place === 'on') return 'the reading';
+  if (place === 'on') return '100% of the reading';
   if (place === 'image') return 'at the image';
   return `${100 - percentShort(share)}% of the reading`;
 }
 
-/** What the slider's value means, for assistive technology. */
+/**
+ * What the slider's value means, for assistive technology. It repeats the
+ * percentage the visible value prints, so the readout states what the slider says.
+ */
 export function valueTextFor(share: number): string {
   const place = placeOf(share);
-  if (place === 'on') return "Depth from the depth camera: the target sits on the toolbox's handle";
+  if (place === 'on') return "Depth 100% of the reading, from the depth camera: the target sits on the toolbox's handle";
   if (place === 'image') return 'No depth: the target is still the point in the image, which could be anywhere on its line';
-  return `Depth ${percentShort(share)}% short of the reading: the target hangs in the air on the same line, short of the handle`;
+  return `Depth ${100 - percentShort(share)}% of the reading, ${percentShort(share)}% short: the target hangs in the air on the same line, short of the handle`;
 }
 
 function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNode {

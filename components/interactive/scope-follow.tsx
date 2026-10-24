@@ -18,6 +18,7 @@ import {
   lookAt,
   movingAt,
   planeAt,
+  taskStopAt,
   taskTipAt,
   type Part,
   type Pose,
@@ -34,8 +35,10 @@ import {
  * the peg board, the one lit part, is what the camera sees. With following on,
  * the arm keeps the pool on the right instrument's tip; with it off, the scope
  * stays where it was put. The still pose shows following on, the pool round the
- * tip. "Run the drill" moves the tip to three pegs in turn; dragging on the board
- * moves it by hand. Reduced motion makes every move a jump.
+ * tip. "Run the drill" moves the tip to three pegs in turn and back to where it
+ * started, and "Stop the drill" puts it back there at once; dragging on the
+ * board moves it by hand. Reduced motion makes every
+ * move a jump: the drill steps from peg to peg.
  */
 
 export type CameraMode = 'placed' | 'follow';
@@ -66,6 +69,8 @@ function PartView({ part }: { part: Exclude<Part, { kind: 'slot' }> }): ReactNod
 }
 
 const r1 = (value: number) => Number(value.toFixed(1));
+const still = () => typeof window.matchMedia === 'function' && asksForStillness();
+const samePose = (a: Pose, b: Pose) => a.tip.every((v, i) => v === b.tip[i]) && a.aim.every((v, i) => v === b.aim[i]);
 const toward = (from: number, to: number, dt: number, seconds: number) => to + (from - to) * Math.exp(-dt / seconds);
 
 export function ScopeFollow({ className }: { className?: string }) {
@@ -75,7 +80,7 @@ export function ScopeFollow({ className }: { className?: string }) {
   const [running, setRunning] = useState(false);
   const [moving, setMoving] = useState(false);
   /** The live state the frame loop reads: the mode, the drill's clock, and where a drag wants the tip. */
-  const live = useRef({ mode: 'follow' as CameraMode, pose: STILL_POSE, runAt: -1, runFrom: STILL_POSE.tip, drag: null as null | { id: number; target: [number, number, number] } });
+  const live = useRef({ mode: 'follow' as CameraMode, pose: STILL_POSE, runAt: -1, runStart: STILL_POSE, runFrom: STILL_POSE.tip, drag: null as null | { id: number; target: [number, number, number] } });
   const host = useRef<HTMLDivElement>(null);
   const seen = inView(pose.aim, pose.tip);
 
@@ -88,18 +93,17 @@ export function ScopeFollow({ className }: { className?: string }) {
       const dt = last ? Math.min((now - last) / 1000, 1 / 30) : 1 / 60;
       last = now;
       const state = live.current;
+      const calm = still();
       let tip = state.pose.tip;
       if (state.runAt >= 0) {
         state.runAt += dt;
-        tip = taskTipAt(state.runAt, state.runFrom);
+        tip = calm ? taskStopAt(state.runAt, state.runFrom) : taskTipAt(state.runAt, state.runFrom);
       } else if (state.drag) {
         const goal = state.drag.target;
         tip = [toward(tip[0], goal[0], dt, DRAG_SECONDS), toward(tip[1], goal[1], dt, DRAG_SECONDS), TIP_Z];
       }
       let aim = state.pose.aim;
-      if (state.mode === 'follow') aim = followAim(aim, tip, dt);
-      state.pose = { tip, aim };
-      setPose(state.pose);
+      if (state.mode === 'follow') aim = calm ? lookAt(tip) : followAim(aim, tip, dt);
       const runDone = state.runAt >= TASK_SECONDS;
       if (runDone) {
         state.runAt = -1;
@@ -108,7 +112,15 @@ export function ScopeFollow({ className }: { className?: string }) {
       const goal = state.mode === 'follow' ? lookAt(tip) : aim;
       const settled = Math.hypot(aim[0] - goal[0], aim[1] - goal[1]) < 0.02;
       const dragSettled = !state.drag || Math.hypot(tip[0] - state.drag.target[0], tip[1] - state.drag.target[1]) < 0.02;
-      if (state.runAt < 0 && settled && dragSettled) {
+      const done = state.runAt < 0 && settled && dragSettled;
+      // A follow that has caught up lands exactly on the tip, so a drill that
+      // ends where it began leaves the very pose it started from.
+      if (done) aim = goal;
+      if (!samePose(state.pose, { tip, aim })) {
+        state.pose = { tip, aim };
+        setPose(state.pose);
+      }
+      if (done) {
         setMoving(false);
         return;
       }
@@ -123,7 +135,6 @@ export function ScopeFollow({ className }: { className?: string }) {
     live.current.pose = next;
     setPose(next);
   };
-  const still = () => typeof window.matchMedia === 'function' && asksForStillness();
 
   const chooseMode = (next: CameraMode) => {
     setMode(next);
@@ -183,17 +194,15 @@ export function ScopeFollow({ className }: { className?: string }) {
             data-pagefind-ignore
             onClick={() => {
               if (running) {
+                // Stopping puts the tip and the scope back on the frame the drill started from.
                 live.current.runAt = -1;
+                settleTo(live.current.runStart);
                 setRunning(false);
                 return;
               }
               live.current.drag = null;
+              live.current.runStart = live.current.pose;
               live.current.runFrom = live.current.pose.tip;
-              if (still()) {
-                const tip = taskTipAt(TASK_SECONDS, live.current.runFrom);
-                settleTo({ tip, aim: live.current.mode === 'follow' ? lookAt(tip) : live.current.pose.aim });
-                return;
-              }
               live.current.runAt = 0;
               setRunning(true);
               setMoving(true);

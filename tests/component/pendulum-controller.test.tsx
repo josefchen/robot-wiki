@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { PendulumController, gravityPull } from '@/components/interactive/pendulum-controller';
+import { PendulumController, READOUT_REST_S, gravityPull, readoutAtRest } from '@/components/interactive/pendulum-controller';
 import {
   BALANCED_DEG,
   DEG_PER_NM,
@@ -226,6 +226,86 @@ describe('PendulumController', () => {
     });
     fireEvent.click(screen.getByRole('button', { name: /pause the simulation/i }));
     expect(live()).toHaveAttribute('aria-live', 'polite');
+  });
+
+  it('writes the readout it stopped on into the polite region, so it is said', async () => {
+    vi.useFakeTimers();
+    render(<PendulumController />);
+    const region = screen.getByTestId('pendulum-angle-readout').closest('p')!;
+    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    const written: string[] = [];
+    const observer = new MutationObserver(() => {
+      if (region.getAttribute('aria-live') === 'polite') written.push(region.textContent ?? '');
+    });
+    observer.observe(region, { subtree: true, childList: true, characterData: true });
+    fireEvent.click(screen.getByRole('button', { name: /pause the simulation/i }));
+    await Promise.resolve();
+    observer.disconnect();
+    expect(written.at(-1)).toBe(region.textContent);
+    expect(written.at(-1)).toContain(screen.getByTestId('pendulum-angle-readout').textContent);
+  });
+
+  it('says the numbers a run comes to rest on while it is still running', async () => {
+    mockReducedMotion(true);
+    vi.useFakeTimers();
+    render(<PendulumController />);
+    const region = screen.getByTestId('pendulum-angle-readout').closest('p')!;
+    const written: string[] = [];
+    const observer = new MutationObserver(() => {
+      if (region.getAttribute('aria-live') === 'polite') written.push(region.textContent ?? '');
+    });
+    observer.observe(region, { subtree: true, childList: true, characterData: true, attributes: true });
+    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(region).toHaveAttribute('aria-live', 'off');
+    act(() => {
+      vi.advanceTimersByTime(30_000);
+    });
+    await Promise.resolve();
+    observer.disconnect();
+    expect(screen.getByRole('button', { name: /pause the simulation/i })).toBeInTheDocument();
+    expect(region).toHaveAttribute('aria-live', 'polite');
+    expect(written.at(-1)).toBe(region.textContent);
+    expect(written.at(-1)).toContain(angleText());
+  });
+
+  it('says a pole stuck leaning once, not again each time it trembles below the last decimal', async () => {
+    vi.useFakeTimers();
+    // The weak Kp a page mounts it with: a run from there sticks at a lean.
+    render(<PendulumController defaultKp={9.5} />);
+    const region = screen.getByTestId('pendulum-angle-readout').closest('p')!;
+    const written: string[] = [];
+    const observer = new MutationObserver(() => {
+      if (region.getAttribute('aria-live') === 'polite') written.push(region.textContent ?? '');
+    });
+    observer.observe(region, { subtree: true, childList: true, characterData: true, attributes: true });
+    fireEvent.click(screen.getByRole('button', { name: /run the simulation/i }));
+    // In steps shorter than the rest span, so each write is observed on its own.
+    for (let ms = 0; ms < 25_000; ms += 200) {
+      act(() => {
+        vi.advanceTimersByTime(200);
+      });
+      await Promise.resolve();
+    }
+    observer.disconnect();
+    expect(screen.getByRole('button', { name: /pause the simulation/i })).toBeInTheDocument();
+    expect(screen.getByTestId('pendulum-stage-status')).toHaveTextContent('stuck leaning');
+    expect(written).toEqual([region.textContent]);
+  }, 20_000);
+
+  it('counts a run’s readout at rest only once its numbers hold still for the rest span', () => {
+    const at = (t: number, theta = 0.2) => ({ ...INITIAL_STATE, t, theta });
+    const still = [at(0), at(0.32), at(0.64), at(0.96)];
+    expect(readoutAtRest(still.at(-1)!, still, DEFAULT_GAINS)).toBe(true);
+    expect(readoutAtRest(at(0.32), [at(0), at(0.32)], DEFAULT_GAINS), 'too short a span').toBe(false);
+    const moving = [at(0), at(0.32), at(0.64, 0.21), at(0.96)];
+    expect(readoutAtRest(moving.at(-1)!, moving, DEFAULT_GAINS)).toBe(false);
+    expect(READOUT_REST_S).toBeLessThan(1);
   });
 
   it('reset restores the release state and default gains', async () => {

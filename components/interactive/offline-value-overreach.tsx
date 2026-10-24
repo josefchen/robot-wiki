@@ -207,7 +207,7 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
   const target = caution / CAUTION_MAX;
   const pick = chosen(target);
   const tried = isTried(pick);
-  const valueText = caution === 0 ? 'none' : caution === CAUTION_MAX ? 'strong' : `${caution} of ${CAUTION_MAX}`;
+  const valueText = `${caution} of ${CAUTION_MAX}${caution === 0 ? ', none' : caution === CAUTION_MAX ? ', strong' : ''}`;
 
   const refs = useRef<Refs>({
     spline: null,
@@ -348,7 +348,7 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
       stage={
         <AnatomyStage
           viewWidth={WIDTH}
-          hint="Lit bob: what the picked grip really earns"
+          hint="Lit bob: the real result"
           readout={rest.readout}
           status="Illustrative curves"
           data-testid="overreach-stage"

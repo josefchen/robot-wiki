@@ -232,9 +232,10 @@ describe('RrtExplorer', () => {
     vi.useFakeTimers();
     const media = mockReducedMotionLive(false);
     render(<RrtExplorer />);
-    const readout = screen.getByTestId('rrt-iteration-readout');
+    // Read afresh: the readout is written anew each time the growth starts or stops.
+    const readout = () => screen.getByTestId('rrt-iteration-readout');
     fireEvent.click(screen.getByRole('button', { name: /grow the tree/i }));
-    expect(readout).toHaveAttribute('data-playback-cadence', 'smooth');
+    expect(readout()).toHaveAttribute('data-playback-cadence', 'smooth');
     act(() => {
       vi.advanceTimersByTime(200);
     });
@@ -242,7 +243,7 @@ describe('RrtExplorer', () => {
     act(() => {
       media.setMatches(true);
     });
-    expect(readout).toHaveAttribute('data-playback-cadence', 'coarse');
+    expect(readout()).toHaveAttribute('data-playback-cadence', 'coarse');
     const frozen = iterationText();
     act(() => {
       vi.advanceTimersByTime(300);

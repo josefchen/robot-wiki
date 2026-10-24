@@ -25,6 +25,13 @@ export const ACTION_REACH_MS = 3000;
  * run, up to this long after the action.
  */
 export const RUN_REACH_MS = 20000;
+/**
+ * Action events closer together than this are one action. A key press on a
+ * slider fires keydown, input and change, and the figure re-renders between
+ * input and change, so a live readout that spoke for the press has spoken
+ * before the press's last event.
+ */
+export const ACTION_BURST_MS = 250;
 const ACTION_EVENTS = ['click', 'keydown', 'input', 'change'] as const;
 
 const numbersIn = (text: string) =>
@@ -35,6 +42,29 @@ export function valueTextCovers(valueText: string | null, readout: string): bool
   if (!valueText) return false;
   const spoken = new Set(numbersIn(valueText));
   return numbersIn(readout).every((n) => spoken.has(n));
+}
+
+const wordsOf = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/\.(?!\d)/g, ' ')
+    .replace(/[^\p{L}\p{N}.]+/gu, ' ')
+    .trim();
+
+/**
+ * Whether something already spoken says what `text` would: the same words,
+ * or every number `text` prints. A figure's own live readout often says the
+ * stage readout's numbers in a sentence; speaking the stage as well would
+ * tell the reader the same result twice. Numbers compare by size, since one
+ * says "x -0.23" where the other says "0.23 left".
+ */
+export function alreadySaid(spoken: string, text: string): boolean {
+  if (!spoken || !text) return false;
+  if (wordsOf(spoken) === wordsOf(text)) return true;
+  const printed = numbersIn(text).map((n) => Math.abs(Number(n)));
+  if (printed.length === 0) return false;
+  const said = new Set(numbersIn(spoken).map((n) => Math.abs(Number(n))));
+  return printed.every((n) => said.has(n));
 }
 
 export type SettledSpeech = {
@@ -50,8 +80,11 @@ export type SettledSpeech = {
   settleMs?: number;
   /** Mutations this returns true for do not count as the text moving. */
   ignore?: (record: MutationRecord) => boolean;
-  /** A last check before a settled change is spoken, given the time of the latest action. */
-  allow?: (lastAction: number) => boolean;
+  /**
+   * A last check before a settled change is spoken, given when the latest
+   * action began (its first event; see ACTION_BURST_MS).
+   */
+  allow?: (actionStart: number) => boolean;
 };
 
 /** Starts watching; returns the function that stops it. */
@@ -68,6 +101,7 @@ export function speakWhenSettled({
   let changed = false;
   let activityStart = 0;
   let lastAction = Number.NEGATIVE_INFINITY;
+  let actionStart = Number.NEGATIVE_INFINITY;
   let lastCausedSettle = Number.NEGATIVE_INFINITY;
   let settleTimer: number | undefined;
   let speakTimer: number | undefined;
@@ -106,7 +140,7 @@ export function speakWhenSettled({
     ) {
       return;
     }
-    if (allow && !allow(lastAction)) return;
+    if (allow && !allow(actionStart)) return;
     speak(text);
   };
 
@@ -119,7 +153,9 @@ export function speakWhenSettled({
   });
   observer.observe(watch, { childList: true, characterData: true, subtree: true });
   const acted = () => {
-    lastAction = performance.now();
+    const now = performance.now();
+    if (now - lastAction > ACTION_BURST_MS) actionStart = now;
+    lastAction = now;
   };
   for (const type of ACTION_EVENTS) scope.addEventListener(type, acted, true);
   return () => {

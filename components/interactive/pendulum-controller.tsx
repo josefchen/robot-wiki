@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef, useState } from 'react';
+import { Fragment, useEffect, useId, useRef, useState } from 'react';
 import {
   DEFAULT_GAINS,
   GAIN_SPECS,
@@ -110,6 +110,30 @@ function prefersReducedMotion(): boolean {
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
+}
+
+/**
+ * Simulated seconds a run's readout numbers must hold still before they
+ * count as at rest. A run rewrites them every tick, so the readout stays
+ * quiet while they move; once the pole has come to rest they do not change
+ * again until the reader acts, so they are said then, not only on Pause.
+ */
+export const READOUT_REST_S = 0.6;
+
+const readoutNumbers = (state: PendulumState, gains: PidGains) =>
+  [
+    formatDeg(state.theta),
+    formatDeg(state.thetaDot),
+    state.integral.toFixed(2),
+    controlTorque(state, gains, PENDULUM_PARAMS).toFixed(1),
+  ].join(' ');
+
+/** Whether the numbers the readout prints for `sim` have held still over the last READOUT_REST_S of `history`. */
+export function readoutAtRest(sim: PendulumState, history: readonly PendulumState[], gains: PidGains): boolean {
+  const from = sim.t - READOUT_REST_S;
+  if (history.length === 0 || history[0].t > from + 1e-9) return false;
+  const shown = readoutNumbers(sim, gains);
+  return history.every((state) => state.t < from - 1e-9 || readoutNumbers(state, gains) === shown);
 }
 
 const STATUS_TEXT: Record<Stability, string> = {
@@ -295,6 +319,7 @@ export function PendulumController({
     ? STATUS_TEXT[classifyStability(history)]
     : 'holding at release';
   const torque = controlTorque(sim, gains, PENDULUM_PARAMS);
+  const readoutMoving = playing && !readoutAtRest(sim, history, gains);
   // The takeaway names the gains "Default" only while they actually are
   // the defaults: the label follows the live sliders, not the mount, so
   // retuning Kp to 40 stops calling 40 the default.
@@ -451,32 +476,39 @@ export function PendulumController({
             onClick={reset}
             aria-label="Reset the simulation and restore default gains"
           />
-          {/* Quiet while the simulation runs, which rewrites it every tick; the stage speaks where it settles. */}
-          <InstrumentReadout aria-live={playing ? 'off' : 'polite'} className="flex basis-full flex-wrap gap-x-3">
-            <span>
-              angle{' '}
-              <span data-testid="pendulum-angle-readout" style={{ color: state }}>
-                {formatDeg(sim.theta)}°
+          {/*
+            Quiet while the simulation's numbers move, since a run rewrites them every tick. Where they
+            come to rest, or the run is paused, the readout is written afresh into the now polite region,
+            so the numbers it stopped on are said; turning a region polite does not say what it already
+            holds.
+          */}
+          <InstrumentReadout aria-live={readoutMoving ? 'off' : 'polite'} className="flex basis-full flex-wrap gap-x-3">
+            <Fragment key={readoutMoving ? 'running' : 'stopped'}>
+              <span>
+                angle{' '}
+                <span data-testid="pendulum-angle-readout" style={{ color: state }}>
+                  {formatDeg(sim.theta)}°
+                </span>
               </span>
-            </span>
-            <span>
-              rate <span data-testid="pendulum-rate-readout">{formatDeg(sim.thetaDot)}°/s</span>
-            </span>
-            <span>
-              integral <span data-testid="pendulum-integral-readout">{sim.integral.toFixed(2)}</span>
-            </span>
-            <span>
-              torque <span data-testid="pendulum-torque-readout">{torque.toFixed(1)} N·m</span>
-            </span>
-            <span>
-              status{' '}
-              <span
-                data-testid="pendulum-status-readout"
-                style={status === 'fallen' ? { color: roleColour('constraint') } : undefined}
-              >
-                {status}
+              <span>
+                rate <span data-testid="pendulum-rate-readout">{formatDeg(sim.thetaDot)}°/s</span>
               </span>
-            </span>
+              <span>
+                integral <span data-testid="pendulum-integral-readout">{sim.integral.toFixed(2)}</span>
+              </span>
+              <span>
+                torque <span data-testid="pendulum-torque-readout">{torque.toFixed(1)} N·m</span>
+              </span>
+              <span>
+                status{' '}
+                <span
+                  data-testid="pendulum-status-readout"
+                  style={status === 'fallen' ? { color: roleColour('constraint') } : undefined}
+                >
+                  {status}
+                </span>
+              </span>
+            </Fragment>
           </InstrumentReadout>
         </>
       }

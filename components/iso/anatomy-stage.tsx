@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
-import { speakWhenSettled } from '@/components/motion/settled-speech';
+import { alreadySaid, speakWhenSettled } from '@/components/motion/settled-speech';
 
 /**
  * The stage an isometric figure draws on, inside the site's figure frame.
@@ -61,21 +61,53 @@ export {
   READOUT_CLEAR_MS,
   READOUT_SETTLE_MS,
   RUN_REACH_MS,
+  alreadySaid,
   valueTextCovers,
 } from '@/components/motion/settled-speech';
+
+const LIVE_REGION = '[aria-live], [role="status"], [role="log"], [role="alert"], output';
 
 function useSettledReadout(readoutRef: { current: HTMLSpanElement | null }, statusRef: { current: HTMLSpanElement | null }) {
   useEffect(() => {
     const readout = readoutRef.current;
     const status = statusRef.current;
     if (!readout || !status) return;
-    return speakWhenSettled({
-      watch: readout,
-      // The figure's controls sit beside the stage, not in it.
-      scope: readout.closest('[data-figure-frame]') ?? readout.closest('[data-anatomy-stage]') ?? readout,
-      status,
-      read: () => (readout.textContent ?? '').replace(/\s+/g, ' ').trim(),
+    // The figure's controls sit beside the stage, not in it.
+    const scope = readout.closest('[data-figure-frame]') ?? readout.closest('[data-anatomy-stage]') ?? readout;
+    const read = () => (readout.textContent ?? '').replace(/\s+/g, ' ').trim();
+    // When the figure's own rendered live readout changed for the same
+    // action and already says what the stage would, the stage stays quiet
+    // rather than announce the result a second time.
+    const spokenAt = new Map<Element, number>();
+    const others = new MutationObserver((records) => {
+      for (const record of records) {
+        const node = record.target instanceof Element ? record.target : record.target.parentElement;
+        const region = node?.closest(LIVE_REGION);
+        if (!region || region === status || !scope.contains(region)) continue;
+        if (region.hasAttribute('data-fold-readout-relay') || region.getAttribute('aria-live') === 'off') continue;
+        spokenAt.set(region, performance.now());
+      }
     });
+    others.observe(scope, { childList: true, characterData: true, subtree: true });
+    const stop = speakWhenSettled({
+      watch: readout,
+      scope,
+      status,
+      read,
+      allow: (actionStart) => {
+        const text = read();
+        for (const [region, at] of spokenAt) {
+          if (at < actionStart || !region.isConnected) continue;
+          if ((region as HTMLElement).checkVisibility?.() === false) continue;
+          if (alreadySaid((region.textContent ?? '').replace(/\s+/g, ' ').trim(), text)) return false;
+        }
+        return true;
+      },
+    });
+    return () => {
+      others.disconnect();
+      stop();
+    };
   }, [readoutRef, statusRef]);
 }
 

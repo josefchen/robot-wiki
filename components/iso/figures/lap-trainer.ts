@@ -230,19 +230,24 @@ export function armPose(wrist: Point3) {
 // ------------------------------------------------------------------ the task
 /** The peg the still pose's tip works at, front middle. */
 const STILL_PEG = 4;
-/** The surgeon's drill for the right instrument: from wherever its tip is, peg to peg on its own side of the board. */
+/**
+ * The surgeon's drill for the right instrument: from wherever its tip is, peg
+ * to peg on its own side of the board, and back to where it started, so a
+ * drill run from the still pose ends on the still pose.
+ */
 export const TASK_PEGS: number[] = [1, 2, 5];
-/** Seconds to move between two pegs, and to dwell at each. */
+/** Seconds to move between two stops, and to dwell at each. */
 const MOVE_S = 1.25;
 const DWELL_S = 0.55;
-export const TASK_SECONDS = TASK_PEGS.length * (MOVE_S + DWELL_S) + DWELL_S;
+export const TASK_SECONDS = (TASK_PEGS.length + 1) * (MOVE_S + DWELL_S) + DWELL_S;
 const pegTip = (index: number): Point3 => [PEGS[index]![0], PEGS[index]![1], TIP_Z];
 export const STILL_TIP = pegTip(STILL_PEG);
 const ease = (x: number) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
+const taskStops = (from: Point3): Point3[] => [from, ...TASK_PEGS.map(pegTip), from];
 
-/** The right tip at `t` seconds into the drill started at `from`: an eased move to each peg with a short lift over the board, and a dwell at each. */
+/** The right tip at `t` seconds into the drill started at `from`: an eased move to each stop with a short lift over the board, and a dwell at each. */
 export function taskTipAt(t: number, from: Point3 = STILL_TIP): Point3 {
-  const stops = [from, ...TASK_PEGS.map(pegTip)];
+  const stops = taskStops(from);
   let clock = Math.max(0, t) - DWELL_S;
   if (clock <= 0) return from;
   for (let leg = 0; leg < stops.length - 1; leg++) {
@@ -256,6 +261,13 @@ export function taskTipAt(t: number, from: Point3 = STILL_TIP): Point3 {
     clock -= MOVE_S + DWELL_S;
   }
   return stops[stops.length - 1]!;
+}
+
+/** The drill under reduced motion: the tip stays on each stop until it would arrive at the next, then jumps there. */
+export function taskStopAt(t: number, from: Point3 = STILL_TIP): Point3 {
+  const stops = taskStops(from);
+  const arrived = Math.floor(Math.max(0, t) / (MOVE_S + DWELL_S));
+  return stops[Math.min(arrived, stops.length - 1)]!;
 }
 
 /** Where the scope looks to keep a tip in the middle of its picture: under the tip, at the pegs' middle height. */

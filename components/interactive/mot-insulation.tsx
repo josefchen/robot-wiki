@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useCitationLookup } from '@/components/article/citation-records';
 import { ChartDescription } from '@/components/ui/chart-description';
 import {
@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/instrument';
 import { FigureStage, StageLegend } from '@/components/motion/figure-frame';
 import { roleColour } from '@/components/motion/chart';
+import { speakWhenSettled } from '@/components/motion/settled-speech';
 import { Dots, Solid } from '@/components/iso/react/draw';
 import { Stage, asksForStillness, useInView } from '@/components/iso/react/live';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
@@ -213,6 +214,23 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
     return () => cancelAnimationFrame(frame);
   }, [pass, stopGradient, step, visible]);
 
+  // The stage readout is not itself live; a hidden status region speaks it
+  // once it settles after the reader acts, as the anatomy stage does, and
+  // stays quiet when the depth slider's value text already says its numbers.
+  const readoutRef = useRef<HTMLSpanElement>(null);
+  const announcerRef = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const readout = readoutRef.current;
+    const status = announcerRef.current;
+    if (!readout || !status) return;
+    return speakWhenSettled({
+      watch: readout,
+      scope: readout.closest('[data-figure-frame]') ?? readout,
+      status,
+      read: () => (readout.textContent ?? '').replace(/\s+/g, ' ').trim(),
+    });
+  }, []);
+
   function toggleStopGradient() {
     // The toggle only has meaning in the backward view, so switching it
     // moves the diagram there (the expected interaction path).
@@ -355,7 +373,8 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
               step={1}
               value={step}
               onChange={(e) => setStep(Number(e.target.value))}
-              aria-label={`Pass depth, currently ${step} of ${LAYER_COUNT} layers`}
+              aria-label="Pass depth"
+              aria-valuetext={`${step} of ${LAYER_COUNT} layers`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
           </ControlField>
@@ -390,12 +409,14 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
                 <span data-figure-annotation="">{note}</span>
               </span>
               <span
+                ref={readoutRef}
                 data-figure-readout=""
                 data-readout=""
                 className="ml-auto text-right font-mono text-[12px] leading-normal tabular-nums text-text"
               >
                 {readout}
               </span>
+              <span ref={announcerRef} role="status" data-anatomy-announcer="" data-pagefind-ignore className="sr-only" />
               <StageLegend className="basis-full text-text-dim" data-testid="mot-legend">
                 <span>Wide column: understands words and pictures</span>
                 <span>Slim column: moves the arm</span>

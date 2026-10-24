@@ -9,6 +9,7 @@ import {
   applyPush,
   classifyStability,
   controlTorque,
+  formatDeg,
   playbackCadence,
   simulate,
   stepPendulum,
@@ -193,5 +194,16 @@ describe('geometry and gain metadata', () => {
     const kp = GAIN_SPECS.find((g) => g.id === 'kp');
     expect(kp && DEFAULT_GAINS.kp > 9.81).toBe(true);
     expect(kp && kp.max > 9.81 && kp.min < 9.81).toBe(true);
+  });
+
+  it('prints signed degrees to one decimal, with one zero whichever side it rounds from', () => {
+    expect(formatDeg(12.34 * DEG)).toBe('+12.3');
+    expect(formatDeg(-12.34 * DEG)).toBe('-12.3');
+    // A pole at rest still trembles below the last decimal; the readout
+    // must not flip between "-0.0" and "+0.0" as it does.
+    expect(formatDeg(0)).toBe('+0.0');
+    expect(formatDeg(0.03 * DEG)).toBe('+0.0');
+    expect(formatDeg(-0.03 * DEG)).toBe('+0.0');
+    expect(formatDeg(-0.06 * DEG)).toBe('-0.1');
   });
 });

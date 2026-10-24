@@ -28,7 +28,7 @@
     "minutes": 8
   },
   "manipulation/hierarchical": {
-    "words": 1774,
+    "words": 1776,
     "minutes": 9
   },
   "manipulation/rl-finetuning": {
@@ -76,7 +76,7 @@
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1772,
+    "words": 1771,
     "minutes": 9
   },
   "rl-sim2real/humanoid-wbc": {

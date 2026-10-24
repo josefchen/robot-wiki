@@ -33,10 +33,10 @@ describe('GraspWrenchLab', () => {
       ).toBeInTheDocument();
     }
     expect(
-      screen.getByRole('button', { name: /add a contact/i }),
+      screen.getByRole('button', { name: /^add contact at the emptiest perimeter location$/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: /remove the last contact/i }),
+      screen.getByRole('button', { name: /^remove contact: the last one placed$/i }),
     ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
     expect(readout('grasp-contacts-readout')).toBe('3');
@@ -91,7 +91,7 @@ describe('GraspWrenchLab', () => {
   it('breaks force closure when the third contact is removed', () => {
     render(<GraspWrenchLab />);
     fireEvent.click(
-      screen.getByRole('button', { name: /remove the last contact/i }),
+      screen.getByRole('button', { name: /^remove contact: the last one placed$/i }),
     );
     expect(readout('grasp-contacts-readout')).toBe('2');
     expect(readout('grasp-closure-readout')).toBe('no');
@@ -101,7 +101,7 @@ describe('GraspWrenchLab', () => {
   it('restores force closure when the pair is made antipodal again', () => {
     render(<GraspWrenchLab />);
     fireEvent.click(
-      screen.getByRole('button', { name: /remove the last contact/i }),
+      screen.getByRole('button', { name: /^remove contact: the last one placed$/i }),
     );
     expect(readout('grasp-closure-readout')).toBe('no');
     // Slide contact 2 from the right edge onto the bottom edge midpoint:
@@ -117,7 +117,7 @@ describe('GraspWrenchLab', () => {
   it('adds a fourth contact and grows the hull', () => {
     render(<GraspWrenchLab />);
     const before = Number.parseFloat(readout('grasp-epsilon-readout'));
-    fireEvent.click(screen.getByRole('button', { name: /add a contact/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^add contact at the emptiest perimeter location$/i }));
     expect(readout('grasp-contacts-readout')).toBe('4');
     expect(
       screen.getByRole('slider', { name: /contact 4 position/i }),
@@ -130,7 +130,7 @@ describe('GraspWrenchLab', () => {
   it('never removes below two contacts', () => {
     render(<GraspWrenchLab />);
     const remove = screen.getByRole('button', {
-      name: /remove the last contact/i,
+      name: /^remove contact: the last one placed$/i,
     });
     remove.focus();
     fireEvent.click(remove);
@@ -143,7 +143,7 @@ describe('GraspWrenchLab', () => {
 
   it('keeps focus on Add contact once the grip holds its most contacts', () => {
     render(<GraspWrenchLab />);
-    const add = screen.getByRole('button', { name: /add a contact/i });
+    const add = screen.getByRole('button', { name: /^add contact at the emptiest perimeter location$/i });
     expect(add).not.toHaveAttribute('aria-disabled');
     add.focus();
     for (let i = 0; i < 12 && add.getAttribute('aria-disabled') !== 'true'; i += 1) {
@@ -169,7 +169,7 @@ describe('GraspWrenchLab', () => {
       { target: { value: '0.875' } },
     );
     fireEvent.click(
-      screen.getByRole('button', { name: /remove the last contact/i }),
+      screen.getByRole('button', { name: /^remove contact: the last one placed$/i }),
     );
     expect(readout('grasp-closure-readout')).toBe('no');
     fireEvent.click(screen.getByRole('button', { name: /reset/i }));
@@ -215,7 +215,7 @@ describe('GraspWrenchLab main view', () => {
     for (const name of [/contact 1 position/i, /contact 3 position/i]) {
       expect(adjust).toContainElement(screen.getByRole('slider', { name }));
     }
-    expect(adjust).toContainElement(screen.getByRole('button', { name: /add a contact/i }));
+    expect(adjust).toContainElement(screen.getByRole('button', { name: /^add contact at the emptiest perimeter location$/i }));
     expect(adjust).toContainElement(screen.getByRole('button', { name: /reset/i }));
     expect(adjust).toContainElement(screen.getByTestId('grasp-wrench-view'));
     const method = fold(container, 'method');
@@ -236,7 +236,7 @@ describe('GraspWrenchLab main view', () => {
 
   it('shows the pulls that slip once a finger is removed', () => {
     const { container } = render(<GraspWrenchLab />);
-    fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^remove contact: the last one placed$/i }));
     expect(container.querySelectorAll('[data-push="resisted"]')).toHaveLength(3);
     expect(container.querySelectorAll('[data-push="slips"]')).toHaveLength(5);
     expect(container.querySelector('[data-readout]')).toHaveTextContent(
@@ -256,7 +256,7 @@ describe('GraspWrenchLab main view', () => {
       target: { value: '1' },
     });
     expect(degrees()).toBeCloseTo(at(epsilon()), 0);
-    fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^remove contact: the last one placed$/i }));
     expect(degrees()).toBe(-135);
     expect(needleDegrees(0)).toBe(-135);
     expect(needleDegrees(5)).toBe(135);
@@ -269,7 +269,7 @@ describe('GraspWrenchLab main view', () => {
     expect([moved(), holds()]).toEqual([true, true]);
     fireEvent.change(screen.getByRole('slider', { name: /friction coefficient/i }), { target: { value: '0.05' } });
     expect(moved()).toBe(holds());
-    fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^remove contact: the last one placed$/i }));
     expect([moved(), holds()]).toEqual([false, false]);
   });
 
@@ -312,7 +312,7 @@ describe('GraspWrenchLab main view', () => {
     expect(litCount()).toBe(8);
     for (const lit of view.querySelectorAll('[data-lit]')) expect(lit.closest('[data-push]')).toHaveAttribute('data-push', 'resisted');
     expect(screen.getByTestId('grasp-block').querySelectorAll('[data-lit]')).toHaveLength(0);
-    fireEvent.click(screen.getByRole('button', { name: /remove the last contact/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^remove contact: the last one placed$/i }));
     expect(litCount()).toBe(container.querySelectorAll('[data-push="resisted"]').length);
     expect(litCount()).toBe(3);
   });
