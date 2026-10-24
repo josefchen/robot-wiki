@@ -11,6 +11,27 @@ import { assertFullReferenceAuthors, assertShortMetadata, KEYPOINT_SHORT_META, o
 import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 
+type ContentsLink = { href: string; name: string };
+/**
+ * The ordered href and accessible name of every link in one contents list. The layout lays one of the two lists away, so each name read
+ * off a link is confirmed by Playwright's accessible-name engine with includeHidden, which names a laid-away link as it names a shown one.
+ */
+async function contentsLinks(nav: Locator): Promise<ContentsLink[]> {
+  await expect(nav).toHaveCount(1);
+  const links = nav.getByRole('link', { includeHidden: true });
+  const entries = await nav.locator('a').evaluateAll(as => as.map(a => ({ href: a.getAttribute('href') ?? '', name: (a.getAttribute('aria-label') || a.textContent || '').replace(/\s+/g, ' ').trim() })));
+  expect(entries.length, 'a contents list links to the page sections').toBeGreaterThan(0);
+  await expect(links).toHaveCount(entries.length);
+  for (const [i, { name }] of entries.entries()) await expect(links.nth(i).and(nav.getByRole('link', { includeHidden: true, name, exact: true })), `contents entry ${i + 1} has the accessible name "${name}"`).toHaveCount(1);
+  return entries;
+}
+/** The rail and the disclosure list the same sections in the same order; a difference fails naming the first entry where they part. */
+function expectSameContents(rail: readonly ContentsLink[], disclosure: readonly ContentsLink[]): void {
+  const at = [...Array(Math.max(rail.length, disclosure.length)).keys()].find(i => rail[i]?.href !== disclosure[i]?.href || rail[i]?.name !== disclosure[i]?.name);
+  const first = at === undefined ? null : { entry: at + 1, rail: rail[at] ?? null, disclosure: disclosure[at] ?? null };
+  expect(first, first ? `contents entry ${first.entry} differs: rail ${JSON.stringify(first.rail)}, disclosure ${JSON.stringify(first.disclosure)}` : 'the rail and the disclosure list the same links').toBeNull();
+}
+
 let freshNavigations = 0;
 const ids = ['moka-2024', 'rekep-2024', 'robopoint-2024'];
 for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
@@ -88,6 +109,7 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     const details = page.locator('main details');
     // The research-page layout (owner decision, 10 October 2026; 9154d672) renders the page contents as a sticky rail from 1200 px and as the "Contents" disclosure below it, so at a rail width that one disclosure is display: none and the rail stands in for it. Every other disclosure is toggled.
     const railWidth = await page.locator('nav.article-toc').isVisible();
+    const railLinks = await contentsLinks(page.locator('nav.article-toc'));
     let layoutHidden = 0;
     // A disclosure nested in a closed fold is reached by opening that fold first, as a reader would.
     for (let i = 0; i < await details.count(); i++) {
@@ -95,13 +117,15 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
       if (await d.evaluate(el => getComputedStyle(el).display === 'none')) {
         expect(await d.evaluate(el => el.classList.contains('article-contents')), 'only the narrow-width contents disclosure is laid out away').toBe(true);
         expect(railWidth, 'the contents rail stands in for the hidden contents disclosure').toBe(true);
-        await expect(page.locator('nav.article-toc a')).toHaveCount(await d.locator('nav a').count());
+        expectSameContents(railLinks, await contentsLinks(d.locator('nav')));
         layoutHidden++; continue;
       }
       const fold = d.locator('xpath=ancestor::details[1]'); if (await fold.count() && !(await fold.evaluate(el => (el as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click(); const before = await d.evaluate(el => (el as HTMLDetailsElement).open); await d.locator('summary').first().focus(); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(!before); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(before);
     }
     expect(layoutHidden).toBe(railWidth ? 1 : 0);
-    states.push({ name: 'disclosures', count: await details.count(), layoutHidden, emptyPopulationIsNotApplicable: true });
+    // Below the rail width the rail is the list laid away, and the "Contents" disclosure that stands in for it carries the same links.
+    if (!railWidth) expectSameContents(railLinks, await contentsLinks(page.locator('main details.article-contents nav')));
+    states.push({ name: 'disclosures', count: await details.count(), layoutHidden, contents: railLinks, emptyPopulationIsNotApplicable: true });
     for (const [index, id] of ids.entries()) {
       const root = prose.locator(`[data-cite-id="${id}"]`); await expect(root).toHaveCount(1);
       const block = root.locator('xpath=ancestor::p[1]');
