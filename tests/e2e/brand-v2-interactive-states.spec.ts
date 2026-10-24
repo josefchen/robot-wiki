@@ -35,6 +35,7 @@ import {
   LEDGER_ASSERTIONS,
   LIVE_REGION_SELECTOR,
   READOUT_SELECTOR,
+  SPOKEN_TRANSITIONS,
   interactiveLedgerEvidenceFingerprint,
   interactiveLedgerPlan,
   interactiveLedgerSourceJoins,
@@ -583,7 +584,7 @@ test.describe('brand-v2 interactive keyboard transition ledger', () => {
   });
 
   test('each ledger clause fails on the mount it is planted on', async ({ browser, staticBase }) => {
-    test.setTimeout(600_000);
+    test.setTimeout(900_000);
     const evidence = corpus();
     const planMount = (mountId: string) => LEDGER_PLAN.mounts.find((mount) => mount.mountId === mountId)!;
     const smallest = (holds: (observation: LedgerObservation) => boolean) =>
@@ -624,6 +625,25 @@ test.describe('brand-v2 interactive keyboard transition ledger', () => {
         silent.verdict.failures[row].some((failure) => failure.includes('without being spoken')),
         `a readout without aria-live fails ${row} on ${silent.mountId}`,
       ).toBe(true);
+    }
+
+    // In the browser: a mount whose result must be spoken, with its live
+    // regions stripped of their politeness, leaves that result unheard.
+    for (const required of SPOKEN_TRANSITIONS) {
+      const unheard = await reMeasured(`unspoken result on ${required.mountId}`, required.mountId, async (_page, root) => {
+        await root.evaluate((element, live) => {
+          for (const region of element.querySelectorAll(live)) {
+            region.removeAttribute('aria-live');
+            region.removeAttribute('role');
+          }
+        }, LIVE_REGION_SELECTOR);
+      });
+      for (const row of ['VAL-B2-VIZ-016', 'VAL-EDU-038'] as const) {
+        expect(
+          unheard.verdict.failures[row].some((failure) => failure.includes('its result is not spoken')),
+          `${required.mountId} without its live regions fails ${row}`,
+        ).toBe(true);
+      }
     }
 
     // In the browser: a focus ring taken away fails the visible-focus clause.

@@ -9,6 +9,7 @@ import {
   INTERACTIVE_LEDGER_EVIDENCE_PATH,
   LEDGER_ASSERTIONS,
   LEDGER_ENFORCED_ASSERTIONS,
+  SPOKEN_TRANSITIONS,
   behavioralDefaultMembers,
   duplicateAnnouncements,
   interactiveLedgerEvidenceFingerprint,
@@ -247,6 +248,74 @@ describe('interactive ledger evidence', { timeout: 60_000 }, () => {
     const unsealed = joinSourceDefaults({ sourcePath: 'components/interactive/new.tsx', text: changedText, baseline, deltas: [] });
     expect(unsealed.sealed).toBe(false);
     expect(unsealed.members.every(({ status }) => status === 'new-source')).toBe(true);
+  });
+
+  it('hears every filter of the generalist timeline once from its status, and fails a filter left unspoken', () => {
+    expect(SPOKEN_TRANSITIONS.map(({ mountId }) => mountId)).toEqual([
+      'mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1',
+    ]);
+    const joins = interactiveLedgerSourceJoins(ROOT, PLAN);
+    const evidence = accept(committed());
+    for (const required of SPOKEN_TRANSITIONS) {
+      expect(PLAN.mounts.map(({ mountId }) => mountId)).toContain(required.mountId);
+      const observation = evidence.observations.find(({ mountId }) => mountId === required.mountId)!;
+      const nameOf = new Map(observation.controls.map(({ index, name }) => [index, name]));
+      for (const control of required.controls) expect([...nameOf.values()]).toContain(control);
+      const moved = observation.transitions.filter(
+        (transition) =>
+          required.controls.includes(nameOf.get(transition.control) ?? '') &&
+          transition.before.control !== transition.after.control,
+      );
+      // The toggle in view and the three filters in Adjust more that move.
+      expect(moved.map(({ control }) => nameOf.get(control))).toEqual([
+        'Downloadable only',
+        'Downloadable',
+        'Not downloadable',
+        'Not disclosed',
+      ]);
+      for (const transition of moved) {
+        const said = transition.announcements.filter(({ text }) => required.says.test(text));
+        expect(said, `${nameOf.get(transition.control)} is heard once`).toHaveLength(1);
+        expect(said[0].region).toMatch(/role=status/);
+        expect(said[0].politeness).toBe('polite');
+        expect(duplicateAnnouncements(transition.announcements)).toEqual([]);
+      }
+      expect(moved[0].announcements.map(({ text }) => text)).toEqual(['4 of 13 shown: downloadable only']);
+    }
+
+    const [required] = SPOKEN_TRANSITIONS;
+    const failuresOf = (planted: InteractiveLedgerEvidence) =>
+      interactiveLedgerVerdicts(accept(planted), PLAN, joins).get(required.mountId)!.failures;
+    const at = (e: InteractiveLedgerEvidence) => e.observations.find(({ mountId }) => mountId === required.mountId)!;
+    // The status without its live role: the recorder hears nothing from it.
+    const silent = failuresOf(
+      mutate((e) => {
+        for (const transition of at(e).transitions) {
+          transition.announcements = transition.announcements.filter(({ text }) => !required.says.test(text));
+        }
+      }),
+    );
+    for (const row of ['VAL-B2-VIZ-016', 'VAL-EDU-038'] as const) {
+      expect(silent[row].filter((failure) => failure.includes('its result is not spoken'))).toHaveLength(4);
+    }
+    // A status that says something else, such as the card again, is not the result.
+    const elsewhere = failuresOf(
+      mutate((e) => {
+        for (const transition of at(e).transitions) {
+          for (const announcement of transition.announcements) {
+            if (required.says.test(announcement.text)) announcement.text = 'Helix Figure Feb 2025';
+          }
+        }
+      }),
+    );
+    expect(elsewhere['VAL-B2-VIZ-016'].some((failure) => failure.includes('live regions said "Helix Figure Feb 2025"'))).toBe(true);
+    // No filter transition that moved its state: nothing proves the result is heard.
+    const unmoved = failuresOf(
+      mutate((e) => {
+        for (const transition of at(e).transitions) transition.after.control = transition.before.control;
+      }),
+    );
+    expect(unmoved['VAL-EDU-038'].some((failure) => failure.includes('was recorded, so its result was never heard'))).toBe(true);
   });
 
   it('counts an action announced twice, and not a run told pause by pause', () => {
