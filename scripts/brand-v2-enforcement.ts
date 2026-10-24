@@ -2411,6 +2411,18 @@ const CONTROL_STATES_READER_TARGET = testTarget(
   'control states evidence > refuses stale, incomplete, and malformed control-state evidence',
   'Proves the reader that gates all five control-state rows throws on a non-object artifact, a wrong version, a stale fingerprint, an empty route population, a dropped, extra or duplicated page, a wrong viewport, a non-200 page, an unregistered control id and an exemption the register does not hold or does not grant on that route.',
 );
+const CONTROL_STATES_CENSUS_TARGETS = [
+  testTarget(
+    'tests/unit/brand-v2-control-states-evidence.test.ts',
+    'control states evidence > refuses an artifact that lost a failing member while its page still counts it',
+    'Proves, for a variant, a selected state, a disabled control, an unexposed disabled control, an action, an icon and a status chip in turn, that dropping the one failing observation while the page census still counts it leaves the verdict clean on its own, and that the reader then refuses the artifact, naming the route, the viewport, the family and the missing count.',
+  ),
+  testTarget(
+    'tests/unit/brand-v2-control-states-evidence.test.ts',
+    'control states evidence > refuses observations the page census does not account for, and instance totals that disagree',
+    'Proves the reader refuses a selected state or icon held more often than the census counted, a variant whose instances fall short of the rendered count, a disabled control read without its disabled variant, a code block with no copy action and an action on a page that counted none.',
+  ),
+];
 const CONTROL_STATES_VERDICT_TARGET = testTarget(
   'tests/unit/brand-v2-control-states-evidence.test.ts',
   'control states evidence > fails each planted violation under its own clause',
@@ -2427,6 +2439,7 @@ function controlStateTargetsFor(id: ControlStateAssertion): TestTarget[] {
     ),
     ...CONTROL_STATES_PLANT_TARGETS[id],
     CONTROL_STATES_READER_TARGET,
+    ...CONTROL_STATES_CENSUS_TARGETS,
     CONTROL_STATES_VERDICT_TARGET,
   ];
 }
@@ -4993,7 +5006,7 @@ function generate() {
               : RECONCILED_PRIMITIVE_ASSERTIONS.has(id)
               ? `${id} per-member status derived from the persisted browser reconciliation over ${canonicalPopulationSource}`
               : CONTROL_STATE_ASSERTION_IDS.has(id)
-              ? `${id} per-member evidence derived from the persisted ${CONTROL_STATES.viewports.join('/')} control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, decided with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
+              ? `${id} per-member evidence derived from the persisted ${CONTROL_STATES.viewports.join('/')} control-states sweep of every registry-derived public route state in the built export: every structurally discovered control reconciled to its registry row, each distinct rendered variant read at rest, under a real pointer, held down and under keyboard focus with the document's ARIA compared across those moments, selected states read against their unselected sibling or by keyboard activation and undo, disabled instances clicked and keyed, icons reconciled with their owner's name, and every clear, copy, sort, reset, disclosure and close action performed from the keyboard, every observation family held to the census each page took before measuring, decided with only the named, scoped exemptions of the checked-in register, over ${canonicalPopulationSource}`
               : TOKEN_ASSERTIONS.has(id)
                 ? `${id} per-member evidence derived from the persisted runtime token sweep and renderer corpus walk over ${canonicalPopulationSource}`
                 : TEKTUR_ASSERTIONS.has(id)

@@ -26,6 +26,7 @@ import {
   type ControlActionObservation,
   type ControlDisabledObservation,
   type ControlIconObservation,
+  type ControlPageCensus,
   type ControlPageObservation,
   type ControlSelectionObservation,
   type ControlStateRegistry,
@@ -51,7 +52,10 @@ import {
  * and undoing it; disabled controls are clicked and keyed; icons are
  * reconciled with their owner's name; and every clear, copy, sort, reset,
  * disclosure and close action is performed from the keyboard and checked
- * for its effect. The verdicts live in the evidence module the enforcement
+ * for its effect. Each page persists the census of what it rendered before
+ * any of that ran, and the reader holds every observation family to it, so
+ * a member whose reading was skipped or lost is a shortfall rather than a
+ * silent pass. The verdicts live in the evidence module the enforcement
  * generator reads, so the test and the generator decide each row the same
  * way.
  *
@@ -102,7 +106,11 @@ type ProbeDiscovery = {
   codeBlocks: number;
   unexposedDisabled: Array<{ member: string; element: string; cue: string }>;
   icons: Array<Omit<ControlIconObservation, 'route' | 'viewport'>>;
+  /** Every icon the census counted, before grouping. */
+  iconTotal: number;
   statusChips: Array<Omit<StatusChipObservation, 'route' | 'viewport'>>;
+  /** Every status chip the census counted, before grouping. */
+  chipTotal: number;
 };
 
 type Paint = {
@@ -284,6 +292,9 @@ function installProbe(args: ProbeArgs): void {
   };
 
   const controls: Element[] = [];
+  // Where each control was found, kept because a detached control can no
+  // longer name its frame or resolve its aria-labelledby.
+  const origins: Array<{ frameId: string | null; name: string }> = [];
   const saved = new Map<string, Array<{ tag: string; values: string[] }>>();
   const nativeDisabled = new WeakMap<Element, boolean>();
   const ariaSerials = new WeakMap<Element, number>();
@@ -338,6 +349,7 @@ function installProbe(args: ProbeArgs): void {
   const api: ProbeApi = {
     discover() {
       controls.length = 0;
+      origins.length = 0;
       for (const stale of document.querySelectorAll('[data-cs-probe]')) stale.removeAttribute('data-cs-probe');
       const counts: Record<string, number> = {};
       const unregistered: string[] = [];
@@ -365,6 +377,7 @@ function installProbe(args: ProbeArgs): void {
         counts[member] = (counts[member] ?? 0) + 1;
         const n = controls.length;
         controls.push(element);
+        origins.push({ frameId: element.closest('[data-figure-frame]')?.getAttribute('data-figure-frame') ?? null, name: nameOf(element) });
         element.setAttribute('data-cs-probe', String(n));
         const exemption =
           args.exemptions.find(({ selector, routes }) => routes.includes(args.route) && element.closest(selector) !== null)?.id ?? null;
@@ -401,6 +414,7 @@ function installProbe(args: ProbeArgs): void {
       ).length;
 
       const iconGroups = new Map<string, ProbeDiscovery['icons'][number]>();
+      let iconTotal = 0;
       const CONTROL_OWNER = 'a[href], button, summary, [role="button"], [role="link"], [role="tab"], [role="menuitem"], [role="radio"], [role="checkbox"], [role="switch"], [role="option"]';
       for (const icon of document.querySelectorAll('svg, img')) {
         const tag = icon.tagName.toLowerCase();
@@ -408,6 +422,7 @@ function installProbe(args: ProbeArgs): void {
         if (!boxVisible(icon) || hiddenByClosedDisclosure(icon)) continue;
         const owner = icon.parentElement?.closest(CONTROL_OWNER) ?? null;
         if (tag === 'img' && owner === null) continue;
+        iconTotal += 1;
         const hiddenAncestor = icon.closest('[aria-hidden="true"], [inert]');
         const hidden =
           hiddenAncestor !== null ||
@@ -458,10 +473,12 @@ function installProbe(args: ProbeArgs): void {
       }
 
       const chipGroups = new Map<string, ProbeDiscovery['statusChips'][number]>();
+      let chipTotal = 0;
       for (const chip of document.querySelectorAll('span[data-variant][data-brand-surface-id]')) {
         const variant = chip.getAttribute('data-variant') ?? '';
         if (!['default', 'accent', 'ok', 'warn', 'err'].includes(variant)) continue;
         if (!exposed(chip) || !boxVisible(chip)) continue;
+        chipTotal += 1;
         const computed = getComputedStyle(chip);
         const rect = chip.getBoundingClientRect();
         const kind = computed.textTransform === 'uppercase' ? 'badge' : 'stage';
@@ -496,7 +513,9 @@ function installProbe(args: ProbeArgs): void {
         codeBlocks,
         unexposedDisabled,
         icons: [...iconGroups.values()],
+        iconTotal,
         statusChips: [...chipGroups.values()],
+        chipTotal,
       };
     },
     snap(n, label) {
@@ -740,9 +759,8 @@ function installProbe(args: ProbeArgs): void {
       // the control of the same frame id, role and name.
       const element = controls[n];
       if (element.isConnected) return true;
-      const frameId = element.closest('[data-figure-frame]')?.getAttribute('data-figure-frame');
+      const { frameId, name } = origins[n];
       if (!frameId) return false;
-      const name = nameOf(element);
       const successor = [...document.querySelectorAll(`[data-figure-frame="${CSS.escape(frameId)}"] ${element.tagName.toLowerCase()}`)].find(
         (candidate) =>
           candidate.hasAttribute('data-instrument-reset') === element.hasAttribute('data-instrument-reset') &&
@@ -967,26 +985,93 @@ async function activate(page: Page, control: ProbeControl): Promise<void> {
   await settle(page);
 }
 
-async function measureSelections(
-  page: Page,
-  at: PageContext,
-  controls: ProbeControl[],
-): Promise<ControlSelectionObservation[]> {
-  const results: ControlSelectionObservation[] = [];
+type SelectionKind = { kind: string; members: ProbeControl[] };
+type SegmentedRecord = Pick<ProbeControl, 'key' | 'element' | 'exemption'>;
+
+/**
+ * The selection population: every enabled selection control, grouped by the
+ * group it sits in, one kind per distinct control and group shape. Each kind
+ * yields one selected-state observation, and one more for its segmented
+ * container where it sits in one; the page census counts exactly these.
+ */
+function selectionKinds(controls: ProbeControl[]): SelectionKind[] {
   const byGroup = new Map<string, ProbeControl[]>();
   for (const control of controls) {
     if (control.member !== 'control:selection' || control.disabled) continue;
     const key = control.group ?? `solo:${control.n}`;
     byGroup.set(key, [...(byGroup.get(key) ?? []), control]);
   }
-  const seenKinds = new Set<string>();
+  const kinds = new Map<string, SelectionKind>();
   for (const [group, members] of byGroup) {
     const kind = `${members[0].key.split('|').slice(0, 5).join('|')}|${group.replace(/#\d+$/, '')}`;
-    if (seenKinds.has(kind)) continue;
-    seenKinds.add(kind);
+    if (!kinds.has(kind)) kinds.set(kind, { kind, members });
+  }
+  return [...kinds.values()];
+}
+
+async function selectionCensus(page: Page, controls: ProbeControl[]): Promise<Record<string, number>> {
+  const kinds = selectionKinds(controls);
+  const census: Record<string, number> = {};
+  if (kinds.length > 0) census['control:selection'] = kinds.length;
+  let segmented = 0;
+  for (const { members } of kinds) {
+    if ((await call(page, 'segmentedOf', members[0].n)) !== null) segmented += 1;
+  }
+  if (segmented > 0) census['control:segmented'] = segmented;
+  return census;
+}
+
+const NO_CUES: ControlSelectionObservation['cues'] = { underline: false, rule: false, weightStep: 0, glyph: false, colour: false, nativeMark: false };
+
+async function measureSelections(
+  page: Page,
+  at: PageContext,
+  controls: ProbeControl[],
+  reopen?: () => Promise<void>,
+): Promise<ControlSelectionObservation[]> {
+  const results: ControlSelectionObservation[] = [];
+  // A kind whose activation left nothing to read is still recorded, as a
+  // selected state that could not be read or undone, so it fails its
+  // verdict instead of falling out of the population.
+  const unread = (control: ProbeControl, paint: Paint, why: string, segmented: SegmentedRecord | null) => {
+    for (const record of segmented ? [control, segmented] : [control]) {
+      results.push({
+        route: at.route,
+        viewport: at.viewport,
+        member: record === control ? control.member! : 'control:segmented',
+        variant: record.key,
+        element: record.element,
+        name: control.name,
+        semantic: null,
+        method: 'activated',
+        diff: { changed: [why], changedCount: 0 },
+        cues: NO_CUES,
+        paint: { background: paint.background, colour: paint.colour, lime: paint.lime, radiusPx: paint.radiusPx, heightPx: paint.heightPx },
+        restored: false,
+        exemption: record.exemption,
+      });
+    }
+  };
+  for (const { members } of selectionKinds(controls)) {
+    // Undoing an earlier kind can remount this one's controls (a filter that
+    // hides tiles and then shows them again renders new tiles), so each
+    // member is first found again by its frame, role and name.
+    const present = new Map<number, boolean>();
+    for (const member of members) present.set(member.n, await call(page, 'relocate', member.n));
+    const replaced = (control: ProbeControl, by: string) =>
+      present.get(control.n) ? by : 'it was no longer on the page when its selected state was read';
     const on = members.find((control) => control.selected === 'selected');
     const off = members.find((control) => control.selected !== 'selected');
     const segmentedN = await call(page, 'segmentedOf', members[0].n);
+    const container = segmentedN === null ? undefined : controls.find((control) => control.n === segmentedN);
+    const segmentedControl: SegmentedRecord | null =
+      segmentedN === null
+        ? null
+        : {
+            key: container?.key ?? `segmented:${segmentedN}`,
+            element: container?.element ?? members[0].element,
+            exemption: container?.exemption ?? members[0].exemption,
+          };
     if (on && off && segmentedN === null) {
       await park(page);
       const offPaint = await call(page, 'paint', off.n);
@@ -1017,7 +1102,72 @@ async function measureSelections(
       });
       continue;
     }
-    if (!off) continue;
+    if (!off) {
+      // Every member is already selected: press the selected one off, read
+      // it unselected, and press it back on.
+      const selected = on!;
+      await park(page);
+      const selectedPaint = await call(page, 'paint', selected.n);
+      await call(page, 'snap', selected.n, 'selected');
+      if (segmentedN !== null) await call(page, 'snap', segmentedN, 'selected');
+      const routeBefore = page.url();
+      await activate(page, selected);
+      await park(page);
+      if (page.url() !== routeBefore && !page.url().startsWith(routeBefore.split('#')[0])) {
+        unread(selected, selectedPaint, `pressing it navigated to ${page.url()}`, segmentedControl);
+        if (!reopen) throw new Error(`${at.route}: ${selected.element} navigated away while its selected state was read`);
+        await reopen();
+        continue;
+      }
+      if (!(await call(page, 'connected', selected.n))) {
+        await page.keyboard.press('Escape');
+        await settle(page);
+        unread(selected, selectedPaint, replaced(selected, 'pressing it replaced it'), segmentedControl);
+        continue;
+      }
+      const unselectedPaint = await call(page, 'paint', selected.n);
+      await call(page, 'snap', selected.n, 'unselected');
+      const diff = await call(page, 'diff', selected.n, 'unselected', 'selected');
+      const pressedOff = (await call(page, 'selectionState', selected.n)) !== 'selected';
+      let segmentedDiff: { changed: string[]; changedCount: number } | null = null;
+      if (segmentedN !== null) {
+        await call(page, 'snap', segmentedN, 'unselected');
+        segmentedDiff = await call(page, 'diff', segmentedN, 'unselected', 'selected');
+      }
+      if (pressedOff) {
+        if (selected.semantic === 'aria-expanded') {
+          await page.keyboard.press('Escape');
+          await settle(page);
+          if ((await call(page, 'selectionState', selected.n)) !== 'selected') await activate(page, selected);
+        } else {
+          await activate(page, selected);
+        }
+        await park(page);
+      }
+      const restored = (await call(page, 'selectionState', selected.n)) === 'selected';
+      const cues = cuesBetween(unselectedPaint, selectedPaint);
+      const paint = { background: selectedPaint.background, colour: selectedPaint.colour, lime: selectedPaint.lime, radiusPx: selectedPaint.radiusPx, heightPx: selectedPaint.heightPx };
+      for (const [record, recordDiff] of [[selected, diff], ...(segmentedControl && segmentedDiff ? [[segmentedControl, segmentedDiff]] : [])] as Array<[SegmentedRecord, { changed: string[]; changedCount: number }]>) {
+        results.push({
+          route: at.route,
+          viewport: at.viewport,
+          member: record === selected ? selected.member! : 'control:segmented',
+          variant: record.key,
+          element: record.element,
+          name: selected.name,
+          semantic: selected.semantic,
+          method: 'activated',
+          // A selected member that pressing does not turn off has no
+          // unselected paint to compare against.
+          diff: pressedOff ? recordDiff : { changed: ['pressing it did not turn it off'], changedCount: 0 },
+          cues,
+          paint,
+          restored,
+          exemption: record.exemption,
+        });
+      }
+      continue;
+    }
     // Activate the first unselected member, read it selected, and undo.
     await park(page);
     const before = await call(page, 'paint', off.n);
@@ -1026,12 +1176,19 @@ async function measureSelections(
     const routeBefore = page.url();
     await activate(page, off);
     await park(page);
-    if (page.url() !== routeBefore && !page.url().startsWith(routeBefore.split('#')[0])) break;
+    if (page.url() !== routeBefore && !page.url().startsWith(routeBefore.split('#')[0])) {
+      unread(off, before, `activating it navigated to ${page.url()}`, segmentedControl);
+      if (!reopen) throw new Error(`${at.route}: ${off.element} navigated away while its selected state was read`);
+      await reopen();
+      continue;
+    }
     const stillThere = await call(page, 'connected', off.n);
     if (!stillThere) {
-      // An opener whose sheet replaced the page region: close it and move on.
+      // An opener whose sheet replaced the page region: close it, and record
+      // the selected state it left nothing to read of.
       await page.keyboard.press('Escape');
       await settle(page);
+      unread(off, before, replaced(off, 'activating it replaced it'), segmentedControl);
       continue;
     }
     const after = await call(page, 'paint', off.n);
@@ -1064,26 +1221,60 @@ async function measureSelections(
         // Only the reset of the control's own figure undoes it: a check that
         // shares a section with an unrelated figure is not reset by it.
         const frame = control?.closest('[data-figure-frame]') ?? null;
+        // A figure keeps its Reset in its own closed "Adjust more" fold; a
+        // reader opens that fold to reach it, and so does the undo.
+        const foldsInFrame = (candidate: Element) => {
+          const folds: Element[] = [];
+          for (let el = candidate.parentElement; el !== null && el !== frame; el = el.parentElement) {
+            if (el.matches('details:not([open])')) folds.unshift(el);
+          }
+          return folds;
+        };
         for (let root = control?.parentElement ?? null; root !== null; root = root.parentElement) {
-          if (root.matches('[data-article-body], main, body')) return false;
-          const button = [...root.querySelectorAll<HTMLElement>('[data-instrument-reset]:not(:disabled)')].find(
-            (candidate) => candidate.closest('details:not([open])') === null && candidate.closest('[data-figure-frame]') === frame,
+          if (root.matches('[data-article-body], main, body')) return null;
+          const candidates = [...root.querySelectorAll<HTMLElement>('[data-instrument-reset]:not(:disabled)')].filter(
+            (candidate) => candidate.closest('[data-figure-frame]') === frame,
           );
+          const button =
+            candidates.find((candidate) => candidate.closest('details:not([open])') === null) ??
+            (frame === null
+              ? undefined
+              : candidates.find((candidate) => candidate.closest('details:not([open])')?.closest('[data-figure-frame]') === frame));
           if (button) {
             button.setAttribute('data-cs-undo', '');
-            return true;
+            const folds = button.closest('details:not([open])') === null ? [] : foldsInFrame(button);
+            for (const fold of folds) fold.setAttribute('data-cs-fold', '');
+            return { folds: folds.length };
           }
-          if (root.matches('[data-figure-frame], .pg-section, section')) return false;
+          if (root.matches('[data-figure-frame], .pg-section, section')) return null;
         }
-        return false;
+        return null;
       }, off.n);
       if (reset) {
         usedReset = true;
         await keyboardModality(page);
+        const folds = page.locator('details[data-cs-fold] > summary');
+        for (let f = 0; f < reset.folds; f++) {
+          await folds.nth(f).focus();
+          await page.keyboard.press('Enter');
+          await settle(page);
+        }
         await page.locator('[data-cs-undo]').first().focus();
         await page.keyboard.press('Enter');
         await settle(page);
-        await page.evaluate(() => document.querySelector('[data-cs-undo]')?.removeAttribute('data-cs-undo'));
+        for (let f = reset.folds - 1; f >= 0; f--) {
+          if (await folds.nth(f).evaluate((summary) => (summary.parentElement as HTMLDetailsElement).open)) {
+            await folds.nth(f).focus();
+            await page.keyboard.press('Enter');
+            await settle(page);
+          }
+        }
+        await page.evaluate(() => {
+          for (const element of document.querySelectorAll('[data-cs-undo], [data-cs-fold]')) {
+            element.removeAttribute('data-cs-undo');
+            element.removeAttribute('data-cs-fold');
+          }
+        });
         await park(page);
         restoredState = await call(page, 'selectionState', off.n);
       }
@@ -1111,14 +1302,13 @@ async function measureSelections(
       restored,
       exemption: off.exemption,
     });
-    if (segmentedN !== null && segmentedDiff !== null) {
-      const container = controls.find((control) => control.n === segmentedN);
+    if (segmentedControl !== null && segmentedDiff !== null) {
       results.push({
         route: at.route,
         viewport: at.viewport,
         member: 'control:segmented',
-        variant: container?.key ?? `segmented:${segmentedN}`,
-        element: container?.element ?? off.element,
+        variant: segmentedControl.key,
+        element: segmentedControl.element,
         name: off.name,
         semantic,
         method: 'activated',
@@ -1126,7 +1316,7 @@ async function measureSelections(
         cues,
         paint,
         restored,
-        exemption: container?.exemption ?? off.exemption,
+        exemption: segmentedControl.exemption,
       });
     }
   }
@@ -1397,6 +1587,30 @@ async function performAction(
 }
 
 /** The flows that make a conditional clear or close action appear. */
+/**
+ * The actions a page is swept for: one per distinct idempotent action, and
+ * every code-block copy and reset, since each of those acts on its own
+ * block or figure. A clear or close belongs to a prepared state (a typed
+ * query, an open dialog) and is performed there, in `preparedActions`.
+ */
+function plannedActions<Action extends { kind: ControlActionKind; key: string }>(found: Action[]): Action[] {
+  const keys = new Set<string>();
+  return found.filter((action) => {
+    if (action.kind === 'clear' || action.kind === 'close') return false;
+    if (action.kind === 'copy-code' || action.kind === 'reset') return true;
+    if (keys.has(action.key)) return false;
+    keys.add(action.key);
+    return true;
+  });
+}
+
+/** The actions each prepared flow in `preparedActions` records, one record each. */
+const PREPARED_ACTIONS: Partial<Record<string, ControlActionKind[]>> = {
+  '/search/': ['clear'],
+  '/market-map/': ['clear', 'close'],
+  '/playground/': ['clear', 'clear'],
+};
+
 async function preparedActions(page: Page, at: PageContext): Promise<ControlActionObservation[]> {
   const results: ControlActionObservation[] = [];
   const record = async (
@@ -1578,23 +1792,36 @@ async function sweepPage(page: Page, base: string, route: string, viewport: View
   for (const control of firsts.values()) {
     if (control.disabled) disabled.push(await measureDisabled(page, at, control));
   }
-  const selections = await measureSelections(page, at, discovery.controls);
+  const census: ControlPageCensus = {
+    variants: {},
+    disabled: {},
+    unexposedDisabled: discovery.unexposedDisabled.length,
+    selections: await selectionCensus(page, discovery.controls),
+    actions: {},
+    icons: discovery.iconTotal,
+    statusChips: discovery.chipTotal,
+  };
+  for (const control of firsts.values()) {
+    census.variants[control.member!] = (census.variants[control.member!] ?? 0) + 1;
+    if (control.disabled) census.disabled[control.member!] = (census.disabled[control.member!] ?? 0) + 1;
+  }
+  const selections = await measureSelections(page, at, discovery.controls, async () => {
+    await openRoute(page, base, route);
+    await call(page, 'discover');
+  });
 
   // Actions mutate the page, so they run on a fresh load.
   await openRoute(page, base, route);
   await call(page, 'discover');
   const found = await call(page, 'actions');
+  const planned = plannedActions(found);
+  for (const action of planned) census.actions[action.kind] = (census.actions[action.kind] ?? 0) + 1;
+  for (const kind of PREPARED_ACTIONS[route] ?? []) census.actions[kind] = (census.actions[kind] ?? 0) + 1;
   const ordinalOf = (list: typeof found, action: (typeof found)[number]) =>
     list.filter((entry) => entry.key === action.key).indexOf(action);
   let current = found;
-  const actionKeys = new Set<string>();
   const actions: ControlActionObservation[] = [];
-  for (const action of found) {
-    if (action.kind === 'clear' || action.kind === 'close') continue;
-    if (action.kind !== 'copy-code' && action.kind !== 'reset') {
-      if (actionKeys.has(action.key)) continue;
-      actionKeys.add(action.key);
-    }
+  for (const action of planned) {
     // An earlier action can re-render the region that holds a later one (a
     // figure reset that remounts the table it filters); the later action
     // then runs on a fresh load, found again by its key and order.
@@ -1607,7 +1834,7 @@ async function sweepPage(page: Page, base: string, route: string, viewport: View
     }
     actions.push(await performAction(page, at, target));
   }
-  if (['/search/', '/market-map/', '/playground/'].includes(route)) {
+  if (PREPARED_ACTIONS[route]) {
     await openRoute(page, base, route);
     await call(page, 'discover');
     actions.push(...(await preparedActions(page, at)));
@@ -1621,6 +1848,7 @@ async function sweepPage(page: Page, base: string, route: string, viewport: View
       controls: discovery.counts,
       unregistered: discovery.unregistered,
       codeBlocks: discovery.codeBlocks,
+      census,
     },
     variants,
     selections,

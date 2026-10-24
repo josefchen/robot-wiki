@@ -1,7 +1,7 @@
 {
  "version": 1,
  "generatedBy": "tests/e2e/brand-v2-control-states.spec.ts",
- "fingerprint": "0aa3e5b79b71fe4e2154a6d2fc95c1435b86271572053b9d31a78e8c939987c4",
+ "fingerprint": "29dda10f03891d07f4a6ca933c6a8b64bbd9378d061b6c0baf477580f5c5bc0f",
  "viewports": [
   "375x812",
   "1440x900"
@@ -98,7 +98,26 @@
     "control:selection": 5
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 10,
+     "control:secondary-action": 3,
+     "control:input": 1,
+     "control:primary-action": 2,
+     "control:selection": 2
+    },
+    "disabled": {
+     "control:secondary-action": 1
+    },
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/a-z/",
@@ -109,7 +128,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/about/",
@@ -120,7 +151,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 8,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/",
@@ -131,7 +174,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 10,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/autonomous-vehicles/",
@@ -142,7 +197,22 @@
     "control:secondary-action": 33
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 4
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 1,
+     "copy-link": 1
+    },
+    "icons": 15,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/drones/",
@@ -156,7 +226,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/space/",
@@ -167,7 +259,22 @@
     "control:secondary-action": 13
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 4
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 1,
+     "copy-link": 1
+    },
+    "icons": 4,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/surgical/",
@@ -181,7 +288,28 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 6,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/",
@@ -192,7 +320,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/calibration/",
@@ -205,7 +345,26 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/control/",
@@ -219,7 +378,29 @@
     "control:input": 6
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:selection": 5,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/grasp-planning/",
@@ -231,7 +412,24 @@
     "control:input": 4
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/kinematics/",
@@ -245,7 +443,29 @@
     "control:input": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/motion-planning/",
@@ -257,7 +477,26 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:input": 1
+    },
+    "disabled": {
+     "control:secondary-action": 1
+    },
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/perception/",
@@ -270,7 +509,27 @@
     "control:selection": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:input": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 13,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/ros2-for-ml-engineers/",
@@ -283,7 +542,27 @@
     "control:segmented": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/scene-representation/",
@@ -296,7 +575,27 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 17,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/state-estimation/",
@@ -308,7 +607,24 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/credits/",
@@ -319,7 +635,21 @@
     "control:secondary-action": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 2,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/",
@@ -330,7 +660,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/data-bottleneck/",
@@ -344,7 +686,29 @@
     "control:segmented": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:selection": 3,
+     "control:input": 1,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/datasets/",
@@ -356,7 +720,27 @@
     "control:selection": 13
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 1,
+     "copy-link": 1,
+     "reset": 1,
+     "sort": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/evaluation-crisis/",
@@ -370,7 +754,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/hardware-taxonomy/",
@@ -382,7 +788,27 @@
     "control:selection": 23
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 14,
+     "control:secondary-action": 6,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 1,
+     "copy-link": 1,
+     "reset": 1,
+     "sort": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/industrial-deployment/",
@@ -396,7 +822,29 @@
     "control:input": 7
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 2
+    },
+    "icons": 16,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/robot-learning-stack/",
@@ -409,7 +857,28 @@
     "control:segmented": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/teleop-rigs/",
@@ -422,7 +891,28 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1,
+     "reset": 1,
+     "sort": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/editorial-policy/",
@@ -433,7 +923,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/",
@@ -444,7 +946,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/bear-case/",
@@ -457,7 +971,28 @@
     "control:selection": 16
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 3
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 16,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/competing-theses/",
@@ -470,7 +1005,27 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/dexterity/",
@@ -483,7 +1038,28 @@
     "control:selection": 8
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/generalization/",
@@ -497,7 +1073,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/reliability-gap/",
@@ -511,7 +1109,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 3,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "copy-link": 1,
+     "reset": 2
+    },
+    "icons": 7,
+    "statusChips": 4
+   }
   },
   {
    "route": "/frontier/safety-and-assurance/",
@@ -525,7 +1145,29 @@
     "control:input": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 15,
+    "statusChips": 0
+   }
   },
   {
    "route": "/glossary/",
@@ -536,7 +1178,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/how-robots-work/",
@@ -549,7 +1203,27 @@
     "control:primary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 4,
+     "control:selection": 2,
+     "control:primary-action": 1
+    },
+    "disabled": {
+     "control:secondary-action": 1
+    },
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/",
@@ -560,7 +1234,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 8,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/action-chunking/",
@@ -574,7 +1260,31 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 1
+   "codeBlocks": 1,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 9,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1,
+     "copy-code": 1,
+     "sort": 1
+    },
+    "icons": 11,
+    "statusChips": 5
+   }
   },
   {
    "route": "/manipulation/action-spaces/",
@@ -588,7 +1298,28 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/bc-foundations/",
@@ -602,7 +1333,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/comparison-matrix/",
@@ -615,7 +1368,28 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:selection": 2,
+     "control:input": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "sort": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 7
+   }
   },
   {
    "route": "/manipulation/cross-embodiment/",
@@ -628,7 +1402,28 @@
     "control:selection": 5
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 18,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/diffusion-policy/",
@@ -642,7 +1437,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 2
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/foundation-models/",
@@ -654,7 +1471,25 @@
     "control:selection": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 5,
+     "control:selection": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/generalist-policies/",
@@ -666,7 +1501,26 @@
     "control:selection": 19
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/hierarchical/",
@@ -680,7 +1534,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/knowledge-insulation/",
@@ -693,7 +1569,27 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/pi-line/",
@@ -707,7 +1603,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 4,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/realtime-execution/",
@@ -721,7 +1639,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/rl-finetuning/",
@@ -735,7 +1675,30 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 9,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1,
+     "sort": 1
+    },
+    "icons": 11,
+    "statusChips": 13
+   }
   },
   {
    "route": "/manipulation/robot-learning-roadmap/",
@@ -749,7 +1712,28 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/vla-models/",
@@ -762,7 +1746,27 @@
     "control:selection": 7
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:input": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/market-map/",
@@ -775,7 +1779,27 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 2,
+     "control:selection": 5,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3
+    },
+    "actions": {
+     "disclosure": 1,
+     "clear": 1,
+     "close": 1
+    },
+    "icons": 1,
+    "statusChips": 0
+   }
   },
   {
    "route": "/playground/",
@@ -788,7 +1812,27 @@
     "control:primary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 6,
+     "control:input": 2,
+     "control:primary-action": 1
+    },
+    "disabled": {
+     "control:secondary-action": 2
+    },
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "reset": 1,
+     "disclosure": 1,
+     "clear": 2
+    },
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/privacy/",
@@ -799,7 +1843,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/",
@@ -810,7 +1866,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/humanoid-wbc/",
@@ -824,7 +1892,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 11
+   }
   },
   {
    "route": "/rl-sim2real/legged-locomotion/",
@@ -837,7 +1927,28 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/offline-rl/",
@@ -851,7 +1962,28 @@
     "control:segmented": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:input": 1,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "copy-link": 1
+    },
+    "icons": 24,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/parallel-sim-rl/",
@@ -864,7 +1996,28 @@
     "control:selection": 7
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/reward-design-mpc/",
@@ -878,7 +2031,29 @@
     "control:input": 12
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 3,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/rl-for-robotics/",
@@ -892,7 +2067,29 @@
     "control:segmented": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:input": 1,
+     "control:selection": 4,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/sim2real-transfer/",
@@ -906,7 +2103,29 @@
     "control:selection": 8
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 8,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 3
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/why-rl-locomotion/",
@@ -920,7 +2139,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/search/",
@@ -932,7 +2173,22 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "clear": 1
+    },
+    "icons": 1,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/",
@@ -943,7 +2199,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 8,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/evaluation/",
@@ -955,7 +2223,25 @@
     "control:selection": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 5,
+     "control:selection": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/generative-sim/",
@@ -969,7 +2255,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/generative-video/",
@@ -982,7 +2290,28 @@
     "control:selection": 8
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/jepa/",
@@ -996,7 +2325,29 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/latent-dynamics/",
@@ -1010,7 +2361,29 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/model-based-robot-learning/",
@@ -1023,7 +2396,27 @@
     "control:segmented": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/taxonomy/",
@@ -1036,7 +2429,28 @@
     "control:selection": 12
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 5
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 4,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/world-models-vs-simulators/",
@@ -1049,7 +2463,27 @@
     "control:segmented": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 15,
+    "statusChips": 0
+   }
   },
   {
    "route": "/market-map/?view=bubble",
@@ -1062,7 +2496,25 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 2,
+     "control:selection": 5,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3
+    },
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 5,
+    "statusChips": 0
+   }
   },
   {
    "route": "/market-map/?view=timeline",
@@ -1075,7 +2527,25 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 3,
+     "control:selection": 4,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 5,
+    "statusChips": 0
+   }
   },
   {
    "route": "/",
@@ -1089,7 +2559,26 @@
     "control:selection": 5
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 10,
+     "control:secondary-action": 3,
+     "control:input": 1,
+     "control:primary-action": 2,
+     "control:selection": 2
+    },
+    "disabled": {
+     "control:secondary-action": 1
+    },
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/a-z/",
@@ -1100,7 +2589,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/about/",
@@ -1111,7 +2612,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 8,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/",
@@ -1122,7 +2635,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 10,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/autonomous-vehicles/",
@@ -1133,7 +2658,21 @@
     "control:secondary-action": 32
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 3
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "copy-link": 1
+    },
+    "icons": 15,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/drones/",
@@ -1147,7 +2686,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/space/",
@@ -1158,7 +2719,21 @@
     "control:secondary-action": 12
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 3
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "copy-link": 1
+    },
+    "icons": 4,
+    "statusChips": 0
+   }
   },
   {
    "route": "/adjacent/surgical/",
@@ -1172,7 +2747,28 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 5,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 1
+    },
+    "icons": 6,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/",
@@ -1183,7 +2779,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/calibration/",
@@ -1196,7 +2804,26 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/control/",
@@ -1210,7 +2837,29 @@
     "control:input": 6
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 5,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/grasp-planning/",
@@ -1222,7 +2871,24 @@
     "control:input": 4
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/kinematics/",
@@ -1236,7 +2902,29 @@
     "control:input": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/motion-planning/",
@@ -1248,7 +2936,26 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:input": 1
+    },
+    "disabled": {
+     "control:secondary-action": 1
+    },
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/perception/",
@@ -1261,7 +2968,27 @@
     "control:selection": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 1
+    },
+    "icons": 13,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/ros2-for-ml-engineers/",
@@ -1274,7 +3001,27 @@
     "control:segmented": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/scene-representation/",
@@ -1287,7 +3034,27 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 1
+    },
+    "icons": 17,
+    "statusChips": 0
+   }
   },
   {
    "route": "/classical/state-estimation/",
@@ -1299,7 +3066,24 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 5,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 1,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/credits/",
@@ -1310,7 +3094,21 @@
     "control:secondary-action": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 2,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/",
@@ -1321,7 +3119,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/data-bottleneck/",
@@ -1335,7 +3145,29 @@
     "control:segmented": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:input": 1,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/datasets/",
@@ -1347,7 +3179,26 @@
     "control:selection": 13
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 5,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "reset": 1,
+     "sort": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/evaluation-crisis/",
@@ -1361,7 +3212,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 3,
+     "reset": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/hardware-taxonomy/",
@@ -1373,7 +3246,26 @@
     "control:selection": 23
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 14,
+     "control:secondary-action": 5,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "reset": 1,
+     "sort": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/industrial-deployment/",
@@ -1387,7 +3279,29 @@
     "control:input": 7
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 2
+    },
+    "icons": 16,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/robot-learning-stack/",
@@ -1400,7 +3314,28 @@
     "control:segmented": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1,
+     "reset": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/data-hardware/teleop-rigs/",
@@ -1413,7 +3348,28 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "reset": 1,
+     "sort": 1,
+     "disclosure": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/editorial-policy/",
@@ -1424,7 +3380,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/",
@@ -1435,7 +3403,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/bear-case/",
@@ -1448,7 +3428,28 @@
     "control:selection": 16
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 5,
+     "control:segmented": 1,
+     "control:selection": 3
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 1,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 16,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/competing-theses/",
@@ -1461,7 +3462,27 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 5,
+     "control:selection": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 1,
+     "reset": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/dexterity/",
@@ -1474,7 +3495,28 @@
     "control:selection": 8
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 1,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/generalization/",
@@ -1488,7 +3530,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/frontier/reliability-gap/",
@@ -1502,7 +3566,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 3,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 3,
+     "reset": 2
+    },
+    "icons": 7,
+    "statusChips": 4
+   }
   },
   {
    "route": "/frontier/safety-and-assurance/",
@@ -1516,7 +3602,29 @@
     "control:input": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 1
+    },
+    "icons": 15,
+    "statusChips": 0
+   }
   },
   {
    "route": "/glossary/",
@@ -1527,7 +3635,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/how-robots-work/",
@@ -1540,7 +3660,27 @@
     "control:primary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 4,
+     "control:selection": 2,
+     "control:primary-action": 1
+    },
+    "disabled": {
+     "control:secondary-action": 1
+    },
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/",
@@ -1551,7 +3691,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 8,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/action-chunking/",
@@ -1565,7 +3717,31 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 1
+   "codeBlocks": 1,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 2,
+     "copy-link": 1,
+     "copy-code": 1,
+     "sort": 1
+    },
+    "icons": 11,
+    "statusChips": 5
+   }
   },
   {
    "route": "/manipulation/action-spaces/",
@@ -1579,7 +3755,28 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/bc-foundations/",
@@ -1593,7 +3790,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 3,
+     "reset": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/comparison-matrix/",
@@ -1606,7 +3825,28 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:selection": 2,
+     "control:input": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 1,
+     "reset": 1,
+     "sort": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 7
+   }
   },
   {
    "route": "/manipulation/cross-embodiment/",
@@ -1619,7 +3859,28 @@
     "control:selection": 5
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 18,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/diffusion-policy/",
@@ -1633,7 +3894,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 2
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/foundation-models/",
@@ -1645,7 +3928,25 @@
     "control:selection": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 4,
+     "control:selection": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 1,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/generalist-policies/",
@@ -1657,7 +3958,26 @@
     "control:selection": 19
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/hierarchical/",
@@ -1671,7 +3991,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/knowledge-insulation/",
@@ -1684,7 +4026,27 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/pi-line/",
@@ -1698,7 +4060,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 4,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/realtime-execution/",
@@ -1712,7 +4096,29 @@
     "control:input": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 7,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/rl-finetuning/",
@@ -1726,7 +4132,30 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 8,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1,
+     "sort": 1
+    },
+    "icons": 11,
+    "statusChips": 13
+   }
   },
   {
    "route": "/manipulation/robot-learning-roadmap/",
@@ -1740,7 +4169,28 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 3,
+     "control:segmented": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/manipulation/vla-models/",
@@ -1753,7 +4203,27 @@
     "control:selection": 7
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/market-map/",
@@ -1766,7 +4236,27 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 2,
+     "control:selection": 5,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3
+    },
+    "actions": {
+     "disclosure": 1,
+     "clear": 1,
+     "close": 1
+    },
+    "icons": 1,
+    "statusChips": 0
+   }
   },
   {
    "route": "/playground/",
@@ -1779,7 +4269,27 @@
     "control:primary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 6,
+     "control:input": 2,
+     "control:primary-action": 1
+    },
+    "disabled": {
+     "control:secondary-action": 2
+    },
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "reset": 1,
+     "disclosure": 1,
+     "clear": 2
+    },
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/privacy/",
@@ -1790,7 +4300,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 7,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/",
@@ -1801,7 +4323,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 9,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/humanoid-wbc/",
@@ -1815,7 +4349,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 11
+   }
   },
   {
    "route": "/rl-sim2real/legged-locomotion/",
@@ -1828,7 +4384,28 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/offline-rl/",
@@ -1842,7 +4419,28 @@
     "control:segmented": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:selection": 3,
+     "control:input": 1,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "copy-link": 1
+    },
+    "icons": 24,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/parallel-sim-rl/",
@@ -1855,7 +4453,28 @@
     "control:selection": 7
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/reward-design-mpc/",
@@ -1869,7 +4488,29 @@
     "control:input": 12
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 3,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/rl-for-robotics/",
@@ -1883,7 +4524,29 @@
     "control:segmented": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:input": 1,
+     "control:selection": 4,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "copy-link": 1,
+     "disclosure": 2,
+     "reset": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/sim2real-transfer/",
@@ -1897,7 +4560,29 @@
     "control:selection": 8
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 3
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 2,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/rl-sim2real/why-rl-locomotion/",
@@ -1911,7 +4596,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/search/",
@@ -1923,7 +4630,22 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 1,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {
+     "clear": 1
+    },
+    "icons": 1,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/",
@@ -1934,7 +4656,19 @@
     "control:secondary-action": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 8,
+     "control:secondary-action": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {},
+    "actions": {},
+    "icons": 0,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/evaluation/",
@@ -1946,7 +4680,25 @@
     "control:selection": 3
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 4,
+     "control:selection": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1
+    },
+    "actions": {
+     "disclosure": 1,
+     "copy-link": 1
+    },
+    "icons": 9,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/generative-sim/",
@@ -1960,7 +4712,29 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/generative-video/",
@@ -1973,7 +4747,28 @@
     "control:selection": 8
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/jepa/",
@@ -1987,7 +4782,29 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 10,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/latent-dynamics/",
@@ -2001,7 +4818,29 @@
     "control:selection": 2
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:input": 1,
+     "control:segmented": 1,
+     "control:selection": 2
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 1,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 11,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/model-based-robot-learning/",
@@ -2014,7 +4853,27 @@
     "control:segmented": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 8,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/taxonomy/",
@@ -2027,7 +4886,28 @@
     "control:selection": 12
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 7,
+     "control:segmented": 1,
+     "control:selection": 5
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 3,
+     "reset": 1,
+     "copy-link": 1
+    },
+    "icons": 14,
+    "statusChips": 0
+   }
   },
   {
    "route": "/world-models/world-models-vs-simulators/",
@@ -2040,7 +4920,27 @@
     "control:segmented": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 12,
+     "control:secondary-action": 6,
+     "control:selection": 3,
+     "control:segmented": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2,
+     "control:segmented": 1
+    },
+    "actions": {
+     "disclosure": 2,
+     "copy-link": 1
+    },
+    "icons": 15,
+    "statusChips": 0
+   }
   },
   {
    "route": "/market-map/?view=bubble",
@@ -2053,7 +4953,25 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 2,
+     "control:selection": 5,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 3
+    },
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 5,
+    "statusChips": 0
+   }
   },
   {
    "route": "/market-map/?view=timeline",
@@ -2066,7 +4984,25 @@
     "control:input": 1
    },
    "unregistered": [],
-   "codeBlocks": 0
+   "codeBlocks": 0,
+   "census": {
+    "variants": {
+     "control:link-focus": 6,
+     "control:secondary-action": 3,
+     "control:selection": 4,
+     "control:input": 1
+    },
+    "disabled": {},
+    "unexposedDisabled": 0,
+    "selections": {
+     "control:selection": 2
+    },
+    "actions": {
+     "disclosure": 1
+    },
+    "icons": 5,
+    "statusChips": 0
+   }
   }
  ],
  "variants": [
@@ -2436,8 +5372,10 @@
    "pointer": "reachable",
    "coveredBy": null,
    "hover": {
-    "changed": [],
-    "changedCount": 0
+    "changed": [
+     "button[0].background-color: rgb(250, 250, 248) -> rgb(240, 243, 246)"
+    ],
+    "changedCount": 1
    },
    "pressed": {
     "changed": [
@@ -143968,6 +146906,42 @@
    "exemption": null
   },
   {
+   "route": "/frontier/bear-case/",
+   "viewport": "375x812",
+   "member": "control:selection",
+   "variant": "control:selection|button||button|flex h-full min-h-11 w-full gap-3 border-t pt-2.5 pb-1 text-left transition-colors md:flex-col md:gap-1.5 border-border-strong hover:border-text-dim|false|unselected|",
+   "element": "<button data-brand-control-id=\"control:selection\" type=\"button\" aria-pressed=\"false\" aria-labelledby=\"_R_43lav5ubsnmtb_-name-unseen-homes-policy\" aria-described",
+   "name": "One robot brain succeeds in 9 of 10 new homes",
+   "semantic": "aria-pressed",
+   "method": "activated",
+   "diff": {
+    "changed": [
+     "button[0].border-top-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)",
+     "button[0].border-right-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)",
+     "button[0].border-bottom-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)",
+     "button[0].border-left-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 4
+   },
+   "cues": {
+    "underline": false,
+    "rule": true,
+    "weightStep": 0,
+    "glyph": false,
+    "colour": false,
+    "nativeMark": false
+   },
+   "paint": {
+    "background": "rgba(0, 0, 0, 0)",
+    "colour": "rgb(28, 28, 26)",
+    "lime": false,
+    "radiusPx": 0,
+    "heightPx": 72.6
+   },
+   "restored": true,
+   "exemption": null
+  },
+  {
    "route": "/frontier/competing-theses/",
    "viewport": "375x812",
    "member": "control:selection",
@@ -145155,6 +148129,44 @@
      "button[1].text-decoration-line: underline -> none"
     ],
     "changedCount": 20
+   },
+   "cues": {
+    "underline": true,
+    "rule": false,
+    "weightStep": 0,
+    "glyph": false,
+    "colour": true,
+    "nativeMark": false
+   },
+   "paint": {
+    "background": "rgba(0, 0, 0, 0)",
+    "colour": "rgb(28, 28, 26)",
+    "lime": false,
+    "radiusPx": 0,
+    "heightPx": 32
+   },
+   "restored": true,
+   "exemption": null
+  },
+  {
+   "route": "/manipulation/knowledge-insulation/",
+   "viewport": "375x812",
+   "member": "control:selection",
+   "variant": "control:selection|button||button|figure-tab font-sans text-[13px]|false|selected|",
+   "element": "<button data-brand-control-id=\"control:selection\" data-testid=\"mot-protect\" type=\"button\" aria-pressed=\"true\" class=\"figure-tab font-sans text-[13px]\" data-cs-p",
+   "name": "Protect language skills: On",
+   "semantic": "aria-pressed",
+   "method": "activated",
+   "diff": {
+    "changed": [
+     "button[0].color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-top-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-right-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-bottom-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-left-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].text-decoration-line: none -> underline"
+    ],
+    "changedCount": 12
    },
    "cues": {
     "underline": true,
@@ -148582,6 +151594,42 @@
    "exemption": null
   },
   {
+   "route": "/frontier/bear-case/",
+   "viewport": "1440x900",
+   "member": "control:selection",
+   "variant": "control:selection|button||button|flex h-full min-h-11 w-full gap-3 border-t pt-2.5 pb-1 text-left transition-colors md:flex-col md:gap-1.5 border-border-strong hover:border-text-dim|false|unselected|",
+   "element": "<button data-brand-control-id=\"control:selection\" type=\"button\" aria-pressed=\"false\" aria-labelledby=\"_R_43lav5ubsnmtb_-name-unseen-homes-policy\" aria-described",
+   "name": "One robot brain succeeds in 9 of 10 new homes",
+   "semantic": "aria-pressed",
+   "method": "activated",
+   "diff": {
+    "changed": [
+     "button[0].border-top-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)",
+     "button[0].border-right-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)",
+     "button[0].border-bottom-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)",
+     "button[0].border-left-color: rgba(28, 28, 26, 0.22) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 4
+   },
+   "cues": {
+    "underline": false,
+    "rule": true,
+    "weightStep": 0,
+    "glyph": false,
+    "colour": false,
+    "nativeMark": false
+   },
+   "paint": {
+    "background": "rgba(0, 0, 0, 0)",
+    "colour": "rgb(28, 28, 26)",
+    "lime": false,
+    "radiusPx": 0,
+    "heightPx": 95.1
+   },
+   "restored": true,
+   "exemption": null
+  },
+  {
    "route": "/frontier/competing-theses/",
    "viewport": "1440x900",
    "member": "control:selection",
@@ -149771,6 +152819,44 @@
      "button[1].text-decoration-line: underline -> none"
     ],
     "changedCount": 20
+   },
+   "cues": {
+    "underline": true,
+    "rule": false,
+    "weightStep": 0,
+    "glyph": false,
+    "colour": true,
+    "nativeMark": false
+   },
+   "paint": {
+    "background": "rgba(0, 0, 0, 0)",
+    "colour": "rgb(28, 28, 26)",
+    "lime": false,
+    "radiusPx": 0,
+    "heightPx": 32
+   },
+   "restored": true,
+   "exemption": null
+  },
+  {
+   "route": "/manipulation/knowledge-insulation/",
+   "viewport": "1440x900",
+   "member": "control:selection",
+   "variant": "control:selection|button||button|figure-tab font-sans text-[13px]|false|selected|",
+   "element": "<button data-brand-control-id=\"control:selection\" data-testid=\"mot-protect\" type=\"button\" aria-pressed=\"true\" class=\"figure-tab font-sans text-[13px]\" data-cs-p",
+   "name": "Protect language skills: On",
+   "semantic": "aria-pressed",
+   "method": "activated",
+   "diff": {
+    "changed": [
+     "button[0].color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-top-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-right-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-bottom-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].border-left-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "button[0].text-decoration-line: none -> underline"
+    ],
+    "changedCount": 12
    },
    "cues": {
     "underline": true,
@@ -152431,8 +155517,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": null,
-   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
+   "restored": true,
+   "detail": "reset returned the mount to its default state digest"
   },
   {
    "route": "/adjacent/drones/",
@@ -152893,8 +155979,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": null,
-   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
+   "restored": true,
+   "detail": "reset returned the mount to its default state digest"
   },
   {
    "route": "/classical/motion-planning/",
@@ -156589,8 +159675,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/adjacent/drones/",

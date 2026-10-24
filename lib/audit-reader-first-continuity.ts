@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 3028023, sha256: '1a515114bbc2b9daf69f13a5356abcb59671485b8fd87383e5e3ce8fea6bd19d' };
+const reviewPin = { bytes: 3041007, sha256: 'b4b541ced78aae99d5f5ae85c23c3325125ae051584c2c9ce05196c408c4672b' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -161,7 +161,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['library/design-system.md', [67265, '7ceb01b6a9829ee30159a6417b14448ddb794cf9aae45b359bc702fb6396acb6']],
   ['motion-tokens.json', [4797, '3779e28bc4113a627bd32b70b52efbcf17dad54418030ca1359b4747ae297156']],
   ['scripts/brand-v2-census.ts', [50225, 'fb768be343e6c474200bd774c7f14b2c104253a6a9620627ecea80210cfecd6c']],
-  ['scripts/brand-v2-enforcement.ts', [247681, 'b7456243a54eb6ec83d224be67e6a5a881e2d897f4cf2a03ea8af22f8692c6a5']],
+  ['scripts/brand-v2-enforcement.ts', [248896, 'd6276c7e0174bc3cfe89eb7657c34a2137d80a0ba03697867b3477835f0b8bd8']],
   ['scripts/generate-motion-tokens.ts', [16496, '736d58cc877152ee18c85482fa63344f7c7ab4a353a92a2506aa46250bb3f7c7']],
   ['scripts/motion/motion_theme.py', [2399, '687917773d46f9797efe92b24dfae9e302777f1ef22954765ce4e2d743deeeaf']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],
@@ -243,7 +243,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/perception-depth-readers.spec.ts', [22393, 'ba3283528673d46384ea3c284e03e6a62cdd786c7abc6c0ad8ac4aee40bdbd66']],
   ['tests/e2e/perception.spec.ts', [37417, '7ad6e146b37c8b85d53dc66e169a5db76ec6d6e1d7229c208d8be73d5636a585']],
   ['tests/e2e/pi-helix-theses-readers.spec.ts', [5152, '2a033dfa258f908ff731fe7b4ce609856f772c9862b378afc6bf1f8f4e71c0a8']],
-  ['tests/e2e/predict-then-reveal.spec.ts', [41327, '0909187c60b76fe5bdf44db3469ff96005133276db3aa81f4402f2a355342b5a']],
+  ['tests/e2e/predict-then-reveal.spec.ts', [42430, '3394d4ebce9a2abd151a4270ee6a2e685219604cf58fe11dd2e3c0fea756b2fd']],
   ['tests/e2e/randomization-reader-closeout.spec.ts', [22249, 'dc2948af10c7b3c0c222e1725e0094daaa5f225dd4b1a97dd18f735905c8a182']],
   ['tests/e2e/reliability-gap.spec.ts', [13492, '0f61ea40d11b824db1a935f3862a0cd0ee52c340bc27c2c545a9cfc750acd3ba']],
   ['tests/e2e/residual-release-classical.spec.ts', [9970, 'cc144bbf81ab277e9be9bbc920f0a98559efe6e44663cd637d1f4dc1bcf39955']],
@@ -255,7 +255,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/safety-and-assurance.spec.ts', [24795, 'a4c318942fbef715ae9db5f7a0911546c5f2660e833dff3036dac212477a236e']],
   ['tests/e2e/scene-representation.spec.ts', [25618, 'dfac57d40ee31af614297bc0d71fcdd211435b96c79c3f6e81a5703d54ec5ef9']],
   ['tests/e2e/seo-static-integrity.spec.ts', [21481, '3c92ab3b5bd20a50de6b903fc160fb2bf5ee702d4a7dee72441453e97ed97f18']],
-  ['tests/e2e/sim2real-local-evidence.spec.ts', [10597, '154a6ae6b0391a922239cce4becb7ed7806e6c6791d07d3ef0c0337d7c67b25e']],
+  ['tests/e2e/sim2real-local-evidence.spec.ts', [10991, 'ab74bcb826eef68b5e3dfb99d22ae51564819ed14d2e92d8cc28b042a3dbd76c']],
   ['tests/e2e/sim2real-transfer.spec.ts', [15079, '22075e7f70f1eb651c9ef6e738de203a4407405c55f59e7b8723adde733db195']],
   ['tests/e2e/space.spec.ts', [10748, 'e3057da4d09b6726f6355ec96abe9f2770af651bd6de9188436bc7c8961eb7da']],
   ['tests/e2e/state-estimation.spec.ts', [14673, 'c5ec8f9b5d748fd62820182e2e2d48615ccce8ab0e7a7bd39d11527839fdd824']],
@@ -270,7 +270,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/content-integration-20260923.test.ts', [17295, 'e843a1dff6d3813639354dec2260e2b5f0bd26afd83ad38a815a4159681e5914']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [404133, '171d301062b8e66f80a1b988e127f164dc27c576674d821824ecb77450a548e8']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [413773, '69e5e85f1a077ffc07ccb3045861cb8cb3667a0223f1729e2b0023dabad6f946']],
   ['tests/unit/motion-data-hardware.test.ts', [12019, 'b093effb9f642beee839066813ee12c2349e67a3835c8e86ca5cb3ddcac9733e']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],

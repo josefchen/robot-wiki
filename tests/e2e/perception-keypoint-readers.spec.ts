@@ -9,6 +9,7 @@ import { setSlider } from './slider';
 import { openAdjustMore } from './helpers/figure-fold';
 import { assertFullReferenceAuthors, assertShortMetadata, KEYPOINT_SHORT_META, ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
+import { citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 
 let freshNavigations = 0;
 const ids = ['moka-2024', 'rekep-2024', 'robopoint-2024'];
@@ -54,8 +55,11 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(done => requestAnimationFrame(() => requestAnimationFrame(() => done()))); });
     const prose = page.locator('div.prose[data-pagefind-body]');
     const roles = await page.evaluate(() => ['h1', 'div.prose[data-pagefind-body] > p'].map(selector => { const cs = getComputedStyle(document.querySelector(selector)!); return { selector, family: cs.fontFamily, size: cs.fontSize, lineHeight: cs.lineHeight, loaded: document.fonts.check('16px ' + cs.fontFamily.split(',')[0]) }; }));
-    expect(roles.every(r => r.loaded)).toBe(true); expect(roles[0].family).toMatch(/tektur/i); expect(roles[1].family).toMatch(/newsreader/i); await capture('article-top', { roles });
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    // The research-page standard (owner decision, 10 October 2026) sets the H1 in DM Sans and article prose in Geist, in place of Tektur and Newsreader.
+    expect(roles.every(r => r.loaded)).toBe(true); expect(roles[0].family).toMatch(/^"?DM Sans"?,/); expect(roles[1].family).toMatch(/^"?Geist"?,/); await capture('article-top', { roles });
+    // The one top bar's "Articles" button opens the taxonomy drawer in place of the brand-v2 menu button (research-page standard, 9154d672).
+    const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
+    await expect(menu).toHaveAttribute('aria-haspopup', 'dialog'); await expect(menu).toHaveAttribute('aria-controls', 'mobile-nav-drawer');
     if (viewport.width === 375) {
       await menu.focus(); await page.keyboard.press('Enter'); const dialog = page.getByRole('dialog');
       const close = dialog.getByRole('button', { name: 'Close navigation menu' }); await expect(close).toBeFocused();
@@ -82,9 +86,22 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     }
     states.push({ name: 'calculator-or-playhead-default-changed-reset', kind: perception ? 'perception-error-budget' : 'hierarchy-playhead' });
     const details = page.locator('main details');
+    // The research-page layout (owner decision, 10 October 2026; 9154d672) renders the page contents as a sticky rail from 1200 px and as the "Contents" disclosure below it, so at a rail width that one disclosure is display: none and the rail stands in for it. Every other disclosure is toggled.
+    const railWidth = await page.locator('nav.article-toc').isVisible();
+    let layoutHidden = 0;
     // A disclosure nested in a closed fold is reached by opening that fold first, as a reader would.
-    for (let i = 0; i < await details.count(); i++) { const d = details.nth(i), fold = d.locator('xpath=ancestor::details[1]'); if (await fold.count() && !(await fold.evaluate(el => (el as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click(); const before = await d.evaluate(el => (el as HTMLDetailsElement).open); await d.locator('summary').first().focus(); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(!before); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(before); }
-    states.push({ name: 'disclosures', count: await details.count(), emptyPopulationIsNotApplicable: true });
+    for (let i = 0; i < await details.count(); i++) {
+      const d = details.nth(i);
+      if (await d.evaluate(el => getComputedStyle(el).display === 'none')) {
+        expect(await d.evaluate(el => el.classList.contains('article-contents')), 'only the narrow-width contents disclosure is laid out away').toBe(true);
+        expect(railWidth, 'the contents rail stands in for the hidden contents disclosure').toBe(true);
+        await expect(page.locator('nav.article-toc a')).toHaveCount(await d.locator('nav a').count());
+        layoutHidden++; continue;
+      }
+      const fold = d.locator('xpath=ancestor::details[1]'); if (await fold.count() && !(await fold.evaluate(el => (el as HTMLDetailsElement).open))) await fold.locator(':scope > summary').click(); const before = await d.evaluate(el => (el as HTMLDetailsElement).open); await d.locator('summary').first().focus(); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(!before); await page.keyboard.press('Enter'); expect(await d.evaluate(el => (el as HTMLDetailsElement).open)).toBe(before);
+    }
+    expect(layoutHidden).toBe(railWidth ? 1 : 0);
+    states.push({ name: 'disclosures', count: await details.count(), layoutHidden, emptyPopulationIsNotApplicable: true });
     for (const [index, id] of ids.entries()) {
       const root = prose.locator(`[data-cite-id="${id}"]`); await expect(root).toHaveCount(1);
       const block = root.locator('xpath=ancestor::p[1]');
@@ -92,35 +109,28 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
       if (id === 'robopoint-2024' && !perception) for (const text of ['100 real images', 'point-in-mask accuracy', '46.77%', '29.06%', 'means of three runs', 'add depth, an end-effector offset']) await expect(block).toContainText(text);
       await textCapture(block, id + '-prose');
       const citation = CITATIONS.find(c => c.id === id)!;
+      // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the citation tooltip became the numbered citation's sidenote (helpers/citation-note.ts).
+      // The title, the short venue line, the source link and the description are read off the note at every placement and by pointer and keyboard; the note shows whole
+      // inside the viewport below the top bar; the tooltip's Escape is the number pressed again, which closes an inline note and leaves a margin note at rest.
+      const { mark: trigger, note: tip } = citeParts(root);
       for (const [placement, y] of [['top', (await stickyBottom()) + 24], ['middle', viewport.height / 2], ['lower', viewport.height - 70]] as const) {
-        await clear(); await position(root, y); const trigger = root.locator('a').first(), tip = root.getByRole('tooltip');
         for (const mode of ['hover', 'keyboard'] as const) {
-          if (mode === 'hover') await trigger.hover(); else { await clear(); await trigger.focus(); }
-          await expect(tip).toBeVisible();
-          await expect(tip.locator(':scope > span').nth(0)).toHaveText(citation.title);
-          await expect(tip.locator(':scope > span').nth(1)).toHaveText(KEYPOINT_SHORT_META[id]);
-          assertShortMetadata(id, await tip.locator(':scope > span').nth(1).innerText());
-          await expect(trigger).toHaveAttribute('href', citation.url); await expect(trigger).toHaveAttribute('target', '_blank'); await expect(trigger).toHaveAttribute('rel', 'noopener noreferrer');
-          await expect(trigger).toHaveAttribute('aria-describedby', (await tip.getAttribute('id'))!);
-          await expect(page.locator(`[id="${await tip.getAttribute('id')}"]`)).toHaveCount(1);
+          await clear(); await position(root, y);
+          const inMargin = await showCiteNote(page, root, mode);
+          await expectCiteNoteFacts(page, root, { title: citation.title, meta: KEYPOINT_SHORT_META[id], url: citation.url });
+          assertShortMetadata(id, (await tip.locator(':scope > .sr-only').textContent())!.replace(/^\. /, ''));
           const box = (await tip.boundingBox())!, headerBottom = await stickyBottom();
           expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x + box.width).toBeLessThanOrEqual(viewport.width); expect(box.y).toBeGreaterThanOrEqual(headerBottom); expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
-          const scroll = await tip.evaluate(el => ({ client: el.clientHeight, height: el.scrollHeight, top: el.scrollTop, tabIndex: (el as HTMLElement).tabIndex }));
-          await capture(`${id}-${placement}-${mode}`, { citationId: id, placement, mode, box, headerBottom, title: citation.title, metadata: KEYPOINT_SHORT_META[id], scroll });
-          if (mode === 'keyboard' && scroll.height > scroll.client) {
-            expect(scroll.tabIndex).toBe(0);
-            // The in-page References link comes before the scrollable tooltip in DOM order.
-            await page.keyboard.press('Tab'); await expect(root.locator('a').nth(1)).toBeFocused();
-            await page.keyboard.press('Tab'); await expect(tip).toBeFocused();
-            await page.keyboard.press('End'); await expect.poll(() => tip.evaluate(el => Math.abs(el.scrollHeight - el.clientHeight - el.scrollTop))).toBeLessThanOrEqual(1);
-            await capture(`${id}-${placement}-keyboard-bottom`, { scroll: await tip.evaluate(el => ({ height: el.scrollHeight, client: el.clientHeight, top: el.scrollTop })) });
-          }
-          if (mode === 'keyboard') { await page.keyboard.press('Escape'); await expect(tip).not.toBeVisible(); await expect(trigger).toBeFocused(); }
+          const scroll = await tip.evaluate(el => ({ client: el.clientHeight, height: el.scrollHeight, top: el.scrollTop }));
+          expect(scroll.height, 'the note shows whole, with nothing scrolled away').toBeLessThanOrEqual(scroll.client + 1);
+          await capture(`${id}-${placement}-${mode}`, { citationId: id, placement, mode, inMargin, box, headerBottom, title: citation.title, metadata: KEYPOINT_SHORT_META[id], scroll });
+          await dismissCiteNote(page, root, mode);
+          if (mode === 'keyboard') { if (!inMargin) await expect(tip).not.toBeVisible(); await expect(trigger).toBeFocused(); }
         }
       }
       await clear(); const ref = page.locator(`ol [data-reference-id="${id}"]`); await expect(ref).toHaveCount(1); await expect(ref).toContainText(citation.title);
-      const jump = root.getByRole('link', { name: `Jump to the full reference for ${citation.title}`, exact: true });
-      await expect(jump).toHaveAttribute('href', `#ref-${id}`); await jump.focus(); await page.keyboard.press('Enter'); await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
+      // The tooltip's "Jump to the full reference" link is the number itself, which points at the References entry and jumps from it.
+      const restoreViewport = await jumpFromCiteMark(page, root, id);
       const expand = ref.getByRole('button', { name: `Show all ${citation.authors.length} authors`, exact: true });
       const needsExpansion = citation.authors.length > 8;
       await expect(expand).toHaveCount(needsExpansion ? 1 : 0);
@@ -130,6 +140,7 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
       await expect(authorNames.locator('..')).toHaveText(citation.authors.join(', ') + (citation.venue ? `, ${citation.venue}` : '') + `, ${citation.year}.` + (needsExpansion ? ' Show 8 authors' : ''));
       states.push({ name: 'full-reference', id, authors: citation.authors, authorCount: citation.authors.length, needsExpansion, title: citation.title, year: citation.year, venue: citation.venue ?? null, href: citation.url });
       const link = ref.getByRole('link', { name: citation.title, exact: true }); await expect(link).toHaveAttribute('href', citation.url); await expect(link).toHaveAttribute('rel', 'noopener noreferrer'); await expect(link).toHaveAttribute('target', '_blank'); await expect(ref.locator('p').last()).toHaveText(citation.url); await link.focus(); await expect(link).toBeFocused(); await textCapture(ref, id + '-reference');
+      await restoreViewport();
     }
     const termId = perception ? 'promptable-segmentation' : 'vision-language-model';
     const consumers = termConsumerInventory().flatMap(a => a.occurrences.filter(t => t.termId === termId).map(t => ({ route: a.route, ...t })));

@@ -34,17 +34,24 @@ const REGISTRY = JSON.parse(
   readFileSync(join(ROOT, 'contract/brand-v2-registries.json'), 'utf8'),
 ) as { routes: { public: Array<{ id: string; path: string }> } };
 
+// Hashing the tree takes about half a second and every planted case accepts
+// its artifact against it; nothing in this file writes to the tree, so one
+// fingerprint serves the whole run. A suite under load otherwise pushes the
+// cases that plant a dozen drifts past the default timeout.
+let treeFingerprint: string | undefined;
 function fingerprint(): string {
-  return homeToolsEvidenceFingerprint({
+  treeFingerprint ??= homeToolsEvidenceFingerprint({
     root: ROOT,
     routeIds: REGISTRY.routes.public.map(({ id }) => id),
   });
+  return treeFingerprint;
 }
 
+const COMMITTED_TEXT = readFileSync(join(ROOT, HOME_TOOLS_EVIDENCE_PATH), 'utf8');
+
+/** A fresh parse each call, so no case sees another's artifact. */
 function committed(): HomeToolsEvidence {
-  return JSON.parse(
-    readFileSync(join(ROOT, HOME_TOOLS_EVIDENCE_PATH), 'utf8'),
-  ) as HomeToolsEvidence;
+  return JSON.parse(COMMITTED_TEXT) as HomeToolsEvidence;
 }
 
 /** A structural clone, so a mutation in one case cannot leak into the next. */
