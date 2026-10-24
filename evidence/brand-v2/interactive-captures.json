@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "0c453b530168921f08a5203cae01835da88935da28dd913c4e07d79cbb77d754",
+  "fingerprint": "68dd180d77349afdfdcca180d84f684a77603dbd9f674f1e8da917a35b0f00f7",
   "viewports": [
     "375x812",
     "1440x900"
@@ -11489,12 +11489,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Downloadable only\"",
-          "sha256": "5c82429e713965b2849f4532d0c46f44cef1157ba9e3dfc3bfbdf1e0ef0da8fb",
+          "sha256": "64cc8311946048a8122ff646deb5a45608f74b1ac4861f4f944e09e4cb5b4eba",
           "widthPx": 327,
-          "heightPx": 615,
+          "heightPx": 849,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 33.06,
+          "luminanceSpread": 31.53,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -11607,12 +11607,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Downloadable only\"",
-          "sha256": "fadbac8be0abf1269f8c00902ec65e7921c6f08d44bdadb131fe6f3bfe8f8154",
+          "sha256": "ddef513b08f92d37b0a188ca8ba4d911e73ccb99745c6ae39f2aa79c2f8f9dde",
           "widthPx": 930,
-          "heightPx": 609,
+          "heightPx": 968,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 21,
+          "luminanceSpread": 18.54,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -22155,8 +22155,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
-      "sha256": "2a6449945d800e9d5201e759859174e49d64834ef7f2ac279a062769adad6d7b",
-      "bytes": 193659,
+      "sha256": "585b7f1975a53799e5d3906706c87f11cb684c8f0d1dbe789f94f761156d152d",
+      "bytes": 197123,
       "mountIds": [
         "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
         "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
@@ -22220,7 +22220,7 @@
         },
         {
           "key": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1@1440x900:changed",
-          "sha256": "fadbac8be0abf1269f8c00902ec65e7921c6f08d44bdadb131fe6f3bfe8f8154"
+          "sha256": "ddef513b08f92d37b0a188ca8ba4d911e73ccb99745c6ae39f2aa79c2f8f9dde"
         },
         {
           "key": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1@375x812:default",
@@ -22228,7 +22228,7 @@
         },
         {
           "key": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1@375x812:changed",
-          "sha256": "5c82429e713965b2849f4532d0c46f44cef1157ba9e3dfc3bfbdf1e0ef0da8fb"
+          "sha256": "64cc8311946048a8122ff646deb5a45608f74b1ac4861f4f944e09e4cb5b4eba"
         },
         {
           "key": "mount:/manipulation/hierarchical/:HierarchyTimescales:1@1440x900:default",

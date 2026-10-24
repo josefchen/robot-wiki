@@ -698,7 +698,22 @@ export function AdvantageScrubber({ className }: { className?: string }) {
       adjust={adjust}
       stage={
         <FigureStage>
-          {view === 'episode' ? episodePlot : view === 'training' ? trainingView : executionView}
+          {/* The attempt's drawing stays mounted under the other views, invisible
+              and inert, so its box sets the stage height and a view switch
+              never moves the page. */}
+          <div className="grid">
+            <div
+              className={cx('[grid-area:1/1]', view !== 'episode' && 'invisible')}
+              inert={view !== 'episode'}
+            >
+              {episodePlot}
+            </div>
+            {view !== 'episode' && (
+              <div className="self-center [grid-area:1/1]">
+                {view === 'training' ? trainingView : executionView}
+              </div>
+            )}
+          </div>
           <span role="status" data-advantage-view-note="" data-pagefind-ignore className="sr-only">
             {viewNote}
           </span>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "4bddc6a094fa6081432ddbe471b1dc3aff559bf17f20bc24896d8990010f2cb7",
+  "fingerprint": "0d769bf4486a0ca13c23aa00df1b437128f5f91dc819fe2c9b66c3fa8633da4e",
   "viewports": [
     "375x812",
     "768x1024",
@@ -98194,7 +98194,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2565,
+          "paintedElements": 2566,
           "actions": 185,
           "secondaryActions": 18,
           "persistentStates": 1,
@@ -99070,7 +99070,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2565,
+          "paintedElements": 2566,
           "actions": 185,
           "secondaryActions": 18,
           "persistentStates": 1,
@@ -99953,7 +99953,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2759,
+          "paintedElements": 2760,
           "actions": 253,
           "secondaryActions": 18,
           "persistentStates": 2,
@@ -128416,7 +128416,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 795,
+          "paintedElements": 808,
           "actions": 161,
           "secondaryActions": 23,
           "links": 130,
@@ -128953,7 +128953,7 @@
         "controlGaps": [],
         "content": {
           "strings": 451,
-          "digest": "973f6e18"
+          "digest": "258e2655"
         }
       },
       "focus": [
@@ -129266,7 +129266,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 795,
+          "paintedElements": 808,
           "actions": 161,
           "secondaryActions": 23,
           "links": 130,
@@ -129810,7 +129810,7 @@
         "controlGaps": [],
         "content": {
           "strings": 451,
-          "digest": "973f6e18"
+          "digest": "258e2655"
         }
       },
       "focus": [
@@ -130123,7 +130123,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 936,
+          "paintedElements": 949,
           "actions": 211,
           "secondaryActions": 23,
           "persistentStates": 1,
@@ -130735,7 +130735,7 @@
         "controlGaps": [],
         "content": {
           "strings": 451,
-          "digest": "973f6e18"
+          "digest": "258e2655"
         }
       },
       "focus": [
@@ -142262,7 +142262,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2267,
+          "paintedElements": 2269,
           "actions": 207,
           "secondaryActions": 30,
           "persistentStates": 2,
@@ -143282,7 +143282,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2267,
+          "paintedElements": 2269,
           "actions": 207,
           "secondaryActions": 30,
           "persistentStates": 2,
@@ -144309,7 +144309,7 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2486,
+          "paintedElements": 2488,
           "actions": 283,
           "secondaryActions": 30,
           "persistentStates": 3,

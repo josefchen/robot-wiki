@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 3041007, sha256: 'b4b541ced78aae99d5f5ae85c23c3325125ae051584c2c9ce05196c408c4672b' };
+const reviewPin = { bytes: 3047420, sha256: '51bcdb3deb7bbd670a702e852f5eb93e7c9418e8eea8a456385e042fce68c888' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -42,12 +42,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/article/commit-to-reveal.tsx', [14313, 'b3892a0853de9f0ab7c89551ba68526b488cf17c87697f329827c5c7a873ee3b']],
   ['components/interactive/action-conditioning.tsx', [22814, '644c625269c7fde4a217e7b17d793c3c72c4e2132f268bc941b99615119d8cf6']],
   ['components/interactive/action-tokenization.tsx', [24130, '6cf8d7ca37b2e348c57281c471d18dc43a0f00631b7435fb5fadf0c221b4095a']],
-  ['components/interactive/advantage-scrubber.tsx', [26793, '88fa2dacc6d1a3a2939aa1a4220d4435edf14d44fb7415212e7fbf53ab70e9dd']],
+  ['components/interactive/advantage-scrubber.tsx', [27348, 'f36df32ab7edafd6d328c16c4ea8623b68e88e386cb96e9ac16460b997ce3c7d']],
   ['components/interactive/appearance-physics-push.tsx', [23391, '8030b647629e852d4104e15cdc5e202a42ca3f8dd16eebebd018fc8ad32775e4']],
   ['components/interactive/bear-case-lock.tsx', [10321, '404832d67fc7f7907e6efd5e13303672076eb42f3d17c0e9b3d7139174a0a8ae']],
   ['components/interactive/calibration-chain.tsx', [18428, '2b83baaf6e298f990d071c0cdc26294ad99af689f991e7d4489f935cf0028deb']],
   ['components/interactive/chunk-size-curve.tsx', [15248, 'cfe783c86a1edc1b74f943706dbd5a84bd967c5736e12d7953c757f9b3579ed9']],
-  ['components/interactive/collaborative-operation-modes.tsx', [34193, '08a645453bfb4c3107f71f77a92a9fa7099f1aa831fd1e2b67109a08a73ff261']],
+  ['components/interactive/collaborative-operation-modes.tsx', [34791, '2d10ea28e0be9706f201c116d2f1d155259d96e954e04f949cb439aaeb75be35']],
   ['components/interactive/comparison-matrix.tsx', [22789, '82fa9bda95032d36df175496d6dfc332181672686c35742e4951583330491948']],
   ['components/interactive/compounding-error.tsx', [30965, 'cde550f23a33032db8d4effe5abe0ea1f21792b2925703617e17c2c0e44169d4']],
   ['components/interactive/contact-geometry.tsx', [17354, '6621fafdf9a31012613ddc8370b1c599b40126b7ea8f6c4854c627492b79a570']],
@@ -64,7 +64,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/expo-ft-results.tsx', [12280, '0f8d8d463b18931c50a1e68d3edaef47240077ed52b2e18c0458565a952d435d']],
   ['components/interactive/flow-matching-trajectory.tsx', [25252, '6eea903a0418c9d60b5655a1c8424b25d1ab8be6b1ab2a3e7552271552f9a5b8']],
   ['components/interactive/friction-transfer.tsx', [26151, 'de29a6183d039568a6bbf7995146519a75e6451cd1747ca43e58799fe7cc985b']],
-  ['components/interactive/generalist-release-timeline.tsx', [19569, 'ba24349cc22b426f03704464b10be44edd9ccb8f890835c0b7a6e8e733e4cc2e']],
+  ['components/interactive/generalist-release-timeline.tsx', [20486, 'd382a83beaa56c0d4cf92fa8fb7da30fab0c8c1a96ce0cdfcc1ad508e1eafd08']],
   ['components/interactive/grasp-wrench-lab.tsx', [29871, '202b69b57d052f2fc121b72db66e1c85efa3ee00d8b8dc2a3c4b96a148b201b8']],
   ['components/interactive/hand-comparison.tsx', [15609, '76aa514f6eeb3173b5911b50569dd61eb864ab94e68c1bc46d2af1da24008cab']],
   ['components/interactive/hardware-guide.tsx', [10768, 'bc4eda265436867cf18fd275663e2dbe27b3e18b856c1e908bffa1940ae82642']],
@@ -166,12 +166,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['scripts/motion/motion_theme.py', [2399, '687917773d46f9797efe92b24dfae9e302777f1ef22954765ce4e2d743deeeaf']],
   ['scripts/plant-figure-system.ts', [7617, '154dcd9f14add37c9abed7191e84d056a74ed4a756f4189dae0f6960a6895b6d']],
   ['tests/component/action-conditioning.test.tsx', [10538, 'fb7db1b679216ad5ae077b482eeb049985195b68ce1d8dc106eda0100093defb']],
-  ['tests/component/advantage-scrubber.test.tsx', [11366, 'abca93a341511898cd79775d4421b2e2ce35a58646e866151a3db76ab05a4d04']],
+  ['tests/component/advantage-scrubber.test.tsx', [12445, '9b8c81b6af49b8d57335b8059a83e9a0f91d5c22c6b188a0e31cbc01a2a31b75']],
   ['tests/component/appearance-physics-push.test.tsx', [11531, '25134e1a204b93f5b429372b81f8938118c04cb769e7083726f08e80e7cae6ee']],
   ['tests/component/calibration-chain.test.tsx', [8812, '9e07238f7929e1edc62e0c34477094adb0f0857402fceb02f2257e62fca2ae90']],
   ['tests/component/chart-primitives.test.tsx', [8819, 'c2015ebfb22e5113e54fda1be779e68bdb9b6cb94ebcb91a19e1731a2e927af3']],
   ['tests/component/chart-state-descriptions.test.tsx', [19469, '95189678df4e15c1c6a370edefc3732d8aa40754bb387e6eaf17f57e209adb27']],
-  ['tests/component/collaborative-operation-modes.test.tsx', [15007, '627b57b9cfc229f1a5194095ccbce7e610955c972dbe13ca6f72178ceb0cef34']],
+  ['tests/component/collaborative-operation-modes.test.tsx', [16239, '5003e1876f58483756766a3bb3bdcd069a78f4b1cd65e2253b0e7a9737f5098f']],
   ['tests/component/contact-geometry.test.tsx', [13181, '5cd1e5e1a6e84860311f12e796248e6dea042809fdffe67bc599f2b4cd37034d']],
   ['tests/component/data-scale-chart.test.tsx', [8929, '226c4e5e053bf62161919b170ea24036f91ad01d4dc1ef452ff6f1a60b4bb688']],
   ['tests/component/egoscale-scaling.test.tsx', [10367, '82ff06d3290246f2ca92c900d05374b25845494cdc750b2d1e733bb8411edd2e']],
@@ -252,7 +252,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/reward-local-evidence.spec.ts', [8673, 'fc5e110a889c08e69cf46d2872eff973fbea7d29fa5140a632daf02e73fb15fa']],
   ['tests/e2e/rl-finetuning.spec.ts', [11831, '7b280a8981f129fa4e5ac5593d6ee9a29fefb3e32d760284570b5b98f89e9889']],
   ['tests/e2e/rma-kl-reader.spec.ts', [13423, '9379e30dbaa93975abcc60c064d1e251db06034002fbff4442cde16e114ca027']],
-  ['tests/e2e/safety-and-assurance.spec.ts', [24795, 'a4c318942fbef715ae9db5f7a0911546c5f2660e833dff3036dac212477a236e']],
+  ['tests/e2e/safety-and-assurance.spec.ts', [25273, '0d46f9df02c86dd62130cd380e678d3a6bfbc60cfd2bbaaedfb09dc06647a4df']],
   ['tests/e2e/scene-representation.spec.ts', [25618, 'dfac57d40ee31af614297bc0d71fcdd211435b96c79c3f6e81a5703d54ec5ef9']],
   ['tests/e2e/seo-static-integrity.spec.ts', [21481, '3c92ab3b5bd20a50de6b903fc160fb2bf5ee702d4a7dee72441453e97ed97f18']],
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10991, 'ab74bcb826eef68b5e3dfb99d22ae51564819ed14d2e92d8cc28b042a3dbd76c']],

@@ -1,7 +1,7 @@
 {
  "version": 1,
  "generatedBy": "tests/e2e/brand-v2-control-states.spec.ts",
- "fingerprint": "29dda10f03891d07f4a6ca933c6a8b64bbd9378d061b6c0baf477580f5c5bc0f",
+ "fingerprint": "6496b6a9dee88e18cc99db4ad14c34bb3bd28e73059d8467947f7c51fa28de49",
  "viewports": [
   "375x812",
   "1440x900"
@@ -159675,8 +159675,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": null,
-   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
+   "restored": true,
+   "detail": "reset returned the mount to its default state digest"
   },
   {
    "route": "/adjacent/drones/",

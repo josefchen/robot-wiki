@@ -41,9 +41,12 @@ import { cx } from '@/lib/utils';
  * calendar, Feb 2025 to Jul 2026, one row per release with its name in a
  * left column. One shape and one colour: a filled circle has a reported
  * download, a hollow one is either not offered or not stated. Tapping a row
- * opens its card below. One toggle keeps only the downloadable releases;
- * "Adjust more" holds the full availability filter, the source-type shapes
- * and a button per release for keyboard selection.
+ * opens its card below. One toggle fades every release that cannot be
+ * downloaded; "Adjust more" holds the full availability filter, the
+ * source-type shapes and a button per release for keyboard selection.
+ * A filter fades the other rows in place rather than removing them, and
+ * leaves the selected card where it is, so filtering never resizes the
+ * figure or moves the page below it.
  *
  * Interactive contract: deterministic render, keyboard-accessible selection
  * with arrow keys between the release buttons, a polite live card, filter
@@ -67,6 +70,8 @@ const ROW_H = 22;
 /** Room below the last row for the tick marks and month labels. */
 const AXIS_BAND = 30;
 const NODE_SIZE = 3.5;
+/** A row the current filter leaves out keeps its place; its rule and mark drop to this strength. */
+const FAINT_ROW_OPACITY = 0.3;
 
 /** Time axis bounds (month precision), slightly padded past the data. */
 const AXIS_MIN = '2025-01';
@@ -172,28 +177,28 @@ export function GeneralistReleaseTimeline({
   const [selectedId, setSelectedId] = useState(defaultSelected);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
+  // The filter's releases: drawn in full and listed in the release track.
   const visible = filterReleases(filter);
+  const inFull = new Set(visible.map((r) => r.id));
+  const total = GENERALIST_RELEASES.length;
   const selected: GeneralistRelease =
-    visible.find((r) => r.id === selectedId) ?? visible[0];
+    GENERALIST_RELEASES.find((r) => r.id === selectedId) ?? GENERALIST_RELEASES[0];
   const citationFor = useCitationLookup();
   const citation = citationFor(selected.citationId);
   const downloadableOnly = filter === 'open';
 
-  const rowsBottom = ROWS_TOP + visible.length * ROW_H;
+  const rowsBottom = ROWS_TOP + total * ROW_H;
   const height = rowsBottom + AXIS_BAND;
   const rowY = (i: number) => f(ROWS_TOP + i * ROW_H + ROW_H / 2);
 
   // The note names the fill rule and points at the first row's mark.
-  const firstX = monthToX(monthIndex(visible[0].released));
+  const firstX = monthToX(monthIndex(GENERALIST_RELEASES[0].released));
   const noteX = Math.min(Math.max(firstX, 118), WIDTH - 118);
 
-  function applyFilter(next: OpenFilter) {
-    setFilter(next);
-    const nextVisible = filterReleases(next);
-    if (!nextVisible.some((r) => r.id === selectedId)) {
-      setSelectedId(nextVisible[0].id);
-    }
-  }
+  const shownClause =
+    visible.length === total
+      ? `${total} of ${total} selected generalist policy records are shown`
+      : `${total} of ${total} selected generalist policy records are shown, ${visible.length} in full and the other ${total - visible.length} faint`;
 
   function select(index: number) {
     const clamped = Math.min(visible.length - 1, Math.max(0, index));
@@ -219,7 +224,7 @@ export function GeneralistReleaseTimeline({
           data-testid="generalist-downloadable-only"
           type="button"
           aria-pressed={downloadableOnly}
-          onClick={() => applyFilter(downloadableOnly ? 'all' : 'open')}
+          onClick={() => setFilter(downloadableOnly ? 'all' : 'open')}
           className={INSTRUMENT_TOGGLE_CLASS}
         >
           Downloadable only
@@ -238,7 +243,7 @@ export function GeneralistReleaseTimeline({
                 key={id}
                 type="button"
                 aria-pressed={filter === id}
-                onClick={() => applyFilter(id)}
+                onClick={() => setFilter(id)}
                 className={INSTRUMENT_TOGGLE_CLASS}
               >
                 {label}
@@ -394,15 +399,17 @@ export function GeneralistReleaseTimeline({
                 </g>
               );
             })}
-            {visible.map((r, i) => {
+            {GENERALIST_RELEASES.map((r, i) => {
               const cy = rowY(i);
               const x = monthToX(monthIndex(r.released));
               const isSelected = r.id === selected.id;
+              const faint = !inFull.has(r.id);
               return (
                 <g
                   key={r.id}
                   data-release={r.id}
                   data-filled={r.openWeights ? '' : undefined}
+                  data-faint={faint ? '' : undefined}
                   className="cursor-pointer"
                   onClick={() => setSelectedId(r.id)}
                 >
@@ -413,22 +420,26 @@ export function GeneralistReleaseTimeline({
                     height={ROW_H}
                     fill="transparent"
                   />
-                  <line
-                    x1={AXIS_LEFT}
-                    x2={AXIS_RIGHT}
-                    y1={cy}
-                    y2={cy}
-                    stroke={isSelected ? CHART_STRUCTURE.label : CHART_STRUCTURE.grid}
-                    strokeWidth={CHART_STROKE.structure}
-                    opacity={isSelected ? 1 : CHART_STRUCTURE.gridOpacity}
-                  />
-                  <TierGlyph
-                    tier={showSourceType ? r.provenance : 'paper'}
-                    x={x}
-                    y={cy}
-                    size={NODE_SIZE}
-                    open={r.openWeights}
-                  />
+                  {/* Only the rule and the mark fade: the name keeps its tone so
+                      it still reads at text contrast in every filter state. */}
+                  <g data-row-mark="" opacity={faint ? FAINT_ROW_OPACITY : undefined}>
+                    <line
+                      x1={AXIS_LEFT}
+                      x2={AXIS_RIGHT}
+                      y1={cy}
+                      y2={cy}
+                      stroke={isSelected ? CHART_STRUCTURE.label : CHART_STRUCTURE.grid}
+                      strokeWidth={CHART_STROKE.structure}
+                      opacity={isSelected ? 1 : CHART_STRUCTURE.gridOpacity}
+                    />
+                    <TierGlyph
+                      tier={showSourceType ? r.provenance : 'paper'}
+                      x={x}
+                      y={cy}
+                      size={NODE_SIZE}
+                      open={r.openWeights}
+                    />
+                  </g>
                   <text
                     x={NAME_X}
                     y={cy}
@@ -504,13 +515,13 @@ export function GeneralistReleaseTimeline({
             id={descriptionId}
             form="state"
             summary="Current generalist release"
-            description={`${visible.length} of ${GENERALIST_RELEASES.length} selected generalist policy records are shown; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}). Filled nodes have a reported download; hollow, dim nodes include unavailable and not-disclosed records, and dim nodes do not establish closed licensing.`}
+            description={`${shownClause}; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}). Filled nodes have a reported download; hollow, dim nodes include unavailable and not-disclosed records, and dim nodes do not establish closed licensing.`}
             states={[
               { label: 'selected', value: selected.name },
               { label: 'org', value: selected.org },
               { label: 'released', value: selected.dateLabel },
               { label: 'weights', value: releaseWeightLabel(selected) },
-              { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
+              { label: 'in full', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
             ]}
           />
         </>
