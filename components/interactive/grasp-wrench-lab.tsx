@@ -598,7 +598,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             type="button"
             onClick={contacts.length >= MAX_CONTACTS ? undefined : addContact}
             aria-disabled={contacts.length >= MAX_CONTACTS || undefined}
-            aria-label="Add a contact at the emptiest perimeter location"
+            aria-label="Add contact at the emptiest perimeter location"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Add contact
@@ -609,7 +609,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
             type="button"
             onClick={contacts.length <= MIN_CONTACTS ? undefined : removeContact}
             aria-disabled={contacts.length <= MIN_CONTACTS || undefined}
-            aria-label="Remove the last contact"
+            aria-label="Remove contact: the last one placed"
             className={INSTRUMENT_SECONDARY_CONTROL_CLASS}
           >
             Remove contact

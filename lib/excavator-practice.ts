@@ -184,3 +184,29 @@ export const STILL_S = 0.6;
 
 /** A run traces the whole path in this many seconds. */
 export const RUN_SECONDS = 7;
+
+/** Then the arm glides back to the still pose in this many seconds. */
+export const REWIND_SECONDS = 1.2;
+
+/** Where a run under reduced motion stops, each held for an equal share of RUN_SECONDS. */
+export const TRACE_STOPS = [0, 0.25, 0.5, 0.75, 1] as const;
+
+export type RunPhase = 'tracing' | 'rewinding' | 'done';
+
+/**
+ * The shovel's share of the path `t` seconds into a run: it traces the whole
+ * path, then glides back to the still pose, so a run ends on the frame it
+ * started from. Under reduced motion (`calm`) it jumps from stop to stop and
+ * then back to the still pose.
+ */
+export function runAt(t: number, calm: boolean): { s: number; phase: RunPhase } {
+  const clock = Math.max(0, t);
+  if (calm) {
+    const index = Math.floor(clock / (RUN_SECONDS / TRACE_STOPS.length));
+    return index < TRACE_STOPS.length ? { s: TRACE_STOPS[index], phase: 'tracing' } : { s: STILL_S, phase: 'done' };
+  }
+  if (clock < RUN_SECONDS) return { s: clock / RUN_SECONDS, phase: 'tracing' };
+  if (clock >= RUN_SECONDS + REWIND_SECONDS) return { s: STILL_S, phase: 'done' };
+  const back = (clock - RUN_SECONDS) / REWIND_SECONDS;
+  return { s: 1 + (STILL_S - 1) * back * back * (3 - 2 * back), phase: 'rewinding' };
+}

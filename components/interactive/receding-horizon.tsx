@@ -418,7 +418,8 @@ export function RecedingHorizon({
                 step={1}
                 value={clamped.tp}
                 onChange={(e) => set(Number(e.target.value), clamped.ta)}
-                aria-label={`Predicted horizon T_p, currently ${clamped.tp}`}
+                aria-label="Steps planned, the predicted horizon"
+                aria-valuetext={`${clamped.tp} steps planned, ${clamped.ta} acted on`}
                 className={INSTRUMENT_SLIDER_CLASS}
               />
               <SliderEnds low={`${MIN_TP} steps`} high={`${MAX_TP} steps`} />
@@ -436,7 +437,8 @@ export function RecedingHorizon({
                 step={1}
                 value={clamped.ta}
                 onChange={(e) => set(clamped.tp, Number(e.target.value))}
-                aria-label={`Executed horizon T_a, currently ${clamped.ta}`}
+                aria-label="Steps acted on, the executed horizon"
+                aria-valuetext={`${clamped.ta} steps acted on`}
                 className={INSTRUMENT_SLIDER_CLASS}
               />
               <SliderEnds low="1 step" high={`${MAX_TP} steps`} />

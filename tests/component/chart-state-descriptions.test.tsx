@@ -190,7 +190,7 @@ describe('state-form chart descriptions', () => {
     expect(imgs).toHaveLength(2);
     const { text } = assertDescribed(imgs[1], container);
     expect(text).toMatch(/bin/i);
-    fireEvent.change(screen.getByRole('slider', { name: /control step/i }), {
+    fireEvent.change(screen.getByRole('slider', { name: /moment in the movement/i }), {
       target: { value: '0' },
     });
     const moved =

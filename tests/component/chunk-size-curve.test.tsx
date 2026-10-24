@@ -18,6 +18,15 @@ describe('ChunkSizeCurve', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
+  it('names the slider starting with its visible label', () => {
+    render(<ChunkSizeCurve />);
+    const slider = screen.getByRole('slider', { name: /chunk size/i }) as HTMLInputElement;
+    const label = slider.labels![0].cloneNode(true) as HTMLElement;
+    label.querySelector('[data-figure-control-value]')?.remove();
+    expect(label.textContent).toBe('Moves per plan, any value');
+    expect(slider).toHaveAttribute('aria-label', 'Moves per plan, any value: chunk size k, currently 100');
+  });
+
   it('defaults to k=100 and the published 44% anchor', () => {
     render(<ChunkSizeCurve />);
     expect(screen.getByRole('slider', { name: /chunk size/i })).toHaveValue(

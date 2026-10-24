@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ExcavatorPractice, readoutFor } from '@/components/interactive/excavator-practice';
 import { boardMarks, needleAt } from '@/components/iso/figures/practice-excavator';
-import { ENSEMBLE_MEMBERS, PRACTICE, RUN_SECONDS, STILL_S, practiceOf } from '@/lib/excavator-practice';
+import { ENSEMBLE_MEMBERS, PRACTICE, REWIND_SECONDS, RUN_SECONDS, STILL_S, TRACE_STOPS, practiceOf, runAt } from '@/lib/excavator-practice';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -82,10 +82,21 @@ describe('ExcavatorPractice', () => {
     }
   });
 
-  it('traces the path only when asked, with no pressed state, and jumps to the end under reduced motion', async () => {
+  it('runs the whole path and back to the still pose, or steps along it under reduced motion', () => {
+    expect(runAt(0, false)).toEqual({ s: 0, phase: 'tracing' });
+    expect(runAt(RUN_SECONDS / 2, false)).toEqual({ s: 0.5, phase: 'tracing' });
+    expect(runAt(RUN_SECONDS + REWIND_SECONDS / 2, false).phase).toBe('rewinding');
+    expect(runAt(RUN_SECONDS + REWIND_SECONDS, false)).toEqual({ s: STILL_S, phase: 'done' });
+    const hold = RUN_SECONDS / TRACE_STOPS.length;
+    expect(TRACE_STOPS.map((_, index) => runAt(index * hold + hold / 2, true).s)).toEqual([...TRACE_STOPS]);
+    expect(runAt(RUN_SECONDS, true)).toEqual({ s: STILL_S, phase: 'done' });
+  });
+
+  it('traces the path only when asked, with no pressed state, and ends the run on the still pose', async () => {
     vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
     try {
-      render(<ExcavatorPractice />);
+      const { container } = render(<ExcavatorPractice />);
+      const still = container.innerHTML;
       const run = screen.getByTestId('excavator-run');
       expect(run).not.toHaveAttribute('aria-pressed');
       expect(run).toHaveTextContent('Trace the path');
@@ -100,18 +111,59 @@ describe('ExcavatorPractice', () => {
       expect(Number(drawing.getAttribute('data-s'))).toBeLessThan(0.7);
       expect(screen.getByTestId('excavator-stage-frame').querySelector('[data-readout]')).toHaveTextContent(/tracing, \d+% of the path/);
       await act(async () => {
-        vi.advanceTimersByTime(RUN_SECONDS * 1000);
+        vi.advanceTimersByTime((RUN_SECONDS * 1000) / 2 - 40);
       });
-      expect(drawing).toHaveAttribute('data-s', '1');
-      expect(drawing).toHaveAttribute('data-guesses', '0');
+      expect(Number(drawing.getAttribute('data-s'))).toBeGreaterThan(0.98);
+      await act(async () => {
+        vi.advanceTimersByTime(REWIND_SECONDS * 1000 + 200);
+      });
+      expect(drawing).toHaveAttribute('data-s', String(STILL_S));
       expect(run).toHaveTextContent('Trace the path');
+      expect(container.innerHTML).toBe(still);
     } finally {
       vi.useRealTimers();
     }
+  });
+
+  it('stops the arm back on the still pose', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      const { container } = render(<ExcavatorPractice />);
+      const still = container.innerHTML;
+      fireEvent.click(screen.getByTestId('excavator-run'));
+      await act(async () => {
+        vi.advanceTimersByTime(2000);
+      });
+      expect(container.innerHTML).not.toBe(still);
+      fireEvent.click(screen.getByTestId('excavator-run'));
+      expect(screen.getByTestId('excavator-drawing')).toHaveAttribute('data-s', String(STILL_S));
+      expect(container.innerHTML).toBe(still);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('steps the run along the path under reduced motion and ends on the still pose', async () => {
     reduceMotion();
-    const { container } = render(<ExcavatorPractice />);
-    fireEvent.click(container.querySelector('[data-testid="excavator-run"]')!);
-    expect(container.querySelector('[data-testid="excavator-drawing"]')).toHaveAttribute('data-s', '1');
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      render(<ExcavatorPractice />);
+      const drawing = screen.getByTestId('excavator-drawing');
+      fireEvent.click(screen.getByTestId('excavator-run'));
+      expect(drawing).toHaveAttribute('data-s', '0');
+      const hold = (RUN_SECONDS * 1000) / TRACE_STOPS.length;
+      await act(async () => {
+        vi.advanceTimersByTime(hold + 100);
+      });
+      expect(drawing).toHaveAttribute('data-s', String(TRACE_STOPS[1]));
+      await act(async () => {
+        vi.advanceTimersByTime(RUN_SECONDS * 1000);
+      });
+      expect(drawing).toHaveAttribute('data-s', String(STILL_S));
+      expect(screen.getByTestId('excavator-run')).toHaveTextContent('Trace the path');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('server-renders the still pose it hydrates', () => {

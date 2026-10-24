@@ -70,7 +70,7 @@ export function FoldReadoutRelay() {
       read,
       settleMs: FOLD_RELAY_SETTLE_MS,
       ignore: (record) => status.contains(record.target),
-      allow: (lastAction) => outsideSpokeAt < lastAction,
+      allow: (actionStart) => outsideSpokeAt < actionStart,
     });
     return () => {
       outside.disconnect();

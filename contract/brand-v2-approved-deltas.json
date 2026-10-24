@@ -112952,6 +112952,579 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-action-tokenization-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/action-tokenization.tsx:aria-label:1",
+      "oldHash": "d354ea6ead9969f1d5b3a200063ea9f7aa1147be2adf59b72f2c808c894e61bc",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-VIZ-016 label in name on the action-tokenization moment slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Control step, currently N of 15\" missing its visible label \"Moment in the movement\" and counting from zero where the label counts from one. The slider is now named by that visible label, and an aria-valuetext (\"N of 16\") carries the moment the visible value prints, which the stage readout now also says (\"At moment N of 16\") so that a moment written by \"Write the next moment\" is announced whole. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member ends: it held \"{`Control step, currently ${step} of ${CHUNK_STEPS - 1}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-chunk-size-curve-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/chunk-size-curve.tsx:aria-label:1",
+      "oldHash": "0d39c7e2edb1e21b2b3f6ba77cdda456138e530538f75955f8a18bd70f43498b",
+      "newHash": "26a00f64415533ac5669b7f2f6a410c2bcc26373f8a539b4befecbe5a7d68a26",
+      "reason": "VAL-B2-VIZ-016 label in name on the chunk-size slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Chunk size k, currently N\" missing its visible label \"Moves per plan, any value\". The name now starts with that visible label and keeps the chunk size and its value after it. The member moves from \"{`Chunk size k, currently ${chunkSize}`}\" to \"{`Moves per plan, any value: chunk size k, currently ${chunkSize}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-control-loop-budget-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/control-loop-budget.tsx:aria-label:1",
+      "oldHash": "640bca107b970908e991b01f648cebff7744d22bc075250e609c029d79f39ab3",
+      "newHash": "160d91b1a2d60420a32bc0820fc053ddd577c77f2684e4327dc5d18912f0f09f",
+      "reason": "VAL-B2-VIZ-016 label in name on the control-loop budget's model-size slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Model size in billions of parameters, currently N\" missing its visible label. The slider is now named by a literal that starts with its visible label (\"Model size on the robot's own computer, teaching curve, in billions of parameters\"), and its aria-valuetext adds the inference time the readout prints. Taking the value out of the name shifts this source's expression aria-label ordinals by one: the timeline name moves from expression 2 to expression 1. The member moves from \"{`Model size in billions of parameters, currently ${paramsB.toFixed(1)}`}\" to \"{`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-control-loop-budget-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/control-loop-budget.tsx:aria-label:2",
+      "oldHash": "160d91b1a2d60420a32bc0820fc053ddd577c77f2684e4327dc5d18912f0f09f",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-VIZ-016 label in name on the control-loop budget's model-size slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Model size in billions of parameters, currently N\" missing its visible label. The slider is now named by a literal that starts with its visible label (\"Model size on the robot's own computer, teaching curve, in billions of parameters\"), and its aria-valuetext adds the inference time the readout prints. Taking the value out of the name shifts this source's expression aria-label ordinals by one: the timeline name moves from expression 2 to expression 1. The member ends: it held \"{`Control-loop timeline at ${paramsB.toFixed(1)}B parameters`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-execution-modes-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/execution-modes.tsx:aria-label:1",
+      "oldHash": "a5cd08034950c8a5d4d4dc0c33d651f90767cf034b866b60a81c398663c3156a",
+      "newHash": "a96f316d72ab7cdf4a78359f4c4b09222b67b039ce2fe357eb6afa3f6350fbf9",
+      "reason": "VAL-B2-VIZ-016 label in name on the execution-modes delay slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Inference delay in milliseconds, currently N\" missing its visible label \"Inference delay, any value\". The name now starts with that visible label and keeps the delay and its value after it. The member moves from \"{`Inference delay in milliseconds, currently ${delayMs}`}\" to \"{`Inference delay, any value: inference delay in milliseconds, currently ${delayMs}`}\". This edge moves the member from its last approved endpoint (anatomy-3-figures-20261013-accessible-names-execution-modes-expression-aria-label-1).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-flow-matching-trajectory-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
+      "oldHash": "5b3d032b37211b8e425c613657e9adb323d9f325b170860d6802f8cdcb83ecc7",
+      "newHash": "056738c687f8889e82cc66d936837f699ea499b4d3d4f9a8e72e0be3f8713713",
+      "reason": "VAL-B2-VIZ-016 label in name on the flow-matching steps slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Integration steps, currently N of M\" missing its visible label \"Refining steps, any number\". The name now starts with that visible label and keeps the step count after it. The member moves from \"{`Integration steps, currently ${steps} of ${MAX_STEPS}`}\" to \"{`Refining steps, any number: integration steps, currently ${steps} of ${MAX_STEPS}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-friction-transfer-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/friction-transfer.tsx:aria-label:1",
+      "oldHash": "05e3410a89f58959d397279ad1a010ed6adcf50381af2e5bbea881034cc3a579",
+      "newHash": "44c60d26a435e3912ac86e5f475fca10dacac1bae44c6fee8676d157e7982fa4",
+      "reason": "VAL-B2-VIZ-016 label in name on the friction-transfer sliders: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the names \"Real robot friction, currently N\" and \"Randomization half-width, currently plus or minus N\" missing their visible labels \"Real floor: <words>\" and \"Range of practice floors\". Each name now starts with its visible label and keeps the friction value after it. The member moves from \"{`Real robot friction, currently ${formatMu(realMu)}`}\" to \"{`Real floor: ${floorWords(realMu)}; real robot friction, currently ${formatMu(realMu)}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-friction-transfer-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/friction-transfer.tsx:aria-label:2",
+      "oldHash": "159d268f4d444e473b671b664fa490d4a9e1d3cbd3a0fa25455ddc53ee4e1223",
+      "newHash": "2ce9c88b136a9a7e60e08fdca8c4441fec9c0fa11ee27e32a51dcce5663bfcdf",
+      "reason": "VAL-B2-VIZ-016 label in name on the friction-transfer sliders: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the names \"Real robot friction, currently N\" and \"Randomization half-width, currently plus or minus N\" missing their visible labels \"Real floor: <words>\" and \"Range of practice floors\". Each name now starts with its visible label and keeps the friction value after it. The member moves from \"{`Randomization half-width, currently plus or minus ${formatMu(range)}`}\" to \"{`Range of practice floors: randomization half-width, currently plus or minus ${formatMu(range)}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-hierarchy-timescales-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:1",
+      "oldHash": "604467fa4a867fbd875aa904fc7428b6691d71d64d49c9d9275c419f6bf9488b",
+      "newHash": "6d6fc26cb2db50438b5c20b67399fb141d98170198e58572d64c96f2561b9b6b",
+      "reason": "VAL-B2-VIZ-016 label in name on the hierarchy-timescales playhead slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Playhead position in milliseconds, currently N\" missing its visible label \"Point in the 2 seconds\". The name now starts with that visible label and keeps the playhead value after it. The member moves from \"{`Playhead position in milliseconds, currently ${playhead}`}\" to \"{`Point in the 2 seconds: playhead position in milliseconds, currently ${playhead}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-latency-comparison-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latency-comparison.tsx:aria-label:1",
+      "oldHash": "ae4da384925c085c266f409973d72fefd275797a8d84eae2411717ea0eaf6bab",
+      "newHash": "69f075afc182349e01a44ee34a75521f34cc20e1636f6b051bc3b3164499fac5",
+      "reason": "VAL-B2-VIZ-016 label in name on the latency-comparison delay slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Injected inference delay, currently N\" missing its visible label \"Thinking delay, any value\". The name now starts with that visible label and keeps the delay after it. The member moves from \"{`Injected inference delay, currently ${formatMs(delayMs)}`}\" to \"{`Thinking delay, any value: injected inference delay, currently ${formatMs(delayMs)}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-mot-insulation-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/mot-insulation.tsx:aria-label:1",
+      "oldHash": "b02cb7e56c872013cde84ab0309172b5c2508fae9253a31eccc6abeb1745f74f",
+      "newHash": "50c53902daa2e70fee623ac37f296b70253baf99721c6769548ebec15cc7d1bb",
+      "reason": "VAL-B2-VIZ-016 label in name and live announcement on the Mixture-of-Transformers depth slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Pass depth, currently N of 6 layers\" carrying the value inside the name and the stage readout changing with no announcement. The slider is now named by its visible label \"Pass depth\", an aria-valuetext (\"N of 6 layers\") carries the depth, and a hidden status region speaks the settled readout. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member moves from \"{`Pass depth, currently ${step} of ${LAYER_COUNT} layers`}\" to \"{`Mixture-of-Transformers diagram. ${passDescription}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-mot-insulation-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/mot-insulation.tsx:aria-label:2",
+      "oldHash": "50c53902daa2e70fee623ac37f296b70253baf99721c6769548ebec15cc7d1bb",
+      "newHash": "bf350c6a3e8e09c9b3e8e83bfae87d4216070ee8d7b1b565706b559c2f079d62",
+      "reason": "VAL-B2-VIZ-016 label in name and live announcement on the Mixture-of-Transformers depth slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Pass depth, currently N of 6 layers\" carrying the value inside the name and the stage readout changing with no announcement. The slider is now named by its visible label \"Pass depth\", an aria-valuetext (\"N of 6 layers\") carries the depth, and a hidden status region speaks the settled readout. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member moves from \"{`Mixture-of-Transformers diagram. ${passDescription}`}\" to \"{`Language-following score, ${score} of 100`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-mot-insulation-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/mot-insulation.tsx:aria-label:3",
+      "oldHash": "bf350c6a3e8e09c9b3e8e83bfae87d4216070ee8d7b1b565706b559c2f079d62",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-VIZ-016 label in name and live announcement on the Mixture-of-Transformers depth slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Pass depth, currently N of 6 layers\" carrying the value inside the name and the stage readout changing with no announcement. The slider is now named by its visible label \"Pass depth\", an aria-valuetext (\"N of 6 layers\") carries the depth, and a hidden status region speaks the settled readout. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member ends: it held \"{`Language-following score, ${score} of 100`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:1",
+      "oldHash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3",
+      "newHash": "705a3063909e9c7487a7984f346977a33bdb3fac28681880786ad27b2d7631ce",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member moves from \"{option.label}\" to \"{`How far the camera is tilted: the hand-eye rotation error in degrees, currently ${params.handEyeDeg.toFixed(1)}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:2",
+      "oldHash": "705a3063909e9c7487a7984f346977a33bdb3fac28681880786ad27b2d7631ce",
+      "newHash": "b16f53323394d3d44bd3096860f1a6fad423af41db521ac29b0f62f9544a3321",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member moves from \"{`How far the camera is tilted: the hand-eye rotation error in degrees, currently ${params.handEyeDeg.toFixed(1)}`}\" to \"{`Distance to the object: the working distance in metres, currently ${distance.toFixed(2)}`}\". This edge moves the member from its last approved endpoint (reader-first-20261008-retest-name-perception-error-budget-expression-aria-label-2).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-3",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:3",
+      "oldHash": "b16f53323394d3d44bd3096860f1a6fad423af41db521ac29b0f62f9544a3321",
+      "newHash": "4a2a50635bb699ebe787f193e3171e3d570b792a0f2d4538f4fc0ea9553e92f0",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member moves from \"{`Distance to the object: the working distance in metres, currently ${distance.toFixed(2)}`}\" to \"{`Depth error (% of range), currently ${params.depthPct.toFixed(1)}`}\". This edge moves the member from its last approved endpoint (reader-first-20261007-name-perception-error-budget-expression-aria-label-3).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-4",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:4",
+      "oldHash": "3e91aa448582853f4489ef50c4b6119686f2f75a464fad0b71b1a865bea6a37d",
+      "newHash": "eb4a34fbe26dc3936b7be7c252e73d65e7b9671fc1ee13e82aca0ac2fb57fcb6",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member moves from \"{`Depth error as a percentage of range, currently ${params.depthPct.toFixed(1)}`}\" to \"{`Object pose (mm): the translation error in millimetres, currently ${params.poseMm.toFixed(1)}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-5",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:5",
+      "oldHash": "65d95e5ac75fa14c984bc2ae503a041db831f11fbbaea451188c56f04a29f89a",
+      "newHash": "fbe7440b6427809815d63091844be9f35c61f9a87b6021218f5fa407ed049b40",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member moves from \"{`Object-pose translation error in millimetres, currently ${params.poseMm.toFixed(1)}`}\" to \"{`Authored input magnitudes and root-sum-of-squares total against the model band. Total ${budget.totalMm.toFixed(1)} millimetres.`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-6",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:6",
+      "oldHash": "fbe7440b6427809815d63091844be9f35c61f9a87b6021218f5fa407ed049b40",
+      "newHash": "054b8bd89ab41a16cf24af8b25de31ecf008132d5faa3b48e05263d2ee7c5b4e",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member moves from \"{`Authored input magnitudes and root-sum-of-squares total against the model band. Total ${budget.totalMm.toFixed(1)} millimetres.`}\" to \"{`A camera seen from the side, its assumed line of sight tilted ${params.handEyeDeg.toFixed(1)} degrees from the true one: at ${distance.toFixed(2)} metres the robot misses by ${missMm.toFixed(1)} millimetres.`}\". This edge moves the member from its last approved endpoint (classical-closure-20260923-1).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-perception-error-budget-aria-label-7",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/perception-error-budget.tsx:aria-label:7",
+      "oldHash": "054b8bd89ab41a16cf24af8b25de31ecf008132d5faa3b48e05263d2ee7c5b4e",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The member ends: it held \"{`A camera seen from the side, its assumed line of sight tilted ${params.handEyeDeg.toFixed(1)} degrees from the true one: at ${distance.toFixed(2)} metres the robot misses by ${missMm.toFixed(1)} millimetres.`}\". This edge moves the member from its last approved endpoint (reader-first-20261007-name-perception-error-budget-expression-aria-label-7).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-receding-horizon-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/receding-horizon.tsx:aria-label:1",
+      "oldHash": "08a70003b208c632c7df577c9a67fb2669457c8837a91635e4966889d0f04590",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-VIZ-016 label in name on the receding-horizon sliders: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found their accessible names \"Predicted horizon T_p, currently N\" and \"Executed horizon T_a, currently N\" missing their visible labels \"Steps planned\" and \"Steps acted on\". Each slider is now named by a literal that starts with its visible label (\"Steps planned, the predicted horizon\"; \"Steps acted on, the executed horizon\"), and an aria-valuetext carries the step counts. The member ends: it held \"{`Predicted horizon T_p, currently ${clamped.tp}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-receding-horizon-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/receding-horizon.tsx:aria-label:2",
+      "oldHash": "87fd4638fa4bffd68621c75c3d368ccbc3edd433432ffeba992bdb96308aaf2a",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "VAL-B2-VIZ-016 label in name on the receding-horizon sliders: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found their accessible names \"Predicted horizon T_p, currently N\" and \"Executed horizon T_a, currently N\" missing their visible labels \"Steps planned\" and \"Steps acted on\". Each slider is now named by a literal that starts with its visible label (\"Steps planned, the predicted horizon\"; \"Steps acted on, the executed horizon\"), and an aria-valuetext carries the step counts. The member ends: it held \"{`Executed horizon T_a, currently ${clamped.ta}`}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-expression-reward-shaping-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/reward-shaping.tsx:aria-label:1",
+      "oldHash": "550e11408c76a53562d209abb7732b38297d8da38dff20203303724297ebf951",
+      "newHash": "e41608f16183e001980dd34a5b47ae465bd7a9ef8b90267ea3a9e2f3812cfab5",
+      "reason": "VAL-B2-VIZ-007 and VAL-B2-VIZ-008 on the reward-shaping rollout preview: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found \"Pause\" leaving the preview wherever the loop happened to be, so there was no deterministic return, and the reduced-motion preview looping on by itself. Stop now puts the preview back on the frame Play started from, under reduced motion Play steps through one stride and stops there, and the button's text and name say Stop (\"Stop rollout preview\" while it plays). The member moves from \"{playing ? 'Pause rollout preview' : 'Play rollout preview'}\" to \"{playing ? 'Stop rollout preview' : 'Play rollout preview'}\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-007",
+        "VAL-B2-VIZ-008",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-action-tokenization-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/action-tokenization.tsx:aria-label:1",
+      "oldHash": "d01d668f18d7cbb4142a531ec921fc86c75f5a10b05e139aacdceff8a78b60e0",
+      "newHash": "b6c7dfc800a24accd624072bed17e766062b61d5d8da321743961fb29a5f60b7",
+      "reason": "VAL-B2-VIZ-016 label in name on the action-tokenization moment slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Control step, currently N of 15\" missing its visible label \"Moment in the movement\" and counting from zero where the label counts from one. The slider is now named by that visible label, and an aria-valuetext (\"N of 16\") carries the moment the visible value prints, which the stage readout now also says (\"At moment N of 16\") so that a moment written by \"Write the next moment\" is announced whole. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member moves from \"Action dimension\" to \"Moment in the movement\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-action-tokenization-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/action-tokenization.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d01d668f18d7cbb4142a531ec921fc86c75f5a10b05e139aacdceff8a78b60e0",
+      "reason": "VAL-B2-VIZ-016 label in name on the action-tokenization moment slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Control step, currently N of 15\" missing its visible label \"Moment in the movement\" and counting from zero where the label counts from one. The slider is now named by that visible label, and an aria-valuetext (\"N of 16\") carries the moment the visible value prints, which the stage readout now also says (\"At moment N of 16\") so that a moment written by \"Write the next moment\" is announced whole. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member starts, holding \"Action dimension\". The member starts here, as one plain edge from its absence in the seal.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-control-loop-budget-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/control-loop-budget.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2134319a4477b195c1979221e75fd94d2e95976e95da89863664e85fa7456dae",
+      "reason": "VAL-B2-VIZ-016 label in name on the control-loop budget's model-size slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Model size in billions of parameters, currently N\" missing its visible label. The slider is now named by a literal that starts with its visible label (\"Model size on the robot's own computer, teaching curve, in billions of parameters\"), and its aria-valuetext adds the inference time the readout prints. Taking the value out of the name shifts this source's expression aria-label ordinals by one: the timeline name moves from expression 2 to expression 1. The member starts, holding \"Model size on the robot\". The member starts here, as one plain edge from its absence in the seal.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-grasp-wrench-lab-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
+      "oldHash": "9296e913d7addca7ccf0a691c71090d623db5f6e548aa71e805f63f29ccab453",
+      "newHash": "91e8062933dd899ff68c95c8f257d9051f019c30823500f7cba22a01c9265c01",
+      "reason": "VAL-B2-VIZ-016 label in name on the grasp-wrench lab's contact buttons: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the names \"Add a contact at the emptiest perimeter location\" and \"Remove the last contact\" not containing the visible button text \"Add contact\" and \"Remove contact\". Each name now starts with the visible text and keeps its detail after it. The member moves from \"Add a contact at the emptiest perimeter location\" to \"Add contact at the emptiest perimeter location\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-grasp-wrench-lab-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/grasp-wrench-lab.tsx:aria-label:2",
+      "oldHash": "34b5f791e7c20f9ca278d58942325fbc40c23949c185d6f30fa3073cb05a5ab3",
+      "newHash": "31a0ca6c5c3a5610f811420d2a3901e2a75d19261b130b7a6588c61e741f156d",
+      "reason": "VAL-B2-VIZ-016 label in name on the grasp-wrench lab's contact buttons: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the names \"Add a contact at the emptiest perimeter location\" and \"Remove the last contact\" not containing the visible button text \"Add contact\" and \"Remove contact\". Each name now starts with the visible text and keeps its detail after it. The member moves from \"Remove the last contact\" to \"Remove contact: the last one placed\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-mot-insulation-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/mot-insulation.tsx:aria-label:1",
+      "oldHash": "011d6b0a060346ef2c56630e741d6198c06acc0ea793aca2a99a36cc6ba1bbd9",
+      "newHash": "adff6d3828ffec6bdd8756457ad483e1a47db1e18dedb657a4aea7eb6f3f58e4",
+      "reason": "VAL-B2-VIZ-016 label in name and live announcement on the Mixture-of-Transformers depth slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Pass depth, currently N of 6 layers\" carrying the value inside the name and the stage readout changing with no announcement. The slider is now named by its visible label \"Pass depth\", an aria-valuetext (\"N of 6 layers\") carries the depth, and a hidden status region speaks the settled readout. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member moves from \"Select the pass direction\" to \"Pass depth\". This is one plain edge from the sealed hash.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-mot-insulation-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/mot-insulation.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "011d6b0a060346ef2c56630e741d6198c06acc0ea793aca2a99a36cc6ba1bbd9",
+      "reason": "VAL-B2-VIZ-016 label in name and live announcement on the Mixture-of-Transformers depth slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its accessible name \"Pass depth, currently N of 6 layers\" carrying the value inside the name and the stage readout changing with no announcement. The slider is now named by its visible label \"Pass depth\", an aria-valuetext (\"N of 6 layers\") carries the depth, and a hidden status region speaks the settled readout. The new literal name shifts this source's literal and expression aria-label ordinals by one. The member starts, holding \"Select the pass direction\". The member starts here, as one plain edge from its absence in the seal.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-receding-horizon-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/receding-horizon.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "86462f242da9147c18517b70430c3c00ea503d661ec33ddfb20e811496d2933f",
+      "reason": "VAL-B2-VIZ-016 label in name on the receding-horizon sliders: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found their accessible names \"Predicted horizon T_p, currently N\" and \"Executed horizon T_a, currently N\" missing their visible labels \"Steps planned\" and \"Steps acted on\". Each slider is now named by a literal that starts with its visible label (\"Steps planned, the predicted horizon\"; \"Steps acted on, the executed horizon\"), and an aria-valuetext carries the step counts. The member starts, holding \"Steps planned, the predicted horizon\". The member starts here, as one plain edge from its absence in the seal.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-accessible-names-literal-receding-horizon-aria-label-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/receding-horizon.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0547151cd3b179923c91893f84a59f56ca24808cbb28a4534dd09650b62bfe5b",
+      "reason": "VAL-B2-VIZ-016 label in name on the receding-horizon sliders: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found their accessible names \"Predicted horizon T_p, currently N\" and \"Executed horizon T_a, currently N\" missing their visible labels \"Steps planned\" and \"Steps acted on\". Each slider is now named by a literal that starts with its visible label (\"Steps planned, the predicted horizon\"; \"Steps acted on, the executed horizon\"), and an aria-valuetext carries the step counts. The member starts, holding \"Steps acted on, the executed horizon\". The member starts here, as one plain edge from its absence in the seal.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-interactive-sources-mounts-source-chunk-buffer",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/chunk-buffer.tsx",
+      "oldHash": "39b47e4747f165fba264bbc304823ab3f4e53f9b869bd2a32013c820cda0bb13",
+      "newHash": "407adad3929227cd119ac0e9675e0588988698724352ce7b1de6fe800c981777",
+      "reason": "VAL-B2-VIZ-007 and VAL-B2-VIZ-008 on the chunk buffer: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found \"Run the clock\" leaving the figure half a second of robot time past its still pose with no keyboard route back, and under reduced motion jumping to the end instead of running. A run now ends back on the still pose, \"Stop the clock\" returns there at once, and reduced motion steps through the run in four held stops (exported runOffset and RUN_STOPS); the still pose, the slider and its value text are unchanged. The source member records the new bytes. This edge moves the member from its last approved endpoint (polish-1019-interactive-sources-mounts-source-chunk-buffer-tsx).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-007",
+        "VAL-B2-VIZ-008",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-interactive-sources-mounts-source-excavator-practice",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/excavator-practice.tsx",
+      "oldHash": "cb09fc19e8175c32559f474580dd79cd67391fad42af22b7219c7c5a7bbc7429",
+      "newHash": "0dd516dba6b95efa90ebb97ca03a6025f0159b2c4c0370452207565eddbc6e2b",
+      "reason": "VAL-B2-VIZ-007 on the excavator practice figure: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found \"Trace the path\" leaving the arm at the end of the path with no keyboard route back to the still pose the figure opens on. A run now glides back to the still pose, stopping it or choosing another practice returns there at once, and reduced motion steps along the path (runAt in lib/excavator-practice.ts). The readout reports the trace only while it is on its way. Checkpoints, practice presets and words are unchanged. The source member records the new bytes. This edge moves the member from its last approved endpoint (anatomy-wm-b03-figures-20261015-interactive-sources-mounts-source-excavator-practice).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-007",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-interactive-sources-mounts-source-keypoint-string",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/keypoint-string.tsx",
+      "oldHash": "2189825dc323ede76a6a6d8e72041f1fe04460948736c080e5b4f04cb8d4623e",
+      "newHash": "2c05c118989bacebe15c12cf345a2ac6d9c7795d7af225ae7917bb37c076f553",
+      "reason": "VAL-EDU-015 and VAL-B2-VIZ-016 on the keypoint-string depth slider: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its value text naming a shortfall (\"N% short of the reading\") where the visible value prints the share of the reading, so the readout and the slider said different numbers. The value text and the \"on\" value now state the same percentage the visible value prints (\"Depth N% of the reading, M% short\"). Geometry and the default share are unchanged. The source member records the new bytes. This edge moves the member from its last approved endpoint (polish-1019-interactive-sources-mounts-source-keypoint-string-tsx).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-EDU-015",
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-interactive-sources-mounts-source-perception-error-budget",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "d890abef1e19ca0de40bcc1430bac48c07280934746038ef3bd1ee03a54a0929",
+      "newHash": "03d00019cbb3fbde2e243beeb52a7942ef89c1cce79c95cdc192f50ff7dfe4fe",
+      "reason": "VAL-B2-VIZ-016 label in name on the perception error budget: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the target-surface radios named by an aria-label that duplicated their visible label text, and the depth and object-pose sliders named \"Depth error as a percentage of range\" and \"Object-pose translation error in millimetres\" where they show \"Depth error (% of range)\" and \"Object pose (mm)\". The radios are now named by their visible labels alone, and each slider name starts with its visible label. Removing the radio aria-label shifts this source's expression aria-label ordinals down by one. The source member records the new bytes. This edge moves the member from its last approved endpoint (control-states-20261023-interactive-sources-mounts-source-perception-error-budget).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-interactive-sources-mounts-source-safety-filter-fence",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/safety-filter-fence.tsx",
+      "oldHash": "cca34409ea630ea92fa49d939aa1b3bbc203453fd3d8986e32f16c2051a8d2b5",
+      "newHash": "20a9089f8e3c3f46740d5e9f92cc32791e548031a6b8dd3ccb2a5b966479d642",
+      "reason": "VAL-B2-VIZ-016 on the safety-filter fence: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found the finished run's readout (\"Done · changed only at the fence\") not saying where the slider stopped, so the announced state was incomplete. It now reads \"Done at N% · changed only at the fence\". The filter, the fence and the default are unchanged. The source member records the new bytes. This edge moves the member from its last approved endpoint (a11y-gate-20261017-interactive-sources-mounts-source-safety-filter-fence).",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-016",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "mount-evidence-20261024-behavioral-defaults-default-terrain-curriculum-4",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/terrain-curriculum.tsx:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f523b82b3f7406461ec9465b6b59421f3276121408fe9b98b3e7b30827245cbd",
+      "reason": "VAL-B2-VIZ-007 deterministic return on the terrain curriculum: the keyboard transition ledger (tests/e2e/brand-v2-interactive-states.spec.ts) found its reset (\"Start over\") going to round 0 and replaying, not to the round 4 the figure opens on. The reset now returns to round 4 and draws it finished at once, as it loads, even mid-glide, under the instruments' shared name \"Reset\". The new DEFAULT_ROUND use is the reset's target; the opening round itself is unchanged. The member starts, holding \"DEFAULT_ROUND, round])]\". The member starts here, as one plain edge from its absence in the seal.",
+      "ownerApproval": "Sealed brand-v2 contract authority: contract/design-integrity.md VAL-B2-VIZ-016 (pointer and keyboard parity, retained focus, unique IDs, label in name and complete live-region announcements), VAL-B2-VIZ-007 (every registered mount works by keyboard, exposes its state, shows focus and returns to a deterministic default, per its owner-approved successor row of 23 October 2026) and VAL-B2-VIZ-008 (no autoplay, no fake telemetry); brand-v2-interactives user testing round 1 (validation/brand-v2-interactives/user-testing/triage-round1.md) found these without per-mount browser evidence and dispatched interactives-r1-mount-evidence-and-live-regions to measure every registered mount and fix the offenders it finds, under the research-page standard (owner decision of Josef, 10 October 2026, AGENTS.md). Naming, announcement and return behaviour only; no new factual claim, source certification or release acceptance. Not release approval.",
+      "responsibleMilestone": "brand-v2-interactives",
+      "affectedAssertions": [
+        "VAL-B2-VIZ-007",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

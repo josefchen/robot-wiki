@@ -25,7 +25,8 @@ import { MOTION_STAGE } from '@/lib/motion-tokens';
  *
  * The one control runs a training round: each robot glides to its new
  * level on the motion curve, those that moved up in the accent; reduced
- * motion and the served HTML show the round finished. The robots, their
+ * motion and the served HTML show the round finished. Reset returns to
+ * the round the figure opens on, drawn as it loads. The robots, their
  * skills and the round outcomes are illustrative and seeded; the three
  * rules are the paper's.
  */
@@ -132,7 +133,10 @@ export function TerrainCurriculum({ className }: { className?: string }) {
   const citationFor = useCitationLookup();
   const source = citationFor('rudin-2021');
   const [round, setRound] = useState(DEFAULT_ROUND);
-  const [progress, play] = usePlayback();
+  const [gliding, play] = usePlayback();
+  // Going back to the opening round draws it finished at once, as it loads, even if a glide is still under way.
+  const [opening, setOpening] = useState(true);
+  const progress = opening ? 1 : gliding;
   const accent = roleColour('highlight');
   const state = ROUNDS[round];
   const from = useMemo(() => layout(ROUNDS[Math.max(0, round - 1)].levels), [round]);
@@ -140,11 +144,12 @@ export function TerrainCurriculum({ className }: { className?: string }) {
 
   const advance = () => {
     setRound((r) => Math.min(MAX_ROUND, r + 1));
+    setOpening(false);
     play();
   };
   const restart = () => {
-    setRound(0);
-    play();
+    setRound(DEFAULT_ROUND);
+    setOpening(true);
   };
 
   return (
@@ -165,7 +170,7 @@ export function TerrainCurriculum({ className }: { className?: string }) {
           >
             Run a training round
           </button>
-          <InstrumentReset onClick={restart} label="Start over" data-testid="curriculum-reset" />
+          <InstrumentReset onClick={restart} data-testid="curriculum-reset" />
         </>
       }
       stage={

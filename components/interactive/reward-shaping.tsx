@@ -72,9 +72,11 @@ import {
  * Interactive contract: deterministic initial render (default weights,
  * balanced trot, paused), native range inputs (keyboard-accessible),
  * visible readouts, reset control, fixed SVG viewport (no layout shift).
- * Playback runs on the model's cadence (lib/reward-shaping.ts) and degrades
- * to discrete jumps under prefers-reduced-motion; a changed weight glides
- * its fader and blends the walk, and reduced motion jumps both.
+ * Playback runs on the model's cadence (lib/reward-shaping.ts) and loops
+ * until Stop puts the preview back on the frame Play started from. Under
+ * prefers-reduced-motion it plays one stride in discrete jumps and stops on
+ * that same frame. A changed weight glides its fader and blends the walk,
+ * and reduced motion jumps both.
  */
 
 const f = (v: number) => Number(v.toFixed(2));
@@ -272,6 +274,9 @@ export function RewardShaping({ className }: { className?: string }) {
     frame: 0,
     last: 0,
     jumps: 0,
+    /** The phase Play started from, and the coarse ticks played since, under reduced motion. */
+    start: 0,
+    ticks: 0,
   });
 
   const setWeight = (id: keyof Weights, sliderValue: number) => {
@@ -286,8 +291,23 @@ export function RewardShaping({ className }: { className?: string }) {
   };
 
   const step = () => {
-    live.current.phase = f((live.current.phase + PHASE_STEP) % 1);
+    const s = live.current;
+    s.phase = f((s.phase + PHASE_STEP) % 1);
+    if (s.playing) s.start = f((s.start + PHASE_STEP) % 1);
     setJumps((n) => n + 1);
+  };
+
+  const togglePlay = () => {
+    const s = live.current;
+    if (playing) {
+      s.phase = s.start;
+      setPlaying(false);
+      setJumps((n) => n + 1);
+      return;
+    }
+    s.start = s.phase;
+    s.ticks = 0;
+    setPlaying(true);
   };
 
   // One loop moves everything: faders glide to their weights, the walk blends to the chosen one, and
@@ -324,14 +344,22 @@ export function RewardShaping({ className }: { className?: string }) {
         const { tickMs, phasePerTick } = playbackCadence(s.reduced);
         if (s.reduced) {
           s.clock += dt * 1000;
-          while (s.clock >= tickMs) {
+          while (s.playing && s.clock >= tickMs) {
             s.clock -= tickMs;
-            s.phase = s.phase + phasePerTick >= 1 ? 0 : f(s.phase + phasePerTick);
+            s.ticks += 1;
+            // One whole stride played: stop on the frame Play started from.
+            if (s.ticks * phasePerTick >= 1 - 1e-9) {
+              s.phase = s.start;
+              s.playing = false;
+              setPlaying(false);
+            } else {
+              s.phase = f((s.start + s.ticks * phasePerTick) % 1);
+            }
           }
         } else {
           s.phase = (s.phase + (dt * 1000 * phasePerTick) / tickMs) % 1;
         }
-        moving = true;
+        moving = s.playing;
       }
       for (const [index, cap] of CAPS.entries()) {
         const goal = weights[cap.term];
@@ -430,11 +458,11 @@ export function RewardShaping({ className }: { className?: string }) {
             data-brand-control-id="control:secondary-action"
             data-pagefind-ignore
             type="button"
-            onClick={() => setPlaying((p) => !p)}
-            aria-label={playing ? 'Pause rollout preview' : 'Play rollout preview'}
+            onClick={togglePlay}
+            aria-label={playing ? 'Stop rollout preview' : 'Play rollout preview'}
             className={`${INSTRUMENT_SECONDARY_CONTROL_CLASS} self-end`}
           >
-            {playing ? 'Pause' : 'Play'}
+            {playing ? 'Stop' : 'Play'}
           </button>
         </>
       }
@@ -530,9 +558,10 @@ export function RewardShaping({ className }: { className?: string }) {
               </span>
             </span>
           </InstrumentReadout>
-          {/* Outside the live readout: during playback the phase moves
-              every tick, too often for a polite region to announce. */}
-          <span className="block tabular-nums">
+          {/* Polite only while the preview is still, so each Step is
+              announced; during playback the phase moves every tick, too
+              often for a polite region to announce. */}
+          <span className="block tabular-nums" data-testid="phase-readout" aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
             Preview phase: <span ref={(el) => void (r.phase = el)}>{'0%'}</span>
           </span>
           <p>
@@ -542,7 +571,8 @@ export function RewardShaping({ className }: { className?: string }) {
             bounces in place) when foot air time passes the same two bars. Otherwise the robot trots. These are
             chosen classification rules and drawn poses, not trained policies, measured control frequencies or
             actuator-damage predictions. The preview phase is how far the drawing is through one stride; Play loops
-            it and Step moves it on by {Math.round(PHASE_STEP * 100)} percent. At phase 0 the bounce is drawn at its top
+            it until Stop brings it back to where it started (with reduced motion, Play steps through one stride and
+            stops there), and Step moves it on by {Math.round(PHASE_STEP * 100)} percent. At phase 0 the bounce is drawn at its top
             and the jitter at its widest, so a changed walk shows before Play.
           </p>
           <p>

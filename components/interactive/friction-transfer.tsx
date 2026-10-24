@@ -391,7 +391,7 @@ export function FrictionTransfer({
             step={1}
             value={Math.round(realMu * 100)}
             onChange={(e) => setRealMu(Number(e.target.value) / 100)}
-            aria-label={`Real robot friction, currently ${formatMu(realMu)}`}
+            aria-label={`Real floor: ${floorWords(realMu)}; real robot friction, currently ${formatMu(realMu)}`}
             className={INSTRUMENT_SLIDER_CLASS}
           />
           <SliderEnds low="slippery" high="grippy" />
@@ -412,7 +412,7 @@ export function FrictionTransfer({
               step={5}
               value={Math.round(range * 100)}
               onChange={(e) => setRange(Number(e.target.value) / 100)}
-              aria-label={`Randomization half-width, currently plus or minus ${formatMu(range)}`}
+              aria-label={`Range of practice floors: randomization half-width, currently plus or minus ${formatMu(range)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="nearly one floor" high="many floors" />

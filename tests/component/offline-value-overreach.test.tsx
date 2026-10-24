@@ -102,6 +102,19 @@ describe('OfflineValueOverreach', () => {
     expect(screen.getByTestId('overreach-caution')).toHaveTextContent('strong');
   });
 
+  it('prints the slider value in its visible readout at the default and both ends, and names it by its label', () => {
+    renderFigure();
+    const slider = screen.getByRole('slider', { name: /Caution about untried actions/ });
+    expect(slider.getAttribute('aria-label')).toMatch(/^Caution about untried actions/);
+    const readout = screen.getByTestId('overreach-caution');
+    expect(readout).toHaveTextContent(/^0 of 10, none$/);
+    expect(readout.closest('[data-figure-control-value]')).not.toBeNull();
+    fireEvent.change(slider, { target: { value: String(CAUTION_MAX) } });
+    expect(readout).toHaveTextContent(new RegExp(`^${CAUTION_MAX} of ${CAUTION_MAX}, strong$`));
+    fireEvent.change(slider, { target: { value: '4' } });
+    expect(readout).toHaveTextContent(new RegExp(`^4 of ${CAUTION_MAX}$`));
+  });
+
   it('names the stage and links both sources', () => {
     renderFigure();
     const stage = screen.getByRole('img', { name: /learner's guess of how well each grip works/ });

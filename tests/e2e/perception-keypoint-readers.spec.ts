@@ -76,7 +76,7 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
     } else {
       // The playhead and Reset sit in the figure's "Adjust more" fold; the playhead settles at the end of the 2 seconds, so it steps back.
       const adjust = await openAdjustMore(page.locator('main [data-figure-frame="hierarchy-timescales"]'));
-      const slider = adjust.getByRole('slider', { name: /Playhead position/ }); await slider.focus(); const settled = await slider.inputValue(); await page.keyboard.press('ArrowLeft'); await expect(slider).not.toHaveValue(settled);
+      const slider = adjust.getByRole('slider', { name: /Point in the 2 seconds: playhead position/ }); await slider.focus(); const settled = await slider.inputValue(); await page.keyboard.press('ArrowLeft'); await expect(slider).not.toHaveValue(settled);
       await adjust.getByRole('button', { name: 'Reset', exact: true }).click(); await expect(slider).toHaveValue(settled);
       const stat = page.getByText('keypoint interfaces', { exact: true }).locator('..'); await expect(stat).toContainText('2024'); await textCapture(stat, 'preserved-stat');
     }

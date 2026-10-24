@@ -219,6 +219,7 @@ describe('environment-trap script wiring', () => {
       'tests/e2e/brand-v2-market-map-states.spec.ts',
       'tests/e2e/brand-v2-global-convergence.spec.ts',
       'tests/e2e/brand-v2-control-states.spec.ts',
+      'tests/e2e/brand-v2-interactive-states.spec.ts',
     ]) {
       expect(pkg.scripts['refresh:brand-v2-evidence:browser']).toContain(spec);
     }

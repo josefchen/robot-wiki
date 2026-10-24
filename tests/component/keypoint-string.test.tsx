@@ -45,13 +45,29 @@ describe('KeypointString', () => {
     expect(drawing).toHaveAttribute('data-place', 'short');
     expect(drawing.getAttribute('data-pixel')).toBe(pixel);
     expect(drawing.getAttribute('data-target')).not.toBe(PICKED.map((value) => value.toFixed(2)).join(','));
-    expect(slider).toHaveAttribute('aria-valuetext', 'Depth 30% short of the reading: the target hangs in the air on the same line, short of the handle');
+    expect(slider).toHaveAttribute('aria-valuetext', 'Depth 70% of the reading, 30% short: the target hangs in the air on the same line, short of the handle');
     expect(screen.getByTestId('keypoint-depth')).toHaveTextContent('70% of the reading');
     expect(screen.getByTestId('keypoint-stage-frame').querySelector('[data-readout]')).toHaveTextContent('Depth 30% short · target in the air');
     fireEvent.change(slider, { target: { value: String(SHARE_MIN) } });
     expect(drawing).toHaveAttribute('data-place', 'image');
-    expect(shareValue(1)).toBe('the reading');
-    expect(valueTextFor(1)).toBe("Depth from the depth camera: the target sits on the toolbox's handle");
+    expect(shareValue(1)).toBe('100% of the reading');
+    expect(valueTextFor(1)).toBe("Depth 100% of the reading, from the depth camera: the target sits on the toolbox's handle");
+  });
+
+  it('states the default depth in its visible value, with only numbers the slider says', () => {
+    render(<KeypointString />);
+    const slider = screen.getByRole('slider', { name: 'Depth along the line' });
+    const numbers = (text: string) => (text.match(/-?\d[\d,]*(?:\.\d+)?/g) ?? []).map(Number);
+    const ends = [Number(slider.getAttribute('min')), Number(slider.getAttribute('max'))];
+    for (const value of ['1', '0.7', '0.5']) {
+      fireEvent.change(slider, { target: { value } });
+      const said = [...numbers(slider.getAttribute('aria-valuetext') ?? ''), Number((slider as HTMLInputElement).value)];
+      const printed = numbers(screen.getByTestId('keypoint-depth').textContent ?? '');
+      expect(printed.some((number) => said.includes(number))).toBe(true);
+      expect(printed.every((number) => said.includes(number) || ends.includes(number))).toBe(true);
+    }
+    fireEvent.change(slider, { target: { value: '1' } });
+    expect(screen.getByTestId('keypoint-depth')).toHaveTextContent('100% of the reading');
   });
 
   it('lifts the point only when asked, with no pressed state, and jumps to the reading under reduced motion', async () => {

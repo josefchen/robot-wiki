@@ -1,9 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { RewardShaping, drawnPose } from '@/components/interactive/reward-shaping';
 import { beltSlats, bodyShift, capShift } from '@/components/iso/figures/reward-mixing-desk';
-import { TERMS, classifyBehavior, defaultWeights, weightedTotal } from '@/lib/reward-shaping';
+import { TERMS, classifyBehavior, defaultWeights, playbackCadence, weightedTotal } from '@/lib/reward-shaping';
 
 function slider(name: RegExp) {
   return screen.getByRole('slider', { name });
@@ -167,18 +167,88 @@ describe('RewardShaping', () => {
     expect(screen.getByTestId('total-readout').textContent).toContain(expected);
   });
 
-  it('play toggles to pause and back', async () => {
+  it('play toggles to stop and back', async () => {
     const user = userEvent.setup();
     render(<RewardShaping />);
     const play = screen.getByRole('button', { name: /play/i });
     await user.click(play);
     expect(
-      screen.getByRole('button', { name: /pause/i }),
+      screen.getByRole('button', { name: /stop/i }),
     ).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: /pause/i }));
+    await user.click(screen.getByRole('button', { name: /stop/i }));
     expect(
       screen.getByRole('button', { name: /play/i }),
     ).toBeInTheDocument();
+  });
+
+  it('stops the looping preview back on the frame Play started from', async () => {
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      const { container } = render(<RewardShaping />);
+      const before = container.innerHTML;
+      fireEvent.click(screen.getByRole('button', { name: 'Play rollout preview' }));
+      const stop = screen.getByRole('button', { name: 'Stop rollout preview' });
+      expect(stop).toHaveTextContent('Stop');
+      // While it plays, the phase moves every tick, so its readout stops announcing.
+      expect(screen.getByTestId('phase-readout')).toHaveAttribute('aria-live', 'off');
+      await act(async () => {
+        vi.advanceTimersByTime(700);
+      });
+      expect(screen.getByTestId('phase-readout').textContent).not.toBe('Preview phase: 0%');
+      expect(container.innerHTML).not.toBe(before);
+      fireEvent.click(stop);
+      expect(screen.getByRole('button', { name: 'Play rollout preview' })).toHaveTextContent('Play');
+      expect(container.innerHTML).toBe(before);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('plays one stride in coarse jumps under reduced motion and stops on the frame it started from', async () => {
+    vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce'), media: query, onchange: null, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {}, dispatchEvent: () => false }));
+    vi.useFakeTimers({ toFake: ['requestAnimationFrame', 'cancelAnimationFrame', 'performance'] });
+    try {
+      const { container } = render(<RewardShaping />);
+      // Played from a stepped frame, the stride comes back to that frame, not to phase 0.
+      fireEvent.click(screen.getByRole('button', { name: 'Step the preview forward' }));
+      const before = container.innerHTML;
+      const phase = screen.getByTestId('phase-readout');
+      expect(phase).toHaveTextContent('Preview phase: 5%');
+      const { tickMs, phasePerTick } = playbackCadence(true);
+      fireEvent.click(screen.getByRole('button', { name: 'Play rollout preview' }));
+      const seen: string[] = [];
+      for (let elapsed = 0; elapsed < tickMs / phasePerTick + 1000; elapsed += 50) {
+        await act(async () => {
+          vi.advanceTimersByTime(50);
+        });
+        const text = phase.textContent ?? '';
+        if (seen.at(-1) !== text) seen.push(text);
+      }
+      // The start held for one coarse tick, seven jumps of an eighth of a stride, then back where it began, and the button says Play again.
+      expect(seen).toEqual([5, 17, 30, 42, 55, 68, 80, 93, 5].map((n) => `Preview phase: ${n}%`));
+      expect(screen.getByRole('button', { name: 'Play rollout preview' })).toHaveTextContent('Play');
+      expect(phase).toHaveAttribute('aria-live', 'polite');
+      expect(container.innerHTML).toBe(before);
+    } finally {
+      vi.useRealTimers();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('speaks each step of the preview through a polite phase readout, and Reset returns it to the opening frame', () => {
+    const { container } = render(<RewardShaping />);
+    const before = container.innerHTML;
+    const phase = screen.getByTestId('phase-readout');
+    expect(phase).toHaveAttribute('aria-live', 'polite');
+    expect(phase).toHaveAttribute('aria-atomic', 'true');
+    expect(phase).toHaveTextContent('Preview phase: 0%');
+    const step = screen.getByRole('button', { name: 'Step the preview forward' });
+    fireEvent.click(step);
+    expect(phase).toHaveTextContent('Preview phase: 5%');
+    fireEvent.click(step);
+    expect(phase).toHaveTextContent('Preview phase: 10%');
+    fireEvent.click(screen.getByRole('button', { name: 'Reset' }));
+    expect(container.innerHTML).toBe(before);
   });
 
   it('draws the desk and treadmill with no words, one lit fader, every cap at its weight and the robot at the model pose', async () => {

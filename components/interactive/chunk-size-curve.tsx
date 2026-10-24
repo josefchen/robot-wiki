@@ -221,7 +221,7 @@ export function ChunkSizeCurve({
               step={1}
               value={chunkSize}
               onChange={(e) => setChunkSize(Number(e.target.value))}
-              aria-label={`Chunk size k, currently ${chunkSize}`}
+              aria-label={`Moves per plan, any value: chunk size k, currently ${chunkSize}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="1 move" high={`${MAX_CHUNK} moves`} />

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "0a1e3bc7044037fc6e16a58c47e822a9d143c3ac671a24fbde563491ba7028c2",
+  "fingerprint": "4bddc6a094fa6081432ddbe471b1dc3aff559bf17f20bc24896d8990010f2cb7",
   "viewports": [
     "375x812",
     "768x1024",
@@ -131646,7 +131646,7 @@
         "controlGaps": [],
         "content": {
           "strings": 486,
-          "digest": "4d95913f"
+          "digest": "b2c12792"
         }
       },
       "focus": [
@@ -132564,7 +132564,7 @@
         "controlGaps": [],
         "content": {
           "strings": 486,
-          "digest": "4d95913f"
+          "digest": "b2c12792"
         }
       },
       "focus": [
@@ -133549,7 +133549,7 @@
         "controlGaps": [],
         "content": {
           "strings": 486,
-          "digest": "4d95913f"
+          "digest": "b2c12792"
         }
       },
       "focus": [
@@ -148324,8 +148324,8 @@
           "textRuns": 416,
           "frames": 7,
           "citationMarks": 48,
-          "insetTextRuns": 539,
-          "collisionTextBoxes": 863,
+          "insetTextRuns": 541,
+          "collisionTextBoxes": 864,
           "headings": 12,
           "paragraphs": 113,
           "sectionHeads": 10,
@@ -148909,7 +148909,7 @@
         "controlGaps": [],
         "content": {
           "strings": 509,
-          "digest": "eaeffe60"
+          "digest": "b86902e7"
         }
       },
       "focus": [
@@ -149229,8 +149229,8 @@
           "textRuns": 416,
           "frames": 7,
           "citationMarks": 48,
-          "insetTextRuns": 539,
-          "collisionTextBoxes": 617,
+          "insetTextRuns": 541,
+          "collisionTextBoxes": 619,
           "headings": 12,
           "paragraphs": 113,
           "sectionHeads": 10,
@@ -149821,7 +149821,7 @@
         "controlGaps": [],
         "content": {
           "strings": 509,
-          "digest": "eaeffe60"
+          "digest": "b86902e7"
         }
       },
       "focus": [
@@ -150142,8 +150142,8 @@
           "textRuns": 519,
           "frames": 7,
           "citationMarks": 48,
-          "insetTextRuns": 642,
-          "collisionTextBoxes": 687,
+          "insetTextRuns": 644,
+          "collisionTextBoxes": 689,
           "headings": 12,
           "paragraphs": 113,
           "sectionHeads": 10,
@@ -150801,7 +150801,7 @@
         "controlGaps": [],
         "content": {
           "strings": 509,
-          "digest": "eaeffe60"
+          "digest": "b86902e7"
         }
       },
       "focus": [
@@ -162732,8 +162732,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 503,
-          "digest": "920b3056"
+          "strings": 502,
+          "digest": "6de197ef"
         }
       },
       "focus": [
@@ -163698,8 +163698,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 503,
-          "digest": "920b3056"
+          "strings": 502,
+          "digest": "6de197ef"
         }
       },
       "focus": [
@@ -164731,8 +164731,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 503,
-          "digest": "920b3056"
+          "strings": 502,
+          "digest": "6de197ef"
         }
       },
       "focus": [
@@ -165750,7 +165750,7 @@
         "controlGaps": [],
         "content": {
           "strings": 490,
-          "digest": "caccd1b6"
+          "digest": "cf52afcf"
         }
       },
       "focus": [
@@ -166747,7 +166747,7 @@
         "controlGaps": [],
         "content": {
           "strings": 490,
-          "digest": "caccd1b6"
+          "digest": "cf52afcf"
         }
       },
       "focus": [
@@ -167811,7 +167811,7 @@
         "controlGaps": [],
         "content": {
           "strings": 490,
-          "digest": "caccd1b6"
+          "digest": "cf52afcf"
         }
       },
       "focus": [
@@ -171742,7 +171742,7 @@
         "controlGaps": [],
         "content": {
           "strings": 629,
-          "digest": "dd28da88"
+          "digest": "752a3381"
         }
       },
       "focus": [
@@ -172767,7 +172767,7 @@
         "controlGaps": [],
         "content": {
           "strings": 629,
-          "digest": "dd28da88"
+          "digest": "752a3381"
         }
       },
       "focus": [
@@ -173859,7 +173859,7 @@
         "controlGaps": [],
         "content": {
           "strings": 629,
-          "digest": "dd28da88"
+          "digest": "752a3381"
         }
       },
       "focus": [

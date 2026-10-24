@@ -54,6 +54,15 @@ describe('HierarchyTimescales', () => {
     expect(screen.getByTestId('playhead-readout')).toHaveTextContent('t = 2000 ms');
   });
 
+  it('names the playhead slider starting with its visible label', () => {
+    render(<HierarchyTimescales />);
+    const slider = screen.getByRole('slider', { name: /playhead/i }) as HTMLInputElement;
+    const label = slider.labels![0].cloneNode(true) as HTMLElement;
+    label.querySelector('[data-figure-control-value]')?.remove();
+    expect(label.textContent).toBe('Point in the 2 seconds');
+    expect(slider).toHaveAttribute('aria-label', 'Point in the 2 seconds: playhead position in milliseconds, currently 2000');
+  });
+
   it('leads with the takeaway, plain lane names and one note at settle', () => {
     const { container } = render(<HierarchyTimescales />);
     expect(container.querySelector('[data-figure-title]')).toHaveTextContent(

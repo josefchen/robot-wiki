@@ -1,10 +1,11 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { act, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { JSDOM } from 'jsdom';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { CitationRecordsProvider } from '@/components/article/citation-records';
 import { MotInsulation } from '@/components/interactive/mot-insulation';
+import { READOUT_CLEAR_MS, READOUT_SETTLE_MS } from '@/components/motion/settled-speech';
 import { needlePath } from '@/components/iso/figures/tray-columns';
 import {
   LANGUAGE_SCORE_MAX,
@@ -198,6 +199,61 @@ describe('MotInsulation', () => {
     expect(screen.getByTestId('step-readout')).toHaveTextContent(
       `${LAYER_COUNT} / ${LAYER_COUNT}`,
     );
+  });
+
+  it('says the depth in the slider value text, with a name that is its visible label', () => {
+    render(<MotInsulation />);
+    const slider = screen.getByRole('slider', { name: 'Pass depth' });
+    expect(slider).toHaveAttribute('aria-valuetext', `${LAYER_COUNT} of ${LAYER_COUNT} layers`);
+    fireEvent.change(slider, { target: { value: '0' } });
+    expect(slider).toHaveAttribute('aria-valuetext', `0 of ${LAYER_COUNT} layers`);
+    expect(screen.getByTestId('step-readout')).toHaveTextContent(`0 / ${LAYER_COUNT}`);
+  });
+
+  describe('speaking the stage readout', () => {
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    const announcer = () => document.querySelector('[data-anatomy-announcer]')!;
+    const stageReadout = () => document.querySelector('[data-figure-stage] [data-figure-readout]')!;
+    async function settle() {
+      await act(async () => {
+        await Promise.resolve();
+      });
+      act(() => {
+        vi.advanceTimersByTime(READOUT_SETTLE_MS + 60);
+      });
+    }
+
+    it('speaks the new pass sentence once it settles after a pass button or the protection toggle', async () => {
+      vi.useFakeTimers();
+      render(<MotInsulation />);
+      expect(announcer()).toHaveAttribute('role', 'status');
+      expect(announcer().textContent).toBe('');
+      fireEvent.click(passButton(/forward pass/i));
+      await settle();
+      expect(stageReadout().textContent).toBe(`forward · ${LAYER_COUNT} of ${LAYER_COUNT} trays · ${LAYER_COUNT} valves open`);
+      expect(announcer().textContent).toBe(stageReadout().textContent);
+      act(() => {
+        vi.advanceTimersByTime(READOUT_CLEAR_MS);
+      });
+      fireEvent.click(stopGradientToggle());
+      await settle();
+      expect(announcer().textContent).toBe(stageReadout().textContent);
+      expect(announcer().textContent).toMatch(/^backward/);
+    });
+
+    it('leaves a depth change to the slider value text, which says every number of the readout', async () => {
+      vi.useFakeTimers();
+      render(<MotInsulation />);
+      const slider = screen.getByRole('slider');
+      slider.focus();
+      fireEvent.change(slider, { target: { value: '0' } });
+      await settle();
+      expect(stageReadout().textContent).toBe(`backward · 0 of ${LAYER_COUNT} trays · valves shut`);
+      expect(announcer().textContent).toBe('');
+    });
   });
 });
 

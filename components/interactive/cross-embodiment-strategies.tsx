@@ -154,7 +154,11 @@ function EmbodimentRow({
         </defs>
         {slots.map((slot) => (
           <rect
-            key={slot.index}
+            // Keyed by strategy so a new way draws fresh slots. Chrome can keep
+            // the old computed fill of a slot whose fill attribute changed while
+            // its closed "Adjust more" fold left it unrendered, so a driven slot
+            // would read as empty and an unused one as filled.
+            key={`${strategy}-${slot.index}`}
             data-series={slot.state}
             x={slotX(slot.index)}
             y={2}

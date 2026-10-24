@@ -178,6 +178,21 @@ import {
   readInteractiveCapturesEvidence,
 } from '../lib/brand-v2-interactive-captures.ts';
 import {
+  INTERACTIVE_LEDGER_EVIDENCE_PATH,
+  INTERACTIVE_LEDGER_POPULATION_SOURCE,
+  INTERACTIVE_LEDGER_SWEEP_MODULE,
+  INTERACTIVE_LEDGER_VIEWPORT,
+  IDLE_MOTION_MODES,
+  IDLE_WINDOW_MS,
+  LEDGER_ENFORCED_ASSERTIONS,
+  interactiveLedgerEvidenceFingerprint,
+  interactiveLedgerPlan,
+  interactiveLedgerSourceJoins,
+  interactiveLedgerVerdicts,
+  readInteractiveLedgerEvidence,
+  type LedgerAssertion,
+} from '../lib/brand-v2-interactive-ledger.ts';
+import {
   ARTICLE_RUNTIME_EVIDENCE_PATH,
   ARTICLE_VIEWPORTS,
   articleEvidenceFingerprint,
@@ -448,6 +463,7 @@ function isMeasured(id: string): boolean {
     SEARCH_ASSERTIONS.has(id) ||
     MAP_ASSERTIONS.has(id) ||
     INTERACTIVE_CAPTURE_ASSERTIONS.has(id) ||
+    LEDGER_ASSERTION_IDS.has(id) ||
     OG_ASSERTIONS.has(id) ||
     GLOBAL_CONVERGENCE_ASSERTIONS.has(id)
   );
@@ -1521,6 +1537,49 @@ const INTERACTIVE_CAPTURE_READER_TARGET = testTarget(
   'Proves the plan is deterministic and accounts every source, typing the unmounted ones, and that the reader throws on a stale fingerprint, a dropped, an extra, a duplicated and a reordered mount or reading, a reading without both captures, an unowned finding, an unregistered exemption, a sheet that misses or repeats a capture or disagrees with its hashes, and a committed sheet with other bytes or a stray file beside the sheets.',
 );
 
+/**
+ * The keyboard transition ledger rows, decided by the persisted ledger sweep:
+ * one member per production mount, each operated by real key presses on a
+ * page of its own, every transition read back with its pointer twin, focus,
+ * announcements and keyboard return, the series re-read at every slider end
+ * and discrete option, and the mount watched idle under both motion
+ * preferences. Membership grants nothing: the reader refuses a stale,
+ * empty, omitted or reordered ledger, and a mount whose verdict recorded a
+ * failure under a row stops the corpus.
+ */
+const LEDGER_ASSERTION_IDS: ReadonlySet<string> = new Set(LEDGER_ENFORCED_ASSERTIONS);
+
+const LEDGER_PLAN = interactiveLedgerPlan(REGISTRY as unknown as Parameters<typeof interactiveLedgerPlan>[0]);
+
+const LEDGER_EVIDENCE = readInteractiveLedgerEvidence({
+  artifact: readJson(join(ROOT, INTERACTIVE_LEDGER_EVIDENCE_PATH)),
+  fingerprint: interactiveLedgerEvidenceFingerprint({ root: ROOT, plan: LEDGER_PLAN }),
+  plan: LEDGER_PLAN,
+});
+
+const LEDGER_VERDICTS = interactiveLedgerVerdicts(
+  LEDGER_EVIDENCE,
+  LEDGER_PLAN,
+  interactiveLedgerSourceJoins(ROOT, LEDGER_PLAN),
+);
+
+const LEDGER_SUITE = 'brand-v2 interactive keyboard transition ledger';
+const LEDGER_VERDICT_TARGET = testTarget(
+  INTERACTIVE_LEDGER_SWEEP_MODULE,
+  `${LEDGER_SUITE} › the readings are joined, decided per mount and written as the ledger evidence`,
+  'Joins the per-section sweeps, each of which loads every registered mount of its site section on its built route at 1440x900 under reduced motion, enumerates its controls from the registered focus case, drives every slider by End, Home and arrow keys and every other control by Tab, Enter, Space and arrow keys, records each transition’s before and after state digest, the control’s exposed state, every designated readout and how it was spoken, each live region’s announcement, where focus went, duplicate ids, the pointer doing the same from the same state, the series re-read in the new state and the keyboard return (through the control, or through the registered reset), then presses the reset by keyboard and watches a fresh load idle for 3 s under no-preference and reduced motion; reads the assembled artifact through the fail-closed reader and requires every mount’s verdict to hold before the artifact is written.',
+);
+const LEDGER_PLANT_TARGET = testTarget(
+  INTERACTIVE_LEDGER_SWEEP_MODULE,
+  `${LEDGER_SUITE} › each ledger clause fails on the mount it is planted on`,
+  'Re-measures one mount with aria-live stripped from its readout, another idle with a planted setInterval writing its readout, and one with its focus ring removed, and proves each fails its own clause on that mount alone; on the corpus just measured it plants a series violation, a skipped slider end, an unreached control, a non-slider key, a transition without exposed state, a failed return and reset, an idle mutation, unlabelled telemetry, a pointer that disagrees, focus that left, a duplicate id, a name without its label, a hover the focus does not reveal, a reordered tab walk, a doubled and an unspoken announcement, and a fresh load that renders another default, proving each fails its row on that mount alone; and it proves the reader refuses an empty population, an omitted transition, a dropped and a reordered mount and a stale fingerprint.',
+);
+const LEDGER_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-interactive-ledger.test.ts',
+  'interactive ledger evidence > refuses stale, empty, incomplete, reordered and omitted ledger evidence',
+  'Proves the plan is deterministic and covers every registered mount and case, and that the reader throws on a stale fingerprint, another viewport, an empty population, a dropped, an extra, a duplicated and a reordered mount, group or reading, a reading whose cases are not the registry’s, an omitted transition, control or case record, a transition of an unrecorded control, a missing reset or pairwise reading and a missing idle window.',
+);
+
 const FIGURE_EVIDENCE = readFigureRuntimeEvidence({
   artifact: readJson(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH)),
   fingerprint: figureEvidenceFingerprint({ root: ROOT }),
@@ -1693,6 +1752,7 @@ function populationSourceFor(id: string): string {
   if (mapSource) return mapSource;
   const captureSource = INTERACTIVE_CAPTURE_ASSERTION_POPULATION_SOURCES[id];
   if (captureSource) return captureSource;
+  if (LEDGER_ASSERTION_IDS.has(id)) return INTERACTIVE_LEDGER_POPULATION_SOURCE;
   const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
   if (articleSource) return articleSource;
   const apparatusSource = APPARATUS_ASSERTION_POPULATION_SOURCES[id];
@@ -1756,6 +1816,9 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // A control-state row's evidence is what a pointer, a held button and a
   // keyboard did to each rendered control, so it is a browser-state row.
   if (CONTROL_STATE_ASSERTION_IDS.has(id)) return 'browser-state';
+  // A ledger row's evidence is what real key presses did to each mount in a
+  // browser and what it did with no input at all.
+  if (LEDGER_ASSERTION_IDS.has(id)) return 'browser-state';
   // An identity row's evidence is what a built page rendered at two
   // viewports, so it is a browser-state row even where a supporting clause
   // also counts source occurrences.
@@ -2867,6 +2930,18 @@ function testTargetsFor(id: string): TestTarget[] {
       INTERACTIVE_CAPTURE_VERDICT_TARGET,
       INTERACTIVE_CAPTURE_PLANT_TARGET,
       INTERACTIVE_CAPTURE_READER_TARGET,
+    ];
+  }
+  if (LEDGER_ASSERTION_IDS.has(id)) {
+    return [
+      CENSUS_INTERACTIVE_TARGET,
+      INTERACTIVE_STATE_TARGET,
+      LEDGER_VERDICT_TARGET,
+      LEDGER_PLANT_TARGET,
+      LEDGER_READER_TARGET,
+      // The legend sweep's own series reading still decides the default and
+      // pressed states the ledger re-reads at every slider end.
+      ...(INTERACTIVE_DATA_TARGETS[id] ? [INTERACTIVE_DATA_TARGETS[id]] : []),
     ];
   }
   if (HOME_TOOLS_ASSERTIONS.has(id)) {
@@ -4698,6 +4773,36 @@ function resultFor(
       },
     };
   }
+  if (LEDGER_ASSERTION_IDS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = LEDGER_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the interactive ledger decided no member ${member}`);
+    }
+    const failures = verdict.failures[assertionId as LedgerAssertion];
+    if (failures.length > 0) {
+      throw new Error(`${assertionId}: ${member}: ${failures.join('; ')}`);
+    }
+    const { observed } = verdict;
+    const idle = IDLE_MOTION_MODES.map((motion) => `${observed.idleMutations[motion]} under ${motion}`).join(', ');
+    return {
+      ...common,
+      actual: `${member} on ${observed.route}: ${observed.controls} controls operated by keyboard through ${observed.transitions} transitions at ${INTERACTIVE_LEDGER_VIEWPORT.id}, each returned by keyboard${observed.reset === 'restored' ? ' and the registered reset restoring the exact default' : ''}, ${observed.announcements} live announcements read, series compared in ${observed.seriesStates} states (${observed.sliderStatesCompared} slider ends), and ${idle} changes over a ${IDLE_WINDOW_MS} ms idle window; no ${assertionId} failure`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          viewport: INTERACTIVE_LEDGER_VIEWPORT.id,
+          ...observed,
+          evidence: [INTERACTIVE_LEDGER_EVIDENCE_PATH],
+          tool: INTERACTIVE_LEDGER_SWEEP_MODULE,
+        },
+      },
+    };
+  }
   if (TOKEN_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -4879,6 +4984,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted market-map-states sweep of the built /market-map export at ${MARKET_MAP_VIEWPORT.id}, one member per registered case group with its exact non-zero expected and observed case counts: every case the registry derives (${MAP_PLAN.cases.length} in all, the pairwise rows from the pinned ${MAP_PLAN.generator.algorithm} generator with seed ${MAP_PLAN.generator.seed}) compared with the company-ID set, count, URL and segment counts an independent reading of the company registry derives, plus selection and dismissal, URL and history restore, tooltip parity, the empty witnesses, the filter-bar focus trace, the keyboard-only result-count live-region ledger and axe, over ${canonicalPopulationSource}`
               : INTERACTIVE_CAPTURE_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted interactive-captures sweep of the built export at ${INTERACTIVE_CAPTURE_VIEWPORTS.map(({ id: viewport }) => viewport).join('/')} with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the ${INTERACTIVE_CAPTURE_PLAN.sources.filter(({ notApplicableReason }) => notApplicableReason !== null).length} registered sources without a production mount carry a typed reason, over ${canonicalPopulationSource}`
+              : LEDGER_ASSERTION_IDS.has(id)
+              ? `${id} per-member evidence derived from the persisted keyboard transition ledger of the built export at ${INTERACTIVE_LEDGER_VIEWPORT.id}, one member per production mount (${LEDGER_PLAN.groups.length} site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a ${IDLE_WINDOW_MS} ms idle window under ${IDLE_MOTION_MODES.join(' and ')} motion, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${requiredSweepWidths().join('/')}px sweep of every public route in the built export, comparing each document's scroll width with its viewport and naming every element laid out past it that nothing scrolls or clips, over ${canonicalPopulationSource}`
               : GLOBAL_CONVERGENCE_ASSERTIONS.has(id)

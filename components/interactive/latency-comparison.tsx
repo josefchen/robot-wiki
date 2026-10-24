@@ -412,7 +412,7 @@ export function LatencyComparison({
               step={5}
               value={delayMs}
               onChange={(e) => chooseDelay(Number(e.target.value))}
-              aria-label={`Injected inference delay, currently ${formatMs(delayMs)}`}
+              aria-label={`Thinking delay, any value: injected inference delay, currently ${formatMs(delayMs)}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="no delay" high={`+${MAX_DELAY_MS / 1000} second`} />

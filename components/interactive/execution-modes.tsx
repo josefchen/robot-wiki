@@ -396,7 +396,7 @@ export function ExecutionModes({ className }: { className?: string }) {
               step={10}
               value={delayMs}
               onChange={(e) => chooseDelay(Number(e.target.value))}
-              aria-label={`Inference delay in milliseconds, currently ${delayMs}`}
+              aria-label={`Inference delay, any value: inference delay in milliseconds, currently ${delayMs}`}
               aria-valuetext={`${delayMs} milliseconds`}
               className={INSTRUMENT_SLIDER_CLASS}
             />

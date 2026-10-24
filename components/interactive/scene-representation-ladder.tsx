@@ -422,6 +422,11 @@ function SamplePanel({ spacingCm, mode }: { spacingCm: number; mode: 'points' | 
   );
 }
 
+/**
+ * Measured splats are filled; splats the renderer invented, or placed where
+ * it was unsure, are hollow dashed rims, so the two read apart with the
+ * colour removed (as the point cloud's dots and rings do).
+ */
 function SplatPanel({ spacingCm }: { spacingCm: number }) {
   const samples = surfaceSamples(spacingCm);
   const invented = hallucinatedSplats(spacingCm);
@@ -436,8 +441,7 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
           cy={f(point.y)}
           rx={f(spacingCm * 0.9)}
           ry={f(spacingCm * 0.55)}
-          fill={STATE}
-          fillOpacity={0.16}
+          fill="none"
           stroke={STATE}
           strokeWidth={0.9}
           strokeDasharray={UNMEASURED_DASH}
@@ -453,8 +457,8 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
             cy={f(sample.y)}
             rx={f(spacingCm * 0.8)}
             ry={f(spacingCm * 0.45)}
-            fill={STATE}
-            fillOpacity={uncertain ? 0.14 : 0.38}
+            fill={uncertain ? 'none' : STATE}
+            fillOpacity={uncertain ? undefined : 0.38}
             stroke={uncertain ? STATE : 'none'}
             strokeWidth={0.8}
             strokeDasharray={uncertain ? UNMEASURED_DASH : undefined}

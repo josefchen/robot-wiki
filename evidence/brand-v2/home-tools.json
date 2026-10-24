@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "482e19a6134570c5495af7716fb9cc490def9ebad61d3841fda4e5f46ebf9db8",
+  "fingerprint": "f3694db72bd2af5cd36c451c67855e5a508e87683f3dc48c756ed81d8900f471",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -93,8 +93,8 @@
     "graphicTag": "canvas",
     "graphicHeightPx": 541,
     "playerMountedAtFirstPaint": true,
-    "idleFrameRequests": 38,
-    "playingFrameRequests": 22,
+    "idleFrameRequests": 49,
+    "playingFrameRequests": 27,
     "startControl": null,
     "focusOutlineWidthPx": null,
     "focusOutlineStyle": null,

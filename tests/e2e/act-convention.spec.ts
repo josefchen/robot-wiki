@@ -90,7 +90,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await latencyFrame.getByTestId('delay-preset-none').click();
     await expect(latencyFrame.getByTestId('te-throughput-readout')).toHaveText('100%');
     await openAdjustMore(latencyFrame);
-    const delays = page.getByRole('slider', { name: /Injected inference delay/ });
+    const delays = page.getByRole('slider', { name: /Thinking delay, any value: injected inference delay/ });
     await expect(delays).toHaveCount(1);
     await expect(delays.first()).toHaveValue('0');
     await delays.first().focus();

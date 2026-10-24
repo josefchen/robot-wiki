@@ -46,6 +46,14 @@ describe('LatencyComparison', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
 
+  it('names the delay slider starting with its visible label', () => {
+    render(<LatencyComparison />);
+    const label = (slider() as HTMLInputElement).labels![0].cloneNode(true) as HTMLElement;
+    label.querySelector('[data-figure-control-value]')?.remove();
+    expect(label.textContent).toBe('Thinking delay, any value');
+    expect(slider().getAttribute('aria-label')).toMatch(/^Thinking delay, any value: injected inference delay, currently \S/);
+  });
+
   it('covers an injected delay range from 0 to at least 200 ms', () => {
     render(<LatencyComparison />);
     expect(slider()).toHaveAttribute('min', '0');

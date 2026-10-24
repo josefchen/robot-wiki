@@ -506,7 +506,7 @@ export function FlowMatchingTrajectory({
               step={1}
               value={steps}
               onChange={(e) => chooseSteps(Number(e.target.value))}
-              aria-label={`Integration steps, currently ${steps} of ${MAX_STEPS}`}
+              aria-label={`Refining steps, any number: integration steps, currently ${steps} of ${MAX_STEPS}`}
               className={INSTRUMENT_SLIDER_CLASS}
             />
             <SliderEnds low="one jump" high={`${MAX_STEPS} steps`} />

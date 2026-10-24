@@ -155,7 +155,7 @@ describe('PerceptionErrorBudget', () => {
     expect(slider(/hand-eye rotation error/i)).toBeInTheDocument();
     expect(slider(/working distance/i)).toBeInTheDocument();
     expect(slider(/depth error/i)).toBeInTheDocument();
-    expect(slider(/object-pose translation error/i)).toBeInTheDocument();
+    expect(slider(/^object pose \(mm\): the translation error in millimetres/i)).toBeInTheDocument();
     for (const id of ['opaque', 'specular', 'transparent']) {
       expect(screen.getByTestId(`perception-target-${id}`)).toBeInTheDocument();
     }
@@ -241,7 +241,7 @@ describe('PerceptionErrorBudget', () => {
       [/hand-eye rotation error/i, SLIDER_SPECS.handEye],
       [/working distance/i, SLIDER_SPECS.distance],
       [/depth error/i, SLIDER_SPECS.depth],
-      [/object-pose translation error/i, SLIDER_SPECS.pose],
+      [/^object pose \(mm\): the translation error in millimetres/i, SLIDER_SPECS.pose],
     ];
     for (const [name, spec] of pairs) {
       const el = slider(name);
@@ -259,14 +259,14 @@ describe('PerceptionErrorBudget', () => {
       handEye: (slider(/hand-eye rotation error/i) as HTMLInputElement).value,
       distance: (slider(/working distance/i) as HTMLInputElement).value,
       depth: (slider(/depth error/i) as HTMLInputElement).value,
-      pose: (slider(/object-pose translation error/i) as HTMLInputElement).value,
+      pose: (slider(/^object pose \(mm\): the translation error in millimetres/i) as HTMLInputElement).value,
     };
     fireEvent.change(slider(/hand-eye rotation error/i), {
       target: { value: '2.5' },
     });
     fireEvent.change(slider(/working distance/i), { target: { value: '1.5' } });
     fireEvent.change(slider(/depth error/i), { target: { value: '12' } });
-    fireEvent.change(slider(/object-pose translation error/i), {
+    fireEvent.change(slider(/^object pose \(mm\): the translation error in millimetres/i), {
       target: { value: '15' },
     });
     await user.click(screen.getByTestId('perception-target-transparent'));
@@ -283,7 +283,7 @@ describe('PerceptionErrorBudget', () => {
       opening.depth,
     );
     expect(
-      (slider(/object-pose translation error/i) as HTMLInputElement).value,
+      (slider(/^object pose \(mm\): the translation error in millimetres/i) as HTMLInputElement).value,
     ).toBe(opening.pose);
     expect(screen.getByTestId('perception-target-opaque')).toBeChecked();
   });

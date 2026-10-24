@@ -49,6 +49,14 @@ describe('FlowMatchingTrajectory', () => {
     expect(dispersionReadout()).toBeInTheDocument();
   });
 
+  it('names the steps slider starting with its visible label', () => {
+    render(<FlowMatchingTrajectory />);
+    const label = (slider() as HTMLInputElement).labels![0].cloneNode(true) as HTMLElement;
+    label.querySelector('[data-figure-control-value]')?.remove();
+    expect(label.textContent).toBe('Refining steps, any number');
+    expect(slider().getAttribute('aria-label')).toMatch(/^Refining steps, any number: integration steps, currently \d+ of \d+$/);
+  });
+
   it('spans 1 to 50 integration steps', () => {
     render(<FlowMatchingTrajectory />);
     expect(slider()).toHaveAttribute('min', String(MIN_STEPS));

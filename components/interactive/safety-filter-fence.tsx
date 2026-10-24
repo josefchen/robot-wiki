@@ -45,7 +45,8 @@ export const STILL_PERCENT = Math.round(DEEPEST_T * 100);
 export function readoutFor(t: number) {
   const phase = phaseAt(t);
   if (phase === 'inside') return 'Aim inside · pen held at the fence';
-  if (phase === 'done') return 'Done · changed only at the fence';
+  // The run ends with the slider at its end, so the readout says where.
+  if (phase === 'done') return `Done at ${Math.round(t * 100)}% · changed only at the fence`;
   return phase === 'before' ? 'Aim outside · pen follows exactly' : 'Aim outside again · pen follows exactly';
 }
 

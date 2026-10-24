@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4351c4ca7ee2ab4ca3386b176caace2ac39ae724437faae9e8023bde2589d27f",
+  "fingerprint": "64430b412961a6292f1cbf3e7ad9281b52caf6c9d383d5a2de508e359907a5ef",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -4493,7 +4493,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 697,
+      "visibleTextLength": 706,
       "route": "/how-robots-work/",
       "viewport": "1440x900"
     },
@@ -5673,7 +5673,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27931,
+      "visibleTextLength": 27939,
       "route": "/manipulation/hierarchical/",
       "viewport": "1440x900"
     },
@@ -6381,7 +6381,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29391,
+      "visibleTextLength": 29380,
       "route": "/manipulation/vla-models/",
       "viewport": "1440x900"
     },
@@ -7089,7 +7089,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26243,
+      "visibleTextLength": 26238,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "1440x900"
     },
@@ -7207,7 +7207,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23631,
+      "visibleTextLength": 23622,
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "1440x900"
     },
@@ -14569,7 +14569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22151,
+      "visibleTextLength": 22159,
       "route": "/manipulation/hierarchical/",
       "viewport": "375x812"
     },
@@ -15277,7 +15277,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21987,
+      "visibleTextLength": 21976,
       "route": "/manipulation/vla-models/",
       "viewport": "375x812"
     },
@@ -15985,7 +15985,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20411,
+      "visibleTextLength": 20406,
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
     },
@@ -16103,7 +16103,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18280,
+      "visibleTextLength": 18271,
       "route": "/rl-sim2real/offline-rl/",
       "viewport": "375x812"
     },

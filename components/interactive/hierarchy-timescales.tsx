@@ -223,7 +223,7 @@ export function HierarchyTimescales({
               max={HORIZON_MS}
               step={20}
               value={playhead}
-              aria-label={`Playhead position in milliseconds, currently ${playhead}`}
+              aria-label={`Point in the 2 seconds: playhead position in milliseconds, currently ${playhead}`}
               aria-valuetext={`${playhead} milliseconds`}
               onChange={(e) => {
                 stop();

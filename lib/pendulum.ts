@@ -290,8 +290,12 @@ export function playbackCadence(reducedMotion: boolean): PlaybackCadence {
     : { tickMs: 33, simSecondsPerTick: 0.033 };
 }
 
-/** Angle readout formatting: signed degrees, one decimal. */
+/**
+ * Angle readout formatting: signed degrees, one decimal. The sign follows
+ * the printed value, so a value that rounds to zero prints "+0.0" from
+ * either side.
+ */
 export function formatDeg(radians: number): string {
-  const deg = (radians * 180) / Math.PI;
-  return `${deg >= 0 ? '+' : ''}${deg.toFixed(1)}`;
+  const fixed = ((radians * 180) / Math.PI).toFixed(1);
+  return Number(fixed) === 0 ? '+0.0' : `${Number(fixed) > 0 ? '+' : ''}${fixed}`;
 }

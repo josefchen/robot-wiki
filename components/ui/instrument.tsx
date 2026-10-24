@@ -177,6 +177,8 @@ export function InstrumentHeader({
  * and the current value in the mono face at its right. The caller keeps
  * its own input (id, range, ARIA); `value` is a node so test ids and live
  * regions stay with the caller. The row wraps on a phone, the label first.
+ * The track's box is as wide as the slider's own minimum, so a long value
+ * wraps below the track instead of being drawn under the thumb.
  */
 export function SliderRow({
   htmlFor,
@@ -201,7 +203,7 @@ export function SliderRow({
       <label htmlFor={htmlFor} className="basis-full font-sans text-[13px] leading-snug text-text-dim sm:basis-auto sm:max-w-48 sm:shrink-0">
         {label}
       </label>
-      <div className="min-w-24 max-w-[340px] flex-1">{children}</div>
+      <div className="min-w-40 max-w-[340px] flex-1">{children}</div>
       <span data-figure-control-value="" className="shrink-0 whitespace-nowrap font-mono text-[13px] tabular-nums text-text">
         {value}
       </span>

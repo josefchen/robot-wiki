@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { ChartDescription } from '@/components/ui';
 import {
   ControlField,
@@ -308,26 +308,32 @@ export function RrtExplorer({ className }: { className?: string }) {
             Step forward
           </button>
           <InstrumentReset onClick={reset} />
-          {/* Quiet while the tree grows, which rewrites it every tick; the stage speaks where it stops. */}
+          {/*
+            Quiet while the tree grows, which rewrites it every tick. Where it stops, the readout is written
+            afresh into the now polite region, so the counts it stopped on are said; turning a region polite
+            does not say what it already holds.
+          */}
           <InstrumentReadout aria-live={playing ? 'off' : 'polite'} className="flex basis-full flex-wrap gap-x-3">
-            <span>
-              iteration{' '}
-              <span ref={cadenceSignalRef} data-testid="rrt-iteration-readout">
-                <StageNumber>
-                  {iteration} / {total}
-                </StageNumber>
+            <Fragment key={playing ? 'running' : 'stopped'}>
+              <span>
+                iteration{' '}
+                <span ref={cadenceSignalRef} data-testid="rrt-iteration-readout">
+                  <StageNumber>
+                    {iteration} / {total}
+                  </StageNumber>
+                </span>
               </span>
-            </span>
-            <span>
-              nodes <StageNumber data-testid="rrt-node-readout">{nodes.length}</StageNumber>
-            </span>
-            <span data-testid="rrt-status-readout">{status}</span>
-            <span>
-              path length{' '}
-              <span data-testid="rrt-path-readout" style={goalReached ? { color: highlight } : undefined}>
-                {pathLengthText}
+              <span>
+                nodes <StageNumber data-testid="rrt-node-readout">{nodes.length}</StageNumber>
               </span>
-            </span>
+              <span data-testid="rrt-status-readout">{status}</span>
+              <span>
+                path length{' '}
+                <span data-testid="rrt-path-readout" style={goalReached ? { color: highlight } : undefined}>
+                  {pathLengthText}
+                </span>
+              </span>
+            </Fragment>
           </InstrumentReadout>
         </>
       }
