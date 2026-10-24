@@ -57,6 +57,9 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  *
  * Per route: zero axe violations at 1440 when settled, zero console errors
  * over the whole visit, and `scrollWidth === innerWidth` at 375.
+ *
+ * The run's evidence goes to test-results/edu-030/geometry.json, or to the
+ * tracked evidence/edu-030/geometry.json under EDU030_WRITE_EVIDENCE=1.
  */
 
 // GPU rasterisation under SwiftShader draws a large isometric stage at a
@@ -72,7 +75,16 @@ test.use({
 });
 
 const OUT = join(process.cwd(), 'out');
-const EVIDENCE = join(process.cwd(), 'evidence', 'edu-030', 'geometry.json');
+/**
+ * The tracked evidence is rewritten only when EDU030_WRITE_EVIDENCE=1 asks
+ * for it, so a validation run leaves the tree clean; any other run writes the
+ * same file under test-results/, which is not tracked. The assertions do not
+ * depend on where it goes.
+ */
+const EVIDENCE =
+  process.env.EDU030_WRITE_EVIDENCE === '1'
+    ? join(process.cwd(), 'evidence', 'edu-030', 'geometry.json')
+    : join(process.cwd(), 'test-results', 'edu-030', 'geometry.json');
 const REGISTRIES = join(process.cwd(), 'contract', 'brand-v2-registries.json');
 
 const GEOMETRY_VIEWPORT = { width: 1440, height: 900 };

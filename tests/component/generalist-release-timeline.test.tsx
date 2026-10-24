@@ -2,10 +2,33 @@ import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { GeneralistReleaseTimeline } from '@/components/interactive/generalist-release-timeline';
-import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
+import { GENERALIST_RELEASES, filterReleases } from '@/lib/generalist-policies';
 import { renderWithCitations } from '../helpers/widget-citations';
 
 const render = renderWithCitations('GeneralistReleaseTimeline');
+
+/**
+ * What the figure's live regions hand a screen reader, in order: each new
+ * non-empty text of a polite or status region outside a closed fold, the way
+ * the interactive ledger's recorder hears it.
+ */
+function listen(container: HTMLElement) {
+  const live = '[aria-live]:not([aria-live="off"]), [role="status"], [role="alert"]';
+  const text = (region: Element) => (region.textContent ?? '').replace(/\s+/g, ' ').trim();
+  const last = new Map<Element, string>();
+  for (const region of container.querySelectorAll(live)) last.set(region, text(region));
+  const spoken: string[] = [];
+  const observer = new MutationObserver(() => {
+    for (const region of container.querySelectorAll(live)) {
+      if (region.closest('details:not([open])')) continue;
+      const now = text(region);
+      if (now && now !== last.get(region)) spoken.push(now);
+      last.set(region, now);
+    }
+  });
+  observer.observe(container, { subtree: true, childList: true, characterData: true, attributes: true });
+  return { spoken, stop: () => observer.disconnect() };
+}
 
 describe('GeneralistReleaseTimeline', () => {
   it('renders a selectable node for every release', () => {
@@ -80,6 +103,78 @@ describe('GeneralistReleaseTimeline', () => {
     await user.click(toggle);
     expect(container.querySelectorAll('[data-release]')).toHaveLength(GENERALIST_RELEASES.length);
     expect(container.querySelectorAll('[data-faint]')).toHaveLength(0);
+  });
+
+  it('says each filter result once in a polite status beside the toggle, by keyboard and pointer, and nothing on load', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<GeneralistReleaseTimeline />);
+    const total = GENERALIST_RELEASES.length;
+    const status = screen.getByTestId('generalist-filter-status');
+    // A polite status outside every fold, so it speaks while Adjust more is
+    // closed, and hidden from sight, so it adds nothing to the figure.
+    expect(status).toHaveAttribute('role', 'status');
+    expect(status).toHaveClass('sr-only');
+    expect(status.closest('details')).toBeNull();
+    expect(status.closest('[data-figure-controls]')).toContainElement(screen.getByTestId('generalist-downloadable-only'));
+    // Nothing is said on load.
+    expect(status).toBeEmptyDOMElement();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    expect(status).toBeEmptyDOMElement();
+
+    const heard = listen(container);
+    const card = screen.getByTestId('release-detail').textContent;
+    const toggle = screen.getByTestId('generalist-downloadable-only');
+    const downloadable = `${filterReleases('open').length} of ${total} shown: downloadable only`;
+
+    // Keyboard: Space and Enter on the toggle.
+    toggle.focus();
+    await user.keyboard(' ');
+    expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    expect(status).toHaveTextContent(new RegExp(`^${downloadable}$`));
+    await user.keyboard('{Enter}');
+    expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    expect(status).toHaveTextContent(new RegExp(`^All ${total} shown$`));
+
+    // Pointer: the toggle, then the full filter in Adjust more.
+    await user.click(toggle);
+    expect(status).toHaveTextContent(new RegExp(`^${downloadable}$`));
+    await user.click(screen.getByRole('button', { name: /^not downloadable$/i }));
+    const closed = `${filterReleases('closed').length} of ${total} shown: not downloadable only`;
+    expect(status).toHaveTextContent(new RegExp(`^${closed}$`));
+    await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
+    const undisclosed = `${filterReleases('undisclosed').length} of ${total} shown: not disclosed only`;
+    expect(status).toHaveTextContent(new RegExp(`^${undisclosed}$`));
+    // Pressing the filter already chosen changes nothing and says nothing.
+    await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
+    await user.click(screen.getByRole('button', { name: /^all$/i }));
+    expect(status).toHaveTextContent(new RegExp(`^All ${total} shown$`));
+    await user.click(screen.getByRole('button', { name: /^all$/i }));
+
+    // One announcement per change, all from the status: the card stays as it
+    // was, so the polite card never repeats the filter's result.
+    expect(screen.getByTestId('release-detail').textContent).toBe(card);
+    expect(heard.spoken).toEqual([
+      downloadable,
+      `All ${total} shown`,
+      downloadable,
+      closed,
+      undisclosed,
+      `All ${total} shown`,
+    ]);
+    heard.stop();
+  });
+
+  it('the reset says the filter it returns to, and only when the filter moved', async () => {
+    const user = userEvent.setup();
+    render(<GeneralistReleaseTimeline />);
+    const status = screen.getByTestId('generalist-filter-status');
+    await user.click(screen.getByRole('button', { name: /^Skild Brain$/i }));
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(status).toBeEmptyDOMElement();
+    await user.click(screen.getByTestId('generalist-downloadable-only'));
+    await user.click(screen.getByRole('button', { name: /reset/i }));
+    expect(status).toHaveTextContent(`All ${GENERALIST_RELEASES.length} shown`);
+    expect(screen.getByTestId('generalist-downloadable-only')).toHaveAttribute('aria-pressed', 'false');
   });
 
   it('tapping a row opens its card', () => {

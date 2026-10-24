@@ -1,7 +1,7 @@
 {
  "version": 1,
  "generatedBy": "tests/e2e/brand-v2-control-states.spec.ts",
- "fingerprint": "6496b6a9dee88e18cc99db4ad14c34bb3bd28e73059d8467947f7c51fa28de49",
+ "fingerprint": "ed7670fe190652535ca94fb8dfbc5bc9ca718bf952bc40db1cfe20812cddddd8",
  "viewports": [
   "375x812",
   "1440x900"
@@ -5372,10 +5372,8 @@
    "pointer": "reachable",
    "coveredBy": null,
    "hover": {
-    "changed": [
-     "button[0].background-color: rgb(250, 250, 248) -> rgb(240, 243, 246)"
-    ],
-    "changedCount": 1
+    "changed": [],
+    "changedCount": 0
    },
    "pressed": {
     "changed": [
@@ -157799,8 +157797,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/manipulation/generalist-policies/",
@@ -161509,8 +161507,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/manipulation/generalist-policies/",

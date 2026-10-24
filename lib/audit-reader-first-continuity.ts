@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 3047420, sha256: '51bcdb3deb7bbd670a702e852f5eb93e7c9418e8eea8a456385e042fce68c888' };
+const reviewPin = { bytes: 3048653, sha256: '18808541255b94a194a71443fe2abc9c9bd54fad3b6e534288bc660884589b55' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -64,7 +64,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/interactive/expo-ft-results.tsx', [12280, '0f8d8d463b18931c50a1e68d3edaef47240077ed52b2e18c0458565a952d435d']],
   ['components/interactive/flow-matching-trajectory.tsx', [25252, '6eea903a0418c9d60b5655a1c8424b25d1ab8be6b1ab2a3e7552271552f9a5b8']],
   ['components/interactive/friction-transfer.tsx', [26151, 'de29a6183d039568a6bbf7995146519a75e6451cd1747ca43e58799fe7cc985b']],
-  ['components/interactive/generalist-release-timeline.tsx', [20486, 'd382a83beaa56c0d4cf92fa8fb7da30fab0c8c1a96ce0cdfcc1ad508e1eafd08']],
+  ['components/interactive/generalist-release-timeline.tsx', [21681, '4f115353f504e773080b369023f7fcd9cb03edfbca7186107baffbfa6773db94']],
   ['components/interactive/grasp-wrench-lab.tsx', [29871, '202b69b57d052f2fc121b72db66e1c85efa3ee00d8b8dc2a3c4b96a148b201b8']],
   ['components/interactive/hand-comparison.tsx', [15609, '76aa514f6eeb3173b5911b50569dd61eb864ab94e68c1bc46d2af1da24008cab']],
   ['components/interactive/hardware-guide.tsx', [10768, 'bc4eda265436867cf18fd275663e2dbe27b3e18b856c1e908bffa1940ae82642']],

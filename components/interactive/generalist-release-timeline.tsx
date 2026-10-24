@@ -50,7 +50,8 @@ import { cx } from '@/lib/utils';
  *
  * Interactive contract: deterministic render, keyboard-accessible selection
  * with arrow keys between the release buttons, a polite live card, filter
- * and reset controls, no auto-playing motion.
+ * and reset controls with a polite status that names each filter's result,
+ * no auto-playing motion.
  */
 type GeneralistReleaseTimelineProps = {
   /** Initially selected release id. Default 'helix' (first chronologically). */
@@ -104,6 +105,17 @@ const AVAILABILITY: Record<ReturnType<typeof releaseWeightState>, string> = {
   closed: 'Downloadable: no, not offered',
   undisclosed: 'Downloadable: not stated',
 };
+
+/**
+ * What the filter status says after a filter change: the count the release
+ * track prints, and the filter by its button label.
+ */
+function filterStatus(filter: OpenFilter): string {
+  const total = GENERALIST_RELEASES.length;
+  if (filter === 'all') return `All ${total} shown`;
+  const label = FILTERS.find(({ id }) => id === filter)?.label ?? '';
+  return `${filterReleases(filter).length} of ${total} shown: ${label.toLowerCase()} only`;
+}
 
 const NOTE_LINES = ['Filled: you can download it.', 'Hollow: not offered, or not stated'] as const;
 
@@ -175,6 +187,8 @@ export function GeneralistReleaseTimeline({
   const [filter, setFilter] = useState<OpenFilter>('all');
   const [showSourceType, setShowSourceType] = useState(false);
   const [selectedId, setSelectedId] = useState(defaultSelected);
+  // Empty until the reader changes the filter, so a page load says nothing.
+  const [filterNote, setFilterNote] = useState('');
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
   // The filter's releases: drawn in full and listed in the release track.
@@ -206,8 +220,16 @@ export function GeneralistReleaseTimeline({
     buttonRefs.current[clamped]?.focus();
   }
 
+  // A filter fades rows and keeps the selected card, so the polite card says
+  // nothing; the status is the only thing a screen reader hears from it.
+  function chooseFilter(next: OpenFilter) {
+    if (next === filter) return;
+    setFilter(next);
+    setFilterNote(filterStatus(next));
+  }
+
   function reset() {
-    setFilter('all');
+    chooseFilter('all');
     setShowSourceType(false);
     setSelectedId(defaultSelected);
   }
@@ -219,16 +241,26 @@ export function GeneralistReleaseTimeline({
       kicker="Generalist policies"
       heading="Thirteen robot brains since 2025; four you can download"
       controls={
-        <button
-          data-brand-control-id="control:selection"
-          data-testid="generalist-downloadable-only"
-          type="button"
-          aria-pressed={downloadableOnly}
-          onClick={() => setFilter(downloadableOnly ? 'all' : 'open')}
-          className={INSTRUMENT_TOGGLE_CLASS}
-        >
-          Downloadable only
-        </button>
+        <>
+          <button
+            data-brand-control-id="control:selection"
+            data-testid="generalist-downloadable-only"
+            type="button"
+            aria-pressed={downloadableOnly}
+            onClick={() => chooseFilter(downloadableOnly ? 'all' : 'open')}
+            className={INSTRUMENT_TOGGLE_CLASS}
+          >
+            Downloadable only
+          </button>
+          <span
+            role="status"
+            data-testid="generalist-filter-status"
+            data-pagefind-ignore
+            className="sr-only"
+          >
+            {filterNote}
+          </span>
+        </>
       }
       adjust={
         <>
@@ -243,7 +275,7 @@ export function GeneralistReleaseTimeline({
                 key={id}
                 type="button"
                 aria-pressed={filter === id}
-                onClick={() => setFilter(id)}
+                onClick={() => chooseFilter(id)}
                 className={INSTRUMENT_TOGGLE_CLASS}
               >
                 {label}

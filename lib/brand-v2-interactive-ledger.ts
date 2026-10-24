@@ -105,6 +105,32 @@ export const LEDGER_ENFORCED_ASSERTIONS = [
   'VAL-B2-VIZ-016',
 ] as const;
 
+export type SpokenTransition = {
+  mountId: string;
+  /** The controls, by accessible name, whose result must be spoken. */
+  controls: readonly string[];
+  /** What one of the transition's announcements must say. */
+  says: RegExp;
+  /** Why nothing else would speak for it. */
+  because: string;
+};
+
+/**
+ * Transitions whose result only the drawing shows unless a live region says
+ * it. A designated readout that changes unspoken already fails; these
+ * controls move no readout, so the ledger requires each recorded transition
+ * that moved the control's own state to carry an announcement saying its
+ * result, and at least one such transition to be recorded at all.
+ */
+export const SPOKEN_TRANSITIONS: readonly SpokenTransition[] = [
+  {
+    mountId: 'mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1',
+    controls: ['Downloadable only', 'All', 'Downloadable', 'Not downloadable', 'Not disclosed'],
+    says: /^(?:All \d+ shown|\d+ of \d+ shown: [a-z ]+ only)$/,
+    because: 'a filter fades the other rows in place and keeps the selected card, so the polite card does not change',
+  },
+];
+
 /* ------------------------------------------------------------------ */
 /* Plan                                                                */
 /* ------------------------------------------------------------------ */
@@ -845,6 +871,25 @@ export function interactiveLedgerVerdicts(
         const message = `${label}: readout ${readout.key} changed ("${readout.before.slice(0, 40)}" to "${readout.after.slice(0, 40)}") without being spoken`;
         fail('VAL-B2-VIZ-016', message);
         fail('VAL-EDU-038', message);
+      }
+    }
+    for (const required of SPOKEN_TRANSITIONS.filter(({ mountId }) => mountId === observation.mountId)) {
+      const moved = observation.transitions.filter(
+        (transition) =>
+          required.controls.includes(controlAt.get(transition.control)?.name ?? '') &&
+          transition.before.control !== transition.after.control,
+      );
+      const fails = (message: string) => {
+        fail('VAL-B2-VIZ-016', message);
+        fail('VAL-EDU-038', message);
+      };
+      if (moved.length === 0) {
+        fails(`no transition of ${required.controls.join(', ')} that moved its state was recorded, so its result was never heard`);
+      }
+      for (const transition of moved) {
+        if (transition.announcements.some(({ text }) => required.says.test(text))) continue;
+        const said = transition.announcements.map(({ text }) => `"${text.slice(0, 60)}"`).join(', ') || 'nothing';
+        fails(`${named(transition.control)} ${transition.keys.join('+')}: its result is not spoken (${required.because}); live regions said ${said}`);
       }
     }
     for (const control of observation.controls) {
