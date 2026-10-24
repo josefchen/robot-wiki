@@ -5372,8 +5372,10 @@
    "pointer": "reachable",
    "coveredBy": null,
    "hover": {
-    "changed": [],
-    "changedCount": 0
+    "changed": [
+     "button[0].background-color: rgb(250, 250, 248) -> rgb(240, 243, 246)"
+    ],
+    "changedCount": 1
    },
    "pressed": {
     "changed": [
@@ -155515,8 +155517,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/adjacent/drones/",
