@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { citeParts } from './helpers/citation-note';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`ACT reference convention renders consistently at ${viewport.width}`, async ({ page }, testInfo) => {
@@ -55,7 +56,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await figure.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-figure.png`) });
     const paragraph = page.locator('p').filter({ hasText: 'The pinned ACT reference implementation uses' });
     await expect(paragraph).toContainText('so the oldest prediction weighs most');
-    expect(await paragraph.locator('.katex').count()).toBe(4);
+    // Three equations since the 12 Oct shorter-text cut (fa85511f) dropped
+    // the clause on larger m: the weight rule, the oldest index and the
+    // reference m, in reading order.
+    const equations = paragraph.locator('.katex annotation[encoding="application/x-tex"]');
+    await expect(equations).toHaveText(['w_i = \\exp(-m \\cdot i)', 'i = 0', 'm = 0.01']);
+    expect(await paragraph.locator('.katex').count()).toBe(3);
     await paragraph.scrollIntoViewIfNeeded();
     await page.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-convention.png`) });
     const term = page.locator('[data-term-id="temporal-ensembling"]');
@@ -66,10 +72,17 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     expect(tip!.x).toBeGreaterThanOrEqual(0);
     expect(tip!.x + tip!.width).toBeLessThanOrEqual(viewport.width);
     await page.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-glossary.png`) });
-    const cite = page.locator('[data-cite-id="act-reference-2023"] a').first();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the citation is a numbered mark whose first link points at
+    // its References entry; the pinned commit URL moved to the sidenote's
+    // source link (helpers/citation-note.ts).
+    const actCite = page.locator('[data-cite-id="act-reference-2023"]').first();
+    const { mark: cite, source: citeSource } = citeParts(actCite);
     await cite.focus();
-    await expect(cite).toHaveAttribute('href', 'https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py');
+    await expect(cite).toHaveAttribute('href', '#ref-act-reference-2023');
+    await expect(citeSource).toHaveAttribute('href', 'https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py');
     await expect(page.locator('#ref-act-reference-2023')).toContainText('imitate_episodes.py');
+    await expect(page.locator('#ref-act-reference-2023 a[href="https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py"]')).not.toHaveCount(0);
     await page.locator('#ref-act-reference-2023').scrollIntoViewIfNeeded();
     await page.screenshot({ caret: 'initial', path: join(dir, `act-${viewport.width}-reference.png`) });
     const example = page.locator('p').filter({ hasText: 'For oldest-to-newest predictions' });
@@ -129,8 +142,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         sourceCount: document.querySelectorAll('[id^="ref-"]').length };
     });
     expect(metrics.scrollWidth).toBeLessThanOrEqual(viewport.width);
-    expect(metrics.proseFamily).toContain('Newsreader');
-    expect(metrics.h1Family.toLowerCase()).toContain('tektur');
+    // Research-page standard (owner decision, 10 October 2026): Geist body,
+    // DM Sans display, in place of Newsreader and Tektur.
+    expect(metrics.proseFamily).toMatch(/^"?Geist"?,/);
+    expect(metrics.h1Family).toMatch(/^"?DM Sans"?,/);
     expect(metrics.katexErrors).toBe(0);
     // The bibliography lists every source the article declares or cites, once each.
     const manuscript = readFileSync(new URL('../../content/manipulation/action-chunking.mdx', import.meta.url), 'utf8');

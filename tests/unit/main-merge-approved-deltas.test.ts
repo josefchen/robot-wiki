@@ -10,6 +10,7 @@ import { articleTruthMemberId, articleTruthPopulation } from '../../lib/brand-v2
 import {
   keepsAnswerOptionsObligations, loadAnswerOptionsReview, verifyAnswerOptionsSource,
 } from '../../lib/audit-answer-options-continuity';
+import { behavioralDefaultMembers, joinSourceDefaults } from '../../lib/brand-v2-interactive-ledger';
 import { committedSource } from '../helpers/continuation-integration';
 import { collectBundle } from '../../scripts/brand-v2-baseline';
 
@@ -1180,6 +1181,13 @@ const undoBudgetMountEvidence = (source: string) => BUDGET_MOUNT_EVIDENCE_EDITS.
   expect(text.split(shipped)).toHaveLength(2);
   return text.replace(shipped, () => before);
 }, source);
+// The sealed-defaults trace of 2026-10-24 (VAL-EDU-015) lands after the mount
+// evidence and appends its block last: one edge per behavioural-default
+// member of a sealed interactive source that the reader-first rewrites of
+// 2 to 9 October and the anatomy redraws of 12 and 15 October moved with no
+// approval, traced to its commits. Members of unsealed sources stay out.
+const sealedDefaultsTrace20261024Appends = merged
+  .filter(x => x.id.startsWith('sealed-defaults-trace-20261024-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -1200,7 +1208,8 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends,
   ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends,
   ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends,
-  ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends];
+  ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends,
+  ...sealedDefaultsTrace20261024Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -1379,7 +1388,8 @@ const controlStates20261023Edges = (manifest: string, memberId: string) => merge
 const mountEvidence20261024Edges = (manifest: string, memberId: string) => merged
   .filter(x => mountEvidence20261024Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterControlStates20261023 = merged.length - mountEvidence20261024Appends.length;
+const afterMountEvidence20261024 = merged.length - sealedDefaultsTrace20261024Appends.length;
+const afterControlStates20261023 = afterMountEvidence20261024 - mountEvidence20261024Appends.length;
 const afterInteractivesR120261023 = afterControlStates20261023 - controlStates20261023Appends.length;
 const afterSeriesLabel20261023 = afterInteractivesR120261023 - interactivesR120261023Appends.length;
 const afterInteractiveData20261023 = afterSeriesLabel20261023 - seriesLabel20261023Appends.length;
@@ -1547,11 +1557,11 @@ describe('two-parent exact approval reconciliation', () => {
         + marketMapRound2Fixes20261022Appends.length + educationalCue20261023Appends.length
         + interactiveData20261023Appends.length + seriesLabel20261023Appends.length
         + interactivesR120261023Appends.length + controlStates20261023Appends.length
-        + mountEvidence20261024Appends.length]);
+        + mountEvidence20261024Appends.length + sealedDefaultsTrace20261024Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends, ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends, ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends, ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends, ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends, ...sealedDefaultsTrace20261024Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -5857,7 +5867,8 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-24 mount-evidence edge to the member\'s approved endpoint before it and the member as it ships', () => {
-    expect(merged.slice(afterControlStates20261023).map(x => x.id)).toEqual(mountEvidence20261024Appends);
+    expect(merged.slice(afterControlStates20261023, afterMountEvidence20261024).map(x => x.id))
+      .toEqual(mountEvidence20261024Appends);
     // The members the fixes moved that passed the seal before them, and no
     // other: names whose visible label was missing or whose ordinal shifted
     // (the budget's seventh expression name, which an earlier edge added,
@@ -5970,6 +5981,121 @@ describe('two-parent exact approval reconciliation', () => {
     expect(terrain).toContain('const [round, setRound] = useState(DEFAULT_ROUND);');
     expect(terrain).toContain('<InstrumentReset onClick={restart} data-testid="curriculum-reset" />');
     expect(terrain).toContain('setRound(DEFAULT_ROUND);');
+  });
+
+  it('binds each 2026-10-24 sealed-defaults trace edge to its owner decision, its commits and the member as it ships', () => {
+    expect(merged.slice(afterMountEvidence20261024).map(x => x.id)).toEqual(sealedDefaultsTrace20261024Appends);
+    // The behavioural-default members of the 18 sealed sources whose mounts
+    // failed VAL-EDU-015, in join order, with the commits that moved each
+    // figure, its row in the reader-first audit and the owner decisions.
+    type Owner = 'anatomy' | 'rl-drafts';
+    const traced: Array<[figure: string, ordinals: number[], commits: string[], audit: string, owners: Owner[]]> = [
+      ['deployment-economics', [4, 5, 6], ['b03ede6a'], 'lines 569-578', []],
+      ['thesis-explorer', [1, 2, 3], ['fb57886c'], 'lines 411-421', []],
+      ['hand-comparison', [4, 6], ['fb57886c'], 'lines 646-655', []],
+      ['collaborative-operation-modes', [10, 11, 12, 13, 14, 15, 4, 5, 6, 7, 8, 9], ['fb57886c'], 'lines 758-767', []],
+      ['latency-comparison', [2, 5], ['fdea2a64'], 'lines 69-90', []],
+      ['compounding-error', [10, 8, 9], ['fdea2a64'], 'lines 25-49', []],
+      ['flow-matching-trajectory', [4, 5], ['fa95d998'], 'lines 125-139', []],
+      ['execution-modes', [1, 2, 3, 4], ['fa95d998'], 'lines 201-216', []],
+      ['wbc-decomposition', [5], ['fe723710'], 'lines 296-306', []],
+      ['mpc-vs-rl', [3], ['2c0f478a'], 'lines 523-533', []],
+      ['reward-shaping', [2, 4, 5], ['55950e7a'], 'lines 308-318', []],
+      ['friction-transfer', [10, 11, 2, 3, 4, 5, 6, 7, 8, 9], ['fe723710', '0cfaf7e9'], 'lines 499-510', ['rl-drafts']],
+      ['teacher-student', [2, 3, 4, 5, 6], ['fe723710'], 'lines 272-283', []],
+      ['contact-geometry', [2, 3, 4, 5, 6, 7, 8, 9], ['fe723710'], 'lines 248-259', []],
+      ['appearance-physics-push', [11, 12, 13, 14, 15, 16], ['b03ede6a', '1624fa98'], 'lines 724-734', ['anatomy']],
+      ['action-conditioning', [15, 16, 5], ['b03ede6a', '4d9d80af'], 'lines 535-545', ['anatomy']],
+      ['jepa-planning', [10, 11, 12, 13, 4, 5, 6, 8], ['b03ede6a', '4d9d80af'], 'lines 344-355', ['anatomy']],
+      ['wm-disambiguator', [5], ['b03ede6a'], 'lines 320-330', []],
+    ];
+    const memberOf = (figure: string, n: number) => `default:components/interactive/${figure}.tsx:${n}`;
+    expect(sealedDefaultsTrace20261024Appends).toEqual(traced.flatMap(([figure, ordinals]) => ordinals.map(n =>
+      `sealed-defaults-trace-20261024-behavioral-defaults-default-${figure}-${n}`)));
+    expect(sealedDefaultsTrace20261024Appends).toHaveLength(77);
+    const baseline = JSON.parse(readFileSync('evidence/brand-v2/baseline/baseline.json', 'utf8'));
+    const sealedDefaults = new Map<string, string>(baseline.manifests['behavioral-defaults'].members
+      .map((x: { id: string; hash: string }) => [x.id, x.hash]));
+    const withoutTrace = merged.filter(x => !sealedDefaultsTrace20261024Appends.includes(x.id));
+    for (const [figure, ordinals, commits, audit, owners] of traced) {
+      const sourcePath = `components/interactive/${figure}.tsx`;
+      const text = readFileSync(sourcePath, 'utf8');
+      const shipping = new Map(behavioralDefaultMembers(sourcePath, text).map(x => [x.id, x.hash]));
+      // The trace is exactly what the join lacked for this source: without it
+      // these members, and only these, are unapproved; with it none is.
+      const unapproved = (deltas: ApprovedDelta[]) => joinSourceDefaults({ sourcePath, text, baseline, deltas })
+        .members.filter(x => x.status === 'unapproved').map(x => x.memberId);
+      expect(unapproved(withoutTrace)).toEqual(ordinals.map(n => memberOf(figure, n)));
+      expect(unapproved(merged)).toEqual([]);
+      for (const n of ordinals) {
+        const memberId = memberOf(figure, n);
+        const entry = merged.find(x => x.id === `sealed-defaults-trace-20261024-behavioral-defaults-default-${figure}-${n}`)!;
+        expect(entry.manifest).toBe('behavioral-defaults');
+        expect(entry.memberId).toBe(memberId);
+        expect(entry.responsibleMilestone).toBe('brand-v2-interactives');
+        expect(entry.disposition).toBe('permanent');
+        expect(entry.affectedAssertions).toEqual(['VAL-EDU-015', 'VAL-OPUS-138', 'VAL-B2-BASE-011']);
+        expect(entry.ownerApproval).toContain('owner-decision-reader-first-figures-20261002.md');
+        expect(entry.ownerApproval).toContain('"Show the insight first"');
+        expect(entry.ownerApproval).toContain('no \'Reset\' unless it is truly needed');
+        expect(entry.ownerApproval.includes('Owner directive of 2026-10-12')).toBe(owners.includes('anatomy'));
+        expect(entry.ownerApproval.includes('rl-sim2real article')).toBe(owners.includes('rl-drafts'));
+        expect(entry.ownerApproval).toMatch(/Not release approval\.$/);
+        // Each reason names the figure's audit row and the commits that
+        // moved this member since the seal.
+        expect(entry.reason).toContain(`reader-first-audit-20261002.md ${audit}`);
+        expect(entry.reason).toContain('Commits that changed this member since the seal: ');
+        for (const commit of commits) expect(entry.reason).toContain(commit);
+        const sealed = sealedDefaults.get(memberId) ?? MISSING_MEMBER;
+        expect(entry.newHash).toBe(shipping.get(memberId) ?? MISSING_MEMBER);
+        expect(entry.newHash).not.toBe(sealed);
+        const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === memberId);
+        expect(edges.at(-1)).toBe(entry);
+        expect(edges.filter(x => sealedDefaultsTrace20261024Appends.includes(x.id))).toEqual([entry]);
+        const prior = edges.slice(0, -1);
+        if (prior.some(x => x.reconciles !== undefined)) {
+          // A member already settled by a resolution gets a new resolution
+          // from the seal binding every earlier approval.
+          expect(entry.oldHash).toBe(sealed);
+          expect(entry.reconciles).toEqual(prior.map(({ id, oldHash, newHash }) => ({ id, oldHash, newHash })));
+          expect(entry.reason).toContain('reconciles its earlier approvals');
+        } else if (prior.length > 0) {
+          expect(entry.reconciles).toBeUndefined();
+          expect(entry.oldHash).toBe(prior.at(-1)!.newHash);
+          expect(entry.reason).toContain(`last approved endpoint (${prior.at(-1)!.id})`);
+          expect(approvedDeltaPath(prior, sealed, entry.oldHash).status).toBe('approved');
+        } else {
+          expect(entry.reconciles).toBeUndefined();
+          expect(entry.oldHash).toBe(sealed);
+          expect(entry.reason).toMatch(sealed === MISSING_MEMBER ? /from its absence in the seal\.$/ : /from the sealed hash\.$/);
+        }
+        const approved = approvedDeltaPath(edges, sealed, entry.newHash);
+        expect(approved.status).toBe('approved');
+        expect(approved.path.at(-1)).toBe(entry);
+        expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+      }
+    }
+    // The opening states the reasons describe, as they ship.
+    const reasonOf = (figure: string, n: number) =>
+      merged.find(x => x.id === `sealed-defaults-trace-20261024-behavioral-defaults-default-${figure}-${n}`)!.reason;
+    const thesis = readFileSync('components/interactive/thesis-explorer.tsx', 'utf8');
+    expect(thesis).toContain('useState<string | null>(null)');
+    expect(thesis).not.toContain('DEFAULT_THESIS_ID');
+    expect(reasonOf('thesis-explorer', 1)).toContain('selectedId starts at null');
+    expect(readFileSync('components/interactive/latency-comparison.tsx', 'utf8')).toContain('defaultDelayMs = 200,');
+    expect(reasonOf('latency-comparison', 2)).toContain('to 200 ms');
+    expect(readFileSync('components/interactive/execution-modes.tsx', 'utf8')).toContain('const DEFAULT_DELAY_MS = 200;');
+    expect(reasonOf('execution-modes', 1)).toContain('DEFAULT_DELAY_MS = 200 ms');
+    expect(readFileSync('lib/mpc-vs-rl.ts', 'utf8')).toContain("export const DEFAULT_PERTURBATION = 'low-friction';");
+    expect(reasonOf('mpc-vs-rl', 3)).toContain('from push to low-friction');
+    expect(readFileSync('components/interactive/friction-transfer.tsx', 'utf8')).toContain('export const OPENING_REAL_MU = 0.8;');
+    const sim2real = readFileSync('lib/sim2real.ts', 'utf8');
+    expect(sim2real).toContain('export const MU_TRAIN = 0.8;');
+    expect(sim2real).toContain('export const DEFAULT_REAL_MU = MU_TRAIN;');
+    expect(reasonOf('friction-transfer', 2)).toContain('equals the sealed DEFAULT_REAL_MU');
+    expect(readFileSync('components/interactive/contact-geometry.tsx', 'utf8')).not.toContain('defaultScenario');
+    expect(readFileSync('components/interactive/jepa-planning.tsx', 'utf8')).toContain('export const OPENING_STEPS = 2;');
+    expect(reasonOf('jepa-planning', 4)).toContain('OPENING_STEPS = 2');
   });
 
   it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {

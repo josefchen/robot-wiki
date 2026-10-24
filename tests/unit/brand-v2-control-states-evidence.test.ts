@@ -171,10 +171,44 @@ function chip(overrides: Partial<StatusChipObservation> = {}): StatusChipObserva
   };
 }
 
+const tallied = <T,>(records: readonly T[], keyOf: (record: T) => string, weight: (record: T) => number = () => 1) =>
+  records.reduce<Record<string, number>>((counts, record) => {
+    counts[keyOf(record)] = (counts[keyOf(record)] ?? 0) + weight(record);
+    return counts;
+  }, {});
+
+/**
+ * Gives every page the counts and census its observations account for, as
+ * the browser would have counted them before measuring: the clean sweep
+ * reconciles by construction, so a mutation applied afterwards is the only
+ * thing that can make it disagree.
+ */
+function censused(evidence: ControlStatesEvidence): ControlStatesEvidence {
+  for (const page of evidence.pages) {
+    const on = <T extends { route: string; viewport: string }>(records: readonly T[]) =>
+      records.filter((record) => record.route === page.route && record.viewport === page.viewport);
+    page.controls = tallied(on(evidence.variants), (record) => record.member, (record) => record.instances);
+    page.census = {
+      variants: tallied(on(evidence.variants), (record) => record.member),
+      disabled: tallied(on(evidence.disabled), (record) => record.member),
+      unexposedDisabled: on(evidence.unexposedDisabled).length,
+      selections: tallied(on(evidence.selections), (record) => record.member),
+      actions: tallied(on(evidence.actions), (record) => record.kind),
+      icons: on(evidence.icons).reduce((sum, record) => sum + record.count, 0),
+      statusChips: on(evidence.statusChips).reduce((sum, record) => sum + record.count, 0),
+    };
+  }
+  return evidence;
+}
+
+const literal = (text: string) => text.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+
+const EMPTY_CENSUS = { variants: {}, disabled: {}, unexposedDisabled: 0, selections: {}, actions: {}, icons: 0, statusChips: 0 };
+
 /** A clean sweep: every production control measured at both widths. */
 function sweep(): ControlStatesEvidence {
   const perViewport = <T extends { viewport: string }>(make: (viewport: string) => T) => VIEWPORTS.map(make);
-  return {
+  return censused({
     version: CONTROL_STATES_VERSION,
     generatedBy: CONTROL_STATES_SWEEP_MODULE,
     fingerprint: 'fingerprint',
@@ -185,17 +219,27 @@ function sweep(): ControlStatesEvidence {
         route,
         viewport,
         status: 200,
-        controls: (route === '/article/'
-          ? { 'control:secondary-action': 2, 'control:selection': 2 }
-          : {}) as Record<string, number>,
+        controls: {},
         unregistered: [],
         codeBlocks: route === '/article/' ? 1 : 0,
+        census: EMPTY_CENSUS,
       })),
     ),
     variants: [
       ...perViewport((viewport) => variant({ viewport })),
+      // The unavailable Export action, read once as a variant and once as a
+      // disabled control.
+      variant({
+        variant: 'control:secondary-action|button|disabled',
+        element: '<button disabled>Export</button>',
+        name: 'Export',
+        disabled: true,
+        hover: null,
+        pressed: null,
+        focusVisible: null,
+      }),
       ...perViewport((viewport) =>
-        variant({ viewport, member: 'control:selection', variant: 'control:selection|button', selected: 'unselected' }),
+        variant({ viewport, member: 'control:selection', variant: 'control:selection|button', selected: 'unselected', instances: 2 }),
       ),
       // The explainer register is used: an owner-frozen control whose hover
       // and press paint the same as rest.
@@ -223,7 +267,7 @@ function sweep(): ControlStatesEvidence {
     actions: perViewport((viewport) => action({ viewport })),
     icons: [...perViewport((viewport) => icon({ viewport })), icon({ member: null, role: 'decorative', element: '<svg aria-hidden="true">' })],
     statusChips: [chip()],
-  };
+  });
 }
 
 const read = (artifact: unknown, overrides: { fingerprint?: string; routes?: readonly string[] } = {}) =>
@@ -285,6 +329,130 @@ describe('control states evidence', () => {
     const malformed = sweep() as unknown as { variants: Array<Record<string, unknown>> };
     malformed.variants[0] = { ...malformed.variants[0], pointer: 'somewhere' };
     expect(() => read(malformed)).toThrow();
+
+    const uncensused = sweep() as unknown as { pages: Array<Record<string, unknown>> };
+    delete uncensused.pages[0].census;
+    expect(() => read(uncensused)).toThrow();
+  });
+
+  it('refuses an artifact that lost a failing member while its page still counts it', () => {
+    const where = `/article/ @ ${DESKTOP}`;
+    // Each family in turn: one member fails its clause, then its observation
+    // is dropped while the page census still counts it. On its own, the
+    // verdict would now pass; the reader must refuse the artifact first,
+    // naming the route, the viewport, the family and the shortfall.
+    const cases: Array<{
+      name: string;
+      fail: (evidence: ControlStatesEvidence) => void;
+      drop: (evidence: ControlStatesEvidence) => void;
+      assertion: (typeof CONTROL_STATE_ASSERTIONS)[number];
+      member: string;
+      family: RegExp;
+    }> = [
+      {
+        name: 'variant',
+        fail: (e) => { e.variants[1].hover = changed(0); },
+        drop: (e) => { e.variants.splice(1, 1); },
+        assertion: 'VAL-B2-COMP-002',
+        member: 'control:secondary-action',
+        family: /control:secondary-action variant observations: 1 missing \(1 observed of 2 counted\)/,
+      },
+      {
+        name: 'selection',
+        fail: (e) => { e.selections[1].diff = changed(0); },
+        drop: (e) => { e.selections.splice(1, 1); },
+        assertion: 'VAL-B2-COMP-002',
+        member: 'control:selection',
+        family: /control:selection selected-state observations: 1 missing \(0 observed of 1 counted\)/,
+      },
+      {
+        name: 'disabled control',
+        fail: (e) => { e.disabled[0].activation.pointerChanged = true; },
+        drop: (e) => { e.disabled.splice(0, 1); },
+        assertion: 'VAL-B2-COMP-015',
+        member: 'control:secondary-action',
+        family: /control:secondary-action disabled observations: 1 missing \(0 observed of 1 counted\)/,
+      },
+      {
+        name: 'unexposed disabled control',
+        fail: (e) => {
+          e.unexposedDisabled.push({ route: '/article/', viewport: DESKTOP, member: 'control:secondary-action', element: '<button>', cue: 'cursor: not-allowed' });
+          censused(e);
+        },
+        drop: (e) => { e.unexposedDisabled = []; },
+        assertion: 'VAL-B2-COMP-015',
+        member: 'control:secondary-action',
+        family: /unexposed-disabled observations: 1 missing \(0 observed of 1 counted\)/,
+      },
+      {
+        // A sort, not a code-block copy: the copy population is already
+        // held to the page's code blocks by the verdict itself.
+        name: 'action',
+        fail: (e) => {
+          e.actions.push(action({ kind: 'sort', element: '<button>Sort by year</button>', name: 'Sort by year', performed: false, detail: 'row order unchanged' }));
+          censused(e);
+        },
+        drop: (e) => { e.actions = e.actions.filter((record) => record.kind !== 'sort'); },
+        assertion: 'VAL-B2-COMP-005',
+        member: 'control:secondary-action',
+        family: /sort action observations: 1 missing \(0 observed of 1 counted\)/,
+      },
+      {
+        name: 'icon',
+        fail: (e) => { e.icons[1].ownerName = ''; },
+        drop: (e) => { e.icons.splice(1, 1); },
+        assertion: 'VAL-B2-COMP-011',
+        member: 'control:secondary-action',
+        family: /icons: 1 missing \(1 observed of 2 counted\)/,
+      },
+      {
+        name: 'status chip',
+        fail: (e) => { e.statusChips[0].text = ''; },
+        drop: (e) => { e.statusChips = []; },
+        assertion: 'VAL-B2-COMP-007',
+        member: 'control:selection',
+        family: /status chips: 1 missing \(0 observed of 1 counted\)/,
+      },
+    ];
+    for (const { name, fail, drop, assertion, member, family } of cases) {
+      const failing = sweep();
+      fail(failing);
+      expect(() => read(failing), `${name}: a failing member still reconciles`).not.toThrow();
+      expect(failuresOf(failing, assertion, member).length, `${name}: the planted member fails ${assertion}`).toBeGreaterThan(0);
+
+      const lost = structuredClone(failing);
+      drop(lost);
+      // The bypass: with the failing observation gone, the verdict is clean.
+      expect(failuresOf(lost, assertion, member), `${name}: the verdict alone no longer sees the failure`).toEqual([]);
+      expect(() => read(lost), `${name}: the reader refuses the lost member`).toThrow(/does not reconcile with the browser census/);
+      expect(() => read(lost)).toThrow(new RegExp(`${literal(where)} ${family.source}`));
+    }
+  });
+
+  it('refuses observations the page census does not account for, and instance totals that disagree', () => {
+    const doubled = sweep();
+    doubled.selections.push({ ...doubled.selections[1] });
+    expect(() => read(doubled)).toThrow(/control:selection selected-state observations: 1 more than counted \(2 observed of 1 counted\)/);
+
+    const iconTwice = sweep();
+    iconTwice.icons[1] = { ...iconTwice.icons[1], count: 2 };
+    expect(() => read(iconTwice)).toThrow(/icons: 1 more than counted \(3 observed of 2 counted\)/);
+
+    const fewerInstances = sweep();
+    fewerInstances.variants[3] = { ...fewerInstances.variants[3], instances: 1 };
+    expect(() => read(fewerInstances)).toThrow(/control:selection rendered instances: 1 missing \(1 observed of 2 counted\)/);
+
+    const disabledUnread = sweep();
+    disabledUnread.variants[2] = { ...disabledUnread.variants[2], disabled: false };
+    expect(() => read(disabledUnread)).toThrow(/control:secondary-action disabled variants: 1 missing \(0 observed of 1 counted\)/);
+
+    const uncopied = sweep();
+    uncopied.pages = uncopied.pages.map((page) => (page.route === '/article/' ? { ...page, codeBlocks: 2 } : page));
+    expect(() => read(uncopied)).toThrow(/code-block copy actions: 1 missing \(1 observed of 2 counted\)/);
+
+    const uncounted = sweep();
+    uncounted.actions.push(action({ route: '/', kind: 'sort', name: 'Sort by year' }));
+    expect(() => read(uncounted)).toThrow(new RegExp(`(: |; )${literal(`/ @ ${DESKTOP}`)} sort action observations: 1 more than counted \\(1 observed of 0 counted\\)`));
   });
 
   it('fails each planted violation under its own clause', () => {

@@ -25,6 +25,9 @@ interface Placement {
   mountedReadout: RegExp;
   /** The primary control sits in the figure's "Adjust more" fold, not the main view. */
   primaryControlInAdjust?: true;
+  /** Hint tokens the figure renders with thousands grouping: hint token to
+   *  the exact rendered form, which must appear at mount. */
+  groupedHintTokens?: Record<string, string>;
 }
 
 const PLACEMENTS: Placement[] = [
@@ -70,6 +73,9 @@ const PLACEMENTS: Placement[] = [
     primaryControl: /per-step error/i,
     mountedReadout: /1,505/,
     primaryControlInAdjust: true,
+    // The redrawn readout groups thousands (fa85511f, the 12 Oct shorter,
+    // plainer redraws); the hint keeps the bare figure.
+    groupedHintTokens: { '1505': '1,505' },
   },
 ];
 
@@ -385,9 +391,15 @@ test.describe('prediction step (PredictThenReveal)', () => {
       const figureText = await figureRoot.innerText();
 
       // Every digit-bearing token of the hint appears in the figure's own
-      // controls or readout at mount.
-      for (const token of digitTokens(hint)) {
-        expect(figureText, `hint token ${token} missing at mount`).toContain(token);
+      // controls or readout at mount, in the exact form the figure prints.
+      const grouped = placement.groupedHintTokens ?? {};
+      const hintTokens = digitTokens(hint);
+      for (const token of Object.keys(grouped)) {
+        expect(hintTokens, `grouped token ${token} must still be named by the hint`).toContain(token);
+      }
+      for (const token of hintTokens) {
+        const rendered = grouped[token] ?? token;
+        expect(figureText, `hint token ${token} missing at mount as ${rendered}`).toContain(rendered);
       }
 
       // The primary control still works by keyboard and moves a readout.
@@ -494,11 +506,19 @@ test.describe('prediction step (PredictThenReveal)', () => {
       })
       .first();
     // The model-size slider and its readouts sit in the frame's "Adjust more" fold.
+    // Its accessible name carries its visible label (label-in-name,
+    // VAL-B2-VIZ-016) and its value moved into the value text (e1e48e13).
     await waitForHydration(clbStandalone.locator('[data-figure-fold="adjust"] > summary'));
     await openAdjustMore(clbStandalone);
-    await expect(
-      clbStandalone.getByRole('slider', { name: /model size in billions/i }),
-    ).toHaveValue('3');
+    const modelSize = clbStandalone.getByRole('slider', {
+      name: "Model size on the robot's own computer, teaching curve, in billions of parameters",
+      exact: true,
+    });
+    await expect(modelSize).toHaveValue('3');
+    await expect(modelSize).toHaveAttribute(
+      'aria-valuetext',
+      '3.0 billion parameters, 52.6 ms per inference',
+    );
     await expect(clbStandalone.getByTestId('params-readout')).toHaveText('3.0B params');
     await expect(clbStandalone.getByTestId('latency-readout')).toHaveText('52.6 ms');
     await expect(clbStandalone.getByTestId('hz-readout')).toHaveText('19 Hz');

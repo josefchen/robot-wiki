@@ -109,7 +109,10 @@ test('sim2real raw mounted evidence covers the friction mount and teacher transi
     await expect(teacher.getByTestId('divergence-readout')).toHaveText(expected.divergenceDisplay);
     await expect(teacher.getByTestId('occluded-readout')).toHaveText(expected.occludedDisplay);
     await expect(teacher.getByTestId('teacher-panel').locator('rect')).toHaveCount(24);
-    await expect(teacher.getByTestId('student-panel').locator('[data-series="occluded"]')).toHaveCount(expected.occluded.filter(Boolean).length);
+    // A lost reading is a grey dashed stub folded into the readings series (VAL-B2-VIZ-004, a361df37), so the strip is one series and its only lines are the stubs.
+    await expect(teacher.getByTestId('student-panel')).toHaveAttribute('data-series', 'readings');
+    await expect(teacher.getByTestId('student-panel').locator('line')).toHaveCount(expected.occluded.filter(Boolean).length);
+    await expect(teacher.getByTestId('student-panel').locator('line[stroke-dasharray="2 2"]')).toHaveCount(expected.occluded.filter(Boolean).length);
     await expect(teacher.getByTestId('student-panel').locator('rect')).toHaveCount(expected.occluded.filter(lost => !lost).length);
     expect(await keptCells()).toEqual(expected.occluded.flatMap((lost, index) => (lost ? [] : [index])));
     const reconstruction = await teacher.getByTestId('recon-panel').innerHTML();

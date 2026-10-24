@@ -210033,7 +210033,7 @@
           "pressedMeasured": 280,
           "focusVisibleMeasured": 280,
           "offscreenUntilFocus": 0,
-          "selectedMeasured": 176,
+          "selectedMeasured": 180,
           "disabledMeasured": 0,
           "exempted": 8,
           "evidence": [
@@ -213365,7 +213365,7 @@
             "375x812",
             "1440x900"
           ],
-          "selectedChips": 172,
+          "selectedChips": 176,
           "openers": 4,
           "statusChips": 80,
           "evidence": [
@@ -458111,9 +458111,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -458405,9 +458405,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -458447,9 +458447,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -458615,9 +458615,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 12
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -458741,9 +458741,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 1,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -458825,9 +458825,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 7,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -459245,9 +459245,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -459371,9 +459371,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 4,
             "new-source": 0,
-            "unapproved": 4
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -459707,9 +459707,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460085,9 +460085,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460105,7 +460105,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -460117,7 +460117,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 42,
+          "announcements": 41,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -460127,9 +460127,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460295,9 +460295,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 10,
             "new-source": 0,
-            "unapproved": 10
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460379,9 +460379,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 5,
             "new-source": 0,
-            "unapproved": 5
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460421,9 +460421,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460547,9 +460547,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 10,
-            "approved": 0,
+            "approved": 6,
             "new-source": 0,
-            "unapproved": 6
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460589,9 +460589,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 9,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460631,9 +460631,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 5,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -460757,9 +460757,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -462193,9 +462193,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -462487,9 +462487,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -462529,9 +462529,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -462697,9 +462697,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 12
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -462823,9 +462823,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 1,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -462907,9 +462907,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 7,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -463327,9 +463327,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -463453,9 +463453,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 4,
             "new-source": 0,
-            "unapproved": 4
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -463789,9 +463789,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464167,9 +464167,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464187,7 +464187,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -464199,7 +464199,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 42,
+          "announcements": 41,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -464209,9 +464209,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464377,9 +464377,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 10,
             "new-source": 0,
-            "unapproved": 10
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464461,9 +464461,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 5,
             "new-source": 0,
-            "unapproved": 5
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464503,9 +464503,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464629,9 +464629,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 10,
-            "approved": 0,
+            "approved": 6,
             "new-source": 0,
-            "unapproved": 6
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464671,9 +464671,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 9,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464713,9 +464713,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 5,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -464839,9 +464839,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -465847,9 +465847,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -466141,9 +466141,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -466183,9 +466183,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -466351,9 +466351,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 12
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -466477,9 +466477,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 1,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -466561,9 +466561,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 7,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -466981,9 +466981,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -467107,9 +467107,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 4,
             "new-source": 0,
-            "unapproved": 4
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -467443,9 +467443,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -467821,9 +467821,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -467841,7 +467841,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -467853,7 +467853,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 42,
+          "announcements": 41,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -467863,9 +467863,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468031,9 +468031,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 10,
             "new-source": 0,
-            "unapproved": 10
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468115,9 +468115,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 5,
             "new-source": 0,
-            "unapproved": 5
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468157,9 +468157,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468283,9 +468283,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 10,
-            "approved": 0,
+            "approved": 6,
             "new-source": 0,
-            "unapproved": 6
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468325,9 +468325,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 9,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468367,9 +468367,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 5,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -468493,9 +468493,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -476629,9 +476629,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -476923,9 +476923,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -476965,9 +476965,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -477133,9 +477133,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 12
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -477259,9 +477259,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 1,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -477343,9 +477343,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 7,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -477763,9 +477763,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 3,
-            "approved": 0,
+            "approved": 2,
             "new-source": 0,
-            "unapproved": 2
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -477889,9 +477889,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 0,
-            "approved": 0,
+            "approved": 4,
             "new-source": 0,
-            "unapproved": 4
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -478225,9 +478225,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -478603,9 +478603,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -478623,7 +478623,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -478635,7 +478635,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 42,
+          "announcements": 41,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -478645,9 +478645,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 2,
-            "approved": 0,
+            "approved": 3,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -478813,9 +478813,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 10,
             "new-source": 0,
-            "unapproved": 10
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -478897,9 +478897,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 5,
             "new-source": 0,
-            "unapproved": 5
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -478939,9 +478939,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 1,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -479065,9 +479065,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 10,
-            "approved": 0,
+            "approved": 6,
             "new-source": 0,
-            "unapproved": 6
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -479107,9 +479107,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 9,
+            "approved": 12,
             "new-source": 0,
-            "unapproved": 3
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -479149,9 +479149,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 5,
-            "approved": 0,
+            "approved": 8,
             "new-source": 0,
-            "unapproved": 8
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"
@@ -479275,9 +479275,9 @@
           "reset": "restored",
           "sourceDefaults": {
             "unchanged": 4,
-            "approved": 0,
+            "approved": 1,
             "new-source": 0,
-            "unapproved": 1
+            "unapproved": 0
           },
           "evidence": [
             "evidence/brand-v2/interactive-ledger.json"

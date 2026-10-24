@@ -315,6 +315,30 @@ const statusChipSchema = z.object({
   fontWeight: z.number(),
 });
 
+/**
+ * What the browser found on one page before it measured anything: the
+ * population each observation family must account for, one observation per
+ * counted item. The reader reconciles every family against it, so an
+ * observation the artifact lost (or never took) is a shortfall, and an
+ * observation it holds twice is a surplus.
+ */
+const censusSchema = z.object({
+  /** Distinct rendered variants per member; each is read once, its `instances` summing to the page count. */
+  variants: z.record(z.string(), z.number().int().min(1)),
+  /** Distinct disabled variants per member; each is clicked and keyed once. */
+  disabled: z.record(z.string(), z.number().int().min(1)),
+  /** Rendered controls that look unavailable without exposing it. */
+  unexposedDisabled: z.number().int().min(0),
+  /** Selection kinds per member: one selected-state read each, a segmented container read with its segment. */
+  selections: z.record(z.string(), z.number().int().min(1)),
+  /** Actions per kind: one per distinct idempotent action, every copy-code and reset, every prepared flow's action. */
+  actions: z.record(z.string(), z.number().int().min(1)),
+  /** Rendered icons, each counted in one icon group. */
+  icons: z.number().int().min(0),
+  /** Rendered status chips, each counted in one chip group. */
+  statusChips: z.number().int().min(0),
+});
+
 const pageSchema = z.object({
   route: z.string(),
   viewport: z.string(),
@@ -322,6 +346,7 @@ const pageSchema = z.object({
   controls: z.record(z.string(), z.number()),
   unregistered: z.array(z.string()),
   codeBlocks: z.number().int().min(0),
+  census: censusSchema,
 });
 
 export const controlStatesEvidenceSchema = z.object({
@@ -348,13 +373,15 @@ export type ControlActionObservation = z.infer<typeof actionSchema>;
 export type ControlIconObservation = z.infer<typeof iconSchema>;
 export type StatusChipObservation = z.infer<typeof statusChipSchema>;
 export type ControlPageObservation = z.infer<typeof pageSchema>;
+export type ControlPageCensus = z.infer<typeof censusSchema>;
 
 /**
  * Reads the persisted sweep and refuses anything it cannot grade honestly:
  * the wrong shape, a stale fingerprint, the wrong viewports, a route state
  * set that disagrees with the registry in either direction, a duplicate or
  * missing route/viewport page, a page that did not load, a control id the
- * registry does not hold, and an exemption the register does not grant.
+ * registry does not hold, an exemption the register does not grant, and an
+ * observation family that falls short of or exceeds its page census.
  */
 export function readControlStatesEvidence(input: {
   artifact: unknown;
@@ -428,6 +455,11 @@ export function readControlStatesEvidence(input: {
       }
     }
   }
+  for (const chip of evidence.statusChips) {
+    if (!seen.has(pageKey(chip.route, chip.viewport))) {
+      throw new Error(`control-states evidence records a status chip on ${pageKey(chip.route, chip.viewport)}, which is not a swept page`);
+    }
+  }
   const exemptions = new Map(CONTROL_STATE_EXEMPTIONS.map((entry) => [entry.id, entry]));
   for (const record of [...evidence.variants, ...evidence.selections, ...evidence.disabled]) {
     if (record.exemption === null) continue;
@@ -437,7 +469,79 @@ export function readControlStatesEvidence(input: {
       throw new Error(`control-states evidence uses ${record.exemption} on ${record.route}, which it is not registered for`);
     }
   }
+  const discrepancies = populationDiscrepancies(evidence);
+  if (discrepancies.length > 0) {
+    throw new Error(
+      `control-states evidence does not reconcile with the browser census: ${discrepancies.slice(0, 5).join('; ')}${discrepancies.length > 5 ? `; and ${discrepancies.length - 5} more` : ''}`,
+    );
+  }
   return evidence;
+}
+
+/**
+ * Every observation family reconciled with the census its page persisted,
+ * in both directions: a family that holds fewer observations than the page
+ * counted has lost a member (whose failure would then never be graded), and
+ * one that holds more has a member twice. Each discrepancy names the route,
+ * the viewport, the family and the count.
+ */
+export function populationDiscrepancies(evidence: ControlStatesEvidence): string[] {
+  const discrepancies: string[] = [];
+  const byPage = <Entry extends { route: string; viewport: string }>(records: readonly Entry[]) => {
+    const pages = new Map<string, Entry[]>();
+    for (const record of records) {
+      const key = `${record.route}@${record.viewport}`;
+      pages.set(key, [...(pages.get(key) ?? []), record]);
+    }
+    return (page: { route: string; viewport: string }) => pages.get(`${page.route}@${page.viewport}`) ?? [];
+  };
+  const variantsOn = byPage(evidence.variants);
+  const selectionsOn = byPage(evidence.selections);
+  const disabledOn = byPage(evidence.disabled);
+  const unexposedOn = byPage(evidence.unexposedDisabled);
+  const actionsOn = byPage(evidence.actions);
+  const iconsOn = byPage(evidence.icons);
+  const chipsOn = byPage(evidence.statusChips);
+  for (const page of evidence.pages) {
+    const where = `${page.route} @ ${page.viewport}`;
+    const tally = (family: string, counted: number, observed: number) => {
+      if (observed < counted) {
+        discrepancies.push(`${where} ${family}: ${counted - observed} missing (${observed} observed of ${counted} counted)`);
+      } else if (observed > counted) {
+        discrepancies.push(`${where} ${family}: ${observed - counted} more than counted (${observed} observed of ${counted} counted)`);
+      }
+    };
+    const census = page.census;
+    const variants = variantsOn(page);
+    for (const member of new Set([...Object.keys(page.controls), ...Object.keys(census.variants), ...variants.map((variant) => variant.member)])) {
+      const own = variants.filter((variant) => variant.member === member);
+      tally(`${member} variant observations`, census.variants[member] ?? 0, own.length);
+      tally(`${member} rendered instances`, page.controls[member] ?? 0, own.reduce((sum, variant) => sum + variant.instances, 0));
+    }
+    const disabled = disabledOn(page);
+    for (const member of new Set([
+      ...Object.keys(census.disabled),
+      ...disabled.map((record) => record.member),
+      ...variants.filter((variant) => variant.disabled).map((variant) => variant.member),
+    ])) {
+      const counted = census.disabled[member] ?? 0;
+      tally(`${member} disabled observations`, counted, disabled.filter((record) => record.member === member).length);
+      tally(`${member} disabled variants`, counted, variants.filter((variant) => variant.member === member && variant.disabled).length);
+    }
+    tally('unexposed-disabled observations', census.unexposedDisabled, unexposedOn(page).length);
+    const selections = selectionsOn(page);
+    for (const member of new Set([...Object.keys(census.selections), ...selections.map((selection) => selection.member)])) {
+      tally(`${member} selected-state observations`, census.selections[member] ?? 0, selections.filter((selection) => selection.member === member).length);
+    }
+    const actions = actionsOn(page);
+    for (const kind of new Set([...Object.keys(census.actions), ...actions.map((action) => action.kind)])) {
+      tally(`${kind} action observations`, census.actions[kind] ?? 0, actions.filter((action) => action.kind === kind).length);
+    }
+    tally('code-block copy actions', page.codeBlocks, actions.filter((action) => action.kind === 'copy-code').length);
+    tally('icons', census.icons, iconsOn(page).reduce((sum, icon) => sum + icon.count, 0));
+    tally('status chips', census.statusChips, chipsOn(page).reduce((sum, chip) => sum + chip.count, 0));
+  }
+  return discrepancies;
 }
 
 /* ------------------------------------------------------------------ */
