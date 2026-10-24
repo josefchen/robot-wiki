@@ -2,12 +2,12 @@
   "assertion": "VAL-EDU-030",
   "successor": "S1 (contract/educational-ux.md, owner-approved 2026-10-23)",
   "spec": "tests/e2e/chart-behaviour-neutral.spec.ts",
-  "generatedAt": "2026-10-24T16:55:24.520Z",
-  "commit": "390c40ad01bab03e04d326ab44af63d2b068c218",
+  "generatedAt": "2026-10-24T21:35:25.520Z",
+  "commit": "de8210a8d2acf719d6addcbcd3b4cad3d106868f",
   "uncommittedPaths": [],
   "target": {
     "build": "static export (out/) served by tests/e2e/static-export-server.ts",
-    "exportIndexModifiedAt": "2026-10-24T15:01:15.660Z",
+    "exportIndexModifiedAt": "2026-10-24T21:19:40.099Z",
     "browser": "chromium 151.0.7922.34"
   },
   "geometryReference": "each frame's own settled state on this build; no stored capture is read",
@@ -8550,12 +8550,7 @@
       "console": {
         "errors": [],
         "overflowErrors": [],
-        "messages": [
-          {
-            "type": "warning",
-            "text": "The resource http://localhost:3201/_next/static/chunks/17jrnyau4b374.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
-          }
-        ]
+        "messages": []
       },
       "failures": []
     },
@@ -9909,7 +9904,7 @@
             "readoutAfter": {
               "readout": "",
               "description": "After 6 rounds of collecting, an off-policy learner like SAC keeps all 6 batches in a replay buffer and every update can learn from any of them; an on-policy learner would use only the newest 1.",
-              "stage": "Every batch stays in a replay buffernone are thrown awaypolicy updatelearns from 1 of 1 batchIllustrative batches",
+              "stage": "Every batch stays in a replay buffernone are thrown away1policy updatelearns from 1 of 1 batchIllustrative batches",
               "valuetext": ""
             },
             "readoutChanged": [
@@ -17879,13 +17874,15 @@
               "valuetext": ""
             },
             "readoutAfter": {
-              "readout": "untried grip · expects 96, gets 13",
+              "readout": "untried grip · expects 93, gets 13",
               "description": "With caution at 10 of 10, the learner picks a squeeze 45% of the way from gentle to hard, inside the tried range of 18% to 57%; it expects a score of 74 out of 100 and really gets 74.",
-              "stage": "Lit bob: the real resultuntried grip · expects 96, gets 13Illustrative curves",
+              "stage": "Lit bob: the real resultuntried grip · expects 93, gets 13Illustrative curves",
               "valuetext": ""
             },
             "readoutChanged": [
-              "description"
+              "readout",
+              "description",
+              "stage"
             ],
             "before": {
               "container": {
@@ -18339,13 +18336,15 @@
               "valuetext": ""
             },
             "readoutAfter": {
-              "readout": "Join useful pieces · reaches the goal",
+              "readout": "on run 1 · 0% of the way",
               "description": "Copying the only recorded run that leaves the robot's start repeats run 1 and stops short of the goal; the map holds 2 recorded runs, and neither goes from this start to the goal on its own.",
-              "stage": "Lit car: the robot, with its route so farJoin useful pieces · reaches the goalIllustrative layout; conditions cited",
+              "stage": "Lit car: the robot, with its route so faron run 1 · 0% of the wayIllustrative layout; conditions cited",
               "valuetext": ""
             },
             "readoutChanged": [
-              "description"
+              "readout",
+              "description",
+              "stage"
             ],
             "before": {
               "container": {
@@ -20594,6 +20593,10 @@
           {
             "type": "warning",
             "text": "The resource http://localhost:3201/_next/static/chunks/17jrnyau4b374.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+          },
+          {
+            "type": "warning",
+            "text": "The resource http://localhost:3201/_next/static/chunks/17jrnyau4b374.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
           }
         ]
       },
@@ -21483,9 +21486,9 @@
               "valuetext": ""
             },
             "readoutAfter": {
-              "readout": "setting the mug on the platemug moved 18.1 centimetres",
+              "readout": "mug moved 18.1 centimetres",
               "description": "With shape, weight and friction under the picture, the solver turns each push of 4 newtons into a slide: the mug has moved 18.1 centimetres after 1 push.",
-              "stage": "With weight and friction underneath, the same push slides the mug alongsetting the mug on the platemug moved 18.1 centimetresillustrative, not measured",
+              "stage": "With weight and friction underneath, the same push slides the mug alongmug moved 18.1 centimetresillustrative, not measured",
               "valuetext": ""
             },
             "readoutChanged": [
@@ -26349,9 +26352,9 @@
               "valuetext": ""
             },
             "readoutAfter": {
-              "readout": "0.5 degrees at 0.50 metres · misses by 4.5 millimetres",
+              "readout": "0.4 degrees at 0.50 metres · misses by 3.7 millimetres",
               "description": "A camera's assumed line of sight is tilted 3.0 degrees from the true one; at 0.50 m the gap between them, the miss, is 26.20 mm, and at 1.5 m it is 78.61 mm. | At an authored angle of 3.0 degrees and axial distance 0.50 m, the model's root-sum-of-squares magnitude is 28.21 mm against its 15 mm comparison band. hand-eye rotation contributes 86% of the sum of squared inputs. Model band: marginal.",
-              "stage": "Slide the target away: the same tilt misses by more0.5 degrees at 0.50 metres · misses by 4.5 millimetresSchematic: the tilt and the miss are drawn far larger than they are",
+              "stage": "Slide the target away: the same tilt misses by more0.4 degrees at 0.50 metres · misses by 3.7 millimetresSchematic: the tilt and the miss are drawn far larger than they are",
               "valuetext": ""
             },
             "readoutChanged": [
@@ -31554,6 +31557,10 @@
         "errors": [],
         "overflowErrors": [],
         "messages": [
+          {
+            "type": "warning",
+            "text": "The resource http://localhost:3201/_next/static/chunks/17jrnyau4b374.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
+          },
           {
             "type": "warning",
             "text": "The resource http://localhost:3201/_next/static/chunks/17jrnyau4b374.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally."
