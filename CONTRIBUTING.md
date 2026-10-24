@@ -21,10 +21,10 @@ These rules exist because the wiki's value is that every claim can be traced to 
 
 - **Cite every non-obvious claim.** Add the source to the citation registry (`data/citations.ts`) and cite it in prose with `<Cite id="..." />`. Acceptable primary sources: papers (arXiv, DOI links), official documentation, and lab or company blogs. Verify identifiers against the source itself; never rely on memory for an arXiv id or DOI. The build fails on a citation id that is not registered.
 - **Never invent data.** If a value is unknown, write "not disclosed" when the owner of the number has chosen not to publish it, or "n/a" when the value genuinely does not apply. A plausible-sounding guess is a defect, not a placeholder. Every market-map entry and dataset row carries at least one source link.
-- **Write plainly.** No marketing language, no hype. Where experts disagree, present both sides and name the proponents. Avoid AI-writing patterns: inflated symbolism, vague attributions ("experts say"), padding in threes, and em-dash-heavy prose.
+- **Write plainly.** No marketing language, no hype. Where experts disagree, present both sides and name the proponents. Avoid inflated significance, vague attributions ("experts say"), padding in threes and em-dash-heavy prose; `npm run lint-no-slop` flags the common cases.
 - **Do not hand-write generated sections.** References, "See also", "Linked from" backlinks, breadcrumbs, reading time, and citation counts are derived at build time. Your job as an author is the frontmatter (`seeAlso` with 2 to 4 curated ids of genuinely related published articles) and the prose.
 - **Glossary terms carry cited definitions.** Wrap jargon in `<Term id="..." />` on first use and add missing terms to `data/glossary.ts` with a source. An unknown term id fails the build.
-- **Interactives are instruments, not decorations.** Keyboard-accessible controls with ARIA labels, a visible numeric readout, a reset control, and respect for `prefers-reduced-motion`. Follow the existing dark technical theme; no gradients, glassmorphism, or emoji icons.
+- **Interactives are instruments, not decorations.** Keyboard-accessible controls with ARIA labels, a visible numeric readout, a reset control, and respect for `prefers-reduced-motion`. Follow [`library/design-system.md`](library/design-system.md); no gradients, glassmorphism or emoji icons.
 - **Interactives load only where they render.** Import a widget into MDX as usual (`import { X } from '@/components/interactive/x'`); the build turns that into a lazily loaded chunk through `components/mdx/lazy-mounts.tsx`, so give a new widget an entry there. A client component must not import the citation registry, `components/mdx/cite-ref.tsx`, or zod: a widget that links to sources takes its records from the server (`useCitationLookup` or `CiteRef` from `components/article/citation-records.tsx`, with its ids in `lib/widget-citations.ts`), and a data file a widget imports stays plain typed rows validated in `lib/registry-validation.ts`. `tests/unit/article-mounts.test.ts` and `tests/unit/widget-citations.test.tsx` enforce all three.
 
 ## Testing your change
@@ -44,7 +44,7 @@ Also run `npm run test:e2e` if you touched anything a browser can see (pages, in
 ## Pull request guidelines
 
 - Branch from `main` and keep the PR to one logical change. A new article, a data fix, and a component refactor belong in separate PRs.
-- Use conventional commit prefixes (`feat:`, `fix:`, `chore:`, `docs:`) so history stays scannable.
+- Write commit subjects as short imperative sentences that say what changed, without type prefixes.
 - Describe what and why. For content changes, list the primary sources you used and explicitly flag anything you could not verify. Reviewers check claims against the cited sources, so an unverifiable claim will be cut rather than softened.
 - Expect a real review. Every PR is reviewed before merge. Content PRs are audited against their sources; code PRs are checked for test coverage and accessibility (axe-core runs in e2e on the pages it touches). Push new commits to address review comments; do not force-push a branch under review.
 - Every PR must leave the gates green: typecheck, lint, the Vitest suite, content validation, and the production build. A red build on `main` breaks the automatic Vercel deployment, so this is not negotiable.
