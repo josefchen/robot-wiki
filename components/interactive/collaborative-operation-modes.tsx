@@ -132,10 +132,21 @@ const SWATCH_CLASS: Record<(typeof GAP_PARTS)[number]['swatch'], string> = {
   walk: 'border [border-color:var(--anatomy-hi)] [background:var(--anatomy-shade-0)]',
 };
 
+/**
+ * The band under the stage. Both readouts stay mounted in one grid cell, the
+ * one the mode does not use invisible, so the band keeps the taller one's
+ * height in every mode and switching mode never moves the page below.
+ */
+const READOUT_BAND_CELL = 'pb-1 pt-3 font-sans text-[12px] [grid-area:1/1]';
+
 /** The gap's four parts in words, keyed to the riders on the floor ruler. */
-function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
+function GapBar({ terms, shown }: { terms: ReturnType<typeof separationTerms>; shown: boolean }) {
   return (
-    <div data-testid="gap-bar" className="pb-1 pt-3 font-sans text-[12px]">
+    <div
+      data-testid="gap-bar"
+      aria-hidden={shown ? undefined : true}
+      className={shown ? READOUT_BAND_CELL : `${READOUT_BAND_CELL} invisible`}
+    >
       <ul className="m-0! grid list-none grid-cols-1 gap-x-4 gap-y-0.5 p-0! sm:grid-cols-2">
         {GAP_PARTS.map((part) => (
           <li key={part.key} className="m-0! flex items-center gap-1.5 text-text-dim">
@@ -149,9 +160,13 @@ function GapBar({ terms }: { terms: ReturnType<typeof separationTerms> }) {
 }
 
 /** How hard a bump would push, against the safe limit. */
-function ForceBar({ force }: { force: number }) {
+function ForceBar({ force, shown }: { force: number; shown: boolean }) {
   return (
-    <div data-testid="force-bar" className="pb-1 pt-3 font-sans text-[12px]">
+    <div
+      data-testid="force-bar"
+      aria-hidden={shown ? undefined : true}
+      className={shown ? READOUT_BAND_CELL : `${READOUT_BAND_CELL} invisible`}
+    >
       <p className="m-0 text-text-dim">
         Bump: <span className="text-text">about {Math.round(force)} newtons</span>. Safe limit
         (the gauge&rsquo;s long mark): <span className="text-text">{CONTACT_LIMIT_N} newtons</span>.
@@ -664,8 +679,10 @@ export function CollaborativeOperationModes({ className }: { className?: string 
               )}
             </svg>
           </Stage>
-          {mode.readout === 'separation' && <GapBar terms={terms} />}
-          {mode.readout === 'force' && <ForceBar force={force} />}
+          <div className="grid">
+            <GapBar terms={terms} shown={mode.readout === 'separation'} />
+            <ForceBar force={force} shown={mode.readout === 'force'} />
+          </div>
         </AnatomyStage>
       }
       caption="Robots working beside people must either keep their distance or move gently enough that a bump stays under a safe force limit."

@@ -119,6 +119,25 @@ describe('AdvantageScrubber', () => {
     expect(view).toHaveTextContent(`All ${tagged.length} steps stay in the training data`);
   });
 
+  it('keeps the attempt drawing mounted, invisible and inert, under the other views so the stage keeps its size', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<AdvantageScrubber />);
+    const plot = container.querySelector('svg[role="img"]')!;
+    const holder = plot.parentElement!;
+    expect(holder).not.toHaveClass('invisible');
+    expect(holder).not.toHaveAttribute('inert');
+    await user.click(screen.getByRole('button', { name: /what it learns/i }));
+    expect(container.querySelector('svg[role="img"]')).toBe(plot);
+    expect(holder).toHaveClass('invisible');
+    expect(holder).toHaveAttribute('inert');
+    // The view sits in the same grid cell as the drawing.
+    expect(screen.getByTestId('training-view').parentElement?.parentElement).toBe(holder.parentElement);
+    await user.click(screen.getByRole('button', { name: /^the attempt$/i }));
+    expect(holder).not.toHaveClass('invisible');
+    expect(holder).not.toHaveAttribute('inert');
+    expect(screen.queryByTestId('training-view')).not.toBeInTheDocument();
+  });
+
   it('the execution view depicts conditioning on high advantage', async () => {
     const user = userEvent.setup();
     render(<AdvantageScrubber />);

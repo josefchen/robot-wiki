@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { setSlider } from './slider';
+import { waitForHydration } from './interaction-ready';
 
 /**
  * Safety and Assurance (VAL-FRONT-001, 002, 023 through 029).
@@ -272,6 +273,7 @@ test.describe('safety-and-assurance module', () => {
     // Each mode's own constraint is a full sentence in the instrument, and
     // the four are distinct prose rather than one sentence reused.
     const constraints: string[] = [];
+    await waitForHydration(page.getByTestId(`mode-${MODES[0]!.id}`));
     for (const mode of MODES) {
       await page.getByTestId(`mode-${mode.id}`).click();
       const constraint = await readout(page, 'mode-constraint');
@@ -355,7 +357,9 @@ test.describe('safety-and-assurance module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    await page.getByTestId('mode-speed-separation').click();
+    const speedSeparation = page.getByTestId('mode-speed-separation');
+    await waitForHydration(speedSeparation);
+    await speedSeparation.click();
 
     const slider = page.locator('#safety-robot-speed');
     const samples: number[] = [];
@@ -406,7 +410,9 @@ test.describe('safety-and-assurance module', () => {
     );
 
     const frame = page.locator('[data-figure-frame="collaborative-operation-modes"]');
-    await setSlider(page.locator('#safety-robot-speed'), 1.85);
+    const robotSpeed = page.locator('#safety-robot-speed');
+    await waitForHydration(robotSpeed);
+    await setSlider(robotSpeed, 1.85);
     // The walking-speed slider and Reset sit in the "Adjust more" fold.
     await openAdjustMore(frame);
     await setSlider(page.locator('#safety-human-speed'), 0.35);
@@ -427,7 +433,9 @@ test.describe('safety-and-assurance module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    await page.getByTestId('mode-power-force').click();
+    const powerForce = page.getByTestId('mode-power-force');
+    await waitForHydration(powerForce);
+    await powerForce.click();
     const here = (await page.getByTestId('force-limit-label').textContent())!;
 
     await page.goto('/classical/control/');
@@ -570,6 +578,7 @@ test.describe('safety-and-assurance module', () => {
       .first();
     await expect(term).toBeVisible();
     const trigger = term.locator('a, button').first();
+    await waitForHydration(trigger);
     await trigger.focus();
     await expect(trigger).toBeFocused();
     await expect(term.locator('[role="tooltip"]')).toBeVisible();
@@ -603,7 +612,9 @@ test.describe('safety-and-assurance module', () => {
     expect(pageErrors).toEqual([]);
 
     // And with the force half selected, since it draws a different tree.
-    await page.getByTestId('mode-power-force').click();
+    const powerForce = page.getByTestId('mode-power-force');
+    await waitForHydration(powerForce);
+    await powerForce.click();
     const afterSwitch = await new AxeBuilder({ page }).analyze();
     expect(afterSwitch.violations).toEqual([]);
     expect(consoleErrors).toEqual([]);

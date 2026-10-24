@@ -46,16 +46,40 @@ describe('GeneralistReleaseTimeline', () => {
     );
   });
 
-  it('the Downloadable only toggle keeps the four downloadable releases', async () => {
+  it('the Downloadable only toggle keeps the four downloadable releases in full and fades the rest in place', async () => {
     const user = userEvent.setup();
     const { container } = render(<GeneralistReleaseTimeline />);
+    const plot = container.querySelector('svg[role="img"]')!;
+    const viewBox = plot.getAttribute('viewBox');
+    const ids = (selector: string) =>
+      [...container.querySelectorAll(selector)].map((row) => row.getAttribute('data-release'));
     const toggle = screen.getByTestId('generalist-downloadable-only');
     await user.click(toggle);
     expect(toggle).toHaveAttribute('aria-pressed', 'true');
-    expect(container.querySelectorAll('[data-release]')).toHaveLength(4);
-    expect(screen.getByTestId('release-availability')).toHaveTextContent('Downloadable: yes');
+    expect(ids('[data-release]:not([data-faint])')).toEqual(
+      GENERALIST_RELEASES.filter((r) => r.openWeights).map((r) => r.id),
+    );
+    expect(ids('[data-release][data-faint]')).toEqual(
+      GENERALIST_RELEASES.filter((r) => !r.openWeights).map((r) => r.id),
+    );
+    for (const row of container.querySelectorAll('[data-release]')) {
+      const faint = row.hasAttribute('data-faint');
+      const mark = row.querySelector(':scope > [data-row-mark]');
+      if (faint) expect(mark).toHaveAttribute('opacity', '0.3');
+      else expect(mark).not.toHaveAttribute('opacity');
+      // The name never fades, so it keeps text contrast in every filter state.
+      expect(row).not.toHaveAttribute('opacity');
+      expect(row.querySelector(':scope > text')).not.toHaveAttribute('opacity');
+    }
+    // Every row keeps its place, so the plot keeps its size and the card stays.
+    expect(plot.getAttribute('viewBox')).toBe(viewBox);
+    expect(screen.getByTestId('release-detail')).toHaveTextContent('Helix');
+    expect(container.querySelector('[data-chart-description]')?.textContent).toMatch(
+      /13 of 13 selected generalist policy records are shown, 4 in full and the other 9 faint/,
+    );
     await user.click(toggle);
     expect(container.querySelectorAll('[data-release]')).toHaveLength(GENERALIST_RELEASES.length);
+    expect(container.querySelectorAll('[data-faint]')).toHaveLength(0);
   });
 
   it('tapping a row opens its card', () => {
@@ -146,12 +170,19 @@ describe('GeneralistReleaseTimeline', () => {
     expect(first).toHaveAttribute('aria-pressed', 'true');
   });
 
-  it('filtering away the selection moves it to a visible entry', async () => {
+  it('filtering away the selection fades its row but keeps its card, and the track lists the filter alone', async () => {
     const user = userEvent.setup();
-    render(<GeneralistReleaseTimeline />);
+    const { container } = render(<GeneralistReleaseTimeline />);
     await user.click(screen.getByRole('button', { name: /^Helix$/i }));
     await user.click(screen.getByRole('button', { name: /^downloadable$/i }));
+    expect(screen.getByTestId('release-detail')).toHaveTextContent('Helix');
+    expect(screen.getByTestId('release-availability')).toHaveTextContent('Downloadable: not stated');
+    expect(container.querySelector('[data-release="helix"]')).toHaveAttribute('data-faint');
+    expect(screen.queryByRole('button', { name: /^Helix$/i })).not.toBeInTheDocument();
+    // Choosing from the filtered track moves the card as before.
+    await user.click(screen.getByRole('button', { name: /^GR00T N1$/i }));
     expect(screen.getByTestId('release-detail')).toHaveTextContent('GR00T N1');
+    expect(screen.getByTestId('release-availability')).toHaveTextContent('Downloadable: yes');
   });
 
   it('describes the release axis and tracks the selected policy', () => {

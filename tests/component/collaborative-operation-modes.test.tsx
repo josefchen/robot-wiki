@@ -109,6 +109,28 @@ describe('CollaborativeOperationModes', () => {
     );
   });
 
+  it('keeps both readouts in the band under the stage, so a mode switch never changes its height', async () => {
+    const user = userEvent.setup();
+    render(<CollaborativeOperationModes />);
+    const gap = screen.getByTestId('gap-bar');
+    const force = screen.getByTestId('force-bar');
+    expect(gap.parentElement).toBe(force.parentElement);
+    expect(gap.parentElement).toHaveClass('grid');
+    const shown = (bar: HTMLElement) =>
+      !bar.classList.contains('invisible') && !bar.hasAttribute('aria-hidden');
+    const hidden = (bar: HTMLElement) =>
+      bar.classList.contains('invisible') && bar.getAttribute('aria-hidden') === 'true';
+    expect([shown(gap), hidden(force)]).toEqual([true, true]);
+    await user.click(screen.getByRole('button', { name: 'Gentle enough to bump' }));
+    expect([hidden(gap), shown(force)]).toEqual([true, true]);
+    for (const label of ['Stops when you step in', 'You guide it by hand']) {
+      await user.click(screen.getByRole('button', { name: label }));
+      expect([hidden(gap), hidden(force)]).toEqual([true, true]);
+    }
+    await user.click(screen.getByRole('button', { name: 'Keeps its distance' }));
+    expect([shown(gap), hidden(force)]).toEqual([true, true]);
+  });
+
   it('opens on speed and separation monitoring with a live separation readout', () => {
     render(<CollaborativeOperationModes />);
     expect(screen.getByTestId('mode-speed-separation')).toHaveAttribute(

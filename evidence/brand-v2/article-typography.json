@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "2fdb7ac77fe9a71db08b5630b81adc563b74e415ce2327c38b2c4996721336be",
+  "fingerprint": "7c7a0f227213d2365daf3df1dcfccbb37bbf0b2f9659b693b3ef302d92af84ec",
   "viewports": [
     "375x812",
     "1440x900"
@@ -24693,6 +24693,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "At this speed the robot needs a gap of about 1.4 metres; you"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.38,
+          "widthPx": 293,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Bump: about 316 newtons. Safe limit (the gauge’s long mark):"
         },
         {
           "familyHead": "geist",
@@ -81360,6 +81369,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "At this speed the robot needs a gap of about 1.4 metres; you"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 12,
+          "lineHeightRatio": 1.38,
+          "widthPx": 878.66,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Bump: about 316 newtons. Safe limit (the gauge’s long mark):"
         },
         {
           "familyHead": "geist",

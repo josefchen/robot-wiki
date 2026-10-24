@@ -196654,7 +196654,7 @@
           "observed": {
             "focusStops": 90,
             "links": 533,
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "viewports": 3
           },
           "predicates": [
@@ -197117,7 +197117,7 @@
           "observed": {
             "focusStops": 90,
             "links": 440,
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "viewports": 3
           },
           "predicates": [
@@ -197327,7 +197327,7 @@
           "observed": {
             "focusStops": 90,
             "links": 577,
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "viewports": 3
           },
           "predicates": [
@@ -205301,7 +205301,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "viewports": 3
           },
           "predicates": [
@@ -205697,7 +205697,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "viewports": 3
           },
           "predicates": [
@@ -205877,7 +205877,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "viewports": 3
           },
           "predicates": [
@@ -343608,7 +343608,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":28.8,\"maxLatencyMs\":28.8}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":30.3,\"maxLatencyMs\":30.3}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343629,8 +343629,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 28.8,
-          "maxLatencyMs": 28.8,
+          "medianLatencyMs": 30.3,
+          "maxLatencyMs": 30.3,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343646,7 +343646,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":18.9,\"maxLatencyMs\":34.8}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":19.8,\"maxLatencyMs\":30.5}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343667,8 +343667,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 18.9,
-          "maxLatencyMs": 34.8,
+          "medianLatencyMs": 19.8,
+          "maxLatencyMs": 30.5,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343684,7 +343684,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.3,\"maxLatencyMs\":34.8}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":4.6,\"maxLatencyMs\":112}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343708,8 +343708,8 @@
           "observedRenderedTotal": 907,
           "nonEmptyCases": 257,
           "timedCases": 258,
-          "medianLatencyMs": 5.3,
-          "maxLatencyMs": 34.8,
+          "medianLatencyMs": 4.6,
+          "maxLatencyMs": 112,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343725,7 +343725,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":11.05,\"maxLatencyMs\":65.7}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":15.7,\"maxLatencyMs\":40}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343749,8 +343749,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 11.05,
-          "maxLatencyMs": 65.7,
+          "medianLatencyMs": 15.7,
+          "maxLatencyMs": 40,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343766,7 +343766,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":16.6,\"maxLatencyMs\":2742.2,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":14.6,\"maxLatencyMs\":260.7,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343790,8 +343790,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 16.6,
-          "maxLatencyMs": 2742.2,
+          "medianLatencyMs": 14.6,
+          "maxLatencyMs": 260.7,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -343827,7 +343827,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":86.6,\"maxLatencyMs\":1177.3}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":26.8,\"maxLatencyMs\":56.9}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343851,8 +343851,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 86.6,
-          "maxLatencyMs": 1177.3,
+          "medianLatencyMs": 26.8,
+          "maxLatencyMs": 56.9,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343964,7 +343964,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":49.7,\"maxLatencyMs\":1601.5}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":16,\"maxLatencyMs\":171}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343985,8 +343985,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 49.7,
-          "maxLatencyMs": 1601.5,
+          "medianLatencyMs": 16,
+          "maxLatencyMs": 171,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -388320,7 +388320,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "viewports": 3
           },
           "predicates": [
@@ -388729,7 +388729,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "viewports": 3
           },
           "predicates": [
@@ -388914,7 +388914,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "viewports": 3
           },
           "predicates": [
@@ -396464,7 +396464,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "viewports": 3
           },
           "predicates": [
@@ -396860,7 +396860,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "viewports": 3
           },
           "predicates": [
@@ -397040,7 +397040,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "viewports": 3
           },
           "predicates": [
@@ -399164,7 +399164,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "viewports": 3
           },
           "predicates": [
@@ -399560,7 +399560,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "viewports": 3
           },
           "predicates": [
@@ -399740,7 +399740,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "viewports": 3
           },
           "predicates": [
@@ -401932,7 +401932,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -402350,7 +402350,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -402540,7 +402540,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -404782,7 +404782,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -405200,7 +405200,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -405390,7 +405390,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -407564,7 +407564,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7889,
+            "paintedElements": 7892,
             "viewports": 3
           },
           "predicates": [
@@ -407960,7 +407960,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 2526,
+            "paintedElements": 2565,
             "viewports": 3
           },
           "predicates": [
@@ -408140,7 +408140,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 7020,
+            "paintedElements": 7026,
             "viewports": 3
           },
           "predicates": [
@@ -427100,7 +427100,7 @@
               "id": "/frontier/safety-and-assurance/",
               "observed": {
                 "paragraphCount": 62,
-                "registeredFrameParagraphCount": 22,
+                "registeredFrameParagraphCount": 24,
                 "offendingFamilies": []
               }
             }
@@ -459055,7 +459055,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
-      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 15 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
+      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 12 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -459067,7 +459067,7 @@
           "sourceId": "interactive:GeneralistReleaseTimeline",
           "controls": 24,
           "transitions": 22,
-          "announcements": 15,
+          "announcements": 12,
           "seriesStates": 20,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -463137,7 +463137,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
-      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 15 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
+      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 12 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -463149,7 +463149,7 @@
           "sourceId": "interactive:GeneralistReleaseTimeline",
           "controls": 24,
           "transitions": 22,
-          "announcements": 15,
+          "announcements": 12,
           "seriesStates": 20,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -466791,7 +466791,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
-      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 15 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
+      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 12 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -466803,7 +466803,7 @@
           "sourceId": "interactive:GeneralistReleaseTimeline",
           "controls": 24,
           "transitions": 22,
-          "announcements": 15,
+          "announcements": 12,
           "seriesStates": 20,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -472278,9 +472278,9 @@
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "5c82429e713965b2849f4532d0c46f44cef1157ba9e3dfc3bfbdf1e0ef0da8fb",
+              "sha256": "64cc8311946048a8122ff646deb5a45608f74b1ac4861f4f944e09e4cb5b4eba",
               "widthPx": 327,
-              "heightPx": 615
+              "heightPx": 849
             },
             {
               "viewport": "1440x900",
@@ -472292,9 +472292,9 @@
             {
               "viewport": "1440x900",
               "state": "changed",
-              "sha256": "fadbac8be0abf1269f8c00902ec65e7921c6f08d44bdadb131fe6f3bfe8f8154",
+              "sha256": "ddef513b08f92d37b0a188ca8ba4d911e73ccb99745c6ae39f2aa79c2f8f9dde",
               "widthPx": 930,
-              "heightPx": 609
+              "heightPx": 968
             }
           ],
           "contactSheet": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
@@ -477573,7 +477573,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
-      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 15 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
+      "actual": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1 on /manipulation/generalist-policies/: 24 controls operated by keyboard through 22 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 12 live announcements read, series compared in 20 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -477585,7 +477585,7 @@
           "sourceId": "interactive:GeneralistReleaseTimeline",
           "controls": 24,
           "transitions": 22,
-          "announcements": 15,
+          "announcements": 12,
           "seriesStates": 20,
           "sliderStatesCompared": 0,
           "idleMutations": {
