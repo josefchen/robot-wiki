@@ -1,7 +1,7 @@
 {
  "version": 1,
  "generatedBy": "tests/e2e/brand-v2-control-states.spec.ts",
- "fingerprint": "0811c35532489f996b94159d7a499f20c08a13d0fc798adcd4f8eac5ecdb06c5",
+ "fingerprint": "fd5a9ec6f717b223e30409b4ec70132696a20599bc10fcb384f11150c73793c8",
  "viewports": [
   "375x812",
   "1440x900"
@@ -1430,7 +1430,7 @@
    "viewport": "375x812",
    "status": 200,
    "controls": {
-    "control:link-focus": 116,
+    "control:link-focus": 117,
     "control:secondary-action": 32,
     "control:segmented": 1,
     "control:selection": 2,
@@ -3887,7 +3887,7 @@
    "viewport": "1440x900",
    "status": 200,
    "controls": {
-    "control:link-focus": 163,
+    "control:link-focus": 165,
     "control:secondary-action": 31,
     "control:segmented": 1,
     "control:selection": 2,
@@ -5599,8 +5599,8 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||min-w-0 ink-link|false|none|",
    "instances": 5,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/data-hardware/evaluation-crisis/\" data-cs-probe=\"87\">The Evaluation Crisis</a>",
-   "name": "The Evaluation Crisis",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/manipulation/diffusion-policy/\" data-cs-probe=\"87\">Diffusion Policy</a>",
+   "name": "Diffusion Policy",
    "disabled": false,
    "selected": "none",
    "exemption": null,
@@ -44177,7 +44177,7 @@
    "viewport": "375x812",
    "member": "control:link-focus",
    "variant": "control:link-focus|a||||false|none|",
-   "instances": 51,
+   "instances": 52,
    "element": "<a data-brand-control-id=\"control:link-focus\" href=\"/manipulation/\" data-cs-probe=\"4\">Manipulation &amp; Learned Policies</a>",
    "name": "Manipulation & Learned Policies",
    "disabled": false,
@@ -45012,7 +45012,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"142\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"143\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -77408,8 +77408,8 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||min-w-0 ink-link|false|none|",
    "instances": 5,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/data-hardware/evaluation-crisis/\" data-cs-probe=\"87\">The Evaluation Crisis</a>",
-   "name": "The Evaluation Crisis",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/manipulation/diffusion-policy/\" data-cs-probe=\"87\">Diffusion Policy</a>",
+   "name": "Diffusion Policy",
    "disabled": false,
    "selected": "none",
    "exemption": null,
@@ -114405,7 +114405,7 @@
    "viewport": "1440x900",
    "member": "control:link-focus",
    "variant": "control:link-focus|a||||false|none|",
-   "instances": 98,
+   "instances": 100,
    "element": "<a data-brand-control-id=\"control:link-focus\" href=\"/manipulation/\" data-cs-probe=\"4\">Manipulation &amp; Learned Policies</a>",
    "name": "Manipulation & Learned Policies",
    "disabled": false,
@@ -115189,7 +115189,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"188\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"190\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -155517,8 +155517,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/adjacent/drones/",
@@ -155979,8 +155979,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/classical/motion-planning/",

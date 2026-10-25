@@ -5,6 +5,7 @@ import { writeFileSync } from 'node:fs';
 import { GLOSSARY } from '../../data/glossary';
 import { CITATIONS } from '../../data/citations';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 import { waitForHydration } from './interaction-ready';
 
 // Normal-suite collectability must not require a Mission or its input manifest.
@@ -53,29 +54,35 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
   await shot('cap-limitations');
 
   const citeIds = ['saycan-2022', 'code-as-policies-2022'];
-  // Escape is handled by the hydrated chip; before hydration the tooltip only
-  // shows. Wait for both chips up front: the first chip's reference jump is a
-  // hash navigation, which clears history.state, the hydration signal.
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the chip and its tooltip became a numbered mark with a
+  // sidenote (helpers/citation-note.ts). The note is hidden at rest at
+  // 375 px, so the pointer open and keyboard close run there; the number
+  // then jumps to the References entry, as the chip's second link did.
+  // Enter is handled by the hydrated number; before hydration it follows
+  // the #ref- link. Wait for both numbers up front: the first reference
+  // jump is a hash navigation, which clears history.state, the hydration
+  // signal.
+  const viewport = page.viewportSize()!;
   for (const id of citeIds) {
-    await waitForHydration(page.locator(`[data-cite-id="${id}"]`).first().locator('a').first());
+    await waitForHydration(citeParts(page.locator(`[data-cite-id="${id}"]`).first()).mark);
   }
   for (const id of citeIds) {
     const citation = CITATIONS.find(item => item.id === id)!;
     const chip = page.locator(`[data-cite-id="${id}"]`).first();
-    const source = chip.locator('a').first();
-    const tip = chip.getByRole('tooltip');
-    await source.scrollIntoViewIfNeeded();
-    await source.hover();
+    const { mark, note: tip, source } = citeParts(chip);
+    await page.setViewportSize({ width: 375, height: 812 });
+    await mark.scrollIntoViewIfNeeded();
+    await expect(tip).toBeHidden();
+    await showCiteNote(page, chip, 'hover');
     await expect(tip).toBeVisible();
     await expect(tip).toContainText(citation.title);
     await expect(source).toHaveAttribute('href', citation.url);
-    await source.focus();
-    await page.keyboard.press('Escape');
+    await mark.focus();
+    await dismissCiteNote(page, chip, 'keyboard');
     await expect(tip).toBeHidden();
-    await expect(source).toBeFocused();
-    await page.keyboard.press('Tab');
-    await expect(chip.locator('a').nth(1)).toBeFocused();
-    await page.keyboard.press('Enter');
+    await expect(mark).toBeFocused();
+    await jumpFromCiteMark(page, chip, id);
     const reference = page.locator(`#ref-${id}`);
     if (citation.authors.length > 8) {
       await expect(reference.locator(`[data-author-names]`)).toHaveText(`${citation.authors.slice(0, 8).join(`, `)}, and ${citation.authors.length - 8} more`);
@@ -90,6 +97,7 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
     observations[id] = { authors: citation.authors.length, title: citation.title, venue: citation.venue, year: citation.year, url: citation.url };
     await shot(`${id}-references`);
   }
+  await page.setViewportSize(viewport);
 
   await capLimits.scrollIntoViewIfNeeded();
   const axe = await new AxeBuilder({ page }).include('main').analyze();

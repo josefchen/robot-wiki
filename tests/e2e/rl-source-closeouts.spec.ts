@@ -9,6 +9,8 @@ import { missingOccurrences } from './source-reader-requirements';
 import { setSlider } from './slider';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { forEachInOwnContext } from './helpers/per-route-context';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const graph = expectedApparatusGraph(process.cwd());
 const changed = ['levine-hand-eye-2016', 'her-2017', 'q-transformer-2023'];
@@ -209,17 +211,42 @@ for (const width of [1440, 375]) {
       await expect(page.getByRole('heading', { level: 1, name: 'RL for Robotics', exact: true })).toBeVisible();
       // The ledger keeps its paper-source chips in its "How this was made"
       // fold; open it so the first chip of each source is the one a reader
-      // reaches there.
+      // reaches there. The ledger is a lazy mount: a fold opened on its server HTML before React
+      // attaches is reported as a hydration mismatch, so the fold is opened once it is hydrated.
+      await waitForHydration(page.getByTestId('sample-budget-slider'));
       await openHowThisWasMade(page.getByTestId('sample-efficiency'));
       for (const id of [...changed, 'offline-rl-tutorial-2020']) {
         const chip = page.locator(`.prose [data-cite-id="${id}"]`).first();
+        if (id === 'q-transformer-2023') {
+          // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the shorter-text
+          // cut (fa85511f, 12 October 2026) removed this article's Q-Transformer paragraph and its
+          // only in-prose citation, so there is no note to focus. The source stays declared and is
+          // printed whole under "Further reading" with its source link, which is pinned instead.
+          const citation = getCitation(id)!;
+          await expect(page.locator(`.prose [data-cite-id="${id}"]`)).toHaveCount(0);
+          const reference = page.locator(`ol [data-reference-id="${id}"]`);
+          await expect(reference).toHaveAttribute('data-further-reading', 'true');
+          await expect(reference).toContainText(citation.title);
+          const link = reference.locator('[data-reference-source-link]');
+          await expect(link).toHaveAttribute('href', citation.url);
+          await expect(link).toHaveAttribute('target', '_blank');
+          const overflow = await reference.evaluate((element) => element.scrollWidth - element.clientWidth);
+          expect.soft(overflow).toBeLessThanOrEqual(1);
+          measurements.push({ id, furtherReading: true, overflow });
+          continue;
+        }
         await chip.evaluate((element) => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
-        const trigger = chip.locator('a,button').first();
-        await trigger.focus();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the chip's first
+        // link took focus and hover and showed its role="tooltip". The focus stop is the citation's
+        // number and the tooltip is its sidenote (helpers/citation-note.ts): in the margin at rest
+        // from 1200 px, opened inline by Enter below it and in figures; it stays shown under hover.
+        const { mark: trigger, note: tooltip } = citeParts(chip);
+        await waitForHydration(trigger);
+        await showCiteNote(page, chip, 'keyboard');
         await expect(trigger).toBeFocused();
-        const tooltip = chip.getByRole('tooltip');
         await expect(tooltip).toBeVisible();
-        await trigger.hover();
+        const markBox = (await trigger.boundingBox())!;
+        await trigger.hover({ position: { x: markBox.width / 2, y: markBox.height / 2 } });
         await expect(tooltip).toBeVisible();
         const box = await tooltip.boundingBox();
         expect(box).not.toBeNull();
@@ -230,6 +257,7 @@ for (const width of [1440, 375]) {
         const overflow = await tooltip.evaluate((element) => element.scrollWidth - element.clientWidth);
         expect.soft(overflow).toBeLessThanOrEqual(1);
         measurements.push({ id, box, overflow });
+        await dismissCiteNote(page, chip, 'keyboard');
       }
       await page.mouse.move(0, 0);
       const widget = page.getByTestId('sample-efficiency');

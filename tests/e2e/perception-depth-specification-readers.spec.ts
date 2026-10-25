@@ -5,6 +5,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`named-device depth specifications and calculator at ${viewport.width}px`, async ({ page }, testInfo) => {
@@ -82,13 +84,19 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       });
     });
     expect(fontRoles.every(role => role.loaded)).toBe(true);
-    expect(fontRoles[0].family).toMatch(/tektur/i);
-    expect(fontRoles[1].family).toMatch(/plex.*sans/i);
-    expect(fontRoles[2].family).toMatch(/newsreader/i);
-    expect(fontRoles[3].family).toMatch(/plex.*mono/i);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the H1, interface
+    // note, prose and readout were Tektur, IBM Plex Sans, Newsreader and IBM Plex Mono; they are
+    // DM Sans, Geist, Geist and Geist Mono (data/type-roles.json).
+    expect(fontRoles[0].family).toMatch(/^"?DM Sans"?,/);
+    expect(fontRoles[1].family).toMatch(/^"?Geist"?,/);
+    expect(fontRoles[2].family).toMatch(/^"?Geist"?,/);
+    expect(fontRoles[3].family).toMatch(/^"?Geist Mono"?,/);
     await capture('opening-font-roles', { fontRoles });
 
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the phone-only
+    // "Open navigation menu" button and the desktop sidebar taxonomy are replaced by the one top
+    // bar's "Articles" button, shown at every width, which opens the taxonomy drawer.
+    const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
     if (viewport.width === 375) {
       await waitForHydration(menu);
       await menu.focus(); await page.keyboard.press('Enter');
@@ -110,9 +118,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await expect(dialog).toHaveCount(0); await expect(menu).toBeFocused();
       await expect(page.locator('[inert]')).toHaveCount(0);
     } else {
-      await expect(menu).not.toBeVisible();
+      await expect(menu).toBeVisible();
+      await openArticlesPanel(page);
       await expect(page.getByRole('navigation', { name: 'Robot Wiki taxonomy' })
         .getByRole('link', { name: 'Perception for Manipulation', exact: true })).toHaveAttribute('aria-current', 'page');
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
     }
 
     const budget = page.getByTestId('perception-budget');
@@ -159,29 +170,33 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         : prose.locator(`[data-cite-id="${id}"]`).first();
       for (const edge of [120, viewport.height - 80]) {
         await position(cite, edge);
-        // The sticky top bar is mobile-only (site-shell.tsx: lg:hidden).
-        // Measure the actual occluding edge instead of inventing a desktop bar.
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the sticky top
+        // bar was mobile-only (no desktop header); the one top bar is sticky at every width.
         const header = await page.locator('header.sticky').boundingBox();
         const topBoundary = header ? header.y + header.height : 0;
-        if (viewport.width === 375) {
-          expect(header).not.toBeNull();
-          expect(header!.y).toBe(0);
-          expect(header!.height).toBeGreaterThan(0);
-        } else expect(header).toBeNull();
-        const trigger = cite.locator('a').first();
-        await trigger.hover();
-        const tooltip = cite.getByRole('tooltip');
-        await expect(tooltip).toBeVisible();
+        expect(header).not.toBeNull();
+        expect(header!.y).toBe(0);
+        expect(header!.height).toBeGreaterThan(0);
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the chip's
+        // role="tooltip", shown by hover and by focus and dismissed by Escape, became the numbered
+        // citation's sidenote, shown by pointer and keyboard (in the margin at rest from 1200 px,
+        // opened inline by the number below it or in a list item's figure) and closed by pressing
+        // the number again (helpers/citation-note.ts). The note must stand inside the viewport
+        // below the top bar at both edges.
+        const tooltip = citeParts(cite).note;
+        await showCiteNote(page, cite, 'hover');
         const hover = await bounds(tooltip);
         expect(hover.y).toBeGreaterThanOrEqual(topBoundary);
         expect(hover.y + hover.height).toBeLessThanOrEqual(viewport.height);
+        await dismissCiteNote(page, cite, 'hover');
         await page.mouse.move(viewport.width - 1, viewport.height - 1);
-        await trigger.focus(); await expect(tooltip).toBeVisible();
+        await position(cite, edge);
+        await showCiteNote(page, cite, 'keyboard');
         const focus = await bounds(tooltip);
         expect(focus.y).toBeGreaterThanOrEqual(topBoundary);
         expect(focus.y + focus.height).toBeLessThanOrEqual(viewport.height);
         await capture(`${id}-edge-${edge}`, { hover, focus, edge, header, topBoundary });
-        await page.keyboard.press('Escape'); await page.keyboard.press('Tab'); await page.keyboard.press('Tab');
+        await dismissCiteNote(page, cite, 'keyboard'); await page.keyboard.press('Tab'); await page.keyboard.press('Tab');
       }
     }
     const term = prose.locator('[data-term-id="point-cloud"]');

@@ -7,8 +7,11 @@ import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { setSlider } from './slider';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { citeNoteInMargin, citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
 
 test('visual-servo origin pair has bounded reader, glossary and control evidence', async ({ page }, testInfo) => {
+  // Some thirty full-page captures plus two axe passes run close to the 30 s default on a loaded host.
+  test.setTimeout(90_000);
   const viewport = page.viewportSize()!;
   const states: object[] = [], errors: string[] = [], denied: string[] = [];
   const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS;
@@ -77,11 +80,17 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
     return { selector, family, loaded: document.fonts.check('16px ' + family.split(',')[0]) };
   }));
   expect(roles.every(role => role.loaded)).toBe(true);
-  [/tektur/i, /plex.*sans/i, /newsreader/i, /plex.*mono/i]
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the H1, interface
+  // note, prose and readout were Tektur, IBM Plex Sans, Newsreader and IBM Plex Mono; they are
+  // DM Sans, Geist, Geist and Geist Mono (data/type-roles.json).
+  [/^"?DM Sans"?,/, /^"?Geist"?,/, /^"?Geist"?,/, /^"?Geist Mono"?,/]
     .forEach((pattern, index) => expect(roles[index].family).toMatch(pattern));
   await capture('opening-fonts', { roles });
 
-  const menu = page.getByRole('button', { name: 'Open navigation menu' });
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the phone-only
+  // "Open navigation menu" button (hidden on desktop beside the sidebar) is replaced by the one
+  // top bar's "Articles" button, shown at every width, which opens the taxonomy drawer.
+  const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
   if (viewport.width === 375) {
     await menu.focus(); await page.keyboard.press('Enter');
     const dialog = page.getByRole('dialog');
@@ -94,7 +103,7 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
     await capture('drawer-trap');
     await page.keyboard.press('Escape'); await expect(dialog).toHaveCount(0);
     await expect(menu).toBeFocused();
-  } else await expect(menu).not.toBeVisible();
+  } else await expect(menu).toBeVisible();
 
   await openAdjustMore(page.getByTestId('perception-budget'));
   const defaultTotal = await page.getByTestId('perception-total-readout').innerText();
@@ -112,8 +121,21 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
   // The chart-data disclosures sit inside "How this was made"; open it so each one can take focus.
   await openHowThisWasMade(page.getByTestId('perception-budget'));
   const disclosures = page.locator('main details');
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard): every disclosure was
+  // toggled. The research-page layout renders the page contents as a sticky rail from 1200 px and
+  // as the "Contents" disclosure below it, so at a rail width that one disclosure is display: none
+  // and the rail stands in for it with the same links. Every other disclosure is toggled.
+  const railWidth = await page.locator('nav.article-toc').isVisible();
+  let layoutHidden = 0;
   for (let index = 0; index < await disclosures.count(); index++) {
     const disclosure = disclosures.nth(index);
+    if (await disclosure.evaluate(el => getComputedStyle(el).display === 'none')) {
+      expect(await disclosure.evaluate(el => el.classList.contains('article-contents')), 'only the narrow-width contents disclosure is laid out away').toBe(true);
+      expect(railWidth, 'the contents rail stands in for the hidden contents disclosure').toBe(true);
+      const hrefs = (nav: Locator) => nav.evaluateAll(links => links.map(a => a.getAttribute('href')));
+      expect(await hrefs(page.locator('nav.article-toc a'))).toEqual(await hrefs(disclosure.locator('nav a')));
+      layoutHidden++; continue;
+    }
     const summary = disclosure.locator('summary').first();
     const wasOpen = await disclosure.evaluate(el => (el as HTMLDetailsElement).open);
     await summary.focus(); await page.keyboard.press('Enter');
@@ -121,7 +143,8 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
     await page.keyboard.press('Enter');
     expect(await disclosure.evaluate(el => (el as HTMLDetailsElement).open)).toBe(wasOpen);
   }
-  states.push({ name: 'disclosure-population', count: await disclosures.count(),
+  expect(layoutHidden).toBe(railWidth ? 1 : 0);
+  states.push({ name: 'disclosure-population', count: await disclosures.count(), layoutHidden,
     noPopulationMeansNotApplicable: true });
   const stat = page.getByText('visual-servo formulation', { exact: true }).locator('..');
   await expect(stat).toContainText('1992');
@@ -148,10 +171,18 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
   ] as const) {
     for (const [placement, top] of [['top', 110], ['middle', viewport.height / 2], ['lower', viewport.height - 70]] as const) {
       await clear(); await position(root, top);
-      const trigger = root.locator('a').first(), tooltip = root.getByRole('tooltip');
+      // Owner-approved successor (Josef, 2026-10-10, the research-page standard): a citation's
+      // role="tooltip" chip became the numbered citation's sidenote (helpers/citation-note.ts),
+      // shown by pointer and by keyboard on the number: in the margin at rest from 1200 px,
+      // opened inline below it and closed by pressing the number again. The note is held to the
+      // tooltip's box checks. Glossary terms keep role="tooltip".
+      const cite = name !== 'visual-servo-term';
+      const trigger = cite ? citeParts(root).mark : root.locator('a').first();
+      const tooltip = cite ? citeParts(root).note : root.getByRole('tooltip');
+      // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the sticky top
+      // bar was mobile-only; the one top bar is sticky at every width.
       const header = await page.locator('header.sticky').boundingBox();
-      if (viewport.width === 375) expect(header).not.toBeNull();
-      else expect(header).toBeNull();
+      expect(header).not.toBeNull();
       const boundary = header ? header.y + header.height : 0;
       const check = async () => {
         await expect(tooltip).toBeVisible();
@@ -159,16 +190,32 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
         expect(box.x).toBeGreaterThanOrEqual(0);
         expect(box.x + box.width).toBeLessThanOrEqual(viewport.width);
         expect(box.y).toBeGreaterThanOrEqual(boundary);
-        expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
+        // A note opened inline (below 1200 px) flows after its number in the column, so near the
+        // lower edge it continues below the fold as text does: there its first line must lie
+        // inside the viewport and every line inside the side edges.
+        const inline = cite && !(await citeNoteInMargin(root));
+        if (inline) {
+          const lines = await tooltip.evaluate(el => [...el.getClientRects()].filter(r => r.width > 0 && r.height > 0)
+            .map(r => ({ left: r.left, right: r.right, bottom: r.bottom })));
+          expect(lines.length).toBeGreaterThan(0);
+          expect(lines[0].bottom).toBeLessThanOrEqual(viewport.height);
+          for (const line of lines) { expect(line.left).toBeGreaterThanOrEqual(0); expect(line.right).toBeLessThanOrEqual(viewport.width); }
+        } else expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
         if (name === 'visual-servo-term') await expect(tooltip).toContainText(definition);
         return box;
       };
-      await trigger.hover(); const hover = await check();
+      if (cite) await showCiteNote(page, root, 'hover'); else await trigger.hover();
+      const hover = await check();
       await capture(`${name}-${placement}-hover`, { hover, header, boundary });
-      await clear(); await trigger.focus(); const focus = await check();
+      if (cite) await dismissCiteNote(page, root, 'hover');
+      await clear();
+      if (cite) { await position(root, top); await showCiteNote(page, root, 'keyboard'); } else await trigger.focus();
+      const focus = await check();
       await capture(`${name}-${placement}-keyboard`, { focus, header, boundary });
       const scrolling = await tooltip.evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight, tabIndex: (el as HTMLElement).tabIndex }));
-      if (scrolling.scroll > scrolling.client) {
+      // A note shows whole, so the tooltip's scroll-to-end walk becomes nothing scrolled away.
+      if (cite) expect(scrolling.scroll).toBeLessThanOrEqual(scrolling.client + 1);
+      else if (scrolling.scroll > scrolling.client) {
         expect(scrolling.tabIndex).toBe(0);
         await page.keyboard.press('Tab'); await expect(tooltip).toBeFocused();
         await page.keyboard.press('End');
@@ -176,6 +223,7 @@ test('visual-servo origin pair has bounded reader, glossary and control evidence
         await capture(`${name}-${placement}-definition-end`, { scrolling });
       }
       await page.evaluate(() => window.scrollBy(0, 12)); await check();
+      if (cite) await dismissCiteNote(page, root, 'keyboard');
       await page.keyboard.press('Tab'); await clear();
     }
   }

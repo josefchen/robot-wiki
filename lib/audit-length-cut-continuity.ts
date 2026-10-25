@@ -88,7 +88,7 @@ export type LengthCutReview = {
 
 // BEGIN length-cut pins (written by scripts/record-length-cut-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1050410, sha256: 'b2fabffb0181671c04d7a07c2fc6a675910681a688755ad64922fde4cfff4136' };
+const reviewPin = { bytes: 1050041, sha256: 'ff2bbba0750248b33aad571e6a71d51fd3274c1336434ca5234450a71eed2c10' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -106,7 +106,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/bc-foundations.mdx', [12506, 'e33d1a20ed8cb7d6ba29650063b2e690ea9dbdaaaccd799696aff656f7fa7be9']],
   ['content/manipulation/comparison-matrix.mdx', [9245, '3acd9415130e88c4b80eeb4ad055ef9cc6be044ca0377ed9e53ca900a1e54153']],
   ['content/manipulation/cross-embodiment.mdx', [9663, '1ba71d527e08521870db79810f015190df72c28be1f51f30593b9c7d46e0ec93']],
-  ['content/manipulation/diffusion-policy.mdx', [9559, '8ad96dcd6c5c09cca1006d3bf9dcf3d114fde389f08551107b4e148ce40a5f65']],
+  ['content/manipulation/diffusion-policy.mdx', [9601, '6c9eaf48861d1de758668e33326b237960536d5a718d4ee3a9717e8167e77458']],
   ['content/manipulation/foundation-models.mdx', [10223, '382c7b90044932daaad0a68438c78b2a387ec5cf1c6de0b7b0ae7d83e07f0514']],
   ['content/manipulation/generalist-policies.mdx', [11195, '65017b77792f36b851d754b8d6c609466986169b574b789225d00d66fe7576bd']],
   ['content/manipulation/hierarchical.mdx', [13435, '295c1a36bd6028b7b2b07596d92d387ce1211a1539185ab1b9402f97c3c8b8e8']],

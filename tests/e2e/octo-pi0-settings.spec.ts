@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`Octo/pi0 conditional settings render at ${viewport.width}`, async ({ page }, info) => {
     await page.setViewportSize(viewport);
@@ -27,18 +29,29 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     const note = page.locator('div.prose > p').filter({ hasText: 'example predicts 64 actions' });
     await note.scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`${viewport.width}-source-notes.png`) });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): focusing the chip's link showed a role="tooltip"; the
+    // citation is now a number with a sidenote, shown by keyboard (in the
+    // margin at rest from 1200 px, opened inline by Enter below it).
     for (const id of ['octo-2024', 'pi0-2024']) {
-      const cite = page.locator(`div.prose [data-cite-id="${id}"] a`).first();
-      await cite.focus();
-      await expect(page.getByRole('tooltip')).toBeVisible();
+      const citation = page.locator(`div.prose [data-cite-id="${id}"]`).first();
+      const { mark: cite, note } = citeParts(citation);
+      await waitForHydration(cite);
+      await showCiteNote(page, citation, 'keyboard');
+      await expect(note).toBeVisible();
       await page.screenshot({ path: info.outputPath(`${viewport.width}-${id}.png`) });
+      await dismissCiteNote(page, citation, 'keyboard');
       await cite.blur();
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBe(0);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     const styles = await page.evaluate(() => ({ h1: getComputedStyle(document.querySelector('h1')!).fontFamily, prose: getComputedStyle(document.querySelector('div.prose > p')!).fontFamily }));
-    expect(styles.h1).toMatch(/Tektur/i);
-    expect(styles.prose).toMatch(/Newsreader/i);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the H1 was pinned to Tektur and the prose to Newsreader;
+    // the display family is now DM Sans and the body family Geist (not its
+    // mono cut).
+    expect(styles.h1).toMatch(/DM Sans/i);
+    expect(styles.prose).toMatch(/^"?Geist"?,/i);
     await page.goto('/manipulation/comparison-matrix/');
     await page.evaluate(() => document.fonts.ready);
     await page.waitForLoadState('networkidle');

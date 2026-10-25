@@ -3,6 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
+import { CITE_MARK, citeParts, dismissCiteNote, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const route = '/rl-sim2real/sim2real-transfer/';
 const proseSelector = 'div.prose[data-pagefind-body]';
@@ -71,6 +73,46 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
     expect(geometry.scrollHeight, `${state} full text`).toBeLessThanOrEqual(geometry.clientHeight + 1);
     expect(geometry.unobscured, `${state} hit testing`).toEqual([true, true, true, true, true]);
   }
+  /**
+   * The tooltip's containment, on its successor (Owner-approved successor,
+   * Josef, 2026-10-10, the research-page standard): a citation note opened
+   * inline at 375 px runs on after its number and wraps, so its box is a
+   * set of line boxes. Each painted line must sit inside the viewport and
+   * below the sticky top bar, and its two ends and middle must hit the note
+   * itself; the note's whole text is rendered (no clipped overflow). A
+   * margin note at 1440 px is one block box and meets the same checks.
+   */
+  async function noteContained(note: Locator, state: string) {
+    await expect(note).toBeVisible();
+    const geometry = await note.evaluate(element => {
+      const bar = document.querySelector('[data-site-topbar]')!.getBoundingClientRect();
+      const lines = [...element.getClientRects()].filter(r => r.width > 2 && r.height > 2);
+      return {
+        chromeBottom: bar.bottom,
+        lines: lines.map(r => ({
+          left: r.left, right: r.right, top: r.top, bottom: r.bottom,
+          unobscured: [[r.left + 2, r.top + r.height / 2], [r.right - 2, r.top + r.height / 2],
+            [r.left + r.width / 2, r.top + r.height / 2]].map(([x, y]) => {
+            const hit = document.elementFromPoint(x, y);
+            return hit === element || (hit !== null && element.contains(hit));
+          }),
+        })),
+        scrollHeight: element.scrollHeight, clientHeight: element.clientHeight,
+        scrollWidth: element.scrollWidth, clientWidth: element.clientWidth,
+      };
+    });
+    steps.push({ state, noteGeometry: geometry });
+    expect(geometry.lines.length, `${state} painted lines`).toBeGreaterThan(0);
+    for (const [index, line] of geometry.lines.entries()) {
+      expect(line.left, `${state} line ${index} left`).toBeGreaterThanOrEqual(0);
+      expect(line.right, `${state} line ${index} right`).toBeLessThanOrEqual(view.width + 1);
+      expect(line.top, `${state} line ${index} below chrome`).toBeGreaterThanOrEqual(geometry.chromeBottom);
+      expect(line.bottom, `${state} line ${index} bottom`).toBeLessThanOrEqual(view.height + 1);
+      expect(line.unobscured, `${state} line ${index} hit testing`).toEqual([true, true, true]);
+    }
+    expect(geometry.scrollWidth, `${state} internal width`).toBeLessThanOrEqual(geometry.clientWidth + 1);
+    expect(geometry.scrollHeight, `${state} full text`).toBeLessThanOrEqual(geometry.clientHeight + 1);
+  }
   async function fontProof(selector: string) {
     const cdp = await page.context().newCDPSession(page);
     await cdp.send('DOM.enable');
@@ -96,7 +138,10 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
     expect(fonts.length, selector).toBeGreaterThan(0);
     for (const font of fonts) {
       expect(font.isCustomFont, `${selector}: ${font.familyName}`).toBe(true);
-      expect(font.familyName).toMatch(/Tektur|Newsreader|IBM Plex (Sans|Mono)/);
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the brand-v2 families (Tektur, Newsreader, IBM Plex Sans
+      // and Mono) gave way to DM Sans, Geist and Geist Mono (9154d672).
+      expect(font.familyName).toMatch(/DM Sans|Geist|Geist Mono/);
     }
     await cdp.detach();
   }
@@ -137,50 +182,83 @@ export async function splatTransferReaderProof(page: Page, info: TestInfo) {
       steps.push({ paragraph: index, ...measured });
       expect(measured.x).toBeGreaterThanOrEqual(20);
       expect(measured.right).toBeLessThanOrEqual(view.width - 20);
-      expect(parseFloat(measured.size)).toBeGreaterThanOrEqual(18);
-      expect(parseFloat(measured.size)).toBeLessThanOrEqual(21);
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the 18 to 21 px Newsreader reading size became the
+      // 16 px / 1.62 Geist reading body (data/type-roles.json).
+      expect(parseFloat(measured.size)).toBe(16);
+      expect(parseFloat(measured.lineHeight) / parseFloat(measured.size)).toBeCloseTo(1.62, 2);
     }
 
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip, its hover/focus tooltip and its "Jump to the full
+    // reference" link became a numbered mark with a sidenote
+    // (helpers/citation-note.ts). The source link with its href, target and
+    // rel is the note's author-year link; the tooltip is the note, shown by
+    // pointer and by keyboard (inline at 375 px, standing in the margin at
+    // 1440 px) with the same containment and equal rendered text; the focus
+    // stop is the number, whose ring is the 1 px ink outline offset 2 px
+    // (the retired ring was 2 px signal blue); and the number is the jump to
+    // the References entry. Every number hydrates up front: a reference jump
+    // is a hash navigation, which clears history.state, the hydration signal.
+    for (const [id] of [['splatsim-2024'], ['robogsim-2024']] as const) {
+      const marks = prose.locator(`[data-cite-id="${id}"]`).locator(CITE_MARK);
+      for (let index = 0; index < await marks.count(); index++) await waitForHydration(marks.nth(index));
+    }
     for (const [id, count] of [['splatsim-2024', 3], ['robogsim-2024', 1]] as const) {
       const citation = CITATIONS.find(item => item.id === id)!;
       const chips = prose.locator(`[data-cite-id="${id}"]`);
       await expect(chips).toHaveCount(count);
       for (let index = 0; index < count; index++) {
-        const chip = chips.nth(index), link = chip.locator('a').first();
-        const tooltip = chip.getByRole('tooltip');
+        const chip = chips.nth(index);
+        const { mark, note: tooltip, source: link } = citeParts(chip);
         await expect(link).toHaveAttribute('href', citation.url);
         await expect(link).toHaveAttribute('target', '_blank');
         await expect(link).toHaveAttribute('rel', /noopener noreferrer/);
-        await center(link);
-        await link.hover();
-        await contained(tooltip, `${id}-${index}-hover`);
+        await center(mark);
+        await showCiteNote(page, chip, 'hover');
+        await noteContained(tooltip, `${id}-${index}-hover`);
         const hoverText = await tooltip.innerText();
         if (index === count - 1) await capture(`${id}-hover`);
+        await dismissCiteNote(page, chip, 'hover');
         await page.mouse.move(1, 1);
-        await link.focus();
-        await expect(link).toBeFocused();
-        await contained(tooltip, `${id}-${index}-focus`);
+        await center(mark);
+        await showCiteNote(page, chip, 'keyboard');
+        await expect(mark).toBeFocused();
+        await noteContained(tooltip, `${id}-${index}-focus`);
         // Both sides use rendered innerText: block boundaries add line breaks
         // that textContent intentionally lacks (recorded red in both viewports).
         await expect(tooltip).toHaveText(hoverText, { useInnerText: true });
-        const focus = await link.evaluate(element => {
+        const focus = await mark.evaluate(element => {
           const s = getComputedStyle(element);
-          return { visible: element.matches(':focus-visible'), width: s.outlineWidth, color: s.outlineColor };
+          return { visible: element.matches(':focus-visible'), width: s.outlineWidth, color: s.outlineColor, offset: s.outlineOffset };
         });
         steps.push({ id, occurrence: index, focus });
         expect(focus.visible).toBe(true);
-        expect(parseFloat(focus.width)).toBeGreaterThanOrEqual(2);
-        expect(focus.color).toBe('rgb(36, 95, 255)');
+        expect(parseFloat(focus.width)).toBe(1);
+        expect(parseFloat(focus.offset)).toBe(2);
+        expect(focus.color).toBe('rgb(28, 28, 26)');
         if (index === count - 1) await capture(`${id}-focus`);
-        const jump = chip.getByRole('link', { name: `Jump to the full reference for ${citation.title}`, exact: true });
-        await page.keyboard.press('Tab');
-        await expect(jump).toBeFocused();
-        await page.keyboard.press('Enter');
+        await dismissCiteNote(page, chip, 'keyboard');
+        // Only a note in running prose can stand in the margin, where the
+        // number jumps. The SplatSim number under the stat card always opens
+        // its note in place, so there the References entry is reached at the
+        // number's own fragment, the target it carries for assistive
+        // technology and readers without script.
+        const prosed = await chip.evaluate(element =>
+          element.closest('.prose > p, .prose > ul > li, .prose > ol > li, .prose > blockquote') !== null);
+        let restore = async () => {};
+        if (prosed) {
+          restore = await jumpFromCiteMark(page, chip, id);
+        } else {
+          await expect(mark).toHaveAttribute('href', `#ref-${id}`);
+          await page.goto(`${page.url().split('#')[0]}#ref-${id}`);
+        }
         expect(new URL(page.url()).hash).toBe(`#ref-${id}`);
         const ref = page.locator(`[data-reference-id="${id}"]`);
         await expect(ref).toBeInViewport();
         steps.push({ id, occurrence: index, keyboardJump: true, url: page.url(),
           activeAfterJump: await page.evaluate(() => ({ tag: document.activeElement?.tagName, id: document.activeElement?.id })) });
+        await restore();
         const expand = ref.getByRole('button', { name: `Show all ${citation.authors.length} authors`, exact: true });
         if (await expand.count()) { await expand.focus(); await expand.press('Enter'); }
         await expect(ref.locator('[data-author-names]')).toHaveText(citation.authors.join(', '));

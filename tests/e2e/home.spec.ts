@@ -424,120 +424,153 @@ test.describe('home page', () => {
     await expect(index.locator('[data-contents-domain]')).toHaveCount(7);
   });
 
-  test('at 375px the hero grid is an exact 80px band below the lockup (VAL-DSHOME-009)', async ({
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard; the dot grid was removed in 9154d672): the old pin read the
+  // .engineering-grid field as an exact 80px band starting at the lockup's
+  // bottom and closing the bordered hero sheet. The masthead is now plain
+  // paper with no band: the lockup (h1 and descriptor) is followed by the
+  // counts line 12px below and the search 32px below that, the search
+  // closes the masthead, and the Contents section opens 48px below it on
+  // its 1px hairline rule, 16px under its heading. Each relation is pinned
+  // at the old band's one-decimal precision.
+  test('at 375px the masthead closes on its search and the first hairline follows at the locked rhythm (VAL-DSHOME-009)', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
+    await page.evaluate(() => document.fonts.ready);
     const boxes = await page.evaluate(() => {
-      // The hero title sheet is the bordered grid container on the home
-      // introduction section; the lockup is the wordmark/descriptor block
-      // and the grid is the literal .engineering-grid field.
-      const hero = document
-        .querySelector('.engineering-grid')
-        ?.closest('section > div');
-      const grid = document.querySelector('.engineering-grid');
-      const h1 = document.querySelector('main h1');
-      if (!hero || !grid || !h1) return null;
-      // The lockup column is the grid field's sibling (the text column of
-      // the title sheet); the lockup bottom is its bottom edge.
-      const lockup = grid.previousElementSibling;
-      if (!lockup) return null;
+      const hero = document.querySelector('main section[aria-label="Introduction"]');
+      const lockup = hero?.querySelector(':scope > .home-lockup');
+      const counts = hero?.querySelector(':scope > [data-home-counts]');
+      const search = hero?.querySelector(':scope > form');
+      const contents = document.querySelector('main section[aria-labelledby="contents-heading"]');
+      const heading = contents?.querySelector(':scope > h2');
+      const rule = heading?.nextElementSibling;
+      if (!hero || !lockup || !counts || !search || !contents || !heading || !rule) return null;
       const r = (el: Element) => {
         const b = el.getBoundingClientRect();
         return { top: b.top, bottom: b.bottom, height: b.height };
       };
-      // The hero sheet carries a 1px hairline frame; the grid field fills
-      // the sheet to its inner (padding-box) edge, so the comparable
-      // bottom is the sheet's border-box bottom minus its bottom border.
-      const heroBorder = parseFloat(getComputedStyle(hero).borderBottomWidth);
+      const rcs = getComputedStyle(rule);
       return {
-        hero: { ...r(hero), bottom: r(hero).bottom - heroBorder },
-        grid: r(grid),
+        hero: r(hero),
         lockup: r(lockup),
+        counts: r(counts),
+        search: r(search),
+        contents: r(contents),
+        heading: r(heading),
+        rule: { ...r(rule), width: rcs.borderTopWidth, colour: rcs.borderTopColor },
+        children: [...hero.children]
+          .filter((el) => el.tagName !== 'SCRIPT')
+          .map((el) => el.tagName.toLowerCase()),
       };
     });
-    expect(boxes, 'hero sheet, lockup column, and grid field present').not.toBeNull();
-    const { hero, grid, lockup } = boxes!;
-    // The grid becomes a band immediately below the complete lockup and
-    // closes the hero: no gap, no overlap, exactly 80px tall.
-    expect(grid.top).toBeCloseTo(lockup.bottom, 1);
-    expect(grid.bottom).toBeCloseTo(hero.bottom, 1);
-    expect(grid.height).toBeCloseTo(80, 1);
-    expect(grid.top).toBeGreaterThanOrEqual(lockup.top);
+    expect(boxes, 'masthead lockup, counts, search, and the Contents rule present').not.toBeNull();
+    const { hero, lockup, counts, search, contents, heading, rule, children } = boxes!;
+    // No band between the lockup and the masthead's end: exactly the
+    // lockup, the counts line and the search form.
+    expect(children).toEqual(['div', 'p', 'form']);
+    expect(lockup.top).toBeGreaterThanOrEqual(hero.top);
+    expect(counts.top - lockup.bottom).toBeCloseTo(12, 1);
+    expect(search.top - counts.bottom).toBeCloseTo(32, 1);
+    expect(search.bottom).toBeCloseTo(hero.bottom, 1);
+    expect(contents.top - hero.bottom).toBeCloseTo(48, 1);
+    expect(heading.top).toBeCloseTo(contents.top, 1);
+    expect(rule.top - heading.bottom).toBeCloseTo(16, 1);
+    expect(rule.width).toBe('1px');
+    expect(rule.colour).toBe('rgba(28, 28, 26, 0.14)');
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
     );
     expect(overflow).toBeLessThanOrEqual(0);
   });
 
-  test('the hero engineering grid is the literal locked device (VAL-DSBRAND-004)', async ({
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard; the dot grid was removed in 9154d672): the old pin read the
+  // one .engineering-grid field as the locked device (32px #D9DADB SVG tile
+  // on white, a 208px column, two 1px axes and an 8px signal-blue point
+  // sharing one centre). The locked title sheet is now plain paper: no grid
+  // node or registered dot-grid device, the exact paper ground #FAFAF8 with
+  // no image, texture or frame on the sheet or anything in it, the declared
+  // `material:paper`, and the column that held the field is the counts and
+  // search column, exactly 22rem wide, 48px from the lockup, its search
+  // ending on the descriptor's last line.
+  test('the hero title sheet is the locked plain-paper masthead with no grid device (VAL-DSBRAND-004)', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
-    const grid = page.locator('.engineering-grid');
-    // Exactly one grid field on the home title sheet...
-    await expect(grid).toHaveCount(1);
-    const metrics = await grid.evaluate((el) => {
+    await page.evaluate(() => document.fonts.ready);
+    await expect(
+      page.locator('.engineering-grid, [data-brand-device-id="device:dot-grid"]'),
+    ).toHaveCount(0);
+    const sheet = page.locator('main section[aria-label="Introduction"]');
+    await expect(sheet).toHaveCount(1);
+    await expect(sheet).toHaveAttribute('data-brand-material-id', 'material:paper');
+    await expect(sheet).toHaveAttribute('data-brand-material-contrast', 'pass');
+    const metrics = await sheet.evaluate((el) => {
       const cs = getComputedStyle(el);
-      const rect = el.getBoundingClientRect();
-      // The two axis spans and the registration point are the grid's
-      // three decorated children, in document order.
-      const children = Array.from(el.children).map((child) => {
-        const ccs = getComputedStyle(child);
-        const b = child.getBoundingClientRect();
-        return {
-          borderTop: ccs.borderTopWidth,
-          borderLeft: ccs.borderLeftWidth,
-          color: ccs.borderLeftColor,
-          background: ccs.backgroundColor,
-          box: { x: b.x, y: b.y, w: b.width, h: b.height },
-        };
-      });
+      const box = (node: Element) => {
+        const b = node.getBoundingClientRect();
+        return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, w: b.width };
+      };
+      const painted = [el, ...el.querySelectorAll('*')].flatMap((node) =>
+        ['', '::before', '::after']
+          .map((pseudo) => getComputedStyle(node, pseudo).backgroundImage)
+          .filter((value) => value !== 'none'),
+      );
+      const lockup = el.querySelector(':scope > .home-lockup');
+      const lead = lockup?.querySelector('.page-lead');
+      const counts = el.querySelector(':scope > [data-home-counts]');
+      const search = el.querySelector(':scope > form');
       return {
         bg: cs.backgroundColor,
+        body: getComputedStyle(document.body).backgroundColor,
         image: cs.backgroundImage,
-        size: cs.backgroundSize,
-        box: { x: rect.x, y: rect.y, w: rect.width, h: rect.height },
-        children,
+        borders: [cs.borderTopWidth, cs.borderRightWidth, cs.borderBottomWidth, cs.borderLeftWidth],
+        shadow: cs.boxShadow,
+        painted,
+        lockup: lockup ? box(lockup) : null,
+        lead: lead ? box(lead) : null,
+        counts: counts ? box(counts) : null,
+        search: search ? box(search) : null,
       };
     });
-    // 32px tile on the white surface with the 1px #D9DADB concrete line.
-    expect(metrics.size).toBe('32px 32px');
-    expect(metrics.bg).toBe('rgb(255, 255, 255)');
-    // The tile is a data-URI SVG whose 1px rule is #D9DADB (the
-    // apostrophes stay literal in the computed background-image).
-    expect(metrics.image).toContain("stroke='%23D9DADB'");
-    // From md the field is exactly 13rem (208px) wide.
-    expect(metrics.box.w).toBeCloseTo(208, 0);
-    // Two 1px strong axes plus one 8px accent registration point.
-    expect(metrics.children).toHaveLength(3);
-    const [vAxis, hAxis, point] = metrics.children;
-    expect(vAxis.borderLeft).toBe('1px');
-    expect(hAxis.borderTop).toBe('1px');
-    expect(point.box.w).toBeCloseTo(8, 1);
-    expect(point.box.h).toBeCloseTo(8, 1);
-    expect(point.background).toBe('rgb(36, 95, 255)');
-    // The contract claim is concentricity: the vertical axis, the
-    // horizontal axis, and the registration point share one centre (the
-    // axis hairline's centre is its border's centre, since the border
-    // paints on the element's near edge), and each axis spans the field.
-    // The shared centre is measured from the elements themselves rather
-    // than derived from the field box, because percentage offsets resolve
-    // against the field's padding box (inside its own hairline).
-    const vCentre = vAxis.box.x + 0.5;
-    const hCentre = hAxis.box.y + 0.5;
-    const pCentreX = point.box.x + point.box.w / 2;
-    const pCentreY = point.box.y + point.box.h / 2;
-    expect(vCentre).toBeCloseTo(pCentreX, 1);
-    expect(hCentre).toBeCloseTo(pCentreY, 1);
-    expect(vAxis.box.y).toBeCloseTo(metrics.box.y, 1);
-    expect(vAxis.box.h).toBeCloseTo(metrics.box.h, 1);
-    expect(hAxis.box.w).toBeGreaterThanOrEqual(metrics.box.w - 2);
+    expect(metrics.bg).toBe('rgb(250, 250, 248)');
+    expect(metrics.body).toBe('rgb(250, 250, 248)');
+    expect(metrics.image).toBe('none');
+    expect(metrics.painted).toEqual([]);
+    expect(metrics.borders).toEqual(['0px', '0px', '0px', '0px']);
+    expect(metrics.shadow).toBe('none');
+    expect(metrics.lockup).not.toBeNull();
+    expect(metrics.lead).not.toBeNull();
+    expect(metrics.counts).not.toBeNull();
+    expect(metrics.search).not.toBeNull();
+    const lockup = metrics.lockup!;
+    const lead = metrics.lead!;
+    const counts = metrics.counts!;
+    const search = metrics.search!;
+    // The right column is exactly 22rem (352px), 48px from the lockup.
+    expect(search.w).toBeCloseTo(352, 0);
+    expect(counts.w).toBeCloseTo(352, 0);
+    expect(search.left - lockup.right).toBeCloseTo(48, 1);
+    expect(counts.left).toBeCloseTo(search.left, 1);
+    // Counts sit 12px above the search, and the search's bottom edge lines
+    // up with the descriptor's.
+    expect(search.top - counts.bottom).toBeCloseTo(12, 1);
+    expect(search.bottom).toBeCloseTo(lead.bottom, 1);
   });
 
-  test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ browser }) => {
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard; the dot grid was removed in 9154d672): the old pin read
+  // "exactly one svg-grid background on /, the title sheet's
+  // .engineering-grid, never on body, main, article or prose, and none on
+  // any other route". On the same derived population no route paints an
+  // engineering-grid device now: no svg background on any element and no
+  // grid node or registered dot-grid device, and
+  // home's title sheet and everything in it paints no image at all.
+  test('no route paints an engineering-grid device, home title sheet included (VAL-DSBRAND-005)', async ({ browser }) => {
     // One fresh context per route over the whole registry population runs
     // close to the default 30 s budget on its own.
     test.setTimeout(90_000);
@@ -556,28 +589,32 @@ test.describe('home page', () => {
     expect(routes.length).toBeGreaterThan(2);
     await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
-      const grids = await page.evaluate(() => {
-        const hit = (el: Element): boolean => {
-          const cs = getComputedStyle(el);
-          return cs.backgroundImage.includes('svg');
-        };
-        const all = Array.from(document.querySelectorAll('*')).filter(hit);
-        return all.map((el) => el.tagName + '.' + (el.id || el.className || ''));
+      const { grids, devices } = await page.evaluate(() => {
+        const grids: string[] = [];
+        for (const el of Array.from(document.querySelectorAll('*'))) {
+          if (getComputedStyle(el).backgroundImage.includes('svg')) {
+            grids.push(el.tagName + '.' + (el.id || el.className || ''));
+          }
+        }
+        const devices = document.querySelectorAll(
+          '.engineering-grid, [data-brand-device-id="device:dot-grid"], [data-brand-motif="dot-grid"]',
+        ).length;
+        return { grids, devices };
       });
+      expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+      expect(devices, `engineering-grid devices on ${route}`).toBe(0);
       if (route === '/') {
-        // Home: exactly the title-sheet field, and never on body, main,
-        // article, or a prose container.
-        expect(grids, 'home grid inventory').toHaveLength(1);
         const on = await page.evaluate(() => {
-          const grid = document.querySelector('.engineering-grid');
-          if (!grid) return 'missing';
-          if (grid.matches('body, main, article')) return 'on-structure';
-          if (grid.closest('.prose')) return 'behind-prose';
-          return 'title-sheet';
+          const sheet = document.querySelector('main section[aria-label="Introduction"]');
+          if (!sheet) return 'missing';
+          const painted = [sheet, ...sheet.querySelectorAll('*')].some((el) =>
+            ['', '::before', '::after'].some(
+              (pseudo) => getComputedStyle(el, pseudo).backgroundImage !== 'none',
+            ),
+          );
+          return painted ? 'painted-title-sheet' : 'plain-title-sheet';
         });
-        expect(on).toBe('title-sheet');
-      } else {
-        expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+        expect(on).toBe('plain-title-sheet');
       }
     });
   });

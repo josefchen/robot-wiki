@@ -2,6 +2,7 @@ import { chromium, expect, test, type Browser } from '@playwright/test';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { closeBrowserAndStopServer } from './static-spec-teardown';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Search placeholder fit (VAL-DESIGN-023), measured on the shipped artifact
@@ -34,12 +35,18 @@ interface Surface {
   openDrawer?: boolean;
 }
 
+// Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+// the old first surface was the persistent sidebar's '#sidebar-search-input'
+// at 1024, 1280 and 1440. The sidebar is gone; the shell's one search box is
+// the Articles panel's '#drawer-search-input' at every width, so the desktop
+// widths are measured there, with the panel opened from the top bar.
 const SURFACES: Surface[] = [
   {
-    name: 'sidebar search input',
+    name: 'desktop panel search input',
     route: '/manipulation/pi-line/',
-    selector: '#sidebar-search-input',
+    selector: '#drawer-search-input',
     widths: [1024, 1280, 1440],
+    openDrawer: true,
   },
   {
     name: 'drawer search input',
@@ -92,7 +99,10 @@ async function measure(
   const page = await context.newPage();
   await page.goto(`http://127.0.0.1:${server.port}${surface.route}`);
   if (surface.openDrawer) {
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin opened the drawer by "Open navigation menu";
+    // that button is gone and "Articles" opens the same panel.
+    await openArticlesPanel(page);
     await expect(page.locator(surface.selector)).toBeVisible();
   }
   const measurement = await page
@@ -183,7 +193,12 @@ test.describe('search placeholder fit (VAL-DESIGN-023)', () => {
     });
     const page = await context.newPage();
     await page.goto(`http://127.0.0.1:${server.port}/manipulation/pi-line/`);
-    const input = page.locator('#sidebar-search-input');
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin typed into the sidebar's
+    // '#sidebar-search-input'; the shell's search box is now the Articles
+    // panel's '#drawer-search-input'.
+    await openArticlesPanel(page);
+    const input = page.locator('#drawer-search-input');
     await input.fill('chunk size');
     await input.press('Enter');
     await page.waitForURL(/\/search\/?\?q=chunk\+size|\/search\/?\?q=chunk%20size/);

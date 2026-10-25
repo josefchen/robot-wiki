@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
+import { closeCiteNote, revealCiteNote } from './helpers/citation-note';
 import { openAdjustMore } from './helpers/figure-fold';
 
 const manuscript = readFileSync(new URL('../../content/manipulation/bc-foundations.mdx', import.meta.url), 'utf8');
@@ -77,11 +78,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     }
     // The pointer still rests where the Reset click left it, which after
     // the scrolls above can be over a glossary term; park it so no hover
-    // tooltip competes with the focused citation's.
+    // tooltip covers the citation's note.
     await page.mouse.move(0, 0);
-    const hg = prose.locator('[data-cite-id="hg-dagger-2019"] a').first();
-    await hg.focus();
-    await expect(page.getByRole('tooltip')).toContainText('arXiv v2 (11 March 2019)');
+    // The citation's note replaced its tooltip (helpers/citation-note.ts);
+    // the version and date stay in the note's venue line.
+    const hg = prose.locator('[data-cite-id="hg-dagger-2019"]').first();
+    await expect(await revealCiteNote(hg)).toContainText('arXiv v2 (11 March 2019)');
     await capture('hg-citation');
     const citationIds = await prose.locator('[data-cite-id]').evaluateAll((els) =>
       [...new Set(els.map((el) => el.getAttribute('data-cite-id')))].sort());
@@ -92,7 +94,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     ]));
     expect(citationIds).toEqual([...new Set([...manuscript.matchAll(/<Cite\s+id="([^"]+)"/g)]
       .map((m) => m[1]))].sort());
-    await hg.blur();
+    await closeCiteNote(hg);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     expect(pageErrors).toEqual([]);
     console.log(JSON.stringify({ viewport, citationIds, pageErrors, captures: 7, outputDir: testInfo.outputDir }));
@@ -112,8 +114,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         lineHeight: body.lineHeight,
       };
     });
-    expect(styles.headingFont).toMatch(/Tektur/i);
-    expect(styles.bodyFont).toMatch(/Newsreader/i);
+    // Research-page standard (owner decision, 10 October 2026): DM Sans
+    // display and Geist body, in place of Tektur and Newsreader.
+    expect(styles.headingFont).toMatch(/^"?DM Sans"?,/);
+    expect(styles.bodyFont).toMatch(/^"?Geist"?,/);
     const equations = page.locator('div.prose .katex-display');
     await expect(equations).toHaveCount(3);
     const tex: string[] = [];

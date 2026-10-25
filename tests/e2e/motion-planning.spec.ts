@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, showCiteNote } from './helpers/citation-note';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 
 const ROUTE = '/classical/motion-planning/';
@@ -52,21 +53,24 @@ test.describe('classical motion-planning module', () => {
       page.getByRole('heading', { level: 1, name: 'Motion Planning' }),
     ).toBeVisible();
 
-    // The taxonomy is in the closed drawer at the compact breakpoint.
-    // Test the actual keyboard path rather than querying an inaccessible sidebar.
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
-    const compact = await menu.isVisible();
-    if (compact) { await menu.focus(); await page.keyboard.press('Enter'); }
+    // Test the actual keyboard path to the taxonomy.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar and the compact "Open navigation menu" drawer
+    // are gone; the taxonomy lives in the panel the top bar's "Articles"
+    // button opens at every width, by the same Enter, Escape and
+    // focus-return path the drawer had.
+    const menu = page.getByRole('button', { name: 'Articles' });
+    await page.waitForFunction(() => window.history.state !== null);
+    await menu.focus(); await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Motion Planning', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
-    if (compact) {
-      await page.keyboard.press('Escape');
-      await expect(page.getByRole('dialog')).toHaveCount(0);
-      await expect(menu).toBeFocused();
-    }
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(menu).toBeFocused();
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -164,12 +168,25 @@ test.describe('classical motion-planning module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(10);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
-    // A chip is keyboard-focusable and reveals its metadata on focus.
-    const rrtChip = main.getByRole('link', { name: 'LaValle 1998' }).first();
-    await rrtChip.focus();
+    // A citation is keyboard-focusable and reveals its metadata from the
+    // keyboard.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip and its focus tooltip became a numbered mark with
+    // a sidenote (helpers/citation-note.ts). The number carries the
+    // aria-describedby the chip link had; from 1200 px the note stands in
+    // the margin at rest, so the check runs at 375 px, where the focused
+    // number opens its own note inline.
+    await page.setViewportSize({ width: 375, height: 812 });
     // Four legitimate current occurrences share this source title. Bind the
-    // popup to the focused chip rather than querying every hidden sibling.
+    // note to the focused number rather than querying every hidden sibling.
     await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(4);
+    const rrtCite = main.locator('div.prose[data-pagefind-body] [data-cite-id="lavalle-1998"]').first();
+    const rrtChip = citeParts(rrtCite).mark;
+    await expect(citeParts(rrtCite).source).toHaveText('LaValle 1998');
+    await waitForHydration(rrtChip);
+    await rrtChip.scrollIntoViewIfNeeded();
+    await showCiteNote(page, rrtCite, 'keyboard');
+    await expect(rrtChip).toBeFocused();
     const tooltipId = await rrtChip.getAttribute('aria-describedby');
     expect(tooltipId).toBeTruthy();
     const tooltip = main.locator(`[id="${tooltipId}"]`);

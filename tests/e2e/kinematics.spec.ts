@@ -3,6 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import { openAdjustMore } from './helpers/figure-fold';
 import { waitForHydration } from './interaction-ready';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, showCiteNote } from './helpers/citation-note';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -201,11 +203,18 @@ test.describe('classical kinematics module', () => {
       page.getByRole('heading', { level: 1, name: 'Kinematics' }),
     ).toBeVisible();
 
-    // Sidebar shows the module active under the classical domain.
+    // The navigation shows the module active under the classical domain.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar is gone and the same taxonomy, with its
+    // current-route mark, lives in the panel the top bar's "Articles"
+    // button opens.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Kinematics' }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
 
     const main = page.locator('#main-content');
     // The four required strands are all present as rendered prose. The
@@ -260,14 +269,22 @@ test.describe('classical kinematics module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(9);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
-    // A chip is keyboard-focusable and reveals its metadata on focus. The
-    // article cites LaValle more than once, so only the focused chip's
-    // tooltip is shown.
-    const dhChip = main.getByRole('link', { name: 'LaValle 2006' }).first();
-    await dhChip.focus();
+    // A citation is keyboard-focusable and reveals its metadata from the
+    // keyboard. The article cites LaValle more than once, so only the
+    // focused citation's note is shown.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip and its focus tooltip became a numbered mark with
+    // a sidenote (helpers/citation-note.ts). From 1200 px every prose note
+    // stands in the margin at rest, so the check runs at 375 px, where the
+    // notes are hidden at rest and a focused number opens only its own.
+    await page.setViewportSize({ width: 375, height: 812 });
+    const dhCite = main.locator('[data-cite-id="lavalle-2006"]').first();
+    await waitForHydration(citeParts(dhCite).mark);
+    await citeParts(dhCite).mark.scrollIntoViewIfNeeded();
+    await showCiteNote(page, dhCite, 'keyboard');
     await expect(
       main
-        .locator('span[role="tooltip"]:visible')
+        .locator('[data-sidenote]:visible')
         .filter({ hasText: 'Planning Algorithms' }),
     ).toHaveCount(1);
   });

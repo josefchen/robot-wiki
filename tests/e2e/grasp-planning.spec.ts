@@ -14,6 +14,8 @@ import {
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, showCiteNote } from './helpers/citation-note';
 
 const ROUTE = '/classical/grasp-planning/';
 
@@ -87,20 +89,21 @@ test.describe('classical grasp-planning module', () => {
     ).toBeVisible();
 
     // The same current-route assertion applies to the real responsive surface.
-    const menu = page.getByRole('button', { name: 'Open navigation menu', exact: true });
-    const mobile = await menu.isVisible();
-    if (mobile) await menu.click();
-    const nav = mobile
-      ? page.getByRole('dialog', { name: 'Site navigation' })
-      : page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar taxonomy nav (wide) and the "Open navigation
+    // menu" drawer (narrow) are gone; at every width the top bar's
+    // "Articles" button opens the "Site navigation" dialog holding the same
+    // taxonomy nav, which closes from its "Close navigation menu" button.
+    await openArticlesPanel(page);
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
+    const nav = panel.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(nav).toBeVisible();
     await expect(
       nav.getByRole('link', { name: 'Grasp Planning', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
-    if (mobile) {
-      await page.getByRole('button', { name: 'Close navigation menu', exact: true }).click();
-      await expect(nav).not.toBeVisible();
-    }
+    await page.getByRole('button', { name: 'Close navigation menu', exact: true }).click();
+    await expect(panel).toBeHidden();
+    await expect(nav).not.toBeVisible();
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -156,8 +159,15 @@ test.describe('classical grasp-planning module', () => {
       'href',
       'https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf',
     );
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the prose citation "Mishra et al. 1987" went with its
+    // sentence (frictionless finger-count bounds) in fa85511f, which merged
+    // that paragraph into the Markenscoff claims pinned beside it. The source
+    // stays on the page as a further-reading References entry, whose source
+    // link is pinned to the same exact href.
     await expect(
-      main.getByRole('link', { name: 'Mishra et al. 1987' }).first(),
+      main.locator('[data-reference-id="mishra-1987"][data-further-reading="true"]')
+        .getByRole('link', { name: 'On the Existence and Synthesis of Multifinger Positive Grips', exact: true }),
     ).toHaveAttribute('href', 'https://doi.org/10.1007/BF01840373');
     await expect(
       main.getByRole('link', { name: 'Markenscoff et al. 1990' }).first(),
@@ -192,11 +202,15 @@ test.describe('classical grasp-planning module', () => {
     // A chip is keyboard-focusable and reveals its metadata on focus. The
     // source is cited several times on the page, so scope the tooltip to
     // the focused chip's own group (the tooltip is its following sibling).
-    const nguyenChip = main.getByRole('link', { name: 'Nguyen 1988' }).first();
-    await nguyenChip.focus();
-    const tooltip = nguyenChip.locator(
-      'xpath=../following-sibling::span[@role="tooltip"]',
-    );
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip's role="tooltip" sibling became the citation's
+    // sidenote; the number is the keyboard stop and shows its own note
+    // (helpers/citation-note.ts), scoped to the first Nguyen citation.
+    const nguyenCite = main.locator('div.prose [data-cite-id="nguyen-1988"]').first();
+    await expect(citeParts(nguyenCite).source).toHaveText('Nguyen 1988');
+    await waitForHydration(citeParts(nguyenCite).mark);
+    await showCiteNote(page, nguyenCite, 'keyboard');
+    const tooltip = citeParts(nguyenCite).note;
     await expect(tooltip).toBeVisible();
     await expect(tooltip).toContainText('Force-Closure');
   });
@@ -240,11 +254,17 @@ test.describe('classical grasp-planning module', () => {
         page.getByRole('slider', { name: new RegExp(`contact ${i} position`, 'i') }),
       ).toBeVisible();
     }
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the buttons' accessible names "Add a contact at the
+    // emptiest perimeter location" and "Remove the last contact" became
+    // "Add contact at the emptiest perimeter location" and "Remove contact:
+    // the last one placed" (their visible "Add contact" / "Remove contact"
+    // labels) in e1e48e13; the same partial-name matches pin the new names.
     await expect(
-      page.getByRole('button', { name: /add a contact/i }),
+      page.getByRole('button', { name: /add contact at the emptiest/i }),
     ).toBeVisible();
     await expect(
-      page.getByRole('button', { name: /remove the last contact/i }),
+      page.getByRole('button', { name: /remove contact: the last one placed/i }),
     ).toBeVisible();
     await expect(page.getByRole('button', { name: /reset/i })).toBeVisible();
 
@@ -305,7 +325,10 @@ test.describe('classical grasp-planning module', () => {
 
     // Remove the third contact: top + right is not antipodal (45 degrees
     // beats arctan(1.00)), so closure breaks and the hull re-renders.
-    await page.getByRole('button', { name: /remove the last contact/i }).click();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): "Remove the last contact" is named "Remove contact: the
+    // last one placed" since e1e48e13.
+    await page.getByRole('button', { name: /remove contact: the last one placed/i }).click();
     await expect(page.getByTestId('grasp-contacts-readout')).toHaveText('2');
     await expect(page.getByTestId('grasp-closure-readout')).toHaveText('no');
     await expect(page.getByTestId('grasp-epsilon-readout')).toHaveText(
@@ -395,7 +418,10 @@ test.describe('classical grasp-planning module', () => {
     }
 
     // The add/remove/reset controls activate from the keyboard.
-    const add = page.getByRole('button', { name: /add a contact/i });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): "Add a contact at the emptiest perimeter location" is named
+    // "Add contact at the emptiest perimeter location" since e1e48e13.
+    const add = page.getByRole('button', { name: /add contact at the emptiest/i });
     await add.focus();
     await page.keyboard.press('Enter');
     await expect(page.getByTestId('grasp-contacts-readout')).toHaveText('4');

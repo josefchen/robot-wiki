@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176644, sha256: '4b5f86c26a36c17eb7e3baae781bb9ab2c4240b3a783afa6bfa1669deabfe311' };
+const reviewPin = { bytes: 176644, sha256: '1ef87d5023d82191cca1116437221bb79e0d531c91f830217ad7d4281d759298' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -205,7 +205,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/bc-foundations.mdx', [12584, 'ba3b209ad17ac41a97500ddb679fa7202258d42844018a9227dca80359c2d523']],
   ['content/manipulation/comparison-matrix.mdx', [9382, 'ebdc0ce5e86afca1edc616ca74bcb19ac47b488866ea5ce714f896181ce824ee']],
   ['content/manipulation/cross-embodiment.mdx', [9803, '4cb0ce6f4c00c06f350e83304a3557bd0db30ea2fd542287fbcbccfeccfdefa2']],
-  ['content/manipulation/diffusion-policy.mdx', [9652, '54f0f2f2c5f094a44a386c62dc1ee14a9fc9f8aa5e1d3b6c33920556f8053dc9']],
+  ['content/manipulation/diffusion-policy.mdx', [9694, 'a92ac00e8ffa5b39ab71f385651722c89f1bf5be8e3445c49f910478fd1046a6']],
   ['content/manipulation/foundation-models.mdx', [10345, '6a5c7383f6078015d5dd2401cc6474093200bcc048a976f9695e1016bede4747']],
   ['content/manipulation/generalist-policies.mdx', [11341, '97da58646f07c48b8b144f7fe3d6d1565a45df52a32fae4243ee87f4ffea8123']],
   ['content/manipulation/hierarchical.mdx', [13560, '2f9aefbe568ec93d12c4ccf5196ba7c48fd0d89aed34915100ce638f04fdefab']],

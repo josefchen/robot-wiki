@@ -4,7 +4,7 @@
   "reviewedBy": "implementation workers for the manipulation, classical and rl-sim2real humanize passes of 2026-10-12, combined into one review by the integration lane (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
   "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
-  "observedAt": "2026-10-24T22:03:48Z",
+  "observedAt": "2026-10-25T06:41:54Z",
   "sources": [
     {
       "archivedFrom": "08955866d1810a79371706218a7cd4e8be9e0b4e",
@@ -4053,8 +4053,8 @@
       },
       "after": {
         "path": "content/manipulation/diffusion-policy.mdx",
-        "bytes": 9559,
-        "sha256": "8ad96dcd6c5c09cca1006d3bf9dcf3d114fde389f08551107b4e148ce40a5f65"
+        "bytes": 9601,
+        "sha256": "6c9eaf48861d1de758668e33326b237960536d5a718d4ee3a9717e8167e77458"
       },
       "edits": [
         {
@@ -4099,15 +4099,11 @@
         },
         {
           "before": "The original paper conditions on observations alone, on single- and multi-task benchmarks and separate UR5 and Franka setups. Its reference encoder trains end-to-end without pretraining, though ImageNet- and R3M-pretrained encoders were tested <Cite id=\"diffusion-policy-2023-v1\" />. Octo adds language or goal-image conditioning, a DDPM action head and multi-task, multi-embodiment pretraining <Cite id=\"octo-2024\" />, and π0 a pretrained vision-language backbone, a flow-matching expert and cross-embodiment training <Cite id=\"pi0-2024\" />. Reactivity is bounded by $T_a$: events inside a committed segment wait for the next inference. Sampling cost remains, though one-step successors cut it to milliseconds <Cite id=\"mp1-2026\" />. With sparse data it acts like an action lookup table, returning training actions even for images of cats and dogs <Cite id=\"demystifying-diffusion-policies-2025\" />.\n",
-          "after": "The original paper conditions on observations alone, on single- and multi-task benchmarks and separate UR5 and Franka setups <Cite id=\"diffusion-policy-2023-v1\" />; Octo adds language or goal-image conditioning <Cite id=\"octo-2024\" />, and π0 a pretrained vision-language backbone <Cite id=\"pi0-2024\" />.\n\nReactivity is bounded by $T_a$: events inside a committed segment wait for the next inference. Sampling cost remains, though one-step successors such as MP1 cut it to 6.8 ms <Cite id=\"mp1-2026\" />. With sparse data it acts like an action lookup table, returning training actions even for images of cats and dogs <Cite id=\"demystifying-diffusion-policies-2025\" />.\n"
+          "after": "The original paper conditions on observations alone, on single- and multi-task benchmarks and separate UR5 and Franka setups <Cite id=\"diffusion-policy-2023-v1\" />; Octo adds language or goal-image conditioning <Cite id=\"octo-2024\" />, and π0 a pretrained vision-language backbone <Cite id=\"pi0-2024\" />.\n\nReactivity is bounded by $T_a$: events inside a committed segment wait for the next inference <Cite id=\"bidirectional-decoding-2024\" />. Sampling cost remains, though one-step successors such as MP1 cut it to 6.8 ms <Cite id=\"mp1-2026\" />. With sparse data it acts like an action lookup table, returning training actions even for images of cats and dogs <Cite id=\"demystifying-diffusion-policies-2025\" />.\n"
         }
       ],
       "dropped": {
         "citations": [
-          {
-            "value": "bidirectional-decoding-2024",
-            "claim": "Chunking captures temporal dependencies at the cost of reactivity to unexpected states [bidirectional-decoding-2024]."
-          },
           {
             "value": "diffusion-policy-2023",
             "claim": "The main text gives 100 training timesteps, 10 inference iterations and 0.1-second latency on an Nvidia 3080; the appendix and real-world table rows of both releases give 16 iterations [diffusion-policy-2023]."
@@ -4189,10 +4185,6 @@
           {
             "value": "2023",
             "claim": "The main text gives 100 training timesteps, 10 inference iterations and 0.1-second latency on an Nvidia 3080; the appendix and real-world table rows of both releases give 16 iterations [diffusion-policy-2023]."
-          },
-          {
-            "value": "2024",
-            "claim": "Chunking captures temporal dependencies at the cost of reactivity to unexpected states [bidirectional-decoding-2024]."
           },
           {
             "value": "2026",

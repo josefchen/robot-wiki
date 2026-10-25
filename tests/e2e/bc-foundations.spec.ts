@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/manipulation/bc-foundations/';
 
@@ -42,6 +43,10 @@ test.describe('bc-foundations module', () => {
       page.getByRole('img', { name: /covariate shift/i }),
     ).toBeVisible();
     // Sidebar marks this module active.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+    // the old pin read the persistent sidebar's taxonomy nav at rest; the same
+    // nav and its aria-current link now live in the top bar's Articles panel.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Behavior Cloning Foundations' }),

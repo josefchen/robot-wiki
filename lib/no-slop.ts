@@ -457,8 +457,11 @@ const STRUCTURAL_TELL_PATTERNS: ReadonlyArray<{
   {
     kind: 'paper-locator',
     label: 'table/figure/equation locator',
+    // Figure AI names its humanoids with a zero-padded number ("Figure 02",
+    // "Figure 03"); papers never zero-pad a figure number, so that one
+    // spelling is a robot model, never a locator.
     pattern:
-      /\b(?:Tables?|Tab\.|Figures?|Fig\.|Equation|Eq\.)\s*\(?\s*(?:[0-9]+(?:\.[0-9]+)*[a-z]?|[IVXL]+)(?:['’]s)?\b/i,
+      /\b(?:Tables?|Tab\.|Figure(?!\s+0[0-9]\b)s?|Fig\.|Equation|Eq\.)\s*\(?\s*(?:[0-9]+(?:\.[0-9]+)*[a-z]?|[IVXL]+)(?:['’]s)?\b/i,
   },
   { kind: 'paper-locator', label: 'appendix locator', pattern: /\bAppendix\s+[A-Z](?:[0-9]+)?(?:\.[0-9]+)?\b/ },
   {

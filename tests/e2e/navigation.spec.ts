@@ -44,6 +44,9 @@ const GROUPS = [
  * there.
  */
 async function openArticles(page: import('@playwright/test').Page) {
+  // A heavy article page can paint the button before hydration, and a
+  // click before it is a no-op; the router stamps history.state once ready.
+  await page.waitForFunction(() => window.history.state !== null);
   await page.getByRole('button', { name: 'Articles' }).click();
   await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
 }

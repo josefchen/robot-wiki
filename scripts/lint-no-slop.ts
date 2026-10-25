@@ -44,11 +44,12 @@ import {
 } from '../lib/no-slop.ts';
 import { NO_SLOP_EXCEPTIONS } from '../data/no-slop-exceptions.ts';
 import { CITATIONS } from '../data/citations.ts';
+import { DOMAINS } from '../data/domains.ts';
 
 const sourceOnly = process.argv.includes('--source-only');
-// Report mode (VAL-HUMAN-001, VAL-MOTION-021/022): print the structural-tell
-// rate for every manipulation, classical, RL and world-model article and
-// enforce 2/1k.
+// Report mode (VAL-HUMAN-001, VAL-MOTION-021/022, VAL-OPUS-122): print the
+// structural-tell rate for every article in all seven domains and enforce
+// 2/1k.
 // The same sweep also runs inside every normal invocation, so postbuild
 // keeps enforcing the floor; the flag exists so the report can be asked
 // for on its own.
@@ -131,7 +132,12 @@ if (reportOnly) {
 }
 
 // --- 2. AI-writing markers over MDX prose. ---
-const contentDir = join(root, 'content');
+// --content-dir <path> points the source sweeps at another tree, so the
+// structural-floor plant can run this exact CLI over a planted copy.
+const contentDirAt = process.argv.indexOf('--content-dir');
+const contentDir = contentDirAt >= 0 && process.argv[contentDirAt + 1]
+  ? process.argv[contentDirAt + 1]
+  : join(root, 'content');
 const mdxFiles: string[] = [];
 if (!reportOnly) {
   (function walk(dir: string) {
@@ -175,7 +181,7 @@ if (!reportOnly) {
 // (source-only, full, report-structural-only) so the floor binds wherever
 // the lint runs, including postbuild.
 {
-  for (const domain of ['manipulation', 'classical', 'rl-sim2real', 'world-models', 'frontier', 'data-hardware', 'adjacent']) {
+  for (const domain of DOMAINS) {
     const dir = join(contentDir, domain);
     const files = readdirSync(dir).filter((file) => /\.mdx?$/.test(file));
     const rows = files.map((file) => {

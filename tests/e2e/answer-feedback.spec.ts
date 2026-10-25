@@ -431,6 +431,10 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
     test('VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script', async ({
       browser,
     }) => {
+      // Like VAL-EDU-043 above, this walks every region twice (scripted, then
+      // with no script), each on a context of its own: 42 page loads, which
+      // the default 30 s budget cannot hold on the dev server.
+      test.slow();
       const complete = expectCompleteRegions(regions);
       let scriptedGraded = 0;
       await forEachInOwnContext(browser, complete, async (page, { route, kind, index }) => {

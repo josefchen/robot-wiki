@@ -177,8 +177,19 @@ test.describe('safety-and-assurance module', () => {
         .count();
       expect(headings, `${route} section headings`).toBeGreaterThanOrEqual(3);
 
-      const words = (await proseText(page)).split(/\s+/).filter(Boolean).length;
-      expect(words, `${route} substantive prose`).toBeGreaterThan(800);
+      // VAL-OPUS-154: the owner's source and lead bar (2026-10-04 18:30)
+      // replaced the 800-word prose floor: at least 30 distinct cited
+      // sources and a lead of 60 words or fewer.
+      const prose = page.locator('div.prose[data-pagefind-body]');
+      const sources = await prose.locator('[data-cite-id]').evaluateAll((chips) =>
+        new Set(chips.map((chip) => chip.getAttribute('data-cite-id'))).size);
+      expect(sources, `${route} distinct cited sources (${sources})`).toBeGreaterThanOrEqual(30);
+      const leadWords = await prose.locator(':scope > p').first().evaluate((lead) => {
+        const copy = lead.cloneNode(true) as HTMLElement;
+        copy.querySelectorAll('[data-cite-id], [role="tooltip"]').forEach((node) => node.remove());
+        return (copy.textContent ?? '').split(/\s+/).filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
+      });
+      expect(leadWords, `${route} lead word count (${leadWords})`).toBeLessThanOrEqual(60);
     }
   });
 
@@ -432,6 +443,10 @@ test.describe('safety-and-assurance module', () => {
   test('the rendered force limit matches /classical/control character for character, with the same basis (VAL-FRONT-029)', async ({
     page,
   }) => {
+    // Three full article loads, one of them /classical/control, whose load
+    // event alone took 16 s on the shared dev server: the default 30 s budget
+    // ran out on the third load in whole-file runs. Every check is unchanged.
+    test.slow();
     await page.goto(ROUTE);
     const powerForce = page.getByTestId('mode-power-force');
     await waitForHydration(powerForce);

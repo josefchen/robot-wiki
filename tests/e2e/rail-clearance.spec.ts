@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { DOMAINS, publishedModules } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { closeBrowserAndStopServer } from './static-spec-teardown';
+import { CONVERGENCE_EXEMPTIONS } from '../../lib/brand-v2-global-convergence-evidence';
 
 /**
  * Rail clearance and wide-surface geometry (VAL-DESIGN-024 through
@@ -67,12 +68,47 @@ interface Offender {
   height: number;
 }
 
+/**
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the brand-v2 sidebar rail (`aside`, painted over the page's left edge) is
+ * gone (9154d672). The one rail left is the article's contents rail
+ * (`[data-article-rail]`), a grid column beside the text from 1200 px. Where
+ * it stands beside the column it is the edge no content may sit left of;
+ * everywhere else (narrower widths, pages without a rail) the edge is the
+ * desktop frame's 48 px inline padding (VAL-B2-SPACE-002), so every route
+ * at every rail width is still measured against a bound.
+ */
+const DESKTOP_FRAME_INSET = 48;
+
+/**
+ * Frame insets the checked-in convergence register exempts from the 48 px
+ * rule: /how-robots-work/ keeps its owner-frozen 24 px gutter (Josef,
+ * 12 October 2026, `owner-freeze:how-robots-work`, predicate
+ * inline-padding). The entry is read from the register, so the bound moves
+ * only with it.
+ */
+const FROZEN_FRAME_INSETS: Record<string, number> = (() => {
+  const entry = CONVERGENCE_EXEMPTIONS.find((item) => item.id === 'owner-freeze:how-robots-work');
+  expect(entry?.predicates, 'the how-robots-work frame exemption').toContain('inline-padding');
+  const gutter = Number(/(\d+) px tablet gutter/.exec(entry?.reason ?? '')?.[1]);
+  expect(gutter, 'the registered gutter width').toBe(24);
+  return Object.fromEntries((entry?.routes ?? []).map((id) => [id.replace(/^route:/, ''), gutter]));
+})();
+
 interface WidthRecord {
   width: number;
   innerWidth: number;
   clientWidth: number;
   gutter: number;
+  /** The contents rail's right edge, when it stands beside the column. */
   railRight: number | null;
+  /** Whether the page is an article sheet ([data-prose-column]). */
+  article: boolean;
+  /** Whether the article sheet is the three-column grid. */
+  sheetGrid: boolean;
+  /** The sheet's resolved column gap in px, when it is the grid. */
+  columnGap: number | null;
+  proseReferenceLeft: number | null;
   minLeft: number | null;
   minLeftElement: Offender | null;
   offenders: Offender[];
@@ -97,16 +133,23 @@ type RouteRecord = { route: string; byWidth: WidthRecord[] };
  * <main>, at least 24x8, rendered, and with SVG descendants folded into
  * their <svg> because a browser reports path bounds in viewBox coordinates.
  */
-async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRecord> {
+async function measureWidth(page: Page, viewportWidth: number, inset: number): Promise<WidthRecord> {
   const collect = () =>
-    page.evaluate(() => {
+    page.evaluate((inset) => {
       const main = document.querySelector('main');
-      const aside = document.querySelector('aside');
+      const column = document.querySelector('[data-prose-column]');
+      const sheetGrid = column !== null && getComputedStyle(column).display === 'grid';
+      const rail = document.querySelector('[data-article-rail]');
       const railVisible =
-        aside !== null && getComputedStyle(aside).display !== 'none';
-      const railRight = railVisible
-        ? aside!.getBoundingClientRect().right
+        rail !== null &&
+        getComputedStyle(rail).display !== 'none' &&
+        rail.getBoundingClientRect().width > 0;
+      // Below 1200 px the rail is the in-flow "Contents" disclosure above
+      // the text, not an edge beside it.
+      const railRight = railVisible && sheetGrid
+        ? rail!.getBoundingClientRect().right
         : null;
+      const columnGap = sheetGrid ? parseFloat(getComputedStyle(column!).columnGap) : null;
 
       const describe = (el: Element) => {
         const r = el.getBoundingClientRect();
@@ -126,6 +169,9 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
         for (const el of main.querySelectorAll('*')) {
           const tag = el.tagName.toLowerCase();
           if (tag !== 'svg' && el.closest('svg')) continue;
+          // The rail is inside main now (the sidebar was outside it): the
+          // rail itself and the sheet that holds it are not content beside it.
+          if (rail !== null && (rail.contains(el) || el.contains(rail))) continue;
           const cs = getComputedStyle(el);
           if (cs.visibility === 'hidden' || cs.display === 'none') continue;
           if (parseFloat(cs.opacity) <= 0) continue;
@@ -138,13 +184,31 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
       let minLeft: number | null = null;
       let minLeftElement: ReturnType<typeof describe> | null = null;
       const offenders: ReturnType<typeof describe>[] = [];
+      const bound = railRight ?? inset;
+      // The sidebar covered the strip a full-width wrapper now keeps clear
+      // with its own padding (the 48 px frame inset), so an element is
+      // measured where it paints: its border box when it draws a border, a
+      // background other than the page ground or a shadow, otherwise its
+      // content box, inside which its text and children sit.
+      const ground = getComputedStyle(document.body).backgroundColor;
+      const paintedLeft = (el: Element) => {
+        const cs = getComputedStyle(el);
+        const r = el.getBoundingClientRect();
+        const background = cs.backgroundColor;
+        const paintsBox =
+          parseFloat(cs.borderLeftWidth) > 0 ||
+          cs.backgroundImage !== 'none' ||
+          cs.boxShadow !== 'none' ||
+          (background !== ground && !/^rgba\(.*,\s*0\)$/.test(background) && background !== 'transparent');
+        return paintsBox ? r.left : r.left + parseFloat(cs.paddingLeft);
+      };
       for (const el of candidates) {
-        const left = el.getBoundingClientRect().left;
+        const left = paintedLeft(el);
         if (minLeft === null || left < minLeft) {
           minLeft = left;
           minLeftElement = describe(el);
         }
-        if (railRight !== null && left < railRight) offenders.push(describe(el));
+        if (left < bound) offenders.push(describe(el));
       }
 
       const wideSurfaces = [...document.querySelectorAll('.wide-measure')].map(
@@ -165,6 +229,7 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
       // The article's own reading column: the widest <p> that is not inside
       // a wide surface, a table, a figure, or a callout container.
       let proseReferenceWidth: number | null = null;
+      let proseReferenceLeft: number | null = null;
       if (main) {
         for (const p of main.querySelectorAll('p')) {
           if (
@@ -177,9 +242,11 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
             continue;
           const cs = getComputedStyle(p);
           if (cs.display === 'none' || cs.visibility === 'hidden') continue;
-          const w = p.getBoundingClientRect().width;
-          if (w > 0 && (proseReferenceWidth === null || w > proseReferenceWidth))
+          const { width: w, left } = p.getBoundingClientRect();
+          if (w > 0 && (proseReferenceWidth === null || w > proseReferenceWidth)) {
             proseReferenceWidth = w;
+            proseReferenceLeft = left;
+          }
         }
       }
 
@@ -187,6 +254,10 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
         innerWidth: window.innerWidth,
         clientWidth: document.documentElement.clientWidth,
         railRight,
+        article: column !== null,
+        sheetGrid,
+        columnGap,
+        proseReferenceLeft,
         minLeft,
         minLeftElement,
         offenders: offenders.slice(0, 12),
@@ -196,7 +267,7 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
         wideSurfaces,
         proseReferenceWidth,
       };
-    });
+    }, inset);
 
   await page.setViewportSize({ width: viewportWidth, height: 900 });
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -217,6 +288,10 @@ async function measureWidth(page: Page, viewportWidth: number): Promise<WidthRec
     clientWidth: settled.clientWidth,
     gutter: settled.innerWidth - settled.clientWidth,
     railRight: settled.railRight,
+    article: settled.article,
+    sheetGrid: settled.sheetGrid,
+    columnGap: settled.columnGap,
+    proseReferenceLeft: settled.proseReferenceLeft,
     minLeft: worst(settled.minLeft, scrolled.minLeft),
     minLeftElement:
       scrolled.minLeft !== null &&
@@ -238,7 +313,8 @@ async function sweep(page: Page, base: string): Promise<RouteRecord[]> {
   for (const route of ROUTES) {
     await page.goto(`${base}${route}`, { waitUntil: 'load' });
     const byWidth: WidthRecord[] = [];
-    for (const width of SWEEP_WIDTHS) byWidth.push(await measureWidth(page, width));
+    const inset = FROZEN_FRAME_INSETS[route] ?? DESKTOP_FRAME_INSET;
+    for (const width of SWEEP_WIDTHS) byWidth.push(await measureWidth(page, width, inset));
     records.push({ route, byWidth });
   }
   return records;
@@ -249,16 +325,24 @@ function clearanceFailures(records: RouteRecord[]): string[] {
   for (const { route, byWidth } of records) {
     for (const rec of byWidth) {
       if (!RAIL_WIDTHS.includes(rec.width)) continue;
-      expect(
-        rec.railRight,
-        `${route} @${rec.width}: no visible rail to measure against`,
-      ).not.toBeNull();
-      const railRight = rec.railRight as number;
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the old pin required a visible sidebar rail on every
+      // route at every rail width. An article now stands as the
+      // three-column sheet from 1200 px with its contents rail beside the
+      // column; elsewhere the bound is the 48 px desktop frame inset.
+      if (rec.article && rec.width >= 1200) {
+        expect(rec.sheetGrid, `${route} @${rec.width}: the article sheet is the three-column grid`).toBe(true);
+        expect(
+          rec.railRight,
+          `${route} @${rec.width}: no visible contents rail to measure against`,
+        ).not.toBeNull();
+      }
+      const railRight = rec.railRight ?? FROZEN_FRAME_INSETS[route] ?? DESKTOP_FRAME_INSET;
       if (rec.minLeft === null) continue;
       if (rec.minLeft < railRight) {
         const el = rec.minLeftElement;
         failures.push(
-          `${route} @${rec.width}px: minLeft=${rec.minLeft.toFixed(2)} railRight=${railRight.toFixed(2)} ` +
+          `${route} @${rec.width}px: minLeft=${rec.minLeft.toFixed(2)} bound=${railRight.toFixed(2)} ` +
             `clearance=${(rec.minLeft - railRight).toFixed(2)}px element=<${el?.tag} class="${el?.className}"> "${el?.text}"`,
         );
       }
@@ -344,7 +428,16 @@ test.describe('rail clearance and wide-surface geometry', () => {
     ).toEqual([]);
   });
 
-  test('VAL-DESIGN-026: wide surfaces stay at least 1.25x the prose column', () => {
+  test('VAL-DESIGN-026: wide surfaces stand wider than the prose column, centred on it, at the sheet rule', () => {
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin held every wide surface at least 1.25x the
+    // prose column, a bound for the brand-v2 62-68ch column. The sheet's
+    // column is now up to 960 px between the contents rail and the notes,
+    // and a wide surface takes min(1020px, column + 2 x column gap - 8px),
+    // the extra width from the gaps only (app/globals.css, 9154d672), which
+    // is about 1.06x the column. Each surface is now held to that exact
+    // width, strictly wider than the column, and centred on it, all within
+    // 1 px.
     const failures: string[] = [];
     let measured = 0;
     for (const { route, byWidth } of overlay) {
@@ -355,13 +448,20 @@ test.describe('rail clearance and wide-surface geometry', () => {
           rec.proseReferenceWidth,
           `${route} @${rec.width}: no prose paragraph to compare against`,
         ).not.toBeNull();
+        expect(rec.columnGap, `${route} @${rec.width}: the sheet's column gap`).not.toBeNull();
         const reference = rec.proseReferenceWidth as number;
+        const centre = (rec.proseReferenceLeft as number) + reference / 2;
+        const expected = Math.min(1020, reference + 2 * (rec.columnGap as number) - 8);
         for (const surface of rec.wideSurfaces) {
           measured += 1;
           const ratio = surface.width / reference;
-          if (ratio < 1.25)
+          if (
+            Math.abs(surface.width - expected) > 1 ||
+            surface.width <= reference ||
+            Math.abs(surface.left + surface.width / 2 - centre) > 1
+          )
             failures.push(
-              `${route} @${rec.width}px: wide surface ${surface.width.toFixed(1)}px vs prose ${reference.toFixed(1)}px, ratio ${ratio.toFixed(3)}`,
+              `${route} @${rec.width}px: wide surface ${surface.width.toFixed(1)}px at ${surface.left.toFixed(1)} vs prose ${reference.toFixed(1)}px centred at ${centre.toFixed(1)}, expected ${expected.toFixed(1)}px, ratio ${ratio.toFixed(3)}`,
             );
         }
       }

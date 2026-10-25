@@ -6,6 +6,7 @@ import { GLOSSARY } from '../../data/glossary';
 import { DEFAULT_PARAMS, SLIDER_SPECS, TARGET_CLASSES, composeBudget } from '../../lib/perception-error';
 import { setSlider } from './slider';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 
 const route = '/classical/perception/';
 const manuscript = fs.readFileSync(new URL('../../content/classical/perception.mdx', import.meta.url), 'utf8');
@@ -64,16 +65,27 @@ async function settle(page: Page) {
 async function open(page: Page, info: TestInfo) {
   expect((await page.goto(route))?.status()).toBe(200);
   await page.waitForLoadState('networkidle');
-  const fonts = await page.evaluate(async () => {
+  // A screenshot hides the caret with an inline style, and React reports that as a hydration
+  // mismatch on any input it has not hydrated yet; on a loaded machine networkidle can come first.
+  await page.waitForFunction(() => [...document.querySelectorAll('main input')]
+    .every(el => Object.keys(el).some(k => k.startsWith('__reactFiber$'))));
+  // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the four role
+  // fonts were Tektur, IBM Plex Sans, Newsreader and IBM Plex Mono behind --font-tektur,
+  // --font-plex-sans, --font-newsreader and --font-plex-mono. The same four roles (display,
+  // interface, reading, data; data/type-roles.json) are --font-display, --font-sans,
+  // --font-serif and --font-mono, led by DM Sans, Geist, Geist and Geist Mono, each loaded.
+  const roleFamilies = { '--font-display': 'DM Sans', '--font-sans': 'Geist', '--font-serif': 'Geist', '--font-mono': 'Geist Mono' };
+  const fonts = await page.evaluate(async roles => {
     await document.fonts.ready;
     const style = getComputedStyle(document.body);
-    return Promise.all(['--font-tektur', '--font-plex-sans', '--font-newsreader', '--font-plex-mono'].map(async role => {
+    return Promise.all(Object.keys(roles).map(async role => {
       const family = style.getPropertyValue(role).trim().split(',')[0].trim();
       const faces = await document.fonts.load(`16px ${family}`);
       return { role, family, loaded: document.fonts.check(`16px ${family}`),
         faces: faces.map(face => ({ family: face.family, status: face.status })) };
     }));
-  });
+  }, roleFamilies);
+  expect(fonts.map(role => [role.role, role.family.replace(/^"|"$/g, '')])).toEqual(Object.entries(roleFamilies));
   expect(fonts.every(role => role.family && role.loaded && role.faces.length &&
     role.faces.every(face => face.status === 'loaded'))).toBe(true);
   await info.attach('loaded-fonts', { body: JSON.stringify(fonts), contentType: 'application/json' });
@@ -174,9 +186,11 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           return { family: s.fontFamily, size: parseFloat(s.fontSize), lineHeight: parseFloat(s.lineHeight),
             left: b.left, right: b.right, color: s.color, background: s.backgroundColor };
         });
-        expect(style.family).toMatch(/Newsreader/i);
-        expect(style.size).toBeGreaterThanOrEqual(18);
-        expect(style.size).toBeLessThanOrEqual(21);
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the reading
+        // body was Newsreader at 18-21 px; it is Geist at 16 px (VAL-B2-TYPE-004).
+        expect(style.family).toMatch(/^"?Geist"?,/);
+        expect(style.size).toBeGreaterThanOrEqual(16);
+        expect(style.size).toBeLessThanOrEqual(16);
         expect(style.left).toBeGreaterThanOrEqual(20);
         expect(style.right).toBeLessThanOrEqual(viewport.width - 20);
         typography.push({ paragraph: check.start, ...style });
@@ -229,7 +243,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       expect(manuscript).not.toMatch(/<(PredictThenReveal|SelfCheck)\b/);
       await expect(page.locator('[data-predict],[data-self-check]')).toHaveCount(0);
       if (viewport.width === 375) {
-        const menu = page.getByRole('button', { name: 'Open navigation menu' });
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the drawer
+        // opened from the "Open navigation menu" button; the one top bar's "Articles" button opens it.
+        const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
+        await expect(menu).toHaveAttribute('aria-haspopup', 'dialog');
         await menu.focus(); await page.keyboard.press('Enter');
         const dialog = page.getByRole('dialog');
         const close = dialog.getByRole('button', { name: 'Close navigation menu' });
@@ -272,37 +289,70 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           const roots = (dynamic ? budget : page.locator('div.prose')).locator(`[${group.attr}="${group.id}"]`);
           await expect(roots).toHaveCount(group.count);
           for (let occurrence = 0; occurrence < group.count; occurrence++) {
-            const root = roots.nth(occurrence), trigger = root.locator('a').first(), tip = root.getByRole('tooltip');
+            // Owner-approved successor (Josef, 2026-10-10, the research-page standard): a citation's
+            // role="tooltip" chip became the numbered citation's sidenote (helpers/citation-note.ts).
+            // For a citation the trigger is the number and the tip is the note: a margin note (prose,
+            // from 1200 px) is shown at rest and must lie wholly inside the viewport below the top bar,
+            // except that with its number at the lower edge it stands level with or below the number
+            // and number and note fit one viewport together; a note opened inline (phone, figure) flows
+            // after its number, so its first line lies inside the viewport below the top bar and every
+            // line inside the side edges. A note shows whole: the tooltip's scroll-to-end walk becomes
+            // the assertion that nothing is scrolled away. Glossary terms keep role="tooltip".
+            const cite = group.attr === 'data-cite-id';
+            const root = roots.nth(occurrence);
+            const trigger = cite ? citeParts(root).mark : root.locator('a').first();
+            const tip = cite ? citeParts(root).note : root.getByRole('tooltip');
             for (const position of positions) for (const method of methods) {
               const identity = [viewport.width, dynamic ? 'mounted' : 'authored', group.id, occurrence, position, method].join(':');
               await page.mouse.move(0, 0);
               await page.evaluate(() => (document.activeElement as HTMLElement)?.blur());
               await root.evaluate((el, pos) => window.scrollBy(0, el.getBoundingClientRect().top -
                 (pos === 'reading' ? innerHeight / 2 : pos === 'upper-edge' ? 100 : innerHeight - 80)), position);
-              if (method === 'hover') await trigger.hover();
+              if (cite) {
+                await showCiteNote(page, root, method);
+                if (method === 'hover') {
+                  // An opened note can carry its number onto the next line; the pointer follows it.
+                  const moved = (await trigger.boundingBox())!;
+                  await page.mouse.move(moved.x + moved.width / 2, moved.y + moved.height / 2);
+                }
+              } else if (method === 'hover') await trigger.hover();
               else {
                 await trigger.focus(); await page.keyboard.press('Tab'); await page.keyboard.press('Shift+Tab');
               }
               await settle(page);
-              const measurement = await tip.evaluate(el => {
-                const box = el.getBoundingClientRect(), link = el.parentElement!.querySelector('a')!;
-                const rect = link.getBoundingClientRect(), style = getComputedStyle(el);
+              const measurement = await tip.evaluate((el, { cite, position }) => {
+                const link = cite ? el.closest('[data-cite-id]')!.querySelector<HTMLElement>('sup.cite-mark a')!
+                  : el.parentElement!.querySelector('a')!;
+                const box = el.getBoundingClientRect(), rect = link.getBoundingClientRect(), style = getComputedStyle(el);
+                const inMargin = cite && (style.float === 'left' || style.float === 'right');
+                const lines = cite && !inMargin ? [...el.getClientRects()].filter(r => r.width > 0 && r.height > 0) : [box];
                 const headerBottom = Math.max(0, ...[...document.querySelectorAll('header')].map(h => {
                   const s = getComputedStyle(h), b = h.getBoundingClientRect();
                   return ['sticky', 'fixed'].includes(s.position) && b.width && b.height && b.top <= 0 ? b.bottom : 0;
                 }));
-                return { left: box.left, right: box.right, top: box.top, bottom: box.bottom, headerBottom,
+                const sides = (r: DOMRect) => r.left >= 0 && r.right <= innerWidth && r.top >= headerBottom;
+                const inside = (r: DOMRect) => sides(r) && r.bottom <= innerHeight;
+                const besideAtFold = inMargin && position === 'lower-edge' && sides(box) && box.top >= rect.top - 0.5 &&
+                  Math.max(box.bottom, rect.bottom) - Math.min(box.top, rect.top) <= innerHeight - headerBottom;
+                const contained = lines.length > 0 && (cite && !inMargin
+                  ? inside(lines[0]) && lines.every(sides)
+                  : inside(box) || besideAtFold);
+                return { left: box.left, right: box.right, top: box.top, bottom: box.bottom, headerBottom, inMargin, contained,
                   visible: box.width > 0 && box.height > 0 && style.display !== 'none',
                   hovered: link.matches(':hover'), focused: document.activeElement === link,
                   hit: link.contains(document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2)),
                   scrollHeight: el.scrollHeight, clientHeight: el.clientHeight, tabIndex: (el as HTMLElement).tabIndex };
-              });
-              const pass = measurement.visible && measurement.left >= 0 && measurement.right <= viewport.width &&
-                measurement.top >= measurement.headerBottom && measurement.bottom <= viewport.height && measurement.hit &&
+              }, { cite, position });
+              const pass = measurement.visible && measurement.contained && measurement.hit &&
                 (method === 'hover' ? measurement.hovered : measurement.focused);
               observations.push({ identity, measurement, pass });
               if (!pass) failures.push(identity);
-              if (occurrence === 0 && position === 'reading' && method === 'keyboard') {
+              if (cite && occurrence === 0 && position === 'reading' && method === 'keyboard') {
+                await capture(page, info, `${group.id}-keyboard`);
+                expect(measurement.scrollHeight, `${identity} shows whole`).toBeLessThanOrEqual(measurement.clientHeight + 1);
+              }
+              if (cite) await dismissCiteNote(page, root, method);
+              if (!cite && occurrence === 0 && position === 'reading' && method === 'keyboard') {
                 await capture(page, info, `${group.id}-keyboard`);
                 if (measurement.scrollHeight > measurement.clientHeight + 1) {
                   expect(measurement.tabIndex).toBe(0);
@@ -336,12 +386,16 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       for (const id of sourceIds) {
         const source = CITATIONS.find(c => c.id === id)!;
         const chip = page.locator(`div.prose [data-cite-id="${id}"]`).first();
-        await expect(chip.locator('a').first()).toHaveText(id === 'realsense-tuning-2026' ? 'Grunnet-Jepsen et al. 2026' : 'Microsoft 2019');
-        await expect(chip.locator('a').first()).toHaveAttribute('href', source.url);
-        await expect(chip.locator('a').first()).toHaveAttribute('rel', /noopener/);
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the chip's first
+        // link was the author-year source link and its "#ref-" link jumped to References. The source
+        // link is the sidenote's author-year link, and the number points at and jumps to the entry
+        // (where the note stands in the margin; jumpFromCiteMark takes the jump at 1280 px from 375).
+        const { source: sourceLink } = citeParts(chip);
+        await expect(sourceLink).toHaveText(id === 'realsense-tuning-2026' ? 'Grunnet-Jepsen et al. 2026' : 'Microsoft 2019');
+        await expect(sourceLink).toHaveAttribute('href', source.url);
+        await expect(sourceLink).toHaveAttribute('rel', /noopener/);
         const before = page.url();
-        await chip.locator('a[href^="#ref-"]').focus(); await page.keyboard.press('Enter');
-        await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
+        const restoreViewport = await jumpFromCiteMark(page, chip, id);
         const reference = page.locator(`[data-reference-id="${id}"]`);
         await expect(reference.locator('[data-reference-source-link]')).toHaveAttribute('href', source.url);
         const expand = reference.getByRole('button', { name: /Show all/ });
@@ -352,6 +406,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           const index = text.indexOf(author, last + 1); expect(index).toBeGreaterThan(last); last = index;
         }
         await captureText(page, info, reference, `${id}-full-reference`);
+        await restoreViewport();
         await page.goBack(); await expect(page).toHaveURL(before);
         history.push({ id, activeTag: await page.evaluate(() => document.activeElement?.tagName) });
       }

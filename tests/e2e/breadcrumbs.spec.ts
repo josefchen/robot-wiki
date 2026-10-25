@@ -1,8 +1,9 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { DOMAIN_META, DOMAINS, publishedModules } from '../../data/modules';
 import { PUBLIC_IDENTITY } from '../../lib/identity';
 import { SITE_URL } from '../../lib/site';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Article breadcrumbs (VAL-WIKI-016, VAL-WIKI-017, VAL-WIKI-018): every
@@ -26,6 +27,29 @@ const anchorByDomain = new Map(
   }),
 );
 const domainsWithArticles = [...anchorByDomain.keys()];
+
+/** The top bar's wordmark: the link to "/" on every page. */
+function wordmark(page: Page) {
+  return page.getByRole('banner').getByRole('link', { name: PUBLIC_IDENTITY, exact: true });
+}
+
+type BreadcrumbList = {
+  '@type': string;
+  itemListElement: Array<{ position: number; name: string; item: string }>;
+};
+
+/** The page's BreadcrumbList JSON-LD block, or null when it has none. */
+async function readBreadcrumbList(page: Page): Promise<BreadcrumbList | null> {
+  const scripts = page.locator('script[type="application/ld+json"]');
+  const count = await scripts.count();
+  for (let i = 0; i < count; i += 1) {
+    const parsed = JSON.parse(
+      (await scripts.nth(i).textContent()) ?? 'null',
+    ) as { '@type'?: string } | null;
+    if (parsed?.['@type'] === 'BreadcrumbList') return parsed as BreadcrumbList;
+  }
+  return null;
+}
 
 // VAL-WIKI-017 requires the sweep to sample an article in each of the
 // SEVEN top-level domains once all have published articles, which is the
@@ -59,23 +83,48 @@ test.describe('article breadcrumbs', () => {
         await expect(nav).toBeVisible();
 
         // Three levels in order: home, this article's domain, the article.
-        const home = nav.getByRole('link', { name: 'Home' });
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the old pin read a "Home" link, the domain link and the
+        // article title as non-link text, all inside the Breadcrumb nav
+        // (exactly two links). Since 9154d672 the trail is the masthead
+        // eyebrow: the top bar's wordmark is the home link, the eyebrow
+        // holds only the domain link (exactly one link), the H1 names the
+        // article, and the full Home > Domain > Article trail is the
+        // BreadcrumbList JSON-LD, checked here per domain.
+        const home = wordmark(page);
         await expect(home).toHaveAttribute('href', '/');
         const domainCrumb = nav.getByRole('link', {
           name: DOMAIN_META[domain].name,
         });
         // trailingSlash: true normalizes rendered hrefs to the slashed form.
         await expect(domainCrumb).toHaveAttribute('href', `/${domain}/`);
-        // The current article's title appears as the trailing crumb and is
-        // not a link: exactly two links in the trail.
-        await expect(nav.getByText(article!.title)).toBeVisible();
-        await expect(nav.getByRole('link')).toHaveCount(2);
+        // The current article's title is the page's H1 and is not a link in
+        // the trail: the domain crumb is the eyebrow's one link.
+        await expect(
+          page.getByRole('heading', { level: 1, name: article!.title, exact: true }),
+        ).toBeVisible();
+        await expect(nav.getByRole('link', { name: article!.title })).toHaveCount(0);
+        await expect(nav.getByRole('link')).toHaveCount(1);
+        const trail = await readBreadcrumbList(page);
+        expect(trail, 'a BreadcrumbList JSON-LD block').not.toBeNull();
+        expect(trail!.itemListElement.map((item) => item.name)).toEqual([
+          'Home',
+          DOMAIN_META[domain].name,
+          article!.title,
+        ]);
 
         // The domain label matches the sidebar taxonomy label exactly.
-        const sidebarGroup = page.getByRole('button', {
-          name: DOMAIN_META[domain].name,
-        });
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the old pin read the group button in the persistent
+        // sidebar; the same taxonomy groups now live in the Articles panel.
+        await openArticlesPanel(page);
+        const panel = page.getByRole('dialog', { name: 'Site navigation' });
+        const sidebarGroup = panel
+          .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
+          .getByRole('button', { name: DOMAIN_META[domain].name });
         await expect(sidebarGroup).toBeVisible();
+        await page.keyboard.press('Escape');
+        await expect(panel).toBeHidden();
       });
     }
   });
@@ -84,34 +133,23 @@ test.describe('article breadcrumbs', () => {
     page,
   }) => {
     await page.goto('/manipulation/action-chunking/');
-    await expect(
-      page.getByRole('navigation', { name: 'Breadcrumb' }),
-    ).toBeVisible();
-    await expect(
-      page.getByRole('navigation', { name: 'Robot Wiki taxonomy' }),
-    ).toBeVisible();
+    const breadcrumb = page.getByRole('navigation', { name: 'Breadcrumb' });
+    await expect(breadcrumb).toBeVisible();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin read the taxonomy nav at rest in the sidebar;
+    // it now lives in the Articles panel, opened here, and stays a landmark
+    // separate from the breadcrumb trail.
+    await openArticlesPanel(page);
+    const taxonomy = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    await expect(taxonomy).toBeVisible();
+    await expect(taxonomy.getByRole('navigation', { name: 'Breadcrumb' })).toHaveCount(0);
+    await expect(breadcrumb.getByRole('navigation', { name: 'Robot Wiki taxonomy' })).toHaveCount(0);
   });
 
   test('BreadcrumbList structured data matches the trail', async ({ page }) => {
     const article = anchorByDomain.get('manipulation')!;
     await page.goto(`/${article.domain}/${article.slug}/`);
-    const scripts = page.locator(
-      'script[type="application/ld+json"]',
-    );
-    const count = await scripts.count();
-    let breadcrumbList: {
-      '@type': string;
-      itemListElement: Array<{ position: number; name: string; item: string }>;
-    } | null = null;
-    for (let i = 0; i < count; i += 1) {
-      const parsed = JSON.parse(
-        (await scripts.nth(i).textContent()) ?? 'null',
-      ) as { '@type'?: string } | null;
-      if (parsed?.['@type'] === 'BreadcrumbList') {
-        breadcrumbList = parsed as never;
-        break;
-      }
-    }
+    const breadcrumbList = await readBreadcrumbList(page);
     expect(breadcrumbList, 'a BreadcrumbList JSON-LD block').not.toBeNull();
     expect(breadcrumbList!.itemListElement).toHaveLength(3);
     const [home, domain, current] = breadcrumbList!.itemListElement;
@@ -152,11 +190,13 @@ test.describe('article breadcrumbs', () => {
         expect(landingResponse?.ok()).toBe(true);
 
         // Home crumb: the wiki home page.
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the old pin clicked the trail's "Home" link; since
+        // 9154d672 the eyebrow trail starts at the domain and the top bar's
+        // wordmark is the article page's link home (the JSON-LD keeps Home
+        // as the trail's first crumb).
         await page.goto(`/${article.domain}/${article.slug}/`);
-        await page
-          .getByRole('navigation', { name: 'Breadcrumb' })
-          .getByRole('link', { name: 'Home' })
-          .click();
+        await wordmark(page).click();
         await page.waitForURL('/');
         await expect(page.locator('h1')).toHaveText(PUBLIC_IDENTITY);
       });
@@ -189,13 +229,16 @@ test.describe('article breadcrumbs', () => {
       'Tab reaches a breadcrumb link',
     ).toBe(true);
 
-    // The focused link shows the global signal-blue focus outline at
-    // the locked 2px width.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin read the signal-blue focus outline at 2px; the
+    // standard's focus ring is a 1px ink outline offset 2px, so the focused
+    // link pins width 1 and offset 2.
     const outline = await page.evaluate(() => {
-      const active = document.activeElement as HTMLElement;
-      return getComputedStyle(active).outlineWidth;
+      const style = getComputedStyle(document.activeElement as HTMLElement);
+      return { width: style.outlineWidth, offset: style.outlineOffset };
     });
-    expect(parseFloat(outline)).toBe(2);
+    expect(parseFloat(outline.width)).toBe(1);
+    expect(parseFloat(outline.offset)).toBe(2);
     await expect(breadcrumbNav).toBeVisible();
   });
 

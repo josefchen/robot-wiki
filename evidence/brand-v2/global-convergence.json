@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "330f9cc253bbdc27bd255eccfec06bc72cea760e2e181016332568519d78c1aa",
+  "fingerprint": "6647ba15cddbed248af8f3e05a19e6d05653cbd6aee99a5589c1fef15400f0a5",
   "viewports": [
     "375x812",
     "768x1024",
@@ -104,7 +104,7 @@
           "frames": 0,
           "citationLabels": 3,
           "insetTextRuns": 156,
-          "collisionTextBoxes": 185,
+          "collisionTextBoxes": 184,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
@@ -444,10 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 184,
+            "maxLineWidthPx": 176,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "The Evaluation Crisis",
+            "text": "Diffusion Policy",
             "exemption": null
           },
           {
@@ -1356,10 +1356,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 250,
+            "maxLineWidthPx": 176,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "The Evaluation Crisis",
+            "text": "Diffusion Policy",
             "exemption": null
           },
           {
@@ -2276,10 +2276,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 250,
+            "maxLineWidthPx": 176,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "The Evaluation Crisis",
+            "text": "Diffusion Policy",
             "exemption": null
           },
           {
@@ -16228,7 +16228,7 @@
           "headings": 8,
           "paragraphs": 113,
           "sectionHeads": 7,
-          "spacingValues": 863,
+          "spacingValues": 864,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
@@ -16708,6 +16708,13 @@
             "count": 4,
             "element": "h2#autonomy-paced-by-the-speed-of-light.group/heading",
             "exemption": null
+          },
+          {
+            "valuePx": 27.67,
+            "property": "marginLeft",
+            "count": 1,
+            "element": "div[data-brand-surface-id=\"surface:flat\"].overflow-x-auto.rounded-md.border",
+            "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 10,
@@ -19043,7 +19050,7 @@
           "headings": 8,
           "paragraphs": 95,
           "sectionHeads": 7,
-          "spacingValues": 708,
+          "spacingValues": 709,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
@@ -19538,6 +19545,13 @@
             "count": 4,
             "element": "h2#the-teleoperation-baseline.group/heading",
             "exemption": null
+          },
+          {
+            "valuePx": 27.67,
+            "property": "marginLeft",
+            "count": 1,
+            "element": "div[data-brand-surface-id=\"surface:flat\"].overflow-x-auto.rounded-md.border",
+            "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 10,
@@ -68698,8 +68712,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 721,
-          "digest": "04a4b607"
+          "strings": 720,
+          "digest": "7ab7f8a2"
         }
       },
       "focus": [
@@ -69731,8 +69745,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 721,
-          "digest": "04a4b607"
+          "strings": 720,
+          "digest": "7ab7f8a2"
         }
       },
       "focus": [
@@ -70837,8 +70851,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 721,
-          "digest": "04a4b607"
+          "strings": 720,
+          "digest": "7ab7f8a2"
         }
       },
       "focus": [
@@ -122363,26 +122377,26 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3145,
-          "actions": 139,
+          "paintedElements": 3149,
+          "actions": 140,
           "secondaryActions": 22,
           "persistentStates": 1,
-          "links": 111,
-          "textRuns": 357,
+          "links": 112,
+          "textRuns": 359,
           "frames": 7,
           "cards": 1,
-          "citationMarks": 37,
-          "insetTextRuns": 588,
-          "collisionTextBoxes": 653,
+          "citationMarks": 38,
+          "insetTextRuns": 591,
+          "collisionTextBoxes": 656,
           "headings": 15,
           "paragraphs": 96,
           "sectionHeads": 12,
-          "spacingValues": 437,
+          "spacingValues": 438,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 38,
           "hiddenTextRuns": 36,
-          "proseRuns": 294,
+          "proseRuns": 297,
           "borderedSides": 8,
           "rails": 4,
           "shellGrounds": 10,
@@ -122492,7 +122506,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 322,
-            "count": 41,
+            "count": 42,
             "element": "p.page-lead",
             "text": "Visuomotor control as conditional denois",
             "exemption": null
@@ -122552,7 +122566,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -122841,7 +122855,7 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -123025,8 +123039,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 485,
-          "digest": "b1d917a8"
+          "strings": 490,
+          "digest": "645e3633"
         }
       },
       "focus": [
@@ -123339,26 +123353,26 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3145,
-          "actions": 139,
+          "paintedElements": 3149,
+          "actions": 140,
           "secondaryActions": 22,
           "persistentStates": 1,
-          "links": 111,
-          "textRuns": 357,
+          "links": 112,
+          "textRuns": 359,
           "frames": 7,
           "cards": 1,
-          "citationMarks": 37,
-          "insetTextRuns": 588,
-          "collisionTextBoxes": 484,
+          "citationMarks": 38,
+          "insetTextRuns": 591,
+          "collisionTextBoxes": 486,
           "headings": 15,
           "paragraphs": 96,
           "sectionHeads": 12,
-          "spacingValues": 437,
+          "spacingValues": 438,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 38,
           "hiddenTextRuns": 36,
-          "proseRuns": 220,
+          "proseRuns": 222,
           "borderedSides": 8,
           "rails": 4,
           "shellGrounds": 10,
@@ -123468,7 +123482,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 662,
-            "count": 41,
+            "count": 42,
             "element": "p.page-lead",
             "text": "Visuomotor control as conditional denois",
             "exemption": null
@@ -123512,7 +123526,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 703,
+            "maxLineWidthPx": 704,
             "count": 17,
             "element": "p",
             "text": "Diffusion Policydiffusion policyA diffus",
@@ -123528,7 +123542,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -123831,7 +123845,7 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -124008,8 +124022,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 485,
-          "digest": "b1d917a8"
+          "strings": 490,
+          "digest": "645e3633"
         }
       },
       "focus": [
@@ -124322,27 +124336,27 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3276,
-          "actions": 186,
+          "paintedElements": 3283,
+          "actions": 188,
           "secondaryActions": 22,
           "persistentStates": 2,
-          "links": 158,
-          "textRuns": 440,
+          "links": 160,
+          "textRuns": 444,
           "frames": 7,
           "cards": 1,
-          "citationMarks": 37,
-          "insetTextRuns": 671,
-          "collisionTextBoxes": 535,
+          "citationMarks": 38,
+          "insetTextRuns": 676,
+          "collisionTextBoxes": 540,
           "headings": 15,
           "paragraphs": 96,
           "sectionHeads": 12,
-          "spacingValues": 596,
+          "spacingValues": 601,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
           "decorativeLayers": 38,
           "hiddenTextRuns": 36,
-          "proseRuns": 276,
+          "proseRuns": 281,
           "borderedSides": 6,
           "rails": 2,
           "shellGrounds": 11,
@@ -124452,7 +124466,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 740,
-            "count": 41,
+            "count": 42,
             "element": "p.page-lead",
             "text": "Visuomotor control as conditional denois",
             "exemption": null
@@ -124527,7 +124541,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -124542,7 +124556,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 37,
+            "count": 38,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "1",
             "exemption": null
@@ -124557,7 +124571,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 154,
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Chi et al. 2023",
             "exemption": null
@@ -124853,28 +124867,28 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 37,
+            "count": 38,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 37,
+            "count": 38,
             "element": "span#_R_e0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 37,
+            "count": 38,
             "element": "span#_R_e0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 37,
+            "count": 38,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
@@ -125058,8 +125072,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 485,
-          "digest": "b1d917a8"
+          "strings": 490,
+          "digest": "645e3633"
         }
       },
       "focus": [
@@ -144322,7 +144336,7 @@
           "headings": 13,
           "paragraphs": 135,
           "sectionHeads": 11,
-          "spacingValues": 1074,
+          "spacingValues": 1075,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
@@ -144914,6 +144928,13 @@
             "count": 8,
             "element": "h2#the-flow-matching-log-likelihood-problem.group/heading",
             "exemption": null
+          },
+          {
+            "valuePx": 27.67,
+            "property": "marginLeft",
+            "count": 1,
+            "element": "div[data-brand-surface-id=\"surface:flat\"][data-brand-frame-depth=\"1\"].overflow-x-auto.[container-type:inline-size].my-6",
+            "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 10,
@@ -182066,7 +182087,7 @@
           "headings": 10,
           "paragraphs": 90,
           "sectionHeads": 8,
-          "spacingValues": 622,
+          "spacingValues": 623,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
@@ -182628,6 +182649,13 @@
             "count": 5,
             "element": "h2#the-asymmetry-is-in-the-mdp.group/heading",
             "exemption": null
+          },
+          {
+            "valuePx": 27.67,
+            "property": "marginLeft",
+            "count": 1,
+            "element": "div[data-brand-surface-id=\"surface:flat\"].overflow-x-auto.rounded-md.border",
+            "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 10,
@@ -206127,7 +206155,7 @@
           "headings": 18,
           "paragraphs": 102,
           "sectionHeads": 8,
-          "spacingValues": 795,
+          "spacingValues": 796,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
@@ -206749,6 +206777,13 @@
             "count": 5,
             "element": "h2#a-model-counts-only-if-it-predicts-the-effect-of-actions.group/heading",
             "exemption": null
+          },
+          {
+            "valuePx": 27.67,
+            "property": "marginLeft",
+            "count": 1,
+            "element": "div[data-brand-surface-id=\"surface:flat\"].overflow-x-auto.rounded-md.border",
+            "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 10,

@@ -337,7 +337,7 @@ test.describe('timeline view roving keyboard affordances', () => {
     expect(errors).toEqual([]);
   });
 
-  test('a filtered timeline keeps the roving contract (35 humanoids)', async ({
+  test('a filtered timeline keeps the roving contract (34 humanoids)', async ({
     page,
   }) => {
     await openTimeline(page);

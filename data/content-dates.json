@@ -62,7 +62,7 @@
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T20:01:27+01:00",
-      "modified": "2026-10-25T00:10:09+02:00"
+      "modified": "2026-10-25T00:30:54+02:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T18:27:43+01:00",
@@ -126,7 +126,7 @@
     },
     "manipulation/diffusion-policy": {
       "published": "2026-08-08T03:05:28+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-25T07:46:29+01:00"
     },
     "manipulation/foundation-models": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -138,7 +138,7 @@
     },
     "manipulation/hierarchical": {
       "published": "2026-08-08T07:15:55+01:00",
-      "modified": "2026-10-25T00:10:09+02:00"
+      "modified": "2026-10-25T00:30:54+02:00"
     },
     "manipulation/knowledge-insulation": {
       "published": "2026-08-08T15:56:20+01:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-25T00:10:09+02:00"
+      "modified": "2026-10-25T07:46:29+01:00"
     },
     "/manipulation/": {
       "modified": "2026-10-22T22:31:48+02:00"
@@ -264,7 +264,7 @@
       "modified": "2026-10-19T08:45:42+02:00"
     },
     "/glossary/": {
-      "modified": "2026-10-25T00:10:09+02:00"
+      "modified": "2026-10-25T00:30:54+02:00"
     },
     "/credits/": {
       "modified": "2026-10-22T20:45:04+02:00"
