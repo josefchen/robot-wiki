@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   test(`comparison current claims at ${viewport.width}`, async ({ page }, info) => {
@@ -55,10 +57,16 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(table.getByRole('columnheader', { name: /Year/ })).toHaveAttribute('aria-sort', 'ascending');
 
     const boxes = [];
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): focusing the cite chip's link showed a role="tooltip"; the
+    // citation is now a number with a sidenote, shown by keyboard (in the
+    // margin at rest from 1200 px, opened inline by Enter below it) and read
+    // at the same bounds and overflow checks (helpers/citation-note.ts).
     for (const id of ['pi06-model-card-2025', 'pi07-2026']) {
-      const cite = page.locator(`div.prose [data-cite-id="${id}"] a`).first();
-      await cite.focus();
-      const tooltip = page.getByRole('tooltip');
+      const citation = page.locator(`div.prose [data-cite-id="${id}"]`).first();
+      const { mark: cite, note: tooltip } = citeParts(citation);
+      await waitForHydration(cite);
+      await showCiteNote(page, citation, 'keyboard');
       await expect(tooltip).toBeVisible();
       const box = await tooltip.boundingBox();
       expect(box!.x).toBeGreaterThanOrEqual(0);
@@ -66,6 +74,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       expect(await tooltip.evaluate(el => el.scrollWidth <= el.clientWidth && el.scrollHeight <= el.clientHeight)).toBe(true);
       boxes.push({ id, box });
       await page.screenshot({ path: info.outputPath(`${id}-tooltip.png`) });
+      await dismissCiteNote(page, citation, 'keyboard');
       await cite.blur();
     }
     await page.getByRole('heading', { name: /What the matrix can establish/ }).scrollIntoViewIfNeeded();

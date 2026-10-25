@@ -15,8 +15,9 @@ import { cx } from '@/lib/utils';
  * drafts are excluded from the sidebar taxonomy entirely, so
  * no reader surface can hint at work that does not exist yet.
  * The group containing the current route is expanded
- * on load and the active link carries aria-current="page", ink text and
- * one extra weight step. No rail, no pill: plain text on the sheet.
+ * on load and the active link carries aria-current="page", ink text, one
+ * extra weight step and a 1 px ink underline. No rail, no pill: plain text
+ * on the sheet.
  */
 type NavTreeProps = {
   /** Prefix for element ids so desktop and drawer instances never collide. */
@@ -54,12 +55,12 @@ function domainOf(pathname: string): Domain | null {
 const moduleLinkBase =
   'block py-[5px] pl-5 font-sans text-[14px] leading-snug transition-colors';
 const moduleLinkIdle = 'text-text-dim hover:text-text';
-const moduleLinkActive = 'font-medium text-text';
+const moduleLinkActive = 'font-medium text-text underline decoration-1 underline-offset-[3px]';
 
 const entryLinkBase =
   'block py-[5px] font-sans text-[14px] leading-snug transition-colors';
 const entryLinkIdle = 'text-text hover:text-text-dim';
-const entryLinkActive = 'font-medium text-text';
+const entryLinkActive = 'font-medium text-text underline decoration-1 underline-offset-[3px]';
 
 /** A sidebar entry link with the shared active-marker treatment. */
 function NavEntryLink({

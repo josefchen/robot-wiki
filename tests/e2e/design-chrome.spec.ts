@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
+import { openArticlesPanel } from './helpers/articles-panel';
 import { DESIGN_DEFS } from './helpers/design-defs';
 import { settleTransitions } from './settle';
 
@@ -35,35 +36,72 @@ function evaluateDefs<T>(page: Page, call: string): Promise<T> {
   return page.evaluate(`(() => { ${DEFS}; return ${call}; })()`) as Promise<T>;
 }
 
-/** The active marker: the registered aria-hidden rail inside the active link. */
+const INK = 'rgb(28, 28, 26)';
+
+/**
+ * The current-route mark on the taxonomy entry for `route`.
+ *
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the old reader measured the registered aria-hidden active-interval rail
+ * inside `aside a[aria-current="page"]` (3px lime, full link height). The
+ * sidebar and its rail are gone; the taxonomy nav lives in the "Site
+ * navigation" panel the top bar's "Articles" button opens, and the current
+ * entry is marked by the link itself: ink, a weight step over its idle
+ * siblings, and a 1 px ink rule or underline, never a colour fill and never
+ * a device. Every fact the rail reader returned has a counterpart here.
+ */
 async function markerMetrics(page: Page, route: string) {
   await page.goto(route);
-  return page.evaluate(() => {
-    const link = document.querySelector('aside a[aria-current="page"]');
-    const aside = document.querySelector('aside');
-    if (!link || !aside) return null;
-    const marker = link.querySelector('[aria-hidden="true"]');
-    if (!marker) return null;
-    const mcs = getComputedStyle(marker);
+  await openArticlesPanel(page);
+  const metrics = await page.evaluate((ink) => {
+    const nav = document.querySelector(
+      '[role="dialog"] nav[aria-label="Robot Wiki taxonomy drawer"]',
+    );
+    const link = nav?.querySelector('a[aria-current="page"]');
+    if (!nav || !link) return null;
+    const idle = [...(link.closest('ul')?.querySelectorAll('a[href]') ?? [])].find(
+      (a) => !a.hasAttribute('aria-current'),
+    );
+    if (!idle) return null;
     const lcs = getComputedStyle(link);
-    const mr = marker.getBoundingClientRect();
     const lr = link.getBoundingClientRect();
+    const sides = ['Top', 'Right', 'Bottom', 'Left'] as const;
+    const inkRuleSides = sides.filter(
+      (s) =>
+        lcs.getPropertyValue(`border-${s.toLowerCase()}-width`) === '1px' &&
+        lcs.getPropertyValue(`border-${s.toLowerCase()}-style`) === 'solid' &&
+        lcs.getPropertyValue(`border-${s.toLowerCase()}-color`) === ink,
+    );
+    const inkUnderline =
+      lcs.textDecorationLine.includes('underline') &&
+      lcs.textDecorationThickness === '1px' &&
+      lcs.textDecorationColor === ink;
     return {
-      markerBoxShadow: mcs.boxShadow,
-      markerRadii: [
-        mcs.borderTopLeftRadius,
-        mcs.borderTopRightRadius,
-        mcs.borderBottomLeftRadius,
-        mcs.borderBottomRightRadius,
-      ],
-      markerBorderLeft: mcs.borderLeftWidth,
-      markerBorderColour: mcs.borderLeftColor,
-      markerDeviceId: marker.getAttribute('data-brand-device-id'),
       linkBoxShadow: lcs.boxShadow,
-      heightDiff: Math.abs(mr.height - lr.height),
-      leftOffset: mr.left - aside.getBoundingClientRect().left,
+      linkRadii: [
+        lcs.borderTopLeftRadius,
+        lcs.borderTopRightRadius,
+        lcs.borderBottomLeftRadius,
+        lcs.borderBottomRightRadius,
+      ],
+      linkBackground: lcs.backgroundColor,
+      linkBackgroundImage: lcs.backgroundImage,
+      devices: link.querySelectorAll('[aria-hidden="true"], [data-brand-device-id]').length,
+      pseudoContent: [
+        getComputedStyle(link, '::before').content,
+        getComputedStyle(link, '::after').content,
+      ],
+      colour: lcs.color,
+      weight: Number.parseFloat(lcs.fontWeight),
+      idleWeight: Number.parseFloat(getComputedStyle(idle).fontWeight),
+      inkRule: inkRuleSides.length > 0 || inkUnderline,
+      ruleReport: `border ${sides.map((s) => lcs.getPropertyValue(`border-${s.toLowerCase()}-width`) + ' ' + lcs.getPropertyValue(`border-${s.toLowerCase()}-color`)).join(' / ')}; text-decoration ${lcs.textDecorationLine} ${lcs.textDecorationThickness} ${lcs.textDecorationColor}`,
+      leftOffset: lr.left - nav.getBoundingClientRect().left,
     };
-  });
+  }, INK);
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
+  return metrics;
 }
 
 test.describe('design chrome discipline', () => {
@@ -74,22 +112,33 @@ test.describe('design chrome discipline', () => {
     const m = await markerMetrics(page, MODULE_ROUTE);
     expect(m).not.toBeNull();
     expect(m!.linkBoxShadow).toBe('none');
-    expect(m!.markerBoxShadow).toBe('none');
-    expect(m!.markerRadii).toEqual(['0px', '0px', '0px', '0px']);
-    // The v2 mark is the registered active-interval rail: a real element at
-    // the design system's 3px rail weight in selection lime, not the v1 2px
-    // signal-blue border. Asserting the registry id as well as the geometry
-    // means a hand-rolled span that merely looks the same still fails.
-    expect(m!.markerDeviceId).toBe('device:active-interval-rail');
-    expect(m!.markerBorderLeft).toBe('3px');
-    expect(m!.markerBorderColour).toBe('rgb(198, 255, 25)');
-    expect(m!.heightDiff).toBeLessThanOrEqual(1);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard; contract VAL-B2-COL-005, VAL-B2-SURF-002): the old pins read
+    // the registered active-interval rail inside the sidebar link (no
+    // shadow, square, device id `device:active-interval-rail`, 3px, lime
+    // rgb(198, 255, 25), full link height). The current entry now carries
+    // no device and no colour fill: square, unfilled, ink, one weight step
+    // over its idle siblings, and a 1 px ink rule or underline.
+    expect(m!.linkRadii).toEqual(['0px', '0px', '0px', '0px']);
+    expect(m!.devices).toBe(0);
+    expect(m!.pseudoContent).toEqual(['none', 'none']);
+    expect(m!.linkBackground).toBe('rgba(0, 0, 0, 0)');
+    expect(m!.linkBackgroundImage).toBe('none');
+    expect(m!.colour).toBe(INK);
+    expect(m!.weight).toBeGreaterThanOrEqual(500);
+    expect(m!.weight).toBeGreaterThan(m!.idleWeight);
+    expect(m!.inkRule, `1 px ink rule or underline on the current entry: ${m!.ruleReport}`).toBe(true);
   });
 
   test('the marker sits at one indent depth for every entry kind (VAL-DESIGN-017)', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the offset was the sidebar rail's distance from the
+    // <aside> edge; it is now the current entry's own box (the mark) from
+    // the left edge of the panel's taxonomy nav, for the same three entry
+    // kinds (article, domain overview, standalone page).
     const offsets: number[] = [];
     for (const route of [MODULE_ROUTE, DOMAIN_ROUTE, STANDALONE_ROUTE]) {
       const m = await markerMetrics(page, route);
@@ -289,21 +338,45 @@ test.describe('design chrome discipline', () => {
     // The bound applies to the chrome surfaces: the sidebar, the mobile
     // header, the drawer, and the search surfaces. Bordered buttons inside
     // a module's interactive panel are content, not chrome.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old sweep read every control inside the persistent
+    // <aside> sidebar. The sidebar's controls now live in the "Site
+    // navigation" panel and the top bar, so the same sweep reads both, and
+    // the standard's unboxed control (radius 0, no fill) is checked on the
+    // same population alongside the four-sided-border test.
     await page.setViewportSize({ width: 1440, height: 900 });
+    const chromeControls = (scope: string) => `(() => {
+        ${DEFS};
+        const root = document.querySelector(${JSON.stringify(scope)});
+        if (!root) return ['<no ${scope}>'];
+        const hits = [];
+        let population = 0;
+        for (const el of root.querySelectorAll('button, a, [role="button"], [aria-hidden="true"]')) {
+          if (!visible(el) || realInput(el)) continue;
+          population += 1;
+          const cs = getComputedStyle(el);
+          const label = el.tagName + '.' + (el.getAttribute('class') || '').slice(0, 40);
+          if (fullyBordered(el)) hits.push(label + ' boxed');
+          if (el.getAttribute('aria-hidden') !== 'true') {
+            const radii = [cs.borderTopLeftRadius, cs.borderTopRightRadius, cs.borderBottomRightRadius, cs.borderBottomLeftRadius];
+            if (radii.some((r) => parseFloat(r) !== 0)) hits.push(label + ' radius ' + radii.join(' '));
+            if (alpha(cs.backgroundColor) > 0) hits.push(label + ' fill ' + cs.backgroundColor);
+          }
+        }
+        if (population === 0) hits.push('<empty ${scope}>');
+        return hits;
+      })()`;
     for (const route of ['/', MODULE_ROUTE, '/playground']) {
       await page.goto(route);
-      const inSidebar = await page.evaluate(`(() => {
-        ${DEFS};
-        const aside = document.querySelector('aside');
-        if (!aside) return ['<no aside>'];
-        const hits = [];
-        for (const el of aside.querySelectorAll('button, a, [role="button"], [aria-hidden="true"]')) {
-          if (!visible(el) || realInput(el) || !fullyBordered(el)) continue;
-          hits.push(el.tagName + '.' + (el.getAttribute('class') || '').slice(0, 40));
-        }
-        return hits;
-      })()`);
-      expect(inSidebar, `boxed controls in the sidebar on ${route}`).toEqual([]);
+      const inTopBar = await page.evaluate(chromeControls('header[data-site-topbar]'));
+      expect(inTopBar, `boxed controls in the top bar on ${route}`).toEqual([]);
+      await openArticlesPanel(page);
+      const inPanel = await page.evaluate(
+        chromeControls('[role="dialog"][aria-label="Site navigation"] > div:not([aria-hidden])'),
+      );
+      expect(inPanel, `boxed controls in the navigation panel on ${route}`).toEqual([]);
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
     }
     // The /search surface: the whole page is search chrome.
     await page.goto('/search');
@@ -311,7 +384,13 @@ test.describe('design chrome discipline', () => {
     expect(onSearch).toEqual([]);
     // Text inputs keep their own border as a real affordance.
     await page.goto('/');
-    const input = page.getByRole('searchbox', { name: 'Search', exact: true }).first();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the home search's accessible name was "Search"; the front
+    // page's visible label is now "Search articles, sources and glossary"
+    // (bf50f0f4, "Rebuild the home page as an encyclopedia front page").
+    const input = page
+      .getByRole('searchbox', { name: 'Search articles, sources and glossary', exact: true })
+      .first();
     const border = await input.evaluate((el) => getComputedStyle(el).borderTopWidth);
     expect(border).toBe('1px');
   });
@@ -321,13 +400,18 @@ test.describe('design chrome discipline', () => {
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    await page.getByRole('button', { name: 'Open navigation menu' }).click();
-    const dialog = page.getByRole('dialog', { name: 'Site navigation' });
-    await expect(dialog).toBeVisible();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the "Open navigation menu" drawer trigger became the top
+    // bar's "Articles" button, which opens the same "Site navigation"
+    // dialog at every width, and the panel is no longer the dialog's
+    // `.relative` child but its one child that is not the aria-hidden
+    // scrim. The panel still has no border and no shadow, and the ink scrim
+    // still carries its one edge, so every measurement below is unchanged.
+    await openArticlesPanel(page);
     const metrics = await page.evaluate(() => {
-      const dlg = document.querySelector('[role="dialog"]');
-      const panel = dlg?.querySelector('.relative');
-      const scrim = dlg?.querySelector('[aria-hidden]');
+      const dlg = document.querySelector('[role="dialog"][aria-label="Site navigation"]');
+      const panel = dlg?.querySelector(':scope > div:not([aria-hidden])');
+      const scrim = dlg?.querySelector(':scope > [aria-hidden]');
       if (!panel || !scrim) return null;
       const pcs = getComputedStyle(panel);
       const scs = getComputedStyle(scrim);
@@ -454,49 +538,89 @@ test.describe('design chrome discipline', () => {
     const taxonomy = new Set(baseline.links.map(({ href }) => href));
     const listed = (route: string) =>
       taxonomy.has(route) || taxonomy.has(`${route}/`);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old reader counted aria-current="page" across the
+    // document with the persistent <aside> sidebar on screen and required
+    // the holder to sit in that <aside>. The sidebar's entries now live in
+    // the "Site navigation" panel the top bar's "Articles" button opens, so
+    // each route is read with the panel open: the page behind it is inert,
+    // the count is taken over what is not inert, and the one holder has to
+    // be a link inside the panel pointing at this route.
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
     for (const route of AUDITED_ROUTES) {
       await page.goto(route);
-      const marks = page.locator('[aria-current="page"]');
-      expect(await marks.count(), `aria-current count on ${route}`).toBe(
+      await openArticlesPanel(page);
+      const held = await page.evaluate(() =>
+        [...document.querySelectorAll('[aria-current="page"]')]
+          .filter((el) => el.closest('[inert]') === null)
+          .map((el) => ({
+            tag: el.tagName.toLowerCase(),
+            href: el.getAttribute('href'),
+            inPanel:
+              el.closest('[role="dialog"][aria-label="Site navigation"]') !== null,
+          })),
+      );
+      expect(held.length, `aria-current count on ${route}`).toBe(
         listed(route) ? 1 : 0,
       );
-      if (!listed(route)) continue;
-      // The one mark is a sidebar link pointing at this route, never a
-      // heading or a decorative node standing in for one.
-      const held = await marks.evaluate((el) => ({
-        tag: el.tagName.toLowerCase(),
-        href: el.getAttribute('href'),
-        inAside: el.closest('aside') !== null,
-      }));
-      expect(held.tag, `aria-current holder on ${route}`).toBe('a');
-      expect(held.inAside, `aria-current holder on ${route}`).toBe(true);
-      expect(held.href?.replace(/\/?$/, '/')).toBe(route.replace(/\/?$/, '/'));
+      if (listed(route)) {
+        // The one mark is a panel link pointing at this route, never a
+        // heading or a decorative node standing in for one.
+        expect(held[0].tag, `aria-current holder on ${route}`).toBe('a');
+        expect(held[0].inPanel, `aria-current holder on ${route}`).toBe(true);
+        expect(held[0].href?.replace(/\/?$/, '/')).toBe(route.replace(/\/?$/, '/'));
+      }
+      await page.keyboard.press('Escape');
+      await expect(panel).toBeHidden();
     }
 
-    // Exactly one <aside> in the document, even on an article whose prose
-    // uses marginal notes (they render role="note", not <aside>).
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): "exactly one <aside> (the sidebar), even on an article
+    // whose prose uses marginal notes" became "no <aside> at all": the
+    // shell's navigation is the top bar's one `nav[aria-label="Site"]` and
+    // the panel dialog, and the article's margin sidenotes still never
+    // render as <aside>. The top bar's nav holds exactly the panel trigger
+    // and the explainer link, with their semantics.
     await page.goto(MODULE_ROUTE);
-    await expect(page.locator('aside')).toHaveCount(1);
+    await expect(page.locator('aside')).toHaveCount(0);
+    const siteNav = page.locator('header[data-site-topbar] nav[aria-label="Site"]');
+    await expect(page.locator('nav[aria-label="Site"]')).toHaveCount(1);
+    await expect(siteNav.locator('button, a[href]')).toHaveCount(2);
+    const trigger = siteNav.getByRole('button', { name: 'Articles', exact: true });
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await expect(trigger).toHaveAttribute('aria-haspopup', 'dialog');
+    await expect(trigger).toHaveAttribute('aria-controls', 'mobile-nav-drawer');
+    await expect(
+      siteNav.getByRole('link', { name: 'How robots work', exact: true }),
+    ).toHaveAttribute('href', '/how-robots-work/');
 
     // The marker contributes nothing to any accessible name.
-    await page.goto(MODULE_ROUTE);
-    const activeName = await page
-      .locator('aside a[aria-current="page"]')
+    await openArticlesPanel(page);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('aside')).toHaveCount(0);
+    const activeName = await panel
+      .locator('a[aria-current="page"]')
       .ariaSnapshot();
     const activeEntry = baseline.links.find(
       (l) => l.href === '/manipulation/action-chunking/',
     );
     expect(activeName).toContain(`"${activeEntry?.name ?? ''}"`);
+    await page.keyboard.press('Escape');
+    await expect(panel).toBeHidden();
 
-    // Every sidebar link's accessible name matches the pre-rework baseline.
+    // Every sidebar link's accessible name matches the pre-rework baseline,
+    // read in the panel (its lockup first, then the taxonomy nav), the
+    // sidebar's order.
     await page.goto('/');
-    const aside = page.locator('aside');
-    const buttons = aside.getByRole('button');
+    await openArticlesPanel(page);
+    const buttons = panel
+      .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
+      .getByRole('button');
     for (let i = 0; i < (await buttons.count()); i += 1) {
       const b = buttons.nth(i);
       if ((await b.getAttribute('aria-expanded')) === 'false') await b.click();
     }
-    const links = aside.locator('a[href]');
+    const links = panel.locator('a[href]');
     expect(await links.count()).toBe(baseline.linkCount);
     for (let i = 0; i < baseline.linkCount; i += 1) {
       const snapshot = await links.nth(i).ariaSnapshot();
@@ -519,36 +643,102 @@ test.describe('design chrome discipline', () => {
     }
   });
 
-  test('the protected treatments survive (sidebar right boundary, header border-b, focus outline)', async ({
+  test('the protected treatments survive (panel and reading-column boundary, header border-b, focus outline)', async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the protected boundary was the sidebar's right edge, the
+    // registered 1px `device:outer-rail` (anchor `#sidebar-rail`) running
+    // the aside's full height at its right edge. The sidebar is gone, so
+    // the shell's one structural division is now the boundary between the
+    // chrome and the 960 px reading column: at rest no side chrome exists
+    // and nothing fixed or sticky covers the column, and the panel, when
+    // open, sits flush on the right edge for the full viewport height with
+    // the column behind it made inert. Measured on home and an article.
+    for (const route of ['/', MODULE_ROUTE]) {
+      await page.goto(route);
+      await expect(page.locator('aside')).toHaveCount(0);
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toHaveCount(0);
+      const boundary = await page.evaluate(() => {
+        const header = document.querySelector('header[data-site-topbar]');
+        const main = document.querySelector('main');
+        // The reading column: the article's prose, else the first sheet.
+        const column =
+          document.querySelector('main article .prose') ??
+          document.querySelector('main .sheet');
+        if (!header || !main || !column) return null;
+        const cr = column.getBoundingClientRect();
+        const ccs = getComputedStyle(column);
+        const covering = [...document.querySelectorAll('body *')]
+          .filter((el) => {
+            const position = getComputedStyle(el).position;
+            if (position !== 'fixed' && position !== 'sticky') return false;
+            if (column.contains(el) || el.contains(column)) return false;
+            const r = el.getBoundingClientRect();
+            const onScreen = r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < innerHeight;
+            const overlaps =
+              r.left < cr.right - 0.5 &&
+              r.right > cr.left + 0.5 &&
+              r.top < cr.bottom - 0.5 &&
+              r.bottom > cr.top + 0.5;
+            return onScreen && overlaps;
+          })
+          .map((el) => `${el.tagName}.${(el.getAttribute('class') ?? '').slice(0, 40)}`);
+        // On an article the sticky contents rail is the one piece of side
+        // chrome left; its right edge is the column's left boundary.
+        const rail = document.querySelector('main nav.article-toc');
+        return {
+          railGap: rail ? cr.left - rail.getBoundingClientRect().right : null,
+          headerOverMain: header.getBoundingClientRect().bottom - main.getBoundingClientRect().top,
+          headerWidth: header.getBoundingClientRect().width,
+          columnTopBelowHeader: cr.top - header.getBoundingClientRect().bottom,
+          columnContentWidth:
+            cr.width - parseFloat(ccs.paddingLeft) - parseFloat(ccs.paddingRight),
+          centring: Math.abs(cr.left - (document.documentElement.clientWidth - cr.right)),
+          covering,
+        };
+      });
+      expect(boundary, `reading column on ${route}`).not.toBeNull();
+      expect(Math.abs(boundary!.headerOverMain), `top bar meets main on ${route}`).toBeLessThanOrEqual(1);
+      expect(boundary!.headerWidth).toBeCloseTo(await page.evaluate(() => document.documentElement.clientWidth), 0);
+      expect(boundary!.columnTopBelowHeader, `column below the top bar on ${route}`).toBeGreaterThanOrEqual(0);
+      expect(boundary!.columnContentWidth, `column width on ${route}`).toBeGreaterThanOrEqual(880);
+      expect(boundary!.columnContentWidth, `column width on ${route}`).toBeLessThanOrEqual(961);
+      if (route === '/') {
+        // Home's sheet is the centred 960 px column of the page frame.
+        expect(boundary!.centring, `column centred on ${route}`).toBeLessThanOrEqual(1);
+      } else {
+        // The article sets the column between the contents rail and the
+        // note margin, so the rail's right edge bounds it instead.
+        expect(boundary!.railGap, `contents rail beside the column on ${route}`).not.toBeNull();
+        expect(boundary!.railGap!, `contents rail beside the column on ${route}`).toBeGreaterThanOrEqual(0);
+      }
+      expect(boundary!.covering, `chrome over the reading column on ${route}`).toEqual([]);
+    }
     await page.goto('/');
-    // The sidebar's right boundary is unchanged in weight and position but
-    // is now the registered outer rail rather than a border on the <aside>,
-    // so the shell's one structural division has a registry identity the
-    // primitive sweep can own. Measured, not assumed: 1px, full height, at
-    // the aside's right edge.
-    const rail = await page.locator('aside').evaluate((el) => {
-      const device = el.querySelector('[data-brand-device-id="device:outer-rail"]');
-      if (!device) return null;
-      const cs = getComputedStyle(device);
-      const box = device.getBoundingClientRect();
-      const host = el.getBoundingClientRect();
+    await openArticlesPanel(page);
+    const panelEdge = await page.evaluate(() => {
+      const dlg = document.querySelector('[role="dialog"][aria-label="Site navigation"]');
+      const panel = dlg?.querySelector(':scope > div:not([aria-hidden])');
+      if (!panel) return null;
+      const r = panel.getBoundingClientRect();
       return {
-        width: cs.borderLeftWidth,
-        colour: cs.borderLeftColor,
-        edgeOffset: Math.abs(box.right - host.right),
-        heightDiff: Math.abs(box.height - host.height),
-        anchor: device.getAttribute('data-brand-anchor-selector'),
+        rightOffset: Math.abs(r.right - document.documentElement.clientWidth),
+        heightDiff: Math.abs(r.height - innerHeight),
+        top: r.top,
+        width: r.width,
+        mainInert: document.querySelector('main')?.hasAttribute('inert') ?? false,
       };
     });
-    expect(rail).not.toBeNull();
-    expect(rail!.width).toBe('1px');
-    expect(rail!.anchor).toBe('#sidebar-rail');
-    expect(rail!.edgeOffset).toBeLessThanOrEqual(1);
-    expect(rail!.heightDiff).toBeLessThanOrEqual(1);
-    expect(rail!.colour).not.toBe('rgba(0, 0, 0, 0)');
+    expect(panelEdge).not.toBeNull();
+    expect(panelEdge!.rightOffset).toBeLessThanOrEqual(1);
+    expect(panelEdge!.heightDiff).toBeLessThanOrEqual(1);
+    expect(panelEdge!.top).toBeCloseTo(0, 0);
+    expect(panelEdge!.width).toBeCloseTo(400, 0);
+    expect(panelEdge!.mainInert).toBe(true);
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
 
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
@@ -561,14 +751,22 @@ test.describe('design chrome discipline', () => {
     await link.focus();
     const outline = await link.evaluate((el) => {
       const cs = getComputedStyle(el);
-      return { width: cs.outlineWidth, offset: cs.outlineOffset, color: cs.outlineColor };
+      return {
+        style: cs.outlineStyle,
+        width: cs.outlineWidth,
+        offset: cs.outlineOffset,
+        color: cs.outlineColor,
+      };
     });
-    // The global focus ring is exactly the locked 2px signal-blue outline
-    // with a 2px offset (VAL-A11Y-002/VAL-DSA11Y-002). A >= 1px bound
-    // would pass a 1px ring the contract forbids.
-    expect(outline.width).toBe('2px');
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard; contract VAL-B2-COL-006): the global focus ring was the
+    // locked 2px signal-blue rgb(36, 95, 255) outline with a 2px offset; it
+    // is now exactly a 1px solid ink outline offset 2px. Pinned exactly, so
+    // a 2px ring or a coloured one fails as the old pin failed a 1px ring.
+    expect(outline.style).toBe('solid');
+    expect(outline.width).toBe('1px');
     expect(outline.offset).toBe('2px');
-    expect(outline.color).toBe('rgb(36, 95, 255)');
+    expect(outline.color).toBe(INK);
   });
 
   test('the wordmark and descriptor render in exactly the canonical lockups (VAL-DSBRAND-001/002)', async ({
@@ -899,8 +1097,7 @@ test.describe('design chrome discipline', () => {
     // same publishedModules() population every corpus gate uses) plus
     // the standalone chrome routes, so a new module route joins the
     // sweep automatically. On each route every element's background
-    // image is inspected; the only legal SVG-grid background is the
-    // home title sheet's single .engineering-grid.
+    // image is inspected, and none may paint an engineering-grid device.
     const { publishedModules } = await import('../../data/modules');
     const routes = [
       '/',
@@ -925,7 +1122,16 @@ test.describe('design chrome discipline', () => {
       const page = await context.newPage();
       try {
         await page.goto(route);
-        const { grids, population } = await page.evaluate(() => {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard; the dot grid was removed in 9154d672): the old pin read
+        // "exactly one svg-grid background on /, the title sheet's
+        // .engineering-grid, and none on any other route". Surfaces are
+        // plain paper now, so on the same derived population no route
+        // paints an engineering-grid device: no svg background on any
+        // element, no .engineering-grid node and no
+        // registered `device:dot-grid`, and home's title sheet (the
+        // Introduction masthead that held the grid) paints no image.
+        const { grids, devices, population } = await page.evaluate(() => {
           let population = 0;
           const grids: string[] = [];
           for (const el of Array.from(document.querySelectorAll('*'))) {
@@ -937,25 +1143,26 @@ test.describe('design chrome discipline', () => {
               );
             }
           }
-          return { grids, population };
+          const devices = document.querySelectorAll(
+            '.engineering-grid, [data-brand-device-id="device:dot-grid"], [data-brand-motif="dot-grid"]',
+          ).length;
+          return { grids, devices, population };
         });
         expect(population, `element population on ${route}`).toBeGreaterThan(0);
+        expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+        expect(devices, `engineering-grid devices on ${route}`).toBe(0);
         if (route === '/') {
-          expect(
-            grids,
-            'home grid inventory is exactly the title sheet',
-          ).toHaveLength(1);
-          expect(grids[0]).toMatch(/^DIV\.engineering-grid/);
-          const on = await page.evaluate(() => {
-            const grid = document.querySelector('.engineering-grid');
-            if (!grid) return 'missing';
-            if (grid.matches('body, main, article')) return 'on-structure';
-            if (grid.closest('.prose')) return 'behind-prose';
-            return 'title-sheet';
+          const sheet = await page.evaluate(() => {
+            const masthead = document.querySelector('main section[aria-label="Introduction"]');
+            if (!masthead) return 'missing';
+            const images = [masthead, ...masthead.querySelectorAll('*')].flatMap((el) =>
+              ['', '::before', '::after']
+                .map((pseudo) => getComputedStyle(el, pseudo).backgroundImage)
+                .filter((value) => value !== 'none'),
+            );
+            return images.length === 0 ? 'plain-title-sheet' : `painted: ${images.join(' | ')}`;
           });
-          expect(on).toBe('title-sheet');
-        } else {
-          expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+          expect(sheet).toBe('plain-title-sheet');
         }
       } finally {
         await context.close();

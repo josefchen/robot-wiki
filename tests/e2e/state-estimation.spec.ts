@@ -2,6 +2,9 @@ import { expect, test, type Page } from './helpers/state-smoothing-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/classical/state-estimation/';
 
@@ -38,17 +41,19 @@ test.describe('classical state-estimation module', () => {
       page.getByRole('heading', { level: 1, name: 'State Estimation' }),
     ).toBeVisible();
 
-    // Compact navigation is intentionally hidden until its real drawer opens.
-    const compact = page.viewportSize()!.width < 1024;
-    if (compact) await page.getByRole('button', { name: 'Open navigation menu' }).click();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar and the compact "Open navigation menu" drawer
+    // are gone; the taxonomy lives in the panel the top bar's "Articles"
+    // button opens at every width, and Escape returns focus to that button
+    // as it did to the drawer button.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'State Estimation', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
-    if (compact) {
-      await page.keyboard.press('Escape');
-      await expect(page.getByRole('button', { name: 'Open navigation menu' })).toBeFocused();
-    }
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
+    await expect(page.getByRole('button', { name: 'Articles' })).toBeFocused();
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -129,14 +134,24 @@ test.describe('classical state-estimation module', () => {
     expect(await chips.count()).toBeGreaterThanOrEqual(12);
     expect(await main.getByText('missing citation:').count()).toBe(0);
 
-    // A chip is keyboard-focusable and reveals its metadata on focus. The
-    // source is cited several times on the page, so scope the tooltip to
-    // the focused chip's own group (the tooltip is its following sibling).
-    const kfChip = main.getByRole('link', { name: 'Kalman 1960' }).first();
-    await kfChip.focus();
-    const tooltip = kfChip.locator(
-      'xpath=../following-sibling::span[@role="tooltip"]',
-    );
+    // A citation is keyboard-focusable and reveals its metadata from the
+    // keyboard. The source is cited several times on the page, so the note
+    // is scoped to the focused citation's own group.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip and its focus tooltip became a numbered mark with
+    // a sidenote (helpers/citation-note.ts). From 1200 px prose notes stand
+    // in the margin at rest, so the check runs at 375 px, where the focused
+    // number opens its own note inline with the title shown.
+    await page.setViewportSize({ width: 375, height: 812 });
+    const kfCite = page
+      .locator('div.prose[data-pagefind-body] [data-cite-id="kalman-1960-filter"]')
+      .first();
+    await expect(citeParts(kfCite).source).toHaveText('Kalman 1960');
+    const { mark: kfMark, note: tooltip } = citeParts(kfCite);
+    await waitForHydration(kfMark);
+    await kfMark.scrollIntoViewIfNeeded();
+    await showCiteNote(page, kfCite, 'keyboard');
+    await expect(kfMark).toBeFocused();
     await expect(tooltip).toBeVisible();
     await expect(tooltip).toContainText('Linear Filtering');
   });

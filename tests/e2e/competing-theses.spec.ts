@@ -5,6 +5,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
 import { openArticlesPanel } from './helpers/articles-panel';
 import { citeParts, revealCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 // Normal E2E remains runnable without program-only evidence inputs.
 // Guarded Mission runs retain the strict input-bound offline fixture.
@@ -119,6 +120,11 @@ test.describe('frontier competing-theses module', () => {
   }) => {
     await page.goto(ROUTE);
     const detail = page.getByTestId('thesis-detail');
+    // A row clicked before hydration selects nothing, and the detail's
+    // labels then read as missing; wait for the explorer to be live.
+    await waitForHydration(
+      page.getByTestId('thesis-explorer').getByRole('button', { name: THESIS_NAMES[0] }),
+    );
     for (const name of THESIS_NAMES) {
       await page
         .getByRole('button', { name })
@@ -150,6 +156,8 @@ test.describe('frontier competing-theses module', () => {
     // accessible name contains the heading text (VAL-WIKI-030), so an
     // unscoped by-name lookup matches two elements.
     const explorer = page.getByTestId('thesis-explorer');
+    // A row clicked before hydration selects nothing; wait for it to be live.
+    await waitForHydration(explorer.getByRole('button', { name: 'Let the robot imagine first' }));
 
     // Mouse: select the world-models thesis.
     await explorer

@@ -4,6 +4,7 @@ import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
 import { citeNoteInMargin, citeParts, closeCiteNote, revealCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 const route = '/frontier/competing-theses/';
@@ -25,6 +26,9 @@ test('PI and Helix qualifications survive interactive selection and reset', asyn
     ['Copy first, then practise', 'successful episodes per hour, not inference speed'],
   ]) {
     const button = explorer.getByRole('button', { name, exact: true });
+    // Enter on the server-rendered button before React attaches its click
+    // handler is a no-op, which left aria-pressed false on a loaded server.
+    await waitForHydration(button);
     await button.focus();
     await page.keyboard.press('Enter');
     await expect(button).toHaveAttribute('aria-pressed', 'true');

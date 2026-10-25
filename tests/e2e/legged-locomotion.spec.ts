@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { closeCiteNote, citeParts, revealCiteNote } from './helpers/citation-note';
 import { openArticlesPanel } from './helpers/articles-panel';
 import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/rl-sim2real/legged-locomotion/';
 
@@ -18,6 +19,9 @@ for (const width of [375, 1440]) {
     // the note.
     const cite = paragraph.locator('[data-cite-id="lee-2020"]');
     const { mark, source } = citeParts(cite);
+    // Before React attaches the number's click handler, a click follows the
+    // plain #ref- link instead of opening the note, so wait for hydration.
+    await waitForHydration(mark);
     await mark.scrollIntoViewIfNeeded();
     for (const via of ['pointer', 'keyboard'] as const) {
       await closeCiteNote(cite);

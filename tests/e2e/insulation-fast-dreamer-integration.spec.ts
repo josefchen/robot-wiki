@@ -2,6 +2,8 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFileSync } from 'node:fs';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const surfaces = [
   { slug: 'knowledge-insulation', domain: 'manipulation', text: '7.5 times the training steps', sources: ['knowledge-insulation-paper-2025', 'knowledge-insulation-2025'] },
@@ -59,20 +61,28 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         observations.push({ kind: 'table', before, after: await region.evaluate(el => el.scrollLeft), tooltip: 'not applicable: method source links do not implement tooltips' });
       }
       for (const id of surface.sources) {
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the chip's source link and its role="tooltip" became a
+        // number with a sidenote (helpers/citation-note.ts). The number is
+        // pointed at, then reached by Shift+Tab/Tab, and shows the note each
+        // way (inline below 1200 px, at rest in the margin from 1200 px)
+        // with the same text, geometry and focus-outline checks.
         const chip = page.locator(`.prose [data-cite-id="${id}"]`).first();
-        const link = chip.locator('a[target="_blank"]');
+        const { mark: link, note: tooltip } = citeParts(chip);
+        await waitForHydration(link);
         await link.scrollIntoViewIfNeeded();
         await link.evaluate(el => el.scrollIntoView({ block: 'center' }));
-        await link.hover();
-        const tooltip = chip.getByRole('tooltip');
+        await showCiteNote(page, chip, 'hover');
         await expect(tooltip).toBeVisible();
         const hoveredText = await tooltip.innerText();
         await page.screenshot({ path: info.outputPath(`${id}-hover-${viewport.width}.png`) });
+        await dismissCiteNote(page, chip, 'hover');
         await page.mouse.move(2, 2);
         await link.focus();
         await page.keyboard.press('Shift+Tab');
         await page.keyboard.press('Tab');
         await expect(link).toBeFocused();
+        await showCiteNote(page, chip, 'keyboard');
         await expect(tooltip).toBeVisible();
         expect(await tooltip.innerText()).toBe(hoveredText);
         const geometry = await tooltip.evaluate(el => {
@@ -89,6 +99,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         const outline = await link.evaluate(el => ({ width: getComputedStyle(el).outlineWidth, style: getComputedStyle(el).outlineStyle }));
         observations.push({ id, outline });
         expect(outline.style).not.toBe('none');
+        await dismissCiteNote(page, chip, 'keyboard');
         await link.evaluate(el => (el as HTMLElement).blur());
       }
       const axe = await new AxeBuilder({ page }).analyze();

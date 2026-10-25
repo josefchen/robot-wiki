@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "7dbac9cfea139a827c314acdb753a618aa384b09d7e87958da27f134da41bbd4",
+  "fingerprint": "176836388957ce0d485419f617f0df05038aa32609512a106f367bd13e927bec",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5861,7 +5861,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16327,
+      "visibleTextLength": 16337,
       "tables": [],
       "equations": [
         {
@@ -13846,7 +13846,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21691,
+      "visibleTextLength": 21861,
       "tables": [],
       "equations": [
         {

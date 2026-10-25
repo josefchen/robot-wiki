@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "a10db080a9f4427ea3805801f359d285d043af5e9cfa523711f19ee4905243d8",
+  "fingerprint": "78bcc1d271fa1cd2d446e78cea25b29a55528dc21b75cd45c17c78e9b4be81a5",
   "source": "out/ static export",
   "routes": [
     {
@@ -491,7 +491,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "outboundAnchors": 78,
+      "outboundAnchors": 79,
       "distinctHrefs": 38,
       "shapes": [
         "citation-chip",
@@ -854,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6105,
+  "outboundAnchors": 6106,
   "distinctOutboundHrefs": 1651,
   "anchorsByShape": {
-    "citation-chip": 2565,
+    "citation-chip": 2566,
     "footer": 152,
     "figure-credit": 873,
     "reference-entry": 2200,
     "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5769,
+  "anchorsWithNoreferrer": 5770,
   "keyboard": [
     {
       "route": "/",
@@ -1220,11 +1220,11 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "outboundInDom": 78,
-      "reachedByTab": 78,
+      "outboundInDom": 79,
+      "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 194
+      "tabStops": 196
     },
     {
       "route": "/manipulation/foundation-models/",

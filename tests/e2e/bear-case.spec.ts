@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { openArticlesPanel } from './helpers/articles-panel';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/frontier/bear-case/';
 
@@ -194,6 +195,9 @@ test.describe('frontier bear-case module', () => {
     const detail = page.getByTestId('milestone-detail');
     const readout = page.getByTestId('watchlist-readout');
     await expect(detail).toHaveCount(0);
+    // A tile clicked before hydration opens nothing, and the detail's
+    // labels then read as missing; wait for the board to be live.
+    await waitForHydration(panel.getByRole('button', { name: MILESTONE_NAMES[0], exact: true }));
 
     // Open two milestones and verify the three contract fields on each.
     for (const name of [

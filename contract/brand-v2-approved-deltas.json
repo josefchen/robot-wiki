@@ -115458,6 +115458,38 @@
           "newHash": "990fbefa4b7a9cabfb2230c4c8439ebaa6753913cce027f4ff180c3b7d98afa7"
         }
       ]
+    },
+    {
+      "id": "article-sources-20261025-prose-manipulation-diffusion-policy",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "4ca26ed158725e186cd19750eae64c68c37b1721b4a11c83f16651146375682e",
+      "newHash": "6dbfda3d62f71fbbdc7701291fb292e9d48432d3dd0397a615b2bf3ba01c51b8",
+      "reason": "Thirty-source floor on manipulation/diffusion-policy: the Limitations sentence \"Reactivity is bounded by $T_a$: events inside a committed segment wait for the next inference\" takes back the bidirectional-decoding-2024 citation the 2026-10-12 length cut dropped with its sentence (\"Chunking captures temporal dependencies at the cost of reactivity to unexpected states\"), so the article cites 30 distinct sources once diffusion-policy-2023 and diffusion-policy-2023-v1, one arXiv paper (2303.04137), count once. No word, number or other citation changes. This edge moves the member from its last approved endpoint (images-a-20261013-prose-manipulation-diffusion-policy).",
+      "ownerApproval": "Owner decision of 2026-10-02 (owner-decision-sources-and-callouts-20261002, decision 2, \"Thirty sources per article, every paragraph cited\"): \"Every article reaches at least 30 distinct cited sources\" and \"Add a check that fails the build when an article that has finished its domain pass cites fewer than 30 distinct sources\", stated as VAL-OPUS-152 and owned by opus-pass-convergence. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "article-sources-20261025-relationships-manipulation-diffusion-policy",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "59db0f5fc05e5f93930cb691f78455044135ea18440c6f7f77b4ba32996f8d75",
+      "newHash": "501866c6c9ea4366ec3b996218b4f52f04d286e760bf96d7938f55a01cd188ec",
+      "reason": "Thirty-source floor on manipulation/diffusion-policy: the relationships record follows the restored inline citation (bidirectional-decoding-2024), already in the article's front matter; seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (humanize-20261012-manipulation-relationships-diffusion-policy).",
+      "ownerApproval": "Owner decision of 2026-10-02 (owner-decision-sources-and-callouts-20261002, decision 2, \"Thirty sources per article, every paragraph cited\"): \"Every article reaches at least 30 distinct cited sources\" and \"Add a check that fails the build when an article that has finished its domain pass cites fewer than 30 distinct sources\", stated as VAL-OPUS-152 and owned by opus-pass-convergence. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

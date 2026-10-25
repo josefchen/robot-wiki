@@ -135,4 +135,4 @@ Bilinear Flow Policy (Georgia Tech, University of Washington and Toyota Research
 
 The original paper conditions on observations alone, on single- and multi-task benchmarks and separate UR5 and Franka setups <Cite id="diffusion-policy-2023-v1" />; Octo adds language or goal-image conditioning <Cite id="octo-2024" />, and π0 a pretrained vision-language backbone <Cite id="pi0-2024" />.
 
-Reactivity is bounded by $T_a$: events inside a committed segment wait for the next inference. Sampling cost remains, though one-step successors such as MP1 cut it to 6.8 ms <Cite id="mp1-2026" />. With sparse data it acts like an action lookup table, returning training actions even for images of cats and dogs <Cite id="demystifying-diffusion-policies-2025" />.
+Reactivity is bounded by $T_a$: events inside a committed segment wait for the next inference <Cite id="bidirectional-decoding-2024" />. Sampling cost remains, though one-step successors such as MP1 cut it to 6.8 ms <Cite id="mp1-2026" />. With sparse data it acts like an action lookup table, returning training actions even for images of cats and dogs <Cite id="demystifying-diffusion-policies-2025" />.

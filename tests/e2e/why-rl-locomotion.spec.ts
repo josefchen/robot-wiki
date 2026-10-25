@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/rl-sim2real/why-rl-locomotion/';
 
@@ -40,13 +41,20 @@ test.describe('why-rl-locomotion module', () => {
       expect(cells).toHaveLength(2);
       for (const cell of cells) expect(cell.trim().length).toBeGreaterThan(0);
     }
-    // Sidebar marks this module active.
+    // The taxonomy navigation marks this module active.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar is gone and the same taxonomy, with its
+    // current-route mark, lives in the panel the top bar's "Articles"
+    // button opens.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', {
         name: 'Why RL Won Locomotion but Not Manipulation',
       }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
   });
 
   test('citation chips link to external primary sources', async ({ page }) => {

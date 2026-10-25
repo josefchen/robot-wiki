@@ -7,6 +7,9 @@ import matter from 'gray-matter';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { inlineCitationIds } from '../../lib/references';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
 
 /**
  * Perception for Manipulation (VAL-CLASS-039 through VAL-CLASS-045).
@@ -365,15 +368,35 @@ test.describe('classical perception module', () => {
   }) => {
     await page.goto(ROUTE);
 
-    // Three-level breadcrumbs, the trailing crumb not a link.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the visible trail
+    // was Home > Classical Foundations > Perception for Manipulation, two links and a trailing
+    // unlinked crumb. The masthead eyebrow now links only the ancestor between the top bar's
+    // wordmark and the H1 that names the page; the full three-level trail is the page's
+    // BreadcrumbList structured data (components/article/breadcrumbs.tsx).
     const crumbs = page.getByRole('navigation', { name: 'Breadcrumb' });
     await expect(crumbs).toBeVisible();
-    await expect(crumbs.getByRole('link', { name: 'Home' })).toHaveAttribute(
+    await expect(crumbs.getByRole('link', { name: 'Classical Foundations' })).toHaveAttribute(
       'href',
-      '/',
+      '/classical/',
     );
-    await expect(crumbs.getByRole('link')).toHaveCount(2);
-    await expect(crumbs.getByText('Perception for Manipulation')).toBeVisible();
+    await expect(crumbs.getByRole('link')).toHaveCount(1);
+    await expect(page.getByRole('heading', { level: 1, name: 'Perception for Manipulation' })).toBeVisible();
+    const trail = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((scripts) =>
+        scripts.flatMap((script) => {
+          const data = JSON.parse(script.textContent ?? 'null');
+          if (data?.['@type'] !== 'BreadcrumbList') return [];
+          return (data.itemListElement as Array<{ name: string; item: string }>).map(
+            (item) => [item.name, new URL(item.item).pathname],
+          );
+        }),
+      );
+    expect(trail).toEqual([
+      ['Home', '/'],
+      ['Classical Foundations', '/classical/'],
+      ['Perception for Manipulation', ROUTE],
+    ]);
 
     // See also: 2 to 4 entries.
     const seeAlso = page.locator('section[data-section="see-also"]');
@@ -390,7 +413,12 @@ test.describe('classical perception module', () => {
       linkedFrom.getByRole('link', { name: /grasp planning/i }),
     ).toBeVisible();
 
-    // References: one entry per declared citation, in declaration order.
+    // References: one entry per declared citation.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard; 5ccbeba9, 13 October
+    // 2026): the entries were printed in plain declaration order. References now prints the
+    // sources the prose cites first, then the declared but uncited ones under one "Further
+    // reading" heading, each group in declaration order (lib/reference-order.ts), and every
+    // entry marks its group in data-further-reading.
     const source = readFileSync(
       join(process.cwd(), 'content', 'classical', 'perception.mdx'),
       'utf8',
@@ -398,15 +426,23 @@ test.describe('classical perception module', () => {
     const declared = [
       ...new Set((matter(source).data as { citations?: string[] }).citations ?? []),
     ];
+    const inline = new Set(inlineCitationIds(matter(source).content));
+    const printOrder = [
+      ...declared.filter((id) => inline.has(id)),
+      ...declared.filter((id) => !inline.has(id)),
+    ];
     await expect(
       page.getByRole('heading', { level: 2, name: 'References' }),
     ).toBeVisible();
     const rendered = await page
       .locator('ol [data-reference-id]')
       .evaluateAll((els) =>
-        els.map((el) => el.getAttribute('data-reference-id') ?? ''),
+        els.map((el) => [el.getAttribute('data-reference-id') ?? '', el.getAttribute('data-further-reading')]),
       );
-    expect(rendered).toEqual(declared);
+    expect(rendered).toEqual(printOrder.map((id) => [id, inline.has(id) ? 'false' : 'true']));
+    if (printOrder.length > inline.size) {
+      await expect(page.getByRole('heading', { level: 3, name: 'Further reading' })).toBeVisible();
+    }
   });
 
   test('an inline Term reveals its definition on keyboard focus (VAL-CLASS-045)', async ({
@@ -427,10 +463,16 @@ test.describe('classical perception module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the taxonomy
+    // sidebar is gone; the same taxonomy, with its current-route state, is in the panel the top
+    // bar's "Articles" button opens.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Perception for Manipulation', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
 
     // The domain landing and the A-Z index both carry it.
     await page.goto('/classical/');
@@ -550,7 +592,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(prose.locator('[data-cite-id="bop-challenge-2023"]')).toHaveCount(3);
 
     // Exercise the visible taxonomy, never the hidden desktop navigation at 375px.
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the phone-only
+    // "Open navigation menu" button (hidden on desktop beside the sidebar taxonomy) is replaced by
+    // the one top bar's "Articles" button, shown at every width, which opens the taxonomy drawer.
+    const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
     if (viewport.width === 375) {
       await expect(menu).toBeVisible();
       await waitForHydration(menu);
@@ -580,10 +625,13 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       await expect(page.locator('[inert]')).toHaveCount(0);
       await capture('mobile-drawer-escape', { focusReturned: true, inertRemoved: true });
     } else {
-      await expect(menu).not.toBeVisible();
+      await expect(menu).toBeVisible();
+      await openArticlesPanel(page);
       const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
       await expect(nav.getByRole('link', { name: 'Perception for Manipulation', exact: true })).toHaveAttribute('aria-current', 'page');
       await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
     }
 
     const formulas = page.locator('.katex-display').filter({ hasText: /operatorname.*avg/ });
@@ -702,18 +750,38 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const cite = cites.nth(occurrence);
       await position(cite);
       await cite.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 350));
-      await cite.locator('a').first().hover();
-      const hoverBox = await bounds(cite.getByRole('tooltip'));
-      expect(hoverBox.y).toBeGreaterThanOrEqual(54);
+      // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the chip's
+      // role="tooltip", shown by hover and focus below the 54 px phone bar and dismissed by Escape,
+      // became the numbered citation's sidenote (helpers/citation-note.ts): shown by pointer and by
+      // keyboard on the number (in the margin at rest from 1200 px, opened inline below it) and
+      // closed by pressing the number again. It must stand below the one sticky top bar, now at
+      // every width and measured rather than fixed at 54 px, and inside the viewport.
+      const note = citeParts(cite).note;
+      const topBar = (await page.getByRole('banner').boundingBox())!;
+      const barBottom = topBar.y + topBar.height;
+      expect(barBottom).toBeGreaterThanOrEqual(54);
+      // Content above can still settle while the note opens, so the number is put back at its
+      // reading position before the note is measured there.
+      const settleAt = async () => {
+        await cite.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 350));
+        await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+      };
+      await showCiteNote(page, cite, 'hover');
+      await settleAt();
+      const hoverBox = await bounds(note);
+      expect(hoverBox.y).toBeGreaterThanOrEqual(barBottom);
       expect(hoverBox.y + hoverBox.height).toBeLessThanOrEqual(viewport.height);
+      await dismissCiteNote(page, cite, 'hover');
       await page.mouse.move(viewport.width - 1, viewport.height - 1);
-      await cite.locator('a').first().focus();
-      await expect(cite.getByRole('tooltip')).toBeVisible();
-      const focusBox = await bounds(cite.getByRole('tooltip'));
-      expect(focusBox.y).toBeGreaterThanOrEqual(54);
+      await cite.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 350));
+      await showCiteNote(page, cite, 'keyboard');
+      await settleAt();
+      await expect(note).toBeVisible();
+      const focusBox = await bounds(note);
+      expect(focusBox.y).toBeGreaterThanOrEqual(barBottom);
       expect(focusBox.y + focusBox.height).toBeLessThanOrEqual(viewport.height);
       await capture(`${id}-source-focus-${occurrence + 1}`, { citation: id, occurrence: occurrence + 1, hoverBox, focusBox });
-      await page.keyboard.press('Escape');
+      await dismissCiteNote(page, cite, 'keyboard');
       await page.keyboard.press('Tab');
       }
     }

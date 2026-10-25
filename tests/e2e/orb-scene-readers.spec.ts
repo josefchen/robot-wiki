@@ -4,6 +4,8 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS, citationMeta } from '../../data/citations';
 import { GLOSSARY } from '../../data/glossary';
+import { citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const ARTICLE = '/classical/scene-representation/';
 const normalize = (text: string) => text.replace(/\s+/g, ' ').trim();
@@ -152,23 +154,38 @@ test('ORB readers: qualified prose, short Cite metadata and full footnote author
     'motion information can also inform that belief', 'Direct Sparse Odometry skips the detector',
   ]) await expect(prose).toContainText(qualification);
 
+  // Every citation number is hydrated before the first reference jump, a
+  // hash navigation that clears history.state, the hydration signal.
+  for (const id of ['orb-slam-2015', 'orb-slam3-2021']) {
+    const chips = prose.locator(`[data-cite-id="${id}"]`);
+    for (let i = 0; i < await chips.count(); i++) await waitForHydration(citeParts(chips.nth(i)).mark);
+  }
   for (const id of ['orb-slam-2015', 'orb-slam3-2021']) {
     const citation = CITATIONS.find(c => c.id === id)!;
     const chips = prose.locator(`[data-cite-id="${id}"]`);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip's source link and its role="tooltip" (title in the
+    // first span, venue line in the last) became a number with a sidenote
+    // (helpers/citation-note.ts). The number is pointed at, then focused, and
+    // shows the note each way (in the margin at rest from 1200 px, opened
+    // inline below it); the note carries the same title and venue line
+    // exactly, its author-year link the same href, and it gets the same
+    // bounds, equal-text and final-text checks. Escape's successor is
+    // dismissCiteNote (Enter on the focused number).
     for (let i = 0; i < await chips.count(); i++) {
-      const chip = chips.nth(i), link = chip.locator('a[target="_blank"]'), tip = chip.getByRole('tooltip');
-      await link.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
+      const chip = chips.nth(i), { mark, note: tip, source: link } = citeParts(chip);
+      await mark.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
       await page.mouse.move(1, 1);
       await settle(page);
-      await link.hover();
+      await showCiteNote(page, chip, 'hover');
       await expect(tip).toBeVisible();
-      await expect(tip.locator('span').first()).toHaveText(citation.title);
-      await expect(tip.locator('span').last()).toHaveText(citationMeta(citation));
+      await expectCiteNoteFacts(page, chip, { title: citation.title, meta: citationMeta(citation), url: citation.url });
       await expect(link).toHaveAttribute('href', citation.url);
       await bounds(page, tip);
       const hoverText = await tip.innerText();
+      await dismissCiteNote(page, chip, 'hover');
       await page.mouse.move(1, 1);
-      await link.focus();
+      await showCiteNote(page, chip, 'keyboard');
       await expect(tip).toBeVisible();
       expect(await tip.innerText()).toBe(hoverText);
       const geometry = await bounds(page, tip);
@@ -182,17 +199,22 @@ test('ORB readers: qualified prose, short Cite metadata and full footnote author
       proofs.get(page)!.states.push({ kind: 'cite', id, occurrence: i, hoverText, geometry,
         intentionalShortByline: citation.authors.length > 3 });
       await capture(page, info, `cite-${id}-${i}`);
-      await page.keyboard.press('Escape');
+      await mark.focus();
+      await dismissCiteNote(page, chip, 'keyboard');
       proofs.get(page)!.states.push({ kind: 'cite-escape', id, visible: await tip.isVisible() });
-      await link.evaluate(e => e.blur());
+      await mark.evaluate(e => e.blur());
     }
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip's "Jump to the full reference" link is the number
+    // itself, which jumps by Enter where its note stands in the margin
+    // (taken at 1280 px below 1200 px, then restored).
     const jump = chips.first().locator(`a[href="#ref-${id}"]`);
     await jump.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-    await jump.focus();
-    await page.keyboard.press('Enter');
+    const restore = await jumpFromCiteMark(page, chips.first(), id);
     await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
     const ref = page.locator(`[data-reference-id="${id}"]`);
     await expect(ref).toBeInViewport();
+    await restore();
     await expect(ref.locator('[data-author-names]')).toHaveText(citation.authors.join(', '));
     expect(await ref.getByRole('button').count()).toBe(0); // ORB has3/5 authors; collapse starts above8.
     await expect(ref.locator('[data-reference-source-link]')).toHaveAttribute('href', citation.url);
@@ -284,23 +306,27 @@ test('ORB readers: complete definitions, readable final caveats and observed his
 
 test('ORB readers: article drawer, focus return and unchanged control defaults', async ({ page }, info) => {
   await open(page, ARTICLE);
-  const menu = page.getByRole('button', { name: 'Open navigation menu', exact: true });
-  if (page.viewportSize()!.width === 375) {
-    await menu.focus();
-    await page.keyboard.press('Enter');
-    const drawer = page.getByRole('dialog', { name: 'Site navigation' });
-    await expect(drawer).toBeVisible();
-    await expect(drawer.getByRole('link', { name: 'Scene Representation and Mapping', exact: true })).toHaveAttribute('aria-current', 'page');
-    await expect(page.getByRole('button', { name: 'Close navigation menu', exact: true })).toBeFocused();
-    await capture(page, info, 'drawer');
-    await page.keyboard.press('Escape');
-    await expect(drawer).toHaveCount(0);
-    await expect(menu).toBeFocused();
-    expect(await page.locator('[inert]').count()).toBe(0);
-  } else {
-    await expect(menu).toBeHidden();
-    await expect(page.getByRole('navigation', { name: 'Robot Wiki taxonomy' })).toBeVisible();
-  }
+  // Owner-approved successor (Josef, 2026-10-10, the research-page
+  // standard): the narrow "Open navigation menu" drawer and the wide sidebar
+  // taxonomy nav are gone. At every width the top bar's "Articles" button
+  // opens the "Site navigation" dialog with the same taxonomy nav, so the
+  // drawer's keyboard open, current-route, focus-in, Escape and focus-return
+  // checks now run at every width, and the wide branch's visible taxonomy
+  // nav is checked inside the dialog.
+  const menu = page.getByRole('button', { name: 'Articles', exact: true });
+  await page.waitForFunction(() => window.history.state !== null);
+  await menu.focus();
+  await page.keyboard.press('Enter');
+  const drawer = page.getByRole('dialog', { name: 'Site navigation' });
+  await expect(drawer).toBeVisible();
+  await expect(drawer.getByRole('navigation', { name: 'Robot Wiki taxonomy' })).toBeVisible();
+  await expect(drawer.getByRole('link', { name: 'Scene Representation and Mapping', exact: true })).toHaveAttribute('aria-current', 'page');
+  await expect(page.getByRole('button', { name: 'Close navigation menu', exact: true })).toBeFocused();
+  await capture(page, info, 'drawer');
+  await page.keyboard.press('Escape');
+  await expect(drawer).toHaveCount(0);
+  await expect(menu).toBeFocused();
+  expect(await page.locator('[inert]').count()).toBe(0);
   await page.getByTestId('scene-ladder').scrollIntoViewIfNeeded();
   await expect(page.getByTestId('scene-select-occupancy-grid')).toHaveAttribute('aria-pressed', 'true');
   const opening = await page.getByTestId('scene-resolution-value').innerText();

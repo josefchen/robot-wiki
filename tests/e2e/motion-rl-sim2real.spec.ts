@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
 import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
 
 const scenes = [
   {
@@ -77,6 +78,9 @@ for (const { id, route, captions } of scenes) {
       const page = await context.newPage();
       await page.goto(route, { waitUntil: 'networkidle' });
       const scene = page.locator(`[data-motion-scene="${id}"]`);
+      // A click before React attaches the poster's handler is lost on a
+      // loaded dev server; the player itself is unchanged.
+      await waitForHydration(scene.getByTestId('motion-poster'));
       await scene.getByTestId('motion-poster').click();
       await expect(scene.getByTestId('motion-scrubber')).toBeVisible();
       await expect(scene.getByTestId('motion-caption')).toHaveText(recap);

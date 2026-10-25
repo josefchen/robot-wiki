@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5885705516feca0a0c49b694d2227ad3122ddb2a0ae530364af663d1db807775",
+  "fingerprint": "a8ac1af0bafacaf0d537dbfe90a5feea3d4bd1550805660d576ff75aec30e596",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3087,
+      "visibleTextLength": 3068,
       "header": {
         "present": true,
         "display": "flex",
@@ -7032,7 +7032,7 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
-      "visibleTextLength": 16327,
+      "visibleTextLength": 16337,
       "header": {
         "present": true,
         "display": "flex",

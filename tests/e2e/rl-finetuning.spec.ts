@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { waitForHydration } from './interaction-ready';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
 
 const ROUTE = '/manipulation/rl-finetuning/';
 
@@ -33,28 +34,27 @@ test.describe('rl-finetuning module', () => {
       ).toBeVisible();
     }
     // Exercise the actual responsive taxonomy, not a hidden mobile sidebar.
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
-    const mobile = await menu.isVisible();
-    if (mobile) {
-      await menu.focus();
-      await page.keyboard.press('Enter');
-      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
-      await expect(page.getByRole('button', { name: 'Close navigation menu' })).toBeFocused();
-      await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
-    }
-    const nav = page.getByRole('navigation', {
-      name: mobile ? 'Robot Wiki taxonomy drawer' : 'Robot Wiki taxonomy', exact: true,
-    });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the taxonomy was
+    // the desktop sidebar ("Robot Wiki taxonomy") or, on phones, the drawer behind "Open
+    // navigation menu". The sidebar is gone: at every width the one top bar's "Articles" button
+    // opens the drawer, so the drawer path runs at every width.
+    const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
+    await expect(menu).toBeVisible();
+    await waitForHydration(menu);
+    await menu.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Close navigation menu' })).toBeFocused();
+    await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy drawer', exact: true });
     const current = nav.getByRole('link', { name: 'RL Fine-Tuning of Policies', exact: true });
     await expect(current).toBeVisible();
     await expect(current).toHaveAttribute('aria-current', 'page');
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
-    if (mobile) {
-      await page.keyboard.press('Escape');
-      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toHaveCount(0);
-      await expect(menu).toBeFocused();
-      await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
-    }
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toHaveCount(0);
+    await expect(menu).toBeFocused();
+    await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
   });
 
   test('citation chips link to external primary sources', async ({ page }) => {
@@ -143,17 +143,25 @@ test.describe('rl-finetuning module', () => {
       ['dppo-2024', 'https://arxiv.org/abs/2409.00588'],
       ['conrft-2025', 'https://arxiv.org/abs/2502.05450'],
     ]) {
+      // Owner-approved successor (Josef, 2026-10-10, the research-page standard): each chip's
+      // source link took focus and showed its role="tooltip". The source link is the sidenote's
+      // author-year link, and the keyboard stop is the number, which shows the note (in the
+      // margin at rest from 1200 px, opened inline by Enter below it; helpers/citation-note.ts).
+      const cites = prose.locator(`[data-cite-id="${id}"]`);
       const chips = prose.locator(`[data-cite-id="${id}"] a[target="_blank"]`);
       expect(await chips.count()).toBeGreaterThan(0);
-      for (const chip of await chips.all()) {
+      await expect(cites).toHaveCount(await chips.count());
+      for (const cite of await cites.all()) {
+        const { source: chip, note: tooltip } = citeParts(cite);
         await expect(chip).toHaveAttribute('href', href);
-        await chip.focus();
-        const tooltip = chip.locator('xpath=../..').getByRole('tooltip');
+        await waitForHydration(citeParts(cite).mark);
+        await showCiteNote(page, cite, 'keyboard');
         await expect(tooltip).toBeVisible();
         const bounds = await tooltip.boundingBox();
         expect(bounds).not.toBeNull();
         expect(bounds!.x).toBeGreaterThanOrEqual(0);
         expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
+        await dismissCiteNote(page, cite, 'keyboard');
       }
       await expect(page.locator(`#ref-${id} [data-reference-source-link]`)).toHaveAttribute('href', href);
     }

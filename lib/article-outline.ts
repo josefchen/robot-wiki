@@ -8,9 +8,16 @@ export type OutlineItem = { id: string; text: string };
  */
 export const ARTICLE_START_ID = 'article-start';
 
+const ESCAPABLE = '\\`*_{}[]()#+-.!$';
+// Private-use stand-ins keep an escaped character out of the math and
+// emphasis rules: `\$122 to \$70,000` is two literal dollars, not a math span.
+const hold = (char: string) => String.fromCodePoint(0xe000 + ESCAPABLE.indexOf(char));
+const HELD = new RegExp(`[\\u{E000}-\\u{${(0xe000 + ESCAPABLE.length - 1).toString(16)}}]`, 'gu');
+
 /** Markdown and MDX inline syntax reduced to the text a heading renders. */
-function headingText(source: string): string {
+export function headingText(source: string): string {
   return source
+    .replace(/\\([\\`*_{}[\]()#+\-.!$])/g, (_, char: string) => hold(char))
     .replace(/<([A-Z][\w.]*)\b[^>]*\/>/g, '')
     .replace(/<\/?[A-Za-z][\w.]*\b[^>]*>/g, '')
     .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
@@ -18,7 +25,7 @@ function headingText(source: string): string {
     .replace(/\$([^$]*)\$/g, '$1')
     .replace(/(\*\*|__)(.*?)\1/g, '$2')
     .replace(/(\*|_)(.*?)\1/g, '$2')
-    .replace(/\\([\\`*_{}[\]()#+\-.!$])/g, '$1')
+    .replace(HELD, (char) => ESCAPABLE[char.codePointAt(0)! - 0xe000])
     .replace(/\s+/g, ' ')
     .trim();
 }

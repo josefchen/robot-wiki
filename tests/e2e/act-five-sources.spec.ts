@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { closeCiteNote, revealCiteNote } from './helpers/citation-note';
 import { openAdjustMore } from './helpers/figure-fold';
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
@@ -11,10 +12,10 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.goto('/manipulation/action-chunking/');
     await page.evaluate(() => document.fonts.ready);
     await page.waitForLoadState('networkidle');
-    const cite = page.locator('div.prose [data-cite-id="pi0-2024"] a').first();
-    await cite.focus();
-    const tooltip = page.getByRole('tooltip');
-    await expect(tooltip).toBeVisible();
+    // The citation's note replaced its tooltip (helpers/citation-note.ts):
+    // shown by keyboard, inside the viewport, not clipped, naming the source.
+    const cite = page.locator('div.prose [data-cite-id="pi0-2024"]').first();
+    const tooltip = await revealCiteNote(cite);
     await page.screenshot({ path: info.outputPath(`${viewport.width}-pi0-tooltip.png`) });
     const box = await tooltip.boundingBox();
     expect(box).not.toBeNull();
@@ -22,7 +23,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     expect(box!.x + box!.width).toBeLessThanOrEqual(viewport.width);
     expect(await tooltip.evaluate(el => el.scrollWidth <= el.clientWidth && el.scrollHeight <= el.clientHeight)).toBe(true);
     await expect(tooltip).toContainText('Flow');
-    await cite.blur();
+    await closeCiteNote(cite);
     const table = page.getByRole('table', { name: /Action horizon/ });
     for (const [name, text] of [['RT-1', 'not disclosed'], ['pi0.5', 'mobile'], ['GR00T N1.7', 'inference'], ['Helix 02', 'announcement']]) {
       const row = table.getByRole('row', { name: new RegExp(`^${name.replace('.', '\\.')} `) });

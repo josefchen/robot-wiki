@@ -8,6 +8,7 @@ import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { termConsumerInventory } from './helpers/term-consumer-inventory';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
 import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
 import { citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 const ROUTE = '/classical/state-estimation/';
 const PROSE = 'div.prose[data-pagefind-body]';
@@ -175,6 +176,11 @@ const slamConsumers = termConsumerInventory().flatMap(a => a.occurrences.filter(
 for (const consumer of slamConsumers) test(`SLAM final text and keyboard exit at ${consumer.route} occurrence ${consumer.occurrence}`, async ({ page }, info) => {
   expect(slamConsumers.length).toBeGreaterThan(0); const e = evidence(page, info); await open(page, consumer.route);
   const root = page.locator(`${PROSE} [data-term-id="slam"]`).nth(consumer.occurrence - 1), trigger = root.locator('a'), tip = root.getByRole('tooltip');
+  // open() settles on the first hydrated link on the page, which can be the
+  // top bar's. Until this Term hydrates its tooltip keeps the CSS-only
+  // default above the trigger, so a top-placement reveal would open off
+  // screen instead of taking the measured placement.
+  await waitForHydration(trigger);
   for (const [placement, y] of [['top', (await e.stickyBottom()) + 24], ['middle', page.viewportSize()!.height / 2], ['bottom', page.viewportSize()!.height - 70]] as const) {
     for (const mode of ['hover', 'keyboard'] as const) {
       await e.clear(); await e.position(root, y);
@@ -209,8 +215,14 @@ test('state scene transport and seeded readout retain keyboard paths', async ({ 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await open(page);
   if (page.viewportSize()!.width === 375) {
-    const menu = page.getByRole('button', { name: 'Open navigation menu' }); await menu.focus(); await page.keyboard.press('Enter');
-    const dialog = page.getByRole('dialog'), close = dialog.getByRole('button', { name: 'Close navigation menu' }); await expect(close).toBeFocused();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the phone "Open navigation menu" button became the top
+    // bar's "Articles" button, which opens the same "Site navigation" dialog
+    // with the same close focus, current page, inert main, focus trap and
+    // Escape return.
+    const menu = page.getByRole('button', { name: 'Articles', exact: true });
+    await waitForHydration(menu); await menu.focus(); await page.keyboard.press('Enter');
+    const dialog = page.getByRole('dialog', { name: 'Site navigation' }), close = dialog.getByRole('button', { name: 'Close navigation menu' }); await expect(close).toBeFocused();
     await expect(dialog.locator('[aria-current="page"]')).toHaveCount(1); await expect(dialog.getByRole('link', { name: 'State Estimation', exact: true })).toHaveAttribute('aria-current', 'page');
     await expect(page.locator('#main-content').locator('xpath=ancestor-or-self::*[@inert]').first()).toBeAttached();
     await page.keyboard.press('Shift+Tab'); expect(await dialog.evaluate(el => el.contains(document.activeElement))).toBe(true);

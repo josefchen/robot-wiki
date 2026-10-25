@@ -2,6 +2,8 @@ import { writeFile } from 'node:fs/promises';
 import { expect, test, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const routes = [
   { slug: 'knowledge-insulation', domain: 'manipulation', text: 'backbone is a 2B language model', source: 'https://www.pi.website/research/knowledge_insulation' },
@@ -15,6 +17,10 @@ const routes = [
 for (const width of [375, 1440]) {
   for (const route of routes) {
     test(`final source closeout ${route.slug} at ${width}`, async ({ page }, info) => {
+      // The knowledge-insulation route's screenshots and full-page axe scan
+      // take over a minute on a loaded machine (1.1 to 1.3 min measured),
+      // past the 30 s default; the other routes finish in about 10 s.
+      test.setTimeout(150_000);
       await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
       const errors: string[] = [];
       page.on('pageerror', error => errors.push(error.message));
@@ -23,7 +29,15 @@ for (const width of [375, 1440]) {
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
       if (route.slug === 'pi-line') {
-        await expect(page.locator('main').getByText(/source-scoped checkpoint availability/).first()).toBeVisible();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the header summary read "source-scoped checkpoint
+        // availability" until 1624fa98 ("which checkpoints are released"),
+        // and 45392ee0 cut the claim from the summary ("From pi0 to pi0.7,
+        // with flow-matching action experts and FAST tokenization."). The
+        // page states the same source-scoped availability in its section
+        // "Which checkpoints are listed" (the openpi README at the pinned
+        // commit), which is pinned here.
+        await expect(page.locator('main').getByRole('heading', { name: 'Which checkpoints are listed', exact: true })).toBeVisible();
       }
       await page.screenshot({ path: info.outputPath('current-header.png') });
       const prose = page.locator('div.prose[data-pagefind-body]');
@@ -39,12 +53,21 @@ for (const width of [375, 1440]) {
           internalOverflow: element.scrollWidth - element.clientWidth,
         };
       });
-      const source = prose.locator(`a[aria-describedby][href="${route.source}"]`).first();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the prose source link `a[aria-describedby][href=<url>]`
+      // and its role="tooltip" are gone. The citation whose note links the
+      // same source URL is found by `[data-cite-id]`; its number takes focus
+      // and shows the note by keyboard, then by pointer, and the note is
+      // measured at the same bounds and overflow (helpers/citation-note.ts).
+      const cite = prose.locator('[data-cite-id]')
+        .filter({ has: page.locator(`[data-sidenote] a[target="_blank"][href="${route.source}"]`) })
+        .first();
+      const { mark: source, note: tooltip } = citeParts(cite);
       // A repeatable centered focus state; this does not certify every scroll-edge placement.
       await source.evaluate(element => element.scrollIntoView({ block: 'center' }));
-      await source.focus();
+      await waitForHydration(source);
+      await showCiteNote(page, cite, 'keyboard');
       await expect(source).toBeFocused();
-      const tooltip = page.getByRole('tooltip').filter({ visible: true }).first();
       await expect(tooltip).toBeVisible();
       const focused = await measure(tooltip);
       expect(focused.left).toBeGreaterThanOrEqual(0);
@@ -53,8 +76,9 @@ for (const width of [375, 1440]) {
       expect(focused.bottom).toBeLessThanOrEqual(width === 375 ? 812 : 900);
       expect(focused.internalOverflow).toBeLessThanOrEqual(1);
       await page.screenshot({ path: info.outputPath('final-source-focus.png') });
+      await dismissCiteNote(page, cite, 'keyboard');
       await source.evaluate(element => (element as HTMLElement).blur());
-      await source.hover();
+      await showCiteNote(page, cite, 'hover');
       await expect(tooltip).toBeVisible();
       const hovered = await measure(tooltip);
       expect(hovered.left).toBeGreaterThanOrEqual(0);
@@ -62,6 +86,7 @@ for (const width of [375, 1440]) {
       expect(hovered.top).toBeGreaterThanOrEqual(0);
       expect(hovered.bottom).toBeLessThanOrEqual(width === 375 ? 812 : 900);
       expect(hovered.internalOverflow).toBeLessThanOrEqual(1);
+      await dismissCiteNote(page, cite, 'hover');
       await page.mouse.move(0, 0);
 
       if (route.slug === 'knowledge-insulation') {

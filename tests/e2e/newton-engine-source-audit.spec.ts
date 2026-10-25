@@ -2,6 +2,8 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { CITATIONS } from '../../data/citations';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const out = process.env.DR_READER_OUT;
 const run = process.env.DR_READER_RUN ?? 'newton-reader';
@@ -52,18 +54,26 @@ for (const [slug, id] of sources) {
     await expect(chips).toHaveCount(expected);
     const observations = [];
     for (let i = 0; i < expected; i++) {
-      const chip = chips.nth(i), link = chip.locator('a').first();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the chip's first link (the source) and its role="tooltip"
+      // became a number with a sidenote (helpers/citation-note.ts). The
+      // source href and rel are read off the note's author-year link; the
+      // number is pointed at or focused, which shows the note (in the margin
+      // at rest at this 1280 px viewport), and the number clears the top bar
+      // while the source link takes the hit test.
+      const chip = chips.nth(i);
+      const { mark, note: tooltip, source: link } = citeParts(chip);
       await expect(link).toHaveAttribute('href', citation.url);
       await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-      await center(link);
+      await waitForHydration(mark);
+      await center(mark);
       for (const mode of ['hover', 'focus'] as const) {
         await page.mouse.move(0, 0);
-        await link.evaluate(el => (el as HTMLElement).blur());
-        if (mode === 'hover') await link.hover(); else await link.focus();
-        const tooltip = chip.getByRole('tooltip');
+        await mark.evaluate(el => (el as HTMLElement).blur());
+        await showCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
         await expect(tooltip).toBeVisible();
         await expect(tooltip).toContainText(citation.title);
-        const box = (await tooltip.boundingBox())!, source = (await link.boundingBox())!;
+        const box = (await tooltip.boundingBox())!, source = (await mark.boundingBox())!;
         const hitTest = await hit(link);
         observations.push({ id, slug, index: i, mode, tooltip: box, source, hitTest });
         expect.soft(box.x, `${slug}/${id}/${i}/${mode} left`).toBeGreaterThanOrEqual(0);
@@ -73,8 +83,11 @@ for (const [slug, id] of sources) {
         expect.soft(source.y).toBeGreaterThanOrEqual(64);
         expect.soft(hitTest, `${slug}/${id}/${i}/${mode} source hit`).toBe(true);
         if (mode === 'focus') await capture(page, `${slug}-${id}-${i}-focus`);
+        await dismissCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
       }
     }
+    // The number now carries the #ref- link the chip's "Jump to the full
+    // reference" link did.
     const jump = chips.last().locator(`a[href="#ref-${id}"]`);
     await center(jump); await jump.focus(); await jump.press('Enter');
     await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
@@ -102,8 +115,12 @@ for (const [slug, id] of sources) {
       loaded: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
     }));
     expect(fonts.status).toBe('loaded');
-    expect(fonts.h1).toMatch(/Tektur/i);
-    expect(fonts.prose).toMatch(/Newsreader/i);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the H1 was pinned to Tektur and the prose to Newsreader;
+    // the display family is now DM Sans and the body family Geist (not its
+    // mono cut).
+    expect(fonts.h1).toMatch(/DM Sans/i);
+    expect(fonts.prose).toMatch(/^"?Geist"?,/i);
     expect(errors).toEqual([]);
     if (out) writeFileSync(path.join(out, `${run}-${page.viewportSize()!.width}-${slug}-${id}-metrics.json`),
       JSON.stringify({ expected, observations, byline, referenceBox, back, fonts, errors, external,

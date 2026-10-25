@@ -3,6 +3,8 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { CITATIONS } from '../../data/citations';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const ids = ['phc-2023', 'omnih2o-2024', 'humanplus-2024'] as const;
 const out = process.env.DR_READER_OUT;
@@ -52,18 +54,25 @@ for (const id of ids) {
     await expect(chips).toHaveCount(id === 'omnih2o-2024' ? 2 : 1);
     const observations = [];
     for (let i = 0; i < await chips.count(); i++) {
-      const chip = chips.nth(i), source = chip.locator('a').first();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the chip's first link (the source) and its role="tooltip"
+      // became a number with a sidenote (helpers/citation-note.ts). The
+      // source href is read off the note's author-year link; the number is
+      // pointed at or focused, which shows the note (in the margin at rest
+      // at this 1280 px viewport), and the number clears the top bar while
+      // the source link takes the hit test.
+      const chip = chips.nth(i);
+      const { mark, note: tooltip, source } = citeParts(chip);
       await expect(source).toHaveAttribute('href', citation.url);
-      await center(source);
+      await waitForHydration(mark);
+      await center(mark);
       for (const mode of ['hover', 'focus'] as const) {
         await page.mouse.move(0, 0);
-        await source.evaluate(el => (el as HTMLElement).blur());
-        if (mode === 'hover') await source.hover();
-        else await source.focus();
-        const tooltip = chip.getByRole('tooltip');
+        await mark.evaluate(el => (el as HTMLElement).blur());
+        await showCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
         await expect(tooltip).toBeVisible();
         await expect(tooltip).toContainText(citation.title);
-        const r = await tooltip.boundingBox(), s = await source.boundingBox();
+        const r = await tooltip.boundingBox(), s = await mark.boundingBox();
         expect(r).not.toBeNull();
         expect(r!.x).toBeGreaterThanOrEqual(0);
         expect(r!.x + r!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
@@ -72,8 +81,11 @@ for (const id of ids) {
         await hit(source);
         observations.push({ id, index: i, mode, tooltip: r, source: s });
         if (mode === 'focus') await capture(page, `${id}-${i}-focus`);
+        await dismissCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
       }
     }
+    // The number now carries the #ref- link the chip's "Jump to the full
+    // reference" link did.
     const jump = chips.last().locator(`a[href="#ref-${id}"]`);
     await center(jump);
     await jump.focus();
@@ -111,17 +123,24 @@ test('preserved H2O and ASAP chips retain hover/focus containment', async ({ pag
     const chips = page.locator(`[data-cite-id="${id}"]`);
     expect(await chips.count()).toBeGreaterThan(0);
     for (let i = 0; i < await chips.count(); i++) {
-      const chip = chips.nth(i), link = chip.locator('a').first();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the chip link's hover/focus tooltip is the number's
+      // sidenote, shown by pointer and by keyboard (helpers/citation-note.ts),
+      // with the same containment and the hit test on the note's source link.
+      const chip = chips.nth(i);
+      const { mark: link, note, source } = citeParts(chip);
+      await waitForHydration(link);
       await center(link);
       for (const mode of ['hover', 'focus'] as const) {
         await page.mouse.move(0, 0);
         await link.evaluate(el => (el as HTMLElement).blur());
-        if (mode === 'hover') await link.hover(); else await link.focus();
-        await expect(chip.getByRole('tooltip')).toBeVisible();
-        const r = (await chip.getByRole('tooltip').boundingBox())!;
+        await showCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
+        await expect(note).toBeVisible();
+        const r = (await note.boundingBox())!;
         expect(r.x).toBeGreaterThanOrEqual(0);
         expect(r.x + r.width).toBeLessThanOrEqual(page.viewportSize()!.width);
-        await hit(link);
+        await hit(source);
+        await dismissCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
       }
     }
   }
@@ -134,6 +153,11 @@ test('existing WBC selection, readouts and reset remain functional', async ({ pa
   const group = frame.getByRole('group', { name: 'Robot brain by' });
   const buttons = group.getByRole('button');
   await expect(buttons).toHaveCount(3);
+  // The figure is a lazily loaded client chunk (components/mdx/lazy-mounts.tsx):
+  // its server markup is in place before React attaches the click handlers,
+  // and an Enter on a button before then is lost. Wait for every choice to
+  // hydrate before pressing it.
+  for (let i = 0; i < await buttons.count(); i++) await waitForHydration(buttons.nth(i));
   const initial = await group.locator('[aria-pressed="true"]').innerText();
   for (let i = 0; i < await buttons.count(); i++) {
     await buttons.nth(i).focus(); await buttons.nth(i).press('Enter');

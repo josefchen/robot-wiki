@@ -87,6 +87,14 @@ describe('findStructuralTells: paper-internal locators', () => {
     expect(locators.length).toBe(13);
   });
 
+  it('leaves the zero-padded Figure robot model names alone and still flags figure locators', () => {
+    const models = "Figure 02 has 16-DoF hands. Each Figure 03 hand has a palm camera, and Figure 03's fingertips sense touch.";
+    expect(findStructuralTells(models).filter((f) => f.kind === 'paper-locator')).toEqual([]);
+    const locators = 'Figure 2 plots the curve. Figure 12 repeats it. Figures 3 and 4 disagree. Fig. 02 is cropped.';
+    expect(findStructuralTells(locators).filter((f) => f.kind === 'paper-locator').map((f) => f.match))
+      .toEqual(['Figure 2', 'Figure 12', 'Figures 3', 'Fig. 02']);
+  });
+
   it('flags bare paper-version markers like v2 and v3', () => {
     const body = 'The v3 comparisons are narrow, and v2 changed the tables.';
     const locators = findStructuralTells(body).filter(

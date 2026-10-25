@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { getModule } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, cycleInlineCiteNote } from './helpers/citation-note';
 
 /**
  * Search excerpt quality. Pagefind must never fuse the hidden tooltip copy
@@ -303,19 +304,23 @@ test.describe('search excerpt quality', () => {
   }) => {
     await page.goto(`${BASE}/manipulation/bc-foundations/`);
 
+    // Research-page successor (helpers/citation-note.ts): the chip's label
+    // is the note's author-year link, and its jump glyph is the superscript
+    // number that links to the References entry.
     const chip = page.locator('[data-cite-id="alvinn-1988"]').first();
-    const label = chip.locator('a[aria-describedby]').first();
-    await expect(label).toContainText('Pomerleau 1988');
-    expect(await label.getAttribute('data-pagefind-ignore')).toBeNull();
+    const { mark, note, source } = citeParts(chip);
+    await expect(source).toContainText('Pomerleau 1988');
+    expect(await source.evaluate((el) => el.closest('[data-pagefind-ignore]'))).toBeNull();
 
-    const jump = chip.locator('a[href^="#ref-"]');
-    await expect(jump).toHaveAttribute('data-pagefind-ignore', 'true');
-    // The jump affordance keeps its accessible name and glyph semantics.
-    await expect(jump).toHaveAttribute(
-      'aria-label',
-      /Jump to the full reference/,
-    );
-    await expect(jump.locator('span[aria-hidden="true"]')).toHaveText('↓');
+    await expect(chip.locator('sup.cite-mark')).toHaveAttribute('data-pagefind-ignore', 'true');
+    await expect(mark).toHaveAttribute('href', '#ref-alvinn-1988');
+    // The jump keeps an accessible name and is described by its note.
+    await expect(mark).toHaveAccessibleName(/^Source \d+$/);
+    const noteId = await note.getAttribute('id');
+    expect(noteId).toBeTruthy();
+    await expect(mark).toHaveAttribute('aria-describedby', noteId!);
+    await expect(note.locator('.sidenote-index')).toHaveAttribute('data-pagefind-ignore', 'true');
+    await expect(note.locator('.sidenote-title')).toHaveAttribute('data-pagefind-ignore', 'true');
   });
 
   test('tooltips stay in the DOM for assistive technology, hidden from the index only', async ({
@@ -339,15 +344,20 @@ test.describe('search excerpt quality', () => {
     await termLink.focus();
     await expect(termTooltip).toBeVisible();
 
-    // Cite: same contract on a citation chip's tooltip.
+    // Cite: the note that replaced the citation tooltip keeps the same
+    // contract (helpers/citation-note.ts). It stays in the DOM as the
+    // number's description, its number and title are hidden from the index
+    // only, and on a phone it is hidden at rest and opened from the keyboard.
     const citeRoot = page.locator('[data-cite-id="pistar06-2025"]').first();
-    const citeLink = citeRoot.locator(`a[aria-describedby]`).first();
-    const citeTooltip = citeRoot.locator('span[role="tooltip"]');
-    await expect(citeTooltip).toHaveCount(1);
-    await expect(citeTooltip).toHaveAttribute('data-pagefind-ignore', 'true');
-    const citeDescribedBy = await citeLink.getAttribute('aria-describedby');
+    const { mark: citeMark, note: citeNote } = citeParts(citeRoot);
+    await expect(citeNote).toHaveCount(1);
+    await expect(citeNote.locator('.sidenote-index')).toHaveAttribute('data-pagefind-ignore', 'true');
+    await expect(citeNote.locator('.sidenote-title')).toHaveAttribute('data-pagefind-ignore', 'true');
+    const citeDescribedBy = await citeMark.getAttribute('aria-describedby');
     expect(citeDescribedBy).toBeTruthy();
-    await expect(citeTooltip).toHaveAttribute('id', citeDescribedBy ?? '');
+    await expect(citeNote).toHaveAttribute('id', citeDescribedBy ?? '');
+    await page.mouse.move(0, 0);
+    await cycleInlineCiteNote(page, citeRoot);
   });
 });
 
@@ -503,7 +513,11 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
   }) => {
     await page.goto(`${BASE}/rl-sim2real/legged-locomotion/`);
 
-    const credit = page.locator('main [data-image-credit]').first();
+    // The page now opens on a Spot photograph, so the ANYmal figure is
+    // addressed by its registry id rather than by document order.
+    const figure = page.locator('main figure[data-image-id="anymal-anybotics-2022"]');
+    await expect(figure).toHaveCount(1);
+    const credit = figure.locator('[data-image-credit]');
     // The licensing guarantee (VAL-IMG-002/003) is a VISIBLE credit with
     // working links; the attribute excludes the index only.
     await expect(credit).toBeVisible();
@@ -523,7 +537,7 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
     );
 
     // The caption is content and keeps its index presence.
-    const caption = page.locator('main figcaption').first();
+    const caption = figure.locator('figcaption');
     await expect(caption).toContainText('ran on this platform');
     expect(await caption.getAttribute('data-pagefind-ignore')).toBeNull();
   });
@@ -602,6 +616,12 @@ test.describe('excerpt chrome: figure credits and interactive controls', () => {
  * chrome, not prose, so the whole dl row is excluded from the index. The
  * title and summary stay indexed — they are the content a
  * description-matching query is looking for.
+ *
+ * Research-page successor (owner standard, 2026-10-10): the dl became one
+ * muted meta line, `p[data-article-meta]`, reading "Updated 8 August 2026 ·
+ * 8 min read · 10 sources", and the generative-video summary now reads
+ * "...use action-conditioned video prediction as a simulator." The checks
+ * below read the new line and the new summary at the same strength.
  */
 test.describe('excerpt chrome: article header metadata row', () => {
   test('header metadata (last reviewed, reading time, citations) never fuses into excerpts', async ({
@@ -628,12 +648,15 @@ test.describe('excerpt chrome: article header metadata row', () => {
       for (const excerpt of excerpts) {
         // Header-label vocabulary is unambiguous: no indexed prose,
         // caption or readout anywhere in content/ or data/ contains
-        // "Last reviewed", "Reading time" or "Citations" (verified by
-        // corpus sweep), so any occurrence is the metadata row.
+        // "Last reviewed", "Reading time" or "Citations", or the meta
+        // line's "Updated <date>" and "<n> min read" (verified by corpus
+        // sweep), so any occurrence is the metadata row.
         expect(
           excerpt,
           `excerpt for "${query}" fuses the header metadata row`,
-        ).not.toMatch(/Last reviewed|Reading time|Citations/);
+        ).not.toMatch(
+          /Last reviewed|Reading time|Citations|Updated\s*\d{1,2} [A-Z][a-z]+ \d{4}|\d+ min read/,
+        );
       }
     }
   });
@@ -642,7 +665,7 @@ test.describe('excerpt chrome: article header metadata row', () => {
     page,
   }) => {
     test.setTimeout(60_000);
-    // "conditioning-strength problem" exists only in the generative-video
+    // "prediction as a simulator" exists only in the generative-video
     // header summary (registry summary; verified: no prose occurrence),
     // and "video prediction" only matches the same page's summary in the
     // header region. If the whole header were excluded together with the
@@ -650,7 +673,7 @@ test.describe('excerpt chrome: article header metadata row', () => {
     const excerpts = await searchExcerpts(page, 'video prediction');
     expect(
       excerpts.some((excerpt) =>
-        excerpt.includes('conditioning-strength problem'),
+        excerpt.includes('prediction as a simulator'),
       ),
       'header summary text no longer reaches any excerpt',
     ).toBe(true);
@@ -675,9 +698,9 @@ test.describe('excerpt chrome: article header metadata row', () => {
       ),
     ).data as { lastReviewed?: string };
 
-    // The whole metadata row (one dl: last reviewed, reading time,
-    // citations) carries the attribute.
-    const row = page.locator('article header dl');
+    // The whole metadata row (one meta line: last reviewed, reading time,
+    // sources) carries the attribute.
+    const row = page.locator('article header [data-article-meta]');
     await expect(row).toHaveCount(1);
     await expect(row).toHaveAttribute('data-pagefind-ignore', 'true');
 
@@ -685,16 +708,17 @@ test.describe('excerpt chrome: article header metadata row', () => {
     const title = page.locator('article header h1');
     await expect(title).toHaveText(entry!.title);
     expect(await title.getAttribute('data-pagefind-ignore')).toBeNull();
-    const summary = page.locator('article header p');
-    await expect(summary).toContainText('conditioning-strength problem');
+    const summary = page.locator('article header p.page-lead');
+    await expect(summary).toHaveText(entry!.summary);
+    await expect(summary).toContainText('prediction as a simulator');
     expect(await summary.getAttribute('data-pagefind-ignore')).toBeNull();
 
     // The attribute is index-only: the row stays visible with all three
     // values, so the VAL-WIKI header apparatus is untouched.
     await expect(row).toBeVisible();
-    await expect(row).toContainText('Last reviewed');
-    await expect(row).toContainText('Reading time');
-    await expect(row).toContainText('Citations');
+    await expect(row.locator('[data-header-last-reviewed]')).toContainText('Updated');
+    await expect(row.locator('[data-header-reading-minutes]')).toHaveText(/^\d+ min read$/);
+    await expect(row.locator('a[data-header-citation-count]')).toHaveText(/^\d+ sources?$/);
     if (fm.lastReviewed) {
       await expect(row.locator('time')).toHaveAttribute(
         'datetime',
@@ -713,7 +737,11 @@ test.describe('VAL-EDU-039 search excerpts do not degrade', () => {
   const proseQueries: Array<{ query: string; href: string }> = [
     { query: 'covariate shift', href: '/manipulation/bc-foundations/' },
     { query: 'sim-to-real', href: '/rl-sim2real/sim2real-transfer/' },
-    { query: 'conditioning-strength problem', href: '/world-models/generative-video/' },
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin queried "conditioning-strength problem", which
+    // 1624fa98 cut from the article's summary. The article states the same
+    // claim as "weak action conditioning" (its section head and prose).
+    { query: 'weak action conditioning', href: '/world-models/generative-video/' },
     { query: 'joint-embedding', href: '/world-models/jepa/' },
     { query: 'force closure', href: '/classical/grasp-planning/' },
   ];

@@ -19,6 +19,9 @@ async function capture(page: Page, name: string) {
 }
 
 test('industrial52 actual default robot-cost endpoints and reset', async ({ page, staticBase }) => {
+  // Five full observations and two axe scans measured about 50 s on a
+  // loaded machine, past the 30 s default.
+  test.setTimeout(120_000);
   const startedAt = new Date().toISOString();
   const errors: string[] = [];
   const external: string[] = [];

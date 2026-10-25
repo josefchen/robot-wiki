@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { ownedEvidencePath } from './helpers/keypoint-reader-oracle';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, expectCiteNoteFacts, showCiteNote } from './helpers/citation-note';
 
 test('RRT report correction, bibliography date and full configuration-space definition render together', async ({ page }, info) => {
   const states: object[] = [];
@@ -49,17 +50,24 @@ test('RRT report correction, bibliography date and full configuration-space defi
   ] as const) {
     const chips = prose.locator(`[data-cite-id="${id}"]`);
     await expect(chips).toHaveCount(count);
-    const chip = chips.first(), anchor = chip.getByRole('link').first();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): focusing the
+    // chip's first link showed a role="tooltip" holding the title and the venue line, and Tab
+    // closed it. A citation is now a number with a sidenote (helpers/citation-note.ts): the
+    // number is the focus stop, its note shows on focus (in the margin at 1280 px, opened by
+    // Enter below 1200 px) and holds the same title and venue line, matched exactly, and its
+    // author-year link is the source link with the same href; pressing the number again (or
+    // nothing, in the margin) dismisses it.
+    const chip = chips.first(), { mark, note } = citeParts(chip);
     await chip.evaluate(el => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
-    await anchor.focus();
-    await expect(chip.getByRole('tooltip')).toContainText(title);
-    await expect(chip.getByRole('tooltip')).toContainText(meta);
-    await expect(anchor).toHaveAttribute('href', url);
+    await showCiteNote(page, chip, 'keyboard');
+    await expect(note).toBeVisible();
+    await expectCiteNoteFacts(page, chip, { title, meta, url });
+    await expect(mark).toBeFocused();
     await capture(`${id}-metadata`);
     const reference = page.locator(`[data-reference-id="${id}"]`);
     await expect(reference.locator('[data-author-names]')).toHaveText('Steven M. LaValle');
     await expect(reference.getByRole('link', { name: title, exact: true })).toHaveAttribute('href', url);
-    await page.keyboard.press('Tab');
+    await dismissCiteNote(page, chip, 'keyboard');
     await page.mouse.move(1, 1);
   }
   const term = prose.locator('[data-term-id="configuration-space"]');

@@ -2,6 +2,8 @@ import { expect, test, type Locator, type Page } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { CITATIONS } from '../../data/citations';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const ids = ['exbody2-2024', 'kungfubot-2025', 'gmt-2025'] as const;
 const out = process.env.DR_READER_OUT;
@@ -51,18 +53,25 @@ for (const id of ids) {
     await expect(chips).toHaveCount(1);
     const observations = [];
     for (let i = 0; i < await chips.count(); i++) {
-      const chip = chips.nth(i), source = chip.locator('a').first();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the chip's first link (the source) and its role="tooltip"
+      // became a number with a sidenote (helpers/citation-note.ts). The
+      // source href is read off the note's author-year link; the number is
+      // pointed at or focused, which shows the note (in the margin at rest
+      // at this 1280 px viewport), and the number clears the top bar while
+      // the source link takes the hit test.
+      const chip = chips.nth(i);
+      const { mark, note: tooltip, source } = citeParts(chip);
       await expect(source).toHaveAttribute('href', citation.url);
-      await center(source);
+      await waitForHydration(mark);
+      await center(mark);
       for (const mode of ['hover', 'focus'] as const) {
         await page.mouse.move(0, 0);
-        await source.evaluate(el => (el as HTMLElement).blur());
-        if (mode === 'hover') await source.hover();
-        else await source.focus();
-        const tooltip = chip.getByRole('tooltip');
+        await mark.evaluate(el => (el as HTMLElement).blur());
+        await showCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
         await expect(tooltip).toBeVisible();
         await expect(tooltip).toContainText(citation.title);
-        const r = await tooltip.boundingBox(), s = await source.boundingBox();
+        const r = await tooltip.boundingBox(), s = await mark.boundingBox();
         expect(r).not.toBeNull();
         expect(r!.x).toBeGreaterThanOrEqual(0);
         expect(r!.x + r!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
@@ -71,8 +80,11 @@ for (const id of ids) {
         await hit(source);
         observations.push({ id, index: i, mode, tooltip: r, source: s });
         if (mode === 'focus') await capture(page, `${id}-${i}-focus`);
+        await dismissCiteNote(page, chip, mode === 'hover' ? 'hover' : 'keyboard');
       }
     }
+    // The number now carries the #ref- link the chip's "Jump to the full
+    // reference" link did.
     const jump = chips.last().locator(`a[href="#ref-${id}"]`);
     await center(jump);
     await jump.focus();

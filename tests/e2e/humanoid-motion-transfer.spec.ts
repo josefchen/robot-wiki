@@ -3,6 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { getCitation } from '../../data/citations';
 import { getTerm } from '../../data/glossary';
+import { citeParts, dismissCiteNote, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const targets = {
   'sim2real-transfer': [
@@ -73,6 +75,31 @@ for (const width of [375, 1440]) for (const slug of ['sim2real-transfer', 'legge
       await page.evaluate(() => document.fonts.ready);
       const prose = page.locator('div.prose[data-pagefind-body]');
       const seen = new Set<string>();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): fa85511f merged the ASAP paragraphs that began
+      // "Evaluation separates IsaacGym-to-IsaacSim" and held "tracking on
+      // the held-out" into one paragraph with two ASAP citations. Each
+      // target keeps its own citation: the first one with its id that
+      // follows the target's text in the paragraph.
+      const citeFor = async (start: string, id: string) => {
+        const paragraph = prose.locator('p').filter({ hasText: start });
+        const nth = await paragraph.evaluate((p, [text, cid]) => {
+          const at = (p.textContent ?? '').indexOf(text);
+          return [...p.querySelectorAll(`[data-cite-id="${cid}"]`)].findIndex(c => {
+            const range = document.createRange();
+            range.setStart(p, 0); range.setEndBefore(c);
+            return range.toString().length >= at + text.length;
+          });
+        }, [start, id] as const);
+        expect(nth, `a ${id} citation follows "${start}"`).toBeGreaterThanOrEqual(0);
+        return paragraph.locator(`[data-cite-id="${id}"]`).nth(nth);
+      };
+      // Enter on a number opens its note only once hydrated. Wait for every
+      // number up front: a reference jump is a hash navigation, which clears
+      // history.state, the hydration signal.
+      for (const [start, id] of targets[slug]) {
+        await waitForHydration(citeParts(await citeFor(start, id)).mark);
+      }
       for (const [start, id] of targets[slug]) {
         const paragraph = prose.locator('p').filter({ hasText: start });
         await expect(paragraph).toHaveCount(1);
@@ -81,38 +108,58 @@ for (const width of [375, 1440]) for (const slug of ['sim2real-transfer', 'legge
           await glyphs(paragraph, `prose-${seen.size}`);
           seen.add(start);
         }
-        const chip = paragraph.locator(`[data-cite-id="${id}"]`), link = chip.locator('a').first();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the chip's first link (trigger and source) and its
+        // role="tooltip" became a number with a sidenote
+        // (helpers/citation-note.ts). The number is the keyboard stop and
+        // shows the note by Enter (inline below 1200 px, at rest in the
+        // margin from 1200 px), then by pointer; the note gets the same
+        // bounds and title checks, and the note's author-year link the same
+        // href and hit-test checks the chip's link had, the hit test on
+        // each painted fragment, since an inline note's link can wrap.
+        const chip = await citeFor(start, id);
+        const { mark, note: tooltip, source: link } = citeParts(chip);
         await chip.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-        await link.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
-        await expect(link).toBeFocused();
-        const tooltip = chip.getByRole('tooltip');
+        await mark.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
+        await expect(mark).toBeFocused();
         for (const state of ['keyboard-focus', 'hover']) {
-          if (state === 'hover') { await link.blur(); await link.hover(); }
+          if (state === 'hover') {
+            await dismissCiteNote(page, chip, 'keyboard');
+            await mark.blur();
+            await showCiteNote(page, chip, 'hover');
+          } else await showCiteNote(page, chip, 'keyboard');
           await expect(tooltip).toBeVisible();
           const box = await tooltip.boundingBox();
           expect.soft(box!.x).toBeGreaterThanOrEqual(0);
           expect.soft(box!.x + box!.width).toBeLessThanOrEqual(width);
           expect.soft(box!.y).toBeGreaterThanOrEqual(width === 375 ? 56 : 0);
           expect.soft(box!.y + box!.height).toBeLessThanOrEqual(height);
-          const linkBox = await link.boundingBox();
-          expect.soft(await link.evaluate((e, b) => {
-            const hit = document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2);
-            return hit === e || e.contains(hit);
-          }, linkBox!)).toBe(true);
+          expect.soft(await link.evaluate(e => {
+            const fragments = [...e.getClientRects()].filter(r => r.width > 1 && r.height > 1);
+            return fragments.length > 0 && fragments.every(b => {
+              const hit = document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2);
+              return hit === e || e.contains(hit);
+            });
+          })).toBe(true);
           await expect(link).toHaveAttribute('href', getCitation(id)!.url);
           await expect(tooltip).toContainText(getCitation(id)!.title);
-          measures.push({ start, id, state, box, focusVisible: await link.evaluate(e => e.matches(':focus-visible')) });
+          measures.push({ start, id, state, box, focusVisible: await mark.evaluate(e => e.matches(':focus-visible')) });
           await capture(`cite-${targets[slug].findIndex(t => t[0] === start && t[1] === id)}-${state}`);
         }
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): Tab from the chip's link to its "Jump to the full
+        // reference" link, then Enter; the number itself now links to the
+        // References entry and jumps by Enter where its note stands in the
+        // margin (taken at 1280 px below 1200 px, then restored).
         await page.mouse.move(2, 2);
-        await link.focus(); await page.keyboard.press('Tab');
-        const jump = chip.getByRole('link', { name: `Jump to the full reference for ${getCitation(id)!.title}`, exact: true });
-        await expect(jump).toBeFocused();
+        const jump = mark;
         const href = await jump.getAttribute('href');
-        await page.keyboard.press('Enter');
+        expect(href).toBe(`#ref-${id}`);
+        const restore = await jumpFromCiteMark(page, chip, id);
         await expect(page).toHaveURL(new RegExp(`${href}$`));
         const reference = page.locator(`[data-reference-id="${id}"]`);
         await expect(reference).toBeInViewport();
+        await restore();
         const expand = reference.getByRole('button', { name: `Show all ${getCitation(id)!.authors.length} authors`, exact: true });
         if (await expand.count()) {
           await expand.focus();

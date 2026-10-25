@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Search e2e coverage that does not depend on the Pagefind index (the dev
@@ -28,6 +29,11 @@ test.describe('search shell', () => {
     page,
   }) => {
     await page.goto('/');
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin typed into the persistent sidebar's search box
+    // at rest; the shell's search box, with the same "Search" label, now
+    // lives in the Articles panel opened from the top bar.
+    await openArticlesPanel(page);
     const sidebar = page.getByRole('searchbox', { name: 'Search', exact: true });
     await sidebar.fill('temporal ensembling');
     await sidebar.press('Enter');

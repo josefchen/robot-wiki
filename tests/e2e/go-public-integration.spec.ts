@@ -7,6 +7,7 @@ import {
   publishedModules,
 } from '../../data/modules';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Final integration sweep for the go-public pass, against the shipped
@@ -26,6 +27,14 @@ import { startStaticExportServer, type StaticExportServer } from './static-expor
  * The first two use the static export because the history spec navigates
  * by document URL (fresh loads make state restoration meaningful) and the
  * sidebar-only spec starts from the exported home page's default state.
+ *
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the persistent sidebar is gone, and the same taxonomy navigation, with
+ * its groups, links and single current-route mark, lives in the panel the
+ * top bar's "Articles" button opens (tests/e2e/helpers/articles-panel.ts).
+ * Every step that used the sidebar opens the panel and uses the same links
+ * there; a panel link closes the panel as it navigates, so each later
+ * highlight check opens it again.
  */
 
 let server: StaticExportServer | null = null;
@@ -47,6 +56,14 @@ test.afterAll(async () => {
 
 function nav(page: import('@playwright/test').Page) {
   return page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+}
+
+/** Opens the Articles panel, if it is not open, and returns its taxonomy nav. */
+async function panelNav(page: import('@playwright/test').Page) {
+  if (!(await page.getByRole('dialog', { name: 'Site navigation' }).isVisible())) {
+    await openArticlesPanel(page);
+  }
+  return nav(page);
 }
 
 /**
@@ -141,10 +158,13 @@ test.describe('browser back/forward restores application state (VAL-CROSS-026)',
     page,
   }) => {
     await page.goto(`${BASE}/`);
-    await nav(page)
+    await (await panelNav(page))
       .getByRole('link', { name: 'Market Map' })
       .click();
     await expect(page).toHaveURL(/\/market-map\/$/);
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Market Map' }),
+    ).toBeVisible();
     await page.goBack();
     await expect(page).toHaveURL(/\/$/);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
@@ -179,7 +199,7 @@ test.describe('sidebar-only reachability (VAL-CROSS-003, VAL-NAV-010)', () => {
       page,
     }) => {
       await page.goto(`${BASE}/`);
-      const sidebar = nav(page);
+      const sidebar = await panelNav(page);
       const group = sidebar.getByRole('button', {
         name: DOMAIN_META[domain].name,
       });
@@ -195,10 +215,11 @@ test.describe('sidebar-only reachability (VAL-CROSS-003, VAL-NAV-010)', () => {
       expect(response?.ok()).toBe(true);
       await expect(page.locator('h1')).toHaveText(target.title);
 
-      // The sidebar highlights exactly this module afterwards.
+      // The navigation highlights exactly this module afterwards.
       await expect(
-        sidebar.getByRole('link', { name: target.title }),
+        (await panelNav(page)).getByRole('link', { name: target.title }),
       ).toHaveAttribute('aria-current', 'page');
+      await expectSingleActive(page, target.title);
     });
   }
 
@@ -206,14 +227,13 @@ test.describe('sidebar-only reachability (VAL-CROSS-003, VAL-NAV-010)', () => {
     page,
   }) => {
     await page.goto(`${BASE}/`);
-    const sidebar = nav(page);
-    await sidebar.getByRole('link', { name: 'Market Map' }).click();
+    await (await panelNav(page)).getByRole('link', { name: 'Market Map' }).click();
     await page.waitForURL(/\/market-map\/$/);
     await expect(
       page.getByRole('heading', { level: 1, name: 'Market Map' }),
     ).toBeVisible();
 
-    await sidebar.getByRole('link', { name: 'Playground' }).click();
+    await (await panelNav(page)).getByRole('link', { name: 'Playground' }).click();
     await page.waitForURL(/\/playground\/$/);
     await expect(
       page.getByRole('heading', { level: 1, name: /playground/i }),
@@ -230,10 +250,15 @@ test.describe('sidebar active highlight across sequential navigations (VAL-CROSS
     const actionChunking = sidebar.getByRole('link', {
       name: 'Action Chunking (ACT and ALOHA)',
     });
+    await panelNav(page);
     await expect(actionChunking).toHaveAttribute('aria-current', 'page');
+    await expectSingleActive(page, 'Action Chunking (ACT and ALOHA)');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
 
     // A: in-prose internal link to diffusion-policy (same domain).
     await page
+      .locator('#main-content')
       .getByRole('link', { name: /diffusion policy/i })
       .first()
       .click();
@@ -241,10 +266,11 @@ test.describe('sidebar active highlight across sequential navigations (VAL-CROSS
     const diffusion = sidebar.getByRole('link', {
       name: 'Diffusion Policy',
     });
+    await panelNav(page);
     await expect(diffusion).toHaveAttribute('aria-current', 'page');
     await expectSingleActive(page, 'Diffusion Policy');
 
-    // B: cross-domain jump via the sidebar to a classical module.
+    // B: cross-domain jump via the navigation to a classical module.
     const classicalGroup = sidebar.getByRole('button', {
       name: DOMAIN_META.classical.name,
     });
@@ -252,6 +278,7 @@ test.describe('sidebar active highlight across sequential navigations (VAL-CROSS
     const kinematics = sidebar.getByRole('link', { name: 'Kinematics' });
     await kinematics.click();
     await expect(page).toHaveURL(/\/classical\/kinematics\//);
+    await panelNav(page);
     await expect(kinematics).toHaveAttribute('aria-current', 'page');
     await expectSingleActive(page, 'Kinematics');
     // The parent section of the active module is expanded.
@@ -265,6 +292,7 @@ test.describe('sidebar active highlight across sequential navigations (VAL-CROSS
       .first();
     await proseHit.click();
     await expect(page).toHaveURL(/\/manipulation\/action-chunking\//);
+    await panelNav(page);
     await expect(actionChunking).toHaveAttribute('aria-current', 'page');
     await expectSingleActive(page, 'Action Chunking (ACT and ALOHA)');
   });

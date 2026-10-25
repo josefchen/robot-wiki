@@ -94,6 +94,8 @@ interface WordmarkMetrics {
   role: string | null;
   fontFamilyHead: string;
   fontVariationSettings: string;
+  fontWeight: string;
+  fontStretch: string;
   textTransform: string;
 }
 
@@ -168,6 +170,8 @@ async function footerMetrics(page: Page): Promise<FooterMetrics> {
                   .trim()
                   .replace(/^["']|["']$/g, ''),
                 fontVariationSettings: wordmarkStyle.fontVariationSettings,
+                fontWeight: wordmarkStyle.fontWeight,
+                fontStretch: wordmarkStyle.fontStretch,
                 textTransform: wordmarkStyle.textTransform,
               }
             : null,
@@ -273,18 +277,26 @@ test.describe('rendered footer at both viewports', () => {
         expect(m.wordmark?.href, `${at}: the lockup is the "/" destination`).toBe(
           '/',
         );
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the display family of the registered shell-wordmark
+        // role moved from Tektur to DM Sans at weight 600 (9154d672;
+        // data/type-roles.json). DM Sans takes the role's registered weight
+        // 600 and width 100 as font-weight and font-stretch, not as Tektur's
+        // explicit variation axes. The role and casing pins are unchanged.
         expect(
           m.wordmark?.role,
-          `${at}: the lockup carries its registered Tektur role`,
+          `${at}: the lockup carries its registered display role`,
         ).toBe('shell-wordmark');
         expect(
           m.wordmark?.fontFamilyHead.toLowerCase(),
           `${at}: the lockup resolves to the display family`,
-        ).toContain('tektur');
+        ).toContain('dm sans');
         expect(
           m.wordmark?.fontVariationSettings,
-          `${at}: the registered display axes`,
-        ).toBe('"wdth" 100, "wght" 600');
+          `${at}: no variation axes beyond the registered weight and width`,
+        ).toBe('normal');
+        expect(m.wordmark?.fontWeight, `${at}: the registered display weight`).toBe('600');
+        expect(m.wordmark?.fontStretch, `${at}: the registered display width`).toBe('100%');
         expect(
           m.wordmark?.textTransform,
           `${at}: no case rewriting of the identity`,

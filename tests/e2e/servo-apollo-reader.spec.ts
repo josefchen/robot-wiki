@@ -2,6 +2,8 @@ import { test, expect, type Locator } from './servo-apollo-fixture';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { readerGateInputs } from './helpers/reader-gate-inputs';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 for (const viewport of [{width:375,height:812},{width:1440,height:900}]) {
   test(`servo and Apollo source reader at ${viewport.width}px`, async ({page},testInfo) => {
     const captures: object[] = []; const errors: string[] = [];
@@ -22,6 +24,9 @@ for (const viewport of [{width:375,height:812},{width:1440,height:900}]) {
     };
     for(const slug of ['perception','state-estimation']){
       await page.goto('/classical/'+slug+'/');await page.evaluate(()=>document.fonts.ready);await expect(page.locator('div.prose')).toBeVisible();
+      // A screenshot hides the caret with an inline style, and React reports that as a hydration
+      // mismatch on a lazily mounted figure's input it has not hydrated yet.
+      await page.waitForFunction(()=>[...document.querySelectorAll('main input')].every(el=>Object.keys(el).some(k=>k.startsWith('__reactFiber$'))));
       const prose=page.locator('div.prose[data-pagefind-body]');
       if(slug==='perception'){
         await text(prose.locator('h2').filter({hasText:'Visual servoing:'}),'servo-heading');
@@ -35,14 +40,25 @@ for (const viewport of [{width:375,height:812},{width:1440,height:900}]) {
       }else{
         await text(page.getByText('Ames nonlinear navigation studies',{exact:true}),'apollo-stat');
         const paragraphs=prose.locator('p').filter({has:page.locator('[data-cite-id="mcgee-schmidt-1985"]')});
-        expect(await paragraphs.count()).toBe(2);for(let i=0;i<2;i++)await text(paragraphs.nth(i),'apollo-prose-'+(i+1));
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): exactly two
+        // paragraphs cited McGee and Schmidt. The owner's verified rewrite of the classical articles
+        // (db856b22, 7 October 2026) added a third, "Linearization holds near the estimate ...",
+        // which cites the same history, so the exact count is three and all three are captured.
+        expect(await paragraphs.count()).toBe(3);for(let i=0;i<3;i++)await text(paragraphs.nth(i),'apollo-prose-'+(i+1));
       }
       for(const id of slug==='perception'?['chaumette-hutchinson-2006','chaumette-hutchinson-2007']:['mcgee-schmidt-1985']){
-        const cite=prose.locator('[data-cite-id="'+id+'"]').first();await cite.scrollIntoViewIfNeeded();await cite.locator('a, button').first().hover();await expect(cite.getByRole('tooltip')).toBeVisible();
-        const hover=await cite.getByRole('tooltip').boundingBox();await cite.locator('a, button').first().focus();const tip=cite.getByRole('tooltip');await expect(tip).toBeVisible();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page standard): hovering and then
+        // focusing the chip's first link showed its role="tooltip" (with the authors) inside the
+        // viewport, and Escape closed it. A citation is now a number with a sidenote
+        // (helpers/citation-note.ts): the note shows on hover and on focus of the number (in the
+        // margin at rest from 1200 px, opened inline by a click or Enter below it), carries the
+        // same authors in its venue line, stays inside the viewport, and closes when the number is
+        // pressed again.
+        const cite=prose.locator('[data-cite-id="'+id+'"]').first();const {mark,note:tip}=citeParts(cite);await cite.scrollIntoViewIfNeeded();await waitForHydration(mark);await showCiteNote(page,cite,'hover');await expect(tip).toBeVisible();
+        const hover=await tip.boundingBox();await dismissCiteNote(page,cite,'hover');await showCiteNote(page,cite,'keyboard');await expect(tip).toBeVisible();
         const box=await tip.boundingBox();expect(box!.x).toBeGreaterThanOrEqual(0);expect(box!.x+box!.width).toBeLessThanOrEqual(viewport.width);expect(box!.y).toBeGreaterThanOrEqual(0);expect(box!.y+box!.height).toBeLessThanOrEqual(viewport.height);
         if(slug==='perception')await expect(tip).toContainText('François Chaumette');
-        await capture(id+'-citation-focus',{hover,focus:box,text:await tip.innerText()});await page.keyboard.press('Escape');await page.keyboard.press('Tab');
+        await capture(id+'-citation-focus',{hover,focus:box,text:await tip.innerText()});await dismissCiteNote(page,cite,'keyboard');await page.keyboard.press('Tab');
       }
       expect(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)).toBeLessThanOrEqual(0);
     }

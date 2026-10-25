@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 const ROUTE = '/rl-sim2real/parallel-sim-rl/';
 
@@ -34,10 +35,17 @@ test.describe('parallel-sim-rl module', () => {
     await expect(main.getByText(/exceeds 900,000 FPS and Franka cabinet 1\.6 million/)).toBeVisible();
     await expect(main.getByText(/With eight GPUs and 16,384 environments/)).toBeVisible();
     // Sidebar marks this module active.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar taxonomy nav is gone from the page at rest; the
+    // same nav, with the same current-route mark, lives in the "Site
+    // navigation" dialog the top bar's "Articles" button opens.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Massively Parallel Sim RL' }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
   });
 
   test('citation chips link to external primary sources', async ({ page }) => {

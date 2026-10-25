@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test';
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { openArticlesPanel } from './helpers/articles-panel';
 
 /**
  * Route-flow closure for the discovery milestone
@@ -114,11 +115,16 @@ test.describe('browser history restores route and focus', () => {
     await gotoSettled(page, `${BASE}/manipulation/`);
     // The sidebar never unmounts, so the clicked link keeps focus across
     // the whole history step: nothing was lost, so nothing may be moved.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin clicked the persistent sidebar's "Action
+    // Chunking (ACT and ALOHA)" link. The sidebar is gone and the Articles
+    // panel unmounts as its link navigates, so the persistent chrome link is
+    // now the top bar's "How robots work", which never unmounts either.
     const link = page
-      .getByRole('navigation', { name: 'Robot Wiki taxonomy' })
-      .getByRole('link', { name: 'Action Chunking (ACT and ALOHA)' });
+      .getByRole('navigation', { name: 'Site' })
+      .getByRole('link', { name: 'How robots work' });
     await link.click();
-    await page.waitForURL(/\/manipulation\/action-chunking\/$/);
+    await page.waitForURL(/\/how-robots-work\/$/);
     await page.goBack();
     await page.waitForURL(/\/manipulation\/$/);
     await expect(link).toBeFocused();
@@ -132,11 +138,15 @@ test.describe('browser history restores route and focus', () => {
     await gotoSettled(page, `${BASE}/manipulation/action-chunking/`);
     // The breadcrumb trail is the wiki's own way back (Home › Domain ›
     // Article); using it and returning must land focus on the article.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin jumped by the trail's "Home" crumb. Since
+    // 9154d672 the eyebrow trail holds only the domain ancestor (the full
+    // trail is the BreadcrumbList JSON-LD), so the jump is that crumb.
     await page
       .getByRole('navigation', { name: /breadcrumb/i })
-      .getByRole('link', { name: 'Home' })
+      .getByRole('link', { name: 'Manipulation & Learned Policies' })
       .click();
-    await page.waitForURL(`${BASE}/`);
+    await page.waitForURL(`${BASE}/manipulation/`);
     await page.goBack();
     await page.waitForURL(/\/manipulation\/action-chunking\/$/);
     await expect(page.locator('main h1')).toBeFocused();
@@ -173,9 +183,15 @@ test.describe('unknown routes render the styled 404 (VAL-CROSS-025)', () => {
       page.getByRole('link', { name: 'Back to the wiki home' }),
     ).toBeVisible();
     // Standard site chrome intact: the taxonomy sidebar is still there.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin read the taxonomy sidebar at rest; the same
+    // taxonomy nav now opens from the top bar's Articles button.
+    await openArticlesPanel(page);
     await expect(
       page.getByRole('navigation', { name: 'Robot Wiki taxonomy' }),
     ).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
     // The way home works by clicking.
     await page.getByRole('link', { name: 'Back to the wiki home' }).click();
     await page.waitForURL(`${BASE}/`);
@@ -220,13 +236,22 @@ test.describe('chrome destinations are reachable by clicking alone', () => {
   }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(`${BASE}/`);
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pins clicked the persistent sidebar's taxonomy
+    // links, its "#sidebar-search-input" and its "#sidebar-rail" wordmark.
+    // The same taxonomy links and search box live in the Articles panel,
+    // which closes as a link navigates and is reopened for each step; the
+    // panel's own wordmark is the way home.
+    const panel = page.getByRole('dialog', { name: 'Site navigation' });
     const taxonomy = page.getByRole('navigation', {
       name: 'Robot Wiki taxonomy',
     });
 
+    await openArticlesPanel(page);
     await taxonomy.getByRole('link', { name: 'Market Map' }).click();
     await page.waitForURL(/\/market-map\/$/);
     await expect(page.locator('main')).toBeVisible();
+    await openArticlesPanel(page);
     await expect(
       taxonomy.getByRole('link', { name: 'Market Map' }),
     ).toHaveAttribute('aria-current', 'page');
@@ -235,19 +260,22 @@ test.describe('chrome destinations are reachable by clicking alone', () => {
     await page.waitForURL(/\/playground\/$/);
     await expect(page.locator('main')).toBeVisible();
 
+    await openArticlesPanel(page);
     await taxonomy.getByRole('link', { name: 'A-Z Index' }).click();
     await page.waitForURL(/\/a-z\/$/);
     await expect(page.locator('main h1')).toBeVisible();
 
     // The sidebar search entry point routes to /search with the query.
-    await page.locator('#sidebar-search-input').fill('ALOHA');
-    await page.locator('#sidebar-search-input').press('Enter');
+    await openArticlesPanel(page);
+    const search = panel.getByRole('search', { name: 'Site search' }).getByRole('searchbox');
+    await search.fill('ALOHA');
+    await search.press('Enter');
     await page.waitForURL(/\/search\/?\?q=ALOHA/);
     await expect(page.locator('main')).toBeVisible();
 
     // The sidebar wordmark is the way home.
-    await page
-      .locator('#sidebar-rail')
+    await openArticlesPanel(page);
+    await panel
       .getByRole('link', { name: 'Robot Wiki' })
       .click();
     await page.waitForURL(`${BASE}/`);

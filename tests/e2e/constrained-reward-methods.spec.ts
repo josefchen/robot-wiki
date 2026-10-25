@@ -2,6 +2,8 @@ import { test, expect, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { getCitation } from '../../data/citations';
+import { citeParts, dismissCiteNote, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const targets = [
   ['The first answer adds constraints', 'rewards-constraints-2024'],
@@ -51,7 +53,11 @@ for (const width of [375, 1440]) {
       });
       measures.push({ name, fonts, style });
       expect(fonts.length).toBeGreaterThan(0);
-      expect(fonts.every(f => f.isCustomFont && /Tektur|Newsreader|IBM Plex (Sans|Mono)/.test(f.familyName))).toBe(true);
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the rendered faces were pinned to Tektur, Newsreader and
+      // IBM Plex Sans/Mono; the roles are now DM Sans (display), Geist (body
+      // and interface) and Geist Mono (numerals and code).
+      expect(fonts.every(f => f.isCustomFont && /DM Sans|Geist|Geist Mono/.test(f.familyName))).toBe(true);
       await target.evaluate(e => e.removeAttribute('data-reward-font-probe'));
     }
     try {
@@ -60,32 +66,51 @@ for (const width of [375, 1440]) {
       await capture('article-top');
       await fontProof(page.locator('h1'), 'title');
       const prose = page.locator('div.prose[data-pagefind-body]');
+      // Enter on a number opens its note only once hydrated. Wait for every
+      // number up front: a reference jump is a hash navigation, which clears
+      // history.state, the hydration signal.
+      for (const [, id] of targets) await waitForHydration(citeParts(prose.locator(`[data-cite-id="${id}"]`).first()).mark);
       for (const [index, [start, id]] of targets.entries()) {
         const paragraph = prose.locator('p').filter({ hasText: start });
         await expect(paragraph).toHaveCount(1);
         await slices(paragraph, `prose-${index}`);
         await fontProof(paragraph, `prose-${index}`);
         const citation = getCitation(id)!;
-        const chip = paragraph.locator(`[data-cite-id="${id}"]`), link = chip.locator('a').first();
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): the chip's first link (the source) and its role="tooltip"
+        // became a number with a sidenote (helpers/citation-note.ts). The
+        // source href/target/rel are read off the note's author-year link;
+        // the keyboard stop is the number, which shows the note by Enter
+        // (inline below 1200 px, at rest in the margin from 1200 px) and by
+        // pointer; the note gets the same text, bounds, overflow and
+        // hit-test checks, the hit test per painted line box since an
+        // inline note wraps like the prose it sits in.
+        const chip = paragraph.locator(`[data-cite-id="${id}"]`);
+        const { mark, note: tooltip, source: link } = citeParts(chip);
         await expect(prose.locator(`[data-cite-id="${id}"]`)).toHaveCount(1);
         await expect(link).toHaveAttribute('href', citation.url);
         await expect(link).toHaveAttribute('target', '_blank');
         await expect(link).toHaveAttribute('rel', /noopener noreferrer/);
         await chip.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-        await link.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
-        await expect(link).toBeFocused();
-        const tooltip = chip.getByRole('tooltip');
+        await mark.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
+        await expect(mark).toBeFocused();
         let focusText = '';
-        for (const state of ['focus', 'hover']) {
-          if (state === 'hover') { await link.blur(); await link.hover(); }
+        for (const state of ['focus', 'hover'] as const) {
+          if (state === 'focus') await showCiteNote(page, chip, 'keyboard');
+          else {
+            await dismissCiteNote(page, chip, 'keyboard');
+            await mark.blur();
+            await showCiteNote(page, chip, 'hover');
+          }
           await expect(tooltip).toBeVisible();
           await expect(tooltip).toContainText(citation.title);
           if (state === 'focus') focusText = await tooltip.innerText();
           else expect(await tooltip.innerText()).toBe(focusText);
           const geometry = await tooltip.evaluate(e => {
             const b = e.getBoundingClientRect();
-            const points = [[b.left + 3, b.top + 3], [b.right - 3, b.top + 3], [b.left + 3, b.bottom - 3], [b.right - 3, b.bottom - 3], [b.left + b.width / 2, b.top + b.height / 2]];
-            return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, clientWidth: e.clientWidth, scrollWidth: e.scrollWidth,
+            const lines = [...e.getClientRects()].filter(r => r.width > 6 && r.height > 6);
+            const points = lines.flatMap(r => [[r.left + 3, r.top + 3], [r.right - 3, r.top + 3], [r.left + 3, r.bottom - 3], [r.right - 3, r.bottom - 3], [r.left + r.width / 2, r.top + r.height / 2]]);
+            return { left: b.left, right: b.right, top: b.top, bottom: b.bottom, clientWidth: e.clientWidth, scrollWidth: e.scrollWidth, lines: lines.length,
               hits: points.map(([x, y]) => { const h = document.elementFromPoint(x, y); return h === e || (h !== null && e.contains(h)); }) };
           });
           measures.push({ id, state, geometry });
@@ -94,23 +119,31 @@ for (const width of [375, 1440]) {
           expect.soft(geometry.top).toBeGreaterThanOrEqual(width === 375 ? 56 : 0);
           expect.soft(geometry.bottom).toBeLessThanOrEqual(height);
           expect.soft(geometry.scrollWidth).toBeLessThanOrEqual(geometry.clientWidth);
-          expect.soft(geometry.hits).toEqual([true, true, true, true, true]);
+          expect.soft(geometry.lines).toBeGreaterThan(0);
+          expect.soft(geometry.hits).toEqual(Array(geometry.lines * 5).fill(true));
           if (state === 'focus') {
-            const focus = await link.evaluate(e => { const s = getComputedStyle(e); return { visible: e.matches(':focus-visible'), width: s.outlineWidth, color: s.outlineColor }; });
+            // Owner-approved successor (Josef, 2026-10-10, the research-page
+            // standard): the focus ring was pinned at 2 px or more in signal
+            // blue rgb(36, 95, 255); it is now a 1 px ink outline.
+            const focus = await mark.evaluate(e => { const s = getComputedStyle(e); return { visible: e.matches(':focus-visible'), width: s.outlineWidth, color: s.outlineColor }; });
             measures.push({ id, focus });
             expect(focus.visible).toBe(true);
-            expect(parseFloat(focus.width)).toBeGreaterThanOrEqual(2);
-            expect(focus.color).toBe('rgb(36, 95, 255)');
+            expect(parseFloat(focus.width)).toBe(1);
+            expect(focus.color).toBe('rgb(28, 28, 26)');
           }
           await capture(`cite-${index}-${state}`);
         }
-        await page.mouse.move(2, 2); await link.focus(); await page.keyboard.press('Tab');
-        const jump = chip.getByRole('link', { name: `Jump to the full reference for ${citation.title}`, exact: true });
-        await expect(jump).toBeFocused();
-        await page.keyboard.press('Enter');
+        // Owner-approved successor (Josef, 2026-10-10, the research-page
+        // standard): Tab from the source to the chip's "Jump to the full
+        // reference" link, then Enter; the number itself now links to the
+        // References entry and jumps by Enter where its note stands in the
+        // margin (taken at 1280 px below 1200 px, then restored).
+        await page.mouse.move(2, 2);
+        const restore = await jumpFromCiteMark(page, chip, id);
         expect(new URL(page.url()).hash).toBe(`#ref-${id}`);
         const reference = page.locator(`[data-reference-id="${id}"]`);
         await expect(reference).toBeInViewport();
+        await restore();
         const expand = reference.getByRole('button', { name: `Show all ${citation.authors.length} authors`, exact: true });
         if (await expand.count()) { await expand.focus(); await page.keyboard.press('Enter'); await expect(expand).toHaveCount(0); }
         await expect(reference.locator('[data-author-names]')).toHaveText(citation.authors.join(', '));

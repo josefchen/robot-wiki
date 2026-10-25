@@ -7,6 +7,8 @@ import type { Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
 import { splatTransferReaderProof } from './splat-transfer-reader-proof';
 import { openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
 
@@ -37,10 +39,17 @@ test.describe('sim2real-transfer module', () => {
         main.getByText(name).filter({ visible: true }).first(),
       ).toBeVisible();
     }
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the sidebar is gone and the same taxonomy, with its
+    // current-route mark, lives in the panel the top bar's "Articles"
+    // button opens.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Sim-to-Real Transfer' }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
   });
 
   test('citation chips link to external primary sources', async ({ page }) => {
@@ -270,17 +279,26 @@ test.describe('sim2real-transfer module', () => {
         await expect(clusters).toHaveCount(count);
         for (let i = 0; i < count; i++) {
           const cluster = clusters.nth(i);
-          const link = cluster.locator('a').first();
-          await expect(link).toHaveAttribute('href', url);
-          await link.focus();
-          await expect(link).toBeFocused();
-          const popup = cluster.getByRole('tooltip');
+          // Owner-approved successor (Josef, 2026-10-10, the research-page
+          // standard): the chip's source link and focus tooltip became a
+          // numbered mark with a sidenote (helpers/citation-note.ts). The
+          // source URL is on the note's author-year link, the number is the
+          // focus stop, and the note is the panel whose box stays in the
+          // viewport: in the margin at 1440, opened inline by Enter at 375.
+          const { mark, note, source } = citeParts(cluster);
+          await expect(source).toHaveAttribute('href', url);
+          await waitForHydration(mark);
+          await mark.scrollIntoViewIfNeeded();
+          await showCiteNote(page, cluster, 'keyboard');
+          await expect(mark).toBeFocused();
+          const popup = note;
           await expect(popup).toBeVisible();
           const box = await popup.boundingBox();
           geometry.push({ id, occurrence: i, box });
           expect.soft(box!.x, `${id}:${i} left edge`).toBeGreaterThanOrEqual(0);
           expect.soft(box!.x + box!.width, `${id}:${i} right edge`).toBeLessThanOrEqual(width);
           if (i === count - 1) await page.screenshot({ path: testInfo.outputPath(`splat-${width}-${id}-focused.png`) });
+          await dismissCiteNote(page, cluster, 'keyboard');
           await page.keyboard.press('Tab');
         }
       }

@@ -4,6 +4,8 @@ import { setHydratedSlider as setSlider, waitForHydration } from './interaction-
 import { writeFileSync } from 'node:fs';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
 import { figureFold, openAdjustMore } from './helpers/figure-fold';
+import { openArticlesPanel } from './helpers/articles-panel';
+import { citeParts, showCiteNote } from './helpers/citation-note';
 
 const ROUTE = '/classical/control/';
 
@@ -83,8 +85,12 @@ test.describe('classical control module', () => {
       expect(text).not.toMatch(/more than 95%|>95%|Kalman's 1960/i);
       await expect(page.locator('[data-cite-id="astrom-murray-2008"]')).toHaveCount(0);
       await expect(page.locator('[data-cite-id="kalman-1960"]')).toHaveCount(0);
-      const zn = page.locator('[data-cite-id="ziegler-nichols-1942"] a').first();
-      const lqr = page.locator('[data-cite-id="tedrake-underactuated"] a').first();
+      // Owner-approved successor (Josef, 2026-10-10, the research-page
+      // standard): the old pin read the first link in each citation, which
+      // was the chip's source link; that first link is now the number
+      // (#ref-<id>), and the source URL is on the sidenote's author-year link.
+      const zn = citeParts(page.locator('[data-cite-id="ziegler-nichols-1942"]').first()).source;
+      const lqr = citeParts(page.locator('[data-cite-id="tedrake-underactuated"]').first()).source;
       await expect(zn).toHaveAttribute('href', 'https://doi.org/10.1115/1.2899060');
       await expect(lqr).toHaveAttribute('href', 'https://underactuated.mit.edu/');
       await expect(page.locator('#ref-ziegler-nichols-1942')).toHaveCount(1);
@@ -127,10 +133,16 @@ test.describe('classical control module', () => {
     ).toBeVisible();
 
     // Sidebar shows the module active under the classical domain.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin read the persistent sidebar at rest; the same
+    // taxonomy nav and its aria-current link live in the Articles panel.
+    await openArticlesPanel(page);
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Control', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeHidden();
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -201,11 +213,14 @@ test.describe('classical control module', () => {
 
     // A chip is keyboard-focusable and reveals its metadata on focus. The
     // Scope the tooltip to the focused chip's group.
-    const pidChip = main.getByRole('link', { name: 'Ziegler et al. 1942' }).first();
-    await pidChip.focus();
-    const tooltip = pidChip.locator(
-      'xpath=../following-sibling::span[@role="tooltip"]',
-    );
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin focused the chip's source link and read the
+    // sibling role="tooltip". The citation's keyboard stop is now its
+    // number, and the metadata is its sidenote (in the margin at rest from
+    // 1200 px, opened inline by Enter narrower), read in the same group.
+    const pidCite = main.locator('[data-cite-id="ziegler-nichols-1942"]').first();
+    await showCiteNote(page, pidCite, 'keyboard');
+    const tooltip = citeParts(pidCite).note;
     await expect(tooltip).toBeVisible();
     await expect(tooltip).toContainText('Optimum Settings');
   });
@@ -428,7 +443,12 @@ test.describe('classical control module', () => {
     // Section prose: from the section heading to the next same-level
     // heading (the article body is flat; h2s are not wrapped in
     // <section> elements, so scope via the prose article ancestor).
-    const article = page.locator('#main-content article').first();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin read the whole <article>. Since 9154d672 the
+    // article also holds the contents rail, which lists the section heads
+    // first, so the slice landed on the rail's entries. The prose is the
+    // article body ([data-article-body]), read for the same three schemes.
+    const article = page.locator('#main-content article [data-article-body]').first();
     const articleText = (await article.innerText()) ?? '';
     const fromHeading = articleText.slice(
       Math.max(articleText.toLowerCase().indexOf('impedance control: making')),
@@ -486,7 +506,11 @@ test.describe('classical control module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const article = page.locator('#main-content article').first();
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin read the whole <article>, which since 9154d672
+    // also holds the contents rail listing the section heads first; the
+    // section is now sliced from the article body ([data-article-body]).
+    const article = page.locator('#main-content article [data-article-body]').first();
     const articleText = (await article.innerText()) ?? '';
     const start = articleText
       .toLowerCase()

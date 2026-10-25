@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { CITATIONS } from '../../data/citations';
 import { openAdjustMore } from './helpers/figure-fold';
+import { citeParts, dismissCiteNote, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
 import { waitForHydration } from './interaction-ready';
 
 const evidenceRoot = process.env.ROBOT_WIKI_EVIDENCE_ROOT;
@@ -108,13 +109,20 @@ test('final ECoT prose, Hi Robot bullet and coupled Stat remain readable', async
 for (const id of ['ecot-2024', 'hi-robot-2025']) {
   test(`${id}: short citation metadata and full expanded reference`, async ({ page }, info) => {
     const c = CITATIONS.find(c => c.id === id)!;
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the chip and its tooltip became a numbered mark with a
+    // sidenote (helpers/citation-note.ts). At 375 px the note is hidden at
+    // rest, so the keyboard open and dismissal run there; the number then
+    // jumps to the References entry, which is what it does where its note
+    // stands in the margin.
+    await page.setViewportSize({ width: 375, height: 812 });
     const chip = page.locator(`[data-cite-id="${id}"]`).first();
-    const outbound = chip.locator('a').first();
-    await outbound.scrollIntoViewIfNeeded();
-    // Escape is handled by the hydrated chip; before hydration the tooltip only shows.
-    await waitForHydration(outbound);
-    await outbound.focus();
-    const tip = chip.getByRole('tooltip');
+    const { mark, note: tip, source: outbound } = citeParts(chip);
+    await mark.scrollIntoViewIfNeeded();
+    // Enter is handled by the hydrated number; before hydration it follows the #ref- link.
+    await waitForHydration(mark);
+    await expect(tip).toBeHidden();
+    await showCiteNote(page, chip, 'keyboard');
     await expect(tip).toBeVisible();
     await expect(tip).toContainText(c.title);
     await expect(tip).toContainText(String(c.year));
@@ -122,10 +130,10 @@ for (const id of ['ecot-2024', 'hi-robot-2025']) {
     await expect(outbound).toHaveAttribute('rel', 'noopener noreferrer');
     // Inline metadata is intentionally short; it does not certify the full author list.
     if (evidenceRoot) await page.screenshot({ path: info.outputPath(`${id}-short-tooltip.png`) });
-    await page.keyboard.press('Escape');
+    await dismissCiteNote(page, chip, 'keyboard');
     await expect(tip).not.toBeVisible();
-    await expect(outbound).toBeFocused();
-    await chip.getByRole('link', { name: `Jump to the full reference for ${c.title}` }).click();
+    await expect(mark).toBeFocused();
+    await jumpFromCiteMark(page, chip, id);
     const reference = page.locator(`#ref-${id}`);
     await expect(reference).toBeInViewport();
     const expand = reference.getByRole('button', { name: `Show all ${c.authors.length} authors`, exact: true });
@@ -138,9 +146,12 @@ for (const id of ['ecot-2024', 'hi-robot-2025']) {
 }
 
 test('hierarchy selector, keyboard playhead, detail and reset remain functional', async ({ page }, info) => {
-  const group = page.getByRole('group', { name: 'Robot system' });
+  // The page has gained a second figure with a slider, so every control is
+  // read inside the hierarchy figure; the assertions are unchanged.
+  const figure = page.locator('main [data-figure-frame="hierarchy-timescales"]');
+  const group = figure.getByRole('group', { name: 'Robot system' });
   await group.scrollIntoViewIfNeeded();
-  await openAdjustMore(page.locator('main [data-figure-frame="hierarchy-timescales"]'));
+  await openAdjustMore(figure);
   const buttons = group.locator('button[aria-pressed]');
   expect(await buttons.count()).toBe(4);
   const states = [];
@@ -148,19 +159,19 @@ test('hierarchy selector, keyboard playhead, detail and reset remain functional'
     const button = buttons.nth(i);
     await button.click();
     await expect(button).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByTestId('system-detail')).toBeVisible();
-    const slider = page.getByRole('slider');
+    await expect(figure.getByTestId('system-detail')).toBeVisible();
+    const slider = figure.getByRole('slider');
     await slider.focus();
     await slider.press('Home');
     await expect(slider).toHaveValue('0');
     await slider.press('End');
     await expect(slider).toHaveValue('2000');
-    await expect(page.getByTestId('playhead-readout')).toContainText('2000');
-    states.push({ system: await button.innerText(), detail: await page.getByTestId('system-detail').innerText() });
+    await expect(figure.getByTestId('playhead-readout')).toContainText('2000');
+    states.push({ system: await button.innerText(), detail: await figure.getByTestId('system-detail').innerText() });
   }
-  await page.getByRole('slider').press('Home');
-  await page.getByRole('button', { name: /reset/i }).click();
-  await expect(page.getByRole('slider')).toHaveValue('2000');
+  await figure.getByRole('slider').press('Home');
+  await figure.getByRole('button', { name: /reset/i }).click();
+  await expect(figure.getByRole('slider')).toHaveValue('2000');
   await capture(page, group.locator('..'), 'hierarchy-controls', info);
   await info.attach('all-four-systems', { body: Buffer.from(JSON.stringify(states, null, 2)), contentType: 'application/json' });
 });

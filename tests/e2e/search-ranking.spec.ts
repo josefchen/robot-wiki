@@ -397,22 +397,45 @@ test.describe('VAL-SEARCH-026: structured results carry a snippet', () => {
     const routeText = new Map<string, string>();
     const failures: string[] = [];
 
+    // Owner-approved successor (Josef, 2026-10-10, the research-page
+    // standard): the old pin loaded each hit's pathname alone and found
+    // every company description in the market map's text at rest. Since
+    // c80c39de the map shows each company as a tile (logo, name, latest
+    // round) and its description only in the company sheet, which the
+    // search link's #company-<id> hash opens. A company hit is therefore read
+    // on its full destination: the map with that company's sheet open, by
+    // the hash the result links to. Every other hit is read as before.
     for (const query of QUERIES) {
       const { structured } = await search(page, query);
+      let loaded: string | null = null;
       for (const hit of structured) {
-        const route = new URL(hit.href, 'http://x').pathname;
-        if (!routeText.has(route)) {
-          await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
-          // The market map and both tables render every row client-side.
-          await page.waitForTimeout(1000);
-          // A figure keeps its full table in "Adjust more", one click away
-          // (VAL-OPUS-144), so the folds are opened as a reader would.
-          const summaries = page.locator('article [data-figure-fold] > summary');
-          for (let i = 0; i < await summaries.count(); i += 1) {
-            await summaries.nth(i).click();
+        const target = new URL(hit.href, 'http://x');
+        const route = target.pathname;
+        const company = target.hash.startsWith('#company-') ? target.hash : '';
+        const destination = `${route}${company}`;
+        if (!routeText.has(destination)) {
+          if (loaded !== route) {
+            await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
+            // The market map and both tables render every row client-side.
+            await page.waitForTimeout(1000);
+            // A figure keeps its full table in "Adjust more", one click away
+            // (VAL-OPUS-144), so the folds are opened as a reader would.
+            const summaries = page.locator('article [data-figure-fold] > summary');
+            for (let i = 0; i < await summaries.count(); i += 1) {
+              await summaries.nth(i).click();
+            }
+            loaded = route;
+          }
+          if (company) {
+            await page.evaluate((hash) => {
+              document.location.hash = hash;
+            }, company);
+            await expect(
+              page.locator('main').getByRole('dialog', { name: hit.title, exact: true }),
+            ).toBeVisible();
           }
           routeText.set(
-            route,
+            destination,
             normalize(
               await page.evaluate(
                 () =>
@@ -425,8 +448,8 @@ test.describe('VAL-SEARCH-026: structured results carry a snippet', () => {
         const words = normalize(hit.snippet).split(' ').filter(Boolean);
         expect(words.length).toBeGreaterThanOrEqual(SIX_WORD_WINDOW);
         const window = words.slice(0, SIX_WORD_WINDOW).join(' ');
-        if (!routeText.get(route)!.includes(window)) {
-          failures.push(`${hit.title} (${route}): "${window}" not found`);
+        if (!routeText.get(destination)!.includes(window)) {
+          failures.push(`${hit.title} (${destination}): "${window}" not found`);
         }
       }
     }

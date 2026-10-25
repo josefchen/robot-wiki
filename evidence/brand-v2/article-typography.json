@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "a37e4214e9878ac54f16c92f1fe394f171f65409f732eade49862612e92c58b3",
+  "fingerprint": "c06c2b347eb2069dda3bbfdaf3bb08612d5a12c19e3811d603d217b8787f574f",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3087,
+      "visibleTextLength": 3068,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30548,7 +30548,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16327,
+      "visibleTextLength": 16337,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -30620,6 +30620,7 @@
           "pearce-diffusion-bc-2023",
           "much-ado-noising-2025",
           "openvla-oft-2025",
+          "bidirectional-decoding-2024",
           "ddpm-2020",
           "iddpm-2021",
           "ddim-2021",
@@ -30637,7 +30638,6 @@
           "demystifying-diffusion-policies-2025",
           "drifting-models-2026",
           "bilinear-flow-policy-2026",
-          "bidirectional-decoding-2024",
           "groupnorm-2018",
           "one-step-flow-policy-2026",
           "xiaomi-robotics-1-2026"
@@ -31122,7 +31122,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 76,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -31132,7 +31132,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -31142,7 +31142,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -57132,7 +57132,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3087,
+      "visibleTextLength": 3068,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87196,7 +87196,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21691,
+      "visibleTextLength": 21861,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -87268,6 +87268,7 @@
           "pearce-diffusion-bc-2023",
           "much-ado-noising-2025",
           "openvla-oft-2025",
+          "bidirectional-decoding-2024",
           "ddpm-2020",
           "iddpm-2021",
           "ddim-2021",
@@ -87285,7 +87286,6 @@
           "demystifying-diffusion-policies-2025",
           "drifting-models-2026",
           "bilinear-flow-policy-2026",
-          "bidirectional-decoding-2024",
           "groupnorm-2018",
           "one-step-flow-policy-2026",
           "xiaomi-robotics-1-2026"
@@ -87770,7 +87770,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 76,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -87780,7 +87780,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -87790,7 +87790,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",

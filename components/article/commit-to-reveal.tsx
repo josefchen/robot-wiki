@@ -148,6 +148,15 @@ export function CommitToReveal({
     if (chosen !== null && detailsRef.current) detailsRef.current.open = true;
   }, [chosen]);
 
+  // The served radios work before script arrives, and hydration keeps a
+  // pick made on them without firing onChange. Adopt it, so the reasoning
+  // opens on that pick as it would for a pick made after hydration.
+  const fieldsetRef = useRef<HTMLFieldSetElement>(null);
+  useLayoutEffect(() => {
+    const picked = fieldsetRef.current?.querySelector<HTMLInputElement>('input[type="radio"]:checked');
+    if (picked) setChosen(picked.value);
+  }, []);
+
   const predict = region === 'predict';
 
   return (
@@ -166,7 +175,7 @@ export function CommitToReveal({
       )}
     >
       <p className="eyebrow">{kicker}</p>
-      <fieldset className="mt-3">
+      <fieldset ref={fieldsetRef} className="mt-3">
         <legend id={`${uid}-prompt`} className="font-display text-[16px] font-semibold leading-snug">
           {prompt}
         </legend>
@@ -204,8 +213,13 @@ export function CommitToReveal({
           {children}
         </div>
       ) : null}
+      {/* The served disclosure opens natively before script arrives, and the
+          open attribute that leaves is the reader's state, not a server/client
+          difference: the client render never sets it, so it would be reported
+          as a hydration mismatch on every early open. */}
       <details
         ref={detailsRef}
+        suppressHydrationWarning
         data-reveal=""
         className="mt-4 border-t border-border pt-3 text-[14px]"
       >

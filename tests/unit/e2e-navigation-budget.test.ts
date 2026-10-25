@@ -293,10 +293,21 @@ describe('RL reader route, viewport and assertion preservation', () => {
     // call on the same widget. Titles, viewports, loops, graph bindings and
     // the capture function are unchanged, and the other 299 calls are
     // byte-identical.
-    expect(inventory.calls).toHaveLength(303);
+    // Re-frozen 2026-10-25 at the research-page e2e successor sweep. Reviewed
+    // delta against the prior freeze (303 calls, ac99c049.../19f7d39c...):
+    // the citation tooltip is the numbered sidenote (owner decision, Josef,
+    // 10 October 2026), so the source reader focuses the number and shows
+    // its note through helpers/citation-note.ts (citeParts, showCiteNote,
+    // a hover on the number's box, dismissCiteNote) and waits for the
+    // ledger and each number to hydrate; and the shorter-text cut
+    // (fa85511f) left q-transformer-2023 with no in-prose citation, so its
+    // occurrence is pinned as a Further reading entry with its title,
+    // source link, target and overflow. Titles, viewports, loops, graph
+    // bindings, the capture function and the per-route body are unchanged.
+    expect(inventory.calls).toHaveLength(324);
     // The three navigation URLs now use the Playwright localhost host; all
     // routes, assertions, viewport loops and capture calls remain in place.
-    expect(digest(inventory)).toBe('ac99c0498ee28c9f86e9af1d405a0310d2267193228cdd113841dfff9d8783ab');
+    expect(digest(inventory)).toBe('c4a50000b8ca20ee1916aa3b8251e64889a8c145129e1af373b4bb0e171dd5cb');
     expect(digest(routeBody)).toBe('19f7d39cc9d6a621d4cd7097fcebf9b94032d7e8ac727f848bd60fb5cb5e16bf');
     expect(helpers).toHaveLength(1);
     expect(helpers[0].arguments[0].getText(source)).toBe('browser');

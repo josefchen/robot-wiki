@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-24T22:03:49Z",
+  "observedAt": "2026-10-25T06:41:55Z",
   "sources": [
     {
       "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
@@ -894,16 +894,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "853b2c04697d22c1c850e776fcd1cc3f656a1738",
       "before": {
         "path": "content/manipulation/diffusion-policy.mdx",
-        "bytes": 9559,
-        "sha256": "8ad96dcd6c5c09cca1006d3bf9dcf3d114fde389f08551107b4e148ce40a5f65"
+        "bytes": 9601,
+        "sha256": "6c9eaf48861d1de758668e33326b237960536d5a718d4ee3a9717e8167e77458"
       },
       "after": {
         "path": "content/manipulation/diffusion-policy.mdx",
-        "bytes": 9652,
-        "sha256": "54f0f2f2c5f094a44a386c62dc1ee14a9fc9f8aa5e1d3b6c33920556f8053dc9"
+        "bytes": 9694,
+        "sha256": "a92ac00e8ffa5b39ab71f385651722c89f1bf5be8e3445c49f910478fd1046a6"
       },
       "mounts": [
         "aloha-unleashed-shirt-rollout-2024",

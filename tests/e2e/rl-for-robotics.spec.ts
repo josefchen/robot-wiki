@@ -3,9 +3,11 @@ import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { modulesByDomain } from '../../data/modules';
+import { DOMAIN_META, modulesByDomain } from '../../data/modules';
 import { setSlider } from './slider';
 import { openAdjustMore } from './helpers/figure-fold';
+import { waitForHydration } from './interaction-ready';
+import { inlineCitationIds } from '../../lib/references';
 
 /**
  * RL for Robotics (VAL-RL-001, 035 through 041).
@@ -82,18 +84,28 @@ function slider(page: Page, name: string): Locator {
   return page.getByTestId(`sample-${name}-slider`);
 }
 
+/**
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the taxonomy was the desktop sidebar ("Robot Wiki taxonomy") or, on phones,
+ * the drawer behind "Open navigation menu". The sidebar is gone: at every
+ * width the one top bar's "Articles" button opens the drawer, so the drawer
+ * path (focus trap, inert page, Escape back to the button) runs at every width.
+ */
+function articlesButton(page: Page): Locator {
+  return page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
+}
+
 async function visibleTaxonomy(page: Page): Promise<Locator> {
-  const menu = page.getByRole('button', { name: 'Open navigation menu' });
-  const mobile = await menu.isVisible();
-  if (mobile) {
-    await menu.focus();
-    await page.keyboard.press('Enter');
-    await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Close navigation menu' })).toBeFocused();
-    await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
-  }
+  const menu = articlesButton(page);
+  await expect(menu).toBeVisible();
+  await waitForHydration(menu);
+  await menu.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Close navigation menu' })).toBeFocused();
+  await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
   const nav = page.getByRole('navigation', {
-    name: mobile ? 'Robot Wiki taxonomy drawer' : 'Robot Wiki taxonomy',
+    name: 'Robot Wiki taxonomy drawer',
     exact: true,
   });
   await expect(nav).toBeVisible();
@@ -103,12 +115,43 @@ async function visibleTaxonomy(page: Page): Promise<Locator> {
 
 async function closeTaxonomy(page: Page): Promise<void> {
   const dialog = page.getByRole('dialog', { name: 'Site navigation' });
-  if (await dialog.count()) {
-    await page.keyboard.press('Escape');
-    await expect(dialog).toHaveCount(0);
-    await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
-    await expect(page.getByRole('button', { name: 'Open navigation menu' })).toBeFocused();
-  }
+  await expect(dialog).toHaveCount(1);
+  await page.keyboard.press('Escape');
+  await expect(dialog).toHaveCount(0);
+  await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
+  await expect(articlesButton(page)).toBeFocused();
+}
+
+/**
+ * Owner-approved successor (Josef, 2026-10-10, the research-page standard):
+ * the visible trail was Home > Domain > Article, two links and an unlinked
+ * trailing crumb. The masthead eyebrow now links only the domain between the
+ * top bar's wordmark and the H1 that names the page, and the full three-level
+ * trail is the page's BreadcrumbList structured data
+ * (components/article/breadcrumbs.tsx).
+ */
+async function expectBreadcrumbs(page: Page, title: string, route: string): Promise<void> {
+  const crumbs = page.getByRole('navigation', { name: 'Breadcrumb' });
+  await expect(crumbs).toBeVisible();
+  await expect(crumbs.getByRole('link', { name: DOMAIN_META['rl-sim2real'].name })).toHaveAttribute('href', DOMAIN);
+  await expect(crumbs.getByRole('link')).toHaveCount(1);
+  await expect(page.getByRole('heading', { level: 1, name: title })).toBeVisible();
+  const trail = await page
+    .locator('script[type="application/ld+json"]')
+    .evaluateAll((scripts) =>
+      scripts.flatMap((script) => {
+        const data = JSON.parse(script.textContent ?? 'null');
+        if (data?.['@type'] !== 'BreadcrumbList') return [];
+        return (data.itemListElement as Array<{ name: string; item: string }>).map(
+          (item) => [item.name, new URL(item.item).pathname],
+        );
+      }),
+    );
+  expect(trail).toEqual([
+    ['Home', '/'],
+    [DOMAIN_META['rl-sim2real'].name, DOMAIN],
+    [title, route],
+  ]);
 }
 
 /**
@@ -195,9 +238,8 @@ test.describe('rl-for-robotics module', () => {
         `${route} keeps its h1`,
       ).toBeVisible();
 
-      // Three-level breadcrumbs still resolve.
-      const crumbs = page.getByRole('navigation', { name: 'Breadcrumb' });
-      await expect(crumbs.getByRole('link')).toHaveCount(2);
+      // Three-level breadcrumbs still resolve (eyebrow plus BreadcrumbList; see expectBreadcrumbs).
+      await expectBreadcrumbs(page, sibling.title, route);
 
       // And the sidebar highlight still lands on this route.
       const nav = await visibleTaxonomy(page);
@@ -279,7 +321,7 @@ test.describe('rl-for-robotics module', () => {
     expect(errors).toEqual([]);
   });
 
-  test('offline RL is a first-class section with three algorithms, three chips and a cited BC comparison (VAL-RL-038)', async ({
+  test('offline RL is a first-class section with two cited algorithms, three chips and a cited BC comparison (VAL-RL-038)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
@@ -289,9 +331,23 @@ test.describe('rl-for-robotics module', () => {
     );
     expect(offline, 'a heading naming offline reinforcement learning').toBeDefined();
 
-    for (const algorithm of [/\bCQL\b/, /\bIQL\b/, /TD3\+BC/]) {
+    // The reviewed 2026-10-12 length cut dropped the IQL and TD3+BC
+    // sentences from this section and recorded each drop with its claim;
+    // BCQ and CQL stay named here, each with its own chip, and TD3+BC keeps
+    // its cited sentence on the offline RL article.
+    for (const [algorithm, citeId] of [[/\bBCQ\b/, 'bcq-2018'], [/\bCQL\b/, 'cql-2020']] as const) {
       expect(offline!.text, `${algorithm} named`).toMatch(algorithm);
+      expect(offline!.citeIds, `${citeId} cited in the section`).toContain(citeId);
     }
+    const cut = JSON.parse(readFileSync(
+      join(process.cwd(), 'audit/evidence/length-cut-20261012/source-transition.json'), 'utf8',
+    )) as { sources: { after: { path: string }; dropped: { citations: { value: string; claim: string }[] } }[] };
+    const dropped = cut.sources.find((s) => s.after.path === 'content/rl-sim2real/rl-for-robotics.mdx')!
+      .dropped.citations;
+    expect(dropped.find((d) => d.value === 'iql-2022')?.claim).toMatch(/^IQL /);
+    expect(dropped.find((d) => d.value === 'td3-bc-2021')?.claim).toMatch(/^TD3\+BC /);
+    expect(readFileSync(join(process.cwd(), 'content/rl-sim2real/offline-rl.mdx'), 'utf8'))
+      .toMatch(/TD3\+BC [^\n]*<Cite id="td3-bc-2021" \/>/);
     expect(new Set(offline!.citeIds).size).toBeGreaterThanOrEqual(3);
     expect(offline!.citeIds).toContain('offline-rl-tutorial-2020');
 
@@ -421,6 +477,9 @@ test.describe('rl-for-robotics module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
+    // The ledger is a lazy mount (components/mdx/lazy-mounts.tsx); a value set on its server
+    // HTML before React attaches is lost, so the readings start once the slider is hydrated.
+    await waitForHydration(slider(page, 'budget'));
     const opening = {
       budget: await readout(page, 'sample-budget-value'),
       fleet: await readout(page, 'sample-fleet-value'),
@@ -449,6 +508,8 @@ test.describe('rl-for-robotics module', () => {
   }) => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const budget = slider(page, 'budget');
+    // A lazy mount: arrow keys reach the slider's handler only once React has attached.
+    await waitForHydration(budget);
     await budget.focus();
     await expect(budget).toBeFocused();
     const before = await readout(page, 'sample-wallclock-readout');
@@ -461,14 +522,7 @@ test.describe('rl-for-robotics module', () => {
   }) => {
     await page.goto(ROUTE);
 
-    const crumbs = page.getByRole('navigation', { name: 'Breadcrumb' });
-    await expect(crumbs).toBeVisible();
-    await expect(crumbs.getByRole('link', { name: 'Home' })).toHaveAttribute(
-      'href',
-      '/',
-    );
-    await expect(crumbs.getByRole('link')).toHaveCount(2);
-    await expect(crumbs.getByText(TITLE)).toBeVisible();
+    await expectBreadcrumbs(page, TITLE, ROUTE);
 
     const seeAlso = page.locator('section[data-section="see-also"]');
     await expect(seeAlso).toBeVisible();
@@ -484,7 +538,12 @@ test.describe('rl-for-robotics module', () => {
       linkedFrom.getByRole('link', { name: /RL Fine-Tuning/i }),
     ).toBeVisible();
 
-    // References: one entry per declared citation, in declaration order.
+    // References: one entry per declared citation.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard; 5ccbeba9, 13 October
+    // 2026): the entries were printed in plain declaration order. References now prints the
+    // sources the prose cites first, then the declared but uncited ones under one "Further
+    // reading" heading, each group in declaration order (lib/reference-order.ts), and every
+    // entry marks its group in data-further-reading.
     const source = readFileSync(
       join(process.cwd(), 'content', 'rl-sim2real', 'rl-for-robotics.mdx'),
       'utf8',
@@ -494,15 +553,23 @@ test.describe('rl-for-robotics module', () => {
         (matter(source).data as { citations?: string[] }).citations ?? [],
       ),
     ];
+    const inline = new Set(inlineCitationIds(matter(source).content));
+    const printOrder = [
+      ...declared.filter((id) => inline.has(id)),
+      ...declared.filter((id) => !inline.has(id)),
+    ];
     await expect(
       page.getByRole('heading', { level: 2, name: 'References' }),
     ).toBeVisible();
     const rendered = await page
       .locator('ol [data-reference-id]')
       .evaluateAll((els) =>
-        els.map((el) => el.getAttribute('data-reference-id') ?? ''),
+        els.map((el) => [el.getAttribute('data-reference-id') ?? '', el.getAttribute('data-further-reading')]),
       );
-    expect(rendered).toEqual(declared);
+    expect(rendered).toEqual(printOrder.map((id) => [id, inline.has(id) ? 'false' : 'true']));
+    if (printOrder.length > inline.size) {
+      await expect(page.getByRole('heading', { level: 3, name: 'Further reading' })).toBeVisible();
+    }
   });
 
   test('an inline Term reveals its definition on keyboard focus (VAL-RL-041)', async ({

@@ -6,6 +6,8 @@ import matter from 'gray-matter';
 import { setHydratedSlider as setSlider, waitForHydration } from './interaction-ready';
 import { publishedModules } from '../../data/modules';
 import { citedSourceCount, leadWords, MAX_LEAD_WORDS, MIN_CITED_SOURCES } from './helpers/brevity-bar';
+import { citeParts, dismissCiteNote, showCiteNote } from './helpers/citation-note';
+import { inlineCitationIds } from '../../lib/references';
 
 /**
  * Scene Representation and Mapping (VAL-CLASS-046 through VAL-CLASS-051).
@@ -153,13 +155,21 @@ test.describe('classical scene-representation module', () => {
       await expect(chip.locator('xpath=ancestor::p[1]')).toContainText(text);
       const link = chip.locator('a[target="_blank"]');
       await expect(link).toHaveAttribute('href', href);
-      await link.evaluate((element) => element.scrollIntoView({ block: 'center' }));
-      await link.hover();
-      const tooltip = chip.getByRole('tooltip');
+      // Owner-approved successor (Josef, 2026-10-10, the research-page standard): hovering and
+      // then focusing the chip's source link showed the same role="tooltip" inside the viewport.
+      // A citation is now a number with a sidenote (helpers/citation-note.ts); the source link
+      // is the note's author-year link, and the note shows the same text on hover and on focus
+      // of the number (in the margin at rest from 1200 px, opened inline below it), inside the
+      // viewport.
+      const { mark, note: tooltip } = citeParts(chip);
+      await mark.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+      await waitForHydration(mark);
+      await showCiteNote(page, chip, 'hover');
       await expect(tooltip).toBeVisible();
       const hoverText = await tooltip.innerText();
+      await dismissCiteNote(page, chip, 'hover');
       await page.mouse.move(0, 0);
-      await link.focus();
+      await showCiteNote(page, chip, 'keyboard');
       await expect(tooltip).toBeVisible();
       expect(await tooltip.innerText()).toBe(hoverText);
       const bounds = await tooltip.boundingBox();
@@ -169,7 +179,8 @@ test.describe('classical scene-representation module', () => {
       expect(bounds!.y).toBeGreaterThanOrEqual(0);
       expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(viewport.width);
       expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(viewport.height);
-      await link.evaluate((element) => element.blur());
+      await dismissCiteNote(page, chip, 'keyboard');
+      await mark.evaluate((element) => (element as HTMLElement).blur());
     }
     const proseText = await page.locator('.prose').evaluate((element) => {
       const clone = element.cloneNode(true) as HTMLElement;
@@ -430,16 +441,37 @@ test.describe('classical scene-representation module', () => {
   }) => {
     await page.goto(ROUTE);
 
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the visible trail
+    // was Home > Classical Foundations > Scene Representation and Mapping, two links and a
+    // trailing unlinked crumb. The masthead eyebrow now links only the ancestor between the top
+    // bar's wordmark and the H1 that names the page; the full three-level trail is the page's
+    // BreadcrumbList structured data (components/article/breadcrumbs.tsx).
     const crumbs = page.getByRole('navigation', { name: 'Breadcrumb' });
     await expect(crumbs).toBeVisible();
-    await expect(crumbs.getByRole('link', { name: 'Home' })).toHaveAttribute(
+    await expect(crumbs.getByRole('link', { name: 'Classical Foundations' })).toHaveAttribute(
       'href',
-      '/',
+      '/classical/',
     );
-    await expect(crumbs.getByRole('link')).toHaveCount(2);
+    await expect(crumbs.getByRole('link')).toHaveCount(1);
     await expect(
-      crumbs.getByText('Scene Representation and Mapping'),
+      page.getByRole('heading', { level: 1, name: 'Scene Representation and Mapping' }),
     ).toBeVisible();
+    const trail = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((scripts) =>
+        scripts.flatMap((script) => {
+          const data = JSON.parse(script.textContent ?? 'null');
+          if (data?.['@type'] !== 'BreadcrumbList') return [];
+          return (data.itemListElement as Array<{ name: string; item: string }>).map(
+            (item) => [item.name, new URL(item.item).pathname],
+          );
+        }),
+      );
+    expect(trail).toEqual([
+      ['Home', '/'],
+      ['Classical Foundations', '/classical/'],
+      ['Scene Representation and Mapping', ROUTE],
+    ]);
 
     const seeAlso = page.locator('section[data-section="see-also"]');
     await expect(seeAlso).toBeVisible();
@@ -461,7 +493,12 @@ test.describe('classical scene-representation module', () => {
       linkedFrom.getByRole('link', { name: inbound!.title }),
     ).toBeVisible();
 
-    // References: one entry per declared citation, in declaration order.
+    // References: one entry per declared citation.
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard; 5ccbeba9, 13 October
+    // 2026): the entries were printed in plain declaration order. References now prints the
+    // sources the prose cites first, then the declared but uncited ones under one "Further
+    // reading" heading, each group in declaration order (lib/reference-order.ts), and every
+    // entry marks its group in data-further-reading.
     const source = readFileSync(
       join(process.cwd(), 'content', 'classical', 'scene-representation.mdx'),
       'utf8',
@@ -471,15 +508,23 @@ test.describe('classical scene-representation module', () => {
         (matter(source).data as { citations?: string[] }).citations ?? [],
       ),
     ];
+    const inline = new Set(inlineCitationIds(matter(source).content));
+    const printOrder = [
+      ...declared.filter((id) => inline.has(id)),
+      ...declared.filter((id) => !inline.has(id)),
+    ];
     await expect(
       page.getByRole('heading', { level: 2, name: 'References' }),
     ).toBeVisible();
     const rendered = await page
       .locator('ol [data-reference-id]')
       .evaluateAll((els) =>
-        els.map((el) => el.getAttribute('data-reference-id') ?? ''),
+        els.map((el) => [el.getAttribute('data-reference-id') ?? '', el.getAttribute('data-further-reading')]),
       );
-    expect(rendered).toEqual(declared);
+    expect(rendered).toEqual(printOrder.map((id) => [id, inline.has(id) ? 'false' : 'true']));
+    if (printOrder.length > inline.size) {
+      await expect(page.getByRole('heading', { level: 3, name: 'Further reading' })).toBeVisible();
+    }
   });
 
   test('an inline Term reveals its definition on keyboard focus (VAL-CLASS-051)', async ({
@@ -506,29 +551,29 @@ test.describe('classical scene-representation module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const menu = page.getByRole('button', { name: 'Open navigation menu' });
-    const mobile = await menu.isVisible();
-    if (mobile) {
-      await menu.focus();
-      await page.keyboard.press('Enter');
-    }
-    const nav = mobile
-      ? page.getByRole('dialog', { name: 'Site navigation' })
-      : page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    // Owner-approved successor (Josef, 2026-10-10, the research-page standard): the phone's
+    // "Open navigation menu" button opened the "Site navigation" dialog and the desktop read the
+    // persistent "Robot Wiki taxonomy" sidebar. The sidebar is gone; the top bar's "Articles"
+    // button opens that same modal panel at every width, so the keyboard open, the current-route
+    // mark, the inert page, Escape and focus return are now checked at every width.
+    const menu = page.getByRole('banner').getByRole('button', { name: 'Articles', exact: true });
+    await expect(menu).toBeVisible();
+    await page.waitForFunction(() => window.history.state !== null);
+    await menu.focus();
+    await page.keyboard.press('Enter');
+    const nav = page.getByRole('dialog', { name: 'Site navigation' });
     await expect(nav).toBeVisible();
     await expect(
-      nav.getByRole('link', {
+      nav.getByRole('navigation', { name: 'Robot Wiki taxonomy drawer' }).getByRole('link', {
         name: 'Scene Representation and Mapping',
         exact: true,
       }),
     ).toHaveAttribute('aria-current', 'page');
-    if (mobile) {
-      await expect(page.locator('#main-content').locator('xpath=ancestor-or-self::*[@inert]').first()).toBeAttached();
-      await page.keyboard.press('Escape');
-      await expect(nav).toHaveCount(0);
-      await expect(menu).toBeFocused();
-      await expect(page.locator('[inert]')).toHaveCount(0);
-    }
+    await expect(page.locator('#main-content').locator('xpath=ancestor-or-self::*[@inert]').first()).toBeAttached();
+    await page.keyboard.press('Escape');
+    await expect(nav).toHaveCount(0);
+    await expect(menu).toBeFocused();
+    await expect(page.locator('[inert]')).toHaveCount(0);
 
     await page.goto('/classical/');
     await expect(
