@@ -71,7 +71,7 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 64542, sha256: '42244f4280feb3d9d029867b34437954fc8169a971426da05906f62fc509d7c4' };
+const reviewPin = { bytes: 64542, sha256: '3bdbd5f82023824e1c1b165f7cdc370801336856bfd7ef53c3e2c1b96c7111cc' };
 
 /** Reviewed successor bytes per path (one per mount change, oldest first), so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = new Map([
@@ -88,7 +88,7 @@ const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = 
   ['content/manipulation/action-spaces.mdx', [[9716, '2f009a099e4c5b4514c183ff45661d375085761b2522187c0fc105c36bf10c2c']]],
   ['content/manipulation/comparison-matrix.mdx', [[9486, '29f74c7b927967f87763dbccc9e39236825addd0464b401d06a0fc08d4db85a2']]],
   ['content/manipulation/cross-embodiment.mdx', [[9920, '944ed6bd2a3a9c014498a16f4f0e7e0e06e65650192688ed107e4cc2d7695997']]],
-  ['content/manipulation/hierarchical.mdx', [[11994, '315d07be25045cccbb4a4ff863b545be417ee198b7ff55263f650b4ec8579b19']]],
+  ['content/manipulation/hierarchical.mdx', [[13673, '38fa5cd168aa7a40df297ba5f7c1c2a7993f5f691b54b0a904c2a14e1fe29b09']]],
   ['content/manipulation/rl-finetuning.mdx', [[18253, 'd14cb02e5e38ba1270cecf249a7d4eae0c782ab820787f0891eeb67189f98499']]],
   ['content/manipulation/robot-learning-roadmap.mdx', [[9031, '8c868d5a44291ee09ecb915dc342a5cb4f5dfeed454c7ead1a0cec5fc6494f8d']]],
   ['content/rl-sim2real/humanoid-wbc.mdx', [[15826, '0286490b18ce62845fa3cb42eeffab3ec64143e1ca3fe10bc4790c177ee3619c']]],

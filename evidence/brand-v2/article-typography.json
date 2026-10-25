@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "4b058d0f2039fc7809c094524f5ba2653f19e4b786e1d556222a2600a0ae8055",
+  "fingerprint": "a37e4214e9878ac54f16c92f1fe394f171f65409f732eade49862612e92c58b3",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3103,
+      "visibleTextLength": 3087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14994,7 +14994,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21389,
+      "visibleTextLength": 22356,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15046,12 +15046,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 34,
+        "readingMinutes": 10,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "34 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "35 sources",
         "bibliographyIds": [
           "tri-lbm-2025",
           "diffusion-policy-2023",
@@ -15086,7 +15086,8 @@
           "xpolicylab-2026",
           "eval-actions-2026",
           "worldoracle-2026",
-          "ge-sim-2-2026"
+          "ge-sim-2-2026",
+          "stopwatch-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -15327,6 +15328,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "StopWatch, from Xinhao Liu, Pieter Abbeel, Guanya Shi and co"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Eval-Actions argues binary success rates hide process-level "
         },
         {
@@ -15483,7 +15493,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 35,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -15493,7 +15503,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15505,7 +15515,7 @@
         },
         {
           "kind": "citation",
-          "count": 94,
+          "count": 96,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -15515,7 +15525,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -15525,7 +15535,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -33201,7 +33211,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22159,
+      "visibleTextLength": 24212,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -33253,12 +33263,12 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 42,
+        "readingMinutes": 10,
+        "citationCount": 44,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "42 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "44 sources",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -33292,6 +33302,8 @@
           "rpg-2026",
           "lbm-cotraining-2026",
           "robo-cop-2026",
+          "rax-2026",
+          "coevolve-2026",
           "embodiedswe-2026",
           "roboharn-evo-2026",
           "asena-2026",
@@ -33471,6 +33483,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "In September 2026, several groups returned to code-writing p"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "RAX, from Yilun Du, Pieter Abbeel and colleagues at Harvard,"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "CoEvolve, led from Peking University and Renmin University o"
         },
         {
           "familyHead": "geist",
@@ -33779,7 +33809,7 @@
         },
         {
           "kind": "reference",
-          "count": 42,
+          "count": 44,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -33789,7 +33819,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -33801,7 +33831,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 78,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -33811,7 +33841,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -33821,7 +33851,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -34128,6 +34158,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 20 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -57094,7 +57132,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3103,
+      "visibleTextLength": 3087,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71780,7 +71818,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29298,
+      "visibleTextLength": 30393,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71832,12 +71870,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 34,
+        "readingMinutes": 10,
+        "citationCount": 35,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "34 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "35 sources",
         "bibliographyIds": [
           "tri-lbm-2025",
           "diffusion-policy-2023",
@@ -71872,7 +71910,8 @@
           "xpolicylab-2026",
           "eval-actions-2026",
           "worldoracle-2026",
-          "ge-sim-2-2026"
+          "ge-sim-2-2026",
+          "stopwatch-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -72113,6 +72152,15 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "StopWatch, from Xinhao Liu, Pieter Abbeel, Guanya Shi and co"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Eval-Actions argues binary success rates hide process-level "
         },
         {
@@ -72269,7 +72317,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 35,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -72279,7 +72327,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72291,7 +72339,7 @@
         },
         {
           "kind": "citation",
-          "count": 94,
+          "count": 96,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -72301,7 +72349,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -72311,7 +72359,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 47,
+              "count": 48,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -89778,7 +89826,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27939,
+      "visibleTextLength": 30274,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -89830,12 +89878,12 @@
           "Manipulation & Learned Policies"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 42,
+        "readingMinutes": 10,
+        "citationCount": 44,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "42 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "44 sources",
         "bibliographyIds": [
           "saycan-2022",
           "code-as-policies-2022",
@@ -89869,6 +89917,8 @@
           "rpg-2026",
           "lbm-cotraining-2026",
           "robo-cop-2026",
+          "rax-2026",
+          "coevolve-2026",
           "embodiedswe-2026",
           "roboharn-evo-2026",
           "asena-2026",
@@ -90048,6 +90098,24 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "In September 2026, several groups returned to code-writing p"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "RAX, from Yilun Du, Pieter Abbeel and colleagues at Harvard,"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "CoEvolve, led from Peking University and Renmin University o"
         },
         {
           "familyHead": "geist",
@@ -90356,7 +90424,7 @@
         },
         {
           "kind": "reference",
-          "count": 42,
+          "count": 44,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -90366,7 +90434,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 42,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90378,7 +90446,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 78,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -90388,7 +90456,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -90398,7 +90466,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -90705,6 +90773,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 20 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

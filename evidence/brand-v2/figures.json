@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c3d4ddd4a8872354be07b72252d5c0f58fadd613cd36ce2bdec267cbb55f3019",
+  "fingerprint": "c853e38cedb634c6c7a365a939373057153fce02ae90db2b905f9d7f024c75d9",
   "viewports": [
     "375x812",
     "1440x900"
@@ -11671,7 +11671,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21389,
+      "visibleTextLength": 22356,
       "figures": [
         {
           "imageId": "roboarena-evaluation-2025",
@@ -13934,7 +13934,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22159,
+      "visibleTextLength": 24212,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",
@@ -28137,7 +28137,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 29298,
+      "visibleTextLength": 30393,
       "figures": [
         {
           "imageId": "roboarena-evaluation-2025",
@@ -30400,7 +30400,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27939,
+      "visibleTextLength": 30274,
       "figures": [
         {
           "imageId": "rt-h-language-corrections-2024",

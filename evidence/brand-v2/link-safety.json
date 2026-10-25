@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "4b963118e9fc89be9c88ca6ac12982946bae0943126d447dcf2629228f169299",
+  "fingerprint": "a10db080a9f4427ea3805801f359d285d043af5e9cfa523711f19ee4905243d8",
   "source": "out/ static export",
   "routes": [
     {
@@ -256,8 +256,8 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "outboundAnchors": 88,
-      "distinctHrefs": 38,
+      "outboundAnchors": 90,
+      "distinctHrefs": 39,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -527,8 +527,8 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundAnchors": 89,
-      "distinctHrefs": 46,
+      "outboundAnchors": 93,
+      "distinctHrefs": 48,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -854,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6099,
-  "distinctOutboundHrefs": 1648,
+  "outboundAnchors": 6105,
+  "distinctOutboundHrefs": 1651,
   "anchorsByShape": {
-    "citation-chip": 2562,
+    "citation-chip": 2565,
     "footer": 152,
     "figure-credit": 873,
-    "reference-entry": 2197,
+    "reference-entry": 2200,
     "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5763,
+  "anchorsWithNoreferrer": 5769,
   "keyboard": [
     {
       "route": "/",
@@ -1052,11 +1052,11 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "outboundInDom": 88,
-      "reachedByTab": 88,
+      "outboundInDom": 90,
+      "reachedByTab": 90,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 224
+      "tabStops": 227
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
@@ -1244,11 +1244,11 @@
     },
     {
       "route": "/manipulation/hierarchical/",
-      "outboundInDom": 89,
-      "reachedByTab": 89,
+      "outboundInDom": 93,
+      "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 213
+      "tabStops": 220
     },
     {
       "route": "/manipulation/knowledge-insulation/",

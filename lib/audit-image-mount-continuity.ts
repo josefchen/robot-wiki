@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176644, sha256: '6b0a92c50838953a06d788c9bfee27f056dc9ab3249e1a7a755163760c3e1d39' };
+const reviewPin = { bytes: 176644, sha256: '4b5f86c26a36c17eb7e3baae781bb9ab2c4240b3a783afa6bfa1669deabfe311' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -189,7 +189,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],
   ['content/data-hardware/data-bottleneck.mdx', [14264, '0e5457aa30ececce1bc3cba3c5a942c439c8866e879d38c9aa8f2f1c113d4081']],
   ['content/data-hardware/datasets.mdx', [12114, '698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51']],
-  ['content/data-hardware/evaluation-crisis.mdx', [15714, 'c094f543b6839b0b2956d0a3dc32ef58df077369db878006f8c8033b48588c97']],
+  ['content/data-hardware/evaluation-crisis.mdx', [16534, '4d7638d5bc90c62c7326b26b135086611a1ca17f5dc3cc469b431cd8d45a6937']],
   ['content/data-hardware/hardware-taxonomy.mdx', [11225, '01727d1b7c0ddd110bdafd3c957475ab217d338cf71adad943ce4bf76969a180']],
   ['content/data-hardware/industrial-deployment.mdx', [16804, '94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b']],
   ['content/data-hardware/robot-learning-stack.mdx', [10400, 'd99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7']],
@@ -208,7 +208,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/diffusion-policy.mdx', [9652, '54f0f2f2c5f094a44a386c62dc1ee14a9fc9f8aa5e1d3b6c33920556f8053dc9']],
   ['content/manipulation/foundation-models.mdx', [10345, '6a5c7383f6078015d5dd2401cc6474093200bcc048a976f9695e1016bede4747']],
   ['content/manipulation/generalist-policies.mdx', [11341, '97da58646f07c48b8b144f7fe3d6d1565a45df52a32fae4243ee87f4ffea8123']],
-  ['content/manipulation/hierarchical.mdx', [11881, '8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691']],
+  ['content/manipulation/hierarchical.mdx', [13560, '2f9aefbe568ec93d12c4ccf5196ba7c48fd0d89aed34915100ce638f04fdefab']],
   ['content/manipulation/knowledge-insulation.mdx', [8651, 'b97c1b7b1971dd73d103fa5479680813c69375fda35f1dd791553d76de904d9b']],
   ['content/manipulation/pi-line.mdx', [12914, '22b3e62a57a42dda336cda4619dc08bfaf177e094f4d7586044f8ee47bbd077c']],
   ['content/manipulation/realtime-execution.mdx', [10584, '1397e0bb36a80dc5dbd37128bf89647a525686fdbb17beaca29c1b4ac3ac4bd2']],

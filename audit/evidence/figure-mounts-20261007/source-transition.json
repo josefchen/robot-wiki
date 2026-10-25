@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-21T11:31:59Z",
+  "observedAt": "2026-10-24T22:03:49Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -344,16 +344,16 @@
       ]
     },
     {
-      "archivedFrom": "0772d39650393820d6ea63f57efa17b8c0d52590",
+      "archivedFrom": "7b9110b2cfbdead2502a6d413a1d059267382af1",
       "before": {
         "path": "content/manipulation/hierarchical.mdx",
-        "bytes": 11881,
-        "sha256": "8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691"
+        "bytes": 13560,
+        "sha256": "2f9aefbe568ec93d12c4ccf5196ba7c48fd0d89aed34915100ce638f04fdefab"
       },
       "after": {
         "path": "content/manipulation/hierarchical.mdx",
-        "bytes": 11994,
-        "sha256": "315d07be25045cccbb4a4ff863b545be417ee198b7ff55263f650b4ec8579b19"
+        "bytes": 13673,
+        "sha256": "38fa5cd168aa7a40df297ba5f7c1c2a7993f5f691b54b0a904c2a14e1fe29b09"
       },
       "edits": [
         {

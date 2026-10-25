@@ -49,6 +49,8 @@ citations:
   - lbm-cotraining-2026
   - seeq-2026
   - robo-cop-2026
+  - rax-2026
+  - coevolve-2026
 seeAlso:
   - "classical/motion-planning"
   - "frontier/competing-theses"
@@ -89,6 +91,10 @@ Code as Policies (2022) prompts a code-writing LLM with example instruction-prog
 VoxPoser's LLM-written code queries a <Term id="vision-language-model">VLM</Term> to compose 3D value maps, which a model-based planner turns into closed-loop trajectories <Cite id="voxposer-2023" />.
 
 In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX has the agent build a robot toolbox in simulation and correct the simulator from a few physical trials, and its authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id="simex-2026" />. RPG (UC Berkeley and Amazon FAR, October 2026) keeps the weights frozen and revises a symbolic skill library and its system prompt through practice in simulation; on held-out starts of 22 manipulation tasks, success rose from 28.6% to 95.0% after 15 rounds, and the frozen system succeeded in all 30 physical trials <Cite id="rpg-2026" />.
+
+RAX, from Yilun Du, Pieter Abbeel and colleagues at Harvard, UC Berkeley, NVIDIA, MIT and Stanford (October 2026), gives a coding agent no action demonstrations, hand-built action primitives or value functions and keeps its language-model weights fixed; the agent explores online and compiles what worked into control programs. Against the strongest prior learned policy on each of five simulation benchmarks, its mean margin is 37.4 points, from 7.9 on HumanoidArena, where the agent read three teleoperated demonstrations per task and the baselines trained on 100, to 53.4 on RoboDojo. On a real Franka FR3 and a Rainbow RB-Y1 mobile manipulator the agent received only the task text and the robots' tools. Across the paper's experiments, the agents' model calls used more than 100,000 US dollars of API credits <Cite id="rax-2026" />.
+
+CoEvolve, led from Peking University and Renmin University of China (October 2026), has a multimodal model write the coordination code for two humanoids over frozen SONIC controllers; a verifier checks each executed step, and a rejected step is revised from an accepted checkpoint. With two simulated Unitree G1s carrying a freely supported 0.5 kg payload through corridors in MuJoCo, it finished 8 of 15 runs within an 80-transaction budget across three model backbones, while four adapted baselines given the same GPT-5.4-mini backbone, including CaP-Agent0 and ASPIRE, finished none of their five runs. The authors call these comparisons descriptive because runtime and continuation settings differ, and they report persistent limits in motion precision and contact stability <Cite id="coevolve-2026" />.
 
 ## The keypoint turn: VLMs emit geometry instead of skill names
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "01978ab2efd3b96b66c70dd589e2f62ba30982d6f2024355e27d1b8d2d86a4e5",
+  "fingerprint": "330f9cc253bbdc27bd255eccfec06bc72cea760e2e181016332568519d78c1aa",
   "viewports": [
     "375x812",
     "768x1024",
@@ -104,7 +104,7 @@
           "frames": 0,
           "citationLabels": 3,
           "insetTextRuns": 156,
-          "collisionTextBoxes": 186,
+          "collisionTextBoxes": 185,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
@@ -432,7 +432,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-23",
+            "text": "2026-10-25",
             "exemption": null
           },
           {
@@ -444,10 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 201,
+            "maxLineWidthPx": 184,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Robot Calibration",
+            "text": "The Evaluation Crisis",
             "exemption": null
           },
           {
@@ -689,8 +689,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "63c70d04"
+          "strings": 124,
+          "digest": "423cac37"
         }
       },
       "focus": [
@@ -1344,7 +1344,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-23",
+            "text": "2026-10-25",
             "exemption": null
           },
           {
@@ -1359,7 +1359,7 @@
             "maxLineWidthPx": 250,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Robot Calibration",
+            "text": "The Evaluation Crisis",
             "exemption": null
           },
           {
@@ -1608,8 +1608,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "63c70d04"
+          "strings": 124,
+          "digest": "423cac37"
         }
       },
       "focus": [
@@ -2264,7 +2264,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-23",
+            "text": "2026-10-25",
             "exemption": null
           },
           {
@@ -2279,7 +2279,7 @@
             "maxLineWidthPx": 250,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Robot Calibration",
+            "text": "The Evaluation Crisis",
             "exemption": null
           },
           {
@@ -2528,8 +2528,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "63c70d04"
+          "strings": 124,
+          "digest": "423cac37"
         }
       },
       "focus": [
@@ -64896,32 +64896,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2843,
-          "actions": 161,
+          "paintedElements": 2856,
+          "actions": 163,
           "secondaryActions": 23,
           "persistentStates": 1,
-          "links": 131,
-          "textRuns": 393,
+          "links": 133,
+          "textRuns": 400,
           "frames": 6,
           "cards": 1,
-          "citationMarks": 47,
-          "insetTextRuns": 543,
-          "collisionTextBoxes": 820,
+          "citationMarks": 48,
+          "insetTextRuns": 551,
+          "collisionTextBoxes": 847,
           "headings": 10,
-          "paragraphs": 108,
+          "paragraphs": 111,
           "sectionHeads": 9,
-          "spacingValues": 506,
+          "spacingValues": 516,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 38,
-          "hiddenTextRuns": 36,
-          "proseRuns": 414,
+          "decorativeLayers": 39,
+          "hiddenTextRuns": 37,
+          "proseRuns": 435,
           "borderedSides": 10,
           "rails": 6,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -65010,7 +65010,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 313,
-            "count": 56,
+            "count": 57,
             "element": "p.page-lead",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -65055,7 +65055,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 24,
+            "count": 25,
             "element": "p",
             "text": "The evaluation crisis is the gap between",
             "exemption": null
@@ -65070,7 +65070,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -65205,7 +65205,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 300,
-            "count": 50,
+            "count": 51,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "World Model Evaluation for Robotics",
             "exemption": null
@@ -65220,7 +65220,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 319,
-            "count": 105,
+            "count": 107,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Testing a world model on what a robot ne",
             "exemption": null
@@ -65235,7 +65235,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 34,
+            "count": 35,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2507.05331",
             "exemption": null
@@ -65367,21 +65367,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 36,
+            "count": 37,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 38,
+            "count": 39,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -65479,7 +65479,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 35,
+            "count": 36,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -65599,8 +65599,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 508,
-          "digest": "e7b15990"
+          "strings": 515,
+          "digest": "72a2d640"
         }
       },
       "focus": [
@@ -65655,7 +65655,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"34\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"35\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -65913,32 +65913,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2843,
-          "actions": 161,
+          "paintedElements": 2856,
+          "actions": 163,
           "secondaryActions": 23,
           "persistentStates": 1,
-          "links": 131,
-          "textRuns": 393,
+          "links": 133,
+          "textRuns": 400,
           "frames": 6,
           "cards": 1,
-          "citationMarks": 47,
-          "insetTextRuns": 543,
-          "collisionTextBoxes": 579,
+          "citationMarks": 48,
+          "insetTextRuns": 551,
+          "collisionTextBoxes": 594,
           "headings": 10,
-          "paragraphs": 108,
+          "paragraphs": 111,
           "sectionHeads": 9,
-          "spacingValues": 506,
+          "spacingValues": 516,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 38,
-          "hiddenTextRuns": 36,
-          "proseRuns": 291,
+          "decorativeLayers": 39,
+          "hiddenTextRuns": 37,
+          "proseRuns": 302,
           "borderedSides": 10,
           "rails": 6,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -66027,7 +66027,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 386,
-            "count": 56,
+            "count": 57,
             "element": "p.page-lead",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -66072,7 +66072,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 24,
+            "count": 25,
             "element": "p",
             "text": "The evaluation crisis is the gap between",
             "exemption": null
@@ -66087,7 +66087,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -66222,7 +66222,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 50,
+            "count": 51,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "World Model Evaluation for Robotics",
             "exemption": null
@@ -66237,7 +66237,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 105,
+            "count": 107,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Testing a world model on what a robot ne",
             "exemption": null
@@ -66252,7 +66252,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 350,
-            "count": 34,
+            "count": 35,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2507.05331",
             "exemption": null
@@ -66398,21 +66398,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 36,
+            "count": 37,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 38,
+            "count": 39,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -66489,7 +66489,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 35,
+            "count": 36,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -66602,8 +66602,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 508,
-          "digest": "e7b15990"
+          "strings": 515,
+          "digest": "72a2d640"
         }
       },
       "focus": [
@@ -66658,7 +66658,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"34\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"35\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -66916,33 +66916,33 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2998,
-          "actions": 215,
+          "paintedElements": 3014,
+          "actions": 218,
           "secondaryActions": 23,
           "persistentStates": 2,
-          "links": 185,
-          "textRuns": 493,
+          "links": 188,
+          "textRuns": 502,
           "frames": 6,
           "cards": 1,
-          "citationMarks": 47,
-          "insetTextRuns": 643,
-          "collisionTextBoxes": 638,
+          "citationMarks": 48,
+          "insetTextRuns": 653,
+          "collisionTextBoxes": 653,
           "headings": 10,
-          "paragraphs": 108,
+          "paragraphs": 111,
           "sectionHeads": 9,
-          "spacingValues": 702,
+          "spacingValues": 716,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 38,
-          "hiddenTextRuns": 36,
-          "proseRuns": 361,
+          "decorativeLayers": 39,
+          "hiddenTextRuns": 37,
+          "proseRuns": 372,
           "borderedSides": 8,
           "rails": 4,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -67031,7 +67031,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 386,
-            "count": 56,
+            "count": 57,
             "element": "p.page-lead",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -67091,7 +67091,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 927,
-            "count": 24,
+            "count": 25,
             "element": "p",
             "text": "The evaluation crisis is the gap between",
             "exemption": null
@@ -67106,7 +67106,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -67121,7 +67121,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 47,
+            "count": 48,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "10",
             "exemption": null
@@ -67136,7 +67136,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 154,
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Kress-Gazit et al. 2024",
             "exemption": null
@@ -67271,7 +67271,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 826,
-            "count": 50,
+            "count": 51,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "World Model Evaluation for Robotics",
             "exemption": null
@@ -67286,7 +67286,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 883,
-            "count": 105,
+            "count": 107,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Testing a world model on what a robot ne",
             "exemption": null
@@ -67301,7 +67301,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 350,
-            "count": 34,
+            "count": 35,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2507.05331",
             "exemption": null
@@ -67440,42 +67440,42 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 36,
+            "count": 37,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 47,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 47,
+            "count": 48,
             "element": "span#_R_elav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 47,
+            "count": 48,
             "element": "span#_R_elav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 47,
+            "count": 48,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 38,
+            "count": 39,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -67559,7 +67559,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 35,
+            "count": 36,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -67672,8 +67672,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 508,
-          "digest": "e7b15990"
+          "strings": 515,
+          "digest": "72a2d640"
         }
       },
       "focus": [
@@ -67728,7 +67728,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"34\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"35\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -131048,31 +131048,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1191,
-          "actions": 163,
-          "secondaryActions": 32,
+          "paintedElements": 1218,
+          "actions": 168,
+          "secondaryActions": 33,
           "persistentStates": 1,
-          "links": 120,
-          "textRuns": 401,
+          "links": 124,
+          "textRuns": 416,
           "frames": 8,
-          "citationMarks": 37,
-          "insetTextRuns": 495,
-          "collisionTextBoxes": 821,
+          "citationMarks": 39,
+          "insetTextRuns": 512,
+          "collisionTextBoxes": 880,
           "headings": 11,
-          "paragraphs": 118,
+          "paragraphs": 124,
           "sectionHeads": 9,
-          "spacingValues": 479,
+          "spacingValues": 499,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 46,
-          "hiddenTextRuns": 44,
-          "proseRuns": 346,
+          "decorativeLayers": 48,
+          "hiddenTextRuns": 46,
+          "proseRuns": 390,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 44
+          "compositionBlocks": 46
         },
         "findings": [],
         "typeTuples": [
@@ -131176,7 +131176,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 304,
-            "count": 50,
+            "count": 52,
             "element": "p.page-lead",
             "text": "From SayCan and Code as Policies to the ",
             "exemption": null
@@ -131221,7 +131221,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 23,
+            "count": 25,
             "element": "p",
             "text": "Hierarchical approaches are robot archit",
             "exemption": null
@@ -131236,7 +131236,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -131311,7 +131311,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 283,
-            "count": 50,
+            "count": 52,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Motion Planning",
             "exemption": null
@@ -131326,7 +131326,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 320,
-            "count": 121,
+            "count": 126,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Configuration space, RRT and its variant",
             "exemption": null
@@ -131341,7 +131341,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 42,
+            "count": 44,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2204.01691",
             "exemption": null
@@ -131473,21 +131473,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 29,
+            "count": 31,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 46,
+            "count": 48,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -131508,7 +131508,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 43,
+            "count": 45,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -131645,8 +131645,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 486,
-          "digest": "b2c12792"
+          "strings": 503,
+          "digest": "7aa9af0a"
         }
       },
       "focus": [
@@ -131701,7 +131701,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"42\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"44\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -131959,31 +131959,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1191,
-          "actions": 163,
-          "secondaryActions": 32,
+          "paintedElements": 1218,
+          "actions": 168,
+          "secondaryActions": 33,
           "persistentStates": 1,
-          "links": 120,
-          "textRuns": 401,
+          "links": 124,
+          "textRuns": 416,
           "frames": 8,
-          "citationMarks": 37,
-          "insetTextRuns": 495,
-          "collisionTextBoxes": 569,
+          "citationMarks": 39,
+          "insetTextRuns": 512,
+          "collisionTextBoxes": 602,
           "headings": 11,
-          "paragraphs": 118,
+          "paragraphs": 124,
           "sectionHeads": 9,
-          "spacingValues": 479,
+          "spacingValues": 499,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 46,
-          "hiddenTextRuns": 44,
-          "proseRuns": 230,
+          "decorativeLayers": 48,
+          "hiddenTextRuns": 46,
+          "proseRuns": 253,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 44
+          "compositionBlocks": 46
         },
         "findings": [],
         "typeTuples": [
@@ -132087,7 +132087,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 525,
-            "count": 50,
+            "count": 52,
             "element": "p.page-lead",
             "text": "From SayCan and Code as Policies to the ",
             "exemption": null
@@ -132132,7 +132132,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 23,
+            "count": 25,
             "element": "p",
             "text": "Hierarchical approaches are robot archit",
             "exemption": null
@@ -132147,7 +132147,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -132222,7 +132222,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 660,
-            "count": 50,
+            "count": 52,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Motion Planning",
             "exemption": null
@@ -132237,7 +132237,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 659,
-            "count": 121,
+            "count": 126,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Configuration space, RRT and its variant",
             "exemption": null
@@ -132252,7 +132252,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 42,
+            "count": 44,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2204.01691",
             "exemption": null
@@ -132398,21 +132398,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 29,
+            "count": 31,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 46,
+            "count": 48,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -132433,7 +132433,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 43,
+            "count": 45,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -132563,8 +132563,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 486,
-          "digest": "b2c12792"
+          "strings": 503,
+          "digest": "7aa9af0a"
         }
       },
       "focus": [
@@ -132619,7 +132619,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"42\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"44\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -132877,32 +132877,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1316,
-          "actions": 207,
-          "secondaryActions": 32,
+          "paintedElements": 1349,
+          "actions": 214,
+          "secondaryActions": 33,
           "persistentStates": 2,
-          "links": 164,
-          "textRuns": 481,
+          "links": 170,
+          "textRuns": 500,
           "frames": 8,
-          "citationMarks": 37,
-          "insetTextRuns": 575,
-          "collisionTextBoxes": 607,
+          "citationMarks": 39,
+          "insetTextRuns": 596,
+          "collisionTextBoxes": 638,
           "headings": 11,
-          "paragraphs": 118,
+          "paragraphs": 124,
           "sectionHeads": 9,
-          "spacingValues": 635,
+          "spacingValues": 663,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 46,
-          "hiddenTextRuns": 44,
-          "proseRuns": 285,
+          "decorativeLayers": 48,
+          "hiddenTextRuns": 46,
+          "proseRuns": 307,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 44
+          "compositionBlocks": 46
         },
         "findings": [],
         "typeTuples": [
@@ -133006,7 +133006,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 525,
-            "count": 50,
+            "count": 52,
             "element": "p.page-lead",
             "text": "From SayCan and Code as Policies to the ",
             "exemption": null
@@ -133066,7 +133066,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 928,
-            "count": 23,
+            "count": 25,
             "element": "p",
             "text": "Hierarchical approaches are robot archit",
             "exemption": null
@@ -133081,7 +133081,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -133096,7 +133096,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 37,
+            "count": 39,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "1",
             "exemption": null
@@ -133111,7 +133111,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 167,
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Ahn et al. 2022",
             "exemption": null
@@ -133186,7 +133186,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 824,
-            "count": 50,
+            "count": 52,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Motion Planning",
             "exemption": null
@@ -133201,7 +133201,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 880,
-            "count": 121,
+            "count": 126,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Configuration space, RRT and its variant",
             "exemption": null
@@ -133216,7 +133216,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 763,
-            "count": 42,
+            "count": 44,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2204.01691",
             "exemption": null
@@ -133355,42 +133355,42 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 29,
+            "count": 31,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 37,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 37,
+            "count": 39,
             "element": "span#_R_s0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 37,
+            "count": 39,
             "element": "span#_R_s0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 37,
+            "count": 39,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 46,
+            "count": 48,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -133418,7 +133418,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 43,
+            "count": 45,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -133548,8 +133548,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 486,
-          "digest": "b2c12792"
+          "strings": 503,
+          "digest": "7aa9af0a"
         }
       },
       "focus": [
@@ -133604,7 +133604,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"42\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"44\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",

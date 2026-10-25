@@ -1025,7 +1025,7 @@
         "/manipulation/hierarchical/"
       ],
       "alt": "Open graph card for the Robot Wiki article Hierarchical Approaches",
-      "treeDigest": "e92d818b0db917478946e813403b6c01d3cceab057add24e3c5610b7f22da7fd",
+      "treeDigest": "f12144aee93bf4fc66be3724ee36fc3a4b61a6379388ed5e18da5a559343b0bb",
       "strings": [
         {
           "field": "domain",
@@ -1057,10 +1057,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "42 REFERENCES",
+          "text": "44 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/manipulation/hierarchical.mdx#frontmatter.citations",
-          "sourceValue": 42
+          "sourceValue": 44
         }
       ],
       "facts": {
@@ -1068,7 +1068,7 @@
         "domain": "manipulation",
         "domainName": "Manipulation & Learned Policies",
         "reviewYear": 2026,
-        "referenceCount": 42
+        "referenceCount": 44
       },
       "devices": [
         "device:section-rule#header",
@@ -1093,23 +1093,23 @@
         "path": "/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "bytes": 33600,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a"
+        "bytes": 33549,
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/manipulation/hierarchical-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41301,
-          "sha256": "26c477d0e395386084188d9c1569d3267caaa8d308abc849188146fb0a55f1ab"
+          "bytes": 41253,
+          "sha256": "f2b11bfc49e80a991b892deea730152f4708fedf4bde2b4558ba13bff6e5a4bd"
         },
         {
           "path": "/structured-images/manipulation/hierarchical-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 49842,
-          "sha256": "740001bdc5a5b3f39bd09ede9ae38b445dc2f769031dfacd2b5de90ef0e11d62"
+          "bytes": 49791,
+          "sha256": "0f47d1955b4b97ef9849cb92d77e97193938f22d6c8e1379440978b1fdde3807"
         }
       ],
       "pixels": {
@@ -1124,7 +1124,7 @@
           "title": 26830,
           "identity": 1178
         },
-        "secondRenderSha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a"
+        "secondRenderSha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5"
       }
     },
     {
@@ -4133,7 +4133,7 @@
         "/data-hardware/evaluation-crisis/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Evaluation Crisis",
-      "treeDigest": "0098e78c4cf4deb4d2ed1413e426b6be67f160b3d60dc502851850e219c09ab1",
+      "treeDigest": "8a6668c51ef001881271007fea753b994d9b7f5f9e4b4fc484484dd52126979c",
       "strings": [
         {
           "field": "domain",
@@ -4165,10 +4165,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "34 REFERENCES",
+          "text": "35 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/data-hardware/evaluation-crisis.mdx#frontmatter.citations",
-          "sourceValue": 34
+          "sourceValue": 35
         }
       ],
       "facts": {
@@ -4176,7 +4176,7 @@
         "domain": "data-hardware",
         "domainName": "Data, Hardware & Evaluation",
         "reviewYear": 2026,
-        "referenceCount": 34
+        "referenceCount": 35
       },
       "devices": [
         "device:section-rule#header",
@@ -4201,23 +4201,23 @@
         "path": "/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "bytes": 31659,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f"
+        "bytes": 31719,
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/data-hardware/evaluation-crisis-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 39330,
-          "sha256": "e2cf32c40d5b44e0693f852be48d45733fec7c76daa5d2f720c5cd09ee7eb3bc"
+          "bytes": 39392,
+          "sha256": "96300494e54ee2d338bb972b60a8466064158f3dc332e7d52c39bc7911005540"
         },
         {
           "path": "/structured-images/data-hardware/evaluation-crisis-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 47850,
-          "sha256": "0618b7244f16654f4b656c2ef42b4b5781a69b8a77fa9c9e7ecfd629ad8deb65"
+          "bytes": 47914,
+          "sha256": "14992e2aa6d9fec9a3e6a27ba29336823c134827c5f201f6c763e3da45636176"
         }
       ],
       "pixels": {
@@ -4232,7 +4232,7 @@
           "title": 21611,
           "identity": 1178
         },
-        "secondRenderSha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f"
+        "secondRenderSha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa"
       }
     },
     {
@@ -6638,7 +6638,6 @@
       "family": "IBM Plex Mono",
       "text": "34 REFERENCES",
       "assignedBy": [
-        "card:data-hardware/evaluation-crisis",
         "card:manipulation/diffusion-policy",
         "card:manipulation/realtime-execution",
         "card:rl-sim2real/why-rl-locomotion"
@@ -6660,6 +6659,7 @@
       "text": "35 REFERENCES",
       "assignedBy": [
         "card:classical/kinematics",
+        "card:data-hardware/evaluation-crisis",
         "card:world-models/world-models-vs-simulators"
       ],
       "codePointCount": 13,
@@ -6805,7 +6805,6 @@
       "text": "42 REFERENCES",
       "assignedBy": [
         "card:adjacent/space",
-        "card:manipulation/hierarchical",
         "card:rl-sim2real/sim2real-transfer"
       ],
       "codePointCount": 13,
@@ -6838,6 +6837,24 @@
       },
       "ownFaceSha256": "de53cb0b4a9f45a0a68d48f541031bff428702cca70bf99a5f4a5581f171dfb6",
       "productionSha256": "de53cb0b4a9f45a0a68d48f541031bff428702cca70bf99a5f4a5581f171dfb6",
+      "fallbackFree": true
+    },
+    {
+      "probeId": "probe:og-face:data:d0a3fa9f0c101207",
+      "faceId": "og-face:data",
+      "family": "IBM Plex Mono",
+      "text": "44 REFERENCES",
+      "assignedBy": [
+        "card:manipulation/hierarchical"
+      ],
+      "codePointCount": 13,
+      "cmapMissing": [],
+      "canvas": {
+        "width": 1200,
+        "height": 109
+      },
+      "ownFaceSha256": "baa4af676fc2d7fb0d0f939bce412595b2f66eb4134fa0ebce01b60d72b15bad",
+      "productionSha256": "baa4af676fc2d7fb0d0f939bce412595b2f66eb4134fa0ebce01b60d72b15bad",
       "fallbackFree": true
     },
     {
@@ -8538,5 +8555,5 @@
       "fallbackFree": true
     }
   ],
-  "corpusSha256": "66fe342426fd993861082bd20a558f8b852c1f8fb2618a1c23921f42d2994f5c"
+  "corpusSha256": "d44cdd08686dd188c6d48ea4f310fb3ddd836bfeaf464864c570e914e1088e8a"
 }

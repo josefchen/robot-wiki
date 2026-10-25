@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 3048653, sha256: '18808541255b94a194a71443fe2abc9c9bd54fad3b6e534288bc660884589b55' };
+const reviewPin = { bytes: 3056951, sha256: 'f5645ef265ea514313cbba1fea0c90629fc753e7fd2c54c34ebeb743218ba82e' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -268,10 +268,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/brand-v2-annotation-scan.test.ts', [13596, '8dfdd1f46946d655fb927f9af75538b168a5fa0e4e5d636523af59fb87796f5b']],
   ['tests/unit/brand-v2-figure-evidence.test.ts', [33552, '01ed0e3b977509ab2d5d4d2bf1e333573b08b862af223a8a13cf24ac39bc2460']],
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
-  ['tests/unit/content-integration-20260923.test.ts', [17295, 'e843a1dff6d3813639354dec2260e2b5f0bd26afd83ad38a815a4159681e5914']],
+  ['tests/unit/content-integration-20260923.test.ts', [17356, '84744d26636d369142fa9ee40a23b67421f0fcfddcd1e06292899f19e8074e76']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [413773, '69e5e85f1a077ffc07ccb3045861cb8cb3667a0223f1729e2b0023dabad6f946']],
-  ['tests/unit/motion-data-hardware.test.ts', [12019, 'b093effb9f642beee839066813ee12c2349e67a3835c8e86ca5cb3ddcac9733e']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [421236, '16b154f7f727c52bc6ee662666b4c86a72a3394c2f22ddf5c37f6095403a7f1f']],
+  ['tests/unit/motion-data-hardware.test.ts', [12175, '926829db949c44ea07d4d16a0bb5ffd2d4b3b5b37e4e3aa3425746d1ead98c5c']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/motion-world-models-continuity.test.ts', [11470, '525d88a94be2165553cde7cd756a92ef4c00677cff56572b95954d4ad9e9f4a6']],
