@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-22T23:49:20Z",
+  "observedAt": "2026-10-24T22:03:49Z",
   "sources": [
     {
       "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
@@ -432,16 +432,16 @@
       ]
     },
     {
-      "archivedFrom": "6cb311960d6dcdb2a49e2ef9eab0134da15c4107",
+      "archivedFrom": "f818a2c0da28414e0ccd38ac1f14c23d09224ada",
       "before": {
         "path": "content/data-hardware/evaluation-crisis.mdx",
-        "bytes": 15625,
-        "sha256": "5471104dc3b7ffd51d42b72f90ed6d97b9a6cc53f030a949137f403e833feaba"
+        "bytes": 16445,
+        "sha256": "dbf351e2d8f8d7d3babc480d325c1fd0a172848efb1a9954de2b236d9e93d425"
       },
       "after": {
         "path": "content/data-hardware/evaluation-crisis.mdx",
-        "bytes": 15714,
-        "sha256": "c094f543b6839b0b2956d0a3dc32ef58df077369db878006f8c8033b48588c97"
+        "bytes": 16534,
+        "sha256": "4d7638d5bc90c62c7326b26b135086611a1ca17f5dc3cc469b431cd8d45a6937"
       },
       "mounts": [
         "roboarena-evaluation-2025",
@@ -985,16 +985,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "582ad2f33fcbdfc0362571e3eaf9f0624b21f16b",
       "before": {
         "path": "content/manipulation/hierarchical.mdx",
-        "bytes": 11756,
-        "sha256": "9dba5d207735a0dcaee01289521ceeb1703ee5f9623235bdcf84fdadf485506d"
+        "bytes": 13435,
+        "sha256": "295c1a36bd6028b7b2b07596d92d387ce1211a1539185ab1b9402f97c3c8b8e8"
       },
       "after": {
         "path": "content/manipulation/hierarchical.mdx",
-        "bytes": 11881,
-        "sha256": "8577693c9ebe209e5abf4f2d1edfa8e2df813c18d374331aeef2ab673511e691"
+        "bytes": 13560,
+        "sha256": "2f9aefbe568ec93d12c4ccf5196ba7c48fd0d89aed34915100ce638f04fdefab"
       },
       "mounts": [
         "rt-h-language-corrections-2024",

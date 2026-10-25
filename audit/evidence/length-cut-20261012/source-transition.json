@@ -4,7 +4,7 @@
   "reviewedBy": "implementation workers for the manipulation, classical and rl-sim2real humanize passes of 2026-10-12, combined into one review by the integration lane (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
   "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
-  "observedAt": "2026-10-22T23:49:19Z",
+  "observedAt": "2026-10-24T22:03:48Z",
   "sources": [
     {
       "archivedFrom": "08955866d1810a79371706218a7cd4e8be9e0b4e",
@@ -4925,10 +4925,14 @@
       },
       "after": {
         "path": "content/manipulation/hierarchical.mdx",
-        "bytes": 11756,
-        "sha256": "9dba5d207735a0dcaee01289521ceeb1703ee5f9623235bdcf84fdadf485506d"
+        "bytes": 13435,
+        "sha256": "295c1a36bd6028b7b2b07596d92d387ce1211a1539185ab1b9402f97c3c8b8e8"
       },
       "edits": [
+        {
+          "before": "  - robo-cop-2026\n",
+          "after": "  - robo-cop-2026\n  - rax-2026\n  - coevolve-2026\n"
+        },
         {
           "before": "LLMs can decompose high-level tasks into mid-level plans zero-shot, but their steps often fail to map to admissible actions <Cite id=\"huang-zero-shot-planners-2022\" />. SayCan (2022) scores each skill in a supplied library twice. The LLM rates its description as the next step, and an <Term id=\"affordance\">affordance</Term> value estimates whether it can succeed in the current state. The product picks the skill to execute, its description is appended to the prompt, and the loop repeats until a termination option wins <Cite id=\"saycan-2022\" />.\n",
           "after": "LLMs can break high-level tasks into mid-level plans zero-shot, but their steps often fail to map to admissible actions <Cite id=\"huang-zero-shot-planners-2022\" />. SayCan (2022) scores each skill in a supplied library twice: the LLM rates its description as the next step, and an <Term id=\"affordance\">affordance</Term> value estimates whether it can succeed in the current state. The product picks the skill to execute, its description is appended to the prompt, and the loop repeats until a termination option wins <Cite id=\"saycan-2022\" />.\n"
@@ -4947,7 +4951,7 @@
         },
         {
           "before": "In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX, from Jiaheng Hu, Guanya Shi and colleagues, has the agent build a robot toolbox in simulation and then correct the simulator from a few physical trials; the authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id=\"simex-2026\" />. EmbodiedSWE, from Zeyu Shen, Dhruv Shah and colleagues, expands one verified coding-agent solution into many simulated demonstrations, and a VLA fine-tuned only on those demonstrations completed a long-horizon task on a real robot <Cite id=\"embodiedswe-2026\" />. RoboHarn-Evo, from Shifeng Bao, Cheng Chi and colleagues, keeps the model weights fixed and stores task-level and action-level knowledge that physical feedback revises; after 80 interaction rollouts, held-out success rose from 48.3% to 75.0% with GPT-5.5 and from 70.0% to 88.3% with GPT-6 <Cite id=\"roboharn-evo-2026\" />. ASENA, from An-Chieh Cheng, Linxi Fan, Yuke Zhu and colleagues, gives a coding agent navigation tools; with simulator feedback, ten passes over recurring 100-task subsets raised success from 72% to 98% on R2R and from 65% to 89% on RxR <Cite id=\"asena-2026\" />. RPG, posted on October 1, 2026 by Yen-Jen Wang, Pieter Abbeel, Haozhi Qi and colleagues at UC Berkeley and Amazon FAR, also keeps the weights frozen: it practices in simulation and revises a symbolic skill library and its system prompt. On held-out starts of 22 manipulation tasks, success rose from 28.6% after the first practice round to 95.0% after 15, and the frozen system succeeded in all 30 physical trials, ten on each of three tasks <Cite id=\"rpg-2026\" />. ENPIRE (CoRL 2026), from Wenli Xiao, Guanya Shi and colleagues, hands the real-robot loop of reset, rollout, verification and code changes to coding agents; the authors report policies trained to 99% success on tasks such as organizing a pin box <Cite id=\"enpire-2026\" />.\n",
-          "after": "In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX has the agent build a robot toolbox in simulation and correct the simulator from a few physical trials, and its authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id=\"simex-2026\" />. RPG (UC Berkeley and Amazon FAR, October 2026) keeps the weights frozen and revises a symbolic skill library and its system prompt through practice in simulation; on held-out starts of 22 manipulation tasks, success rose from 28.6% to 95.0% after 15 rounds, and the frozen system succeeded in all 30 physical trials <Cite id=\"rpg-2026\" />.\n"
+          "after": "In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX has the agent build a robot toolbox in simulation and correct the simulator from a few physical trials, and its authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id=\"simex-2026\" />. RPG (UC Berkeley and Amazon FAR, October 2026) keeps the weights frozen and revises a symbolic skill library and its system prompt through practice in simulation; on held-out starts of 22 manipulation tasks, success rose from 28.6% to 95.0% after 15 rounds, and the frozen system succeeded in all 30 physical trials <Cite id=\"rpg-2026\" />.\n\nRAX, from Yilun Du, Pieter Abbeel and colleagues at Harvard, UC Berkeley, NVIDIA, MIT and Stanford (October 2026), gives a coding agent no action demonstrations, hand-built action primitives or value functions and keeps its language-model weights fixed; the agent explores online and compiles what worked into control programs. Against the strongest prior learned policy on each of five simulation benchmarks, its mean margin is 37.4 points, from 7.9 on HumanoidArena, where the agent read three teleoperated demonstrations per task and the baselines trained on 100, to 53.4 on RoboDojo. On a real Franka FR3 and a Rainbow RB-Y1 mobile manipulator the agent received only the task text and the robots' tools. Across the paper's experiments, the agents' model calls used more than 100,000 US dollars of API credits <Cite id=\"rax-2026\" />.\n\nCoEvolve, led from Peking University and Renmin University of China (October 2026), has a multimodal model write the coordination code for two humanoids over frozen SONIC controllers; a verifier checks each executed step, and a rejected step is revised from an accepted checkpoint. With two simulated Unitree G1s carrying a freely supported 0.5 kg payload through corridors in MuJoCo, it finished 8 of 15 runs within an 80-transaction budget across three model backbones, while four adapted baselines given the same GPT-5.4-mini backbone, including CaP-Agent0 and ASPIRE, finished none of their five runs. The authors call these comparisons descriptive because runtime and continuation settings differ, and they report persistent limits in motion precision and contact stability <Cite id=\"coevolve-2026\" />.\n"
         },
         {
           "before": "MOKA marks candidate points with GroundedSAM masks and prompts a pretrained VLM to select grasp, function and target keypoints, waypoint regions and motion attributes. Calibrated depth from the [perception pipeline](/classical/perception/) lifts the points into the robot frame, and a separate grasp sampler and motion pipeline execute them. No full 6-DoF object pose is needed. It also studies in-context examples and distillation into a policy <Cite id=\"moka-2024\" />.\n",
@@ -5047,16 +5051,8 @@
         ],
         "numbers": [
           {
-            "value": "0",
-            "claim": "Figure's Helix 02 adds S0 beneath S2's behavior sequencing and S1's 200 Hz full-body joint targets from vision, touch and proprioception."
-          },
-          {
             "value": "02",
             "claim": "Figure's Helix 02 adds S0 beneath S2's behavior sequencing and S1's 200 Hz full-body joint targets from vision, touch and proprioception."
-          },
-          {
-            "value": "1",
-            "claim": "RPG, posted on October 1, 2026 by Yen-Jen Wang, Pieter Abbeel, Haozhi Qi and colleagues at UC Berkeley and Amazon FAR, also keeps the weights frozen: it practices in simulation and revises a symbolic skill library and its system prompt."
           },
           {
             "value": "1.5",
@@ -5065,14 +5061,6 @@
           {
             "value": "1.5",
             "claim": "ER 1.5 also produces point sequences that trace trajectories [gemini-robotics-15-2025]."
-          },
-          {
-            "value": "100",
-            "claim": "ASENA, from An-Chieh Cheng, Linxi Fan, Yuke Zhu and colleagues, gives a coding agent navigation tools; with simulator feedback, ten passes over recurring 100-task subsets raised success from 72% to 98% on R2R and from 65% to 89% on RxR [asena-2026]."
-          },
-          {
-            "value": "15",
-            "claim": "On held-out starts of 22 manipulation tasks, success rose from 28.6% after the first practice round to 95.0% after 15, and the frozen system succeeded in all 30 physical trials, ten on each of three tasks [rpg-2026]."
           },
           {
             "value": "2",
@@ -5139,27 +5127,7 @@
             "claim": "RPG, posted on October 1, 2026 by Yen-Jen Wang, Pieter Abbeel, Haozhi Qi and colleagues at UC Berkeley and Amazon FAR, also keeps the weights frozen: it practices in simulation and revises a symbolic skill library and its system prompt."
           },
           {
-            "value": "2026",
-            "claim": "On held-out starts of 22 manipulation tasks, success rose from 28.6% after the first practice round to 95.0% after 15, and the frozen system succeeded in all 30 physical trials, ten on each of three tasks [rpg-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "ENPIRE (CoRL 2026), from Wenli Xiao, Guanya Shi and colleagues, hands the real-robot loop of reset, rollout, verification and code changes to coding agents; the authors report policies trained to 99% success on tasks such as organizing a pin box [enpire-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Gemini Robotics-ER predicts points, trajectories and grasps [gemini-robotics-2025], and RoboBrain 2.5 outputs 3D manipulation traces as ordered keypoint sequences [robobrain-25-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "In Toyota Research Institute's 2026 co-training study, conditioning actions on chain-of-thought traces did not improve performance in its simulation benchmark [lbm-cotraining-2026]."
-          },
-          {
             "value": "25",
-            "claim": "Gemini Robotics-ER predicts points, trajectories and grasps [gemini-robotics-2025], and RoboBrain 2.5 outputs 3D manipulation traces as ordered keypoint sequences [robobrain-25-2026]."
-          },
-          {
-            "value": "3",
             "claim": "Gemini Robotics-ER predicts points, trajectories and grasps [gemini-robotics-2025], and RoboBrain 2.5 outputs 3D manipulation traces as ordered keypoint sequences [robobrain-25-2026]."
           },
           {
@@ -5211,10 +5179,6 @@
             "claim": "RoboHarn-Evo, from Shifeng Bao, Cheng Chi and colleagues, keeps the model weights fixed and stores task-level and action-level knowledge that physical feedback revises; after 80 interaction rollouts, held-out success rose from 48.3% to 75.0% with GPT-5.5 and from 70.0% to 88.3% with GPT-6 [roboharn-evo-2026]."
           },
           {
-            "value": "80",
-            "claim": "RoboHarn-Evo, from Shifeng Bao, Cheng Chi and colleagues, keeps the model weights fixed and stores task-level and action-level knowledge that physical feedback revises; after 80 interaction rollouts, held-out success rose from 48.3% to 75.0% with GPT-5.5 and from 70.0% to 88.3% with GPT-6 [roboharn-evo-2026]."
-          },
-          {
             "value": "86.6",
             "claim": "MolmoAct emits depth-aware perception tokens and an editable trajectory trace before actions, reaching 86.6% average success on LIBERO [molmoact-2025]."
           },
@@ -5233,6 +5197,54 @@
           {
             "value": "99",
             "claim": "ENPIRE (CoRL 2026), from Wenli Xiao, Guanya Shi and colleagues, hands the real-robot loop of reset, rollout, verification and code changes to coding agents; the authors report policies trained to 99% success on tasks such as organizing a pin box [enpire-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "coevolve-2026",
+            "claim": "The authors call these comparisons descriptive because runtime and continuation settings differ, and they report persistent limits in motion precision and contact stability [coevolve-2026]."
+          },
+          {
+            "value": "rax-2026",
+            "claim": "Across the paper's experiments, the agents' model calls used more than 100,000 US dollars of API credits [rax-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "0.5",
+            "claim": "With two simulated Unitree G1s carrying a freely supported 0.5 kg payload through corridors in MuJoCo, it finished 8 of 15 runs within an 80-transaction budget across three model backbones, while four adapted baselines given the same GPT-5.4-mini backbone, including CaP-Agent0 and ASPIRE, finished none of their five runs."
+          },
+          {
+            "value": "1",
+            "claim": "On a real Franka FR3 and a Rainbow RB-Y1 mobile manipulator the agent received only the task text and the robots' tools."
+          },
+          {
+            "value": "100,000",
+            "claim": "Across the paper's experiments, the agents' model calls used more than 100,000 US dollars of API credits [rax-2026]."
+          },
+          {
+            "value": "37.4",
+            "claim": "Against the strongest prior learned policy on each of five simulation benchmarks, its mean margin is 37.4 points, from 7.9 on HumanoidArena, where the agent read three teleoperated demonstrations per task and the baselines trained on 100, to 53.4 on RoboDojo."
+          },
+          {
+            "value": "5.4",
+            "claim": "With two simulated Unitree G1s carrying a freely supported 0.5 kg payload through corridors in MuJoCo, it finished 8 of 15 runs within an 80-transaction budget across three model backbones, while four adapted baselines given the same GPT-5.4-mini backbone, including CaP-Agent0 and ASPIRE, finished none of their five runs."
+          },
+          {
+            "value": "53.4",
+            "claim": "Against the strongest prior learned policy on each of five simulation benchmarks, its mean margin is 37.4 points, from 7.9 on HumanoidArena, where the agent read three teleoperated demonstrations per task and the baselines trained on 100, to 53.4 on RoboDojo."
+          },
+          {
+            "value": "7.9",
+            "claim": "Against the strongest prior learned policy on each of five simulation benchmarks, its mean margin is 37.4 points, from 7.9 on HumanoidArena, where the agent read three teleoperated demonstrations per task and the baselines trained on 100, to 53.4 on RoboDojo."
+          },
+          {
+            "value": "8",
+            "claim": "With two simulated Unitree G1s carrying a freely supported 0.5 kg payload through corridors in MuJoCo, it finished 8 of 15 runs within an 80-transaction budget across three model backbones, while four adapted baselines given the same GPT-5.4-mini backbone, including CaP-Agent0 and ASPIRE, finished none of their five runs."
           }
         ],
         "links": [],

@@ -21303,6 +21303,45 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.22364',
     type: 'paper',
   },
+  // rax-2026: KOL intake note of Pieter Abbeel, added 2026-10-24. arXiv abstract page and PDF read 2026-10-24
+  // (HTTP 200; v1 15 Oct 2026). Harvard University, NVIDIA, UC Berkeley, MIT and Stanford University.
+  {
+    id: 'rax-2026',
+    title: 'Scaling Online Exploration for Robot Agents',
+    authors: [
+      'Runhan Huang', 'Xiangcheng Zhang', 'Haoyu Chen', 'Yitong Li', 'Yen-Jen Wang', 'Bohan Lyu', 'Haotian Ye',
+      'Chuye Hong', 'Yixuan Wang', 'Chloe Su', 'Haoyu Xiong', 'Yangzhen Wu', 'Enze Xie', 'Travis Manderson',
+      'Stefano Ermon', 'Pieter Abbeel', 'Antonio Torralba', 'Dawn Song', 'Weirui Ye', 'Yilun Du',
+    ],
+    year: 2026,
+    arxiv: '2610.22496',
+    url: 'https://arxiv.org/abs/2610.22496',
+    type: 'paper',
+  },
+  // coevolve-2026: KOL intake note filed under Cheng Chi, added 2026-10-24. The paper's Cheng Chi is at Renmin
+  // University of China, not the intake source; integrated on its own merit. arXiv abstract page and v1 and v2 PDFs
+  // read 2026-10-24 (HTTP 200; v1 16 Oct 2026, v2 19 Oct 2026, same text). Peking University, Renmin University of
+  // China, Beijing XYZ Embodied AI and BAAI.
+  {
+    id: 'coevolve-2026',
+    title: 'CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots',
+    authors: ['Zicheng Liu', 'Haochen Wu', 'Jiawei He', 'Suyun Zhao', 'Huan Yang', 'Cheng Chi', 'Hao Tang'],
+    year: 2026,
+    arxiv: '2610.23288',
+    url: 'https://arxiv.org/abs/2610.23288',
+    type: 'paper',
+  },
+  // stopwatch-2026: KOL intake note of Pieter Abbeel, added 2026-10-24. arXiv abstract page and PDF read 2026-10-24
+  // (HTTP 200; v1 16 Oct 2026). Amazon FAR, New York University, UC Berkeley and Carnegie Mellon University.
+  {
+    id: 'stopwatch-2026',
+    title: 'StopWatch: Goal Grounding for Object-goal Navigation',
+    authors: ['Xinhao Liu', 'Yunsheng Tian', 'Yuheng Qiu', 'Pieter Abbeel', 'Xi Chen', 'Guanya Shi', 'Chen Feng'],
+    year: 2026,
+    arxiv: '2610.23841',
+    url: 'https://arxiv.org/abs/2610.23841',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

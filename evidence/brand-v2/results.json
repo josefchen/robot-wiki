@@ -2905,12 +2905,12 @@
                   "Data, Hardware & Evaluation"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
-                "citationCount": 34,
+                "readingMinutes": 10,
+                "citationCount": 35,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
-                "citationCountText": "34 sources",
+                "readingTimeText": "10 min read",
+                "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "tri-lbm-2025",
                   "diffusion-policy-2023",
@@ -2945,7 +2945,8 @@
                   "xpolicylab-2026",
                   "eval-actions-2026",
                   "worldoracle-2026",
-                  "ge-sim-2-2026"
+                  "ge-sim-2-2026",
+                  "stopwatch-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -4646,12 +4647,12 @@
                   "Manipulation & Learned Policies"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
-                "citationCount": 42,
+                "readingMinutes": 10,
+                "citationCount": 44,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
-                "citationCountText": "42 sources",
+                "readingTimeText": "10 min read",
+                "citationCountText": "44 sources",
                 "bibliographyIds": [
                   "saycan-2022",
                   "code-as-policies-2022",
@@ -4685,6 +4686,8 @@
                   "rpg-2026",
                   "lbm-cotraining-2026",
                   "robo-cop-2026",
+                  "rax-2026",
+                  "coevolve-2026",
                   "embodiedswe-2026",
                   "roboharn-evo-2026",
                   "asena-2026",
@@ -11562,7 +11565,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 34,
+                  "count": 35,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -11572,7 +11575,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-                      "count": 34,
+                      "count": 35,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -11584,7 +11587,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 94,
+                  "count": 96,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -11594,7 +11597,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 47,
+                      "count": 48,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -11604,7 +11607,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 47,
+                      "count": 48,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -14528,7 +14531,7 @@
                 },
                 {
                   "kind": "reference",
-                  "count": 42,
+                  "count": 44,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "underline",
                   "decorationStyle": "solid",
@@ -14538,7 +14541,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-                      "count": 42,
+                      "count": 44,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -14550,7 +14553,7 @@
                 },
                 {
                   "kind": "citation",
-                  "count": 74,
+                  "count": 78,
                   "colour": "rgb(28, 28, 26)",
                   "decorationLine": "none",
                   "decorationStyle": "solid",
@@ -14560,7 +14563,7 @@
                   "variants": [
                     {
                       "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-                      "count": 37,
+                      "count": 39,
                       "colour": "rgb(28, 28, 26)",
                       "decorationLine": "none",
                       "decorationStyle": "solid",
@@ -14570,7 +14573,7 @@
                     },
                     {
                       "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-                      "count": 37,
+                      "count": 39,
                       "colour": "rgb(108, 107, 102)",
                       "decorationLine": "underline",
                       "decorationStyle": "solid",
@@ -108983,12 +108986,12 @@
                   "Data, Hardware & Evaluation"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
-                "citationCount": 34,
+                "readingMinutes": 10,
+                "citationCount": 35,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
-                "citationCountText": "34 sources",
+                "readingTimeText": "10 min read",
+                "citationCountText": "35 sources",
                 "bibliographyIds": [
                   "tri-lbm-2025",
                   "diffusion-policy-2023",
@@ -109023,7 +109026,8 @@
                   "xpolicylab-2026",
                   "eval-actions-2026",
                   "worldoracle-2026",
-                  "ge-sim-2-2026"
+                  "ge-sim-2-2026",
+                  "stopwatch-2026"
                 ],
                 "imageCount": 0,
                 "badgeCount": 0,
@@ -110724,12 +110728,12 @@
                   "Manipulation & Learned Policies"
                 ],
                 "lastReviewed": "2026-08-17",
-                "readingMinutes": 9,
-                "citationCount": 42,
+                "readingMinutes": 10,
+                "citationCount": 44,
                 "reviewDateText": "17 August 2026",
                 "reviewDateTime": "2026-08-17",
-                "readingTimeText": "9 min read",
-                "citationCountText": "42 sources",
+                "readingTimeText": "10 min read",
+                "citationCountText": "44 sources",
                 "bibliographyIds": [
                   "saycan-2022",
                   "code-as-policies-2022",
@@ -110763,6 +110767,8 @@
                   "rpg-2026",
                   "lbm-cotraining-2026",
                   "robo-cop-2026",
+                  "rax-2026",
+                  "coevolve-2026",
                   "embodiedswe-2026",
                   "roboharn-evo-2026",
                   "asena-2026",
@@ -115074,7 +115080,8 @@
                   "xpolicylab-2026",
                   "eval-actions-2026",
                   "worldoracle-2026",
-                  "ge-sim-2-2026"
+                  "ge-sim-2-2026",
+                  "stopwatch-2026"
                 ],
                 "citationMarkers": [
                   "kress-gazit-evaluation-2024",
@@ -115122,6 +115129,7 @@
                   "libero-plus-2025",
                   "roboarena-2025",
                   "simpler-2024",
+                  "stopwatch-2026",
                   "eval-actions-2026",
                   "beyond-binary-success-2026"
                 ],
@@ -117559,6 +117567,8 @@
                   "rpg-2026",
                   "lbm-cotraining-2026",
                   "robo-cop-2026",
+                  "rax-2026",
+                  "coevolve-2026",
                   "embodiedswe-2026",
                   "roboharn-evo-2026",
                   "asena-2026",
@@ -117583,6 +117593,8 @@
                   "voxposer-2023",
                   "simex-2026",
                   "rpg-2026",
+                  "rax-2026",
+                  "coevolve-2026",
                   "moka-2024",
                   "rekep-2024",
                   "robopoint-2024",
@@ -130889,7 +130901,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:data-hardware/evaluation-crisis moved from 7c6f843d192b7de5701c04b4dd5dc077f53c629d49616f1ec1e15ec1934a60a6 to 09206a4dbd069cff8fa560cf721dc5ea7825008053cd001446262f607aaf32d9 exactly as approved delta kol-batch-20261021-data-hardware-frontmatter-evaluation-crisis permits: KOL triage batch of 2026-10-21 (notes older than 72 hours) on data-hardware/evaluation-crisis: the front-matter citation list keeps every earlier id in order and appends worldoracle-2026 and ge-sim-2-2026, the ids the new paragraph cites. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-frontmatter-evaluation-crisis).",
+      "actual": "article-metadata member article-fact-frontmatter:data-hardware/evaluation-crisis moved from 7c6f843d192b7de5701c04b4dd5dc077f53c629d49616f1ec1e15ec1934a60a6 to 9622bcd7b8a77dca88a81cc18ee97f61b53413d37fca6d7904a1ddd7870ce6b2 exactly as approved delta kol-batch-20261024-frontmatter-data-hardware-evaluation-crisis permits: KOL overdue triage of 2026-10-24 (the four queue notes older than three days) on data-hardware/evaluation-crisis: the front-matter citation list keeps every earlier id in order and appends stopwatch-2026, the id the new paragraph cites. This edge moves the member from its last approved endpoint (kol-batch-20261021-data-hardware-frontmatter-evaluation-crisis).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -130901,9 +130913,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:data-hardware/evaluation-crisis",
           "baselineHash": "7c6f843d192b7de5701c04b4dd5dc077f53c629d49616f1ec1e15ec1934a60a6",
-          "currentHash": "09206a4dbd069cff8fa560cf721dc5ea7825008053cd001446262f607aaf32d9",
+          "currentHash": "9622bcd7b8a77dca88a81cc18ee97f61b53413d37fca6d7904a1ddd7870ce6b2",
           "status": "approved-delta",
-          "approvedDelta": "kol-batch-20261021-data-hardware-frontmatter-evaluation-crisis"
+          "approvedDelta": "kol-batch-20261024-frontmatter-data-hardware-evaluation-crisis"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -131421,7 +131433,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member article-fact-frontmatter:manipulation/hierarchical moved from 22d1f5a0a0b5eda18c7e5f1faee3268dd9a030050434c0028f5ac93cf8dc6049 to 049b1f94b70f884df198a86b9773b79611403dec879d31051eb75856e74a90f2 exactly as approved delta domain-pass-20261012-kol-frontmatter-hierarchical permits: KOL triage batch of 2026-10-12 (notes older than 72 hours) on manipulation/hierarchical: adds one dated paragraph at the end of \"Learned and orchestrated hierarchies, 2025 to 2026\": Robo-COP (mean held-out success on ten simulated RoboLab tasks from 64.8% to 73.8%, against 65.8% for a fixed schedule, and from 38.3% to 50.0% on three real tasks; robo-cop-2026, arXiv 2610.09228). The frontmatter citation list appends robo-cop-2026; title, description, dates and every other field are unchanged. This edge moves the member from its last approved endpoint (domain-pass-20261006-g5-frontmatter-hierarchical).",
+      "actual": "article-metadata member article-fact-frontmatter:manipulation/hierarchical moved from 22d1f5a0a0b5eda18c7e5f1faee3268dd9a030050434c0028f5ac93cf8dc6049 to 4b516637c017fe95d47c995d856725f7f5ae3f308f6dedd85fe93cb4b2eeaedd exactly as approved delta kol-batch-20261024-frontmatter-manipulation-hierarchical permits: KOL overdue triage of 2026-10-24 (the four queue notes older than three days) on manipulation/hierarchical: the front-matter citation list keeps every earlier id in order and appends rax-2026 and coevolve-2026, the ids the new paragraphs cite. This edge moves the member from its last approved endpoint (domain-pass-20261012-kol-frontmatter-hierarchical).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -131433,9 +131445,9 @@
           "manifest": "article-metadata",
           "member": "article-fact-frontmatter:manipulation/hierarchical",
           "baselineHash": "22d1f5a0a0b5eda18c7e5f1faee3268dd9a030050434c0028f5ac93cf8dc6049",
-          "currentHash": "049b1f94b70f884df198a86b9773b79611403dec879d31051eb75856e74a90f2",
+          "currentHash": "4b516637c017fe95d47c995d856725f7f5ae3f308f6dedd85fe93cb4b2eeaedd",
           "status": "approved-delta",
-          "approvedDelta": "domain-pass-20261012-kol-frontmatter-hierarchical"
+          "approvedDelta": "kol-batch-20261024-frontmatter-manipulation-hierarchical"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -133885,7 +133897,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 990fbefa4b7a9cabfb2230c4c8439ebaa6753913cce027f4ff180c3b7d98afa7 exactly as approved delta kol-batch-20261021-world-models-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the KOL triage batch of 2026-10-21 (notes older than 72 hours) registered 4 citation records on world-models articles (lehami-2026, caster-2026, metagensim-2026, t2z-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 79 earlier approved edges exactly, ending with kol-batch-20261021-rl-sim2real-citation-rendering.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 4d4367c5f0ed55ee62b51b1d37c49dd3685cfc159826c85807972c4bb493159b exactly as approved delta kol-batch-20261024-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the KOL overdue triage of 2026-10-24 registered 3 citation records (rax-2026, coevolve-2026, stopwatch-2026); no existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 80 earlier approved edges exactly, ending with kol-batch-20261021-world-models-citation-rendering.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -133897,9 +133909,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "990fbefa4b7a9cabfb2230c4c8439ebaa6753913cce027f4ff180c3b7d98afa7",
+          "currentHash": "4d4367c5f0ed55ee62b51b1d37c49dd3685cfc159826c85807972c4bb493159b",
           "status": "approved-addition",
-          "approvedDelta": "kol-batch-20261021-world-models-citation-rendering"
+          "approvedDelta": "kol-batch-20261024-citation-rendering"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -139416,6 +139428,34 @@
           "currentHash": "470a4b87edef2a66f8ab0b0e6d30218c815573991d2f58d8e4115906c9076344",
           "status": "identical",
           "approvedDelta": null
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:coevolve-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:coevolve-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:coevolve-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:coevolve-2026 moved from null to b7a8fb2dc091218c2073282e4838704a0c9cce9dcd795c874960dabe86851631 exactly as approved delta kol-batch-20261024-citation-coevolve-2026 permits: Registers the new citation coevolve-2026 for the KOL overdue triage of 2026-10-24 (the KOL intake note filed under Cheng Chi on \"CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots\", whose Cheng Chi is a Renmin University of China author and not the intake source; arXiv 2610.23288, v1 16 Oct 2026 and v2 19 Oct 2026, read 2026-10-24). Its audit row is in audit/citations.md under \"KOL intake: overdue queue notes, 2026-10-24\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:coevolve-2026",
+          "baselineHash": null,
+          "currentHash": "b7a8fb2dc091218c2073282e4838704a0c9cce9dcd795c874960dabe86851631",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261024-citation-coevolve-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -162353,6 +162393,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:rax-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:rax-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:rax-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:rax-2026 moved from null to 4bb4986c7ef9e4164c07728fa52471d5c352957afac69e100161a83a387edf70 exactly as approved delta kol-batch-20261024-citation-rax-2026 permits: Registers the new citation rax-2026 for the KOL overdue triage of 2026-10-24 (the KOL intake note of Pieter Abbeel on \"Scaling Online Exploration for Robot Agents\"; arXiv 2610.22496, v1 15 Oct 2026, read 2026-10-24). Its audit row is in audit/citations.md under \"KOL intake: overdue queue notes, 2026-10-24\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:rax-2026",
+          "baselineHash": null,
+          "currentHash": "4bb4986c7ef9e4164c07728fa52471d5c352957afac69e100161a83a387edf70",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261024-citation-rax-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:rda-2026",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:rda-2026",
@@ -168401,6 +168469,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:stopwatch-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:stopwatch-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:stopwatch-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:stopwatch-2026 moved from null to 4a26c5b9bd20f8ee74d8318cf8ef22d4d487133fdea2390b43e906ea666245ae exactly as approved delta kol-batch-20261024-citation-stopwatch-2026 permits: Registers the new citation stopwatch-2026 for the KOL overdue triage of 2026-10-24 (the KOL intake note of Pieter Abbeel on \"StopWatch: Goal Grounding for Object-goal Navigation\"; arXiv 2610.23841, v1 16 Oct 2026, read 2026-10-24). Its audit row is in audit/citations.md under \"KOL intake: overdue queue notes, 2026-10-24\". The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:stopwatch-2026",
+          "baselineHash": null,
+          "currentHash": "4a26c5b9bd20f8ee74d8318cf8ef22d4d487133fdea2390b43e906ea666245ae",
+          "status": "approved-addition",
+          "approvedDelta": "kol-batch-20261024-citation-stopwatch-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:stulp-full-stack-transfer-2026",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:stulp-full-stack-transfer-2026",
@@ -173477,7 +173573,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to 78fdd2aac61935decb94732fe66ab2e4fcbf09c9e5de39f39fab77aad6da6ee3 exactly as approved delta kol-batch-20261021-data-hardware-prose-evaluation-crisis permits: KOL triage batch of 2026-10-21 (notes older than 72 hours) on data-hardware/evaluation-crisis: adds one dated paragraph in \"Simulation as an evaluation proxy\" after the generative world-model evaluator paragraph: WorldOracle (Haoyi Duan, Yuke Zhu and colleagues at AgiBot, NVIDIA and three universities, October 2026) feeds recorded actions from real robot episodes to seven action-conditioned world models and scores the predicted video against what happened; on 100 two-minute AgiBot G2 episodes DreamDojo's single-view score fell from 50.56 over the first 30 seconds to 27.08 over the full episode and Cosmos 3 Nano's from 53.99 to 26.60, while AgiBot's own GE-Sim 2.0, which shares four authors with the benchmark, fell from 73.86 to 63.33. No other text changes; the 2026-10-13 data-hardware length-cut and image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (images-dh-20261015-prose-data-hardware-evaluation-crisis).",
+      "actual": "prose member article:data-hardware/evaluation-crisis moved from a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e to c26762839105e51ea0263e262d8d2441adced9e2e8fe5bdfbd0bd104fd90cea5 exactly as approved delta kol-batch-20261024-prose-data-hardware-evaluation-crisis permits: KOL overdue triage of 2026-10-24 (the four queue notes older than three days) on data-hardware/evaluation-crisis: adds one dated paragraph in \"Reading a result table\" after the question list: StopWatch (Xinhao Liu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, NYU, UC Berkeley and Carnegie Mellon, October 2026) found that HM3D-OVON credits a stop only when the annotated name matches the goal word, and its audit dropped 23% of the unseen-category validation episodes; the expert that generated the demonstrations scores 72% officially and 96% under the corrected scoring, and the authors' lead over LightNav-0 grows from 6.4 to 8.8 points (stopwatch-2026, arXiv 2610.23841). No other text changes; the data-hardware length-cut and image-mount continuity reviews record the new successor bytes. This edge moves the member from its last approved endpoint (kol-batch-20261021-data-hardware-prose-evaluation-crisis).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -173489,9 +173585,9 @@
           "manifest": "prose",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
-          "currentHash": "78fdd2aac61935decb94732fe66ab2e4fcbf09c9e5de39f39fab77aad6da6ee3",
+          "currentHash": "c26762839105e51ea0263e262d8d2441adced9e2e8fe5bdfbd0bd104fd90cea5",
           "status": "approved-delta",
-          "approvedDelta": "kol-batch-20261021-data-hardware-prose-evaluation-crisis"
+          "approvedDelta": "kol-batch-20261024-prose-data-hardware-evaluation-crisis"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -174009,7 +174105,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:manipulation/hierarchical moved from 1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46 to 4c99b5dd76885ed4403b79ce4d3f70062311aa0f4046c16e7974d0eed4a1a73f exactly as approved delta anatomy-manip-b04-figures-20261015-prose-hierarchical permits: Manipulation isometric figure batch manipulation-b04 of 2026-10-15 (three new figures: ImpedancePress in action spaces, a spring press over a scale; ChunkBuffer in the comparison matrix, a card feeder clocked by a Geneva wheel; and KeypointString in hierarchical policies, a perspective frame after Dürer), as one resolution from the sealed hash: the member's chain already holds a resolution, so this entry reconciles its 21 earlier approved edges exactly, ending with images-a-20261013-prose-manipulation-hierarchical. Mounts the new KeypointString after the RoboPoint paragraph of the keypoint section (its robot experiments add depth, an end-effector offset and a motion planner), as one import line after the frontmatter and one mount line between blank lines, recorded by the figure-mount continuity layer of 2026-10-07 (extended on 2026-10-15; taking the admitted import and mount out gives the head bytes exactly, and the layer is read before the image-mount layer for these three articles, whose images landed earlier). No prose, number or citation changes; this edge moves the prose member to the mounted text.",
+      "actual": "prose member article:manipulation/hierarchical moved from 1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46 to 26595e5cea8b1fb893a42353d36781225a4b177fce44608c2178f42ac089e055 exactly as approved delta kol-batch-20261024-prose-manipulation-hierarchical permits: KOL overdue triage of 2026-10-24 (the four queue notes older than three days) on manipulation/hierarchical: adds two dated paragraphs in \"Code as Policies: the planner writes programs\" after the SimEX and RPG paragraph: RAX (Yilun Du, Pieter Abbeel and colleagues at Harvard, UC Berkeley, NVIDIA, MIT and Stanford, October 2026), a coding agent with fixed model weights and no action demonstrations, hand-built primitives or value functions, with a mean margin of 37.4 points over the strongest prior learned policy across five simulation benchmarks (7.9 on HumanoidArena from three teleoperated demonstrations against 100, 53.4 on RoboDojo), real Franka FR3 and Rainbow RB-Y1 tasks from the task text and the robots' tools only, and more than 100,000 US dollars of API credits (rax-2026, arXiv 2610.22496); and CoEvolve (Peking University and Renmin University of China, October 2026), verified coordination code for two simulated Unitree G1s over frozen SONIC controllers, 8 of 15 runs carrying a 0.5 kg payload within 80 transactions against none of five for four adapted baselines with the same GPT-5.4-mini backbone, comparisons the authors call descriptive (coevolve-2026, arXiv 2610.23288). No other text changes; the 2026-10-12 length-cut, image-mount and late figure-mount continuity reviews record the new successor bytes. The edge starts from the sealed bytes and reconciles the member's 22 earlier approved edges exactly, ending with anatomy-manip-b04-figures-20261015-prose-hierarchical.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -174021,9 +174117,9 @@
           "manifest": "prose",
           "member": "article:manipulation/hierarchical",
           "baselineHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
-          "currentHash": "4c99b5dd76885ed4403b79ce4d3f70062311aa0f4046c16e7974d0eed4a1a73f",
+          "currentHash": "26595e5cea8b1fb893a42353d36781225a4b177fce44608c2178f42ac089e055",
           "status": "approved-delta",
-          "approvedDelta": "anatomy-manip-b04-figures-20261015-prose-hierarchical"
+          "approvedDelta": "kol-batch-20261024-prose-manipulation-hierarchical"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -175073,7 +175169,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:data-hardware/evaluation-crisis moved from 27991c22cedcb751dda6261f1099f836f1c6584f56821d1da8ec26ceeb224a37 to dc3c0b7ce0c46e76c9b29b75fa74841a4b63eb8b2e9aa8ed5d2acb73467f751a exactly as approved delta kol-batch-20261021-data-hardware-relationships-evaluation-crisis permits: KOL triage batch of 2026-10-21 (notes older than 72 hours) on data-hardware/evaluation-crisis: the relationships record follows the new inline citations (worldoracle-2026 and ge-sim-2-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (length-cut-20261013-data-hardware-relationships-evaluation-crisis).",
+      "actual": "relationships member article:data-hardware/evaluation-crisis moved from 27991c22cedcb751dda6261f1099f836f1c6584f56821d1da8ec26ceeb224a37 to ff19998b46a95d7fa97165382b67746cfcafbbe5947fd946468a706054cf76bd exactly as approved delta kol-batch-20261024-relationships-data-hardware-evaluation-crisis permits: KOL overdue triage of 2026-10-24 (the four queue notes older than three days) on data-hardware/evaluation-crisis: the relationships record follows the new inline citation (stopwatch-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (kol-batch-20261021-data-hardware-relationships-evaluation-crisis).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -175085,9 +175181,9 @@
           "manifest": "relationships",
           "member": "article:data-hardware/evaluation-crisis",
           "baselineHash": "27991c22cedcb751dda6261f1099f836f1c6584f56821d1da8ec26ceeb224a37",
-          "currentHash": "dc3c0b7ce0c46e76c9b29b75fa74841a4b63eb8b2e9aa8ed5d2acb73467f751a",
+          "currentHash": "ff19998b46a95d7fa97165382b67746cfcafbbe5947fd946468a706054cf76bd",
           "status": "approved-delta",
-          "approvedDelta": "kol-batch-20261021-data-hardware-relationships-evaluation-crisis"
+          "approvedDelta": "kol-batch-20261024-relationships-data-hardware-evaluation-crisis"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -175605,7 +175701,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "relationships member article:manipulation/hierarchical moved from 17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b to 4f6dd2062336e089053595ab0e579a7f78ba6954c5dc9222b16c29c4050dc05a exactly as approved delta humanize-20261012-manipulation-relationships-hierarchical permits: Humanize pass of 2026-10-12 on manipulation/hierarchical, cut under the owner's length decision, as one plain edge from the member's last approved endpoint (domain-pass-20261012-kol-relationships-hierarchical). The relationships record loses only inline citation occurrences the cut removed (10 occurrences; no longer cited in the body: asena-2026, embodiedswe-2026, enpire-2026, gemini-robotics-er-15-dev-2025, gemini-robotics-er-2-2026, molmoact-2025, robobrain-25-2026, roboharn-evo-2026, rt-trajectory-2023, seeq-2026); seeAlso entries, glossary ids and internal link targets are unchanged. The length-cut continuity review (audit/evidence/length-cut-20261012/source-transition.json) rebuilds the article's earlier bytes from the live file and lists every dropped occurrence with the sentence it came from.",
+      "actual": "relationships member article:manipulation/hierarchical moved from 17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b to fa511f10ed5f89df49c07e02ca95b8e9c5f9ac551a2444a7e25c109a20f70111 exactly as approved delta kol-batch-20261024-relationships-manipulation-hierarchical permits: KOL overdue triage of 2026-10-24 (the four queue notes older than three days) on manipulation/hierarchical: the relationships record follows the new inline citations (rax-2026 and coevolve-2026); seeAlso entries, glossary ids and internal link targets are unchanged. This edge moves the member from its last approved endpoint (humanize-20261012-manipulation-relationships-hierarchical).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -175617,9 +175713,9 @@
           "manifest": "relationships",
           "member": "article:manipulation/hierarchical",
           "baselineHash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b",
-          "currentHash": "4f6dd2062336e089053595ab0e579a7f78ba6954c5dc9222b16c29c4050dc05a",
+          "currentHash": "fa511f10ed5f89df49c07e02ca95b8e9c5f9ac551a2444a7e25c109a20f70111",
           "status": "approved-delta",
-          "approvedDelta": "humanize-20261012-manipulation-relationships-hierarchical"
+          "approvedDelta": "kol-batch-20261024-relationships-manipulation-hierarchical"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -177221,7 +177317,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/evaluation-crisis/ ships 88 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 88 outbound anchor occurrences on it with a visible focus ring in 224 stops",
+      "actual": "/data-hardware/evaluation-crisis/ ships 90 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 90 outbound anchor occurrences on it with a visible focus ring in 227 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -177229,8 +177325,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/data-hardware/evaluation-crisis/",
-          "outboundAnchors": 88,
-          "distinctHrefs": 38,
+          "outboundAnchors": 90,
+          "distinctHrefs": 39,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -177239,9 +177335,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 85,
-          "reachedByTab": 88,
-          "tabStops": 224,
+          "anchorsWithNoreferrer": 87,
+          "reachedByTab": 90,
+          "tabStops": 227,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -178116,7 +178212,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/hierarchical/ ships 89 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 89 outbound anchor occurrences on it with a visible focus ring in 213 stops",
+      "actual": "/manipulation/hierarchical/ ships 93 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 93 outbound anchor occurrences on it with a visible focus ring in 220 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -178124,8 +178220,8 @@
         "kind": "browser-state",
         "computed": {
           "route": "/manipulation/hierarchical/",
-          "outboundAnchors": 89,
-          "distinctHrefs": 46,
+          "outboundAnchors": 93,
+          "distinctHrefs": 48,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -178134,9 +178230,9 @@
             "reference-entry"
           ],
           "anchorsWithoutNoopener": 0,
-          "anchorsWithNoreferrer": 85,
-          "reachedByTab": 89,
-          "tabStops": 213,
+          "anchorsWithNoreferrer": 89,
+          "reachedByTab": 93,
+          "tabStops": 220,
           "keyboardRoutesWalked": 76,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
@@ -196149,8 +196245,8 @@
           ],
           "observed": {
             "focusStops": 90,
-            "links": 447,
-            "paintedElements": 8684,
+            "links": 454,
+            "paintedElements": 8726,
             "viewports": 3
           },
           "predicates": [
@@ -197158,8 +197254,8 @@
           ],
           "observed": {
             "focusStops": 90,
-            "links": 404,
-            "paintedElements": 3698,
+            "links": 418,
+            "paintedElements": 3785,
             "viewports": 3
           },
           "predicates": [
@@ -202063,7 +202159,7 @@
             "1440x900"
           ],
           "observed": {
-            "textRuns": 1279,
+            "textRuns": 1302,
             "fields": 0,
             "viewports": 3
           },
@@ -202975,7 +203071,7 @@
             "1440x900"
           ],
           "observed": {
-            "textRuns": 1283,
+            "textRuns": 1332,
             "fields": 0,
             "viewports": 3
           },
@@ -204869,7 +204965,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "viewports": 3
           },
           "predicates": [
@@ -205733,7 +205829,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "viewports": 3
           },
           "predicates": [
@@ -208767,7 +208863,7 @@
           ],
           "observed": {
             "primaryActions": 0,
-            "secondaryActions": 96,
+            "secondaryActions": 99,
             "disabledActions": 0,
             "viewports": 3
           },
@@ -209978,14 +210074,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
-      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:secondary-action: 3349 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 3347,
+          "rendered": 3349,
           "renderedPages": 154,
           "variants": 829,
           "viewports": [
@@ -210052,14 +210148,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Hover, pressed, disabled, selected, and focus-visible action states are visually distinct; only persistent states use persistent ARIA. Transient hover/pressed paint does not receive false `aria-selected`, `aria-pressed`, or `aria-current`.",
-      "actual": "control:link-focus: 22124 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:link-focus: 22139 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 22124,
+          "rendered": 22139,
           "renderedPages": 154,
           "variants": 1726,
           "viewports": [
@@ -210253,14 +210349,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Search clear, copy, sort, reset, and disclosure icons perform the labelled action and are keyboard operable.",
-      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:secondary-action: 3349 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 3347,
+          "rendered": 3349,
           "renderedPages": 154,
           "variants": 829,
           "viewports": [
@@ -214324,7 +214420,7 @@
             "1440x900"
           ],
           "observed": {
-            "citationMarks": 141,
+            "citationMarks": 144,
             "citationLabels": 0,
             "viewports": 3
           },
@@ -215236,7 +215332,7 @@
             "1440x900"
           ],
           "observed": {
-            "citationMarks": 111,
+            "citationMarks": 117,
             "citationLabels": 0,
             "viewports": 3
           },
@@ -216410,14 +216506,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
-      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:secondary-action: 3349 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 3347,
+          "rendered": 3349,
           "renderedPages": 154,
           "variants": 829,
           "viewports": [
@@ -216478,14 +216574,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Functional icons have an accessible label through adjacent text or explicit naming; decorative icons are hidden.",
-      "actual": "control:link-focus: 22124 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:link-focus: 22139 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 22124,
+          "rendered": 22139,
           "renderedPages": 154,
           "variants": 1726,
           "viewports": [
@@ -218467,14 +218563,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
-      "actual": "control:secondary-action: 3347 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:secondary-action: 3349 rendered instances on 154 route/viewport pages, 829 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 3347,
+          "rendered": 3349,
           "renderedPages": 154,
           "variants": 829,
           "viewports": [
@@ -218533,14 +218629,14 @@
       ],
       "coverageKind": "per-member",
       "expected": "Transient hover and active paint is never serialized as persistent selected/pressed/current ARIA; disabled actions expose native or valid ARIA disabled state, remain out of activation paths, and use their registered neutral exception treatment.",
-      "actual": "control:link-focus: 22124 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
+      "actual": "control:link-focus: 22139 rendered instances on 154 route/viewport pages, 1726 distinct variants measured at 375x812 and 1440x900, no failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#controls",
       "exceptionVerdict": "none",
       "status": "passed",
       "payload": {
         "kind": "browser-state",
         "computed": {
-          "rendered": 22124,
+          "rendered": 22139,
           "renderedPages": 154,
           "variants": 1726,
           "viewports": [
@@ -225817,7 +225913,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "At 375, 768 and 1440px every major block (the page h1, each direct child of the page frame that owns it, and each direct child of the prose column) starts, ends or centres within 4px of a line of that frame: its content edges, its centre line, or a track edge or track centre of its own grid; spacing keeps the 8px base rhythm with 4px fine alignment of the `VAL-B2-SPACE-001` ladder. The owner-frozen `/how-robots-work/` explainers (Josef, 12 October 2026) are measured and reported, not realigned. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`: \"Content column centred, 960 px\"; the brand-v2 row aligned composition to 12, 8 and 4 columns. Same strength: every major block of every public route at every frame width.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes set 2621 major blocks on a line of the frame that owns them, within 4px, over 36313 spacing values on the ladder",
+      "actual": "frame:mobile at 375x812: all 75 public routes set 2624 major blocks on a line of the frame that owns them, within 4px, over 36343 spacing values on the ladder",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225833,14 +225929,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -225862,7 +225958,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "At 375, 768 and 1440px every major block (the page h1, each direct child of the page frame that owns it, and each direct child of the prose column) starts, ends or centres within 4px of a line of that frame: its content edges, its centre line, or a track edge or track centre of its own grid; spacing keeps the 8px base rhythm with 4px fine alignment of the `VAL-B2-SPACE-001` ladder. The owner-frozen `/how-robots-work/` explainers (Josef, 12 October 2026) are measured and reported, not realigned. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`: \"Content column centred, 960 px\"; the brand-v2 row aligned composition to 12, 8 and 4 columns. Same strength: every major block of every public route at every frame width.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes set 2621 major blocks on a line of the frame that owns them, within 4px, over 36346 spacing values on the ladder",
+      "actual": "frame:tablet at 768x1024: all 75 public routes set 2624 major blocks on a line of the frame that owns them, within 4px, over 36376 spacing values on the ladder",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225878,14 +225974,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -225907,7 +226003,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "At 375, 768 and 1440px every major block (the page h1, each direct child of the page frame that owns it, and each direct child of the prose column) starts, ends or centres within 4px of a line of that frame: its content edges, its centre line, or a track edge or track centre of its own grid; spacing keeps the 8px base rhythm with 4px fine alignment of the `VAL-B2-SPACE-001` ladder. The owner-frozen `/how-robots-work/` explainers (Josef, 12 October 2026) are measured and reported, not realigned. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`: \"Content column centred, 960 px\"; the brand-v2 row aligned composition to 12, 8 and 4 columns. Same strength: every major block of every public route at every frame width.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes set 2621 major blocks on a line of the frame that owns them, within 4px, over 47129 spacing values on the ladder",
+      "actual": "frame:desktop at 1440x900: all 75 public routes set 2624 major blocks on a line of the frame that owns them, within 4px, over 47171 spacing values on the ladder",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -225923,14 +226019,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -227062,7 +227158,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "proseRuns": 1066,
+            "proseRuns": 1109,
             "viewports": 3
           },
           "predicates": [
@@ -227998,7 +228094,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "proseRuns": 861,
+            "proseRuns": 950,
             "viewports": 3
           },
           "predicates": [
@@ -229943,7 +230039,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "decorativeLayers": 114,
+            "decorativeLayers": 117,
             "viewports": 3
           },
           "predicates": [
@@ -230831,7 +230927,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "decorativeLayers": 138,
+            "decorativeLayers": 144,
             "viewports": 3
           },
           "predicates": [
@@ -235461,8 +235557,8 @@
             "1440x900"
           ],
           "observed": {
-            "decorativeLayers": 114,
-            "hiddenTextRuns": 108,
+            "decorativeLayers": 117,
+            "hiddenTextRuns": 111,
             "viewports": 3
           },
           "predicates": [
@@ -236397,8 +236493,8 @@
             "1440x900"
           ],
           "observed": {
-            "decorativeLayers": 138,
-            "hiddenTextRuns": 132,
+            "decorativeLayers": 144,
+            "hiddenTextRuns": 138,
             "viewports": 3
           },
           "predicates": [
@@ -237514,7 +237610,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/: 1 registered device(s) at 375x812, 1 registered device(s) at 768x1024, 1 registered device(s) at 1440x900, never more on a narrower width, and the same 123 reachable strings at every width",
+      "actual": "route:/: 1 registered device(s) at 375x812, 1 registered device(s) at 768x1024, 1 registered device(s) at 1440x900, never more on a narrower width, and the same 124 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -237529,7 +237625,7 @@
           ],
           "observed": {
             "devices@1440x900": 1,
-            "contentStrings": 123,
+            "contentStrings": 124,
             "devices@375x812": 1,
             "devices@768x1024": 1,
             "viewports": 3
@@ -238306,7 +238402,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/data-hardware/evaluation-crisis/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 508 reachable strings at every width",
+      "actual": "route:/data-hardware/evaluation-crisis/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 515 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -238321,7 +238417,7 @@
           ],
           "observed": {
             "devices@1440x900": 2,
-            "contentStrings": 508,
+            "contentStrings": 515,
             "devices@375x812": 2,
             "devices@768x1024": 2,
             "viewports": 3
@@ -239170,7 +239266,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/manipulation/hierarchical/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 486 reachable strings at every width",
+      "actual": "route:/manipulation/hierarchical/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 503 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -239185,7 +239281,7 @@
           ],
           "observed": {
             "devices@1440x900": 2,
-            "contentStrings": 486,
+            "contentStrings": 503,
             "devices@375x812": 2,
             "devices@768x1024": 2,
             "viewports": 3
@@ -249511,7 +249607,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6181 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/ rendered no v1 identity spelling and no v1 descriptor in 6149 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -250548,7 +250644,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 50687 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/evaluation-crisis/ rendered no v1 identity spelling and no v1 descriptor in 52749 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -251676,7 +251772,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/manipulation/hierarchical/ rendered no v1 identity spelling and no v1 descriptor in 50098 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/manipulation/hierarchical/ rendered no v1 identity spelling and no v1 descriptor in 54486 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -266201,7 +266297,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -266638,7 +266734,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -343608,7 +343704,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":27.7,\"maxLatencyMs\":27.7}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":27.2,\"maxLatencyMs\":27.2}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343629,8 +343725,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 27.7,
-          "maxLatencyMs": 27.7,
+          "medianLatencyMs": 27.2,
+          "maxLatencyMs": 27.2,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343646,7 +343742,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":19.8,\"maxLatencyMs\":30.7}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":7.2,\"maxLatencyMs\":8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343667,8 +343763,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 19.8,
-          "maxLatencyMs": 30.7,
+          "medianLatencyMs": 7.2,
+          "maxLatencyMs": 8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343684,7 +343780,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.9,\"maxLatencyMs\":90.9}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":6.5,\"maxLatencyMs\":85.4}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343708,8 +343804,8 @@
           "observedRenderedTotal": 907,
           "nonEmptyCases": 257,
           "timedCases": 258,
-          "medianLatencyMs": 5.9,
-          "maxLatencyMs": 90.9,
+          "medianLatencyMs": 6.5,
+          "maxLatencyMs": 85.4,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343725,7 +343821,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":12.4,\"maxLatencyMs\":139.1}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":18.85,\"maxLatencyMs\":160.5}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343749,8 +343845,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 12.4,
-          "maxLatencyMs": 139.1,
+          "medianLatencyMs": 18.85,
+          "maxLatencyMs": 160.5,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343766,7 +343862,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":19.3,\"maxLatencyMs\":2650.4,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":17.1,\"maxLatencyMs\":2123.9,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343790,8 +343886,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 19.3,
-          "maxLatencyMs": 2650.4,
+          "medianLatencyMs": 17.1,
+          "maxLatencyMs": 2123.9,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -343827,7 +343923,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":56.9,\"maxLatencyMs\":94.5}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":17.3,\"maxLatencyMs\":35.7}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343851,8 +343947,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 56.9,
-          "maxLatencyMs": 94.5,
+          "medianLatencyMs": 17.3,
+          "maxLatencyMs": 35.7,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -343964,7 +344060,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":22.7,\"maxLatencyMs\":78.3}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":11.4,\"maxLatencyMs\":126.4}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -343985,8 +344081,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 22.7,
-          "maxLatencyMs": 78.3,
+          "medianLatencyMs": 11.4,
+          "maxLatencyMs": 126.4,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -344426,7 +344522,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -344863,7 +344959,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -345751,7 +345847,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/data-hardware/evaluation-crisis.png decodes to 1200x630 (1.9047619:1) at 31659 bytes, and out/og/data-hardware/evaluation-crisis.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/data-hardware/evaluation-crisis.png decodes to 1200x630 (1.9047619:1) at 31719 bytes, and out/og/data-hardware/evaluation-crisis.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -345760,7 +345856,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -346188,7 +346284,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every PNG is exactly 1200×630, uses a 1.9047619:1 aspect ratio, is at least 5KB, and serves from the static export with `image/png`.",
-      "actual": "/og/manipulation/hierarchical.png decodes to 1200x630 (1.9047619:1) at 33600 bytes, and out/og/manipulation/hierarchical.png is the same bytes, which the static export serves as image/png",
+      "actual": "/og/manipulation/hierarchical.png decodes to 1200x630 (1.9047619:1) at 33549 bytes, and out/og/manipulation/hierarchical.png is the same bytes, which the static export serves as image/png",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -346197,7 +346293,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -347085,7 +347181,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
-      "actual": "data-hardware/evaluation-crisis paints its title \"The Evaluation Crisis\", domain Data, Hardware & Evaluation, review year 2026 and 34 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
+      "actual": "data-hardware/evaluation-crisis paints its title \"The Evaluation Crisis\", domain Data, Hardware & Evaluation, review year 2026 and 35 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix:article",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -347094,7 +347190,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -347522,7 +347618,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every article card contains the real title, domain, review year, reference count, and compact `Robot Wiki`; it omits the descriptor.",
-      "actual": "manipulation/hierarchical paints its title \"Hierarchical Approaches\", domain Manipulation & Learned Policies, review year 2026 and 42 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
+      "actual": "manipulation/hierarchical paints its title \"Hierarchical Approaches\", domain Manipulation & Learned Policies, review year 2026 and 44 references, each equal to what its frontmatter and the registry derive, plus the compact \"Robot Wiki\" and no descriptor",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix:article",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -347531,7 +347627,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -348405,7 +348501,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -348842,7 +348938,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -350279,7 +350375,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -350716,7 +350812,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -351613,7 +351709,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -352050,7 +352146,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -356688,7 +356784,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of data-hardware/evaluation-crisis from identical inputs reproduced the staged bytes exactly (f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of data-hardware/evaluation-crisis from identical inputs reproduced the staged bytes exactly (f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -356697,7 +356793,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -357125,7 +357221,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Card generation is deterministic: two clean generations from identical inputs produce identical hashes for all 58 OG/X files.",
-      "actual": "a second render of manipulation/hierarchical from identical inputs reproduced the staged bytes exactly (a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a) during validation, and the shipped file still hashes to that value",
+      "actual": "a second render of manipulation/hierarchical from identical inputs reproduced the staged bytes exactly (d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5) during validation, and the shipped file still hashes to that value",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -357134,7 +357230,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -358022,7 +358118,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for data-hardware/evaluation-crisis, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/evaluation-crisis.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/evaluation-crisis.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/evaluation-crisis.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for data-hardware/evaluation-crisis, each with its source (data/modules.ts#DOMAIN_META.data-hardware.name, content/data-hardware/evaluation-crisis.mdx#frontmatter.lastReviewed, data/modules.ts#data-hardware/evaluation-crisis.title, lib/identity.ts#PUBLIC_IDENTITY, content/data-hardware/evaluation-crisis.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -358031,7 +358127,7 @@
         "imagePath": "public/og/data-hardware/evaluation-crisis.png",
         "width": 1200,
         "height": 630,
-        "sha256": "f4c91ffe228899f403c02e03e98c44bb665de03af8b11d8a904334f0c116645f",
+        "sha256": "f338cc07fdd9ec303bef558989cb05bea976870d88ceb2e0808116c2ae730eaa",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -358459,7 +358555,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A renderer-input manifest records every card string, fact, source ID, route owner, asset hash, and resolved style token; generated text/facts must equal that manifest rather than relying on OCR.",
-      "actual": "the manifest records 5 painted strings for manipulation/hierarchical, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/hierarchical.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/hierarchical.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/hierarchical.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
+      "actual": "the manifest records 5 painted strings for manipulation/hierarchical, each with its source (data/modules.ts#DOMAIN_META.manipulation.name, content/manipulation/hierarchical.mdx#frontmatter.lastReviewed, data/modules.ts#manipulation/hierarchical.title, lib/identity.ts#PUBLIC_IDENTITY, content/manipulation/hierarchical.mdx#frontmatter.citations), its facts, 1 route owner(s), asset hash d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5 equal to the shipped file and 5 resolved style tokens, and the current tree rebuilds that record exactly",
       "selectorOrRegistryId": "contract/design-integrity.md#20:og-matrix",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -358468,7 +358564,7 @@
         "imagePath": "public/og/manipulation/hierarchical.png",
         "width": 1200,
         "height": 630,
-        "sha256": "a11d0629faa39696e23efa47a4e933e1740a197c4afe8dd28e258682ede8831a",
+        "sha256": "d4350a7d8a7fe88e0403dd64a7974393ae69b82ca4a41c4faa9e27127d2f61d5",
         "generator": "scripts/generate-og-cards.ts",
         "generatorVersion": "@vercel/og 0.11.1"
       }
@@ -359112,7 +359208,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"34 REFERENCES\" (13 code points, assigned by card:data-hardware/evaluation-crisis, card:manipulation/diffusion-policy, card:manipulation/realtime-execution, card:rl-sim2real/why-rl-locomotion) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"34 REFERENCES\" (13 code points, assigned by card:manipulation/diffusion-policy, card:manipulation/realtime-execution, card:rl-sim2real/why-rl-locomotion) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -359135,7 +359231,6 @@
           "ownFaceSha256": "eb6c2997b3dcd778d71014b1776f4ff9ad37fca0a7f895afcff043e120b907d0",
           "productionSha256": "eb6c2997b3dcd778d71014b1776f4ff9ad37fca0a7f895afcff043e120b907d0",
           "assignedBy": [
-            "card:data-hardware/evaluation-crisis",
             "card:manipulation/diffusion-policy",
             "card:manipulation/realtime-execution",
             "card:rl-sim2real/why-rl-locomotion"
@@ -359153,7 +359248,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"35 REFERENCES\" (13 code points, assigned by card:classical/kinematics, card:world-models/world-models-vs-simulators) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"35 REFERENCES\" (13 code points, assigned by card:classical/kinematics, card:data-hardware/evaluation-crisis, card:world-models/world-models-vs-simulators) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -359177,6 +359272,7 @@
           "productionSha256": "975eeb2239274aadf912bc3e5b681edb6737b57a67d8f2da9b3796c45c4cf1da",
           "assignedBy": [
             "card:classical/kinematics",
+            "card:data-hardware/evaluation-crisis",
             "card:world-models/world-models-vs-simulators"
           ]
         },
@@ -359438,7 +359534,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
-      "actual": "\"42 REFERENCES\" (13 code points, assigned by card:adjacent/space, card:manipulation/hierarchical, card:rl-sim2real/sim2real-transfer) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "actual": "\"42 REFERENCES\" (13 code points, assigned by card:adjacent/space, card:rl-sim2real/sim2real-transfer) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
       "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -359462,7 +359558,6 @@
           "productionSha256": "d651b496e080dfdf8391e6a6798f4b081db99d3f27f9ed2f58f0d2e4acfe9e67",
           "assignedBy": [
             "card:adjacent/space",
-            "card:manipulation/hierarchical",
             "card:rl-sim2real/sim2real-transfer"
           ]
         },
@@ -359506,6 +359601,44 @@
             "card:manipulation/rl-finetuning",
             "card:rl-sim2real/humanoid-wbc",
             "card:rl-sim2real/reward-design-mpc"
+          ]
+        },
+        "tool": "lib/og-card-glyph-probes.ts#runGlyphProbes"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-OG-012:probe:og-face:data:d0a3fa9f0c101207",
+      "assertionId": "VAL-B2-OG-012",
+      "populationMemberId": "probe:og-face:data:d0a3fa9f0c101207",
+      "coveredPopulationMemberIds": [
+        "probe:og-face:data:d0a3fa9f0c101207"
+      ],
+      "coverageKind": "per-member",
+      "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
+      "actual": "\"44 REFERENCES\" (13 code points, assigned by card:manipulation/hierarchical) is covered by the cmap of assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf, whose bytes equal the registered checksum, and rendered identically with only IBM Plex Mono and with every production face registered, so no glyph fell back",
+      "selectorOrRegistryId": "lib/og-card-glyph-probes.ts#glyphProbePopulation",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/og-cards/manifest.json",
+        "predicate": "the assigned string is in the registered face cmap, the face bytes equal the registered checksum, and its own-face and production probe renders are identical",
+        "observed": {
+          "probeId": "probe:og-face:data:d0a3fa9f0c101207",
+          "faceId": "og-face:data",
+          "facePath": "assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf",
+          "faceSha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+          "mappedRoleInstance": null,
+          "codePoints": 13,
+          "cmapMissing": [],
+          "canvas": {
+            "width": 1200,
+            "height": 109
+          },
+          "ownFaceSha256": "baa4af676fc2d7fb0d0f939bce412595b2f66eb4134fa0ebce01b60d72b15bad",
+          "productionSha256": "baa4af676fc2d7fb0d0f939bce412595b2f66eb4134fa0ebce01b60d72b15bad",
+          "assignedBy": [
+            "card:manipulation/hierarchical"
           ]
         },
         "tool": "lib/og-card-glyph-probes.ts#runGlyphProbes"
@@ -362857,7 +362990,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "public/og was validated in the clean staging tree and swapped in by the completed journal: its current digest dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "public/og was validated in the clean staging tree and swapped in by the completed journal: its current digest 0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -362870,8 +363003,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
-          "currentDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
+          "stagedDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
+          "currentDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -362888,7 +363021,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "public/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "public/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -362901,8 +363034,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
-          "currentDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
+          "stagedDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
+          "currentDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -362919,7 +363052,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "out/og was validated in the clean staging tree and swapped in by the completed journal: its current digest dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "out/og was validated in the clean staging tree and swapped in by the completed journal: its current digest 0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -362932,8 +363065,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
-          "currentDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
+          "stagedDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
+          "currentDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -362950,7 +363083,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "out/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "out/structured-images was validated in the clean staging tree and swapped in by the completed journal: its current digest f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -362963,8 +363096,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
-          "currentDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
+          "stagedDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
+          "currentDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -362981,7 +363114,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Generation builds the complete corpus in a clean staging directory, validates it before canonical mutation, records the full input manifest and pinned generator/runtime/font/image tool versions, then performs journalled per-tree swaps for checked-in/public and export trees. This is rollback-capable staging, not a claim of crash-atomic multi-tree replacement.",
-      "actual": "evidence/brand-v2/og-cards was validated in the clean staging tree and swapped in by the completed journal: its current digest 40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
+      "actual": "evidence/brand-v2/og-cards was validated in the clean staging tree and swapped in by the completed journal: its current digest 422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421 is the staged digest the journal recorded; the manifest records all 58 cards' inputs, node v24.18.0, next 16.3.0, sharp 0.35.3, fontkit 2.0.4, gray-matter 4.0.3, @vercel/og 0.11.1 through sharp, and 2 hashed font binaries",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -362994,8 +363127,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8",
-          "currentDigest": "40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8",
+          "stagedDigest": "422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421",
+          "currentDigest": "422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false
@@ -363012,7 +363145,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "public/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "public/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest 0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363025,8 +363158,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
-          "currentDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
+          "stagedDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
+          "currentDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false,
@@ -363044,7 +363177,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "public/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "public/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its out/ twin (digest f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363057,8 +363190,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
-          "currentDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
+          "stagedDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
+          "currentDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false,
@@ -363076,7 +363209,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "out/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "out/og holds exactly the 58 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest 0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363089,8 +363222,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
-          "currentDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
+          "stagedDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
+          "currentDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false,
@@ -363108,7 +363241,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "out/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
+      "actual": "out/structured-images holds exactly the 114 files the validated corpus records, each equal to its recorded hash, with no extra, missing, linked or duplicate file, and it is byte-equal to its public/ twin (digest f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1); equality with the blobs committed at HEAD is enforced on release by this reader and by the committed byte gate",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363121,8 +363254,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
-          "currentDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
+          "stagedDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
+          "currentDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false,
@@ -363140,7 +363273,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "After all journalled swaps complete, the validated staging corpus, checked-in/public corpus, standalone served files, `out/og`, and committed bytes are byte-for-byte equal; extras, missing files, symlinks, duplicate hashes, partial output, or an incomplete journal fail release.",
-      "actual": "evidence/brand-v2/og-cards/manifest.json is the manifest the journal validated (digest 40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8), and it records the hash of every published file",
+      "actual": "evidence/brand-v2/og-cards/manifest.json is the manifest the journal validated (digest 422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421), and it records the hash of every published file",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363153,8 +363286,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8",
-          "currentDigest": "40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8",
+          "stagedDigest": "422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421",
+          "currentDigest": "422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false,
@@ -363172,7 +363305,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "public/og is the complete tree the journal swapped in (digest dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "public/og is the complete tree the journal swapped in (digest 0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363185,8 +363318,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
-          "currentDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
+          "stagedDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
+          "currentDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -363203,7 +363336,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "public/structured-images is the complete tree the journal swapped in (digest cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "public/structured-images is the complete tree the journal swapped in (digest f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363216,8 +363349,8 @@
           "kind": "tracked",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
-          "currentDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
+          "stagedDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
+          "currentDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -363234,7 +363367,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "out/og is the complete tree the journal swapped in (digest dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "out/og is the complete tree the journal swapped in (digest 0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363247,8 +363380,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
-          "currentDigest": "dabc3132cef2f3e03d514eecc5f4760de2c9d84c2d501b83740454b1466f0bd0",
+          "stagedDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
+          "currentDigest": "0edc1486d6e242c80f2c9b59a79a32b6e6c033f9cb9d8ec210048032084d4e67",
           "files": 58,
           "liveJournal": false,
           "stagingLeft": false
@@ -363265,7 +363398,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "out/structured-images is the complete tree the journal swapped in (digest cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "out/structured-images is the complete tree the journal swapped in (digest f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363278,8 +363411,8 @@
           "kind": "export",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
-          "currentDigest": "cb717598ef2728102a1b868fe680a8e285f2c0a66a9adb6611b3fb7e016427fd",
+          "stagedDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
+          "currentDigest": "f2970a4ad73cf246fbb5ebdc91fddcbed6a5f67658e801d1037680fff01b09a1",
           "files": 114,
           "liveJournal": false,
           "stagingLeft": false
@@ -363296,7 +363429,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A caught generation, validation, or swap failure rolls every mutated tree back from the journal and preserves the prior complete corpus. Crash recovery must detect and repair or reject an incomplete journal before validation; release can never accept a partial or mixed corpus and does not claim crash-atomicity across trees.",
-      "actual": "evidence/brand-v2/og-cards is the complete tree the journal swapped in (digest 40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
+      "actual": "evidence/brand-v2/og-cards is the complete tree the journal swapped in (digest 422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421); no live journal or staging tree is left, so no partial or mixed corpus is in place, and rollback and crash recovery are exercised by the named publication tests",
       "selectorOrRegistryId": "lib/og-card-publication.ts#OG_PUBLICATION_TREES",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -363309,8 +363442,8 @@
           "kind": "evidence",
           "journalState": "complete",
           "journalStatus": "swapped",
-          "stagedDigest": "40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8",
-          "currentDigest": "40e0e92c371addb262ed6cc585429e4cc8ccb699ec28703900402225ebef85c8",
+          "stagedDigest": "422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421",
+          "currentDigest": "422d2fd156d4d08c0b9c894226e26c227c68f2afc2d317849182e3fc24930421",
           "files": 1,
           "liveJournal": false,
           "stagingLeft": false
@@ -386237,7 +386370,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36313 spacing values, 34746 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55382 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36343 spacing values, 34771 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55467 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386253,14 +386386,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386282,7 +386415,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36346 spacing values, 35968 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40518 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36376 spacing values, 35993 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40566 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386298,14 +386431,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386327,7 +386460,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47129 spacing values, 42069 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43113 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47171 spacing values, 42100 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43159 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386343,14 +386476,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386372,7 +386505,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36313 spacing values, 34746 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55382 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36343 spacing values, 34771 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55467 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386388,14 +386521,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386417,7 +386550,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36346 spacing values, 35968 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40518 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36376 spacing values, 35993 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40566 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386433,14 +386566,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386462,7 +386595,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47129 spacing values, 42069 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43113 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47171 spacing values, 42100 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43159 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386478,14 +386611,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386507,7 +386640,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36313 spacing values, 34746 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55382 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36343 spacing values, 34771 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55467 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386523,14 +386656,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386552,7 +386685,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36346 spacing values, 35968 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40518 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36376 spacing values, 35993 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40566 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386568,14 +386701,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386597,7 +386730,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47129 spacing values, 42069 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43113 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47171 spacing values, 42100 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43159 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386613,14 +386746,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386642,7 +386775,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36313 spacing values, 34746 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55382 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36343 spacing values, 34771 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55467 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386658,14 +386791,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386687,7 +386820,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36346 spacing values, 35968 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40518 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36376 spacing values, 35993 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40566 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386703,14 +386836,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386732,7 +386865,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47129 spacing values, 42069 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43113 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47171 spacing values, 42100 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43159 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386748,14 +386881,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386777,7 +386910,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36313 spacing values, 34746 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55382 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36343 spacing values, 34771 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55467 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386793,14 +386926,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386822,7 +386955,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36346 spacing values, 35968 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40518 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36376 spacing values, 35993 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40566 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386838,14 +386971,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -386867,7 +387000,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47129 spacing values, 42069 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43113 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47171 spacing values, 42100 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43159 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386883,14 +387016,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -386912,7 +387045,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36313 spacing values, 34746 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55382 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36343 spacing values, 34771 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 55467 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386928,14 +387061,14 @@
           "observed": {
             "viewport": "375x812",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36313,
-            "insetTextRuns": 34746,
+            "spacingValues": 36343,
+            "insetTextRuns": 34771,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 55382,
+            "collisionTextBoxes": 55467,
             "focusStops": 2243,
             "exemptedSpacingValues": 397,
             "exemptedSectionGaps": 1,
@@ -386957,7 +387090,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36346 spacing values, 35968 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40518 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36376 spacing values, 35993 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40566 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -386973,14 +387106,14 @@
           "observed": {
             "viewport": "768x1024",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 36346,
-            "insetTextRuns": 35968,
+            "spacingValues": 36376,
+            "insetTextRuns": 35993,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40518,
+            "collisionTextBoxes": 40566,
             "focusStops": 2243,
             "exemptedSpacingValues": 464,
             "exemptedSectionGaps": 1,
@@ -387002,7 +387135,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47129 spacing values, 42069 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43113 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47171 spacing values, 42100 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43159 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387018,14 +387151,14 @@
           "observed": {
             "viewport": "1440x900",
             "routes": 75,
-            "compositionBlocks": 2621,
+            "compositionBlocks": 2624,
             "exemptedCompositionBlocks": 0,
-            "spacingValues": 47129,
-            "insetTextRuns": 42069,
+            "spacingValues": 47171,
+            "insetTextRuns": 42100,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43113,
+            "collisionTextBoxes": 43159,
             "focusStops": 2243,
             "exemptedSpacingValues": 699,
             "exemptedSectionGaps": 1,
@@ -387876,7 +388009,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "viewports": 3
           },
           "predicates": [
@@ -388766,7 +388899,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "viewports": 3
           },
           "predicates": [
@@ -396032,7 +396165,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "viewports": 3
           },
           "predicates": [
@@ -396896,7 +397029,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "viewports": 3
           },
           "predicates": [
@@ -398732,7 +398865,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "viewports": 3
           },
           "predicates": [
@@ -399596,7 +399729,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "viewports": 3
           },
           "predicates": [
@@ -401476,7 +401609,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -402388,7 +402521,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -404326,7 +404459,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -405238,7 +405371,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -407132,7 +407265,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 8684,
+            "paintedElements": 8726,
             "viewports": 3
           },
           "predicates": [
@@ -407996,7 +408129,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 3698,
+            "paintedElements": 3785,
             "viewports": 3
           },
           "predicates": [
@@ -419398,7 +419531,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "paragraphCount": 19,
+                "paragraphCount": 20,
                 "familyHeads": [
                   "geist"
                 ],
@@ -420177,7 +420310,7 @@
             {
               "id": "/manipulation/hierarchical/",
               "observed": {
-                "paragraphCount": 23,
+                "paragraphCount": 25,
                 "familyHeads": [
                   "geist"
                 ],
@@ -422869,7 +423002,7 @@
               "id": "/manipulation/hierarchical/",
               "observed": {
                 "monoRequiredCount": 0,
-                "interfaceControlCount": 36,
+                "interfaceControlCount": 37,
                 "controlsInProse": 11,
                 "registrationLabelCount": 0
               }
@@ -426729,7 +426862,7 @@
             {
               "id": "/data-hardware/evaluation-crisis/",
               "observed": {
-                "paragraphCount": 38,
+                "paragraphCount": 40,
                 "registeredFrameParagraphCount": 16,
                 "offendingFamilies": []
               }
@@ -427432,7 +427565,7 @@
             {
               "id": "/manipulation/hierarchical/",
               "observed": {
-                "paragraphCount": 46,
+                "paragraphCount": 50,
                 "registeredFrameParagraphCount": 26,
                 "offendingFamilies": []
               }
@@ -456820,7 +456953,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. The sealed ranges are the research-page roles: page and article h1 in DM Sans 400 at 40–48 px on phones and 84–92 px at 1440 px, line height 0.90–0.96; section display in DM Sans 600 uppercase at 20–20.5 px, tracked 0.05–0.06 em; supporting heads in DM Sans 600 at 14–18 px; UI body in Geist 400–600 at 11–16 px (or a listed entry title in DM Sans 600 at 15–16 px); data/control in Geist Mono at 11–24 px; registration labels in Geist 500 uppercase at 11–14 px, tracked about 0.08 em. Every other rendered text run belongs to a sealed population too: the 16 px / 1.62 Geist reading body, sub- and superscripts at 0.60–0.85 of their line, home's featured title and dek, and the DM Sans wordmark instance, so no text falls outside every range. The 768 px tablet frame takes the union of the phone and desktop h1 ranges. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row sealed Tektur display, IBM Plex Sans and IBM Plex Mono ranges. Same strength: every rendered text run on every public route at 375, 768 and 1440 px, each population non-empty.)",
-      "actual": "the reading-body population holds 3714 rendered elements in 1 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population",
+      "actual": "the reading-body population holds 3723 rendered elements in 1 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population",
       "selectorOrRegistryId": "lib/brand-v2-global-convergence-evidence.ts#TYPE_POPULATIONS",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -456834,7 +456967,7 @@
             "1440x900"
           ],
           "observed": {
-            "elements": 3714,
+            "elements": 3723,
             "forms": 1,
             "exempted": 0
           },
@@ -456854,7 +456987,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. The sealed ranges are the research-page roles: page and article h1 in DM Sans 400 at 40–48 px on phones and 84–92 px at 1440 px, line height 0.90–0.96; section display in DM Sans 600 uppercase at 20–20.5 px, tracked 0.05–0.06 em; supporting heads in DM Sans 600 at 14–18 px; UI body in Geist 400–600 at 11–16 px (or a listed entry title in DM Sans 600 at 15–16 px); data/control in Geist Mono at 11–24 px; registration labels in Geist 500 uppercase at 11–14 px, tracked about 0.08 em. Every other rendered text run belongs to a sealed population too: the 16 px / 1.62 Geist reading body, sub- and superscripts at 0.60–0.85 of their line, home's featured title and dek, and the DM Sans wordmark instance, so no text falls outside every range. The 768 px tablet frame takes the union of the phone and desktop h1 ranges. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row sealed Tektur display, IBM Plex Sans and IBM Plex Mono ranges. Same strength: every rendered text run on every public route at 375, 768 and 1440 px, each population non-empty.)",
-      "actual": "the ui-body population holds 53974 rendered elements in 50 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population (66 under the owner-frozen explainer register)",
+      "actual": "the ui-body population holds 54019 rendered elements in 50 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population (66 under the owner-frozen explainer register)",
       "selectorOrRegistryId": "lib/brand-v2-global-convergence-evidence.ts#TYPE_POPULATIONS",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -456868,7 +457001,7 @@
             "1440x900"
           ],
           "observed": {
-            "elements": 53974,
+            "elements": 54019,
             "forms": 50,
             "exempted": 66
           },
@@ -456888,7 +457021,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. The sealed ranges are the research-page roles: page and article h1 in DM Sans 400 at 40–48 px on phones and 84–92 px at 1440 px, line height 0.90–0.96; section display in DM Sans 600 uppercase at 20–20.5 px, tracked 0.05–0.06 em; supporting heads in DM Sans 600 at 14–18 px; UI body in Geist 400–600 at 11–16 px (or a listed entry title in DM Sans 600 at 15–16 px); data/control in Geist Mono at 11–24 px; registration labels in Geist 500 uppercase at 11–14 px, tracked about 0.08 em. Every other rendered text run belongs to a sealed population too: the 16 px / 1.62 Geist reading body, sub- and superscripts at 0.60–0.85 of their line, home's featured title and dek, and the DM Sans wordmark instance, so no text falls outside every range. The 768 px tablet frame takes the union of the phone and desktop h1 ranges. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row sealed Tektur display, IBM Plex Sans and IBM Plex Mono ranges. Same strength: every rendered text run on every public route at 375, 768 and 1440 px, each population non-empty.)",
-      "actual": "the data-control population holds 7890 rendered elements in 16 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population (63 under the owner-frozen explainer register)",
+      "actual": "the data-control population holds 7899 rendered elements in 16 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population (63 under the owner-frozen explainer register)",
       "selectorOrRegistryId": "lib/brand-v2-global-convergence-evidence.ts#TYPE_POPULATIONS",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -456902,7 +457035,7 @@
             "1440x900"
           ],
           "observed": {
-            "elements": 7890,
+            "elements": 7899,
             "forms": 16,
             "exempted": 63
           },
@@ -456956,7 +457089,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. The sealed ranges are the research-page roles: page and article h1 in DM Sans 400 at 40–48 px on phones and 84–92 px at 1440 px, line height 0.90–0.96; section display in DM Sans 600 uppercase at 20–20.5 px, tracked 0.05–0.06 em; supporting heads in DM Sans 600 at 14–18 px; UI body in Geist 400–600 at 11–16 px (or a listed entry title in DM Sans 600 at 15–16 px); data/control in Geist Mono at 11–24 px; registration labels in Geist 500 uppercase at 11–14 px, tracked about 0.08 em. Every other rendered text run belongs to a sealed population too: the 16 px / 1.62 Geist reading body, sub- and superscripts at 0.60–0.85 of their line, home's featured title and dek, and the DM Sans wordmark instance, so no text falls outside every range. The 768 px tablet frame takes the union of the phone and desktop h1 ranges. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row sealed Tektur display, IBM Plex Sans and IBM Plex Mono ranges. Same strength: every rendered text run on every public route at 375, 768 and 1440 px, each population non-empty.)",
-      "actual": "the script population holds 7650 rendered elements in 2 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population",
+      "actual": "the script population holds 7659 rendered elements in 2 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population",
       "selectorOrRegistryId": "lib/brand-v2-global-convergence-evidence.ts#TYPE_POPULATIONS",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -456970,7 +457103,7 @@
             "1440x900"
           ],
           "observed": {
-            "elements": 7650,
+            "elements": 7659,
             "forms": 2,
             "exempted": 0
           },
@@ -459349,7 +459482,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
-      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 6 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
+      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 7 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -459361,7 +459494,7 @@
           "sourceId": "interactive:ExecutionModes",
           "controls": 10,
           "transitions": 9,
-          "announcements": 6,
+          "announcements": 7,
           "seriesStates": 6,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -463431,7 +463564,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
-      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 6 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
+      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 7 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -463443,7 +463576,7 @@
           "sourceId": "interactive:ExecutionModes",
           "controls": 10,
           "transitions": 9,
-          "announcements": 6,
+          "announcements": 7,
           "seriesStates": 6,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -467085,7 +467218,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
-      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 6 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
+      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 7 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -467097,7 +467230,7 @@
           "sourceId": "interactive:ExecutionModes",
           "controls": 10,
           "transitions": 9,
-          "announcements": 6,
+          "announcements": 7,
           "seriesStates": 6,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -472421,30 +472554,30 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "e59dfd4dafb19735badb526fe12f8276d876a5d95a0fa47f4dd44ee8027f582d",
+              "sha256": "1103a58c1e9e2d56f63cfdc3642b7ab7f743c93cd52a9d93808fdee60ea43644",
               "widthPx": 327,
               "heightPx": 772
             },
             {
               "viewport": "375x812",
               "state": "changed",
-              "sha256": "a1bae6e303fe3808cc5e10639a98ebbc499e5dbee142aae1fd959733259a92f1",
+              "sha256": "c526c34d7a9a337df5a750a4f859ea3e22172dd2dcd6a946bbca915f431d485b",
               "widthPx": 327,
-              "heightPx": 753
+              "heightPx": 752
             },
             {
               "viewport": "1440x900",
               "state": "default",
-              "sha256": "340d567ba25f25477259efc51db7005f1631f2db41089da08404a2eb85e6a95b",
+              "sha256": "6ace04759fd76f349ce1b4b0bdec9c851400bf670ba49ed5effa894bd63c8908",
               "widthPx": 930,
-              "heightPx": 1129
+              "heightPx": 1128
             },
             {
               "viewport": "1440x900",
               "state": "changed",
-              "sha256": "d66595f6f44cd47d3c822be349c9076bb9f026e0ffb4346ee77fb937e51c67d1",
+              "sha256": "55a4535bec2be296159eba28ed4057eae512028db929a4ecfe4a3331b0562a2e",
               "widthPx": 930,
-              "heightPx": 1129
+              "heightPx": 1128
             }
           ],
           "contactSheet": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
@@ -477867,7 +478000,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
-      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 6 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
+      "actual": "mount:/manipulation/realtime-execution/:ExecutionModes:1 on /manipulation/realtime-execution/: 10 controls operated by keyboard through 9 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 7 live announcements read, series compared in 6 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -477879,7 +478012,7 @@
           "sourceId": "interactive:ExecutionModes",
           "controls": 10,
           "transitions": 9,
-          "announcements": 6,
+          "announcements": 7,
           "seriesStates": 6,
           "sliderStatesCompared": 0,
           "idleMutations": {

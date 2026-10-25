@@ -14670,6 +14670,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:coevolve-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:cog-2020",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -18765,6 +18770,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:rax-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:rda-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -19841,6 +19851,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:stomp-2011",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:stopwatch-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21255,7 +21270,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1990,
+        "populationSize": 1993,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21939,6 +21954,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:cnos-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:co-rft-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:code-as-policies-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:coevolve-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:cog-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:cogact-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:cognitivedrone-2025",
@@ -22758,6 +22774,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:rapolicy-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ratliff-2009",
           "result:VAL-B2-BASE-002:article-metadata:citation:rauch-tung-striebel-1965",
+          "result:VAL-B2-BASE-002:article-metadata:citation:rax-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:rda-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:real-orl-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:real-time-chunking-2025",
@@ -22974,6 +22991,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:steertuning-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:steve-2018",
           "result:VAL-B2-BASE-002:article-metadata:citation:stomp-2011",
+          "result:VAL-B2-BASE-002:article-metadata:citation:stopwatch-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:stulp-full-stack-transfer-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:sugar-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:sunday-act1-2025",
@@ -52660,6 +52678,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:d0a3fa9f0c101207",
+          "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:25c2fc40eff51fde",
           "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
         },
@@ -53110,7 +53133,7 @@
         "statement": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
         "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 95,
+        "populationSize": 96,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -53132,6 +53155,7 @@
           "result:VAL-B2-OG-012:probe:og-face:data:54fe2013630bc749",
           "result:VAL-B2-OG-012:probe:og-face:data:22375b1f2ef3ba22",
           "result:VAL-B2-OG-012:probe:og-face:data:552ed2e54a941137",
+          "result:VAL-B2-OG-012:probe:og-face:data:d0a3fa9f0c101207",
           "result:VAL-B2-OG-012:probe:og-face:data:25c2fc40eff51fde",
           "result:VAL-B2-OG-012:probe:og-face:data:58858c2d40eb50cb",
           "result:VAL-B2-OG-012:probe:og-face:data:ac3da0a80c24b102",

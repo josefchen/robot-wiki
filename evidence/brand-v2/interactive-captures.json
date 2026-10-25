@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4b154c33709fdc8239cef6d646eb86ef634b846d87ff5b936f5c25be62f9f9eb",
+  "fingerprint": "36aaa17ccb278a1d1992b1f3627266ea286f6f03db30996a727910748af19ce5",
   "viewports": [
     "375x812",
     "1440x900"
@@ -11976,7 +11976,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "e59dfd4dafb19735badb526fe12f8276d876a5d95a0fa47f4dd44ee8027f582d",
+          "sha256": "1103a58c1e9e2d56f63cfdc3642b7ab7f743c93cd52a9d93808fdee60ea43644",
           "widthPx": 327,
           "heightPx": 772,
           "settleAttempts": 2,
@@ -11991,12 +11991,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Depth along the line\" 1 to 0.43",
-          "sha256": "a1bae6e303fe3808cc5e10639a98ebbc499e5dbee142aae1fd959733259a92f1",
+          "sha256": "c526c34d7a9a337df5a750a4f859ea3e22172dd2dcd6a946bbca915f431d485b",
           "widthPx": 327,
-          "heightPx": 753,
+          "heightPx": 752,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 24.48,
+          "luminanceSpread": 24.49,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -12084,12 +12084,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "340d567ba25f25477259efc51db7005f1631f2db41089da08404a2eb85e6a95b",
+          "sha256": "6ace04759fd76f349ce1b4b0bdec9c851400bf670ba49ed5effa894bd63c8908",
           "widthPx": 930,
-          "heightPx": 1129,
+          "heightPx": 1128,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.4,
+          "luminanceSpread": 15.42,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -12099,12 +12099,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Depth along the line\" 1 to 0.43",
-          "sha256": "d66595f6f44cd47d3c822be349c9076bb9f026e0ffb4346ee77fb937e51c67d1",
+          "sha256": "55a4535bec2be296159eba28ed4057eae512028db929a4ecfe4a3331b0562a2e",
           "widthPx": 930,
-          "heightPx": 1129,
+          "heightPx": 1128,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.13,
+          "luminanceSpread": 15.14,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -22155,8 +22155,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
-      "sha256": "585b7f1975a53799e5d3906706c87f11cb684c8f0d1dbe789f94f761156d152d",
-      "bytes": 197123,
+      "sha256": "4fc9cd2216bfb975d750b2250e2e0e8c880ace76d629f8012b6e134b6aafa81f",
+      "bytes": 196849,
       "mountIds": [
         "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
         "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
@@ -22248,19 +22248,19 @@
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@1440x900:default",
-          "sha256": "340d567ba25f25477259efc51db7005f1631f2db41089da08404a2eb85e6a95b"
+          "sha256": "6ace04759fd76f349ce1b4b0bdec9c851400bf670ba49ed5effa894bd63c8908"
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@1440x900:changed",
-          "sha256": "d66595f6f44cd47d3c822be349c9076bb9f026e0ffb4346ee77fb937e51c67d1"
+          "sha256": "55a4535bec2be296159eba28ed4057eae512028db929a4ecfe4a3331b0562a2e"
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@375x812:default",
-          "sha256": "e59dfd4dafb19735badb526fe12f8276d876a5d95a0fa47f4dd44ee8027f582d"
+          "sha256": "1103a58c1e9e2d56f63cfdc3642b7ab7f743c93cd52a9d93808fdee60ea43644"
         },
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@375x812:changed",
-          "sha256": "a1bae6e303fe3808cc5e10639a98ebbc499e5dbee142aae1fd959733259a92f1"
+          "sha256": "c526c34d7a9a337df5a750a4f859ea3e22172dd2dcd6a946bbca915f431d485b"
         }
       ],
       "renderedTwiceIdentical": true

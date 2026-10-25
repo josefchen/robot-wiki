@@ -1188,6 +1188,15 @@ const undoBudgetMountEvidence = (source: string) => BUDGET_MOUNT_EVIDENCE_EDITS.
 // approval, traced to its commits. Members of unsealed sources stay out.
 const sealedDefaultsTrace20261024Appends = merged
   .filter(x => x.id.startsWith('sealed-defaults-trace-20261024-')).map(x => x.id);
+// The KOL overdue triage of 2026-10-24 (the owner proxy's named exception to
+// the KOL pause for the four queue notes older than three days) lands after
+// the sealed-defaults trace and appends one block: dated paragraphs on the
+// hierarchical-policies and evaluation-crisis articles, each article member
+// with one edge from its last approved endpoint or one resolution from the
+// sealed hash where its chain already holds one, three new citation records
+// from an absent seal, and one citation-rendering resolution.
+const kolBatch20261024Appends = merged
+  .filter(x => x.id.startsWith('kol-batch-20261024-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -1209,7 +1218,7 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends,
   ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends,
   ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends,
-  ...sealedDefaultsTrace20261024Appends];
+  ...sealedDefaultsTrace20261024Appends, ...kolBatch20261024Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -1388,7 +1397,11 @@ const controlStates20261023Edges = (manifest: string, memberId: string) => merge
 const mountEvidence20261024Edges = (manifest: string, memberId: string) => merged
   .filter(x => mountEvidence20261024Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterMountEvidence20261024 = merged.length - sealedDefaultsTrace20261024Appends.length;
+const kolBatch20261024Edges = (manifest: string, memberId: string) => merged
+  .filter(x => kolBatch20261024Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterSealedDefaultsTrace20261024 = merged.length - kolBatch20261024Appends.length;
+const afterMountEvidence20261024 = afterSealedDefaultsTrace20261024 - sealedDefaultsTrace20261024Appends.length;
 const afterControlStates20261023 = afterMountEvidence20261024 - mountEvidence20261024Appends.length;
 const afterInteractivesR120261023 = afterControlStates20261023 - controlStates20261023Appends.length;
 const afterSeriesLabel20261023 = afterInteractivesR120261023 - interactivesR120261023Appends.length;
@@ -1557,11 +1570,12 @@ describe('two-parent exact approval reconciliation', () => {
         + marketMapRound2Fixes20261022Appends.length + educationalCue20261023Appends.length
         + interactiveData20261023Appends.length + seriesLabel20261023Appends.length
         + interactivesR120261023Appends.length + controlStates20261023Appends.length
-        + mountEvidence20261024Appends.length + sealedDefaultsTrace20261024Appends.length]);
+        + mountEvidence20261024Appends.length + sealedDefaultsTrace20261024Appends.length
+        + kolBatch20261024Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends, ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends, ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends, ...sealedDefaultsTrace20261024Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends, ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends, ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends, ...sealedDefaultsTrace20261024Appends, ...kolBatch20261024Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -2424,8 +2438,9 @@ describe('two-parent exact approval reconciliation', () => {
       // the adjacent cut of 2026-10-14 and the adjacent images of bundle B,
       // then the world-models isometric figures of 2026-10-15 (batch
       // world-models-b03), may move a member after this pass, in that order.
-      // The KOL triage batch of 2026-10-21 and the 2026-10-23 interactives
-      // round-1 option fix, which landed last, may follow them.
+      // The KOL triage batch of 2026-10-21, the 2026-10-23 interactives
+      // round-1 option fix and the KOL overdue triage of 2026-10-24, which
+      // landed last, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...kolQueue20261012Edges(entry.manifest, entry.memberId),
         ...frontierPass20261010Edges(entry.manifest, entry.memberId),
@@ -2439,7 +2454,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...anatomyWmB0320261015Edges(entry.manifest, entry.memberId),
         ...kolBatch20261020Edges(entry.manifest, entry.memberId),
         ...kolBatch20261021Edges(entry.manifest, entry.memberId),
-        ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+        ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+        ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2492,8 +2508,9 @@ describe('two-parent exact approval reconciliation', () => {
       // triage batch and the isometric figure of the same day (batch
       // loop-b01: the scene-representation mount), may move a member after
       // it, in that order.
-      // The KOL triage batch of 2026-10-21, the 2026-10-23 cue fix and the
-      // interactives round-1 option fix, which landed last, may follow them.
+      // The KOL triage batch of 2026-10-21, the 2026-10-23 cue fix, the
+      // interactives round-1 option fix and the KOL overdue triage of
+      // 2026-10-24, which landed last, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...frontierPass20261010Edges(entry.manifest, entry.memberId),
         ...worldModelsLengthCut20261012Edges(entry.manifest, entry.memberId),
@@ -2516,7 +2533,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...anatomyLoopB0120261020Edges(entry.manifest, entry.memberId),
         ...kolBatch20261021Edges(entry.manifest, entry.memberId),
         ...educationalCue20261023Edges(entry.manifest, entry.memberId),
-        ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+        ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+        ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2568,7 +2586,8 @@ describe('two-parent exact approval reconciliation', () => {
       // pages of 2026-10-14, the frontier isometric figures of 2026-10-15
       // (batch frontier-b02) and the hub pages of 2026-10-16, which landed
       // after this pass, may move a member after it, in that order.
-      // The KOL triage batch of 2026-10-21, which landed last, may follow them.
+      // The KOL triage batch of 2026-10-21 and the KOL overdue triage of
+      // 2026-10-24, which landed last, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...anatomy2Figures20261012Edges(entry.manifest, entry.memberId),
         ...frontierLengthCut20261013Edges(entry.manifest, entry.memberId),
@@ -2580,7 +2599,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
         ...homeHubs20261016Edges(entry.manifest, entry.memberId),
         ...kolBatch20261020Edges(entry.manifest, entry.memberId),
-        ...kolBatch20261021Edges(entry.manifest, entry.memberId)]);
+        ...kolBatch20261021Edges(entry.manifest, entry.memberId),
+        ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2929,8 +2949,8 @@ describe('two-parent exact approval reconciliation', () => {
       // isometric figures of the same day (batch crda-b01: the
       // state-estimation mount; batch loop-b01: the scene-representation
       // mount), may move the member after the cut.
-      // The KOL triage batch of 2026-10-21 and the 2026-10-23 cue fix, which
-      // landed last, may follow them.
+      // The KOL triage batch of 2026-10-21, the 2026-10-23 cue fix and the
+      // KOL overdue triage of 2026-10-24, which landed last, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...imagesA20261013Edges(entry.manifest, entry.memberId),
           ...anatomyManipB0420261015Edges(entry.manifest, entry.memberId),
@@ -2940,7 +2960,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...anatomyLoopB0120261020Edges(entry.manifest, entry.memberId),
           ...kolBatch20261021Edges(entry.manifest, entry.memberId),
           ...educationalCue20261023Edges(entry.manifest, entry.memberId),
-          ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+          ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+          ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(humanize20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3060,8 +3081,8 @@ describe('two-parent exact approval reconciliation', () => {
       // the state-estimation mount; batch loop-b01: the scene-representation
       // mount).
       expect(edges).toContain(entry);
-      // The KOL triage batch of 2026-10-21 and the 2026-10-23 cue fix, which
-      // landed last, may follow them.
+      // The KOL triage batch of 2026-10-21, the 2026-10-23 cue fix and the
+      // KOL overdue triage of 2026-10-24, which landed last, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...imagesDh20261015Edges(entry.manifest, entry.memberId),
           ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
@@ -3073,7 +3094,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...anatomyLoopB0120261020Edges(entry.manifest, entry.memberId),
           ...kolBatch20261021Edges(entry.manifest, entry.memberId),
           ...educationalCue20261023Edges(entry.manifest, entry.memberId),
-          ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+          ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+          ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(imagesA20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3212,7 +3234,9 @@ describe('two-parent exact approval reconciliation', () => {
       // data-hardware-new), may move a member after it (the citation
       // rendering record and the article prose).
       expect(edges).toContain(entry);
-      // The KOL triage batch of 2026-10-21, which landed last, may follow them.
+      // The KOL triage batch of 2026-10-21, the interactives round-1 option
+      // fix and the KOL overdue triage of 2026-10-24, which landed last, may
+      // follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id)).toEqual([
         ...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
         ...adjacentCut20261014Edges(entry.manifest, entry.memberId),
@@ -3221,7 +3245,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...anatomyDhNew20261019Edges(entry.manifest, entry.memberId),
         ...kolBatch20261020Edges(entry.manifest, entry.memberId),
         ...kolBatch20261021Edges(entry.manifest, entry.memberId),
-        ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+        ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+        ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(dataHardwareCut20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3365,12 +3390,14 @@ describe('two-parent exact approval reconciliation', () => {
       // 2026-10-19 (surgical robotics' prose), which landed after this pass,
       // may move a member after it (the article prose), in that order.
       expect(edges).toContain(entry);
-      // The KOL triage batch of 2026-10-21, which landed last, may follow them.
+      // The KOL triage batch of 2026-10-21 and the KOL overdue triage of
+      // 2026-10-24, which landed last, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...imagesBAdjacent20261015Edges(entry.manifest, entry.memberId),
           ...anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId),
           ...kolBatch20261020Edges(entry.manifest, entry.memberId),
-          ...kolBatch20261021Edges(entry.manifest, entry.memberId)]);
+          ...kolBatch20261021Edges(entry.manifest, entry.memberId),
+          ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(adjacentCut20261014Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3654,13 +3681,16 @@ describe('two-parent exact approval reconciliation', () => {
       // Only the data-hardware isometric figure of 2026-10-19 (batch
       // data-hardware-new), which landed after this landing, may move a member
       // after it: the teleoperation rigs prose, which gained a figure mount.
-      // The KOL triage batches of 2026-10-20 and 2026-10-21 follow it.
+      // The KOL triage batches of 2026-10-20 and 2026-10-21, the
+      // interactives round-1 option fix and the KOL overdue triage of
+      // 2026-10-24 follow it.
       expect(edges).toContain(entry);
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...anatomyDhNew20261019Edges(entry.manifest, entry.memberId),
         ...kolBatch20261020Edges(entry.manifest, entry.memberId),
         ...kolBatch20261021Edges(entry.manifest, entry.memberId),
-        ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+        ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+        ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -4100,12 +4130,14 @@ describe('two-parent exact approval reconciliation', () => {
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
       // Only polish-1019 of 2026-10-19 may move a member after it: the
       // headline edges of the two sources 03700911f shortened.
-      // The KOL triage batch of 2026-10-21 and the 2026-10-24 mount evidence,
-      // which landed later, may follow them.
+      // The KOL triage batch of 2026-10-21, the 2026-10-24 mount evidence and
+      // the KOL overdue triage of 2026-10-24 (the hierarchical prose), which
+      // landed later, may follow them.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...polish1019Edges(entry.manifest, entry.memberId),
           ...kolBatch20261021Edges(entry.manifest, entry.memberId),
-          ...mountEvidence20261024Edges(entry.manifest, entry.memberId)]);
+          ...mountEvidence20261024Edges(entry.manifest, entry.memberId),
+          ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(anatomyManipB0420261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5006,9 +5038,11 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // Only the KOL triage batch of 2026-10-21, which landed after it, may move a member after it.
+      // Only the KOL triage batch of 2026-10-21 and the KOL overdue triage of
+      // 2026-10-24, which landed after it, may move a member after it.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
-        .toEqual(kolBatch20261021Edges(entry.manifest, entry.memberId));
+        .toEqual([...kolBatch20261021Edges(entry.manifest, entry.memberId),
+          ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
       expect(edges.filter(x => kolBatch20261020Appends.includes(x.id))).toEqual([entry]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5290,13 +5324,17 @@ describe('two-parent exact approval reconciliation', () => {
         // resolution; the last block's is the head.
         expect(edges.filter(x => kolBatch20261021Appends.includes(x.id)).map(x => x.id))
           .toEqual(blocks.map(b => `kol-batch-20261021-${b.domain}-citation-rendering`));
-        expect(edges.slice(edges.indexOf(entry) + 1).every(x => kolBatch20261021Appends.includes(x.id))).toBe(true);
+        // The 2026-10-24 KOL overdue triage continues it with one more.
+        expect(edges.slice(edges.indexOf(entry) + 1).every(x => kolBatch20261021Appends.includes(x.id)
+          || kolBatch20261024Appends.includes(x.id))).toBe(true);
       } else {
-        // The edge is the member's last, except where the 2026-10-23 cue fix
-        // or the interactives round-1 option fix continues it with one edge.
+        // The edge is the member's last, except where the 2026-10-23 cue fix,
+        // the interactives round-1 option fix or the 2026-10-24 KOL overdue
+        // triage continues it with one edge.
         expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
           .toEqual([...educationalCue20261023Edges(entry.manifest, entry.memberId),
-            ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);
+            ...interactivesR120261023Edges(entry.manifest, entry.memberId),
+            ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);
         expect(edges.filter(x => kolBatch20261021Appends.includes(x.id))).toEqual([entry]);
       }
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5984,7 +6022,8 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-24 sealed-defaults trace edge to its owner decision, its commits and the member as it ships', () => {
-    expect(merged.slice(afterMountEvidence20261024).map(x => x.id)).toEqual(sealedDefaultsTrace20261024Appends);
+    expect(merged.slice(afterMountEvidence20261024, afterSealedDefaultsTrace20261024).map(x => x.id))
+      .toEqual(sealedDefaultsTrace20261024Appends);
     // The behavioural-default members of the 18 sealed sources whose mounts
     // failed VAL-EDU-015, in join order, with the commits that moved each
     // figure, its row in the reader-first audit and the owner decisions.
@@ -6096,6 +6135,83 @@ describe('two-parent exact approval reconciliation', () => {
     expect(readFileSync('components/interactive/contact-geometry.tsx', 'utf8')).not.toContain('defaultScenario');
     expect(readFileSync('components/interactive/jepa-planning.tsx', 'utf8')).toContain('export const OPENING_STEPS = 2;');
     expect(reasonOf('jepa-planning', 4)).toContain('OPENING_STEPS = 2');
+  });
+
+  it('binds each 2026-10-24 KOL overdue triage edge to its previous endpoint, the sealed hash or an absent seal', () => {
+    expect(merged.slice(afterSealedDefaultsTrace20261024).map(x => x.id)).toEqual(kolBatch20261024Appends);
+    const articles = ['manipulation/hierarchical', 'data-hardware/evaluation-crisis'];
+    const citations = ['rax-2026', 'coevolve-2026', 'stopwatch-2026'];
+    expect(kolBatch20261024Appends).toEqual([
+      ...['prose', 'relationships', 'frontmatter'].flatMap(kind => articles.map(slug => `${kind}-${slug.replace('/', '-')}`)),
+      ...citations.map(id => `citation-${id}`),
+      'citation-rendering',
+    ].map(suffix => `kol-batch-20261024-${suffix}`));
+    const registry = readFileSync('data/citations.ts', 'utf8');
+    const citationAudit = readFileSync('audit/citations.md', 'utf8');
+    const auditSection = citationAudit.slice(citationAudit.indexOf('## KOL intake: overdue queue notes, 2026-10-24'));
+    for (const id of kolBatch20261024Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the owner proxy's named exception to the KOL pause, under
+      // the standing KOL decisions, and not a release approval.
+      expect(entry.ownerApproval).toContain('Owner-proxy directive of 2026-10-23 03:47');
+      expect(entry.ownerApproval).toContain('2026-10-21 17:30 KOL pause');
+      expect(entry.ownerApproval).toContain('owner-decision-kol-batch-next-dispatch-20261020');
+      expect(entry.ownerApproval).toContain('owner-decision-kol-coverage-and-evidence-standards-20260924');
+      expect(entry.ownerApproval).toMatch(/Not release approval\.$/);
+      expect(entry.responsibleMilestone).toBe('kol-batch-20261024');
+      expect(entry.disposition).toBe('permanent');
+      expect(entry.affectedAssertions).toEqual(['VAL-KOL-001', 'VAL-B2-BASE-002', 'VAL-B2-BASE-010', 'VAL-B2-BASE-011']);
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      // One edge per member, and it is the member's last.
+      expect(edges.at(-1)).toBe(entry);
+      expect(kolBatch20261024Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, -1);
+      const previous = prior.at(-1)?.newHash ?? sealed;
+      expect(entry.newHash).not.toBe(previous);
+      if (prior.some(x => x.reconciles)) {
+        // A chain that already holds a resolution takes one more resolution
+        // from the seal that reconciles every earlier edge exactly.
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+        expect(entry.reason).toContain(`reconciles the member's ${prior.length} earlier approved edges exactly`);
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        expect(entry.oldHash).toBe(previous);
+        if (prior.length > 0) expect(entry.reason).toContain(`last approved endpoint (${prior.at(-1)!.id})`);
+      }
+      if (entry.memberId.startsWith('citation:')) {
+        // A new record: the seal never held it, no earlier edge names it, and
+        // the registry and the citation audit carry it.
+        const cid = entry.memberId.slice('citation:'.length);
+        expect(citations).toContain(cid);
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(registry).toContain(`id: '${cid}'`);
+        expect(auditSection).toContain(cid);
+      } else if (entry.memberId === 'citation-rendering:label-and-meta') {
+        expect(entry.reconciles).toBeDefined();
+        for (const cid of citations) expect(entry.reason).toContain(cid);
+      } else {
+        const slug = entry.memberId.split(':').at(-1)!;
+        expect(articles).toContain(slug);
+        expect(entry.reason).toContain('KOL overdue triage of 2026-10-24');
+        // The article cites the new records in its text and its front matter.
+        const source = readFileSync(`content/${slug}.mdx`, 'utf8');
+        const cited = slug === 'manipulation/hierarchical' ? ['rax-2026', 'coevolve-2026'] : ['stopwatch-2026'];
+        for (const cid of cited) {
+          expect(entry.reason).toContain(cid);
+          expect(source).toContain(`<Cite id="${cid}"`);
+          expect(source.slice(0, source.indexOf('\n---', 4))).toContain(cid);
+        }
+      }
+      const path = approvedDeltaPath(edges, sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
   });
 
   it('binds each 2026-10-05 how-robots-work name to an absent seal as one plain edge', () => {

@@ -411,6 +411,13 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   calibration self-check's options, one plain edge from the images bundle A
  *   endpoint that ends the member's re-anchored chain. Its other prose edges
  *   continue chains that end at no head re-anchor.
+ * - `kol-batch-20261024-`: the KOL overdue triage of 2026-10-24 added dated
+ *   paragraphs to hierarchical policies and the evaluation crisis and
+ *   registered three records, which moved both articles' prose,
+ *   relationships and front-matter citation lists and
+ *   `citation-rendering:label-and-meta`, each member with one edge from its
+ *   last approved endpoint, or one resolution from the sealed hash where its
+ *   chain already holds one.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -467,6 +474,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'educational-cue-20261023-prose-generalist-policies',
   // Exact id: only this 2026-10-23 round-1 edge continues a re-anchored chain.
   'interactives-r1-20261023-prose-classical-calibration',
+  'kol-batch-20261024-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

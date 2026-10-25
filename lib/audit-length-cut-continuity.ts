@@ -88,7 +88,7 @@ export type LengthCutReview = {
 
 // BEGIN length-cut pins (written by scripts/record-length-cut-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1048348, sha256: '4b1c0cfea26923c570d0bee838df45e9b9e9fd72a16a37ffa3126af0e90f3eb4' };
+const reviewPin = { bytes: 1050410, sha256: 'b2fabffb0181671c04d7a07c2fc6a675910681a688755ad64922fde4cfff4136' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -109,7 +109,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/diffusion-policy.mdx', [9559, '8ad96dcd6c5c09cca1006d3bf9dcf3d114fde389f08551107b4e148ce40a5f65']],
   ['content/manipulation/foundation-models.mdx', [10223, '382c7b90044932daaad0a68438c78b2a387ec5cf1c6de0b7b0ae7d83e07f0514']],
   ['content/manipulation/generalist-policies.mdx', [11195, '65017b77792f36b851d754b8d6c609466986169b574b789225d00d66fe7576bd']],
-  ['content/manipulation/hierarchical.mdx', [11756, '9dba5d207735a0dcaee01289521ceeb1703ee5f9623235bdcf84fdadf485506d']],
+  ['content/manipulation/hierarchical.mdx', [13435, '295c1a36bd6028b7b2b07596d92d387ce1211a1539185ab1b9402f97c3c8b8e8']],
   ['content/manipulation/knowledge-insulation.mdx', [8568, '5012e761a81069a2d06fcf44b6766730138f20420716de1bedd579ac1169835f']],
   ['content/manipulation/pi-line.mdx', [12833, '01baa480bef031aa44b8da0b6adf2d782571e5c359f60ddc701e6d365b024477']],
   ['content/manipulation/realtime-execution.mdx', [10498, 'a021c7515e4a295ea126e08c2870e72f774e421b0591c4d749ac8881a3b0e011']],

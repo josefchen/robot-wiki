@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2c91520bde98ad880f08cdb75ad36b5bb6e74cc0551b71203c1da3c14e3ce6be",
+  "fingerprint": "16e80e470685c986bdb7e2304c651d77eaf99b264c85b429967072c34616083f",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3078,
+      "visibleTextLength": 3062,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -2841,7 +2841,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29298,
+      "visibleTextLength": 30393,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "1440x900"
     },
@@ -5673,7 +5673,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27939,
+      "visibleTextLength": 30274,
       "route": "/manipulation/hierarchical/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3103,
+      "visibleTextLength": 3087,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11737,7 +11737,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21389,
+      "visibleTextLength": 22356,
       "route": "/data-hardware/evaluation-crisis/",
       "viewport": "375x812"
     },
@@ -14569,7 +14569,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22159,
+      "visibleTextLength": 24212,
       "route": "/manipulation/hierarchical/",
       "viewport": "375x812"
     },

@@ -16,11 +16,14 @@ export const DOMAIN_PASS_PREFIX = 'domain-pass-20261006-';
  * Registry ids appended by the domain passes; each entry's comment opens with
  * "<id>: domain pass 2026-10-06", followed by its draft file, its KOL intake note or
  * the owner sweep item it answers. The KOL triage batch of 2026-10-21 marks its
- * entries "<id>: KOL intake note of <author>, added 2026-10-21." instead.
+ * entries "<id>: KOL intake note of <author>, added 2026-10-21." instead, and
+ * the KOL overdue triage of 2026-10-24 marks its entries the same way, dated
+ * 2026-10-24, with "filed under <author>" where the note's author is not the
+ * paper's.
  */
 export const DOMAIN_PASS_CITATION_IDS: ReadonlySet<string> = new Set(
   [...readFileSync(resolve(root, 'data/citations.ts'), 'utf8')
-    .matchAll(/^ {2}\/\/ ([a-z0-9][a-z0-9.-]*): (?:domain pass 2026-10-06, (?:from drafts\/|KOL intake |owner sweep item )|KOL intake note of [^\n]*, added 2026-10-21\.)/gm)].map((m) => m[1]),
+    .matchAll(/^ {2}\/\/ ([a-z0-9][a-z0-9.-]*): (?:domain pass 2026-10-06, (?:from drafts\/|KOL intake |owner sweep item )|KOL intake note (?:of|filed under) [^\n]*, added 2026-10-2[14]\.)/gm)].map((m) => m[1]),
 );
 
 export const isDomainPassEdge = (entry: Pick<ApprovedDelta, 'id'>) => entry.id.startsWith(DOMAIN_PASS_PREFIX);
@@ -455,6 +458,35 @@ export function interactivesR120261023Endpoint(
   const [edge] = edges;
   if (!edge) return from;
   if (edge.oldHash !== from || edge.reconciles !== undefined) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
+ * Edges the KOL overdue triage of 2026-10-24 appended as one block after the
+ * sealed-defaults trace: dated paragraphs on hierarchical policies and the
+ * evaluation crisis, three new citation records and one citation-rendering
+ * resolution.
+ */
+export const isKolBatch20261024Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('kol-batch-20261024-');
+
+/**
+ * The hash the 2026-10-24 KOL overdue triage leaves on a member whose chain
+ * ends at `from`: its one edge on the member must continue `from`, as a plain
+ * edge or as a resolution that reconciles it; an untouched member stays at
+ * `from`.
+ */
+export function kolBatch20261024Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isKolBatch20261024Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-24 KOL overdue edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
     throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
   }
   return edge.newHash;
