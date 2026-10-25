@@ -168,7 +168,7 @@ test.describe('rl-finetuning module', () => {
     const dppoReference = page.locator('#ref-dppo-2024');
     await dppoReference.getByRole('button', { name: 'Show all 9 authors' }).click();
     await expect(dppoReference.locator('[data-author-names]')).toContainText('Max Simchowitz');
-    await dppoReference.getByRole('button', { name: 'Show 8 authors' }).click();
+    await dppoReference.getByRole('button', { name: 'Show 6 authors' }).click();
     await expect(page.locator('#ref-conrft-2025 [data-author-names]')).toContainText('Dongbin Zhao');
   });
 

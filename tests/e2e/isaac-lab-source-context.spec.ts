@@ -22,7 +22,7 @@ for (const route of routes) {
     await toggle.press('Enter');
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await expect(toggle).toBeFocused();
-    await expect(entry.locator('[data-author-names]')).toContainText('and 98 more');
+    await expect(entry.locator('[data-author-names]')).toContainText('and 100 more');
     await expect(entry.locator('[data-reference-source-link]')).toHaveAttribute(
       'href', 'https://arxiv.org/abs/2511.04831');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

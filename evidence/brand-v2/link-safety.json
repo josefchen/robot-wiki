@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "78bcc1d271fa1cd2d446e78cea25b29a55528dc21b75cd45c17c78e9b4be81a5",
+  "fingerprint": "8cb9a79e3a0522fc9f46601bd87580f79ae17db59eb24fdec6cf387752778595",
   "source": "out/ static export",
   "routes": [
     {
@@ -646,8 +646,8 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "outboundAnchors": 97,
-      "distinctHrefs": 51,
+      "outboundAnchors": 114,
+      "distinctHrefs": 55,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -658,8 +658,8 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "outboundAnchors": 88,
-      "distinctHrefs": 48,
+      "outboundAnchors": 92,
+      "distinctHrefs": 49,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -670,8 +670,8 @@
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "outboundAnchors": 87,
-      "distinctHrefs": 45,
+      "outboundAnchors": 90,
+      "distinctHrefs": 46,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -854,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6106,
-  "distinctOutboundHrefs": 1651,
+  "outboundAnchors": 6130,
+  "distinctOutboundHrefs": 1657,
   "anchorsByShape": {
-    "citation-chip": 2566,
+    "citation-chip": 2584,
     "footer": 152,
     "figure-credit": 873,
-    "reference-entry": 2200,
+    "reference-entry": 2206,
     "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5770,
+  "anchorsWithNoreferrer": 5794,
   "keyboard": [
     {
       "route": "/",
@@ -912,7 +912,7 @@
       "reachedByTab": 166,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 367
+      "tabStops": 371
     },
     {
       "route": "/adjacent/drones/",
@@ -920,7 +920,7 @@
       "reachedByTab": 105,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 238
+      "tabStops": 240
     },
     {
       "route": "/adjacent/space/",
@@ -928,7 +928,7 @@
       "reachedByTab": 122,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 246
+      "tabStops": 247
     },
     {
       "route": "/adjacent/surgical/",
@@ -936,7 +936,7 @@
       "reachedByTab": 95,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 213
+      "tabStops": 217
     },
     {
       "route": "/classical/",
@@ -952,7 +952,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 185
+      "tabStops": 190
     },
     {
       "route": "/classical/control/",
@@ -960,7 +960,7 @@
       "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 238
+      "tabStops": 242
     },
     {
       "route": "/classical/grasp-planning/",
@@ -968,7 +968,7 @@
       "reachedByTab": 98,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 215
+      "tabStops": 220
     },
     {
       "route": "/classical/kinematics/",
@@ -976,7 +976,7 @@
       "reachedByTab": 91,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 218
+      "tabStops": 220
     },
     {
       "route": "/classical/motion-planning/",
@@ -984,7 +984,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 254
+      "tabStops": 258
     },
     {
       "route": "/classical/perception/",
@@ -992,7 +992,7 @@
       "reachedByTab": 129,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 287
+      "tabStops": 294
     },
     {
       "route": "/classical/ros2-for-ml-engineers/",
@@ -1008,7 +1008,7 @@
       "reachedByTab": 121,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 259
+      "tabStops": 268
     },
     {
       "route": "/classical/state-estimation/",
@@ -1016,7 +1016,7 @@
       "reachedByTab": 95,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 222
+      "tabStops": 226
     },
     {
       "route": "/credits/",
@@ -1040,7 +1040,7 @@
       "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 225
+      "tabStops": 230
     },
     {
       "route": "/data-hardware/datasets/",
@@ -1048,7 +1048,7 @@
       "reachedByTab": 100,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 256
+      "tabStops": 260
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
@@ -1056,7 +1056,7 @@
       "reachedByTab": 90,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 227
+      "tabStops": 236
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
@@ -1064,7 +1064,7 @@
       "reachedByTab": 154,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 294
+      "tabStops": 295
     },
     {
       "route": "/data-hardware/industrial-deployment/",
@@ -1072,7 +1072,7 @@
       "reachedByTab": 94,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 222
+      "tabStops": 223
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
@@ -1080,7 +1080,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 204
+      "tabStops": 208
     },
     {
       "route": "/data-hardware/teleop-rigs/",
@@ -1088,7 +1088,7 @@
       "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 225
+      "tabStops": 234
     },
     {
       "route": "/editorial-policy/",
@@ -1112,7 +1112,7 @@
       "reachedByTab": 97,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 242
+      "tabStops": 243
     },
     {
       "route": "/frontier/competing-theses/",
@@ -1120,7 +1120,7 @@
       "reachedByTab": 90,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 233
+      "tabStops": 234
     },
     {
       "route": "/frontier/dexterity/",
@@ -1128,7 +1128,7 @@
       "reachedByTab": 99,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 227
+      "tabStops": 228
     },
     {
       "route": "/frontier/generalization/",
@@ -1136,7 +1136,7 @@
       "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 206
+      "tabStops": 209
     },
     {
       "route": "/frontier/reliability-gap/",
@@ -1144,7 +1144,7 @@
       "reachedByTab": 74,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 189
+      "tabStops": 192
     },
     {
       "route": "/frontier/safety-and-assurance/",
@@ -1152,7 +1152,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 262
+      "tabStops": 263
     },
     {
       "route": "/glossary/",
@@ -1184,7 +1184,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 213
     },
     {
       "route": "/manipulation/action-spaces/",
@@ -1192,7 +1192,7 @@
       "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 194
+      "tabStops": 201
     },
     {
       "route": "/manipulation/bc-foundations/",
@@ -1200,7 +1200,7 @@
       "reachedByTab": 82,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 201
+      "tabStops": 206
     },
     {
       "route": "/manipulation/comparison-matrix/",
@@ -1208,7 +1208,7 @@
       "reachedByTab": 114,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 255
+      "tabStops": 256
     },
     {
       "route": "/manipulation/cross-embodiment/",
@@ -1216,7 +1216,7 @@
       "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 215
+      "tabStops": 222
     },
     {
       "route": "/manipulation/diffusion-policy/",
@@ -1224,7 +1224,7 @@
       "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 196
+      "tabStops": 200
     },
     {
       "route": "/manipulation/foundation-models/",
@@ -1232,7 +1232,7 @@
       "reachedByTab": 81,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 197
+      "tabStops": 200
     },
     {
       "route": "/manipulation/generalist-policies/",
@@ -1240,7 +1240,7 @@
       "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 215
+      "tabStops": 217
     },
     {
       "route": "/manipulation/hierarchical/",
@@ -1248,7 +1248,7 @@
       "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 220
+      "tabStops": 226
     },
     {
       "route": "/manipulation/knowledge-insulation/",
@@ -1256,7 +1256,7 @@
       "reachedByTab": 83,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 198
+      "tabStops": 199
     },
     {
       "route": "/manipulation/pi-line/",
@@ -1264,7 +1264,7 @@
       "reachedByTab": 99,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 247
+      "tabStops": 250
     },
     {
       "route": "/manipulation/realtime-execution/",
@@ -1272,7 +1272,7 @@
       "reachedByTab": 86,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 207
+      "tabStops": 209
     },
     {
       "route": "/manipulation/rl-finetuning/",
@@ -1280,7 +1280,7 @@
       "reachedByTab": 119,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 293
+      "tabStops": 300
     },
     {
       "route": "/manipulation/robot-learning-roadmap/",
@@ -1288,7 +1288,7 @@
       "reachedByTab": 72,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 188
+      "tabStops": 190
     },
     {
       "route": "/manipulation/vla-models/",
@@ -1296,7 +1296,7 @@
       "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 238
+      "tabStops": 239
     },
     {
       "route": "/market-map/",
@@ -1332,27 +1332,27 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "outboundInDom": 97,
-      "reachedByTab": 97,
+      "outboundInDom": 114,
+      "reachedByTab": 114,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 222
+      "tabStops": 269
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "outboundInDom": 88,
-      "reachedByTab": 88,
+      "outboundInDom": 92,
+      "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 198
+      "tabStops": 211
     },
     {
       "route": "/rl-sim2real/offline-rl/",
-      "outboundInDom": 87,
-      "reachedByTab": 87,
+      "outboundInDom": 90,
+      "reachedByTab": 90,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 216
+      "tabStops": 227
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
@@ -1360,7 +1360,7 @@
       "reachedByTab": 89,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 204
+      "tabStops": 209
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
@@ -1368,7 +1368,7 @@
       "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 228
+      "tabStops": 234
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
@@ -1376,7 +1376,7 @@
       "reachedByTab": 99,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 232
+      "tabStops": 240
     },
     {
       "route": "/rl-sim2real/sim2real-transfer/",
@@ -1384,7 +1384,7 @@
       "reachedByTab": 93,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 227
+      "tabStops": 235
     },
     {
       "route": "/rl-sim2real/why-rl-locomotion/",
@@ -1392,7 +1392,7 @@
       "reachedByTab": 78,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 189
+      "tabStops": 192
     },
     {
       "route": "/search/",
@@ -1416,7 +1416,7 @@
       "reachedByTab": 84,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 205
+      "tabStops": 209
     },
     {
       "route": "/world-models/generative-sim/",
@@ -1424,7 +1424,7 @@
       "reachedByTab": 89,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 221
+      "tabStops": 227
     },
     {
       "route": "/world-models/generative-video/",
@@ -1432,7 +1432,7 @@
       "reachedByTab": 87,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 224
+      "tabStops": 226
     },
     {
       "route": "/world-models/jepa/",
@@ -1440,7 +1440,7 @@
       "reachedByTab": 85,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 197
+      "tabStops": 203
     },
     {
       "route": "/world-models/latent-dynamics/",
@@ -1448,7 +1448,7 @@
       "reachedByTab": 80,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 190
+      "tabStops": 193
     },
     {
       "route": "/world-models/model-based-robot-learning/",
@@ -1456,7 +1456,7 @@
       "reachedByTab": 76,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 184
+      "tabStops": 186
     },
     {
       "route": "/world-models/taxonomy/",
@@ -1464,7 +1464,7 @@
       "reachedByTab": 80,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 206
+      "tabStops": 211
     },
     {
       "route": "/world-models/world-models-vs-simulators/",
@@ -1472,7 +1472,7 @@
       "reachedByTab": 77,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 208
+      "tabStops": 211
     }
   ]
 }

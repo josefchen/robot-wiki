@@ -135,7 +135,7 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       const reference = page.locator(`#ref-${id}`);
       await expect(reference).toBeInViewport();
       await expect(reference.locator('[data-reference-source-link]')).toHaveAttribute('href', citation.url);
-      if (citation.authors.length > 8) {
+      if (citation.authors.length > 6) {
         await reference.getByRole('button', { name: `Show all ${citation.authors.length} authors` }).click();
       }
       await expect(reference.locator('[data-author-names]')).toHaveText(citation.authors.join(', '));

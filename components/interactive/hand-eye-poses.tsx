@@ -282,7 +282,10 @@ export function HandEyePoses({ className }: { className?: string }) {
             columns={[{ header: 'times tighter than with 3 (illustrative)', numeric: true }]}
             rows={[...new Set([...SAMPLE_POSES, poses])]
               .sort((a, b) => a - b)
-              .map((n) => ({ label: String(n), values: [n < MIN_POSES ? 'not solvable' : tighterThanMinimum(n).toFixed(1)] }))}
+              .map((n) => ({
+                label: String(n),
+                values: [n < MIN_POSES ? 'not solvable' : n === MIN_POSES ? 'the baseline' : tighterThanMinimum(n).toFixed(1)],
+              }))}
           />
         </>
       }

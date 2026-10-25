@@ -1,17 +1,27 @@
 import { createHash } from 'node:crypto';
 import { openAdjustMore } from './helpers/figure-fold';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { setSlider } from './slider';
 
-const directory = 'audit/evidence/final-seven-closure-20260923';
+// The tracked folder is the sealed 2026-09-23 closure record, which unit tests pin byte for
+// byte. A run writes its captures to a fresh temp folder, so a full e2e run leaves git clean;
+// FINAL_SEVEN_WRITE_TRACKED=1 writes the tracked folder when a record is deliberately retaken.
+const directory = process.env.FINAL_SEVEN_WRITE_TRACKED === '1'
+  ? 'audit/evidence/final-seven-closure-20260923'
+  : mkdtempSync(join(tmpdir(), 'final-seven-closure-'));
 const hash = (path: string) => {
   const bytes = readFileSync(path);
   return { path, bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex') };
 };
 const mount = (route: string, component: string, number: number) => `mount:${route}:${component}:${number}`;
+// The research-page figure: the frame holds the stage, its controls, folds and source line.
+// The stage itself is a flat surface too, so a nearest-surface lookup stopped at the stage
+// and lost the source note beneath it.
 const chart = (page: Page, testid: string, index: number) =>
-  page.getByTestId(testid).nth(index).locator('xpath=ancestor::*[@data-figure-frame or (self::div and @data-brand-surface-id="surface:flat")][1]');
+  page.getByTestId(testid).nth(index).locator('xpath=ancestor::*[@data-figure-frame][1]');
 
 test('final seven: actually mounted corrected arithmetic on two viewports', async ({ page }) => {
   test.setTimeout(240_000);
@@ -94,10 +104,11 @@ test('final seven: actually mounted corrected arithmetic on two viewports', asyn
     await expect(predictEvaluation.locator(':scope > [data-predict-figure] [data-testid="episode-success-readout"]')).toHaveCount(1);
     await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'default', 'page load',
       'settle', 'p.95-n14', evaluation, ['episode-success-readout'], ['48.8%'], viewport);
-    await setSlider(evaluation.getByRole('slider', { name: /Episode length/ }), 100);
+    await setSlider(evaluation.getByRole('slider', { name: /episode length/i }), 100);
     await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'slider-boundaries-and-anchors',
       'p.95-n14', 'set horizon 100', 'p.95-n100', evaluation,
       ['episode-success-readout'], ['0.6%'], viewport);
+    await openAdjustMore(evaluation);
     await evaluation.getByRole('button', { name: 'Reset' }).click();
     await capture(evaluationRoute, 'ReliabilityCompounding', 1, 'reset', 'p.95-n100', 'reset',
       'p.95-n14', evaluation, ['episode-success-readout'], ['48.8%'], viewport);

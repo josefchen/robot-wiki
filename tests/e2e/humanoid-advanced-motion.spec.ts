@@ -98,15 +98,15 @@ for (const id of ids) {
     expect((await title.boundingBox())!.y).toBeGreaterThanOrEqual(page.viewportSize()!.width < 1024 ? 48 : 0);
     await hit(title);
     const names = reference.locator('[data-author-names]');
-    if (citation.authors.length > 8) {
+    if (citation.authors.length > 6) {
       const toggle = reference.getByRole('button', { name: `Show all ${citation.authors.length} authors` });
       await toggle.focus(); await toggle.press('Enter');
       await expect(names).toHaveText(citation.authors.join(', '));
       await expect(reference.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
       await capture(page, `${id}-expanded`);
-      await reference.getByRole('button', { name: 'Show 8 authors' }).press('Enter');
+      await reference.getByRole('button', { name: 'Show 6 authors' }).press('Enter');
       await expect(reference.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
-      await expect(names).toContainText(`and ${citation.authors.length - 8} more`);
+      await expect(names).toContainText(`and ${citation.authors.length - 6} more`);
     } else {
       await expect(names).toHaveText(citation.authors.join(', '));
       await expect(reference.getByRole('button')).toHaveCount(0);

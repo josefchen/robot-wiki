@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "dfc7227ce693f11b69680e97e0813c6289abdd183043a90da8ed93a614386181",
+  "fingerprint": "912dda8790be28422d7195b58d685c3bbc9db597693243ac16f4693d0311f8e7",
   "viewports": [
     "375x812",
     "1440x900"
@@ -6651,10 +6651,10 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Cost\"",
-          "sha256": "22aa36f7d8a9f75bd19a8484467ce5a0189478751baefde76e0937a71765647b",
+          "sha256": "b70807884269d96beda76ee439c1ac9ced5248bb106db646afc519eb3719a416",
           "widthPx": 327,
           "heightPx": 2222,
-          "settleAttempts": 2,
+          "settleAttempts": 3,
           "settled": true,
           "luminanceSpread": 30.62,
           "fontsLoaded": true,
@@ -14684,12 +14684,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "a883eddbf37c24b9fc9dea4d5b7cd5e11f44932f54d45147216694cfffd145ab",
+          "sha256": "44c59899f6c5af964db39e5a844e1dcfb18f9f3d7fca186cad344f67161de03f",
           "widthPx": 327,
-          "heightPx": 514,
+          "heightPx": 513,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.69,
+          "luminanceSpread": 29.72,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14699,12 +14699,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"A shelf\"",
-          "sha256": "0ead5474abb3266a4847eb6b3789e73c6241e9062ca4e564eb829fc5fffec3fd",
+          "sha256": "df600601e2ef55569d60e330eeccf5b7ed77a5c01cd0a3ea20291ea844f33b09",
           "widthPx": 327,
-          "heightPx": 514,
+          "heightPx": 513,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.6,
+          "luminanceSpread": 29.63,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14791,7 +14791,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "13e733f27715567eb8a1fddfa1f5abdfbc1f418988e686d567dc39feb71bf8e1",
+          "sha256": "8c94a3038eadf9f164de1823019d24cbaf4119bd2bd709c8f32defb88124179a",
           "widthPx": 930,
           "heightPx": 668,
           "settleAttempts": 2,
@@ -14806,7 +14806,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"A shelf\"",
-          "sha256": "39520fd4d4f3b5f19962d70ea1ca773afebc4627de348904de315ef27b823ff1",
+          "sha256": "82f264ce56dc72f63921cf928e025ad14f96b201e0a972843936a7d24b592095",
           "widthPx": 930,
           "heightPx": 668,
           "settleAttempts": 2,
@@ -14898,7 +14898,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "76b440535ceb3c5192dee870962f1f3dd27998fc95cf4d1b035136bf08babd1b",
+          "sha256": "aa0155c072f84fb12ab5a6aa5e7b10b5c77c57272309e9269c2a4343136a2c0d",
           "widthPx": 327,
           "heightPx": 595,
           "settleAttempts": 2,
@@ -14913,7 +14913,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Robot's leg length as a percentage of the person's, currentl\" 75 to 130",
-          "sha256": "5306a2f29d29e1f228e1fc4c585821702b3a37c79a40a623db25e5c0723fc8da",
+          "sha256": "794d15df98527a9c911f46319e3f5a76a910595ac5778923a69d385ebdca7521",
           "widthPx": 327,
           "heightPx": 595,
           "settleAttempts": 2,
@@ -15006,7 +15006,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "8fd6ba5f421fa8cd00a09106ed4987eb70e77d4b82d999bd2459f08a3f3ce712",
+          "sha256": "30f89f2b38516c12241f5d3040adcdfb4948d4dd6d9c4cd439a615f28af32c89",
           "widthPx": 930,
           "heightPx": 824,
           "settleAttempts": 2,
@@ -15021,7 +15021,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Robot's leg length as a percentage of the person's, currentl\" 75 to 130",
-          "sha256": "49e0a4175caff9effb58d03b009097a15d21e79617f91bfa7371f6060d3969e7",
+          "sha256": "af164630c96c51d3c4dd9a06ce4865a81a6816f27cb11172197a4ffde205d2a9",
           "widthPx": 930,
           "heightPx": 824,
           "settleAttempts": 2,
@@ -16004,7 +16004,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "9a8a485e613f94e425044a5c9183e836dcc29f5bd7193c9cda41f07c28771fdc",
+          "sha256": "6386047f832943efa6e39fa0af5046e11c0bf769a46f42fb5e4e83e7860e5d45",
           "widthPx": 327,
           "heightPx": 526,
           "settleAttempts": 2,
@@ -16019,7 +16019,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Before RL\"",
-          "sha256": "361d00e5e9eee80b66a0fee07f120683190471a7e27e85c8dc117365db7598dc",
+          "sha256": "2a0b7e5782d74ab9faeb47a759184755b9f856d5d7699915b97c1ef963c7e088",
           "widthPx": 327,
           "heightPx": 526,
           "settleAttempts": 2,
@@ -16112,7 +16112,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "1ef42051056755e92957b9373f6d239c72697ab26771bcbbeec7f1d63dd4fc02",
+          "sha256": "afafd759431b931c10ffa0e15f166d3106dcce8660a5ad1484303bf8380a6d22",
           "widthPx": 930,
           "heightPx": 655,
           "settleAttempts": 2,
@@ -16127,7 +16127,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Before RL\"",
-          "sha256": "751fa6ebf8eae8654be39cfb5d8c2a266283d990f3f64464b995cab00934c57c",
+          "sha256": "e96f9db27e280021c40b243af3f8bf956253c82fdc6df83752596d836e436f1b",
           "widthPx": 930,
           "heightPx": 655,
           "settleAttempts": 2,
@@ -21819,8 +21819,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-05.jpg",
-      "sha256": "3d11ea8bdce7ffc10fbfd57da358f39bfba0230b52307e17ba2d262dceb0302c",
-      "bytes": 275077,
+      "sha256": "546448f7d3f8d0bcefa1a293233f86b882ae9083bb2715c1a53f0d590099b118",
+      "bytes": 275057,
       "mountIds": [
         "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
         "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -21860,7 +21860,7 @@
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1@375x812:changed",
-          "sha256": "22aa36f7d8a9f75bd19a8484467ce5a0189478751baefde76e0937a71765647b"
+          "sha256": "b70807884269d96beda76ee439c1ac9ced5248bb106db646afc519eb3719a416"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@1440x900:default",
@@ -22379,8 +22379,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-10.jpg",
-      "sha256": "03ffd54f3bc1ca51493908dcc6219625fa025ba821adaedaabc1d979f90797bd",
-      "bytes": 192329,
+      "sha256": "73d05188ba67cab0a73441a9004e908d4582271e81edc89c4265c85947b8cd1f",
+      "bytes": 192422,
       "mountIds": [
         "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
         "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
@@ -22456,43 +22456,43 @@
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@1440x900:default",
-          "sha256": "13e733f27715567eb8a1fddfa1f5abdfbc1f418988e686d567dc39feb71bf8e1"
+          "sha256": "8c94a3038eadf9f164de1823019d24cbaf4119bd2bd709c8f32defb88124179a"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@1440x900:changed",
-          "sha256": "39520fd4d4f3b5f19962d70ea1ca773afebc4627de348904de315ef27b823ff1"
+          "sha256": "82f264ce56dc72f63921cf928e025ad14f96b201e0a972843936a7d24b592095"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@375x812:default",
-          "sha256": "a883eddbf37c24b9fc9dea4d5b7cd5e11f44932f54d45147216694cfffd145ab"
+          "sha256": "44c59899f6c5af964db39e5a844e1dcfb18f9f3d7fca186cad344f67161de03f"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@375x812:changed",
-          "sha256": "0ead5474abb3266a4847eb6b3789e73c6241e9062ca4e564eb829fc5fffec3fd"
+          "sha256": "df600601e2ef55569d60e330eeccf5b7ed77a5c01cd0a3ea20291ea844f33b09"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@1440x900:default",
-          "sha256": "8fd6ba5f421fa8cd00a09106ed4987eb70e77d4b82d999bd2459f08a3f3ce712"
+          "sha256": "30f89f2b38516c12241f5d3040adcdfb4948d4dd6d9c4cd439a615f28af32c89"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@1440x900:changed",
-          "sha256": "49e0a4175caff9effb58d03b009097a15d21e79617f91bfa7371f6060d3969e7"
+          "sha256": "af164630c96c51d3c4dd9a06ce4865a81a6816f27cb11172197a4ffde205d2a9"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@375x812:default",
-          "sha256": "76b440535ceb3c5192dee870962f1f3dd27998fc95cf4d1b035136bf08babd1b"
+          "sha256": "aa0155c072f84fb12ab5a6aa5e7b10b5c77c57272309e9269c2a4343136a2c0d"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@375x812:changed",
-          "sha256": "5306a2f29d29e1f228e1fc4c585821702b3a37c79a40a623db25e5c0723fc8da"
+          "sha256": "794d15df98527a9c911f46319e3f5a76a910595ac5778923a69d385ebdca7521"
         }
       ],
       "renderedTwiceIdentical": true
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-11.jpg",
-      "sha256": "18171c8f35ecc6e634134f733eb78dd1f8b106ca69d2c69ad5e55ca6044fc42c",
-      "bytes": 149477,
+      "sha256": "8e103d902585e77d2a04224a07f0687562e09e3fac8c5bd26fb74c93aa5aff2a",
+      "bytes": 149517,
       "mountIds": [
         "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
         "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
@@ -22568,19 +22568,19 @@
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1@1440x900:default",
-          "sha256": "1ef42051056755e92957b9373f6d239c72697ab26771bcbbeec7f1d63dd4fc02"
+          "sha256": "afafd759431b931c10ffa0e15f166d3106dcce8660a5ad1484303bf8380a6d22"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1@1440x900:changed",
-          "sha256": "751fa6ebf8eae8654be39cfb5d8c2a266283d990f3f64464b995cab00934c57c"
+          "sha256": "e96f9db27e280021c40b243af3f8bf956253c82fdc6df83752596d836e436f1b"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1@375x812:default",
-          "sha256": "9a8a485e613f94e425044a5c9183e836dcc29f5bd7193c9cda41f07c28771fdc"
+          "sha256": "6386047f832943efa6e39fa0af5046e11c0bf769a46f42fb5e4e83e7860e5d45"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1@375x812:changed",
-          "sha256": "361d00e5e9eee80b66a0fee07f120683190471a7e27e85c8dc117365db7598dc"
+          "sha256": "2a0b7e5782d74ab9faeb47a759184755b9f856d5d7699915b97c1ef963c7e088"
         },
         {
           "key": "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1@1440x900:default",

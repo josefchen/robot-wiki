@@ -113,8 +113,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await expect(entry).toContainText(citation.title);
         await expect(entry.locator(`a[href="${citation.url}"]`).first()).toHaveCount(1);
         const names = entry.locator('[data-author-names]');
-        if (citation.authors.length > 8) {
-          await expect(names).toContainText(`and ${citation.authors.length - 8} more`);
+        if (citation.authors.length > 6) {
+          await expect(names).toContainText(`and ${citation.authors.length - 6} more`);
           const button = entry.getByRole('button');
           await button.scrollIntoViewIfNeeded();
           await button.focus();

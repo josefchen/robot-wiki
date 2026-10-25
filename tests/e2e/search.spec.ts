@@ -21,7 +21,7 @@ test.describe('search shell', () => {
     await expect(inputs).toHaveCount(1);
     await expect(inputs.first()).toHaveAccessibleName('Search the wiki');
     await expect(
-      main.getByText(/type a query to search/i),
+      main.getByText(/try: temporal ensembling/i),
     ).toBeVisible();
   });
 

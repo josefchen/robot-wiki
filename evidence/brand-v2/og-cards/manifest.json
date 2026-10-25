@@ -2357,7 +2357,7 @@
         "/rl-sim2real/legged-locomotion/"
       ],
       "alt": "Open graph card for the Robot Wiki article Legged Locomotion Lineage",
-      "treeDigest": "0e5f6f95a16a70ac7adef1965ba443a5ace7410404eb27f797ead54a2b204b95",
+      "treeDigest": "97e9b55e73d4b758fbc72369ca7adf36b2b2d706f347ef0d2102ba1b771b4860",
       "strings": [
         {
           "field": "domain",
@@ -2389,10 +2389,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "38 REFERENCES",
+          "text": "39 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/rl-sim2real/legged-locomotion.mdx#frontmatter.citations",
-          "sourceValue": 38
+          "sourceValue": 39
         }
       ],
       "facts": {
@@ -2400,7 +2400,7 @@
         "domain": "rl-sim2real",
         "domainName": "RL, Sim-to-Real & Locomotion",
         "reviewYear": 2026,
-        "referenceCount": 38
+        "referenceCount": 39
       },
       "devices": [
         "device:section-rule#header",
@@ -2425,23 +2425,23 @@
         "path": "/og/rl-sim2real/legged-locomotion.png",
         "width": 1200,
         "height": 630,
-        "bytes": 32432,
-        "sha256": "cceb96d92c77af4cc068cd3998b91953af98db13c76a7586df4d383d943b4e0d"
+        "bytes": 32389,
+        "sha256": "56cbeb1a21df493c00d8a696438374eebf2ddd35afd85c665f6fa7b767aaecd1"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/rl-sim2real/legged-locomotion-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 40108,
-          "sha256": "ca6f11ad177f91d2ecd78f79cb4a0365ad6672cfed45354fe90105a4356efb45"
+          "bytes": 40067,
+          "sha256": "d9ea19b0bcd39cbcc496f270f9339ecde70ea3a626a6bd2225c6a8470d61caa8"
         },
         {
           "path": "/structured-images/rl-sim2real/legged-locomotion-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 48639,
-          "sha256": "acefb8fe7a1fc390f218104e58102d96196890a14cf113d0004062ecfcd5733b"
+          "bytes": 48593,
+          "sha256": "a2c4d3153ee657f4972151070443ae56cbe6a4d242e6be5de9ce29fe5ce91d2c"
         }
       ],
       "pixels": {
@@ -2456,7 +2456,7 @@
           "title": 22643,
           "identity": 1178
         },
-        "secondRenderSha256": "cceb96d92c77af4cc068cd3998b91953af98db13c76a7586df4d383d943b4e0d"
+        "secondRenderSha256": "56cbeb1a21df493c00d8a696438374eebf2ddd35afd85c665f6fa7b767aaecd1"
       }
     },
     {
@@ -2468,7 +2468,7 @@
         "/rl-sim2real/humanoid-wbc/"
       ],
       "alt": "Open graph card for the Robot Wiki article Humanoid Whole-Body Control",
-      "treeDigest": "7b26e86034adf78d3e923326492633f3a5a2742f7991c245521093d4b7fa3fb7",
+      "treeDigest": "e7fedd0950fde6396e0cc72bd836edec9c5b7fdb3e23c1c60a1238a6e22b0876",
       "strings": [
         {
           "field": "domain",
@@ -2500,10 +2500,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "43 REFERENCES",
+          "text": "47 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/rl-sim2real/humanoid-wbc.mdx#frontmatter.citations",
-          "sourceValue": 43
+          "sourceValue": 47
         }
       ],
       "facts": {
@@ -2511,7 +2511,7 @@
         "domain": "rl-sim2real",
         "domainName": "RL, Sim-to-Real & Locomotion",
         "reviewYear": 2026,
-        "referenceCount": 43
+        "referenceCount": 47
       },
       "devices": [
         "device:section-rule#header",
@@ -2536,23 +2536,23 @@
         "path": "/og/rl-sim2real/humanoid-wbc.png",
         "width": 1200,
         "height": 630,
-        "bytes": 34498,
-        "sha256": "aebd67832a0d190d7b4abc86991522acf0427a45343411f191ea1a02b6bc4b56"
+        "bytes": 34413,
+        "sha256": "9aa479ec8053af6e7cb0d3b65fb134328bdc69188013d1361ef545102ef1397c"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/rl-sim2real/humanoid-wbc-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 42194,
-          "sha256": "4b87168e1c6eecc411c3bbc7675ab95695939fac1757177297690af81dc66baf"
+          "bytes": 42107,
+          "sha256": "d05a274acca5b1614bdb1c66054d2a2d37f6f7e85aa6fa8f8a91a6e3d7d6945c"
         },
         {
           "path": "/structured-images/rl-sim2real/humanoid-wbc-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50727,
-          "sha256": "4664444dc0437d06d6edccdc98cd68cc2707eb410ecf9f212b8aa01caf2a3be8"
+          "bytes": 50640,
+          "sha256": "3ce50a50bae94e647b44d1afc7ce650bda0eb5b00cc53e32e0ce58dda6694ef2"
         }
       ],
       "pixels": {
@@ -2567,7 +2567,7 @@
           "title": 24108,
           "identity": 1178
         },
-        "secondRenderSha256": "aebd67832a0d190d7b4abc86991522acf0427a45343411f191ea1a02b6bc4b56"
+        "secondRenderSha256": "9aa479ec8053af6e7cb0d3b65fb134328bdc69188013d1361ef545102ef1397c"
       }
     },
     {
@@ -2690,7 +2690,7 @@
         "/rl-sim2real/offline-rl/"
       ],
       "alt": "Open graph card for the Robot Wiki article Offline Reinforcement Learning for Robotics",
-      "treeDigest": "93730d8ba7d926890167d17901a02819351e02ac517b982c8426ed39b6b4e4f7",
+      "treeDigest": "6fed4b5c479bb051525ac2da2d6e61be95fecf0aed12f42b790af995d8d74486",
       "strings": [
         {
           "field": "domain",
@@ -2722,10 +2722,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "40 REFERENCES",
+          "text": "41 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/rl-sim2real/offline-rl.mdx#frontmatter.citations",
-          "sourceValue": 40
+          "sourceValue": 41
         }
       ],
       "facts": {
@@ -2733,7 +2733,7 @@
         "domain": "rl-sim2real",
         "domainName": "RL, Sim-to-Real & Locomotion",
         "reviewYear": 2026,
-        "referenceCount": 40
+        "referenceCount": 41
       },
       "devices": [
         "device:section-rule#header",
@@ -2758,23 +2758,23 @@
         "path": "/og/rl-sim2real/offline-rl.png",
         "width": 1200,
         "height": 630,
-        "bytes": 33842,
-        "sha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b"
+        "bytes": 33660,
+        "sha256": "b14963ecb995a70fa9a4e395696478130a6aa50f63d503cdcccd499ff73d3539"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/rl-sim2real/offline-rl-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 41556,
-          "sha256": "59a21cb2af6c9fb7f043419bed8e93fd043fa36a298c2c7f2ef98c2a9111c851"
+          "bytes": 41358,
+          "sha256": "37943edd7c0c01dc9bb616cec6c58fab82e1865daf53bd127457984736c886f0"
         },
         {
           "path": "/structured-images/rl-sim2real/offline-rl-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 50122,
-          "sha256": "11925c9dc6545f4c3307be767158052e74a3fe1821603006c787367ea9cbb713"
+          "bytes": 49920,
+          "sha256": "b5b8e2e4f0381d42ed84aaf58c8632d3d0893f6f5118a4c674b2efd91c45ffb7"
         }
       ],
       "pixels": {
@@ -2789,7 +2789,7 @@
           "title": 24066,
           "identity": 1178
         },
-        "secondRenderSha256": "e3353fd5302544530ebe2588d714e4a323d3259b50b4be1fca5b92974df57f0b"
+        "secondRenderSha256": "b14963ecb995a70fa9a4e395696478130a6aa50f63d503cdcccd499ff73d3539"
       }
     },
     {
@@ -6728,7 +6728,6 @@
         "card:data-hardware/datasets",
         "card:manipulation/action-spaces",
         "card:manipulation/cross-embodiment",
-        "card:rl-sim2real/legged-locomotion",
         "card:world-models/generative-video"
       ],
       "codePointCount": 13,
@@ -6749,7 +6748,8 @@
       "assignedBy": [
         "card:classical/state-estimation",
         "card:data-hardware/industrial-deployment",
-        "card:manipulation/foundation-models"
+        "card:manipulation/foundation-models",
+        "card:rl-sim2real/legged-locomotion"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6762,31 +6762,14 @@
       "fallbackFree": true
     },
     {
-      "probeId": "probe:og-face:data:1bef92a9eafff9ae",
-      "faceId": "og-face:data",
-      "family": "IBM Plex Mono",
-      "text": "40 REFERENCES",
-      "assignedBy": [
-        "card:rl-sim2real/offline-rl"
-      ],
-      "codePointCount": 13,
-      "cmapMissing": [],
-      "canvas": {
-        "width": 1200,
-        "height": 109
-      },
-      "ownFaceSha256": "3f8d441b4602814eb7dde91a6c2de3c3b753586e09047c7c89e51cbad27a3932",
-      "productionSha256": "3f8d441b4602814eb7dde91a6c2de3c3b753586e09047c7c89e51cbad27a3932",
-      "fallbackFree": true
-    },
-    {
       "probeId": "probe:og-face:data:54fe2013630bc749",
       "faceId": "og-face:data",
       "family": "IBM Plex Mono",
       "text": "41 REFERENCES",
       "assignedBy": [
         "card:classical/grasp-planning",
-        "card:manipulation/generalist-policies"
+        "card:manipulation/generalist-policies",
+        "card:rl-sim2real/offline-rl"
       ],
       "codePointCount": 13,
       "cmapMissing": [],
@@ -6826,7 +6809,6 @@
         "card:classical/motion-planning",
         "card:frontier/safety-and-assurance",
         "card:manipulation/rl-finetuning",
-        "card:rl-sim2real/humanoid-wbc",
         "card:rl-sim2real/reward-design-mpc"
       ],
       "codePointCount": 13,
@@ -6881,6 +6863,7 @@
       "family": "IBM Plex Mono",
       "text": "47 REFERENCES",
       "assignedBy": [
+        "card:rl-sim2real/humanoid-wbc",
         "card:rl-sim2real/rl-for-robotics"
       ],
       "codePointCount": 13,
@@ -8555,5 +8538,5 @@
       "fallbackFree": true
     }
   ],
-  "corpusSha256": "d44cdd08686dd188c6d48ea4f310fb3ddd836bfeaf464864c570e914e1088e8a"
+  "corpusSha256": "1f3aa2df5da6c30a5c97061224a0842a25c03f1b9ef7ac606457a89116b0a7ec"
 }

@@ -298,8 +298,8 @@ test.describe('References bibliography', () => {
         // The meta line is the registry record rendered verbatim: the
         // author list, venue only when the registry records one, and the
         // year, rendered once when the venue already states it ("RSS 2023."
-        // rather than "RSS 2023, 2023."). A list longer than eight names
-        // shows the first eight and a count, and its toggle swaps in the
+        // rather than "RSS 2023, 2023."). A list longer than six names
+        // shows the first six and a count, and its toggle swaps in the
         // full registry list. An undated source ("n.d.") also states the
         // registry's access date. The derivation is inlined here so the spec
         // does not grade the renderer with the renderer's own rule.
@@ -310,11 +310,11 @@ test.describe('References bibliography', () => {
           citation.venue?.includes(String(citation.year)) ? '' : `, ${year}`}.`;
         const meta = item.locator('p').first();
         const count = citation.authors.length;
-        if (count > 8) {
+        if (count > 6) {
           await expect(meta).toHaveText(
-            `${citation.authors.slice(0, 8).join(', ')}, and ${count - 8} more${trailing} Show all ${count} authors`);
+            `${citation.authors.slice(0, 6).join(', ')}, and ${count - 6} more${trailing} Show all ${count} authors`);
           await meta.getByRole('button', { name: `Show all ${count} authors`, exact: true }).click();
-          await expect(meta).toHaveText(`${citation.authors.join(', ')}${trailing} Show 8 authors`);
+          await expect(meta).toHaveText(`${citation.authors.join(', ')}${trailing} Show 6 authors`);
         } else {
           await expect(meta).toHaveText(`${citation.authors.join(', ')}${trailing}`);
         }

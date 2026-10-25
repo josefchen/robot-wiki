@@ -366,7 +366,7 @@ test.describe('brand-v2-search-states', () => {
     await clear.click();
 
     await expect(
-      page.getByText(/type a query to search/i),
+      page.getByText(/try: temporal ensembling/i),
     ).toBeVisible();
     await expect(page.locator('[data-search-result]')).toHaveCount(0);
     await expect(page).toHaveURL(/\/search\/?$/);
@@ -530,7 +530,9 @@ async function collectState(
         inputFocused: document.activeElement === input,
         documentScrollWidthPx: document.documentElement.scrollWidth,
         documentClientWidthPx: document.documentElement.clientWidth,
-        idleCopyVisible: /type a query to search/i.test(
+        // The idle copy is the example-query line; the sentence that
+        // repeated the page lead ("Type a query to search...") was cut.
+        idleCopyVisible: /try: temporal ensembling/i.test(
           document.body.innerText,
         ),
         loadingRowCount: document.querySelectorAll('[data-search-loading]')
@@ -926,7 +928,7 @@ test.describe('brand-v2 search states sweep', () => {
     // cleared-to-idle through the labelled clear control.
     await driveResults(page, staticBase, 'action chunking');
     await page.getByRole('button', { name: 'Clear search' }).click();
-    await expect(page.getByText(/type a query to search/i)).toBeVisible();
+    await expect(page.getByText(/try: temporal ensembling/i)).toBeVisible();
     states.push(
       await collectState(
         page,

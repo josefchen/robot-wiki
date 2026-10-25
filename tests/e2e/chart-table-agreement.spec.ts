@@ -255,9 +255,17 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'table-form charts repeated in their page\'s prediction step (eight ' +
       'disclosures: LatencyComparison has two) and the GaitDiagram and ' +
       'TrainingTimeChart mounts, making it 17; the reader-first DeploymentEconomics ' +
-      'payback-by-clearing-time chart on industrial-deployment made it 18; a ' +
-      'change here means a chart was added, removed or re-declared form)',
-  ).toBe(18);
+      'payback-by-clearing-time chart on industrial-deployment made it 18; the ' +
+      'domain passes and the research-page figure migration gave their new and ' +
+      'redrawn charts table-form disclosures, making it 37 on the final opus-pass ' +
+      'tree: calibration 3, ros2-for-ml-engineers 2, data-bottleneck 1, ' +
+      'evaluation-crisis 1, industrial-deployment 1, generalization 1, ' +
+      'reliability-gap 1, action-chunking 3, bc-foundations 1, realtime-execution ' +
+      '2, rl-finetuning 2, vla-models 1, humanoid-wbc 2, legged-locomotion 2, ' +
+      'offline-rl 3, parallel-sim-rl 2, reward-design-mpc 1, rl-for-robotics 3, ' +
+      'sim2real-transfer 2, why-rl-locomotion 2, latent-dynamics 1; a change here ' +
+      'means a chart was added, removed or re-declared form)',
+  ).toBe(37);
   // An unresolved svg yields no ticks, which clause (a) would otherwise
   // record as one more carve-out: the payback chart went ungraded that way
   // while its svg named a caption and the description in one id list.
@@ -339,6 +347,28 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // payback table runs in seconds under minute ticks, a unit the gate does
   // not convert. The other five are the carve-outs above, the
   // realtime-execution model-size bars now drawing no axis at all.
+  // Re-measured on the final opus-pass tree (population 37, pinned above):
+  // pass=6 skip=31 fail=0, with each carve-out opened in a browser and
+  // checked to carry no numeric x tick, in the svg or beside it. Sixteen
+  // are drawn scenes (svg.iso-svg holds no text at all; the numbers live
+  // in the readout): the evaluation-crisis and reliability-gap
+  // calculators, the parallel-sim-rl robot grid, the legged-locomotion
+  // motor model, both offline-rl scenes, the hand-eye and motion-blur
+  // calibration scenes, the industrial-deployment payback scene, the
+  // realtime-execution hand-off, the vla-models token strip, the
+  // action-chunking hand-off, the rl-for-robotics reward scene, the
+  // humanoid-wbc retargeting frame and both ros2-for-ml-engineers scenes.
+  // Fifteen are charts whose x-axis is words, categories, a tally or
+  // word-unit time: the realtime-execution model-size bars, the
+  // data-bottleneck datasets, the sim2real friction chart and correlation
+  // scale, the calibration chain, the Newton routing map, the
+  // terrain-curriculum rounds, the MPC-versus-RL panel, the offline-rl,
+  // Gemini Robotics 2 and EXPO-FT task bars, the rl-for-robotics time
+  // ladder and on-policy rounds, and both why-rl-locomotion panels. The graded count fell from
+  // 9 to 6 because the reader-first and research-page redraws turned
+  // numeric-axis charts into scenes; no carve-out is an extractor miss.
+  // The floor and cap keep the same margin of two honest new
+  // carve-outs, so with the population pinned they still fail together.
   // Name every carve-out in the failure text, so a floor or cap breach
   // says which charts moved instead of only how many.
   const skipList = aSkips
@@ -346,12 +376,12 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
     .join(' | ');
   expect(
     aGraded.length,
-    `clause (a) graded population (measured 9 of 18 after the reader-first figures; 7 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
-  ).toBeGreaterThanOrEqual(7);
+    `clause (a) graded population (measured 6 of 37 on the final opus-pass tree; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
+  ).toBeGreaterThanOrEqual(4);
   expect(
     aSkips.length,
-    `clause (a) skip count (measured 9 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
-  ).toBeLessThanOrEqual(11);
+    `clause (a) skip count (measured 31 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
+  ).toBeLessThanOrEqual(33);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {
@@ -426,9 +456,23 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
             });
             // Readout text excludes the table-form disclosures themselves:
             // the table echoes its own row, so counting it would grade nothing.
-            const clone = panel.cloneNode(true) as Element;
-            clone.querySelectorAll('details[data-chart-data]').forEach((dd) => dd.remove());
-            return (clone.textContent ?? '').replace(/\s+/g, ' ');
+            const read = () => {
+              const clone = panel.cloneNode(true) as Element;
+              clone.querySelectorAll('details[data-chart-data]').forEach((dd) => dd.remove());
+              return (clone.textContent ?? '').replace(/\s+/g, ' ');
+            };
+            // A readout that eases to the new value (RetargetingGap's legs
+            // telescope for about a second) is graded once it has settled:
+            // two equal reads 120 ms apart, or the 2 s cap, whichever comes
+            // first. The settled readout must still carry every cell.
+            let text = read();
+            for (let waited = 0; waited < 2000; waited += 120) {
+              await new Promise((res) => setTimeout(res, 120));
+              const next = read();
+              if (next === text) break;
+              text = next;
+            }
+            return text;
           },
           { ci, sliderIndex: s.index, sv },
         );

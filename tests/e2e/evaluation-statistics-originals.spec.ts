@@ -108,11 +108,11 @@ for (const width of [375, 1440]) {
           await expect(page).toHaveURL(new RegExp(`#ref-${citation.id}$`));
           const ref = page.locator(`[data-reference-id="${citation.id}"]`);
           await expect(ref.locator('[data-reference-source-link]')).toHaveText(citation.title);
-          if (citation.authors.length > 8) {
+          if (citation.authors.length > 6) {
             const expand = ref.getByRole('button', { name: `Show all ${citation.authors.length} authors` });
             await expand.focus();
             await page.keyboard.press('Enter');
-            await expect(ref.getByRole('button', { name: 'Show 8 authors' })).toHaveAttribute('aria-expanded', 'true');
+            await expect(ref.getByRole('button', { name: 'Show 6 authors' })).toHaveAttribute('aria-expanded', 'true');
           }
           // The expanded entry is read, captured and checked for overflow at
           // the width under test.

@@ -48,6 +48,7 @@ citations:
   - q-chunking-2025
   - lwd-2026
   - q2rl-2026
+  - offline-empowerment-2026
 seeAlso:
   - "world-models/model-based-robot-learning"
   - "data-hardware/evaluation-crisis"
@@ -173,6 +174,8 @@ Run one repeatable physical suite for every candidate and keep the episode IDs; 
 ## From a fixed dataset to controlled online improvement
 
 RLPD mixes offline data into off-policy online learning without separate conservative pretraining <Cite id="rlpd-2023" />. Conservative critics fine-tune poorly, so Cal-QL calibrates CQL with a one-line change and leads on 9 of 11 benchmarks <Cite id="cal-ql-2023" />. Retaining offline data in replay is a safe default, though WSRL shows it is unnecessary with a well-designed online method <Cite id="wsrl-2024" />.
+
+Ishir Garg, Benjamin Eysenbach, Sergey Levine and colleagues at UC Berkeley and Princeton (October 2026) use prior data to decide where to explore: they estimate empowerment, a measure of how many future states an agent can reach from a state, from unlabeled offline trajectories without any environment interaction <Cite id="offline-empowerment-2026" />. Used as an exploration bonus for online goal-conditioned contrastive RL, it sped up learning and raised success on five of the OGBench task and dataset pairs and matched the baseline on the rest, over 5 seeds; every test ran in simulation <Cite id="offline-empowerment-2026" />.
 
 Keep action bounds and command validation outside the learned policy, define interventions and resets, and compare each promotion with the frozen offline checkpoint. PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id="pa-rl-2024" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id="lwd-2026" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.
 

@@ -8,8 +8,10 @@ type BadgeProps = {
   children: ReactNode;
 };
 
-// No pill: a badge is a short label in small tracked capitals, its words
-// the cue and its colour only a second one.
+// No pill: a badge is a short lowercase table value, like "not disclosed",
+// its words the cue and its colour only a second one. Tracked capitals stay
+// with eyebrows and section heads: one per table row would put a page over
+// its five micro-labels (VAL-DESIGN-010).
 const variantClasses: Record<BadgeVariant, string> = {
   default: 'text-text-dim',
   accent: 'font-semibold text-ink',
@@ -21,10 +23,11 @@ const variantClasses: Record<BadgeVariant, string> = {
 export function Badge({ variant = 'default', children }: BadgeProps) {
   return (
     <span
+      data-badge=""
       data-variant={variant}
       data-brand-surface-id="surface:flat"
       className={cx(
-        'inline-flex items-center font-sans text-[11px] font-medium uppercase leading-none tracking-[0.08em]',
+        'inline-flex items-center font-sans text-[13px] font-medium leading-none',
         variantClasses[variant],
       )}
     >

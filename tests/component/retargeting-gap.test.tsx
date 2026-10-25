@@ -10,6 +10,7 @@ import {
   RATIO_MIN,
   RetargetingGap,
   UNITS_PER_CM,
+  footCell,
   footGapCm,
   readoutFor,
   soleGapUnits,
@@ -39,6 +40,14 @@ describe('RetargetingGap', () => {
     expect(footGapCm(75)).toBe(23);
     expect(footGapCm(100)).toBe(0);
     expect(footGapCm(120)).toBe(-18);
+    // The table prints the readout's own number with a direction word, never a signed value the readout lacks.
+    expect(footCell(75)).toBe('23 above');
+    expect(footCell(100)).toBe('on the floor');
+    expect(footCell(120)).toBe('18 below');
+    for (let ratio = RATIO_MIN; ratio <= RATIO_MAX; ratio += 5) {
+      const number = footCell(ratio).match(/\d+/)?.[0];
+      if (number) expect(readoutFor(ratio)).toContain(` ${number} cm`);
+    }
   });
 
   it('hangs both bodies at one hip height and measures the drawn gap with the model', () => {

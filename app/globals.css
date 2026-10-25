@@ -1199,9 +1199,20 @@ article > hr {
 
 .cite-mark a,
 .prose .cite-mark a {
+  position: relative;
   padding-left: 1px;
   color: var(--ink);
   text-decoration: none;
+}
+
+/* The screen-reader word "Source" is a 1 px absolute box. Left at its
+   static position it sat a line above the number, over the previous line's
+   link, so a pointer aimed at the citation's first box hit that link. Pin it
+   inside the number's own box. */
+.cite-mark a > .sr-only {
+  top: 0;
+  left: 0;
+  margin: 0;
 }
 
 .cite-mark a:hover,

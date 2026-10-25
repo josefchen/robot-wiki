@@ -375,11 +375,8 @@ export function SearchInterface({
 
       {status === 'idle' ? (
         <div className="mt-8 border-t border-border pt-6">
-          <p className="max-w-[65ch] text-sm leading-relaxed text-text-dim">
-            Type a query to search every published article and the
-            methods, companies and datasets.
-          </p>
-          <p className="mt-3 font-mono text-xs text-text-dim">
+          {/* The page lead already says what is searched; idle shows only examples. */}
+          <p data-search-idle-hint className="font-mono text-xs text-text-dim">
             Try: temporal ensembling, ALOHA, chunk size
           </p>
         </div>

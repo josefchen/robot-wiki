@@ -50,6 +50,10 @@ citations:
   - resgac-2026
   - workhorse-2026
   - primoretarget-2026
+  - supermimic-2026
+  - fiber-2026
+  - swap-2026
+  - embodyhoi-2026
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/hierarchical"
@@ -110,6 +114,8 @@ Figure says it later conditioned S0 on camera perception <Cite id="figure-s0-202
 
 NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id="gr00t-n1-7-release-2026" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id="flow-matching">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id="isaac-gr00t-repo-2026" /> <Cite id="groot-wbc-2026" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id="sonic-2025" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id="isaac-gr00t-repo-2026" />.
 
+Qiayuan Liao, Pieter Abbeel, Koushil Sreenath and colleagues at UC Berkeley (October 2026) train a tracker with analytic gradients through short rollouts of a differentiable world model fit to logged simulator transitions <Cite id="supermimic-2026" />. Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC <Cite id="supermimic-2026" />. The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion <Cite id="supermimic-2026" />.
+
 <Image id="unitree-robots-japan-mobility-show-2025" />
 
 ### One VLA, feet to fingertips: Gemini Robotics 2
@@ -131,11 +137,17 @@ DeepMind says its robots "have more to advance in movement speed" <Cite id="gemi
 
 A tracker does not choose its own motion. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id="wbc-motion-gen-2026" />. VIRAL's simulation-trained RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id="viral-2025" />, and Boston Dynamics reports that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id="bd-atlas-hard-work-2026" />.
 
+Yutang Lin, Guanya Shi and C. Karen Liu at Amazon FAR, Carnegie Mellon and Stanford (October 2026) plan in the latent command space of a frozen behavior foundation model, which closes the balance loop at 50 Hz while their FIBER planner replans at 5 Hz <Cite id="fiber-2026" />. FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts <Cite id="fiber-2026" />. Trained only in simulation, FIBER succeeded in 6, 4 and 2 of 10 real G1 trials on the three tasks <Cite id="fiber-2026" />.
+
+Zeji Yi, Guanya Shi and colleagues at Carnegie Mellon and Amazon FAR (October 2026) split collision avoidance between a perception-conditioned diffusion policy that proposes whole-body motions and an RL controller that tracks them and keeps balance <Cite id="swap-2026" />. Their SWAP labels training data in hindsight, placing obstacles only where an executed motion did not sweep <Cite id="swap-2026" />. Across five simulated tasks it averaged 88.3% success with test-time steering, 72.4% without it and 17.4% when the diffusion output drove the joints directly <Cite id="swap-2026" />. On a real G1, with motion capture for localization and the moving obstacles, it succeeded in 18 of 25 trials; the authors trace the failures to LiDAR occlusion and tracking mismatch <Cite id="swap-2026" />.
+
 HITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id="hitter-2025" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id="paxton-robot-sports-2026" />.
 
 Retargeting is lossy: artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id="gmr-retargeting-2025" />, and noisy, inconsistent transferred references motivated a 2026 robustness method with a fall-recovery curriculum <Cite id="robust-tracking-2026" />.
 
 Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives <Cite id="primoretarget-2026" />. On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time <Cite id="primoretarget-2026" />. The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower <Cite id="primoretarget-2026" />. Collaborative manipulation by several robots stayed harder, at 62.6% tracking success <Cite id="primoretarget-2026" />.
+
+Chaitanya Chawla, Kartik Sharma, Guanya Shi and colleagues at Carnegie Mellon (October 2026) check reachability during generation: their EmbodyHOI steers a frozen generator of human hand-object motion with a differentiable inverse-kinematics cost for the target robot while it samples <Cite id="embodyhoi-2026" />. On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references <Cite id="embodyhoi-2026" />. Fixing the arms with inverse kinematics after generation dropped success on a four-task suite to 32.8%, against 79.7% with guidance, which costs 32 times an unguided sample <Cite id="embodyhoi-2026" />.
 
 <RetargetingGap className="my-6" />
 

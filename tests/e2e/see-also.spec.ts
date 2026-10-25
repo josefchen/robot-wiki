@@ -156,13 +156,14 @@ test.describe('See also + Linked from', () => {
   test('every See also link navigates to a published article whose h1 matches the label (VAL-WIKI-008)', async ({
     browser,
   }) => {
-    // The sweep clicks every edge in the published set: ~90 edges at
-    // roughly three navigations each, far past the 30s default.
-    test.setTimeout(300_000);
     const edges = articles.flatMap((article) =>
       (article.seeAlso ?? []).map((target) => ({ source: article.key, target })),
     );
     expect(edges.length).toBeGreaterThan(0);
+    // The sweep clicks every edge in the published set (166 when this was
+    // sized), two navigations and a click each, so the budget grows with
+    // the edge count: a fixed 300 s ran out under load with no failure.
+    test.setTimeout(60_000 + edges.length * 3_000);
 
     await forEachInOwnContext(browser, edges, async (page, { source, target }) => {
       const entry = registryByKey.get(target);

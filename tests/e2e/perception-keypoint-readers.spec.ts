@@ -156,12 +156,12 @@ for (const route of ['/classical/perception/', '/manipulation/hierarchical/']) {
       // The tooltip's "Jump to the full reference" link is the number itself, which points at the References entry and jumps from it.
       const restoreViewport = await jumpFromCiteMark(page, root, id);
       const expand = ref.getByRole('button', { name: `Show all ${citation.authors.length} authors`, exact: true });
-      const needsExpansion = citation.authors.length > 8;
+      const needsExpansion = citation.authors.length > 6;
       await expect(expand).toHaveCount(needsExpansion ? 1 : 0);
-      if (needsExpansion) { await expand.focus(); await page.keyboard.press('Enter'); await expect(ref.getByRole('button', { name: 'Show 8 authors', exact: true })).toHaveAttribute('aria-expanded', 'true'); }
+      if (needsExpansion) { await expand.focus(); await page.keyboard.press('Enter'); await expect(ref.getByRole('button', { name: 'Show 6 authors', exact: true })).toHaveAttribute('aria-expanded', 'true'); }
       const authorNames = ref.locator('[data-author-names]'); await expect(authorNames).toBeVisible(); await expect(authorNames).toHaveText(citation.authors.join(', '));
       assertFullReferenceAuthors(await authorNames.innerText(), citation.authors);
-      await expect(authorNames.locator('..')).toHaveText(citation.authors.join(', ') + (citation.venue ? `, ${citation.venue}` : '') + `, ${citation.year}.` + (needsExpansion ? ' Show 8 authors' : ''));
+      await expect(authorNames.locator('..')).toHaveText(citation.authors.join(', ') + (citation.venue ? `, ${citation.venue}` : '') + `, ${citation.year}.` + (needsExpansion ? ' Show 6 authors' : ''));
       states.push({ name: 'full-reference', id, authors: citation.authors, authorCount: citation.authors.length, needsExpansion, title: citation.title, year: citation.year, venue: citation.venue ?? null, href: citation.url });
       const link = ref.getByRole('link', { name: citation.title, exact: true }); await expect(link).toHaveAttribute('href', citation.url); await expect(link).toHaveAttribute('rel', 'noopener noreferrer'); await expect(link).toHaveAttribute('target', '_blank'); await expect(ref.locator('p').last()).toHaveText(citation.url); await link.focus(); await expect(link).toBeFocused(); await textCapture(ref, id + '-reference');
       await restoreViewport();

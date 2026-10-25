@@ -4,7 +4,7 @@
   "reviewedBy": "implementation workers for the manipulation, classical and rl-sim2real humanize passes of 2026-10-12, combined into one review by the integration lane (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
   "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
-  "observedAt": "2026-10-25T06:41:54Z",
+  "observedAt": "2026-10-25T18:22:27Z",
   "sources": [
     {
       "archivedFrom": "08955866d1810a79371706218a7cd4e8be9e0b4e",
@@ -7101,13 +7101,13 @@
       },
       "after": {
         "path": "content/rl-sim2real/humanoid-wbc.mdx",
-        "bytes": 12375,
-        "sha256": "260ffc53f857c5d4cd22846d8ffb51713da3a3c5fbdeb8ea5f61cc6de78387b4"
+        "bytes": 15453,
+        "sha256": "0baec9988974e60610c07ac38c24e951ed73a9dfde9b4340d0f5b16dc9cd363b"
       },
       "edits": [
         {
           "before": "  - workhorse-2026\n",
-          "after": "  - workhorse-2026\n  - primoretarget-2026\n"
+          "after": "  - workhorse-2026\n  - primoretarget-2026\n  - supermimic-2026\n  - fiber-2026\n  - swap-2026\n  - embodyhoi-2026\n"
         },
         {
           "before": "In character animation, DeepMimic adapted standard RL to imitate motion clips, including retargeted ones, for characters including an Atlas robot model <Cite id=\"deepmimic-2018\" />. AMASS unified 15 optical mocap datasets, over 40 hours and 11,000 motions, in one body parameterization <Cite id=\"amass-2019\" />.\n",
@@ -7150,8 +7150,12 @@
           "after": "Figure announced Helix 02 on 27 January 2026. It keeps the tracking decomposition: S2 reasons over scenes and language and emits latent goals; S1, a 200 Hz visuomotor transformer, maps head and palm cameras, fingertip tactile sensors and full-body <Term id=\"proprioception\">proprioception</Term> to whole-body joint targets; and S0, a 10M-parameter controller at 1 kHz, turns joint state and base motion into actuator commands. S0 trained on over 1,000 hours of joint-level retargeted human motion and sim-to-real RL across more than 200,000 parallel environments, and the headline demo is a 4-minute dishwasher unload and reload <Cite id=\"helix-02-2026\" />.\n\nFigure says it later conditioned S0 on camera perception <Cite id=\"figure-s0-2026\" />, and reports that Helix 2.5, pretrained from random initialization on its Index human-behavior dataset, succeeded on 56% of blind zero-shot trials in 30 unseen homes, against 9% when trained from scratch <Cite id=\"helix-2-5-2026\" />.\n"
         },
         {
-          "before": "NVIDIA keeps the VLA and whole-body controller as separate learned systems. It released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head. With the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands, so one language-conditioned policy coordinates locomotion and manipulation <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC, published in Science Robotics, scales tracking from 1.2M to 42M parameters on 700 hours of motion capture and 21k GPU hours, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. LeVERB learns a latent vision-language verb vocabulary from rendered kinematic demonstrations for an RL whole-body controller <Cite id=\"leverb-2025\" />. WholeBodyVLA learns latent actions from action-free egocentric video <Cite id=\"wholebodyvla-2025\" />. The GR00T repository licenses code under Apache 2.0 and model weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n\nWorkhorse, from Pieter Abbeel, Koushil Sreenath (UC Berkeley) and colleagues (October 2026), pairs a visual planner with an RL whole-body tracker, both trained on robot-free human poses without retargeting; in a simulated copy of the demonstration room it completes box sorting in 77% of episodes, and 64% under 40 N·s pushes <Cite id=\"workhorse-2026\" />.\n\n",
-          "after": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n\n"
+          "before": "NVIDIA keeps the VLA and whole-body controller as separate learned systems. It released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head. With the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands, so one language-conditioned policy coordinates locomotion and manipulation <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC, published in Science Robotics, scales tracking from 1.2M to 42M parameters on 700 hours of motion capture and 21k GPU hours, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. LeVERB learns a latent vision-language verb vocabulary from rendered kinematic demonstrations for an RL whole-body controller <Cite id=\"leverb-2025\" />. WholeBodyVLA learns latent actions from action-free egocentric video <Cite id=\"wholebodyvla-2025\" />. The GR00T repository licenses code under Apache 2.0 and model weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n",
+          "after": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n"
+        },
+        {
+          "before": "Workhorse, from Pieter Abbeel, Koushil Sreenath (UC Berkeley) and colleagues (October 2026), pairs a visual planner with an RL whole-body tracker, both trained on robot-free human poses without retargeting; in a simulated copy of the demonstration room it completes box sorting in 77% of episodes, and 64% under 40 N·s pushes <Cite id=\"workhorse-2026\" />.\n",
+          "after": "Qiayuan Liao, Pieter Abbeel, Koushil Sreenath and colleagues at UC Berkeley (October 2026) train a tracker with analytic gradients through short rollouts of a differentiable world model fit to logged simulator transitions <Cite id=\"supermimic-2026\" />. Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC <Cite id=\"supermimic-2026\" />. The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion <Cite id=\"supermimic-2026\" />.\n"
         },
         {
           "before": "Google DeepMind removed the boundary. Its 30 July 2026 announcement reports that Gemini Robotics 2 controls full humanoids \"from feet to fingertips\": on Apptronik's Apollo 2 it walks to fetch a watering can and shelve it. It drives the five-fingered, 22-degree-of-freedom SharpaWave hand and parallel grippers on a Franka Duo. One checkpoint runs Apollo 2 with SharpaWave hands, Apollo 2 with Inspire hands and the Franka Duo with Robotiq grippers. DeepMind reports adapting to new bi-arm robots in a few hours, with fewer than 200 examples in most cases <Cite id=\"gemini-robotics-2-2026\" />.\n",
@@ -7167,15 +7171,15 @@
         },
         {
           "before": "Tracking reproduces motion without choosing the task. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned in closed loop on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id=\"wbc-motion-gen-2026\" />. HDMI learns from monocular video to co-track robot and object states, with 67 consecutive door traversals and six real loco-manipulation tasks <Cite id=\"hdmi-2025\" />. Simulation-trained visual loco-manipulation now reaches hardware: VIRAL's RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id=\"viral-2025\" />, and FetchMan's policy walked to and grasped targets in unseen scenes at 73.3% success, zero-shot <Cite id=\"fetchman-2026\" />. Boston Dynamics reports that it trained Atlas's fridge move with RL from a simple animation, and that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id=\"bd-atlas-hard-work-2026\" />.\n",
-          "after": "A tracker does not choose its own motion. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id=\"wbc-motion-gen-2026\" />. VIRAL's simulation-trained RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id=\"viral-2025\" />, and Boston Dynamics reports that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id=\"bd-atlas-hard-work-2026\" />.\n\nHITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id=\"hitter-2025\" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id=\"paxton-robot-sports-2026\" />.\n"
+          "after": "A tracker does not choose its own motion. Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned on its imperfect references, crossing boxes, hurdles and stairs on a G1 <Cite id=\"wbc-motion-gen-2026\" />. VIRAL's simulation-trained RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 <Cite id=\"viral-2025\" />, and Boston Dynamics reports that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds <Cite id=\"bd-atlas-hard-work-2026\" />.\n\nYutang Lin, Guanya Shi and C. Karen Liu at Amazon FAR, Carnegie Mellon and Stanford (October 2026) plan in the latent command space of a frozen behavior foundation model, which closes the balance loop at 50 Hz while their FIBER planner replans at 5 Hz <Cite id=\"fiber-2026\" />. FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts <Cite id=\"fiber-2026\" />. Trained only in simulation, FIBER succeeded in 6, 4 and 2 of 10 real G1 trials on the three tasks <Cite id=\"fiber-2026\" />.\n\nZeji Yi, Guanya Shi and colleagues at Carnegie Mellon and Amazon FAR (October 2026) split collision avoidance between a perception-conditioned diffusion policy that proposes whole-body motions and an RL controller that tracks them and keeps balance <Cite id=\"swap-2026\" />. Their SWAP labels training data in hindsight, placing obstacles only where an executed motion did not sweep <Cite id=\"swap-2026\" />. Across five simulated tasks it averaged 88.3% success with test-time steering, 72.4% without it and 17.4% when the diffusion output drove the joints directly <Cite id=\"swap-2026\" />. On a real G1, with motion capture for localization and the moving obstacles, it succeeded in 18 of 25 trials; the authors trace the failures to LiDAR occlusion and tracking mismatch <Cite id=\"swap-2026\" />.\n\nHITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id=\"hitter-2025\" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id=\"paxton-robot-sports-2026\" />.\n\nRetargeting is lossy: artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />, and noisy, inconsistent transferred references motivated a 2026 robustness method with a fall-recovery curriculum <Cite id=\"robust-tracking-2026\" />.\n"
         },
         {
           "before": "HITTER pairs a planner that predicts the ball and picks the strike with an RL whole-body controller, and reached up to 106 consecutive table-tennis shots against a human <Cite id=\"hitter-2025\" />. LATENT learns tennis strokes from fragments of human motion and sustained multi-shot rallies with people on a Unitree G1 <Cite id=\"latent-tennis-2026\" />. Chris Paxton of Agility Robotics wrote in October 2026 that many such systems still see the ball through external motion trackers, which leaves onboard perception as the limit <Cite id=\"paxton-robot-sports-2026\" />.\n",
-          "after": "Retargeting is lossy: artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />, and noisy, inconsistent transferred references motivated a 2026 robustness method with a fall-recovery curriculum <Cite id=\"robust-tracking-2026\" />.\n"
+          "after": "Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives <Cite id=\"primoretarget-2026\" />. On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time <Cite id=\"primoretarget-2026\" />. The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower <Cite id=\"primoretarget-2026\" />. Collaborative manipulation by several robots stayed harder, at 62.6% tracking success <Cite id=\"primoretarget-2026\" />.\n"
         },
         {
           "before": "Retargeting is lossy. Artifacts such as foot sliding and self-penetration significantly reduce tracking-policy robustness, particularly for dynamic or long sequences <Cite id=\"gmr-retargeting-2025\" />. Noisy, inconsistent transferred references motivate the 2026 robustness work <Cite id=\"robust-tracking-2026\" />.\n",
-          "after": "Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives <Cite id=\"primoretarget-2026\" />. On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time <Cite id=\"primoretarget-2026\" />. The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower <Cite id=\"primoretarget-2026\" />. Collaborative manipulation by several robots stayed harder, at 62.6% tracking success <Cite id=\"primoretarget-2026\" />.\n"
+          "after": "Chaitanya Chawla, Kartik Sharma, Guanya Shi and colleagues at Carnegie Mellon (October 2026) check reachability during generation: their EmbodyHOI steers a frozen generator of human hand-object motion with a differentiable inverse-kinematics cost for the target robot while it samples <Cite id=\"embodyhoi-2026\" />. On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references <Cite id=\"embodyhoi-2026\" />. Fixing the arms with inverse kinematics after generation dropped success on a four-task suite to 32.8%, against 79.7% with guidance, which costs 32 times an unguided sample <Cite id=\"embodyhoi-2026\" />.\n"
         },
         {
           "before": "Figure and NVIDIA [keep balance](/how-robots-work/#upright) and contact beneath the foundation model, behind tracked joint targets or a latent token <Cite id=\"helix-02-2026\" /> <Cite id=\"isaac-gr00t-repo-2026\" />. DeepMind puts them inside one policy, whose whole-body pick categories average 45.7 to 76.3% against 89.6% for gripper insertion tasks <Cite id=\"gemini-robotics-2-2026\" />.\n",
@@ -7251,14 +7255,6 @@
             "claim": "The headline demo is a 4-minute dishwasher unload and reload of 61 loco-manipulation actions [helix-02-2026]."
           },
           {
-            "value": "1",
-            "claim": "On the Unitree H1, H2O's privileged motion-filtering imitator is \"similar to PHC\" and follows PULSE, which distills a universal motion imitator into a latent representation [pulse-2023]."
-          },
-          {
-            "value": "1",
-            "claim": "OmniH2O uses kinematic motion goals as a shared interface on the H1."
-          },
-          {
             "value": "109,504",
             "claim": "S0 trained on over 1,000 hours of joint-level retargeted human motion and sim-to-real RL across more than 200,000 parallel environments, and Figure says it replaces 109,504 lines of hand-engineered C++."
           },
@@ -7277,10 +7273,6 @@
           {
             "value": "2",
             "claim": "On the Unitree H1, H2O's privileged motion-filtering imitator is \"similar to PHC\" and follows PULSE, which distills a universal motion imitator into a latent representation [pulse-2023]."
-          },
-          {
-            "value": "2",
-            "claim": "The deployed teleoperation system also uses robot-side motion capture for linear velocity, with a PD controller under the 19-dimensional joint-target policy [h2o-2024]."
           },
           {
             "value": "2019",
@@ -7315,18 +7307,6 @@
             "claim": "Its baselines and ablations run in simulation, and it neither gets up after falls nor targets slopes and stairs [gmt-2025]."
           },
           {
-            "value": "2026",
-            "claim": "The 2026 robustness work aggregates noisy, inconsistent references with a multi-head cross-attention command encoder and adds a fall-recovery curriculum [robust-tracking-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "ZEST trains motion-imitation policies with RL from motion capture, monocular video and animation, and deploys them zero-shot on Atlas, the Unitree G1 and Spot without contact labels or state estimators [zest-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "ResGAC, from Guanya Shi (Carnegie Mellon), Koushil Sreenath and colleagues (October 2026), adds residual RL to geometric admittance control on a real Unitree G1 and reports 90% success on a standing peg-in-hole task, against 50% for SONIC [resgac-2026]."
-          },
-          {
             "value": "21",
             "claim": "SONIC, published in Science Robotics, scales tracking from 1.2M to 42M parameters on 700 hours of motion capture and 21k GPU hours, with one token space serving VR teleoperation and VLAs [sonic-2025]."
           },
@@ -7339,16 +7319,8 @@
             "claim": "AMASS unified 15 optical mocap datasets, over 40 hours and 11,000 motions, in one body parameterization [amass-2019]."
           },
           {
-            "value": "40",
-            "claim": "Workhorse, from Pieter Abbeel, Koushil Sreenath (UC Berkeley) and colleagues (October 2026), pairs a visual planner with an RL whole-body tracker, both trained on robot-free human poses without retargeting; in a simulated copy of the demonstration room it completes box sorting in 77% of episodes, and 64% under 40 N·s pushes [workhorse-2026]."
-          },
-          {
             "value": "45.7",
             "claim": "Whole-body picking on Apollo 2 with Inspire hands averages 76.3% from a shelf, 68.4% from a table and 45.7% from the floor."
-          },
-          {
-            "value": "50",
-            "claim": "ResGAC, from Guanya Shi (Carnegie Mellon), Koushil Sreenath and colleagues (October 2026), adds residual RL to geometric admittance control on a real Unitree G1 and reports 90% success on a standing peg-in-hole task, against 50% for SONIC [resgac-2026]."
           },
           {
             "value": "61",
@@ -7389,6 +7361,30 @@
       "added": {
         "citations": [
           {
+            "value": "embodyhoi-2026",
+            "claim": "Chaitanya Chawla, Kartik Sharma, Guanya Shi and colleagues at Carnegie Mellon (October 2026) check reachability during generation: their EmbodyHOI steers a frozen generator of human hand-object motion with a differentiable inverse-kinematics cost for the target robot while it samples [embodyhoi-2026]."
+          },
+          {
+            "value": "embodyhoi-2026",
+            "claim": "On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references [embodyhoi-2026]."
+          },
+          {
+            "value": "embodyhoi-2026",
+            "claim": "Fixing the arms with inverse kinematics after generation dropped success on a four-task suite to 32.8%, against 79.7% with guidance, which costs 32 times an unguided sample [embodyhoi-2026]."
+          },
+          {
+            "value": "fiber-2026",
+            "claim": "Karen Liu at Amazon FAR, Carnegie Mellon and Stanford (October 2026) plan in the latent command space of a frozen behavior foundation model, which closes the balance loop at 50 Hz while their FIBER planner replans at 5 Hz [fiber-2026]."
+          },
+          {
+            "value": "fiber-2026",
+            "claim": "FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts [fiber-2026]."
+          },
+          {
+            "value": "fiber-2026",
+            "claim": "Trained only in simulation, FIBER succeeded in 6, 4 and 2 of 10 real G1 trials on the three tasks [fiber-2026]."
+          },
+          {
             "value": "primoretarget-2026",
             "claim": "Nicholas Ioannidis, Xue Bin Peng and colleagues at Simon Fraser University, FieldAI and NVIDIA (October 2026) replace the weighted objectives of retargeting with a priority order: foot placement first, then contacts with objects or other characters, then the remaining pose objectives [primoretarget-2026]."
           },
@@ -7403,16 +7399,204 @@
           {
             "value": "primoretarget-2026",
             "claim": "Collaborative manipulation by several robots stayed harder, at 62.6% tracking success [primoretarget-2026]."
+          },
+          {
+            "value": "supermimic-2026",
+            "claim": "Qiayuan Liao, Pieter Abbeel, Koushil Sreenath and colleagues at UC Berkeley (October 2026) train a tracker with analytic gradients through short rollouts of a differentiable world model fit to logged simulator transitions [supermimic-2026]."
+          },
+          {
+            "value": "supermimic-2026",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "supermimic-2026",
+            "claim": "The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion [supermimic-2026]."
+          },
+          {
+            "value": "swap-2026",
+            "claim": "Zeji Yi, Guanya Shi and colleagues at Carnegie Mellon and Amazon FAR (October 2026) split collision avoidance between a perception-conditioned diffusion policy that proposes whole-body motions and an RL controller that tracks them and keeps balance [swap-2026]."
+          },
+          {
+            "value": "swap-2026",
+            "claim": "Their SWAP labels training data in hindsight, placing obstacles only where an executed motion did not sweep [swap-2026]."
+          },
+          {
+            "value": "swap-2026",
+            "claim": "Across five simulated tasks it averaged 88.3% success with test-time steering, 72.4% without it and 17.4% when the diffusion output drove the joints directly [swap-2026]."
+          },
+          {
+            "value": "swap-2026",
+            "claim": "On a real G1, with motion capture for localization and the moving obstacles, it succeeded in 18 of 25 trials; the authors trace the failures to LiDAR occlusion and tracking mismatch [swap-2026]."
           }
         ],
         "numbers": [
+          {
+            "value": "0.6",
+            "claim": "On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references [embodyhoi-2026]."
+          },
+          {
+            "value": "1",
+            "claim": "On the Unitree H1, H2O's privileged motion-filtering imitator is \"similar to PHC\" and follows PULSE [pulse-2023]."
+          },
+          {
+            "value": "10",
+            "claim": "It keeps the tracking decomposition: S2 reasons over scenes and language and emits latent goals; S1, a 200 Hz visuomotor transformer, maps head and palm cameras, fingertip tactile sensors and full-body proprioception to whole-body joint targets; and S0, a 10M-parameter controller at 1 kHz, turns joint state and base motion into actuator commands."
+          },
+          {
+            "value": "100",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "11.6",
+            "claim": "FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts [fiber-2026]."
+          },
+          {
+            "value": "128",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "128",
+            "claim": "FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts [fiber-2026]."
+          },
+          {
+            "value": "129,514",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "17.4",
+            "claim": "Across five simulated tasks it averaged 88.3% success with test-time steering, 72.4% without it and 17.4% when the diffusion output drove the joints directly [swap-2026]."
+          },
+          {
+            "value": "179",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "18",
+            "claim": "OmniH2O's student, distilled from a privileged RL teacher, tracks head-and-hand goals from proprioceptive history with no explicit global-linear-velocity input, though root odometry still maps goals into the robot frame [omnih2o-2024]."
+          },
+          {
+            "value": "2.3",
+            "claim": "The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion [supermimic-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "ZEST trains motion-imitation policies with RL from motion capture, monocular video and animation, and deploys them zero-shot on Atlas, the Unitree G1 and Spot [zest-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "S0 trained on over 1,000 hours of joint-level retargeted human motion and sim-to-real RL across more than 200,000 parallel environments, and the headline demo is a 4-minute dishwasher unload and reload [helix-02-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Figure says it later conditioned S0 on camera perception [figure-s0-2026], and reports that Helix 2.5, pretrained from random initialization on its Index human-behavior dataset, succeeded on 56% of blind zero-shot trials in 30 unseen homes, against 9% when trained from scratch [helix-2-5-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 [gr00t-n1-7-release-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a flow-matching action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands [isaac-gr00t-repo-2026] [groot-wbc-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone [isaac-gr00t-repo-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Qiayuan Liao, Pieter Abbeel, Koushil Sreenath and colleagues at UC Berkeley (October 2026) train a tracker with analytic gradients through short rollouts of a differentiable world model fit to logged simulator transitions [supermimic-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion [supermimic-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Google DeepMind puts everything in one model: its 30 July 2026 announcement reports that Gemini Robotics 2 controls full humanoids \"from feet to fingertips\", fetching and shelving a watering can on Apptronik's Apollo 2."
+          },
+          {
+            "value": "2026",
+            "claim": "One checkpoint runs Apollo 2 with SharpaWave hands, Apollo 2 with Inspire hands and the Franka Duo with Robotiq grippers, and DeepMind reports adapting to new bi-arm robots in a few hours, with fewer than 200 examples in most cases [gemini-robotics-2-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Zhang and colleagues pair a terrain-aware diffusion motion generator with a tracker fine-tuned on its imperfect references, crossing boxes, hurdles and stairs on a G1 [wbc-motion-gen-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "VIRAL's simulation-trained RGB policy ran continuous loco-manipulation for up to 54 cycles on a G1 [viral-2025], and Boston Dynamics reports that a policy trained for 50 to 70 pound loads moved a fridge of over 100 pounds [bd-atlas-hard-work-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Karen Liu at Amazon FAR, Carnegie Mellon and Stanford (October 2026) plan in the latent command space of a frozen behavior foundation model, which closes the balance loop at 50 Hz while their FIBER planner replans at 5 Hz [fiber-2026]."
+          },
+          {
+            "value": "25",
+            "claim": "Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC [supermimic-2026]."
+          },
+          {
+            "value": "25",
+            "claim": "On a real G1, with motion capture for localization and the moving obstacles, it succeeded in 18 of 25 trials; the authors trace the failures to LiDAR occlusion and tracking mismatch [swap-2026]."
+          },
+          {
+            "value": "3",
+            "claim": "GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a flow-matching action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands [isaac-gr00t-repo-2026] [groot-wbc-2026]."
+          },
+          {
+            "value": "3.5",
+            "claim": "FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts [fiber-2026]."
+          },
+          {
+            "value": "32",
+            "claim": "A visual policy trained on teleoperated demonstrations can drive the tracker, evaluated on four of six recorded tasks at ten runs each, and the authors report no safety guarantees for extreme disturbances or out-of-distribution goals [omnih2o-2024]."
+          },
+          {
+            "value": "32.8",
+            "claim": "Fixing the arms with inverse kinematics after generation dropped success on a four-task suite to 32.8%, against 79.7% with guidance, which costs 32 times an unguided sample [embodyhoi-2026]."
+          },
           {
             "value": "35.2",
             "claim": "The strongest of three baselines, PHC, reached 35.2% and 72.8%; GMR and OmniRetarget scored lower [primoretarget-2026]."
           },
           {
+            "value": "4",
+            "claim": "S0 trained on over 1,000 hours of joint-level retargeted human motion and sim-to-real RL across more than 200,000 parallel environments, and the headline demo is a 4-minute dishwasher unload and reload [helix-02-2026]."
+          },
+          {
+            "value": "42.0",
+            "claim": "FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts [fiber-2026]."
+          },
+          {
+            "value": "5",
+            "claim": "It filters references by an initial policy's lower-body tracking error and distills a privileged PPO teacher into a history-based student that walks, squats and dances on Unitree G1, though transitions between specialists remain unresolved [exbody2-2024]."
+          },
+          {
+            "value": "50",
+            "claim": "GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a flow-matching action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands [isaac-gr00t-repo-2026] [groot-wbc-2026]."
+          },
+          {
+            "value": "6",
+            "claim": "Trained only in simulation, FIBER succeeded in 6, 4 and 2 of 10 real G1 trials on the three tasks [fiber-2026]."
+          },
+          {
             "value": "62.6",
             "claim": "Collaborative manipulation by several robots stayed harder, at 62.6% tracking success [primoretarget-2026]."
+          },
+          {
+            "value": "68",
+            "claim": "On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references [embodyhoi-2026]."
+          },
+          {
+            "value": "7",
+            "claim": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 [gr00t-n1-7-release-2026]."
+          },
+          {
+            "value": "72.4",
+            "claim": "Across five simulated tasks it averaged 88.3% success with test-time steering, 72.4% without it and 17.4% when the diffusion output drove the joints directly [swap-2026]."
           },
           {
             "value": "72.8",
@@ -7423,8 +7607,28 @@
             "claim": "On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time [primoretarget-2026]."
           },
           {
+            "value": "79",
+            "claim": "On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references [embodyhoi-2026]."
+          },
+          {
+            "value": "79.7",
+            "claim": "Fixing the arms with inverse kinematics after generation dropped success on a four-task suite to 32.8%, against 79.7% with guidance, which costs 32 times an unguided sample [embodyhoi-2026]."
+          },
+          {
+            "value": "8.9",
+            "claim": "On the Unitree G1 this cut the wrist error left after retargeting from 8.9 cm to 0.6 cm, and simulated policies trained on the guided references succeeded on 79% of 50 randomly drawn tasks, against 68% for unguided references [embodyhoi-2026]."
+          },
+          {
+            "value": "88.3",
+            "claim": "Across five simulated tasks it averaged 88.3% success with test-time steering, 72.4% without it and 17.4% when the diffusion output drove the joints directly [swap-2026]."
+          },
+          {
             "value": "93.6",
             "claim": "On two-person interactions from Inter-X their PriMoRetarget kept 78.8% of source hand contacts, and PPO policies trained on its output tracked the motions on a simulated Unitree G1 93.6% of the time [primoretarget-2026]."
+          },
+          {
+            "value": "95.4",
+            "claim": "FIBER projects separately trained policies for box pickup, door opening and grasping into that space and trains one perceptive planner on their rollouts; across 128 simulated variations per task it succeeded 42.0% of the time, against 11.6% for replaying the projected latents, 3.5% for a kinematic planner and 95.4% for the task experts [fiber-2026]."
           }
         ],
         "links": [],
@@ -7457,13 +7661,13 @@
       },
       "after": {
         "path": "content/rl-sim2real/legged-locomotion.mdx",
-        "bytes": 11896,
-        "sha256": "614156aeae8659d6b5b8ae8f73a5b15687aacc27168efd58d99d8d3d18db7d04"
+        "bytes": 12682,
+        "sha256": "deb8b3224f46df81fe7c25c5d29f245eaea852442a95a7fc2580cc9b5f8fae4e"
       },
       "edits": [
         {
           "before": "  - bd-atlas-ces-2026\n",
-          "after": "  - bd-atlas-ces-2026\n  - walk-like-this-2026\n"
+          "after": "  - bd-atlas-ces-2026\n  - walk-like-this-2026\n  - rubiks-quadruped-2026\n"
         },
         {
           "before": "Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, trained on data from exciting the real legs and disturbing the robot by hand. It stands in for actuation in the simulator. Policies trained with ideal or analytical actuator models failed to take a single step without falling. A separate recovery policy flipped ANYmal upright from nine tested configurations, including a nearly upside-down pose and two resting on its own legs, after the authors relaxed joint-velocity constraints following the first hardware attempt <Cite id=\"hwangbo-2019\" />.\n",
@@ -7531,7 +7735,7 @@
         },
         {
           "before": "Walking is not manipulation. Acosta and colleagues call dynamic contact the computational bottleneck for most simulations <Cite id=\"acosta-2021\" />, and the [locomotion-manipulation comparison](/rl-sim2real/why-rl-locomotion) shows why manipulation's MDP resists simulation. Motion tracking needs feasible references, and naive retargeting can break them <Cite id=\"h2o-2024\" />. Eureka's LLM-written rewards beat human experts on 83% of 29 environments <Cite id=\"eureka-2024\" />, and DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id=\"dreureka-2024\" />.\n",
-          "after": "Contact-rich manipulation is harder to simulate: Acosta and colleagues call dynamic contact the computational bottleneck for most simulations <Cite id=\"acosta-2021\" />, and the [locomotion-manipulation comparison](/rl-sim2real/why-rl-locomotion) explains why. Eureka's LLM-written rewards beat human experts on 83% of 29 environments <Cite id=\"eureka-2024\" />, and DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id=\"dreureka-2024\" />.\n"
+          "after": "Contact-rich manipulation is harder to simulate: Acosta and colleagues call dynamic contact the computational bottleneck for most simulations <Cite id=\"acosta-2021\" />, and the [locomotion-manipulation comparison](/rl-sim2real/why-rl-locomotion) explains why. Eureka's LLM-written rewards beat human experts on 83% of 29 environments <Cite id=\"eureka-2024\" />, and DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id=\"dreureka-2024\" />.\n\nLukas Amiet, Marco Hutter, Cesar Cadena and colleagues at ETH Zurich (October 2026) had an ANYmal D quadruped solve a Rubik's Cube with its feet; the cube is 0.4 m on a side and weighs 4.6 kg, and the robot flips it or pins it with one foot while the other pushes a layer round <Cite id=\"rubiks-quadruped-2026\" />. Skills trained with privileged RL and distilled into policies that read onboard depth and proprioception completed all three attempted hardware solves without intervention, each about 30 steps over 8 to 9 minutes <Cite id=\"rubiks-quadruped-2026\" />. In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 <Cite id=\"rubiks-quadruped-2026\" />.\n"
         }
       ],
       "dropped": {
@@ -7611,14 +7815,6 @@
             "claim": "A vision-based humanoid parkour policy without motion priors jumps onto a 0.42 m platform and leaps 0.8 m gaps [humanoid-parkour-2024]."
           },
           {
-            "value": "2026",
-            "claim": "Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s [hiking-wild-2026]."
-          },
-          {
-            "value": "30",
-            "claim": "It controls the full robot at 30 Hz from 30 Hz images, predicting 48 actions (1.6 seconds) per inference and most often executing 24 (0.8 seconds at 1x speed)."
-          },
-          {
             "value": "435",
             "claim": "ANYmal C used two Robosense Bpearl LiDARs or four RealSense D435 cameras, with mapping at 20 Hz and the policy at 50 Hz."
           },
@@ -7629,10 +7825,6 @@
           {
             "value": "6000",
             "claim": "Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU."
-          },
-          {
-            "value": "9",
-            "claim": "Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU."
           }
         ],
         "links": [],
@@ -7640,6 +7832,18 @@
       },
       "added": {
         "citations": [
+          {
+            "value": "rubiks-quadruped-2026",
+            "claim": "Lukas Amiet, Marco Hutter, Cesar Cadena and colleagues at ETH Zurich (October 2026) had an ANYmal D quadruped solve a Rubik's Cube with its feet; the cube is 0.4 m on a side and weighs 4.6 kg, and the robot flips it or pins it with one foot while the other pushes a layer round [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "rubiks-quadruped-2026",
+            "claim": "Skills trained with privileged RL and distilled into policies that read onboard depth and proprioception completed all three attempted hardware solves without intervention, each about 30 steps over 8 to 9 minutes [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "rubiks-quadruped-2026",
+            "claim": "In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 [rubiks-quadruped-2026]."
+          },
           {
             "value": "walk-like-this-2026",
             "claim": "Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it [walk-like-this-2026]."
@@ -7659,12 +7863,60 @@
             "claim": "In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors [walk-like-this-2026]."
           },
           {
+            "value": "0.4",
+            "claim": "Lukas Amiet, Marco Hutter, Cesar Cadena and colleagues at ETH Zurich (October 2026) had an ANYmal D quadruped solve a Rubik's Cube with its feet; the cube is 0.4 m on a side and weighs 4.6 kg, and the robot flips it or pins it with one foot while the other pushes a layer round [rubiks-quadruped-2026]."
+          },
+          {
             "value": "1.104",
+            "claim": "In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors [walk-like-this-2026]."
+          },
+          {
+            "value": "10",
+            "claim": "Ten runs per case converged to similar performance within 1,000 iterations, potential-based shaping was less sensitive across a 0.1 to 10 times weight sweep, and the practical variant set the shaping discount to 1 against PPO's 0.99, which the authors say sacrifices policy invariance [mit-humanoid-rewards-2023]."
+          },
+          {
+            "value": "13",
+            "claim": "In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "15",
+            "claim": "In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "15",
+            "claim": "In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "15",
+            "claim": "In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "15",
+            "claim": "In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Cassie's dual-history controller ran a 400-meter dash [li-cassie-2024], a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline [haarnoja-soccer-2023], and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s [hiking-wild-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it [walk-like-this-2026]."
+          },
+          {
+            "value": "2026",
             "claim": "In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors [walk-like-this-2026]."
           },
           {
             "value": "4",
             "claim": "Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes, with a game-inspired terrain curriculum that promotes robots that cross a tile, demotes those that fall short and loops hardest-level solvers back to a random level [rudin-2021]."
+          },
+          {
+            "value": "4.6",
+            "claim": "Lukas Amiet, Marco Hutter, Cesar Cadena and colleagues at ETH Zurich (October 2026) had an ANYmal D quadruped solve a Rubik's Cube with its feet; the cube is 0.4 m on a side and weighs 4.6 kg, and the robot flips it or pins it with one foot while the other pushes a layer round [rubiks-quadruped-2026]."
+          },
+          {
+            "value": "8",
+            "claim": "Skills trained with privileged RL and distilled into policies that read onboard depth and proprioception completed all three attempted hardware solves without intervention, each about 30 steps over 8 to 9 minutes [rubiks-quadruped-2026]."
           }
         ],
         "links": [],
@@ -7712,10 +7964,14 @@
       },
       "after": {
         "path": "content/rl-sim2real/offline-rl.mdx",
-        "bytes": 10698,
-        "sha256": "61ecad239228138f25b5e4c5a250b68a8d81123fc42424f8ad8cb50a16e21cf5"
+        "bytes": 11363,
+        "sha256": "a5a9670212499519c937defae53800ec098020944eeaf28ba5a0b9e80b17de35"
       },
       "edits": [
+        {
+          "before": "  - q2rl-2026\n",
+          "after": "  - q2rl-2026\n  - offline-empowerment-2026\n"
+        },
         {
           "before": "<Term id=\"offline-reinforcement-learning\">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id=\"offline-rl-tutorial-2020\" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id=\"bear-2019\" />. For robots, support also spans commanded frame, controller mode, action magnitude, contact regime, task stage and recovery. Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id=\"real-orl-2022\" />.\n",
           "after": "<Term id=\"offline-reinforcement-learning\">Offline RL</Term> learns from a static set of transitions `(observation, action, reward, next observation, termination)` produced by one or more behavior policies <Cite id=\"offline-rl-tutorial-2020\" />. Value learning bootstraps, so error from actions outside the data accumulates through the Bellman backup <Cite id=\"bear-2019\" />. For robots, support also spans controller mode, action magnitude, contact regime and task stage, and Real-ORL, built on over 6,500 trajectories from 800 robot hours, found that offline RL and imitation prefer different action spaces <Cite id=\"real-orl-2022\" />.\n"
@@ -7789,8 +8045,12 @@
           "after": "RLPD mixes offline data into off-policy online learning without separate conservative pretraining <Cite id=\"rlpd-2023\" />. Conservative critics fine-tune poorly, so Cal-QL calibrates CQL with a one-line change and leads on 9 of 11 benchmarks <Cite id=\"cal-ql-2023\" />. Retaining offline data in replay is a safe default, though WSRL shows it is unnecessary with a well-designed online method <Cite id=\"wsrl-2024\" />.\n"
         },
         {
-          "before": "Action bounds and command validation sit outside the learned policy, interventions and resets are defined, and each promotion is compared with the frozen offline checkpoint. Retaining offline data in replay is a safety default; WSRL shows it is unnecessary with a well-designed online method <Cite id=\"wsrl-2024\" />. Dong and colleagues find naive Q-function pretraining often helps little over random initialization <Cite id=\"dong-q-pretrain-2026\" />.\n\nPA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id=\"pa-rl-2024\" />. Physical Intelligence pretrains π\\*0.6 with offline RL and reports more than doubled throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id=\"lwd-2026\" />. Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours <Cite id=\"q2rl-2026\" />. BORA updates only a residual actor on a frozen VLA, raising success on standard objects from 60.8% to 82.5% with 20 online trajectories per task <Cite id=\"bora-2026\" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.\n\n",
-          "after": "Keep action bounds and command validation outside the learned policy, define interventions and resets, and compare each promotion with the frozen offline checkpoint. PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id=\"pa-rl-2024\" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id=\"lwd-2026\" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.\n\n"
+          "before": "Action bounds and command validation sit outside the learned policy, interventions and resets are defined, and each promotion is compared with the frozen offline checkpoint. Retaining offline data in replay is a safety default; WSRL shows it is unnecessary with a well-designed online method <Cite id=\"wsrl-2024\" />. Dong and colleagues find naive Q-function pretraining often helps little over random initialization <Cite id=\"dong-q-pretrain-2026\" />.\n",
+          "after": "Ishir Garg, Benjamin Eysenbach, Sergey Levine and colleagues at UC Berkeley and Princeton (October 2026) use prior data to decide where to explore: they estimate empowerment, a measure of how many future states an agent can reach from a state, from unlabeled offline trajectories without any environment interaction <Cite id=\"offline-empowerment-2026\" />. Used as an exploration bonus for online goal-conditioned contrastive RL, it sped up learning and raised success on five of the OGBench task and dataset pairs and matched the baseline on the rest, over 5 seeds; every test ran in simulation <Cite id=\"offline-empowerment-2026\" />.\n"
+        },
+        {
+          "before": "PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id=\"pa-rl-2024\" />. Physical Intelligence pretrains π\\*0.6 with offline RL and reports more than doubled throughput on some of the hardest tasks <Cite id=\"pistar06-2025\" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id=\"lwd-2026\" />. Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours <Cite id=\"q2rl-2026\" />. BORA updates only a residual actor on a frozen VLA, raising success on standard objects from 60.8% to 82.5% with 20 online trajectories per task <Cite id=\"bora-2026\" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.\n",
+          "after": "Keep action bounds and command validation outside the learned policy, define interventions and resets, and compare each promotion with the frozen offline checkpoint. PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id=\"pa-rl-2024\" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id=\"lwd-2026\" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.\n"
         },
         {
           "before": "An offline-RL experiment proceeds when actions, rewards, terminations and timing are trustworthy, and the data holds behavior that cloning should not imitate uniformly. Deployment must lie inside the data's support, since generalization to out-of-support states is often a big barrier <Cite id=\"park-bottleneck-2024\" />. A cloning baseline must reproduce, selection must not rest on learned Q-values alone, and any online phase needs external command limits and rollback.\n",
@@ -7906,18 +8166,6 @@
             "claim": "Robo-ValueRL ties success to value reliability over 240 hours of demonstrations and over 3,000 rollouts; reliable values let offline RL scale better than quality-agnostic cloning [robo-valuerl-2026]."
           },
           {
-            "value": "2026",
-            "claim": "With online improvement added, the full system reaches 86% on millimeter-level chip insertion [robo-valuerl-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Dong and colleagues find naive Q-function pretraining often helps little over random initialization [dong-q-pretrain-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Q2RL keeps a behavior-cloning policy's good actions by gating between cloned and RL actions on their Q-values, and learned contact-rich pipe assembly and kitting on a robot in one to two hours [q2rl-2026]."
-          },
-          {
             "value": "21",
             "claim": "On real-robot tasks it beat the strongest baseline on each task by 21 percentage points on average [needlework-2026]."
           },
@@ -7948,6 +8196,26 @@
           {
             "value": "86",
             "claim": "With online improvement added, the full system reaches 86% on millimeter-level chip insertion [robo-valuerl-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "offline-empowerment-2026",
+            "claim": "Ishir Garg, Benjamin Eysenbach, Sergey Levine and colleagues at UC Berkeley and Princeton (October 2026) use prior data to decide where to explore: they estimate empowerment, a measure of how many future states an agent can reach from a state, from unlabeled offline trajectories without any environment interaction [offline-empowerment-2026]."
+          },
+          {
+            "value": "offline-empowerment-2026",
+            "claim": "Used as an exploration bonus for online goal-conditioned contrastive RL, it sped up learning and raised success on five of the OGBench task and dataset pairs and matched the baseline on the rest, over 5 seeds; every test ran in simulation [offline-empowerment-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "5",
+            "claim": "Used as an exploration bonus for online goal-conditioned contrastive RL, it sped up learning and raised success on five of the OGBench task and dataset pairs and matched the baseline on the rest, over 5 seeds; every test ran in simulation [offline-empowerment-2026]."
           }
         ],
         "links": [],

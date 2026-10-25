@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176644, sha256: '1ef87d5023d82191cca1116437221bb79e0d531c91f830217ad7d4281d759298' };
+const reviewPin = { bytes: 176166, sha256: 'be3d8c72bab8ada517b8809f12f7de17d589ba4af697fa0144583bf929131932' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -215,9 +215,9 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/manipulation/rl-finetuning.mdx', [18148, '7749de405711f539b2471cf5298bd9d68dd60ed068e846d8a6429fa42a089dd6']],
   ['content/manipulation/robot-learning-roadmap.mdx', [8930, '186f8f71aa2f8f72939bee3db299c71463ff20303aae669571947433f27f4135']],
   ['content/manipulation/vla-models.mdx', [13096, 'cff47f1d35bc19779faf67c348807d7d308a45e289ca66876f44c010f320033d']],
-  ['content/rl-sim2real/humanoid-wbc.mdx', [12536, 'b1a2f1729adedd216fb3c4fa6357668c361c3325fe5bd1ebe0fe209bba48aea3']],
-  ['content/rl-sim2real/legged-locomotion.mdx', [12026, 'fca9093d5d268ff7244ff6c8ac65a9951ddd70f16f1d46775f68982dde37dd9f']],
-  ['content/rl-sim2real/offline-rl.mdx', [10788, 'b34063066228dc15860f6b1d5faf3e8148e8e660146abc5b181df6659e17f37c']],
+  ['content/rl-sim2real/humanoid-wbc.mdx', [15614, '4e46438de2c8da181c27f9aa42ec2a32952f0bf6a71535d5c8e2a22377924c45']],
+  ['content/rl-sim2real/legged-locomotion.mdx', [12812, 'f9ac67931d46fd8980063ecfe926e3d8e4e32d832af2287320dceb5e64c50788']],
+  ['content/rl-sim2real/offline-rl.mdx', [11453, '925e9f5f8ea4bc62a13a63a4d2fd6779c2de4b0dbfa43ea489512f6a70a8c34d']],
   ['content/rl-sim2real/parallel-sim-rl.mdx', [10077, '4309475a7e10f3ed0cbfede8a8b55a8983bbce35ffdf133e224dd13bea396e9b']],
   ['content/rl-sim2real/reward-design-mpc.mdx', [13919, '1dca36a9eae1c46dee33b6ee9efb6ac7d569888b6935ce5898258a10aef9e352']],
   ['content/rl-sim2real/rl-for-robotics.mdx', [12201, '198f6cbb974adb9d743d052d0d59cbe0a6cb342e8ae94417a41d80d4f8609aa8']],
