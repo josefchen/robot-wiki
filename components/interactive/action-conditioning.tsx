@@ -529,9 +529,9 @@ export function ActionConditioning({
             summary="Current pair of imagined futures"
             description={description}
             states={[
-              { label: 'video model', value: model },
-              { label: 'first command', value: nameA.toLowerCase() },
-              { label: 'second command', value: nameB.toLowerCase() },
+              { label: 'video model', value: MODEL_LABEL[conditioning] },
+              { label: 'first command', value: nameA },
+              { label: 'second command', value: nameB },
               { label: 'action sensitivity', value: score },
               { label: 'visual realism', value: realism },
             ]}

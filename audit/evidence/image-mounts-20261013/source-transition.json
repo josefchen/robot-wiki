@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-25T06:41:55Z",
+  "observedAt": "2026-10-25T18:22:28Z",
   "sources": [
     {
       "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
@@ -1194,16 +1194,16 @@
       ]
     },
     {
-      "archivedFrom": "07cd0399aef86add040a6e26a40a5dbe724b38ae",
+      "archivedFrom": "44a4d65d92f39943e6b5dab7cf41db853c1923c9",
       "before": {
         "path": "content/rl-sim2real/humanoid-wbc.mdx",
-        "bytes": 12375,
-        "sha256": "260ffc53f857c5d4cd22846d8ffb51713da3a3c5fbdeb8ea5f61cc6de78387b4"
+        "bytes": 15453,
+        "sha256": "0baec9988974e60610c07ac38c24e951ed73a9dfde9b4340d0f5b16dc9cd363b"
       },
       "after": {
         "path": "content/rl-sim2real/humanoid-wbc.mdx",
-        "bytes": 12536,
-        "sha256": "b1a2f1729adedd216fb3c4fa6357668c361c3325fe5bd1ebe0fe209bba48aea3"
+        "bytes": 15614,
+        "sha256": "4e46438de2c8da181c27f9aa42ec2a32952f0bf6a71535d5c8e2a22377924c45"
       },
       "mounts": [
         "atlas-electric-hyundai-goyang-2026",
@@ -1220,22 +1220,22 @@
           "after": "DeepMimic adapted standard RL to imitate motion clips, including retargeted ones, for animated characters and an Atlas robot model <Cite id=\"deepmimic-2018\" />.\n\n<Image id=\"motion-capture-session-hyderabad-2026\" />\n\n"
         },
         {
-          "before": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n",
-          "after": "NVIDIA keeps the VLA and whole-body controller as separate learned systems, and released GR00T N1.7 as early access on 18 April 2026 <Cite id=\"gr00t-n1-7-release-2026\" />. GR00T N1.7 is a 3B-parameter VLA with a Cosmos-Reason2-2B backbone and a <Term id=\"flow-matching\">flow-matching</Term> action head; with the `UNITREE_G1_SONIC` embodiment it predicts latent action tokens that the GEAR-SONIC controller, running at 50 Hz, decodes into joint commands for legs, arms and hands <Cite id=\"isaac-gr00t-repo-2026\" /> <Cite id=\"groot-wbc-2026\" />. SONIC (Science Robotics) scales tracking from 1.2M to 42M parameters on 700 hours of motion capture, with one token space serving VR teleoperation and VLAs <Cite id=\"sonic-2025\" />. Code is under Apache 2.0 and weights under the NVIDIA Open Model License, and every checkpoint loads the gated Cosmos-Reason2-2B backbone <Cite id=\"isaac-gr00t-repo-2026\" />.\n\n<Image id=\"unitree-robots-japan-mobility-show-2025\" />\n"
+          "before": "Qiayuan Liao, Pieter Abbeel, Koushil Sreenath and colleagues at UC Berkeley (October 2026) train a tracker with analytic gradients through short rollouts of a differentiable world model fit to logged simulator transitions <Cite id=\"supermimic-2026\" />. Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC <Cite id=\"supermimic-2026\" />. The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion <Cite id=\"supermimic-2026\" />.\n",
+          "after": "Qiayuan Liao, Pieter Abbeel, Koushil Sreenath and colleagues at UC Berkeley (October 2026) train a tracker with analytic gradients through short rollouts of a differentiable world model fit to logged simulator transitions <Cite id=\"supermimic-2026\" />. Their SuperMimic passed the return of the released SONIC checkpoint after 3 hours on one H100 GPU, where SONIC trained for 7 days on 128 L40 GPUs, and failed on 25 of its 129,514 training motions against 179 for SONIC <Cite id=\"supermimic-2026\" />. The authors note that the GPU models differ and that SuperMimic trained on the public part of SONIC's data, about 2.3 times less motion <Cite id=\"supermimic-2026\" />.\n\n<Image id=\"unitree-robots-japan-mobility-show-2025\" />\n"
         }
       ]
     },
     {
-      "archivedFrom": "07cd0399aef86add040a6e26a40a5dbe724b38ae",
+      "archivedFrom": "d102a61bebbc3a5b5d5f84c3a594c6c42b0d10be",
       "before": {
         "path": "content/rl-sim2real/legged-locomotion.mdx",
-        "bytes": 11896,
-        "sha256": "614156aeae8659d6b5b8ae8f73a5b15687aacc27168efd58d99d8d3d18db7d04"
+        "bytes": 12682,
+        "sha256": "deb8b3224f46df81fe7c25c5d29f245eaea852442a95a7fc2580cc9b5f8fae4e"
       },
       "after": {
         "path": "content/rl-sim2real/legged-locomotion.mdx",
-        "bytes": 12026,
-        "sha256": "fca9093d5d268ff7244ff6c8ac65a9951ddd70f16f1d46775f68982dde37dd9f"
+        "bytes": 12812,
+        "sha256": "f9ac67931d46fd8980063ecfe926e3d8e4e32d832af2287320dceb5e64c50788"
       },
       "mounts": [
         "spot-boston-dynamics-2023",
@@ -1258,16 +1258,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "ece5f5f1a8417d48f2ceddbb8d68141af6a6c5a8",
       "before": {
         "path": "content/rl-sim2real/offline-rl.mdx",
-        "bytes": 10698,
-        "sha256": "61ecad239228138f25b5e4c5a250b68a8d81123fc42424f8ad8cb50a16e21cf5"
+        "bytes": 11363,
+        "sha256": "a5a9670212499519c937defae53800ec098020944eeaf28ba5a0b9e80b17de35"
       },
       "after": {
         "path": "content/rl-sim2real/offline-rl.mdx",
-        "bytes": 10788,
-        "sha256": "b34063066228dc15860f6b1d5faf3e8148e8e660146abc5b181df6659e17f37c"
+        "bytes": 11453,
+        "sha256": "925e9f5f8ea4bc62a13a63a4d2fd6779c2de4b0dbfa43ea489512f6a70a8c34d"
       },
       "mounts": [
         "isaac-gym-trifinger-env-2021",

@@ -76,19 +76,19 @@
     "minutes": 10
   },
   "rl-sim2real/legged-locomotion": {
-    "words": 1771,
+    "words": 1892,
     "minutes": 9
   },
   "rl-sim2real/humanoid-wbc": {
-    "words": 1859,
-    "minutes": 9
+    "words": 2312,
+    "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
     "words": 2180,
     "minutes": 11
   },
   "rl-sim2real/offline-rl": {
-    "words": 1369,
+    "words": 1462,
     "minutes": 7
   },
   "world-models/taxonomy": {

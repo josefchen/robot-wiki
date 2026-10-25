@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { createHash } from 'node:crypto';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { expectedSceneRole } from '@/lib/motion-scene-roles';
@@ -20,9 +21,13 @@ const asHex = (rgb: string) => {
   return `#${channels.map((channel) => Number(channel).toString(16).padStart(2, '0')).join('').toUpperCase()}`;
 };
 
+// A run writes the observed roles to a temp folder and requires the tracked record to equal
+// them, so a full e2e run leaves git clean and a stale record fails instead of being rewritten.
+// MOTION_ROLES_WRITE_TRACKED=1 retakes the tracked record.
 test.afterAll(() => {
   if (observations.size !== SCENE_TARGETS.length) return;
-  const directory = join(process.cwd(), 'evidence/motion/scenes/site-wide');
+  const tracked = join(process.cwd(), 'evidence/motion/scenes/site-wide');
+  const directory = process.env.MOTION_ROLES_WRITE_TRACKED === '1' ? tracked : mkdtempSync(join(tmpdir(), 'motion-roles-'));
   mkdirSync(directory, { recursive: true });
   writeFileSync(join(directory, 'roles.json'), `${JSON.stringify({
     palette: Object.fromEntries(Object.entries(tokens.roles).map(([role, color]) => [role, color.stage])),
@@ -34,6 +39,8 @@ test.afterAll(() => {
       marks: observations.get(scene.id),
     })),
   }, null, 2)}\n`);
+  expect(readFileSync(join(directory, 'roles.json'), 'utf8'), 'evidence/motion/scenes/site-wide/roles.json is stale')
+    .toBe(readFileSync(join(tracked, 'roles.json'), 'utf8'));
 });
 
 for (const target of SCENE_TARGETS) {

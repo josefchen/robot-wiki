@@ -481,7 +481,9 @@ function installProbe(args: ProbeArgs): void {
         chipTotal += 1;
         const computed = getComputedStyle(chip);
         const rect = chip.getBoundingClientRect();
-        const kind = computed.textTransform === 'uppercase' ? 'badge' : 'stage';
+        // The page-ground Badge marks itself; it was told apart by its
+        // capitals until it became a sentence-case table value.
+        const kind = chip.hasAttribute('data-badge') ? 'badge' : 'stage';
         const lime = [chip, ...chip.querySelectorAll('*')].some((node) => {
           const style = getComputedStyle(node);
           return [style.color, style.backgroundColor, style.borderTopColor, style.borderBottomColor, style.outlineColor].includes(args.lime);

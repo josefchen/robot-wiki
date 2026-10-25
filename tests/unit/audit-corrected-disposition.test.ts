@@ -31,7 +31,8 @@ describe('finite industrial correction evidence', () => {
     const missing = parseLedger('audit/data-hardware.md', readFileSync('audit/data-hardware.md', 'utf8'), ids,
       { ...context, correctedDispositions: undefined }).find(s => s.slug === 'industrial-deployment')!;
     for (const ordinal of [37, 47, 48]) expect(missing.claimRecords[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
-  });
+    // A second full parse of the 705 kB ledger, under another context, takes about 4 s alone.
+  }, 20_000);
   it('rejects a compound plan that shadows a finite correction target', () => {
     const duplicate = { ...context.compoundPlans[0], id: 'shadow-correction', ledgerPath: 'audit/data-hardware.md', articleSlug: 'industrial-deployment', rowOrdinal: 37 };
     expect(() => parseLedger('audit/data-hardware.md', readFileSync('audit/data-hardware.md', 'utf8'), ids,

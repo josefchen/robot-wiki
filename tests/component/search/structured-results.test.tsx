@@ -390,7 +390,7 @@ describe('SearchInterface structured results', () => {
     await screen.findByRole('link', { name: FIGURE_RESULT });
     await user.clear(input);
     await waitFor(() =>
-      expect(screen.getByText(/type a query to search/i)).toBeInTheDocument(),
+      expect(screen.getByText(/try: temporal ensembling/i)).toBeInTheDocument(),
     );
     expect(
       screen.queryByRole('region', { name: 'Structured' }),

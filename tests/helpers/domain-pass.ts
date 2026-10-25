@@ -19,11 +19,11 @@ export const DOMAIN_PASS_PREFIX = 'domain-pass-20261006-';
  * entries "<id>: KOL intake note of <author>, added 2026-10-21." instead, and
  * the KOL overdue triage of 2026-10-24 marks its entries the same way, dated
  * 2026-10-24, with "filed under <author>" where the note's author is not the
- * paper's.
+ * paper's; the KOL queue batch of 2026-10-25 does the same, dated 2026-10-25.
  */
 export const DOMAIN_PASS_CITATION_IDS: ReadonlySet<string> = new Set(
   [...readFileSync(resolve(root, 'data/citations.ts'), 'utf8')
-    .matchAll(/^ {2}\/\/ ([a-z0-9][a-z0-9.-]*): (?:domain pass 2026-10-06, (?:from drafts\/|KOL intake |owner sweep item )|KOL intake note (?:of|filed under) [^\n]*, added 2026-10-2[14]\.)/gm)].map((m) => m[1]),
+    .matchAll(/^ {2}\/\/ ([a-z0-9][a-z0-9.-]*): (?:domain pass 2026-10-06, (?:from drafts\/|KOL intake |owner sweep item )|KOL intake note (?:of|filed under) [^\n]*, added 2026-10-2[145]\.)/gm)].map((m) => m[1]),
 );
 
 export const isDomainPassEdge = (entry: Pick<ApprovedDelta, 'id'>) => entry.id.startsWith(DOMAIN_PASS_PREFIX);

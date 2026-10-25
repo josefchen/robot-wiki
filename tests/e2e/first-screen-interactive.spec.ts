@@ -15,8 +15,8 @@ import {
  * list, so a module published later is graded by this spec automatically
  * rather than silently skipped. The in-scope set is then narrowed by a
  * measured property of each rendered page (does it mount an interactive at
- * all), which is what the contract's exclusion of the three table-only
- * adjacent routes actually means. Those three are asserted to be excluded
+ * all), which is what the contract's exclusion of the table-only adjacent
+ * routes actually means. Those two are asserted to be excluded
  * BY NAME below, so the exclusion cannot quietly grow to cover a route that
  * regressed.
  */
@@ -47,12 +47,12 @@ const CUE_PATTERNS: ReadonlyArray<readonly [string, RegExp]> = [
 /**
  * Routes the contract excludes by construction: they mount only static MDX
  * tables, so they have no first interactive to reach. The contract requires
- * these to be REPORTED as excluded rather than failed.
+ * these to be REPORTED as excluded rather than failed. Surgical left this
+ * set when MotionPantograph was mounted there; it is now measured in scope.
  */
 const CONTRACT_EXCLUSIONS = [
   '/adjacent/autonomous-vehicles/',
   '/adjacent/space/',
-  '/adjacent/surgical/',
 ] as const;
 
 interface Measurement {
@@ -304,7 +304,7 @@ test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
     completeMeasurements(measurements);
   });
 
-  test('exactly the three table-only adjacent routes are excluded', () => {
+  test('exactly the two table-only adjacent routes are excluded', () => {
     const excluded = completeMeasurements(measurements)
       .filter(([, m]) => !m.hasInteractive)
       .map(([route]) => route)

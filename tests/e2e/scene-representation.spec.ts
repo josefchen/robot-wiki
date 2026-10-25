@@ -343,6 +343,9 @@ test.describe('classical scene-representation module', () => {
   }) => {
     await page.goto(ROUTE);
     await expect(page.getByTestId('scene-ladder')).toBeVisible();
+    // A click before hydration is dropped, which read the default (grid)
+    // states twice.
+    await waitForHydration(page.getByTestId('scene-select-gaussian-splat'));
 
     await page.getByTestId('scene-select-occupancy-grid').click();
     const grid = await capabilityStates(page);

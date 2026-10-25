@@ -1,9 +1,12 @@
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { EXPLAINER_ORDER } from '../../components/explainers/catalog';
 import { EXPLAINER_WORDS } from '../../components/explainers/words';
 import { forEachInOwnContext } from './helpers/per-route-context';
+import { startStaticExportServer } from './static-export-server';
 
 const ROUTE = '/how-robots-work/';
 type Hook = {
@@ -216,8 +219,22 @@ test.describe('how robots work: robustness', () => {
     expect([...rings]).toEqual(['solid rgb(28, 28, 26)']);
   });
 
+  // Measured on the static export, never on the dev server: dev chunks are unminified (#arm
+  // ships about 403 KB gzipped there against about 133 KB built) and dev mounts add long tasks
+  // the build does not have, so a dev run could only ever report the dev toolchain.
   test('each explainer keeps to its code, asset, main-thread and layout budget', async ({ page }) => {
     test.setTimeout(300_000);
+    const outDir = join(process.cwd(), 'out');
+    expect(existsSync(join(outDir, 'index.html')), 'out/ is missing: run `npm run build` before the budget test').toBe(true);
+    const server = await startStaticExportServer(outDir);
+    try {
+      await measureBudgets(page, `http://localhost:${server.port}`);
+    } finally {
+      await server.stop();
+    }
+  });
+
+  async function measureBudgets(page: Page, base: string) {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.addInitScript(() => {
       const w = window as unknown as { __long: { start: number; duration: number }[]; __shift: { start: number; value: number }[] };
@@ -242,7 +259,7 @@ test.describe('how robots work: robustness', () => {
         const three = Boolean(body?.includes('THREE.WebGLRenderer: Error creating WebGL'));
         if (body) loads.push({ url: res.url(), gzip: gzipSync(body).length, bytes: body.length, three });
       };
-      await page.goto(`${ROUTE}#${id}`);
+      await page.goto(`${base}${ROUTE}#${id}`);
       await page.waitForFunction(() => (window as unknown as { __explainer?: Hook }).__explainer?.ready === true);
       const initial = new Set(await page.evaluate(() => [...document.scripts].map((s) => s.src).filter(Boolean)));
       const stage = page.locator('[data-x="stage"]');
@@ -282,7 +299,7 @@ test.describe('how robots work: robustness', () => {
     }
     console.log(rows.join('\n'));
     expect(over).toEqual([]);
-  });
+  }
 
   for (const { width, height } of [{ width: 1280, height: 800 }, { width: 390, height: 844 }]) {
     test(`axe finds nothing at ${width} px, on the first and last step of every explainer`, async ({ browser }) => {

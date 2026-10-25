@@ -67,6 +67,12 @@ export function readoutFor(ratioPercent: number): string {
   return gap > 0 ? `feet float ${gap} cm` : gap < 0 ? `feet sink ${-gap} cm` : 'feet land';
 }
 
+/** The table's words for the same gap, so a row and the readout print one number: "23 above", "13 below". */
+export function footCell(ratioPercent: number): string {
+  const gap = footGapCm(ratioPercent);
+  return gap > 0 ? `${gap} above` : gap < 0 ? `${-gap} below` : 'on the floor';
+}
+
 function describe(ratio: number): string {
   const gap = footGapCm(ratio);
   const where = gap > 0 ? `float ${gap} cm above the floor` : gap < 0 ? `sink ${-gap} cm into the floor` : 'land on the floor';
@@ -293,10 +299,10 @@ export function RetargetingGap({ className }: { className?: string }) {
             summary="Where the robot's feet end up"
             description={describe(ratio)}
             rowHeader="robot legs (% of the person's)"
-            columns={[{ header: 'lower foot above the floor (cm)', numeric: true }]}
+            columns={[{ header: 'lower foot (cm from the floor)', numeric: true }]}
             rows={[...new Set([...SAMPLE_RATIOS, ratio])]
               .sort((a, b) => a - b)
-              .map((value) => ({ label: String(value), values: [String(footGapCm(value))] }))}
+              .map((value) => ({ label: String(value), values: [footCell(value)] }))}
           />
         </>
       }

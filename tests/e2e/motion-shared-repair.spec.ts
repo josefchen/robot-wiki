@@ -1,9 +1,17 @@
 import { expect, test } from '@playwright/test';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, mkdtempSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { SCENE_TARGETS } from '@/lib/motion-scene-registry';
 import { auditSceneElement } from '@/lib/motion-scene-audit';
 import { waitForHydration } from './interaction-ready';
+
+// Scene captures go to a fresh temp folder, so a full e2e run leaves the tracked evidence
+// folders untouched; MOTION_CAPTURE_WRITE_TRACKED=1 writes evidence/motion/scenes/<scene>
+// when a record is deliberately retaken.
+const captureDirectory = (scene: string) => process.env.MOTION_CAPTURE_WRITE_TRACKED === '1'
+  ? join(process.cwd(), 'evidence/motion/scenes', scene)
+  : mkdtempSync(join(tmpdir(), `motion-${scene}-`));
 
 const descriptions = [
   {
@@ -91,7 +99,7 @@ for (const reference of descriptions) {
 }
 
 test('diffusion pin 32 approaches its noise before the forward beat boundary', async ({ page }) => {
-  const directory = join(process.cwd(), 'evidence/motion/scenes/diffusion-denoising');
+  const directory = captureDirectory('diffusion-denoising');
   mkdirSync(directory, { recursive: true });
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: width === 375 ? 800 : 900 });
@@ -124,7 +132,7 @@ test('diffusion pin 32 approaches its noise before the forward beat boundary', a
 });
 
 test('diffusion clean-up follows one guess on the step dial and the camera\'s sight line lights, with no word in the drawing', async ({ page }) => {
-  const directory = join(process.cwd(), 'evidence/motion/scenes/diffusion-denoising');
+  const directory = captureDirectory('diffusion-denoising');
   mkdirSync(directory, { recursive: true });
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: width === 375 ? 800 : 900 });
@@ -182,7 +190,7 @@ test('diffusion clean-up follows one guess on the step dial and the camera\'s si
 });
 
 test('Kalman blend copies the guess, lands between it and the reading, and closes narrower than both', async ({ page }) => {
-  const directory = join(process.cwd(), 'evidence/motion/scenes/kalman-predict-update');
+  const directory = captureDirectory('kalman-predict-update');
   mkdirSync(directory, { recursive: true });
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: width === 375 ? 800 : 900 });

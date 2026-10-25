@@ -40,7 +40,7 @@ export type ReskinReview = {
 
 // BEGIN reskin site-foundation pins (written by scripts/record-reskin-site-foundation-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 227648, sha256: '2ac84a489a8362415522475ea068eb31eb1d13086f9f2158c6a78b9eaa172149' };
+const reviewPin = { bytes: 228469, sha256: '71cda6a732533332865f473db1d0821c93225ac39d1de151e48808e389e58fec' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -50,7 +50,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['app/about/page.tsx', [5933, 'e9aaad71dc1cfff9927a94b6513b3802d66273b1dc1c62cd0d3f3d8233dbc150']],
   ['app/credits/page.tsx', [8783, '16e103d18fdfd0f7934e868342fcb348532d9b450078c1eddf0e09b25221efc5']],
   ['app/editorial-policy/page.tsx', [4443, '257028078639e755cd778b3ca3ef9d1c2a2aa126fb9053b67e5e50472cc78afa']],
-  ['app/globals.css', [34004, 'af0c2549cc1ab91f252d2649f7f552df99d0e171697076144c1b5dcce7314acb']],
+  ['app/globals.css', [34349, '0881cfff7752e81df621165821cc378b4f17818bc179f540dfb664bb02590701']],
   ['app/glossary/page.tsx', [5549, 'b3bf27a520bd31db700922be2d6ea06769500299890ccbb384b754335b31cee8']],
   ['app/layout.tsx', [4426, '7fc799173cdc026fd133d868deac13eaacfe26a6ed7a87a7fde6a5aedfd5c6c5']],
   ['app/not-found.tsx', [2670, '61cefe72130fbe2ad4c18c1d9d3877e236e370f9e11be61b784599f843fe64a9']],
@@ -70,9 +70,9 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['components/nav/site-footer.tsx', [5666, '29de9f14349253923b884200e2420bb443958badb50f3bcba74af0fc0e7fa817']],
   ['components/nav/site-shell.tsx', [11367, 'f6b4721eacb2c4c678fbba02651fcdc26741bfb91f416c1338befe9f45482eb2']],
   ['components/search/results-group.tsx', [2789, '6c8d42c17798590e7d958d9f4b06f3c43c8b0e601040c76d7968d174f625bec3']],
-  ['components/search/search-interface.tsx', [22504, '9b6396a3cebc107b28ae2a6d472b571de9814b58dc39cbfdc92921e8077ad15e']],
+  ['components/search/search-interface.tsx', [22406, '717890002dd47d504a760c4bc8028a54f50458664c4809a2f81bc246980bc37c']],
   ['components/search/type-facet-bar.tsx', [3160, '48b32a1ed2a34dcabab5bb2090463cb9b78ccae0652c707880cc751213490c56']],
-  ['components/ui/badge.tsx', [896, 'c8d4976355418852825c23be65fa4a5c4a69d4eab0e2bb222b2d12e1ed04afcc']],
+  ['components/ui/badge.tsx', [1041, '886bbb70e980cd197302d57671102508866a82f4b77abdf1cd58060f08fe1f87']],
   ['components/ui/callout.tsx', [1164, '121ecba1c09198ca847cb77bcd7bf9e11c6aa2ac641c003e0053c0aa01488f5e']],
   ['components/ui/card.tsx', [1948, '8125ef184499dd6843e602d5f60bbcc51d16165e9c135d296166324882ded1de']],
   ['components/ui/chip.tsx', [1404, 'ad85270b8f9d35724744af9a598131ac6066d90d64e1b66176798d6a80c14b7c']],

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "2848846ebeb162deab46a5b2c03b54889d9cd083bd5ef9d0cd2301d42282f8cf",
+  "fingerprint": "d33a1cb764f5c9302e5e1025363ac312fa839cdc3ad193dfc4a6aa6c1917cdcf",
   "route": "/",
   "viewport": "1440x900",
   "featured": {
@@ -27,7 +27,7 @@
     "graphicHeightPx": 598,
     "playerMountedAtFirstPaint": false,
     "idleFrameRequests": 0,
-    "playingFrameRequests": 49,
+    "playingFrameRequests": 52,
     "startControl": "Turn it in 3D",
     "focusOutlineWidthPx": 2,
     "focusOutlineStyle": "solid",
@@ -93,8 +93,8 @@
     "graphicTag": "canvas",
     "graphicHeightPx": 541,
     "playerMountedAtFirstPaint": true,
-    "idleFrameRequests": 45,
-    "playingFrameRequests": 27,
+    "idleFrameRequests": 35,
+    "playingFrameRequests": 14,
     "startControl": null,
     "focusOutlineWidthPx": null,
     "focusOutlineStyle": null,
@@ -2932,9 +2932,9 @@
         },
         {
           "memberId": "count:/:sources",
-          "text": "1390 sources",
-          "expected": 1390,
-          "actual": 1390
+          "text": "1396 sources",
+          "expected": 1396,
+          "actual": 1396
         },
         {
           "memberId": "count:/:glossary-terms",

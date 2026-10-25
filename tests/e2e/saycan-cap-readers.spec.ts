@@ -84,12 +84,12 @@ test('SayCan and CaP retain complete caveats, definitions and reference identiti
     await expect(mark).toBeFocused();
     await jumpFromCiteMark(page, chip, id);
     const reference = page.locator(`#ref-${id}`);
-    if (citation.authors.length > 8) {
-      await expect(reference.locator(`[data-author-names]`)).toHaveText(`${citation.authors.slice(0, 8).join(`, `)}, and ${citation.authors.length - 8} more`);
+    if (citation.authors.length > 6) {
+      await expect(reference.locator(`[data-author-names]`)).toHaveText(`${citation.authors.slice(0, 6).join(`, `)}, and ${citation.authors.length - 6} more`);
       const expand = reference.getByRole(`button`, { name: `Show all ${citation.authors.length} authors` });
       await expand.focus();
       await page.keyboard.press(`Enter`);
-      await expect(reference.getByRole('button', { name: 'Show 8 authors' })).toHaveAttribute('aria-expanded', 'true');
+      await expect(reference.getByRole('button', { name: 'Show 6 authors' })).toHaveAttribute('aria-expanded', 'true');
     }
     await expect(reference.locator('[data-author-names]')).toHaveText(citation.authors.join(', '));
     await expect(reference.locator('[data-reference-source-link]')).toHaveAttribute('href', citation.url);

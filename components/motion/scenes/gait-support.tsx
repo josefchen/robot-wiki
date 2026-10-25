@@ -215,7 +215,7 @@ const LIFTS: Record<GaitId, string> = {
 };
 
 /**
- * The recap's readout: what tells the four gaits apart, left to right. The
+ * The recap's readout: what tells the three gaits apart, left to right. The
  * fewest feet each keeps down stays in "How this was made".
  */
 export function recapWords(): string {

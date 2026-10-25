@@ -21342,6 +21342,75 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.23841',
     type: 'paper',
   },
+  // supermimic-2026: KOL intake note of Pieter Abbeel, added 2026-10-25. arXiv abstract page and PDF read
+  // 2026-10-25 (HTTP 200). UC Berkeley. v1 20 Oct 2026.
+  {
+    id: 'supermimic-2026',
+    title: 'SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model',
+    authors: ['Qiayuan Liao', 'Yiyang Shao', 'Junfeng Long', 'Kevin Zakka', 'Roberto Horowitz', 'Pieter Abbeel', 'Koushil Sreenath'],
+    year: 2026,
+    arxiv: '2610.28480',
+    url: 'https://arxiv.org/abs/2610.28480',
+    type: 'paper',
+  },
+  // fiber-2026: KOL intake note of Guanya Shi, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Amazon FAR, Carnegie Mellon University and Stanford University. v2 20 Oct 2026.
+  {
+    id: 'fiber-2026',
+    title: 'Action-Aligned Latent Planning for Versatile Humanoid Loco-Manipulation',
+    authors: ['Yutang Lin', 'Guanya Shi', 'C. Karen Liu'],
+    year: 2026,
+    arxiv: '2610.24675',
+    url: 'https://arxiv.org/abs/2610.24675',
+    type: 'paper',
+  },
+  // swap-2026: KOL intake note of Pieter Abbeel, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Carnegie Mellon University and Amazon FAR. v1 19 Oct 2026.
+  {
+    id: 'swap-2026',
+    title: 'SWAP: Test-Time Steerable Humanoid Whole-Body Collision Avoidance',
+    authors: ['Zeji Yi', 'Guanqi He', 'Xiaofeng Guo', 'Guannan Qu', 'Pieter Abbeel', 'Yan Duan', 'Karen Liu', 'Guanya Shi'],
+    year: 2026,
+    arxiv: '2610.25711',
+    url: 'https://arxiv.org/abs/2610.25711',
+    type: 'paper',
+  },
+  // embodyhoi-2026: KOL intake note of Guanya Shi, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Carnegie Mellon University. v1 19 Oct 2026.
+  {
+    id: 'embodyhoi-2026',
+    title: 'EmbodyHOI: Embodiment-Aware Generation of Hand-Object Interactions for Humanoid Dexterous Manipulation',
+    authors: ['Chaitanya Chawla', 'Kartik Sharma', 'Ananya Bal', 'Laszlo A. Jeni', 'Guanya Shi'],
+    year: 2026,
+    arxiv: '2610.27242',
+    url: 'https://arxiv.org/abs/2610.27242',
+    type: 'paper',
+  },
+  // rubiks-quadruped-2026: KOL intake note of Marco Hutter, added 2026-10-25. arXiv abstract page and PDF read
+  // 2026-10-25 (HTTP 200). ETH Zurich. v1 17 Oct 2026.
+  {
+    id: 'rubiks-quadruped-2026',
+    title: "Solving a Giant Rubik's Cube with a Quadruped Robot",
+    authors: [
+      'Lukas Amiet', 'Gabriel Sánchez-Blanco Repgen', 'Mayank Mittal', 'Victor Klemm', 'Andrei Cramariuc', 'Marco Hutter',
+      'Cesar Cadena',
+    ],
+    year: 2026,
+    arxiv: '2610.24610',
+    url: 'https://arxiv.org/abs/2610.24610',
+    type: 'paper',
+  },
+  // offline-empowerment-2026: KOL intake note of Sergey Levine, added 2026-10-25. arXiv abstract page and PDF
+  // read 2026-10-25 (HTTP 200). UC Berkeley and Princeton University. v1 17 Oct 2026.
+  {
+    id: 'offline-empowerment-2026',
+    title: 'Measuring Empowerment from Offline Data for Intrinsically Motivated Exploration',
+    authors: ['Ishir Garg', 'Vivek Myers', 'Qiyang Li', 'Catherine Ji', 'Benjamin Eysenbach', 'Sergey Levine'],
+    year: 2026,
+    arxiv: '2610.24461',
+    url: 'https://arxiv.org/abs/2610.24461',
+    type: 'paper',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

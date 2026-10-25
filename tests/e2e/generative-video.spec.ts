@@ -166,15 +166,15 @@ test.describe('world-models generative-video module', () => {
     await source.focus();
     await expect(source).toBeFocused();
     const reference = page.locator('[data-reference-id="cosmos-3-2026"]');
-    await expect(reference).toContainText('and 287 more');
+    await expect(reference).toContainText('and 289 more');
     const expand = reference.getByRole('button', { name: 'Show all 295 authors', exact: true });
     await expand.focus();
     await page.keyboard.press('Enter');
     await expect(reference.locator('[data-author-names]')).toContainText('Artur Zolkowski');
-    const collapse = reference.getByRole('button', { name: 'Show 8 authors', exact: true });
+    const collapse = reference.getByRole('button', { name: 'Show 6 authors', exact: true });
     await expect(collapse).toHaveAttribute('aria-expanded', 'true');
     await collapse.press('Enter');
-    await expect(reference).toContainText('and 287 more');
+    await expect(reference).toContainText('and 289 more');
     await expect(reference.getByRole('button', { name: 'Show all 295 authors', exact: true })).toBeFocused();
   });
 

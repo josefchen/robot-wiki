@@ -45,6 +45,7 @@ citations:
   - zest-2026
   - bd-atlas-ces-2026
   - walk-like-this-2026
+  - rubiks-quadruped-2026
 seeAlso:
   - "classical/control"
   - "rl-sim2real/parallel-sim-rl"
@@ -128,3 +129,5 @@ Agility reports that Digit's whole-body control model, an LSTM with fewer than o
 ## Limits of the lineage
 
 Contact-rich manipulation is harder to simulate: Acosta and colleagues call dynamic contact the computational bottleneck for most simulations <Cite id="acosta-2021" />, and the [locomotion-manipulation comparison](/rl-sim2real/why-rl-locomotion) explains why. Eureka's LLM-written rewards beat human experts on 83% of 29 environments <Cite id="eureka-2024" />, and DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id="dreureka-2024" />.
+
+Lukas Amiet, Marco Hutter, Cesar Cadena and colleagues at ETH Zurich (October 2026) had an ANYmal D quadruped solve a Rubik's Cube with its feet; the cube is 0.4 m on a side and weighs 4.6 kg, and the robot flips it or pins it with one foot while the other pushes a layer round <Cite id="rubiks-quadruped-2026" />. Skills trained with privileged RL and distilled into policies that read onboard depth and proprioception completed all three attempted hardware solves without intervention, each about 30 steps over 8 to 9 minutes <Cite id="rubiks-quadruped-2026" />. In separate skill trials both flips succeeded 15 of 15 times, while the counterclockwise layer turn succeeded 13 of 15 times and the clockwise turn 10 of 15 <Cite id="rubiks-quadruped-2026" />.

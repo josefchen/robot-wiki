@@ -418,6 +418,12 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   `citation-rendering:label-and-meta`, each member with one edge from its
  *   last approved endpoint, or one resolution from the sealed hash where its
  *   chain already holds one.
+ * - `kol-batch-20261025-`: the KOL queue batch of 2026-10-25 added dated
+ *   paragraphs to its articles one domain block at a time and registered the
+ *   records they cite, each article member with one edge from its last
+ *   approved endpoint, or one resolution from the sealed hash where its chain
+ *   already holds one, and one `citation-rendering:label-and-meta` resolution
+ *   per block.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -475,6 +481,7 @@ export const LATER_REANCHOR_PREFIXES = [
   // Exact id: only this 2026-10-23 round-1 edge continues a re-anchored chain.
   'interactives-r1-20261023-prose-classical-calibration',
   'kol-batch-20261024-',
+  'kol-batch-20261025-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

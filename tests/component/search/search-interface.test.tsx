@@ -52,7 +52,7 @@ describe('SearchInterface', () => {
   it('renders one labeled search input with an idle prompt', () => {
     render(<SearchInterface loadClient={clientWith(() => Promise.resolve([]))} />);
     expect(screen.getByRole('searchbox', { name: INPUT_NAME })).toBeInTheDocument();
-    expect(screen.getByText(/type a query to search/i)).toBeInTheDocument();
+    expect(screen.getByText(/try: temporal ensembling/i)).toBeInTheDocument();
   });
 
   it('prefills the query from the URL and shows its results on load', async () => {
@@ -129,7 +129,7 @@ describe('SearchInterface', () => {
     await screen.findByRole('link', { name: ACT_RESULT });
     await user.clear(input);
     await waitFor(() =>
-      expect(screen.getByText(/type a query to search/i)).toBeInTheDocument(),
+      expect(screen.getByText(/try: temporal ensembling/i)).toBeInTheDocument(),
     );
     expect(
       screen.queryByRole('link', { name: ACT_RESULT }),
@@ -347,7 +347,7 @@ describe('SearchInterface', () => {
     const clear = screen.getByRole('button', { name: 'Clear search' });
     await user.click(clear);
     await waitFor(() =>
-      expect(screen.getByText(/type a query to search/i)).toBeInTheDocument(),
+      expect(screen.getByText(/try: temporal ensembling/i)).toBeInTheDocument(),
     );
     expect(
       screen.queryByRole('link', { name: ACT_RESULT }),
