@@ -302,7 +302,8 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     // Integrated line: the merged member is re-anchored from its seal.
     const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')
       && !delta.id.startsWith('reader-first-20261002-') && !delta.id.startsWith('kol-backlog-20261005-')
-      && !delta.id.startsWith('length-cut-20261013-data-hardware-')),
+      && !delta.id.startsWith('length-cut-20261013-data-hardware-')
+      && !delta.id.startsWith('kol-batch-20261025-')),
       'prose', 'article:data-hardware/industrial-deployment')!;
     expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
     const motion = approvals.find(delta =>
@@ -353,24 +354,37 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     });
     expect(kol.newHash).toBe(proseHash(preDataHardwareCut(articlePath).toString('utf8')));
     // The 2026-10-13 data-hardware domain pass and length cut resolution binds
-    // the KOL endpoint and reaches the article before its image mounts.
+    // the KOL endpoint and reaches the article before its image mounts. The
+    // image-mount layer now rebuilds that article with the 2026-10-25 KOL
+    // queue paragraph projected into it, so the endpoint is read at 6aa2e8b0,
+    // the commit the image-mount layer archived it from before the paragraph.
     const cut = approvals.find(delta =>
       delta.id === 'length-cut-20261013-data-hardware-prose-industrial-deployment')!;
     expect(cut.oldHash).toBe(preMotion.oldHash);
     expect(cut.reconciles?.at(-1)).toEqual({
       id: kol.id, oldHash: kol.oldHash, newHash: kol.newHash,
     });
-    expect(cut.newHash).toBe(proseHash(preImageMounts(articlePath).toString('utf8')));
+    expect(cut.newHash).toBe(proseHash(showAt('6aa2e8b0', articlePath)));
+    expect(proseHash(preImageMounts(articlePath).toString('utf8'))).not.toBe(cut.newHash);
     // The data-hardware images' resolution of 2026-10-15 binds the cut
-    // endpoint and reaches the live article, which gains its three image
-    // mounts.
+    // endpoint and reaches the article with its three image mounts, as it
+    // stood at 19ddce94 before the KOL queue paragraph of 2026-10-25.
     const images = approvals.find(delta =>
       delta.id === 'images-dh-20261015-prose-data-hardware-industrial-deployment')!;
     expect(images.oldHash).toBe(preMotion.oldHash);
     expect(images.reconciles?.at(-1)).toEqual({
       id: cut.id, oldHash: cut.oldHash, newHash: cut.newHash,
     });
-    expect(images.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(images.newHash).toBe(proseHash(showAt('19ddce94', articlePath)));
+    // The 2026-10-25 KOL queue resolution binds the images endpoint and
+    // reaches the live article, which adds the Hurst paragraph on Digit 5.
+    const kolQueue = approvals.find(delta =>
+      delta.id === 'kol-batch-20261025-data-hardware-prose-industrial-deployment')!;
+    expect(kolQueue.oldHash).toBe(preMotion.oldHash);
+    expect(kolQueue.reconciles?.at(-1)).toEqual({
+      id: images.id, oldHash: images.oldHash, newHash: images.newHash,
+    });
+    expect(kolQueue.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

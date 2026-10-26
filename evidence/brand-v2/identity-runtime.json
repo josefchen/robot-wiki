@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "e00464c2f2c86109caccfb89ba51ad79df7903c03e60e3c4fd1ed8956bdef317",
+  "fingerprint": "e493e9781749d6ae1860a6541b22637089b0fb27dc5336cd991057722981ae48",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3074,
+      "visibleTextLength": 3061,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -2251,7 +2251,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30965,
+      "visibleTextLength": 33065,
       "route": "/classical/state-estimation/",
       "viewport": "1440x900"
     },
@@ -3077,7 +3077,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 31421,
+      "visibleTextLength": 32553,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -8387,7 +8387,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27465,
+      "visibleTextLength": 29569,
       "route": "/world-models/generative-video/",
       "viewport": "1440x900"
     },
@@ -8741,7 +8741,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 20800,
+      "visibleTextLength": 21831,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3099,
+      "visibleTextLength": 3086,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11147,7 +11147,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23100,
+      "visibleTextLength": 24569,
       "route": "/classical/state-estimation/",
       "viewport": "375x812"
     },
@@ -11973,7 +11973,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24005,
+      "visibleTextLength": 24840,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -17283,7 +17283,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 21389,
+      "visibleTextLength": 23030,
       "route": "/world-models/generative-video/",
       "viewport": "375x812"
     },
@@ -17637,7 +17637,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 15496,
+      "visibleTextLength": 16203,
       "route": "/world-models/model-based-robot-learning/",
       "viewport": "375x812"
     },

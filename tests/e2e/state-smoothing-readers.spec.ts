@@ -117,8 +117,13 @@ test('corrected smoothing qualifications and both factor equations remain readab
   const prose = page.locator(PROSE);
   for (const [index, expected] of [
     ['In EKF-based SLAM', 'cannot be relinearized later', 'nonlinear optimization is not guaranteed to reach the global minimum'],
-    ["Dellaert and Kaess's 2006", 'known data associations', 'a uniform landmark prior', 'a fixed initial frame', 'successive linearized systems', 'QR on the measurement Jacobian', 'Cholesky on the information matrix', 'affected cliques and their ancestors', 'reattaches unaffected subtrees', 'Thresholds trade accuracy for computation', 'a large loop closure can cost as much as a batch solve'],
-    ['Cadena and colleagues describe a classical SLAM period', '1986 to 2004', '2004 to 2015', 'state-of-the-art performance', 'EKF linearization is accurate', 'unbounded growth', 'information loss under sparsification'],
+    // Successor of the iSAM2 and SLAM-history pins: the owner-approved
+    // classical length cut (Josef, 12 Oct 2026, "not too long text";
+    // db856b22) dropped the iSAM2 clique details and the per-period
+    // qualifications, so each paragraph is held to every qualification it
+    // still states.
+    ["Dellaert and Kaess's 2006", 'known data associations', 'a uniform landmark prior', 'a fixed initial frame', 'successive linearized systems', 'QR on the measurement Jacobian', 'Cholesky on the information matrix', 'variable ordering sets fill-in and cost', 'updates only the part of the factorization a new measurement touches'],
+    ['Cadena and colleagues describe a classical SLAM period', '1986 to 2004', 'EKF, Rao-Blackwellised particle-filter and maximum-likelihood approaches', 'an algorithmic-analysis period from 2004 to 2015', 'each particle carries its own map'],
   ].entries()) {
     const paragraph = prose.locator(':scope > p').filter({ hasText: expected[0] }); await expect(paragraph).toHaveCount(1);
     for (const text of expected) await expect(paragraph).toContainText(text);
@@ -163,13 +168,22 @@ test('all five changed-source chips preserve hover focus Escape and full Referen
     await e.clear();
     const restore = await jumpFromCiteMark(page, roots.first(), source.id);
     const reference = page.locator(`[data-reference-id="${source.id}"]`);
+    // Successor of the full-byline pin (research-page standard, Josef
+    // 2026-10-10): an entry over six names shows six and "and N more" with a
+    // "Show all N authors" disclosure, which swaps in the complete byline.
+    if (source.authors.length > 6) {
+      await expect(reference.locator('[data-author-names]'))
+        .toHaveText(`${source.authors.slice(0, 6).join(', ')}, and ${source.authors.length - 6} more`);
+      await reference.getByRole('button', { name: `Show all ${source.authors.length} authors`, exact: true }).click();
+    }
     await expect(reference.locator('[data-author-names]')).toHaveText(source.authors.join(', '));
     await expect(reference.getByRole('link', { name: source.title, exact: true })).toHaveAttribute('href', source.url);
     e.record({ name: 'full-reference', id: source.id, text: await reference.innerText(), authors: source.authors });
     await e.textCapture(reference, `${source.id}-reference`);
     await restore();
   }
-  await expect(page.locator('[data-reference-id]')).toHaveCount(39); await e.clear(); await e.axe('#main-content', 'source-reader-axe');
+  // 41 since the KOL queue batch of 2026-10-25 added SSIO and the humanoid pose estimator (90765e6e).
+  await expect(page.locator('[data-reference-id]')).toHaveCount(41); await e.clear(); await e.axe('#main-content', 'source-reader-axe');
 });
 
 const slamConsumers = termConsumerInventory().flatMap(a => a.occurrences.filter(o => o.termId === 'slam').map(o => ({ route: a.route, ...o })));

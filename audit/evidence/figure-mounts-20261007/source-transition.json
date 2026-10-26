@@ -3,7 +3,7 @@
   "name": "figure-mounts-20261007",
   "reviewedBy": "implementation worker for the classical figure mounts of 2026-10-07 (not independent acceptance)",
   "rationale": "The classical articles on calibration and on ROS 2 for ML engineers each gained their first interactive figure on 2026-10-07 (VAL-OPUS-057): one import line after the frontmatter and one mount on its own line between blank lines, beside the paragraph the figure illustrates. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted import and mount gives the earlier bytes exactly, so no prose, number, citation, frontmatter field or other mount moved and older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-24T22:03:49Z",
+  "observedAt": "2026-10-25T22:40:12Z",
   "sources": [
     {
       "archivedFrom": "3b75be4e086b4e9dfb4d5338595e6e896e6d630b",
@@ -137,16 +137,16 @@
       ]
     },
     {
-      "archivedFrom": "ecb4a4a20cd5775a5ee28838fe3c0e50db0598a9",
+      "archivedFrom": "f7aa13d9fe201a477414806f84b7b84b91eaf7fb",
       "before": {
         "path": "content/classical/state-estimation.mdx",
-        "bytes": 13954,
-        "sha256": "4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e"
+        "bytes": 15165,
+        "sha256": "ecc5722ba7a4d7239dbcc7a7396778843864fe68c8e091216971ea3f22ee3186"
       },
       "after": {
         "path": "content/classical/state-estimation.mdx",
-        "bytes": 14073,
-        "sha256": "f4ee9d7b68feee568ecf5b21f95d37bfda3f51443c96533816d9929f214232c1"
+        "bytes": 15284,
+        "sha256": "af9e582c0644bb5b3004347685a9348680529e53ecb2bc5e22fa7400f50bd88e"
       },
       "edits": [
         {
@@ -602,16 +602,16 @@
       ]
     },
     {
-      "archivedFrom": "27fa53dc4f6024f31d8c2fd323084bca279aef52",
+      "archivedFrom": "235cc751071e5a7a36475b664df1b36f054cf845",
       "before": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 9602,
-        "sha256": "bcf23833c0d4960092320aa6c89df584f2124f95ded7f739506a8525c15ed099"
+        "bytes": 10110,
+        "sha256": "e4f5290a4e20ff24c7691b5b41569fada504edffb3793581874559fbf26c58ad"
       },
       "after": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 9724,
-        "sha256": "41530e485435afc6e57c2b25f627f6c5dfcb920897c1b9016752c5cfde559f28"
+        "bytes": 10232,
+        "sha256": "b5822694fac6cb834b4912157f23cc2e5a60b0e3379d41dda260e09e9e8e73b6"
       },
       "edits": [
         {

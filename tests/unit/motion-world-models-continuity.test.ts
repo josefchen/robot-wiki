@@ -79,6 +79,8 @@ describe('world-model motion prose and retained local-basis continuity', () => {
         ? [`kol-batch-20261021-world-models-prose-${slug}`] : []),
       ...(['evaluation', 'model-based-robot-learning', 'world-models-vs-simulators'].includes(slug)
         ? [`interactives-r1-20261023-prose-world-models-${slug}`] : []),
+      ...(['generative-video', 'model-based-robot-learning'].includes(slug)
+        ? [`kol-batch-20261025-world-models-prose-${slug}`] : []),
     ]);
     let endpoint = humanizer.newHash;
     for (const entry of subsequent) {

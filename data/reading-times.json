@@ -100,8 +100,8 @@
     "minutes": 7
   },
   "world-models/generative-video": {
-    "words": 1892,
-    "minutes": 9
+    "words": 2077,
+    "minutes": 10
   },
   "world-models/jepa": {
     "words": 1597,
@@ -112,7 +112,7 @@
     "minutes": 8
   },
   "world-models/model-based-robot-learning": {
-    "words": 1157,
+    "words": 1237,
     "minutes": 6
   },
   "world-models/evaluation": {
@@ -144,8 +144,8 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2228,
-    "minutes": 11
+    "words": 2345,
+    "minutes": 12
   },
   "data-hardware/robot-learning-stack": {
     "words": 1191,
@@ -164,8 +164,8 @@
     "minutes": 11
   },
   "classical/state-estimation": {
-    "words": 2584,
-    "minutes": 13
+    "words": 2758,
+    "minutes": 14
   },
   "classical/grasp-planning": {
     "words": 1748,

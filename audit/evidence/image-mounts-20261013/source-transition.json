@@ -4,7 +4,7 @@
   "reviewedBy": "integration workers for images bundle A (2026-10-13), the frontier images (2026-10-15), the adjacent images of bundle B (2026-10-15) and the data-hardware images (2026-10-15) (not independent acceptance)",
   "ownerApproval": "Owner directive of 2026-10-11 (Josef Chen): \"i also want to use proper images etc! [...] license free images to accompany the articles etc. like wikipedia\". The owner-session image brief of the same day sets 2 to 4 real images per article, a lead image directly after the lead paragraph and the rest at the sections they illustrate, under the licence gate of data/schemas/image.ts. Not release approval.",
   "rationale": "The manipulation, world-models, classical and rl-sim2real articles each gained registered images on 2026-10-13, the six frontier articles on 2026-10-15, and the adjacent and data-hardware articles on 2026-10-15 after their length cuts: one `<Image id=\"...\" />` mount per image on its own line between blank lines, the lead image after the lead paragraph and the others after the paragraph of the section each illustrates. An article needs no import line for them, and no prose, number, citation, frontmatter field or other mount moves. Each change is recorded here as exact edits over the bytes the article had before it. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor and taking out the admitted mounts gives the earlier bytes exactly, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "observedAt": "2026-10-25T18:22:28Z",
+  "observedAt": "2026-10-25T22:59:34Z",
   "sources": [
     {
       "archivedFrom": "84aefe1326971d67cb5bde530e82c74db5b2b7c4",
@@ -351,16 +351,16 @@
       ]
     },
     {
-      "archivedFrom": "6df9f804b9e88537301aff60e7789b44f836a687",
+      "archivedFrom": "660f83a9bc81f5b87f121f86ac55bf7caad2a1e4",
       "before": {
         "path": "content/classical/state-estimation.mdx",
-        "bytes": 13869,
-        "sha256": "13c1151dcbd985d003f962b35d81696d39b73b5724747fabeb77032047e199fd"
+        "bytes": 15080,
+        "sha256": "58502dda5ed11223b793e63b49a6512dce66afb683efd8312bf0306873441321"
       },
       "after": {
         "path": "content/classical/state-estimation.mdx",
-        "bytes": 13954,
-        "sha256": "4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e"
+        "bytes": 15165,
+        "sha256": "ecc5722ba7a4d7239dbcc7a7396778843864fe68c8e091216971ea3f22ee3186"
       },
       "mounts": [
         "apollo-imu-draper-2019",
@@ -486,16 +486,16 @@
       ]
     },
     {
-      "archivedFrom": "6aa2e8b04e9f0d7a491f1aa52c74b363473a3994",
+      "archivedFrom": "22295ad82397f5559bc4ad9552afc624070d63d8",
       "before": {
         "path": "content/data-hardware/industrial-deployment.mdx",
-        "bytes": 16650,
-        "sha256": "2b25e765a66095b18c8827c834c003a285a53585ae45c8afa4fd47d38be56e61"
+        "bytes": 17434,
+        "sha256": "755f3e0c8094f52fb0fb518174e0f3fddfe08cfa1aaffc9f4f8328051ca0ff23"
       },
       "after": {
         "path": "content/data-hardware/industrial-deployment.mdx",
-        "bytes": 16804,
-        "sha256": "94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b"
+        "bytes": 17588,
+        "sha256": "9e512505f061f72d73caa72fce79e4f9b9a88db85c4ca89b70ca94ff1bbd1ed4"
       },
       "mounts": [
         "bmw-leipzig-body-shop-spot-welding-2005",
@@ -1479,16 +1479,16 @@
       ]
     },
     {
-      "archivedFrom": "7373f3779648faac4fbe5fe37825db07237fef91",
+      "archivedFrom": "6e8ffa3039c78be6b87ddaefa6b6725e9544069d",
       "before": {
         "path": "content/world-models/generative-video.mdx",
-        "bytes": 14410,
-        "sha256": "4084e96053e589275a785b85dde2683b0df301167e925d06026030129c76c3a5"
+        "bytes": 15667,
+        "sha256": "2280414347d42af98f0cafc75d316419699204193d85fbe5f5551f4b8731e834"
       },
       "after": {
         "path": "content/world-models/generative-video.mdx",
-        "bytes": 14544,
-        "sha256": "d2ffb758234a8d4eb2643186cc82b02ad1ba242b0779c6127386acb1e71575a0"
+        "bytes": 15801,
+        "sha256": "d65e0191ff5963bf70cd23e91efb82349c7fbfd1104fa033d2283016da47a3f5"
       },
       "mounts": [
         "gr1-video-prediction-2023",
@@ -1565,16 +1565,16 @@
       ]
     },
     {
-      "archivedFrom": "7373f3779648faac4fbe5fe37825db07237fef91",
+      "archivedFrom": "63e1afc65ef0dedddfa68e94e79aacd88b8176f1",
       "before": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 9510,
-        "sha256": "7e3bd1de20b638ca14b2142c90698dbd3a61d14b6cd0eb90723ec28914edf9da"
+        "bytes": 10018,
+        "sha256": "24d5e1a5dcec773dd24986b8b5306792403bfb5305ed32bd3d3750e16ef555e7"
       },
       "after": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 9602,
-        "sha256": "bcf23833c0d4960092320aa6c89df584f2124f95ded7f739506a8525c15ed099"
+        "bytes": 10110,
+        "sha256": "e4f5290a4e20ff24c7691b5b41569fada504edffb3793581874559fbf26c58ad"
       },
       "mounts": [
         "daydreamer-a1-rollover-2022",

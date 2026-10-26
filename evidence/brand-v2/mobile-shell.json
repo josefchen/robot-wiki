@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3099,
+      "visibleTextLength": 3086,
       "header": {
         "present": true,
         "display": "flex",
@@ -2828,7 +2828,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 23100,
+      "visibleTextLength": 24569,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24005,
+      "visibleTextLength": 24840,
       "header": {
         "present": true,
         "display": "flex",
@@ -11228,7 +11228,7 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "visibleTextLength": 21389,
+      "visibleTextLength": 23030,
       "header": {
         "present": true,
         "display": "flex",
@@ -11714,7 +11714,7 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "visibleTextLength": 15496,
+      "visibleTextLength": 16203,
       "header": {
         "present": true,
         "display": "flex",

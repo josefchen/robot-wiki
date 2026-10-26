@@ -4,7 +4,7 @@
   "reviewedBy": "implementation worker for the world-models domain pass (opus-pass-world-models), under the owner directive of 2026-10-12 16:50 (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
   "rationale": "The owner asked for short, premium articles, and the directive of 2026-10-12 16:50 applies the humanizer standard and the length decision to the eight world-models articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
-  "observedAt": "2026-10-21T11:31:59Z",
+  "observedAt": "2026-10-25T22:40:18Z",
   "sources": [
     {
       "archivedFrom": "e30b926a63d083459788cb8e8cfcd87c6f04dd42",
@@ -387,13 +387,13 @@
       },
       "after": {
         "path": "content/world-models/generative-video.mdx",
-        "bytes": 14410,
-        "sha256": "4084e96053e589275a785b85dde2683b0df301167e925d06026030129c76c3a5"
+        "bytes": 15667,
+        "sha256": "2280414347d42af98f0cafc75d316419699204193d85fbe5f5551f4b8731e834"
       },
       "edits": [
         {
           "before": "  - long-wam-2026\n",
-          "after": "  - long-wam-2026\n  - caster-2026\n"
+          "after": "  - long-wam-2026\n  - caster-2026\n  - dreamcan-2026\n  - aim-2026\n"
         },
         {
           "before": "Generative video [world models](/world-models/taxonomy/) are video predictors that generate future pixels from the current frame and an action or text prompt, standing in for the environment. They supply training data, policy evaluation, RL post-training and interactive worlds. UniSim trained policies purely inside such a simulator and deployed them zero-shot in the real world <Cite id=\"unisim-2023\" />.\n",
@@ -429,7 +429,7 @@
         },
         {
           "before": "Two October 2026 papers measured WAM design choices directly. OpenWAM, from Heng Yu, Li Fei-Fei, Jiajun Wu, Ehsan Adeli and colleagues at Stanford, pretrains the Wan2.2-5B video model causally on more than 10,000 hours of robot video and attaches an action expert that can generate jointly, video first, action first or decoupled. Against the original Wan2.2-5B starting point, that training raised video-then-action success on LIBERO-Long from 68.4% to 97.8% <Cite id=\"openwam-2026\" />. Long-WAM, from Wei Huang, Linxi Fan, Song Han, Yukang Chen and colleagues at NVIDIA, MIT and HKU, found that longer visual history pays off when the video model was pretrained autoregressively. On RoboCasa GR-1, extending context from 0 to 19.2 seconds raised success from 63.3% to 78.7%, while a bidirectionally pretrained start showed no net gain. Each action chunk took 107.4 ms on an RTX 5090, and on real robots it stacked moving cups in 95% of trials, a task where π0.5 and Fast-WAM succeeded in none of 20 <Cite id=\"long-wam-2026\" />.\n",
-          "after": "OpenWAM (October 2026), from Heng Yu, Li Fei-Fei, Jiajun Wu, Ehsan Adeli and colleagues at Stanford, pretrains the Wan2.2-5B video model causally on more than 10,000 hours of robot video. That training raised video-then-action success on LIBERO-Long from 68.4% to 97.8% over the original Wan2.2-5B. Its action expert can generate jointly, video first, action first or decoupled <Cite id=\"openwam-2026\" />.\n\nLong-WAM (October 2026), from Wei Huang, Linxi Fan, Song Han, Yukang Chen and colleagues at NVIDIA, MIT and HKU, found that longer visual history pays off when the video model was pretrained autoregressively. On RoboCasa GR-1, extending context from 0 to 19.2 seconds raised success from 63.3% to 78.7%, while a bidirectionally pretrained start showed no net gain. On real robots it stacked moving cups in 95% of trials, a task where π0.5 and Fast-WAM succeeded in none of 20 <Cite id=\"long-wam-2026\" />.\n"
+          "after": "OpenWAM (October 2026), from Heng Yu, Li Fei-Fei, Jiajun Wu, Ehsan Adeli and colleagues at Stanford, pretrains the Wan2.2-5B video model causally on more than 10,000 hours of robot video. That training raised video-then-action success on LIBERO-Long from 68.4% to 97.8% over the original Wan2.2-5B. Its action expert can generate jointly, video first, action first or decoupled <Cite id=\"openwam-2026\" />.\n\nLong-WAM (October 2026), from Wei Huang, Linxi Fan, Song Han, Yukang Chen and colleagues at NVIDIA, MIT and HKU, found that longer visual history pays off when the video model was pretrained autoregressively. On RoboCasa GR-1, extending context from 0 to 19.2 seconds raised success from 63.3% to 78.7%, while a bidirectionally pretrained start showed no net gain. On real robots it stacked moving cups in 95% of trials, a task where π0.5 and Fast-WAM succeeded in none of 20 <Cite id=\"long-wam-2026\" />.\n\nDreamCan (October 2026), from Chongkai Gao, Jiajun Wu, Li Fei-Fei and colleagues at Stanford, NUS, Harvard and Northwestern, plans with a few generated subgoal images instead of dense video. Its training subgoals are chosen to balance whether a low-level policy can reach each one against how far each moves the task. With a 0.1-billion-parameter policy that was not pretrained, it reached 91.2% on LIBERO-Long against 82.4% for evenly spaced subgoals. π0.5 and Lingbot-VA, whose scores the authors took from the original papers, reached 92.4% and 98.5% <Cite id=\"dreamcan-2026\" />.\n"
         },
         {
           "before": "1X reports that its NEO policy builds on a 14B video model, mid-trained on 900 hours of egocentric human video and fine-tuned on 70 hours of robot data, with an inverse-dynamics model (IDM) extracting actions. Over 30 runs per task it scored 0% on drawing a smiley and pouring cereal. The backbone takes 11 seconds per 5 seconds of video, plus 1 second for the IDM <Cite id=\"1x-world-model-2026\" />. In June 2026, 1X launched a World Model Lab led by Sam Sinha, previously a founding research scientist at Luma AI, to pre-train on web video, egocentric human data, simulation, teleoperation and on-policy NEO data <Cite id=\"1x-world-model-lab-2026\" />.\n",
@@ -441,7 +441,7 @@
         },
         {
           "before": "The 2026 survey lists causal conditioning gaps first among its open challenges and calls weak action conditioning the technical bottleneck. Models trained mostly from observation history and task intent produce futures \"semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action\" <Cite id=\"world-model-survey-2026\" />. A weakly conditioned model still renders sharp video, so the failure stays invisible in a demo reel. In closed-loop tests, controllability mattered more than visual quality, and post-training on action-observation data beat upgrading the base generator <Cite id=\"world-in-world-2025\" />.\n",
-          "after": "The 2026 survey lists causal conditioning gaps first among its open challenges and calls weak action conditioning the technical bottleneck. Models trained mostly from observation history and task intent produce futures \"semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action\" <Cite id=\"world-model-survey-2026\" />. In closed-loop tests, controllability mattered more than visual quality, and post-training on action-observation data beat upgrading the base generator <Cite id=\"world-in-world-2025\" />.\n"
+          "after": "The 2026 survey lists causal conditioning gaps first among its open challenges and calls weak action conditioning the technical bottleneck. Models trained mostly from observation history and task intent produce futures \"semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action\" <Cite id=\"world-model-survey-2026\" />. In closed-loop tests, controllability mattered more than visual quality, and post-training on action-observation data beat upgrading the base generator <Cite id=\"world-in-world-2025\" />.\n\nSamuel Bateman, Benjamin Eysenbach, Dhruv Shah and colleagues at Princeton and Columbia (October 2026) trace the weakness to the data. They prove that how much a dataset's actions influence its next states caps the action influence any model trained on it can express, so expert demonstrations, whose next states can be predicted without the action, set a low ceiling <Cite id=\"aim-2026\" />. In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data <Cite id=\"aim-2026\" />.\n"
         },
         {
           "before": "The Interactive World Simulator pairs a CNN image encoder and a consistency-model decoder with an action-conditioned <Term id=\"latent-dynamics\">latent dynamics</Term> model. It reports more than 10 minutes of stable generated-video interaction at up to 15 FPS on a single RTX 4090, at a default 128×128 resolution; quantitative video comparisons use 192 steps (19.2 seconds) <span className=\"block\" data-generative-video-source-placement=\"line-start\"><Cite id=\"interactive-world-simulator-2026\" />.</span>\n",
@@ -549,14 +549,6 @@
             "claim": "The lineage then pivoted: GR-3 is a 4B-parameter VLA trained by vision-language co-training, VR human trajectories and robot imitation [gr-3-2025]."
           },
           {
-            "value": "2026",
-            "claim": "LingBot-VA overlaps action prediction with motor execution and calls video world modeling \"a fresh and independent foundation for robot learning\" [lingbot-va-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "Starchild-1 adds audio [odyssey-starchild-1-2026], and Agora-1 lets up to four participants share one simulation [odyssey-agora-1-2026]."
-          },
-          {
             "value": "3",
             "claim": "Waymo reports that its World Model, \"built upon Genie 3\", generates camera and lidar data for driving simulation [waymo-world-model-2026]."
           },
@@ -575,6 +567,14 @@
       "added": {
         "citations": [
           {
+            "value": "aim-2026",
+            "claim": "They prove that how much a dataset's actions influence its next states caps the action influence any model trained on it can express, so expert demonstrations, whose next states can be predicted without the action, set a low ceiling [aim-2026]."
+          },
+          {
+            "value": "aim-2026",
+            "claim": "In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data [aim-2026]."
+          },
+          {
             "value": "caster-2026",
             "claim": "Losey at Virginia Tech and Johns Hopkins (October 2026) seed CASTER with generated videos of a person doing the task, then optimize a feasible robot motion in a digital twin [caster-2026]."
           },
@@ -585,24 +585,80 @@
           {
             "value": "caster-2026",
             "claim": "The authors trace kettle pouring and bucket covering failures to physics the twin did not model [caster-2026]."
+          },
+          {
+            "value": "dreamcan-2026",
+            "claim": "π0.5 and Lingbot-VA, whose scores the authors took from the original papers, reached 92.4% and 98.5% [dreamcan-2026]."
           }
         ],
         "numbers": [
           {
+            "value": "0.1",
+            "claim": "With a 0.1-billion-parameter policy that was not pretrained, it reached 91.2% on LIBERO-Long against 82.4% for evenly spaced subgoals."
+          },
+          {
+            "value": "0.5",
+            "claim": "π0.5 and Lingbot-VA, whose scores the authors took from the original papers, reached 92.4% and 98.5% [dreamcan-2026]."
+          },
+          {
             "value": "12",
             "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "They prove that how much a dataset's actions influence its next states caps the action influence any model trained on it can express, so expert demonstrations, whose next states can be predicted without the action, set a low ceiling [aim-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data [aim-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Losey at Virginia Tech and Johns Hopkins (October 2026) seed CASTER with generated videos of a person doing the task, then optimize a feasible robot motion in a digital twin [caster-2026]."
           },
           {
             "value": "21",
             "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
           },
           {
+            "value": "3,000",
+            "claim": "In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data [aim-2026]."
+          },
+          {
+            "value": "300,000",
+            "claim": "In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data [aim-2026]."
+          },
+          {
             "value": "42.5",
             "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
           },
           {
+            "value": "500",
+            "claim": "In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data [aim-2026]."
+          },
+          {
             "value": "76.6",
             "claim": "Over 12 real tasks on a Franka arm with 21 trials each, it succeeded zero-shot 76.6% of the time, against 42.5% for a twin baseline that tracks each video's object path exactly [caster-2026]."
+          },
+          {
+            "value": "82.4",
+            "claim": "With a 0.1-billion-parameter policy that was not pretrained, it reached 91.2% on LIBERO-Long against 82.4% for evenly spaced subgoals."
+          },
+          {
+            "value": "85",
+            "claim": "In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data [aim-2026]."
+          },
+          {
+            "value": "91.2",
+            "claim": "With a 0.1-billion-parameter policy that was not pretrained, it reached 91.2% on LIBERO-Long against 82.4% for evenly spaced subgoals."
+          },
+          {
+            "value": "92.4",
+            "claim": "π0.5 and Lingbot-VA, whose scores the authors took from the original papers, reached 92.4% and 98.5% [dreamcan-2026]."
+          },
+          {
+            "value": "98.5",
+            "claim": "π0.5 and Lingbot-VA, whose scores the authors took from the original papers, reached 92.4% and 98.5% [dreamcan-2026]."
           }
         ],
         "links": [],
@@ -1142,13 +1198,13 @@
       },
       "after": {
         "path": "content/world-models/model-based-robot-learning.mdx",
-        "bytes": 9510,
-        "sha256": "7e3bd1de20b638ca14b2142c90698dbd3a61d14b6cd0eb90723ec28914edf9da"
+        "bytes": 10018,
+        "sha256": "24d5e1a5dcec773dd24986b8b5306792403bfb5305ed32bd3d3750e16ef555e7"
       },
       "edits": [
         {
           "before": "  - simdist-2026\n",
-          "after": "  - simdist-2026\n  - t2z-2026\n"
+          "after": "  - simdist-2026\n  - t2z-2026\n  - pia-2026\n"
         },
         {
           "before": "The loop encodes the state, predicts futures under candidate actions, scores them, acts, observes the real transition and updates the model. Sutton proposed integrated architectures for learning, planning and reacting in 1990 <Cite id=\"dyna-1990\" />.\n\nTry the check and choose the evidence that a model improves decisions. One-step prediction likelihood \"is not always correlated with control performance\" <Cite id=\"objective-mismatch-2020\" />.\n\n",
@@ -1196,7 +1252,7 @@
         },
         {
           "before": "It fits when interaction is expensive, the action-conditioned transition is learnable, goals change faster than dynamics, and planning fits the latency budget. It fits less well when observations omit contact state, resets are cheap, or a reactive policy matters more than adaptation. Plan only once predicted action rankings track real ones, replan after every observation, and measure real trials saved against model-free and explicit-controller baselines. In a 2026 agile-driving study, SAC won in simulation, yet \"only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform\" <Cite id=\"reset-free-driving-2026\" />.\n",
-          "after": "It fits when interaction is expensive, goals change faster than dynamics and planning fits the latency budget; it fits less well when observations omit contact state or resets are cheap. Plan only once predicted action rankings track real ones: in a 2026 agile-driving study, SAC won in simulation, yet \"only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform\" <Cite id=\"reset-free-driving-2026\" />.\n"
+          "after": "It fits when interaction is expensive, goals change faster than dynamics and planning fits the latency budget; it fits less well when observations omit contact state or resets are cheap. Plan only once predicted action rankings track real ones: in a 2026 agile-driving study, SAC won in simulation, yet \"only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform\" <Cite id=\"reset-free-driving-2026\" />.\n\nAdrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues at Toyota Research Institute and UC San Diego (October 2026) pretrain a racing world model in simulation and correct its mismatch on the real car <Cite id=\"pia-2026\" />. On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety <Cite id=\"pia-2026\" />.\n"
         }
       ],
       "dropped": {
@@ -1262,6 +1318,14 @@
       "added": {
         "citations": [
           {
+            "value": "pia-2026",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
+          },
+          {
+            "value": "pia-2026",
+            "claim": "Adrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues at Toyota Research Institute and UC San Diego (October 2026) pretrain a racing world model in simulation and correct its mismatch on the real car [pia-2026]."
+          },
+          {
             "value": "t2z-2026",
             "claim": "Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen [t2z-2026]."
           },
@@ -1275,6 +1339,10 @@
           }
         ],
         "numbers": [
+          {
+            "value": "1.13",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
+          },
           {
             "value": "10.85",
             "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
@@ -1305,7 +1373,19 @@
           },
           {
             "value": "2026",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
+          },
+          {
+            "value": "2026",
             "claim": "Averaged over four real-robot tasks, the adapted model's mean tracking error fell from 19.30 to 10.85 pixels against the same model without a latent [t2z-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Adrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues at Toyota Research Institute and UC San Diego (October 2026) pretrain a racing world model in simulation and correct its mismatch on the real car [pia-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "TD-MPC2 trained one 317M-parameter agent on 80 tasks [tdmpc2-2023], and PointWorld, trained on about 2 million trajectories, plans with MPC at 0.1 s per inference on a real Franka without demonstrations [pointworld-2026]."
           },
           {
             "value": "26.47",
@@ -1316,8 +1396,24 @@
             "claim": "Chenyuan Zhou, Yining Hong, Jiajun Wu and colleagues at Stanford and elsewhere (October 2026) condition a video world model on a 32-dimensional latent for hidden factors such as friction or mass, fitted at test time from one or two interactions while the model stays frozen [t2z-2026]."
           },
           {
+            "value": "44",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
+          },
+          {
+            "value": "49.55",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
+          },
+          {
+            "value": "52.47",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
+          },
+          {
             "value": "70.80",
             "claim": "Actions it picked succeeded 70.80% of the time against 26.47% for the model without a latent, though the paper does not state trial counts [t2z-2026]."
+          },
+          {
+            "value": "8",
+            "claim": "On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety [pia-2026]."
           }
         ],
         "links": [],

@@ -4,7 +4,7 @@
   "reviewedBy": "implementation workers for the manipulation, classical and rl-sim2real humanize passes of 2026-10-12, combined into one review by the integration lane (not independent acceptance)",
   "ownerApproval": "Josef, 12 Oct 2026: \"ensure we remove AI slop etc and keep it extremely premium. not too long text.\" The humanize lane's length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. Not release approval. Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; each is recorded here as added occurrences and registered in the deltas ledger.",
   "rationale": "The owner asked for short, premium articles. A cut to about a quarter less text must drop recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit because it keeps every number, citation and link in place. This review records each such cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded. A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.",
-  "observedAt": "2026-10-25T18:22:27Z",
+  "observedAt": "2026-10-25T22:20:46Z",
   "sources": [
     {
       "archivedFrom": "08955866d1810a79371706218a7cd4e8be9e0b4e",
@@ -2829,10 +2829,14 @@
       },
       "after": {
         "path": "content/classical/state-estimation.mdx",
-        "bytes": 13869,
-        "sha256": "13c1151dcbd985d003f962b35d81696d39b73b5724747fabeb77032047e199fd"
+        "bytes": 15080,
+        "sha256": "58502dda5ed11223b793e63b49a6512dce66afb683efd8312bf0306873441321"
       },
       "edits": [
+        {
+          "before": "  - grandtour-2026\n",
+          "after": "  - grandtour-2026\n  - ssio-2026\n  - humanoidpose-2026\n"
+        },
         {
           "before": "State estimation is the computation of a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id=\"thrun-2005\" />. [Planning](/classical/motion-planning) and [control](/classical/control) assume that this state is known.\n",
           "after": "State estimation computes a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id=\"thrun-2005\" />.\n"
@@ -2871,7 +2875,7 @@
         },
         {
           "before": "Tartan IMU, pretrained on over 100 hours of multi-platform data, reports a 36% ATE improvement over specialized models and learns online at 200 FPS <Cite id=\"tartan-imu-2025\" />. GAIT estimates legged-robot state without an explicit contact estimator and outperforms contact-aided model-based methods on a Unitree Go1 <Cite id=\"gait-2026\" />. MASt3R-SLAM builds on a learned two-view reconstruction prior and keeps loop closure and second-order global optimization <Cite id=\"mast3r-slam-2024\" />.\n",
-          "after": "GAIT estimates legged-robot state without an explicit contact estimator and outperforms contact-aided model-based methods on a Unitree Go1 <Cite id=\"gait-2026\" />.\n"
+          "after": "GAIT estimates legged-robot state without an explicit contact estimator and outperforms contact-aided model-based methods on a Unitree Go1 <Cite id=\"gait-2026\" />.\n\nYuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, Carnegie Mellon and three other universities (October 2026) train inertial odometry from scratch without velocity or position labels: a teacher integrates the IMU over each short window, and a pose graph over many windows refines the targets <Cite id=\"ssio-2026\" />. On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m <Cite id=\"ssio-2026\" />. The teacher used a reference attitude to remove gravity, and the IMU bias must be calibrated <Cite id=\"ssio-2026\" />.\n\nJiaxi Jiang, Marco Hutter, Christian Holz and colleagues at ETH Zurich (October 2026) estimate a humanoid's joint angles and world-space motion from ordinary video, training the pose decoder only on 128,000 synthetic images of sixteen humanoids <Cite id=\"humanoidpose-2026\" />. With no real pose labels, joint-angle error on three real humanoids was 18 to 32% below the best baseline on each <Cite id=\"humanoidpose-2026\" />.\n"
         },
         {
           "before": "Fusing visual and inertial measurements requires each measurement's precise sampling time <Cite id=\"li-mourikis-temporal-2014\" />. Samples with the same receipt time can describe different instants, and most consumer cameras use rolling shutters that capture each pixel row at a slightly different time <Cite id=\"li-rolling-shutter-2013\" />. The camera-IMU offset can be a state variable, locally identifiable except in a few degenerate motions <Cite id=\"li-mourikis-temporal-2014\" />. OpenVINS calibrates the camera-to-IMU time offset in its sliding-window filter <Cite id=\"openvins-2020\" />, and Kalibr estimates time offsets to a fraction of the smallest measurement period <Cite id=\"kalibr-2013\" />.\n",
@@ -2927,10 +2931,6 @@
             "claim": "Tartan IMU, pretrained on over 100 hours of multi-platform data, reports a 36% ATE improvement over specialized models and learns online at 200 FPS [tartan-imu-2025]."
           },
           {
-            "value": "18",
-            "claim": "GTSAM 4.3.0, released September 18, 2026, ships EKF and invariant-EKF infrastructure, equivariant filtering and EqVIO support [gtsam-4-3-2026]."
-          },
-          {
             "value": "1961",
             "claim": "Kalman and Bucy's 1961 continuous-time filter derives a Riccati equation for the covariance of the optimal filtering error [kalman-bucy-1961]."
           },
@@ -2975,14 +2975,6 @@
             "claim": "Tartan IMU, pretrained on over 100 hours of multi-platform data, reports a 36% ATE improvement over specialized models and learns online at 200 FPS [tartan-imu-2025]."
           },
           {
-            "value": "2026",
-            "claim": "GTSAM 4.3.0, released September 18, 2026, ships EKF and invariant-EKF infrastructure, equivariant filtering and EqVIO support [gtsam-4-3-2026]."
-          },
-          {
-            "value": "2026",
-            "claim": "GTSAM 4.3.0, released September 18, 2026, ships EKF and invariant-EKF infrastructure, equivariant filtering and EqVIO support [gtsam-4-3-2026]."
-          },
-          {
             "value": "3",
             "claim": "GTSAM 4.3.0, released September 18, 2026, ships EKF and invariant-EKF infrastructure, equivariant filtering and EqVIO support [gtsam-4-3-2026]."
           },
@@ -3005,6 +2997,74 @@
           {
             "value": "4.3.0",
             "claim": "GTSAM 4.3.0, released September 18, 2026, ships EKF and invariant-EKF infrastructure, equivariant filtering and EqVIO support [gtsam-4-3-2026]."
+          }
+        ],
+        "links": [],
+        "terms": []
+      },
+      "added": {
+        "citations": [
+          {
+            "value": "humanoidpose-2026",
+            "claim": "Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at ETH Zurich (October 2026) estimate a humanoid's joint angles and world-space motion from ordinary video, training the pose decoder only on 128,000 synthetic images of sixteen humanoids [humanoidpose-2026]."
+          },
+          {
+            "value": "humanoidpose-2026",
+            "claim": "With no real pose labels, joint-angle error on three real humanoids was 18 to 32% below the best baseline on each [humanoidpose-2026]."
+          },
+          {
+            "value": "ssio-2026",
+            "claim": "Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, Carnegie Mellon and three other universities (October 2026) train inertial odometry from scratch without velocity or position labels: a teacher integrates the IMU over each short window, and a pose graph over many windows refines the targets [ssio-2026]."
+          },
+          {
+            "value": "ssio-2026",
+            "claim": "On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m [ssio-2026]."
+          },
+          {
+            "value": "ssio-2026",
+            "claim": "The teacher used a reference attitude to remove gravity, and the IMU bias must be calibrated [ssio-2026]."
+          }
+        ],
+        "numbers": [
+          {
+            "value": "0.07",
+            "claim": "On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m [ssio-2026]."
+          },
+          {
+            "value": "10.23",
+            "claim": "On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m [ssio-2026]."
+          },
+          {
+            "value": "128,000",
+            "claim": "Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at ETH Zurich (October 2026) estimate a humanoid's joint angles and world-space motion from ordinary video, training the pose decoder only on 128,000 synthetic images of sixteen humanoids [humanoidpose-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, Carnegie Mellon and three other universities (October 2026) train inertial odometry from scratch without velocity or position labels: a teacher integrates the IMU over each short window, and a pose graph over many windows refines the targets [ssio-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m [ssio-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "The teacher used a reference attitude to remove gravity, and the IMU bias must be calibrated [ssio-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at ETH Zurich (October 2026) estimate a humanoid's joint angles and world-space motion from ordinary video, training the pose decoder only on 128,000 synthetic images of sixteen humanoids [humanoidpose-2026]."
+          },
+          {
+            "value": "2026",
+            "claim": "With no real pose labels, joint-angle error on three real humanoids was 18 to 32% below the best baseline on each [humanoidpose-2026]."
+          },
+          {
+            "value": "3.72",
+            "claim": "On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m [ssio-2026]."
+          },
+          {
+            "value": "32",
+            "claim": "With no real pose labels, joint-angle error on three real humanoids was 18 to 32% below the best baseline on each [humanoidpose-2026]."
           }
         ],
         "links": [],

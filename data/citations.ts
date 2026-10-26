@@ -21411,6 +21411,116 @@ export const CITATIONS: Citation[] = [
     url: 'https://arxiv.org/abs/2610.24461',
     type: 'paper',
   },
+  // ssio-2026: KOL intake note of Pieter Abbeel, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Amazon FAR, Carnegie Mellon University, UC Berkeley, Stanford University and Penn State University.
+  // v2 21 Oct 2026.
+  {
+    id: 'ssio-2026',
+    title: 'Self-Supervised Inertial Odometry',
+    authors: [
+      'Yuheng Qiu',
+      'Yutian Chen',
+      'Carlton Cort',
+      'Weison Huang',
+      'Shibo Zhao',
+      'Pieter Abbeel',
+      'Rocky Duan',
+      'Koushil Sreenath',
+      'C. Karen Liu',
+      'Carmelo Sferrazza',
+      'Junyi Geng',
+      'Sebastian Scherer',
+      'Guanya Shi',
+    ],
+    year: 2026,
+    arxiv: '2610.25988',
+    url: 'https://arxiv.org/abs/2610.25988',
+    type: 'paper',
+  },
+  // humanoidpose-2026: KOL intake note of Marco Hutter, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). ETH Zurich. v1 18 Oct 2026.
+  {
+    id: 'humanoidpose-2026',
+    title: 'Vision as Proprioception: Estimating Humanoid Robot Pose from Video',
+    authors: ['Jiaxi Jiang', 'Matthias Heyrman', 'René Zurbrügg', 'Marco Hutter', 'Christian Holz'],
+    year: 2026,
+    arxiv: '2610.25288',
+    url: 'https://arxiv.org/abs/2610.25288',
+    type: 'paper',
+  },
+  // dreamcan-2026: KOL intake note of Jiajun Wu, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Stanford University, National University of Singapore, Harvard University and Northwestern
+  // University. v1 18 Oct 2026.
+  {
+    id: 'dreamcan-2026',
+    title: 'Dream What I Can: Sparse Visual Planning for Long-Horizon Robot Manipulation',
+    authors: [
+      'Chongkai Gao',
+      'Wenlong Huang',
+      'Haonan Chen',
+      'Lin Shao',
+      'Yilun Du',
+      'Jiajun Wu',
+      'Ruohan Zhang',
+      'Li Fei-Fei',
+    ],
+    year: 2026,
+    arxiv: '2610.24981',
+    url: 'https://arxiv.org/abs/2610.24981',
+    type: 'paper',
+  },
+  // aim-2026: KOL intake note of Dhruv Shah, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Princeton University and Columbia University. v1 19 Oct 2026.
+  {
+    id: 'aim-2026',
+    title: 'Training Controllable World Models via Action Influence Maximization',
+    authors: [
+      'Samuel M. Bateman',
+      'Tenny Yin',
+      'Chongyi Zheng',
+      'Lei Huang',
+      'Brian Wang',
+      'Benjamin Eysenbach',
+      'Jaime Fernández Fisac',
+      'Dhruv Shah',
+    ],
+    year: 2026,
+    arxiv: '2610.27387',
+    url: 'https://arxiv.org/abs/2610.27387',
+    type: 'paper',
+  },
+  // pia-2026: KOL intake note of Xiaolong Wang, added 2026-10-25. arXiv abstract page and PDF read 2026-10-25
+  // (HTTP 200). Toyota Research Institute and UC San Diego. v1 19 Oct 2026.
+  {
+    id: 'pia-2026',
+    title: 'Simulation Priors for Rapid Adaptation in Model-Based RL for Autonomous Racing',
+    authors: [
+      'Adrian Remonda',
+      'Jiajun Xi',
+      'Nicklas Hansen',
+      'Marcus Greiff',
+      'Thomas Lew',
+      'John Talbot',
+      'John Subosits',
+      'Xiaolong Wang',
+    ],
+    year: 2026,
+    arxiv: '2610.26757',
+    url: 'https://arxiv.org/abs/2610.26757',
+    type: 'paper',
+  },
+  // hurst-spectrum-2026: KOL intake note of IEEE Spectrum Robotics, added 2026-10-25. Article read 2026-10-25
+  // (HTTP 200), published 2026-10-19. A first-person account by Agility Robotics' cofounder and chief robot
+  // officer: cited only for his attributed design statements, never for a number.
+  {
+    id: 'hurst-spectrum-2026',
+    title: 'The Robot I Didn’t Expect to Build',
+    authors: ['Jonathan W. Hurst'],
+    year: 2026,
+    venue: 'IEEE Spectrum, 2026-10-19',
+    url: 'https://spectrum.ieee.org/agility-robotics-digit-5-redesign',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));

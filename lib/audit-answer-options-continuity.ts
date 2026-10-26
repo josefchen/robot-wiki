@@ -45,14 +45,14 @@ export type AnswerOptionsReview = {
 
 // BEGIN answer-options pins (written by scripts/record-answer-options-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 7306, sha256: 'd06afbb70f6b59530cae28f7d25cffc4d2b5b5203166ce1fa00954b0f8069833' };
+const reviewPin = { bytes: 7308, sha256: '126b2afe35dc3de638fe15e591d1553a22659bb119883e5e73997060ea31a8c9' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/calibration.mdx', [8197, '7274fffbdf172e28e1c0878915d0199cd60181eb30608f0661672070723fd7fc']],
   ['content/data-hardware/robot-learning-stack.mdx', [10408, '1d8f59aa897c1843cc5586d3ca1278e68093a3e24b34523abf17ee761fd05432']],
   ['content/world-models/evaluation.mdx', [9653, 'be1e584cecb03b2515224dad0c7fe70e5148a2bb47aa7dff47ef5aebc5492409']],
-  ['content/world-models/model-based-robot-learning.mdx', [9729, '316e1072720a5dbc76bc681f8435703ab4f2249f8c83e1e581df19ed298ed3ec']],
+  ['content/world-models/model-based-robot-learning.mdx', [10237, 'bc29eb2291efac0052f815987116a04414cfb03a0fbfc1af3895d3ce969242bc']],
   ['content/world-models/world-models-vs-simulators.mdx', [11578, '3c1cbd85e88bf016113192ad2baff6d097079fc5d1dffd83b121f655747d3676']],
 ]);
 // END answer-options pins

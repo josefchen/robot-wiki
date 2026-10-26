@@ -65,6 +65,14 @@ for (const source of sources) {
       const reference = page.locator(`[data-reference-id="${source.id}"]`);
       await expect(reference).toHaveCount(1);
       await expect(reference.locator('[data-reference-source-link]')).toHaveAttribute('href', citation.url);
+      // Successor of the full-byline pin (research-page standard, Josef
+      // 2026-10-10): an entry over six names shows six and "and N more" with
+      // a "Show all N authors" disclosure, which swaps in every name.
+      if (citation.authors.length > 6) {
+        await expect(reference.locator('[data-author-names]'))
+          .toHaveText(`${citation.authors.slice(0, 6).join(', ')}, and ${citation.authors.length - 6} more`);
+        await reference.getByRole('button', { name: `Show all ${citation.authors.length} authors`, exact: true }).click();
+      }
       for (const author of citation.authors) await expect(reference).toContainText(author);
       const group = await reference.evaluate(el => el.closest('ol')?.previousElementSibling?.textContent?.trim());
       expect(group).toBe('Further reading');

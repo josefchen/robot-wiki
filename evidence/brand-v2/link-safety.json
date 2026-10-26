@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "8cb9a79e3a0522fc9f46601bd87580f79ae17db59eb24fdec6cf387752778595",
+  "fingerprint": "a68966698912f79fe72c559cd4867fb92fbcbd78ac5f8b32c2ae94392e039f1a",
   "source": "out/ static export",
   "routes": [
     {
@@ -201,8 +201,8 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "outboundAnchors": 95,
-      "distinctHrefs": 46,
+      "outboundAnchors": 102,
+      "distinctHrefs": 48,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -280,8 +280,8 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundAnchors": 94,
-      "distinctHrefs": 48,
+      "outboundAnchors": 98,
+      "distinctHrefs": 49,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -782,8 +782,8 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundAnchors": 87,
-      "distinctHrefs": 42,
+      "outboundAnchors": 92,
+      "distinctHrefs": 44,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -818,8 +818,8 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "outboundAnchors": 76,
-      "distinctHrefs": 41,
+      "outboundAnchors": 79,
+      "distinctHrefs": 42,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -854,17 +854,17 @@
     }
   ],
   "routesSwept": 76,
-  "outboundAnchors": 6130,
-  "distinctOutboundHrefs": 1657,
+  "outboundAnchors": 6149,
+  "distinctOutboundHrefs": 1663,
   "anchorsByShape": {
-    "citation-chip": 2584,
+    "citation-chip": 2597,
     "footer": 152,
     "figure-credit": 873,
-    "reference-entry": 2206,
+    "reference-entry": 2212,
     "other": 315
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 5794,
+  "anchorsWithNoreferrer": 5813,
   "keyboard": [
     {
       "route": "/",
@@ -1012,11 +1012,11 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "outboundInDom": 95,
-      "reachedByTab": 95,
+      "outboundInDom": 102,
+      "reachedByTab": 102,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 226
+      "tabStops": 239
     },
     {
       "route": "/credits/",
@@ -1068,11 +1068,11 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundInDom": 94,
-      "reachedByTab": 94,
+      "outboundInDom": 98,
+      "reachedByTab": 98,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 223
+      "tabStops": 230
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
@@ -1428,11 +1428,11 @@
     },
     {
       "route": "/world-models/generative-video/",
-      "outboundInDom": 87,
-      "reachedByTab": 87,
+      "outboundInDom": 92,
+      "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 226
+      "tabStops": 237
     },
     {
       "route": "/world-models/jepa/",
@@ -1452,11 +1452,11 @@
     },
     {
       "route": "/world-models/model-based-robot-learning/",
-      "outboundInDom": 76,
-      "reachedByTab": 76,
+      "outboundInDom": 79,
+      "reachedByTab": 79,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 186
+      "tabStops": 192
     },
     {
       "route": "/world-models/taxonomy/",

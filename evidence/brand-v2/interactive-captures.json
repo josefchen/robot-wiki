@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "912dda8790be28422d7195b58d685c3bbc9db597693243ac16f4693d0311f8e7",
+  "fingerprint": "24931afc1e1fcd53959b8b63b7baccb88e5ed927d057443c19b4a42c27b50358",
   "viewports": [
     "375x812",
     "1440x900"
@@ -6651,10 +6651,10 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Cost\"",
-          "sha256": "b70807884269d96beda76ee439c1ac9ced5248bb106db646afc519eb3719a416",
+          "sha256": "22aa36f7d8a9f75bd19a8484467ce5a0189478751baefde76e0937a71765647b",
           "widthPx": 327,
           "heightPx": 2222,
-          "settleAttempts": 3,
+          "settleAttempts": 2,
           "settled": true,
           "luminanceSpread": 30.62,
           "fontsLoaded": true,
@@ -21819,8 +21819,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-05.jpg",
-      "sha256": "546448f7d3f8d0bcefa1a293233f86b882ae9083bb2715c1a53f0d590099b118",
-      "bytes": 275057,
+      "sha256": "3d11ea8bdce7ffc10fbfd57da358f39bfba0230b52307e17ba2d262dceb0302c",
+      "bytes": 275077,
       "mountIds": [
         "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
         "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -21860,7 +21860,7 @@
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1@375x812:changed",
-          "sha256": "b70807884269d96beda76ee439c1ac9ced5248bb106db646afc519eb3719a416"
+          "sha256": "22aa36f7d8a9f75bd19a8484467ce5a0189478751baefde76e0937a71765647b"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@1440x900:default",

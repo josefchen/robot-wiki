@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "96e823c91696390dbbf848b95fce52aa251a72b5061bc8dd005ae7925be4a21c",
+  "fingerprint": "42b364c5512e8304f69f23f4567117c61bae23502e70e1561e8e50d541469c7e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3099,
+      "visibleTextLength": 3086,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12235,7 +12235,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23100,
+      "visibleTextLength": 24569,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12287,12 +12287,12 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
-        "citationCount": 39,
+        "readingMinutes": 14,
+        "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
-        "citationCountText": "39 sources",
+        "readingTimeText": "14 min read",
+        "citationCountText": "41 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
           "mcgee-schmidt-1985",
@@ -12325,6 +12325,8 @@
           "openvins-2020",
           "kalibr-2013",
           "grandtour-2026",
+          "ssio-2026",
+          "humanoidpose-2026",
           "smith-1990",
           "dellaert-mcl-1999",
           "kalman-bucy-1961",
@@ -12708,6 +12710,24 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amaz"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Latent-dynamics world models act as learned belief states. P"
         },
         {
@@ -12864,7 +12884,7 @@
         },
         {
           "kind": "reference",
-          "count": 39,
+          "count": 41,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -12874,7 +12894,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 39,
+              "count": 41,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -12886,7 +12906,7 @@
         },
         {
           "kind": "citation",
-          "count": 98,
+          "count": 108,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -12896,7 +12916,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 49,
+              "count": 54,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -12906,7 +12926,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 49,
+              "count": 54,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -13109,6 +13129,14 @@
         {
           "tag": "button",
           "text": "Show all 8 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 13 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -17331,7 +17359,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24005,
+      "visibleTextLength": 24840,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17383,12 +17411,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 11,
-        "citationCount": 39,
+        "readingMinutes": 12,
+        "citationCount": 40,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "11 min read",
-        "citationCountText": "39 sources",
+        "readingTimeText": "12 min read",
+        "citationCountText": "40 sources",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -17426,6 +17454,7 @@
           "dauth-robots-germany-2021",
           "koch-robots-firms-2021",
           "acemoglu-lelarge-restrepo-2020",
+          "hurst-spectrum-2026",
           "agility-digit-production",
           "unitree-profit-2026",
           "figure-8hr-shift-2026"
@@ -17688,6 +17717,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "IFR counts about 7,000 full-size humanoids sold in 2025 and "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Jonathan Hurst, Agility's cofounder and chief robot officer,"
         },
         {
           "familyHead": "geist",
@@ -17987,7 +18025,7 @@
         },
         {
           "kind": "reference",
-          "count": 39,
+          "count": 40,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17997,7 +18035,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 39,
+              "count": 40,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18009,7 +18047,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 98,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -18019,7 +18057,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 46,
+              "count": 49,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -18029,7 +18067,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 46,
+              "count": 49,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -53671,7 +53709,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21389,
+      "visibleTextLength": 23030,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -53723,12 +53761,12 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 38,
+        "readingMinutes": 10,
+        "citationCount": 40,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "38 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "40 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
           "nvidia-cosmos-3-launch-2026",
@@ -53763,6 +53801,8 @@
           "openwam-2026",
           "long-wam-2026",
           "caster-2026",
+          "dreamcan-2026",
+          "aim-2026",
           "odyssey-starchild-1-2026",
           "odyssey-agora-1-2026",
           "waymo-world-model-2026",
@@ -53945,6 +53985,15 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "DreamCan (October 2026), from Chongkai Gao, Jiajun Wu, Li Fe"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "1X reports that its NEO policy builds on a 14B video model, "
         },
         {
@@ -53964,6 +54013,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The 2026 survey lists causal conditioning gaps first among i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Samuel Bateman, Benjamin Eysenbach, Dhruv Shah and colleague"
         },
         {
           "familyHead": "geist",
@@ -54254,7 +54312,7 @@
         },
         {
           "kind": "reference",
-          "count": 38,
+          "count": 40,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -54264,7 +54322,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 38,
+              "count": 40,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54276,7 +54334,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 86,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -54286,7 +54344,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 40,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -54296,7 +54354,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 40,
+              "count": 43,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54352,7 +54410,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -54362,7 +54420,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -54651,6 +54709,22 @@
         {
           "tag": "button",
           "text": "Show all 16 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 8 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 8 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -56339,7 +56413,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15496,
+      "visibleTextLength": 16203,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -56392,11 +56466,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 36,
+        "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min read",
-        "citationCountText": "36 sources",
+        "citationCountText": "37 sources",
         "bibliographyIds": [
           "dreamer-2019",
           "dreamerv3-2023",
@@ -56429,6 +56503,7 @@
           "reset-free-driving-2026",
           "pointworld-2026",
           "t2z-2026",
+          "pia-2026",
           "tdmpc-2022",
           "newt-2025",
           "morel-2020",
@@ -56639,6 +56714,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "It fits when interaction is expensive, goals change faster t"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Adrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues"
         }
       ],
       "sectionLinks": [
@@ -56794,7 +56878,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 37,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -56804,7 +56888,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -56816,7 +56900,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 70,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -56826,7 +56910,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 33,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -56836,7 +56920,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 33,
+              "count": 35,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -57055,6 +57139,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 8 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -59080,7 +59172,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3099,
+      "visibleTextLength": 3086,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71040,7 +71132,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30965,
+      "visibleTextLength": 33065,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71092,12 +71184,12 @@
           "Classical Foundations"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 13,
-        "citationCount": 39,
+        "readingMinutes": 14,
+        "citationCount": 41,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "13 min read",
-        "citationCountText": "39 sources",
+        "readingTimeText": "14 min read",
+        "citationCountText": "41 sources",
         "bibliographyIds": [
           "kalman-1960-filter",
           "mcgee-schmidt-1985",
@@ -71130,6 +71222,8 @@
           "openvins-2020",
           "kalibr-2013",
           "grandtour-2026",
+          "ssio-2026",
+          "humanoidpose-2026",
           "smith-1990",
           "dellaert-mcl-1999",
           "kalman-bucy-1961",
@@ -71513,6 +71607,24 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amaz"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "Latent-dynamics world models act as learned belief states. P"
         },
         {
@@ -71669,7 +71781,7 @@
         },
         {
           "kind": "reference",
-          "count": 39,
+          "count": 41,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71679,7 +71791,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 39,
+              "count": 41,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71691,7 +71803,7 @@
         },
         {
           "kind": "citation",
-          "count": 98,
+          "count": 108,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -71701,7 +71813,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 49,
+              "count": 54,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -71711,7 +71823,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 49,
+              "count": 54,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71914,6 +72026,14 @@
         {
           "tag": "button",
           "text": "Show all 8 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 13 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -76081,7 +76201,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 31421,
+      "visibleTextLength": 32553,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76133,12 +76253,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-09-24",
-        "readingMinutes": 11,
-        "citationCount": 39,
+        "readingMinutes": 12,
+        "citationCount": 40,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
-        "readingTimeText": "11 min read",
-        "citationCountText": "39 sources",
+        "readingTimeText": "12 min read",
+        "citationCountText": "40 sources",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -76176,6 +76296,7 @@
           "dauth-robots-germany-2021",
           "koch-robots-firms-2021",
           "acemoglu-lelarge-restrepo-2020",
+          "hurst-spectrum-2026",
           "agility-digit-production",
           "unitree-profit-2026",
           "figure-8hr-shift-2026"
@@ -76438,6 +76559,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "IFR counts about 7,000 full-size humanoids sold in 2025 and "
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Jonathan Hurst, Agility's cofounder and chief robot officer,"
         },
         {
           "familyHead": "geist",
@@ -76737,7 +76867,7 @@
         },
         {
           "kind": "reference",
-          "count": 39,
+          "count": 40,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -76747,7 +76877,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 39,
+              "count": 40,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -76759,7 +76889,7 @@
         },
         {
           "kind": "citation",
-          "count": 92,
+          "count": 98,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -76769,7 +76899,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 46,
+              "count": 49,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -76779,7 +76909,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 46,
+              "count": 49,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -112047,7 +112177,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27465,
+      "visibleTextLength": 29569,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -112099,12 +112229,12 @@
           "World Models"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
-        "citationCount": 38,
+        "readingMinutes": 10,
+        "citationCount": 40,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
-        "citationCountText": "38 sources",
+        "readingTimeText": "10 min read",
+        "citationCountText": "40 sources",
         "bibliographyIds": [
           "cosmos-3-2026",
           "nvidia-cosmos-3-launch-2026",
@@ -112139,6 +112269,8 @@
           "openwam-2026",
           "long-wam-2026",
           "caster-2026",
+          "dreamcan-2026",
+          "aim-2026",
           "odyssey-starchild-1-2026",
           "odyssey-agora-1-2026",
           "waymo-world-model-2026",
@@ -112321,6 +112453,15 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
+          "text": "DreamCan (October 2026), from Chongkai Gao, Jiajun Wu, Li Fe"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
           "text": "1X reports that its NEO policy builds on a 14B video model, "
         },
         {
@@ -112340,6 +112481,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The 2026 survey lists causal conditioning gaps first among i"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Samuel Bateman, Benjamin Eysenbach, Dhruv Shah and colleague"
         },
         {
           "familyHead": "geist",
@@ -112630,7 +112780,7 @@
         },
         {
           "kind": "reference",
-          "count": 38,
+          "count": 40,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -112640,7 +112790,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 38,
+              "count": 40,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -112652,7 +112802,7 @@
         },
         {
           "kind": "citation",
-          "count": 80,
+          "count": 86,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -112662,7 +112812,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 40,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -112672,7 +112822,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 40,
+              "count": 43,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -112728,7 +112878,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -112738,7 +112888,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 9,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -113027,6 +113177,22 @@
         {
           "tag": "button",
           "text": "Show all 16 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 8 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 8 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -114682,7 +114848,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20800,
+      "visibleTextLength": 21831,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -114735,11 +114901,11 @@
         ],
         "lastReviewed": "2026-09-24",
         "readingMinutes": 6,
-        "citationCount": 36,
+        "citationCount": 37,
         "reviewDateText": "24 September 2026",
         "reviewDateTime": "2026-09-24",
         "readingTimeText": "6 min read",
-        "citationCountText": "36 sources",
+        "citationCountText": "37 sources",
         "bibliographyIds": [
           "dreamer-2019",
           "dreamerv3-2023",
@@ -114772,6 +114938,7 @@
           "reset-free-driving-2026",
           "pointworld-2026",
           "t2z-2026",
+          "pia-2026",
           "tdmpc-2022",
           "newt-2025",
           "morel-2020",
@@ -114982,6 +115149,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "It fits when interaction is expensive, goals change faster t"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Adrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues"
         }
       ],
       "sectionLinks": [
@@ -115137,7 +115313,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 37,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -115147,7 +115323,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -115159,7 +115335,7 @@
         },
         {
           "kind": "citation",
-          "count": 66,
+          "count": 70,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -115169,7 +115345,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 33,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -115179,7 +115355,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 33,
+              "count": 35,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -115398,6 +115574,14 @@
         {
           "tag": "button",
           "text": "Show all 12 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 8 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,

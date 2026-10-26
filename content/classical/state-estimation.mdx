@@ -46,6 +46,8 @@ citations:
   - openvins-2020
   - kalibr-2013
   - grandtour-2026
+  - ssio-2026
+  - humanoidpose-2026
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "adjacent/autonomous-vehicles"
@@ -166,6 +168,10 @@ Learned components mostly enter classical estimators as measurements with uncert
 A September 2026 paper from Linus Kramer, William Talbot, Olga Vysotska and Marco Hutter is an example. For robots on construction sites, they replace the observation model of a Monte Carlo localization particle filter with a network that matches LiDAR scans against the building mesh, trained only on scans simulated inside that mesh. On real-world datasets it outperformed diffusion-based and ScanContext++ baselines at 18 ms per call <Cite id="mesh-mcl-construction-2026" />.
 
 GAIT estimates legged-robot state without an explicit contact estimator and outperforms contact-aided model-based methods on a Unitree Go1 <Cite id="gait-2026" />.
+
+Yuheng Qiu, Pieter Abbeel, Guanya Shi and colleagues at Amazon FAR, Carnegie Mellon and three other universities (October 2026) train inertial odometry from scratch without velocity or position labels: a teacher integrates the IMU over each short window, and a pose graph over many windows refines the targets <Cite id="ssio-2026" />. On six datasets from pedestrians, drones, quadrupeds and a humanoid, average velocity error came within 0.07 m/s of a supervised network of the same architecture, though its trajectory error on the EuRoC drone flights was 10.23 m against the supervised network's 3.72 m <Cite id="ssio-2026" />. The teacher used a reference attitude to remove gravity, and the IMU bias must be calibrated <Cite id="ssio-2026" />.
+
+Jiaxi Jiang, Marco Hutter, Christian Holz and colleagues at ETH Zurich (October 2026) estimate a humanoid's joint angles and world-space motion from ordinary video, training the pose decoder only on 128,000 synthetic images of sixteen humanoids <Cite id="humanoidpose-2026" />. With no real pose labels, joint-angle error on three real humanoids was 18 to 32% below the best baseline on each <Cite id="humanoidpose-2026" />.
 
 [Latent-dynamics world models](/world-models/latent-dynamics) act as learned belief states. PlaNet's latent dynamics model has deterministic and stochastic transition components trained with variational inference <Cite id="planet-2018" />. DreamerV3 learns a model of the environment and improves its behaviour by imagining future scenarios <Cite id="dreamerv3-nature-2025" />.
 

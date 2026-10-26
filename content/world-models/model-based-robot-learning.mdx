@@ -44,6 +44,7 @@ citations:
   - pointworld-2026
   - simdist-2026
   - t2z-2026
+  - pia-2026
 seeAlso:
   - "rl-sim2real/reward-design-mpc"
   - "rl-sim2real/offline-rl"
@@ -130,3 +131,5 @@ Hybrids keep known physics and learn what it misses: TossingBot learns residuals
 ## Model-based learning pays off when real interaction is expensive
 
 It fits when interaction is expensive, goals change faster than dynamics and planning fits the latency budget; it fits less well when observations omit contact state or resets are cheap. Plan only once predicted action rankings track real ones: in a 2026 agile-driving study, SAC won in simulation, yet "only TD-MPC2 consistently outperforms the MPPI baseline on the physical platform" <Cite id="reset-free-driving-2026" />.
+
+Adrian Remonda, Nicklas Hansen, Xiaolong Wang and colleagues at Toyota Research Institute and UC San Diego (October 2026) pretrain a racing world model in simulation and correct its mismatch on the real car <Cite id="pia-2026" />. On one track, with 44 minutes of real-car data, 1.13% of its buffer, all 8 runs succeeded, with a best sector time of 49.55 s against 52.47 s for an MPC reference; without the simulation priors, a real-data-only run was stopped for safety <Cite id="pia-2026" />.

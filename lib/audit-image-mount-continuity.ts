@@ -44,7 +44,7 @@ export type ImageMountReview = {
 
 // BEGIN image-mount pins (written by scripts/record-image-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 176166, sha256: 'be3d8c72bab8ada517b8809f12f7de17d589ba4af697fa0144583bf929131932' };
+const reviewPin = { bytes: 176168, sha256: '7e8d61787f31a3bb6ff49b50645138402e6036281a25b1662b24d3096da1c138' };
 
 /** The registered image ids whose one-line mounts the review admits. */
 const admitted: ReadonlySet<string> = new Set([
@@ -186,12 +186,12 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/perception.mdx', [21744, '7338584d0ddec293b3c43931fcde06d7e2e537c175a405db57db870942b716e6']],
   ['content/classical/ros2-for-ml-engineers.mdx', [8903, '676d1a3e723e9478440dba49b0e10f70bd4f37e5b68bea5d1c8daa2d6730a520']],
   ['content/classical/scene-representation.mdx', [16376, '6edf589ee7e9df47cb1a2c4abb73af29bc2e9de446f4a509da924e1c06d0b0cc']],
-  ['content/classical/state-estimation.mdx', [13954, '4f1273c98646879313c894112257f0297e352e88510b52132ab1254537a9742e']],
+  ['content/classical/state-estimation.mdx', [15165, 'ecc5722ba7a4d7239dbcc7a7396778843864fe68c8e091216971ea3f22ee3186']],
   ['content/data-hardware/data-bottleneck.mdx', [14264, '0e5457aa30ececce1bc3cba3c5a942c439c8866e879d38c9aa8f2f1c113d4081']],
   ['content/data-hardware/datasets.mdx', [12114, '698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51']],
   ['content/data-hardware/evaluation-crisis.mdx', [16534, '4d7638d5bc90c62c7326b26b135086611a1ca17f5dc3cc469b431cd8d45a6937']],
   ['content/data-hardware/hardware-taxonomy.mdx', [11225, '01727d1b7c0ddd110bdafd3c957475ab217d338cf71adad943ce4bf76969a180']],
-  ['content/data-hardware/industrial-deployment.mdx', [16804, '94b8a5c72d665ae962cea8660744c5642e22577817f123bb321a4273749b708b']],
+  ['content/data-hardware/industrial-deployment.mdx', [17588, '9e512505f061f72d73caa72fce79e4f9b9a88db85c4ca89b70ca94ff1bbd1ed4']],
   ['content/data-hardware/robot-learning-stack.mdx', [10400, 'd99fefaa46143123a2137469f40151feff6f3c8824ee35e796b95b09b7628ff7']],
   ['content/data-hardware/teleop-rigs.mdx', [10880, 'df9345d0d975e9594fcab54c41f7a2e0392fc685e38c5f94b992aa223e0c75b8']],
   ['content/frontier/bear-case.mdx', [10119, 'bfac4a48de3b0c71bd41e20e1eb1b7508898fd31d60e904729b50714b073e2a8']],
@@ -225,10 +225,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/rl-sim2real/why-rl-locomotion.mdx', [7902, '751f42924e9933e040e7beaca56c414443930ea98f90bbb3b552f4fcd2664bce']],
   ['content/world-models/evaluation.mdx', [9650, '7e097f28165e752ab573e215f3048f29d2d11ca2600b4e63661fedeecb61a094']],
   ['content/world-models/generative-sim.mdx', [13187, 'f5050231cf9d1ddfb44f73c3cd631c2abb21f264e36910fa1f86ddb6d40a279d']],
-  ['content/world-models/generative-video.mdx', [14544, 'd2ffb758234a8d4eb2643186cc82b02ad1ba242b0779c6127386acb1e71575a0']],
+  ['content/world-models/generative-video.mdx', [15801, 'd65e0191ff5963bf70cd23e91efb82349c7fbfd1104fa033d2283016da47a3f5']],
   ['content/world-models/jepa.mdx', [12716, '5949b267185ce2023f5f06b47d3affb3b504947ce02f0f372bd0748181f84220']],
   ['content/world-models/latent-dynamics.mdx', [10797, '89dea20591cce8527f71c692ca2285389bf9c2274322ef28523823b42dbaf61e']],
-  ['content/world-models/model-based-robot-learning.mdx', [9602, 'bcf23833c0d4960092320aa6c89df584f2124f95ded7f739506a8525c15ed099']],
+  ['content/world-models/model-based-robot-learning.mdx', [10110, 'e4f5290a4e20ff24c7691b5b41569fada504edffb3793581874559fbf26c58ad']],
   ['content/world-models/taxonomy.mdx', [12579, '937ab8c9c797b8a0f7b24f6b4ca8f08b777cfb3f21f8f366900873526d5d3d1e']],
   ['content/world-models/world-models-vs-simulators.mdx', [11462, '203db84ca9cf49e7c66583aff74cb5b47ba285eb5884d099ed89a2a09ec69ddf']],
 ]);

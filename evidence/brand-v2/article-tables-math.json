@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "7caf4dc8a5cc5964f4276f014f6ddc81a95a3bf6218607942073fbf1e2f30336",
+  "fingerprint": "469a1ad7f4fde3fe45c5fc603c291402f1e9f53d0373b514da60fc5555a6e7c8",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3375,7 +3375,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23100,
+      "visibleTextLength": 24569,
       "tables": [],
       "equations": [
         {
@@ -4402,7 +4402,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24005,
+      "visibleTextLength": 24840,
       "tables": [
         {
           "index": 0,
@@ -7827,7 +7827,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21389,
+      "visibleTextLength": 23030,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -7906,7 +7906,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 15496,
+      "visibleTextLength": 16203,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -11360,7 +11360,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30965,
+      "visibleTextLength": 33065,
       "tables": [],
       "equations": [
         {
@@ -12387,7 +12387,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 31421,
+      "visibleTextLength": 32553,
       "tables": [
         {
           "index": 0,
@@ -15812,7 +15812,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27465,
+      "visibleTextLength": 29569,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -15891,7 +15891,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20800,
+      "visibleTextLength": 21831,
       "tables": [],
       "equations": [],
       "scrollRegions": [],

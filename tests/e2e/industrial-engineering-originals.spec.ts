@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Locator } from '@playwright/test';
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
@@ -6,6 +6,22 @@ import { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote, cycleInlineC
 
 const route = '/data-hardware/industrial-deployment/';
 const sha = (data: string | Buffer) => createHash('sha256').update(data).digest('hex');
+
+/**
+ * Successor of the full-byline pin (research-page standard, Josef 2026-10-10;
+ * the References list caps an entry at six names, components/article/author-list.tsx):
+ * an entry with more than six authors shows the first six and "and N more"
+ * with a "Show all N authors" disclosure, which swaps in the complete,
+ * registry-ordered byline the old pin read.
+ */
+async function expectFullByline(reference: Locator, authors: readonly string[]) {
+  const names = reference.locator('[data-author-names]');
+  if (authors.length > 6) {
+    await expect(names).toHaveText(`${authors.slice(0, 6).join(', ')}, and ${authors.length - 6} more`);
+    await reference.getByRole('button', { name: `Show all ${authors.length} authors`, exact: true }).click();
+  }
+  await expect(names).toHaveText(authors.join(', '));
+}
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/*', async request => {
@@ -164,7 +180,7 @@ test('Engineering originals: corrected positions, citations and navigation', asy
     await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
     const reference = page.locator(`#ref-${id}`);
     await expect(reference).toBeInViewport();
-    await expect(reference).toContainText(citation.authors.join(', '));
+    await expectFullByline(reference, citation.authors);
     await expect(reference.locator('[data-reference-source-link]')).toHaveAttribute('href', citation.url);
     await capture(`${id}-reference`, { text: await reference.innerText() });
     await page.goBack();
@@ -239,7 +255,7 @@ for (const [slug, count] of [['bear-case', 4], ['competing-theses', 3], ['genera
           bounds.y >= 0 && bounds.y + bounds.height <= info.project.use.viewport!.height });
       await cycleInlineCiteNote(page, chip);
     }
-    await expect(page.locator('#ref-bessemer-robotics-2026')).toContainText(citation.authors.join(', '));
+    await expectFullByline(page.locator('#ref-bessemer-robotics-2026'), citation.authors);
     writeFileSync(info.outputPath('peer.json'), JSON.stringify({
       slug, count, states, viewport: info.project.use.viewport, inputs: process.env.ROBOT_WIKI_GATE_INPUTS,
       geometryAcceptance: 'Observation only; no peer prose/source or full visual acceptance.',
