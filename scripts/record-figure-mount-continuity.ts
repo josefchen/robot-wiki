@@ -93,6 +93,7 @@ function main(paths: string[]): void {
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-figure-mount-continuity.ts');
   const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
+  const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
   const { explainerMountPredecessor } = await import('../lib/audit-explainer-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { lengthCutPredecessor } = await import('../lib/audit-length-cut-continuity.ts');
@@ -108,7 +109,7 @@ async function verify(): Promise<boolean> {
       // rl-sim2real), world-models length-cut and word-budget trim layers hand back the figure-mount successor first. The
       // 2026-10-15 frontier mounts and the 2026-10-19 surgical mount came after the image mounts, so the late read on
       // the live bytes rebuilds their predecessor; for an article with no late mount it hands the live bytes on.
-      const late = layer.figureMountPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
+      const late = layer.figureMountPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path))))));
       const prior = digest(late) === source.before.sha256 ? late : layer.figureMountPredecessor(root, source.before, wordBudgetTrimPredecessor(root, source.before,
         worldModelsLengthCutPredecessor(root, source.before, lengthCutPredecessor(root, source.before,
           frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, late))))))));

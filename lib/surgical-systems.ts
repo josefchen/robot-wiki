@@ -1,10 +1,11 @@
 /**
  * Data for the adjacent/surgical module's comparison table, next to the
  * prose that cites the same sources. Row content mirrors the primary
- * sources: Intuitive's da Vinci 5 clearance release, CMR's Versius De
- * Novo authorization and the FDA's Versius Plus 510(k) summary (K252111),
- * Moon Surgical's Maestro clearances, and the Yang
- * et al. six-level autonomy framework.
+ * sources: Intuitive's da Vinci 5 clearance release, its cardiac clearance
+ * and its second-quarter 2026 report, CMR's Versius De Novo authorization
+ * and the FDA's Versius Plus 510(k) summary (K252111), Medtronic's Hugo
+ * clearance, J&J's OTTAVA De Novo authorization, Moon Surgical's Maestro
+ * clearances, and the Yang et al. six-level autonomy framework.
  */
 
 export interface SurgicalSystemRow {
@@ -32,7 +33,7 @@ export const SURGICAL_SYSTEM_ROWS: readonly SurgicalSystemRow[] = [
       'Multiport and single-port teleoperated soft-tissue surgery; the incumbent platform',
     edge: 'da Vinci 5 ships 150+ enhancements over Xi, including Force Feedback instruments and 10,000x the computing power',
     regulatory:
-      'da Vinci 5 via 510(k) in March 2024, 11,106 systems installed as of end-2025',
+      'da Vinci 5 via 510(k) in March 2024, cleared for selected cardiac procedures in January 2026; 11,710 systems installed by June 30, 2026',
     autonomyLevel: 0,
     autonomyNote:
       'Level 0: every motion is the surgeon\u2019s command, scaled and tremor-filtered',
@@ -48,6 +49,30 @@ export const SURGICAL_SYSTEM_ROWS: readonly SurgicalSystemRow[] = [
     autonomyLevel: 0,
     autonomyNote:
       'Level 0: teleoperated, with the surgeon at an open console rather than enclosed',
+  },
+  {
+    key: 'medtronic-hugo',
+    system: 'Medtronic Hugo',
+    focus:
+      'Modular multiport robotic-assisted surgery system, cleared in the US for urology',
+    edge: 'Already used in more than 30 countries before its US clearance',
+    regulatory:
+      'US 510(k) clearance on December 3, 2025 for urologic procedures including prostatectomy, nephrectomy and cystectomy',
+    autonomyLevel: 0,
+    autonomyNote:
+      'Level 0: teleoperated from a surgeon console',
+  },
+  {
+    key: 'jnj-ottava',
+    system: 'J&J OTTAVA',
+    focus:
+      'Table-integrated soft-tissue robot for general surgery',
+    edge: 'J&J says it occupies 30 to 50 percent less space than boom- and cart-mounted systems',
+    regulatory:
+      'FDA De Novo authorization in July 2026 for general-surgery procedures including gastric bypass, cholecystectomy and hiatal hernia repair',
+    autonomyLevel: 0,
+    autonomyNote:
+      'Level 0: teleoperated from a surgeon console',
   },
   {
     key: 'moon-surgical-maestro',

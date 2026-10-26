@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { answerOptionsPredecessor } from '../../lib/audit-answer-options-continuity.ts';
+import { convergenceProsePredecessor } from '../../lib/audit-convergence-prose-continuity.ts';
 import { explainerMountPredecessor } from '../../lib/audit-explainer-mount-continuity.ts';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from '../../lib/audit-domain-pass-continuity.ts';
 import { figureMountPredecessor } from '../../lib/audit-figure-mount-continuity.ts';
@@ -170,12 +171,22 @@ export function preSceneCraft(path: string): Buffer {
 }
 
 /**
+ * The bytes the convergence-prose layer of 2026-10-26 hands every check older
+ * than the convergence prose and sources edits: the rebuilt pre-edit article
+ * while the live article is the reviewed successor, otherwise the live bytes.
+ */
+export function preConvergenceProse(path: string): Buffer {
+  return convergenceProsePredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+}
+
+/**
  * The bytes the explainer-mount layer of 2026-10-26 hands every check older
  * than the explainer mounts: the rebuilt pre-mount article while the live
- * article is the reviewed successor, otherwise the live bytes.
+ * article is the reviewed successor, otherwise the bytes the newer
+ * convergence-prose read hands on.
  */
 export function preExplainerMounts(path: string): Buffer {
-  return explainerMountPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return explainerMountPredecessor(root, { path, bytes: 0, sha256: '' }, preConvergenceProse(path));
 }
 
 /**

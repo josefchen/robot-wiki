@@ -105,7 +105,7 @@ Extrinsics place the camera relative to something else. <Term id="hand-eye-calib
 
 Park and Martin derived closed-form exact and least-squares solutions with Lie theory <Cite id="park-martin-1994" />. OpenCV's hand-eye calibration defaults to the Tsai and Lenz method, needs at least two motions with non-parallel rotation axes, so three poses, and strongly recommends many more <Cite id="opencv-hand-eye-docs-2026" />.
 
-The instrument's hand-eye term is a ray-to-plane offset at separation $d$ for a ray inclined by $\theta$ to the plane's normal, about 1.7 mm at 10 cm and 17 mm at 1 m for one degree:
+Tsai and Lenz's error analysis shows the lever arm: a 3 mrad rotation error at a 5 in camera-to-target distance gives a 15 mil translation error <Cite id="tsai-lenz-1989" />. The instrument's hand-eye term is a ray-to-plane offset at separation $d$ for a ray inclined by $\theta$ to the plane's normal, about 1.7 mm at 10 cm and 17 mm at 1 m for one degree:
 
 $$
 e_\theta(d) = d \, \tan \theta

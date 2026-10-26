@@ -9,6 +9,7 @@ import {
   parseCompoundPlans,
   parseLedger,
 } from '@/lib/audit-ledger';
+import { preConvergenceProse } from '../helpers/seo-pass';
 
 const ordinals = [3, 4, 5, 10, 11, 24];
 const expectedParts = [
@@ -65,7 +66,11 @@ describe('Brooks source-backed thesis corrections', () => {
     expect(article).not.toContain("in a reply he kept seventy-six words shorter");
     expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
       .toContain('lastReviewed: "2026-08-18"');
-    expect(article).toContain('lastReviewed: "2026-09-24"');
+    // The convergence prose slice of 2026-10-26 moved the date again; the
+    // article as that slice received it keeps the date this correction left.
+    expect(preConvergenceProse('content/frontier/competing-theses.mdx').toString())
+      .toContain('lastReviewed: "2026-09-24"');
+    expect(article).toContain('lastReviewed: "2026-10-26"');
   });
 
   it('preserves implementation variation and the acknowledged learning gains', () => {

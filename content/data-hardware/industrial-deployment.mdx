@@ -5,7 +5,7 @@ domain: data-hardware
 slug: industrial-deployment
 order: 6
 status: published
-lastReviewed: "2026-09-24"
+lastReviewed: "2026-10-26"
 citations:
   - ifr-world-robotics-2025
   - ifr-china-five-year-plan-2026
@@ -21,12 +21,10 @@ citations:
   - nasa-availability-prediction-analysis
   - evst-cell-cost-2026
   - kroger-ocado-closures-2025
+  - kroger-8k-ecommerce-2025
   - osha-otm-robots
   - ocado-oia-2026
-  - agility-digit-production
-  - unitree-profit-2026
   - morgan-stanley-pr-problem-2026
-  - figure-8hr-shift-2026
   - goldberg-data-gap-2025
   - bessemer-robotics-2026
   - ifr-world-robotics-2026-release
@@ -62,17 +60,17 @@ Industrial deployment is the installation of robots in factories and warehouses,
 
 ## The economics you can drag
 
-Drag the time to fix each jam and watch the payback change.
+Drag the time to fix each jam and watch the payback change. Payback here divides cell capital by modeled monthly labour value, leaving out the damage and throughput savings in EVST's formula <Cite id="evst-cell-cost-2026" />.
 
 <DeploymentEconomics className="my-6" />
 
 <JamOverhead className="my-6" />
 
-This authored worked example has no measured deployment behind it: its 80,000 USD robot cost is an assumed input, with no sourced arm-price quote, on a 20,000 to 250,000 USD range in 5,000 USD steps. The other defaults are a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and a 25 USD hourly wage. The model assumes 730 hours a month, a 60-month amortization period and a chosen 24-month verdict horizon, and counts modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value, without damage or throughput savings.
+This worked example has no measured deployment behind it, and each of its seven inputs is an assumption, labelled beside its control. The model also assumes 730 hours a month and a 60-month amortization period, counts modeled picks per elapsed hour, including downtime, and judges payback against a chosen 24-month horizon, the upper end of EVST's estimate for multi-shift palletising cells <Cite id="evst-cell-cost-2026" />.
 
 At 15-second jam clearing, cutting per-pick success from 99.9 to 99 percent moves payback from 11.56 to 11.82 months, an increase of 2.2 percent. At 300 seconds the same cut moves payback from 12.11 to 17.30 months, and modeled output falls 30 percent, from 542.9 to 380.0 picks per elapsed hour. EVST, a vendor that quotes complete cells, publishes no fixed list prices and puts the robot at a third to half of total cell cost <Cite id="evst-cell-cost-2026" />.
 
-## What is actually automated at scale
+## What the installed base automates
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
   <Stat label="operational stock" value="5 million" note="industrial robots worldwide, 2025" accent />
@@ -94,7 +92,7 @@ Amazon's Vulcan picks and stows approximately 75 percent of the types of items s
 
 Symbotic's FY2025 Form 10-K reports about \$22.5 billion of backlog, meaning unperformed obligations under existing contracts and not revenue already earned, at September 27, 2025, against \$2.246922 billion of revenue for the year. Its Walmart agreement, expanded in May 2022, covers all 42 regional distribution centres, and Symbotic had 50 systems in deployment and 48 operational systems under software maintenance and support contracts <span className="max-sm:[&_[role=tooltip]]:-translate-x-8"><Cite id="symbotic-10k-2025" /></span>.
 
-In November 2025 Kroger said it would close three robotic warehouses in Wisconsin, Maryland and Florida and was monitoring its five remaining sites <Cite id="kroger-ocado-closures-2025" />. On December 5, 2025 Ocado and Kroger agreed a one-off \$350 million payment that also covers Kroger's decision not to proceed with Charlotte. Ocado expects the closures to cut its FY26 fee revenue by about \$50 million <Cite id="ocado-kroger-rns-2025" />. Ocado Intelligent Automation sells the same grid-robot warehouses outward into healthcare, third-party logistics and industrial parts <Cite id="ocado-oia-2026" />.
+In November 2025 Kroger said it would close three automated fulfillment centres, in Wisconsin, Maryland and Florida, while monitoring the remaining facilities, and expected about \$2.6 billion of impairment and related charges <Cite id="kroger-8k-ecommerce-2025" />. This is Money counted five remaining sites <Cite id="kroger-ocado-closures-2025" />. On December 5, 2025 Ocado and Kroger agreed a one-off \$350 million payment that also covers Kroger's decision not to proceed with Charlotte. Ocado expects the closures to cut its FY26 fee revenue by about \$50 million <Cite id="ocado-kroger-rns-2025" />. Ocado Intelligent Automation sells the same grid-robot warehouses outward into healthcare, third-party logistics and industrial parts <Cite id="ocado-oia-2026" />.
 
 <Image id="ocado-warehouse-grid-bots-2017" />
 
@@ -128,7 +126,7 @@ A separate authored example has no measured intervention rate behind it. At 99 p
 
 The <Term id="intervention-rate">intervention rate</Term> and clearing cost together decide whether a cell ships. Physical Intelligence reports that training on deployment data, including expert corrections during autonomous runs, more than doubled throughput and roughly halved the failure rate on some of its hardest tasks <Cite id="pistar06-2025" />. Ken Goldberg proposes combining model-based engineering with model-free learning so robots can perform useful work, collect real-world data, and use those data to improve performance and learn adjacent skills. Goldberg does not claim that engineering removes the need for learning, and he expects model-free AI eventually to enable fully general-purpose robots <Cite id="goldberg-data-gap-2025" />.
 
-[The Reliability Gap](/frontier/reliability-gap) tracks the demo-to-production gap and selected deployment examples. Morgan Stanley's 2026 note on the humanoid industry's "PR problem", as reported by CNBC, describes [investors](/market-map) looking for real-world return on investment over polished demonstrations <Cite id="morgan-stanley-pr-problem-2026" />. Figure says its livestreamed logistics run lasted 200 hours <Cite id="helix-2-5-2026" />, but it was one task at one site, with [no published success rate](/data-hardware/evaluation-crisis).
+[The Reliability Gap](/frontier/reliability-gap) tracks the demo-to-production gap and selected deployment examples; [Autonomous Vehicles](/adjacent/autonomous-vehicles) covers the same question for driverless cars. Morgan Stanley's 2026 note on the humanoid industry's "PR problem", as reported by CNBC, describes [investors](/market-map) looking for real-world return on investment over polished demonstrations <Cite id="morgan-stanley-pr-problem-2026" />. Figure says its livestreamed logistics run lasted 200 hours <Cite id="helix-2-5-2026" />, but it was one task at one site, with [no published success rate](/data-hardware/evaluation-crisis).
 
 ## Brownfield versus greenfield
 

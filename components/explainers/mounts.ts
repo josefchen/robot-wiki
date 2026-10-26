@@ -42,7 +42,7 @@ export const EXPLAINER_MOUNTS = {
     article: 'classical/kinematics',
     linkedFrom: [],
     caption: "To reach a cup an arm must work out every joint's angle, and some spots stay out of reach.",
-    cue: 'Drag the cup in the figure below and watch the arm work out an angle for every joint.',
+    cue: "Move the shoulder slider in the figure below to trace the hand's path, then drag the cup and watch the arm work out an angle for every joint.",
   },
   upright: {
     article: 'rl-sim2real/legged-locomotion',

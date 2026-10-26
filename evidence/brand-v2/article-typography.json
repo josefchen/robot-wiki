@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "f0fca84df858b91dd8735a61abe183a3d3230e887c4b62c26639918f48f6e2a2",
+  "fingerprint": "c1df35f338743730abf77a32d915bddb12ea3e01ec529f612eb358ee6925113e",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3064,
+      "visibleTextLength": 3062,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -923,7 +923,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 31767,
+      "visibleTextLength": 31927,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3102,7 +3102,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22626,
+      "visibleTextLength": 22953,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3154,11 +3154,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 42,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "42 sources",
         "bibliographyIds": [
           "aegis-curiosity-2017",
@@ -3750,7 +3750,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21786,
+      "visibleTextLength": 22536,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -3802,11 +3802,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 32,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "yang-autonomy-2017",
@@ -5473,7 +5473,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23643,
+      "visibleTextLength": 23737,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5524,11 +5524,11 @@
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 11,
         "citationCount": 45,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "11 min read",
         "citationCountText": "45 sources",
         "bibliographyIds": [
@@ -5552,8 +5552,10 @@
           "han-force-pain-2024",
           "fbs-2020",
           "berkeley-humanoid-2024",
+          "neunert-2018",
           "dial-mpc-2024",
           "escande-2014",
+          "kuindersma-2015",
           "helix-02-2026",
           "bd-atlas-lbm-2025",
           "acp-2024",
@@ -5571,8 +5573,6 @@
           "albu-schaffer-2003",
           "ott-2010",
           "koenemann-2015",
-          "neunert-2018",
-          "kuindersma-2015",
           "mujoco-playground-2025",
           "pi0-2024",
           "gemini-robotics-2025",
@@ -6139,7 +6139,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 94,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -6149,7 +6149,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 41,
+              "count": 46,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -6159,7 +6159,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 41,
+              "count": 46,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -6415,15 +6415,7 @@
         },
         {
           "tag": "button",
-          "text": "Show all 7 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 7 authors",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -6439,7 +6431,15 @@
         },
         {
           "tag": "button",
-          "text": "Show all 9 authors",
+          "text": "Show all 7 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 7 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -7435,7 +7435,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17111,
+      "visibleTextLength": 17167,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9409,7 +9409,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33030,
+      "visibleTextLength": 33185,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -9671,7 +9671,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The instrument's hand-eye term is a ray-to-plane offset at s"
+          "text": "Tsai and Lenz's error analysis shows the lever arm: a 3 mrad"
         },
         {
           "familyHead": "geist",
@@ -10236,7 +10236,7 @@
         },
         {
           "kind": "citation",
-          "count": 120,
+          "count": 122,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -10246,7 +10246,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 59,
+              "count": 60,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -10256,7 +10256,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 59,
+              "count": 60,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -11464,7 +11464,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28775,
+      "visibleTextLength": 28813,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11555,6 +11555,7 @@
           "splatam-2023",
           "nav2-costmap-2d-2026",
           "hydra-2022",
+          "conceptgraphs-2023",
           "moveit-planning-scene-2026",
           "particlesplat-2026",
           "scenelm-2026",
@@ -11580,7 +11581,6 @@
           "cartographer-2016",
           "smac-planner-2024",
           "conceptfusion-2023",
-          "conceptgraphs-2023",
           "curobo-v2-2026",
           "amb3r-slam-2026"
         ],
@@ -11976,7 +11976,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Perception locates objects in the current frame. Consumers i"
+          "text": "Perception locates objects in the current frameSource 3333 G"
         },
         {
           "familyHead": "geist",
@@ -12208,7 +12208,7 @@
         },
         {
           "kind": "citation",
-          "count": 104,
+          "count": 112,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -12218,7 +12218,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 50,
+              "count": 54,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -12228,7 +12228,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 50,
+              "count": 54,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -12593,6 +12593,14 @@
         },
         {
           "tag": "button",
+          "text": "Show all 16 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -12642,14 +12650,6 @@
         {
           "tag": "button",
           "text": "Show all 17 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 16 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -14040,7 +14040,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21029,
+      "visibleTextLength": 21030,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14091,11 +14091,11 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
         "citationCount": 38,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
@@ -15011,7 +15011,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20394,
+      "visibleTextLength": 20426,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15062,11 +15062,11 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 8,
         "citationCount": 38,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "8 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
@@ -15526,7 +15526,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 102,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -15536,7 +15536,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 51,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -15546,7 +15546,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 51,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16034,7 +16034,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22042,
+      "visibleTextLength": 22276,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16085,14 +16085,15 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
-        "citationCount": 35,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "citationCount": 36,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
-        "citationCountText": "35 sources",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
+          "maker-2025",
           "tri-lbm-2025",
           "diffusion-policy-2023",
           "optimal-stopping-2025",
@@ -16533,7 +16534,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -16543,7 +16544,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16555,7 +16556,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 98,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -16565,7 +16566,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 49,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -16575,7 +16576,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 49,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -16759,6 +16760,14 @@
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
@@ -16983,7 +16992,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27747,
+      "visibleTextLength": 27963,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17034,13 +17043,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 15,
-        "citationCount": 49,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "citationCount": 50,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "15 min read",
-        "citationCountText": "49 sources",
+        "citationCountText": "50 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -17064,10 +17073,12 @@
           "vla-perf-2026",
           "bd-atlas-unveil-2026",
           "noetix-bumi-2025",
+          "bjnews-noetix-bumi-2025",
           "trossen-widowx-ai-2026",
           "aloha-2-2024",
           "hf-pollen-acquisition-2025",
           "agibot-omdia-2026",
+          "agibot-omdia-ranking-2026",
           "ifr-service-robots-2026",
           "unitree-prospectus-2026",
           "unitree-r1-2026",
@@ -17089,8 +17100,7 @@
           "fcc-covered-list-robots-2026",
           "paxton-iros-2026",
           "lerobot-pricing-2026",
-          "robozaps-humanoids-2026",
-          "1x-world-model-lab-2026"
+          "robozaps-humanoids-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -17433,7 +17443,7 @@
         },
         {
           "kind": "reference",
-          "count": 49,
+          "count": 50,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17443,7 +17453,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 49,
+              "count": 50,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17455,7 +17465,7 @@
         },
         {
           "kind": "citation",
-          "count": 106,
+          "count": 110,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -17465,7 +17475,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 53,
+              "count": 55,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -17475,7 +17485,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 53,
+              "count": 55,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17973,7 +17983,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24840,
+      "visibleTextLength": 24599,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18024,13 +18034,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-09-24",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 12,
-        "citationCount": 40,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
+        "citationCount": 38,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "12 min read",
-        "citationCountText": "40 sources",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -18046,6 +18056,7 @@
           "nasa-availability-prediction-analysis",
           "evst-cell-cost-2026",
           "kroger-ocado-closures-2025",
+          "kroger-8k-ecommerce-2025",
           "osha-otm-robots",
           "ocado-oia-2026",
           "morgan-stanley-pr-problem-2026",
@@ -18068,10 +18079,7 @@
           "dauth-robots-germany-2021",
           "koch-robots-firms-2021",
           "acemoglu-lelarge-restrepo-2020",
-          "hurst-spectrum-2026",
-          "agility-digit-production",
-          "unitree-profit-2026",
-          "figure-8hr-shift-2026"
+          "hurst-spectrum-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -18105,7 +18113,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Drag the time to fix each jam and watch the payback change."
+          "text": "Drag the time to fix each jam and watch the payback change. "
         },
         {
           "familyHead": "geist",
@@ -18240,7 +18248,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This authored worked example has no measured deployment behi"
+          "text": "This worked example has no measured deployment behind it, an"
         },
         {
           "familyHead": "geist",
@@ -18321,7 +18329,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In November 2025 Kroger said it would close three robotic wa"
+          "text": "In November 2025 Kroger said it would close three automated "
         },
         {
           "familyHead": "geist",
@@ -18488,7 +18496,7 @@
           }
         },
         {
-          "headingId": "what-is-actually-automated-at-scale",
+          "headingId": "what-the-installed-base-automates",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(28, 28, 26)",
@@ -18498,7 +18506,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, What is actually automated at scale",
+            "accessibleName": "Copy link to this section, What the installed base automates",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 0.35,
@@ -18639,7 +18647,7 @@
         },
         {
           "kind": "reference",
-          "count": 40,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -18649,7 +18657,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 40,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18661,7 +18669,7 @@
         },
         {
           "kind": "citation",
-          "count": 98,
+          "count": 104,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -18671,7 +18679,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 49,
+              "count": 52,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -18681,7 +18689,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 49,
+              "count": 52,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18737,7 +18745,7 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -18747,7 +18755,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -18927,7 +18935,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17272,
+      "visibleTextLength": 17588,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18978,13 +18986,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-09-24",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 6,
-        "citationCount": 37,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
+        "citationCount": 38,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "6 min read",
-        "citationCountText": "37 sources",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
           "droid-2024",
@@ -18996,6 +19004,7 @@
           "openvla-2024",
           "exploy-2026",
           "lerobot-paper-2026",
+          "safety-filter-2023",
           "hidden-technical-debt-2015",
           "kalibr-2013",
           "ros2-iron-mcap-2023",
@@ -19263,7 +19272,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Start with append-only episode files, one versioned conversi"
+          "text": "Start with versioned episode files that are never edited in "
         }
       ],
       "sectionLinks": [
@@ -19455,7 +19464,7 @@
         },
         {
           "kind": "reference",
-          "count": 37,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -19465,7 +19474,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19477,7 +19486,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 84,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -19487,7 +19496,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -19497,7 +19506,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 42,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19847,7 +19856,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21057,
+      "visibleTextLength": 20920,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19898,13 +19907,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
-        "citationCount": 37,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "citationCount": 36,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
-        "citationCountText": "37 sources",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "mobile-aloha-2024",
@@ -19941,8 +19950,7 @@
           "egodex-2025",
           "generalist-gen0-2025",
           "i3l-2026",
-          "fomo-dex-2026",
-          "lerobot-pricing-2026"
+          "fomo-dex-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -20321,7 +20329,7 @@
         },
         {
           "kind": "reference",
-          "count": 37,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20331,7 +20339,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 37,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -21128,7 +21136,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16202,
+      "visibleTextLength": 16508,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21179,13 +21187,13 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-09-24",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 7,
-        "citationCount": 33,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
+        "citationCount": 34,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "7 min read",
-        "citationCountText": "33 sources",
+        "citationCountText": "34 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "brooks-scorecard-2026",
@@ -21209,6 +21217,7 @@
           "egoscale-2026",
           "rethink-shutdown-2018",
           "agibot-omdia-2026",
+          "agibot-omdia-ranking-2026",
           "sag-humanoid-shipments-2026",
           "tesla-q2-2026-update",
           "reuters-china-humanoid-ipo-2026",
@@ -21406,7 +21415,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's Helix 02 takes fingertip tactile inputSource 2929 F"
+          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3030 F"
         },
         {
           "familyHead": "geist",
@@ -21415,7 +21424,7 @@
           "widthPx": 293,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Pin status from the watchlist, August 2026; pin heights illu"
+          "text": "Pin status from the watchlist, September 2026; pin heights i"
         },
         {
           "familyHead": "geist",
@@ -21555,7 +21564,7 @@
           }
         },
         {
-          "headingId": "as-of-august-2026-none-of-the-eight-milestones-is-met",
+          "headingId": "as-of-september-2026-none-of-the-eight-milestones-is-met",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(28, 28, 26)",
@@ -21565,7 +21574,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, As of August 2026, none of the eight milestones is met",
+            "accessibleName": "Copy link to this section, As of September 2026, none of the eight milestones is met",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 0.35,
@@ -21616,7 +21625,7 @@
         },
         {
           "kind": "reference",
-          "count": 33,
+          "count": 34,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -21626,7 +21635,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 33,
+              "count": 34,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -21638,7 +21647,7 @@
         },
         {
           "kind": "citation",
-          "count": 114,
+          "count": 124,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -21648,7 +21657,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 39,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -21658,7 +21667,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 39,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -22188,7 +22197,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20106,
+      "visibleTextLength": 20420,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22239,12 +22248,12 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-09-24",
-        "readingMinutes": 10,
+        "lastReviewed": "2026-10-26",
+        "readingMinutes": 11,
         "citationCount": 33,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
-        "readingTimeText": "10 min read",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
+        "readingTimeText": "11 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -22255,6 +22264,7 @@
           "karcini-position-2026",
           "bessemer-robotics-2026",
           "egoscale-2026",
+          "pi05-2025",
           "pi07-2026",
           "pi07-blog-2026",
           "pistar06-2025",
@@ -22277,7 +22287,6 @@
           "levine-sporks-2025",
           "generalist-gen1-2026",
           "amazon-million-robots-2025",
-          "pi05-2025",
           "gr00t-n1-2025",
           "adcock-figure-livestream-2026"
         ],
@@ -22493,7 +22502,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Agility reports 65,000 hours of Digit production experienceS"
+          "text": "Agility reports 65,000 hours of Digit production experience "
         },
         {
           "familyHead": "geist",
@@ -22520,7 +22529,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Helix 02 runs whole-body loco-manipulationSource 1616 Figure"
+          "text": "Helix 02 runs whole-body loco-manipulationSource 1717 Figure"
         },
         {
           "familyHead": "geist",
@@ -22529,7 +22538,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Both kill conditions are one measurement: cost per task. If "
+          "text": "Both kill conditions are one measurement, cost per task, sin"
         },
         {
           "familyHead": "geist",
@@ -22752,7 +22761,7 @@
         },
         {
           "kind": "citation",
-          "count": 100,
+          "count": 106,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -22762,7 +22771,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 50,
+              "count": 53,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -22772,7 +22781,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 50,
+              "count": 53,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -22828,7 +22837,7 @@
         },
         {
           "kind": "internal",
-          "count": 13,
+          "count": 14,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -22838,7 +22847,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 14,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -23126,6 +23135,14 @@
         },
         {
           "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 87 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -23206,14 +23223,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 36 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 42 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -23250,7 +23259,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24448,
+      "visibleTextLength": 24655,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -23301,11 +23310,11 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-08-18",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 14,
         "citationCount": 33,
-        "reviewDateText": "18 August 2026",
-        "reviewDateTime": "2026-08-18",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "14 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
@@ -23922,7 +23931,7 @@
         },
         {
           "kind": "citation",
-          "count": 94,
+          "count": 106,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -23932,7 +23941,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 47,
+              "count": 53,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -23942,7 +23951,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 47,
+              "count": 53,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -24382,7 +24391,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18445,
+      "visibleTextLength": 18446,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24433,11 +24442,11 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-08-18",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 9,
         "citationCount": 32,
-        "reviewDateText": "18 August 2026",
-        "reviewDateTime": "2026-08-18",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "9 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
@@ -24542,7 +24551,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The line is this wiki’s own least-squares log-linear fit thr"
+          "text": "The line is a least-squares log-linear fit through the five "
         },
         {
           "familyHead": "geist",
@@ -25299,7 +25308,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15593,
+      "visibleTextLength": 15759,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -25350,12 +25359,12 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "lastReviewed": "2026-10-26",
+        "readingMinutes": 7,
         "citationCount": 31,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
+        "readingTimeText": "7 min read",
         "citationCountText": "31 sources",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -25364,7 +25373,6 @@
           "asimov-agentic-2026",
           "gemini-robotics-2-2026",
           "pi07-blog-2026",
-          "agility-digit-production",
           "figure-bmw-production-2025",
           "tesla-q1-2026-update",
           "kress-gazit-evaluation-2024",
@@ -25388,6 +25396,7 @@
           "tri-lbm-2025",
           "waymo-crash-rates-2025",
           "adcock-figure-livestream-2026",
+          "maker-2025",
           "hil-serl-2024"
         ],
         "imageCount": 0,
@@ -25530,7 +25539,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Agility reports 65,000 hours of Digit production experienceS"
+          "text": "Agility said in September 2026 that Digit 4 has logged more "
         },
         {
           "familyHead": "geist",
@@ -25575,7 +25584,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's May 2026 package-sorting livestream sits under “Dem"
+          "text": "Figure's May 2026 package-sorting livestream sits under \"Dem"
         },
         {
           "familyHead": "geist",
@@ -26086,6 +26095,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -26117,7 +26134,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26719,
+      "visibleTextLength": 27168,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26168,13 +26185,13 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-08-22",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 13,
-        "citationCount": 43,
-        "reviewDateText": "22 August 2026",
-        "reviewDateTime": "2026-08-22",
+        "citationCount": 44,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "13 min read",
-        "citationCountText": "43 sources",
+        "citationCountText": "44 sources",
         "bibliographyIds": [
           "iso-12100",
           "iso-10218-1-2025",
@@ -26209,6 +26226,7 @@
           "iso-iec-tr-5469-2024",
           "hartmann-iso-10218-2026",
           "rr-ansi-r1506-2026",
+          "a3-r1506-2025-store",
           "agility-digit-5-2026",
           "brooks-scorecard-2026",
           "layne-robot-fatalities-2023",
@@ -26885,7 +26903,7 @@
         },
         {
           "kind": "reference",
-          "count": 43,
+          "count": 44,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -26895,7 +26913,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -26907,7 +26925,7 @@
         },
         {
           "kind": "citation",
-          "count": 116,
+          "count": 118,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -26917,7 +26935,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 58,
+              "count": 59,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -26927,7 +26945,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 58,
+              "count": 59,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -48696,7 +48714,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24514,
+      "visibleTextLength": 24505,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -49791,7 +49809,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22001,
+      "visibleTextLength": 22054,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -50155,7 +50173,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A simulated episode restarts from a fresh state for free; a "
+          "text": "A simulated episode restarts from a fresh state automaticall"
         },
         {
           "familyHead": "geist",
@@ -50405,7 +50423,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -50415,7 +50433,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -50425,7 +50443,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -51096,7 +51114,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "This is an authored toy: reconstruction error and action div"
+          "text": "Reconstruction error and action divergence rise by construct"
         },
         {
           "familyHead": "geist",
@@ -53970,7 +53988,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Each push is an authored impulse held for 0.1 seconds, 4 new"
+          "text": "“Picture plus physics” sets the mug on the plate from its st"
         },
         {
           "familyHead": "geist",
@@ -54916,6 +54934,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "The photo standing on top of the console is the shared start"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A model that listens is the console with both plugs seated, "
         },
         {
           "familyHead": "geist",
@@ -56006,6 +56033,24 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
+          "text": "The probe head stands on the current summary and sets out on"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The model’s other moves bunch into narrow wings, so for disp"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
           "text": "Each planning step tries 24 moves, scores each by the straig"
         },
         {
@@ -56675,7 +56720,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 15884,
+      "visibleTextLength": 15864,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -60228,7 +60273,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3064,
+      "visibleTextLength": 3062,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61008,7 +61053,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 47114,
+      "visibleTextLength": 47274,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63165,7 +63210,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34362,
+      "visibleTextLength": 34689,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63217,11 +63262,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 42,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "42 sources",
         "bibliographyIds": [
           "aegis-curiosity-2017",
@@ -63802,7 +63847,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32253,
+      "visibleTextLength": 33003,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -63854,11 +63899,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 32,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
           "yang-autonomy-2017",
@@ -65503,7 +65548,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30210,
+      "visibleTextLength": 31173,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -65554,11 +65599,11 @@
         "breadcrumbLabels": [
           "Classical Foundations"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 11,
         "citationCount": 45,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "11 min read",
         "citationCountText": "45 sources",
         "bibliographyIds": [
@@ -65582,8 +65627,10 @@
           "han-force-pain-2024",
           "fbs-2020",
           "berkeley-humanoid-2024",
+          "neunert-2018",
           "dial-mpc-2024",
           "escande-2014",
+          "kuindersma-2015",
           "helix-02-2026",
           "bd-atlas-lbm-2025",
           "acp-2024",
@@ -65601,8 +65648,6 @@
           "albu-schaffer-2003",
           "ott-2010",
           "koenemann-2015",
-          "neunert-2018",
-          "kuindersma-2015",
           "mujoco-playground-2025",
           "pi0-2024",
           "gemini-robotics-2025",
@@ -66169,7 +66214,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 94,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -66179,7 +66224,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 41,
+              "count": 46,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -66189,7 +66234,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 41,
+              "count": 46,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -66445,15 +66490,7 @@
         },
         {
           "tag": "button",
-          "text": "Show all 7 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 7 authors",
+          "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -66469,7 +66506,15 @@
         },
         {
           "tag": "button",
-          "text": "Show all 9 authors",
+          "text": "Show all 7 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 7 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -67443,7 +67488,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23961,
+      "visibleTextLength": 24017,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69395,7 +69440,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 42868,
+      "visibleTextLength": 43197,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -69657,7 +69702,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The instrument's hand-eye term is a ray-to-plane offset at s"
+          "text": "Tsai and Lenz's error analysis shows the lever arm: a 3 mrad"
         },
         {
           "familyHead": "geist",
@@ -70222,7 +70267,7 @@
         },
         {
           "kind": "citation",
-          "count": 120,
+          "count": 122,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -70232,7 +70277,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 59,
+              "count": 60,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -70242,7 +70287,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 59,
+              "count": 60,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -71428,7 +71473,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37217,
+      "visibleTextLength": 38018,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71519,6 +71564,7 @@
           "splatam-2023",
           "nav2-costmap-2d-2026",
           "hydra-2022",
+          "conceptgraphs-2023",
           "moveit-planning-scene-2026",
           "particlesplat-2026",
           "scenelm-2026",
@@ -71544,7 +71590,6 @@
           "cartographer-2016",
           "smac-planner-2024",
           "conceptfusion-2023",
-          "conceptgraphs-2023",
           "curobo-v2-2026",
           "amb3r-slam-2026"
         ],
@@ -71940,7 +71985,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Perception locates objects in the current frame. Consumers i"
+          "text": "Perception locates objects in the current frameSource 3333 G"
         },
         {
           "familyHead": "geist",
@@ -72172,7 +72217,7 @@
         },
         {
           "kind": "citation",
-          "count": 104,
+          "count": 112,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -72182,7 +72227,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 50,
+              "count": 54,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -72192,7 +72237,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 50,
+              "count": 54,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -72557,6 +72602,14 @@
         },
         {
           "tag": "button",
+          "text": "Show all 16 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 9 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -72606,14 +72659,6 @@
         {
           "tag": "button",
           "text": "Show all 17 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
-          "text": "Show all 16 authors",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": false,
@@ -73982,7 +74027,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 28061,
+      "visibleTextLength": 28062,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74033,11 +74078,11 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
         "citationCount": 38,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
@@ -74942,7 +74987,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27953,
+      "visibleTextLength": 28455,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74993,11 +75038,11 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 8,
         "citationCount": 38,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "8 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
@@ -75457,7 +75502,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 102,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -75467,7 +75512,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 51,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -75477,7 +75522,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 51,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75954,7 +75999,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30079,
+      "visibleTextLength": 30452,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76005,14 +76050,15 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
-        "citationCount": 35,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "citationCount": 36,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
-        "citationCountText": "35 sources",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
+          "maker-2025",
           "tri-lbm-2025",
           "diffusion-policy-2023",
           "optimal-stopping-2025",
@@ -76453,7 +76499,7 @@
         },
         {
           "kind": "reference",
-          "count": 35,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -76463,7 +76509,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 35,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -76475,7 +76521,7 @@
         },
         {
           "kind": "citation",
-          "count": 96,
+          "count": 98,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -76485,7 +76531,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 48,
+              "count": 49,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -76495,7 +76541,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 48,
+              "count": 49,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -76679,6 +76725,14 @@
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
           "controlId": "control:secondary-action"
         },
         {
@@ -76892,7 +76946,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34625,
+      "visibleTextLength": 35058,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76943,13 +76997,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 15,
-        "citationCount": 49,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "citationCount": 50,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "15 min read",
-        "citationCountText": "49 sources",
+        "citationCountText": "50 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -76973,10 +77027,12 @@
           "vla-perf-2026",
           "bd-atlas-unveil-2026",
           "noetix-bumi-2025",
+          "bjnews-noetix-bumi-2025",
           "trossen-widowx-ai-2026",
           "aloha-2-2024",
           "hf-pollen-acquisition-2025",
           "agibot-omdia-2026",
+          "agibot-omdia-ranking-2026",
           "ifr-service-robots-2026",
           "unitree-prospectus-2026",
           "unitree-r1-2026",
@@ -76998,8 +77054,7 @@
           "fcc-covered-list-robots-2026",
           "paxton-iros-2026",
           "lerobot-pricing-2026",
-          "robozaps-humanoids-2026",
-          "1x-world-model-lab-2026"
+          "robozaps-humanoids-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -77342,7 +77397,7 @@
         },
         {
           "kind": "reference",
-          "count": 49,
+          "count": 50,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77352,7 +77407,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 49,
+              "count": 50,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77364,7 +77419,7 @@
         },
         {
           "kind": "citation",
-          "count": 106,
+          "count": 110,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -77374,7 +77429,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 53,
+              "count": 55,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -77384,7 +77439,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 53,
+              "count": 55,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77871,7 +77926,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32553,
+      "visibleTextLength": 32785,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -77922,13 +77977,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-09-24",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 12,
-        "citationCount": 40,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
+        "citationCount": 38,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "12 min read",
-        "citationCountText": "40 sources",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "ifr-world-robotics-2025",
           "ifr-china-five-year-plan-2026",
@@ -77944,6 +77999,7 @@
           "nasa-availability-prediction-analysis",
           "evst-cell-cost-2026",
           "kroger-ocado-closures-2025",
+          "kroger-8k-ecommerce-2025",
           "osha-otm-robots",
           "ocado-oia-2026",
           "morgan-stanley-pr-problem-2026",
@@ -77966,10 +78022,7 @@
           "dauth-robots-germany-2021",
           "koch-robots-firms-2021",
           "acemoglu-lelarge-restrepo-2020",
-          "hurst-spectrum-2026",
-          "agility-digit-production",
-          "unitree-profit-2026",
-          "figure-8hr-shift-2026"
+          "hurst-spectrum-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -78003,7 +78056,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Drag the time to fix each jam and watch the payback change."
+          "text": "Drag the time to fix each jam and watch the payback change. "
         },
         {
           "familyHead": "geist",
@@ -78138,7 +78191,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "This authored worked example has no measured deployment behi"
+          "text": "This worked example has no measured deployment behind it, an"
         },
         {
           "familyHead": "geist",
@@ -78219,7 +78272,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "In November 2025 Kroger said it would close three robotic wa"
+          "text": "In November 2025 Kroger said it would close three automated "
         },
         {
           "familyHead": "geist",
@@ -78386,7 +78439,7 @@
           }
         },
         {
-          "headingId": "what-is-actually-automated-at-scale",
+          "headingId": "what-the-installed-base-automates",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(28, 28, 26)",
@@ -78396,7 +78449,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, What is actually automated at scale",
+            "accessibleName": "Copy link to this section, What the installed base automates",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 0.35,
@@ -78537,7 +78590,7 @@
         },
         {
           "kind": "reference",
-          "count": 40,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -78547,7 +78600,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 40,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78559,7 +78612,7 @@
         },
         {
           "kind": "citation",
-          "count": 98,
+          "count": 104,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -78569,7 +78622,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 49,
+              "count": 52,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -78579,7 +78632,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 49,
+              "count": 52,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78635,7 +78688,7 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -78645,7 +78698,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 9,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -78814,7 +78867,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23376,
+      "visibleTextLength": 24605,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78865,13 +78918,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-09-24",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 6,
-        "citationCount": 37,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
+        "citationCount": 38,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "6 min read",
-        "citationCountText": "37 sources",
+        "citationCountText": "38 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
           "droid-2024",
@@ -78883,6 +78936,7 @@
           "openvla-2024",
           "exploy-2026",
           "lerobot-paper-2026",
+          "safety-filter-2023",
           "hidden-technical-debt-2015",
           "kalibr-2013",
           "ros2-iron-mcap-2023",
@@ -79150,7 +79204,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Start with append-only episode files, one versioned conversi"
+          "text": "Start with versioned episode files that are never edited in "
         }
       ],
       "sectionLinks": [
@@ -79342,7 +79396,7 @@
         },
         {
           "kind": "reference",
-          "count": 37,
+          "count": 38,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -79352,7 +79406,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 37,
+              "count": 38,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79364,7 +79418,7 @@
         },
         {
           "kind": "citation",
-          "count": 74,
+          "count": 84,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -79374,7 +79428,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 42,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -79384,7 +79438,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 42,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79723,7 +79777,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27552,
+      "visibleTextLength": 27415,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79774,13 +79828,13 @@
         "breadcrumbLabels": [
           "Data, Hardware & Evaluation"
         ],
-        "lastReviewed": "2026-08-17",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
-        "citationCount": 37,
-        "reviewDateText": "17 August 2026",
-        "reviewDateTime": "2026-08-17",
+        "citationCount": 36,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
-        "citationCountText": "37 sources",
+        "citationCountText": "36 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "mobile-aloha-2024",
@@ -79817,8 +79871,7 @@
           "egodex-2025",
           "generalist-gen0-2025",
           "i3l-2026",
-          "fomo-dex-2026",
-          "lerobot-pricing-2026"
+          "fomo-dex-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -80197,7 +80250,7 @@
         },
         {
           "kind": "reference",
-          "count": 37,
+          "count": 36,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80207,7 +80260,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 37,
+              "count": 36,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80993,7 +81046,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21879,
+      "visibleTextLength": 22707,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81044,13 +81097,13 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-09-24",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 7,
-        "citationCount": 33,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
+        "citationCount": 34,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "7 min read",
-        "citationCountText": "33 sources",
+        "citationCountText": "34 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "brooks-scorecard-2026",
@@ -81074,6 +81127,7 @@
           "egoscale-2026",
           "rethink-shutdown-2018",
           "agibot-omdia-2026",
+          "agibot-omdia-ranking-2026",
           "sag-humanoid-shipments-2026",
           "tesla-q2-2026-update",
           "reuters-china-humanoid-ipo-2026",
@@ -81271,7 +81325,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's Helix 02 takes fingertip tactile inputSource 2929 F"
+          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3030 F"
         },
         {
           "familyHead": "geist",
@@ -81280,7 +81334,7 @@
           "widthPx": 878.66,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Pin status from the watchlist, August 2026; pin heights illu"
+          "text": "Pin status from the watchlist, September 2026; pin heights i"
         },
         {
           "familyHead": "geist",
@@ -81420,7 +81474,7 @@
           }
         },
         {
-          "headingId": "as-of-august-2026-none-of-the-eight-milestones-is-met",
+          "headingId": "as-of-september-2026-none-of-the-eight-milestones-is-met",
           "headingTag": "h2",
           "linked": true,
           "colour": "rgb(28, 28, 26)",
@@ -81430,7 +81484,7 @@
           "keyboardFocusable": true,
           "affordance": {
             "tag": "button",
-            "accessibleName": "Copy link to this section, As of August 2026, none of the eight milestones is met",
+            "accessibleName": "Copy link to this section, As of September 2026, none of the eight milestones is met",
             "widthPx": 24,
             "heightPx": 24,
             "opacity": 0.35,
@@ -81481,7 +81535,7 @@
         },
         {
           "kind": "reference",
-          "count": 33,
+          "count": 34,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81491,7 +81545,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 33,
+              "count": 34,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81503,7 +81557,7 @@
         },
         {
           "kind": "citation",
-          "count": 114,
+          "count": 124,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -81513,7 +81567,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 39,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -81523,7 +81577,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 39,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82042,7 +82096,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26686,
+      "visibleTextLength": 27406,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -82093,12 +82147,12 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-09-24",
-        "readingMinutes": 10,
+        "lastReviewed": "2026-10-26",
+        "readingMinutes": 11,
         "citationCount": 33,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
-        "readingTimeText": "10 min read",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
+        "readingTimeText": "11 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-better-lesson-2019",
@@ -82109,6 +82163,7 @@
           "karcini-position-2026",
           "bessemer-robotics-2026",
           "egoscale-2026",
+          "pi05-2025",
           "pi07-2026",
           "pi07-blog-2026",
           "pistar06-2025",
@@ -82131,7 +82186,6 @@
           "levine-sporks-2025",
           "generalist-gen1-2026",
           "amazon-million-robots-2025",
-          "pi05-2025",
           "gr00t-n1-2025",
           "adcock-figure-livestream-2026"
         ],
@@ -82347,7 +82401,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Agility reports 65,000 hours of Digit production experienceS"
+          "text": "Agility reports 65,000 hours of Digit production experience "
         },
         {
           "familyHead": "geist",
@@ -82374,7 +82428,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Helix 02 runs whole-body loco-manipulationSource 1616 Figure"
+          "text": "Helix 02 runs whole-body loco-manipulationSource 1717 Figure"
         },
         {
           "familyHead": "geist",
@@ -82383,7 +82437,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Both kill conditions are one measurement: cost per task. If "
+          "text": "Both kill conditions are one measurement, cost per task, sin"
         },
         {
           "familyHead": "geist",
@@ -82606,7 +82660,7 @@
         },
         {
           "kind": "citation",
-          "count": 100,
+          "count": 106,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -82616,7 +82670,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 50,
+              "count": 53,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -82626,7 +82680,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 50,
+              "count": 53,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82682,7 +82736,7 @@
         },
         {
           "kind": "internal",
-          "count": 13,
+          "count": 14,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -82692,7 +82746,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 13,
+              "count": 14,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82980,6 +83034,14 @@
         },
         {
           "tag": "button",
+          "text": "Show all 36 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 87 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -83060,14 +83122,6 @@
         },
         {
           "tag": "button",
-          "text": "Show all 36 authors",
-          "familyHead": "geist",
-          "sizePx": 13,
-          "inProse": false,
-          "controlId": "control:secondary-action"
-        },
-        {
-          "tag": "button",
           "text": "Show all 42 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -83093,7 +83147,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 30020,
+      "visibleTextLength": 30748,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -83144,11 +83198,11 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-08-18",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 14,
         "citationCount": 33,
-        "reviewDateText": "18 August 2026",
-        "reviewDateTime": "2026-08-18",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "14 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
@@ -83765,7 +83819,7 @@
         },
         {
           "kind": "citation",
-          "count": 94,
+          "count": 106,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -83775,7 +83829,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 47,
+              "count": 53,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -83785,7 +83839,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 47,
+              "count": 53,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -84214,7 +84268,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25349,
+      "visibleTextLength": 25350,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84265,11 +84319,11 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-08-18",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 9,
         "citationCount": 32,
-        "reviewDateText": "18 August 2026",
-        "reviewDateTime": "2026-08-18",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "9 min read",
         "citationCountText": "32 sources",
         "bibliographyIds": [
@@ -84374,7 +84428,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "The line is this wiki’s own least-squares log-linear fit thr"
+          "text": "The line is a least-squares log-linear fit through the five "
         },
         {
           "familyHead": "geist",
@@ -85120,7 +85174,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20339,
+      "visibleTextLength": 20529,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85171,12 +85225,12 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-09-24",
-        "readingMinutes": 6,
+        "lastReviewed": "2026-10-26",
+        "readingMinutes": 7,
         "citationCount": 31,
-        "reviewDateText": "24 September 2026",
-        "reviewDateTime": "2026-09-24",
-        "readingTimeText": "6 min read",
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
+        "readingTimeText": "7 min read",
         "citationCountText": "31 sources",
         "bibliographyIds": [
           "bessemer-robotics-2026",
@@ -85185,7 +85239,6 @@
           "asimov-agentic-2026",
           "gemini-robotics-2-2026",
           "pi07-blog-2026",
-          "agility-digit-production",
           "figure-bmw-production-2025",
           "tesla-q1-2026-update",
           "kress-gazit-evaluation-2024",
@@ -85209,6 +85262,7 @@
           "tri-lbm-2025",
           "waymo-crash-rates-2025",
           "adcock-figure-livestream-2026",
+          "maker-2025",
           "hil-serl-2024"
         ],
         "imageCount": 0,
@@ -85351,7 +85405,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Agility reports 65,000 hours of Digit production experienceS"
+          "text": "Agility said in September 2026 that Digit 4 has logged more "
         },
         {
           "familyHead": "geist",
@@ -85396,7 +85450,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's May 2026 package-sorting livestream sits under “Dem"
+          "text": "Figure's May 2026 package-sorting livestream sits under \"Dem"
         },
         {
           "familyHead": "geist",
@@ -85907,6 +85961,14 @@
           "sizePx": 13,
           "inProse": false,
           "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Show all 9 authors",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": false,
+          "controlId": "control:secondary-action"
         }
       ],
       "rules": [
@@ -85927,7 +85989,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 37733,
+      "visibleTextLength": 38420,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -85978,13 +86040,13 @@
         "breadcrumbLabels": [
           "Frontier & Open Problems"
         ],
-        "lastReviewed": "2026-08-22",
+        "lastReviewed": "2026-10-26",
         "readingMinutes": 13,
-        "citationCount": 43,
-        "reviewDateText": "22 August 2026",
-        "reviewDateTime": "2026-08-22",
+        "citationCount": 44,
+        "reviewDateText": "26 October 2026",
+        "reviewDateTime": "2026-10-26",
         "readingTimeText": "13 min read",
-        "citationCountText": "43 sources",
+        "citationCountText": "44 sources",
         "bibliographyIds": [
           "iso-12100",
           "iso-10218-1-2025",
@@ -86019,6 +86081,7 @@
           "iso-iec-tr-5469-2024",
           "hartmann-iso-10218-2026",
           "rr-ansi-r1506-2026",
+          "a3-r1506-2025-store",
           "agility-digit-5-2026",
           "brooks-scorecard-2026",
           "layne-robot-fatalities-2023",
@@ -86695,7 +86758,7 @@
         },
         {
           "kind": "reference",
-          "count": 43,
+          "count": 44,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -86705,7 +86768,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -86717,7 +86780,7 @@
         },
         {
           "kind": "citation",
-          "count": 116,
+          "count": 118,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -86727,7 +86790,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 58,
+              "count": 59,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -86737,7 +86800,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 58,
+              "count": 59,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -108286,7 +108349,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32254,
+      "visibleTextLength": 32245,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -109370,7 +109433,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28131,
+      "visibleTextLength": 28502,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -109734,7 +109797,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "A simulated episode restarts from a fresh state for free; a "
+          "text": "A simulated episode restarts from a fresh state automaticall"
         },
         {
           "familyHead": "geist",
@@ -109984,7 +110047,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -109994,7 +110057,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -110004,7 +110067,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 37,
+              "count": 39,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -110664,7 +110727,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "This is an authored toy: reconstruction error and action div"
+          "text": "Reconstruction error and action divergence rise by construct"
         },
         {
           "familyHead": "geist",
@@ -113505,7 +113568,7 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
-          "text": "Each push is an authored impulse held for 0.1 seconds, 4 new"
+          "text": "“Picture plus physics” sets the mug on the plate from its st"
         },
         {
           "familyHead": "geist",
@@ -114440,6 +114503,15 @@
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
           "text": "The photo standing on top of the console is the shared start"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "A model that listens is the console with both plugs seated, "
         },
         {
           "familyHead": "geist",
@@ -115519,6 +115591,24 @@
           "widthPx": 0,
           "zeroAdvancePx": 9,
           "insideRegisteredFrame": true,
+          "text": "The probe head stands on the current summary and sets out on"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "The model’s other moves bunch into narrow wings, so for disp"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
           "text": "Each planning step tries 24 moves, scores each by the straig"
         },
         {
@@ -116177,7 +116267,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22199,
+      "visibleTextLength": 22179,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

@@ -20,6 +20,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { domainPassCheckerPredecessor, domainPassPredecessor } from './audit-domain-pass-continuity.ts';
 import { answerOptionsPredecessor } from './audit-answer-options-continuity.ts';
+import { convergenceProsePredecessor } from './audit-convergence-prose-continuity.ts';
 import { explainerMountPredecessor } from './audit-explainer-mount-continuity.ts';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { imageMountPredecessor } from './audit-image-mount-continuity.ts';
@@ -395,7 +396,7 @@ export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffe
       wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
         parallelLocalPredecessor(root, ref, reskinPredecessor(root, ref,
           frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref,
-            figureMountPredecessor(root, ref, sceneCraftPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, liveBytes)))))))))))))))));
+            figureMountPredecessor(root, ref, sceneCraftPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, convergenceProsePredecessor(root, ref, liveBytes))))))))))))))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

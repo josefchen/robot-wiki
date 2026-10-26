@@ -319,14 +319,23 @@ function throughSeoPass(path: string) {
     expect(continues(figures, end)).toBe(true);
     end = figures.newHash;
   }
-  // The explainer mounts of 2026-10-26 landed last; their one edge on a home
-  // article that gained an explainer mount continues the endpoint too.
+  // The explainer mounts of 2026-10-26 landed after them; their one edge on
+  // a home article that gained an explainer mount continues the endpoint too.
   const explainerEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('explainer-mounts-20261026-'));
   expect(explainerEdges.length).toBeLessThanOrEqual(1);
   for (const mount of explainerEdges) {
     expect(continues(mount, end)).toBe(true);
     end = mount.newHash;
+  }
+  // The convergence prose and sources slice of 2026-10-26 landed last; its
+  // one edge on an article whose text it changed continues the endpoint too.
+  const convergenceEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('convergence-prose-20261026-'));
+  expect(convergenceEdges.length).toBeLessThanOrEqual(1);
+  for (const edit of convergenceEdges) {
+    expect(continues(edit, end)).toBe(true);
+    end = edit.newHash;
   }
   expect(end).toBe(hashOf(readLive(path)));
 }

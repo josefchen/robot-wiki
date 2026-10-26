@@ -55,7 +55,10 @@ describe('world-model motion prose and retained local-basis continuity', () => {
     // which each gained a figure mount, then the 2026-10-21 KOL triage
     // batch's edge on the four articles that gained a paragraph, then the
     // 2026-10-23 interactives round-1 fix's edge on the three whose
-    // self-check options it rebalanced.
+    // self-check options it rebalanced, then the 2026-10-25 KOL queue batch's
+    // edge on the two that gained a paragraph, then the 2026-10-26
+    // convergence prose slice's edge on jepa and latent-dynamics, whose Stat
+    // notes it rewrote without paper internals.
     const subsequent = edges.slice(edges.indexOf(humanizer) + 1);
     expect(subsequent.map((entry) => entry.id)).toEqual([
       ...(slug === 'generative-sim' ? ['motion-scrutiny-s12-20260928-prose-generative-sim-citation-attachment'] : []),
@@ -81,6 +84,8 @@ describe('world-model motion prose and retained local-basis continuity', () => {
         ? [`interactives-r1-20261023-prose-world-models-${slug}`] : []),
       ...(['generative-video', 'model-based-robot-learning'].includes(slug)
         ? [`kol-batch-20261025-world-models-prose-${slug}`] : []),
+      ...(['jepa', 'latent-dynamics'].includes(slug)
+        ? [`convergence-prose-20261026-prose-world-models-${slug}`] : []),
     ]);
     let endpoint = humanizer.newHash;
     for (const entry of subsequent) {

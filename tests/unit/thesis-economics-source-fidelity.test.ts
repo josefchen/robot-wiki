@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { THESES } from '@/lib/competing-theses';
 import { committedSource } from '../helpers/continuation-integration';
+import { preConvergenceProse } from '../helpers/seo-pass';
 import { parseCompoundPlans, compoundPlanDigest, compoundPartDigest } from '@/lib/audit-ledger';
 
 const article = readFileSync('content/frontier/competing-theses.mdx', 'utf8');
@@ -12,9 +13,10 @@ const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidenc
 
 describe('two economics originals retain the source position and its scope', () => {
   it('names both flywheel speakers and their companies on both surfaces', () => {
-    for (const text of [article, flywheel.text]) {
-      for (const fragment of ['Voxel51’s Brian Moore', 'Foxglove’s Adrian Macneil']) expect(text).toContain(fragment);
-    }
+    // The article's prose uses straight apostrophes since the convergence
+    // prose slice of 2026-10-26; the explorer card keeps its typographic ones.
+    for (const fragment of ["Voxel51's Brian Moore", "Foxglove's Adrian Macneil"]) expect(article).toContain(fragment);
+    for (const fragment of ['Voxel51’s Brian Moore', 'Foxglove’s Adrian Macneil']) expect(flywheel.text).toContain(fragment);
   });
   it('quotes the actual model-improvements formulation, not a sharpened paraphrase', () => {
     for (const text of [article, flywheel.text]) {
@@ -52,7 +54,11 @@ describe('two economics originals retain the source position and its scope', () 
     expect(article.match(/<Term id="teleoperation">/g)).toHaveLength(1);
     expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
       .toContain('lastReviewed: "2026-08-18"');
-    expect(article).toContain('lastReviewed: "2026-09-24"');
+    // The convergence prose slice of 2026-10-26 moved the date again; the
+    // article as that slice received it keeps the date this correction left.
+    expect(preConvergenceProse('content/frontier/competing-theses.mdx').toString())
+      .toContain('lastReviewed: "2026-09-24"');
+    expect(article).toContain('lastReviewed: "2026-10-26"');
     expect(THESES).toHaveLength(6);
   });
   for (const [ordinal, expectedParts] of [[21, 5], [22, 4]]) {

@@ -1,0 +1,612 @@
+{
+  "schemaVersion": "convergence-prose-continuity-v1",
+  "name": "convergence-prose-20261026",
+  "reviewedBy": "implementation worker for opus-pass-convergence-prose-and-sources, 2026-10-26 (not independent acceptance)",
+  "rationale": "The opus-pass convergence prose and sources slice applies the items the domain passes routed to convergence: plain-prose fixes (curly quotes, a staged heading, a restated set of calculator defaults, dated status lines, a cue sentence that names what the first step of its explainer shows), numbers restored from their sources, primary sources placed beside or in place of press stories, citations for authored paragraphs that had none, inbound links, and the review dates those edits move. Each article change is recorded here as exact edits over the bytes the article had before it. No figure is added, dropped or reordered, and every source the earlier body cited is still cited unless this review names the source that replaced it and why. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "ownerApproval": "Owner directives sealed in contract/opus-pass.md (VAL-OPUS-091 to 094, 101, 152 and the frontier and world-models report items) and routed to opus-pass-convergence by the domain-pass handoffs of 2026-10-14 to 2026-10-16, split to opus-pass-convergence-prose-and-sources on 2026-10-26. Not release approval.",
+  "observedAt": "2026-10-26T11:10:27Z",
+  "sources": [
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/classical/control.mdx",
+        "bytes": 16856,
+        "sha256": "b9262408942a654683cd35db3711dbb3d94611b14007855651a6b8a3a2e4a54a"
+      },
+      "after": {
+        "path": "content/classical/control.mdx",
+        "bytes": 17047,
+        "sha256": "b371169d0db8a0671379a069fe87d32c9c079425c16fd49b33f4394e9771c8fc"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-17\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "Only the first input is applied before the next solve, so feedback absorbs part of the model error, and torque limits, joint limits and friction cones enter the optimization directly.\n",
+          "after": "Only the first input is applied before the next solve, so feedback from the measured state absorbs part of the model error <Cite id=\"tedrake-underactuated\" /><Cite id=\"di-carlo-2018\" />, and limits on states and inputs, from torque bounds to friction cones, enter the optimization directly <Cite id=\"di-carlo-2018\" /><Cite id=\"neunert-2018\" />.\n"
+        },
+        {
+          "before": "Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective.\n",
+          "after": "Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective <Cite id=\"kuindersma-2015\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 10994,
+        "sha256": "8451978739c776c203605c0ac66ab411b990f155569262820f75d07060bd4c45"
+      },
+      "after": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 11050,
+        "sha256": "e3f96b9586529dc16981e8d489e4ba83ebc88f32cdf749b31080c0ebfebfbc59"
+      },
+      "edits": [
+        {
+          "before": "Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id=\"modern-robotics-2017\" />. Drag the cup in the figure below and watch the arm work out an angle for every joint.\n",
+          "after": "Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id=\"modern-robotics-2017\" />. Move the shoulder slider in the figure below to trace the hand's path, then drag the cup and watch the arm work out an angle for every joint.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 21744,
+        "sha256": "7338584d0ddec293b3c43931fcde06d7e2e537c175a405db57db870942b716e6"
+      },
+      "after": {
+        "path": "content/classical/perception.mdx",
+        "bytes": 21919,
+        "sha256": "7fee182fcb5f7f1373558e04f821f17371f999f4681e797af35e8cd6abcf2222"
+      },
+      "edits": [
+        {
+          "before": "The instrument's hand-eye term is a ray-to-plane offset at separation $d$ for a ray inclined by $\\theta$ to the plane's normal, about 1.7 mm at 10 cm and 17 mm at 1 m for one degree:\n",
+          "after": "Tsai and Lenz's error analysis shows the lever arm: a 3 mrad rotation error at a 5 in camera-to-target distance gives a 15 mil translation error <Cite id=\"tsai-lenz-1989\" />. The instrument's hand-eye term is a ray-to-plane offset at separation $d$ for a ray inclined by $\\theta$ to the plane's normal, about 1.7 mm at 10 cm and 17 mm at 1 m for one degree:\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16650,
+        "sha256": "4a1265574ee4408e040ced46ef2b61665bac9083771a330e8dc1945dfbdad75a"
+      },
+      "after": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16762,
+        "sha256": "981fb16cc0586cc227c98cf665cc494f81a5b4d8f53c82c2fb8d7e2b18b89db7"
+      },
+      "edits": [
+        {
+          "before": "[Perception](/classical/perception) locates objects in the current frame. Consumers issue different queries: localization needs stable landmarks, collision checking needs occupied volume and a conservative update rule, grasping needs surface pose and identity, and rendering needs appearance.\n",
+          "after": "[Perception](/classical/perception) locates objects in the current frame <Cite id=\"conceptgraphs-2023\" />. Consumers issue different queries: localization needs stable landmarks <Cite id=\"cadena-2016\" />, collision checking needs occupied volume and a conservative update rule <Cite id=\"octomap-2013\" />, grasping needs surface pose and identity, and rendering needs appearance <Cite id=\"cadena-2016\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 14264,
+        "sha256": "0e5457aa30ececce1bc3cba3c5a942c439c8866e879d38c9aa8f2f1c113d4081"
+      },
+      "after": {
+        "path": "content/data-hardware/data-bottleneck.mdx",
+        "bytes": 14260,
+        "sha256": "514749c81c4ec92cac2f8fb5bf632a46a7b29e190c066100d66a71530ba09ad4"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-17\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months, and the release adds roughly 16,000 unsuccessful trajectories outside that count <Cite id=\"droid-2024\" />. Drag “Robots collecting” to change fleet size at two authored hypothetical rates: 1,000 or 7 productive hours per rig-year.\n",
+          "after": "DROID reports 76,000 successful trajectories totaling 350 interaction hours. Fifty data collectors used 18 robots across 13 institutions over 12 months, and the release adds roughly 16,000 unsuccessful trajectories outside that count <Cite id=\"droid-2024\" />. Drag \"Robots collecting\" to change fleet size at two authored hypothetical rates: 1,000 or 7 productive hours per rig-year.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 12114,
+        "sha256": "698cf0598593f1319c0eae955056fd78f927db7bd3a3f026c795ad3aad00fc51"
+      },
+      "after": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 12200,
+        "sha256": "84b52070b682ec6f504101f7a4142da30c77d010182788c2783166602316712a"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-17\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "Mixing datasets needs a canonical observation and action schema, one adapter per source and source labels kept through training, so positive transfer can be told apart from one corpus dominating. The [robot-learning stack](/data-hardware/robot-learning-stack) supplies the versioned artifacts, and the [robot-learning roadmap](/manipulation/robot-learning-roadmap) places dataset selection in a broader program.\n",
+          "after": "Mixing datasets needs a canonical observation and action schema, one adapter per source and source labels kept through training, so positive transfer can be told apart from one corpus dominating <Cite id=\"open-x-embodiment-2023\" /> <Cite id=\"octo-2024\" /> <Cite id=\"remix-2024\" />. The [robot-learning stack](/data-hardware/robot-learning-stack) supplies the versioned artifacts, and the [robot-learning roadmap](/manipulation/robot-learning-roadmap) places dataset selection in a broader program.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 16534,
+        "sha256": "4d7638d5bc90c62c7326b26b135086611a1ca17f5dc3cc469b431cd8d45a6937"
+      },
+      "after": {
+        "path": "content/data-hardware/evaluation-crisis.mdx",
+        "bytes": 16562,
+        "sha256": "bca4dd293dfc0310233ee3aa699e8487b8bc269d93367d29fd8f333cd0a7fbe6"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-17\"\ncitations:\n",
+          "after": "lastReviewed: \"2026-10-26\"\ncitations:\n  - maker-2025\n"
+        },
+        {
+          "before": "In an illustrative model, every decision succeeds with the same probability $p$ conditional on all earlier decisions succeeding, so a task of $n$ decisions completes with probability $p^n$. At $p = 0.95$, 30 decisions give 21.5% and 100 give 0.6%. Drag “How many steps the job has” to compare these examples.\n",
+          "after": "In an illustrative model, every decision succeeds with the same probability $p$ conditional on all earlier decisions succeeding, so a task of $n$ decisions completes with probability $p^n$ <Cite id=\"maker-2025\" />. At $p = 0.95$, 30 decisions give 21.5% and 100 give 0.6%. Drag \"How many steps the job has\" to compare these examples.\n"
+        },
+        {
+          "before": "      why: 'The product crosses one half between the 13th and 14th decision: 0.95 to the 14th is 48.8%, and the module’s own horizon arithmetic already lands 30 steps at 21.5%. Episode success halves roughly every 14 decisions; the coin flip arrives early.',\n",
+          "after": "      why: \"The product crosses one half between the 13th and 14th decision: 0.95 to the 14th is 48.8%, and the module's own horizon arithmetic already lands 30 steps at 21.5%. Episode success halves roughly every 14 decisions; the coin flip arrives early.\",\n"
+        },
+        {
+          "before": "  revealHint=\"At 95.0% per step over 14 steps, 48.8% of jobs go right. Drag “How many steps the job has” and watch it fall.\"\n",
+          "after": "  revealHint='At 95.0% per step over 14 steps, 48.8% of jobs go right. Drag \"How many steps the job has\" and watch it fall.'\n"
+        },
+        {
+          "before": "      why: 'A reported rate is not a policy comparison. TRI uses posterior distributions to characterize uncertainty and hypothesis tests to compare policies. Snyder et al. explain that an inconclusive test does not establish equivalence. Fifty trials is TRI’s protocol choice; there is no universal threshold for an interpretable result.'\n",
+          "after": "      why: \"A reported rate is not a policy comparison. TRI uses posterior distributions to characterize uncertainty and hypothesis tests to compare policies. Snyder et al. explain that an inconclusive test does not establish equivalence. Fifty trials is TRI's protocol choice; there is no universal threshold for an interpretable result.\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 11434,
+        "sha256": "e0c7afb20c2a5de3d63e0500014efa386a4ade66ca1d6b4bdcc28f051afc4579"
+      },
+      "after": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 11562,
+        "sha256": "5a951632d7f979d9962b97253705179c71253c663b25ecd5b861c8120cc0a095"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-17\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - 1x-neo-2026\n  - 1x-world-model-lab-2026\n",
+          "after": "  - 1x-neo-2026\n"
+        },
+        {
+          "before": "  - noetix-bumi-2025\n",
+          "after": "  - noetix-bumi-2025\n  - bjnews-noetix-bumi-2025\n"
+        },
+        {
+          "before": "  - agibot-omdia-2026\n",
+          "after": "  - agibot-omdia-2026\n  - agibot-omdia-ranking-2026\n"
+        },
+        {
+          "before": "Try Preorder, Humanoids and \\$1k-\\$10k together and one row remains: Noetix's Bumi, announced for presale in October 2025 at ¥9,998, about \\$1,400 <Cite id=\"noetix-bumi-2025\" />.\n",
+          "after": "Try Preorder, Humanoids and \\$1k-\\$10k together and one row remains: Noetix's Bumi, announced for presale in October 2025 at ¥9,998, about \\$1,400 <Cite id=\"noetix-bumi-2025\" /> <Cite id=\"bjnews-noetix-bumi-2025\" />.\n"
+        },
+        {
+          "before": "Omdia counts about 13,000 [humanoids shipped](/market-map) in 2025, including over 5,100 from AgiBot, a figure that also counts its mobile manipulators <Cite id=\"agibot-omdia-2026\" />. IFR counts about 7,000 full-size humanoids (above 140 cm) sold in 2025, often in applications still requiring human teleoperation <Cite id=\"ifr-service-robots-2026\" />. Unitree's May 2026 IPO prospectus reports over 5,500 humanoids shipped in 2025, excluding wheeled dual-arm robots, and calls that the world's highest total <Cite id=\"unitree-prospectus-2026\" />.\n",
+          "after": "Omdia counts about 13,000 [humanoids shipped](/market-map) in 2025, including 5,168 from AgiBot, 39 percent of the total <Cite id=\"agibot-omdia-ranking-2026\" />, a figure that also counts its mobile manipulators <Cite id=\"agibot-omdia-2026\" />. IFR counts about 7,000 full-size humanoids (above 140 cm) sold in 2025, often in applications still requiring human teleoperation <Cite id=\"ifr-service-robots-2026\" />. Unitree's May 2026 IPO prospectus reports over 5,500 humanoids shipped in 2025, excluding wheeled dual-arm robots, and calls that the world's highest total <Cite id=\"unitree-prospectus-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 17588,
+        "sha256": "9e512505f061f72d73caa72fce79e4f9b9a88db85c4ca89b70ca94ff1bbd1ed4"
+      },
+      "after": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 17753,
+        "sha256": "8c7229f5f8a07b525e5523e0750743e18116ed5146a912b98c84560c5a52fe8e"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-09-24\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - kroger-ocado-closures-2025\n",
+          "after": "  - kroger-ocado-closures-2025\n  - kroger-8k-ecommerce-2025\n"
+        },
+        {
+          "before": "  - ocado-oia-2026\n  - agility-digit-production\n  - unitree-profit-2026\n  - morgan-stanley-pr-problem-2026\n  - figure-8hr-shift-2026\n",
+          "after": "  - ocado-oia-2026\n  - morgan-stanley-pr-problem-2026\n"
+        },
+        {
+          "before": "Drag the time to fix each jam and watch the payback change.\n",
+          "after": "Drag the time to fix each jam and watch the payback change. Payback here divides cell capital by modeled monthly labour value, leaving out the damage and throughput savings in EVST's formula <Cite id=\"evst-cell-cost-2026\" />.\n"
+        },
+        {
+          "before": "This authored worked example has no measured deployment behind it: its 80,000 USD robot cost is an assumed input, with no sourced arm-price quote, on a 20,000 to 250,000 USD range in 5,000 USD steps. The other defaults are a 2.5 integration multiple, 6-second cycle, 95 percent uptime, 99.9 percent per-pick success, 15-second jam clearing and a 25 USD hourly wage. The model assumes 730 hours a month, a 60-month amortization period and a chosen 24-month verdict horizon, and counts modeled picks per elapsed hour, including downtime. Payback divides cell capital by modeled monthly labour value, without damage or throughput savings.\n",
+          "after": "This worked example has no measured deployment behind it, and each of its seven inputs is an assumption, labelled beside its control. The model also assumes 730 hours a month and a 60-month amortization period, counts modeled picks per elapsed hour, including downtime, and judges payback against a chosen 24-month horizon, the upper end of EVST's estimate for multi-shift palletising cells <Cite id=\"evst-cell-cost-2026\" />.\n"
+        },
+        {
+          "before": "## What is actually automated at scale\n",
+          "after": "## What the installed base automates\n"
+        },
+        {
+          "before": "In November 2025 Kroger said it would close three robotic warehouses in Wisconsin, Maryland and Florida and was monitoring its five remaining sites <Cite id=\"kroger-ocado-closures-2025\" />. On December 5, 2025 Ocado and Kroger agreed a one-off \\$350 million payment that also covers Kroger's decision not to proceed with Charlotte. Ocado expects the closures to cut its FY26 fee revenue by about \\$50 million <Cite id=\"ocado-kroger-rns-2025\" />. Ocado Intelligent Automation sells the same grid-robot warehouses outward into healthcare, third-party logistics and industrial parts <Cite id=\"ocado-oia-2026\" />.\n",
+          "after": "In November 2025 Kroger said it would close three automated fulfillment centres, in Wisconsin, Maryland and Florida, while monitoring the remaining facilities, and expected about \\$2.6 billion of impairment and related charges <Cite id=\"kroger-8k-ecommerce-2025\" />. This is Money counted five remaining sites <Cite id=\"kroger-ocado-closures-2025\" />. On December 5, 2025 Ocado and Kroger agreed a one-off \\$350 million payment that also covers Kroger's decision not to proceed with Charlotte. Ocado expects the closures to cut its FY26 fee revenue by about \\$50 million <Cite id=\"ocado-kroger-rns-2025\" />. Ocado Intelligent Automation sells the same grid-robot warehouses outward into healthcare, third-party logistics and industrial parts <Cite id=\"ocado-oia-2026\" />.\n"
+        },
+        {
+          "before": "[The Reliability Gap](/frontier/reliability-gap) tracks the demo-to-production gap and selected deployment examples. Morgan Stanley's 2026 note on the humanoid industry's \"PR problem\", as reported by CNBC, describes [investors](/market-map) looking for real-world return on investment over polished demonstrations <Cite id=\"morgan-stanley-pr-problem-2026\" />. Figure says its livestreamed logistics run lasted 200 hours <Cite id=\"helix-2-5-2026\" />, but it was one task at one site, with [no published success rate](/data-hardware/evaluation-crisis).\n",
+          "after": "[The Reliability Gap](/frontier/reliability-gap) tracks the demo-to-production gap and selected deployment examples; [Autonomous Vehicles](/adjacent/autonomous-vehicles) covers the same question for driverless cars. Morgan Stanley's 2026 note on the humanoid industry's \"PR problem\", as reported by CNBC, describes [investors](/market-map) looking for real-world return on investment over polished demonstrations <Cite id=\"morgan-stanley-pr-problem-2026\" />. Figure says its livestreamed logistics run lasted 200 hours <Cite id=\"helix-2-5-2026\" />, but it was one task at one site, with [no published success rate](/data-hardware/evaluation-crisis).\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10408,
+        "sha256": "1d8f59aa897c1843cc5586d3ca1278e68093a3e24b34523abf17ee761fd05432"
+      },
+      "after": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10647,
+        "sha256": "88357b660995fad31819eade32e62869f012b635f571966fb56105d623c930ec"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-09-24\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - lerobot-paper-2026\n",
+          "after": "  - lerobot-paper-2026\n  - safety-filter-2023\n"
+        },
+        {
+          "before": "Start with append-only episode files, one versioned conversion command, a checkpoint registry, a deterministic offline test batch, an evaluation sheet linked to episode IDs, and a policy process kept apart from command gating.\n",
+          "after": "Start with versioned episode files that are never edited in place, one versioned conversion command, a checkpoint registry, a deterministic offline test batch <Cite id=\"lerobot-dataset-v3-2025\" /> <Cite id=\"hidden-technical-debt-2015\" />, an evaluation sheet linked to episode IDs <Cite id=\"kress-gazit-evaluation-2024\" />, and a policy process kept apart from command gating <Cite id=\"lerobot-paper-2026\" /> <Cite id=\"safety-filter-2023\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 11197,
+        "sha256": "b3106048faa1dd919137f754db6840e90f1e83c22eae122915c355be2395af1b"
+      },
+      "after": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 11172,
+        "sha256": "4b96137ef5926269f13434ace22197c31e436828d9af5c757ce184a5fc79fe86"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-17\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - trossen-ai-2026\n  - lerobot-pricing-2026\n",
+          "after": "  - trossen-ai-2026\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10227,
+        "sha256": "20caa5e4beb5395a272276347a9e9d6a370d7a88a7ec385df815d6e3521de8d4"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10521,
+        "sha256": "752dac5da3000fd7c3da1432b201d52628e899a267a9eb139b97cce7a5780bbc"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-09-24\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - agibot-omdia-2026\n",
+          "after": "  - agibot-omdia-2026\n  - agibot-omdia-ranking-2026\n"
+        },
+        {
+          "before": "  <Stat label=\"milestones met\" value=\"0 of 8\" note=\"the watchlist above, Aug 2026\" />\n",
+          "after": "  <Stat label=\"milestones met\" value=\"0 of 8\" note=\"the watchlist above, Sep 2026\" />\n"
+        },
+        {
+          "before": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id=\"figure-bmw-production-2025\" />; neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). Omdia counted about 13,000 humanoids shipped in 2025 <Cite id=\"agibot-omdia-2026\" /> and SAG 19.1K in the first half of 2026 <Cite id=\"sag-humanoid-shipments-2026\" />. Tesla's Q2 2026 update says it is still installing its first Optimus lines, whose initial builds go to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q2-2026-update\" />.\n",
+          "after": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id=\"figure-bmw-production-2025\" />; neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). Omdia counted about 13,000 humanoids shipped in 2025 <Cite id=\"agibot-omdia-ranking-2026\" /> <Cite id=\"agibot-omdia-2026\" /> and SAG 19.1K in the first half of 2026 <Cite id=\"sag-humanoid-shipments-2026\" />. Tesla's Q2 2026 update says it is still installing its first Optimus lines, whose initial builds go to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q2-2026-update\" />.\n"
+        },
+        {
+          "before": "Evidence: on September 21, 2026, Reuters reported that regulators were slowing humanoid listings after Unitree's shares rose more than fivefold on debut, then fell 55% from their peak, and that some private-market projects had taken valuation cuts of 30% to 50% <Cite id=\"reuters-china-humanoid-ipo-2026\" />.\n",
+          "after": "Evidence: on September 21, 2026, Reuters reported that regulators were slowing humanoid listings after Unitree's shares rose more than fivefold on debut, then fell 55% from their peak, and quoted a venture capitalist saying some private-market projects had taken valuation cuts of 30% to 50% <Cite id=\"reuters-china-humanoid-ipo-2026\" />.\n"
+        },
+        {
+          "before": "## As of August 2026, none of the eight milestones is met\n",
+          "after": "## As of September 2026, none of the eight milestones is met\n"
+        },
+        {
+          "before": "A verified deployment of 10,000 humanoids doing documented work breaks the commercial-viability premise, and one policy above 90% across more than ten unseen homes breaks the generalization premise ([generalization](/frontier/generalization/)). Cost-per-task parity breaks the form-factor premise.\n",
+          "after": "A verified deployment of 10,000 humanoids doing documented work breaks the commercial-viability premise, which vendor records so far measure in hours <Cite id=\"agility-digit-production\" /> <Cite id=\"figure-bmw-production-2025\" />, and one policy above 90% across more than ten unseen homes breaks the generalization premise <Cite id=\"helix-2-5-2026\" /> ([generalization](/frontier/generalization/)). Cost-per-task parity breaks the form-factor premise <Cite id=\"brooks-dexterity-2025\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 14365,
+        "sha256": "86e4399da86ea923b7ea52759b903c61deba9df47b5167a6d021429da1d3bec7"
+      },
+      "after": {
+        "path": "content/frontier/competing-theses.mdx",
+        "bytes": 14763,
+        "sha256": "001ddceccfa16abde8f5f34525d5b388e8bf23976e6344fde3a75cc04d3c6904"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-09-24\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "The claim: keep the architecture general, scale data and parameters, and generalist robot intelligence follows, as it did for language. Rich Sutton's 2019 essay The Bitter Lesson frames it: general methods that leverage computation win in the long run <Cite id=\"sutton-bitter-lesson-2019\" />. Brooks answered six days later, in a reply that paraphrases Sutton and describes itself, including its closing comment, as \"seventy six words shorter than Sutton’s post\" <Cite id=\"brooks-better-lesson-2019\" />. Bessemer's investor analysis argues that \"scaling laws are emerging\" and that capital is the moat <Cite id=\"bessemer-robotics-2026\" /> ([VLA models](/manipulation/vla-models/)).\n",
+          "after": "The claim: keep the architecture general, scale data and parameters, and generalist robot intelligence follows, as it did for language. Rich Sutton's 2019 essay The Bitter Lesson frames it: general methods that leverage computation win in the long run <Cite id=\"sutton-bitter-lesson-2019\" />. Brooks answered six days later, in a reply that paraphrases Sutton and describes itself, including its closing comment, as \"seventy six words shorter than Sutton's post\" <Cite id=\"brooks-better-lesson-2019\" />. Bessemer's investor analysis argues that \"scaling laws are emerging\" and that capital is the moat <Cite id=\"bessemer-robotics-2026\" /> ([VLA models](/manipulation/vla-models/)).\n"
+        },
+        {
+          "before": "EgoScale fit a log-linear <Term id=\"scaling-law\">scaling law</Term> (R² = 0.9983) from human-video pretraining hours to validation loss, which it reports correlates strongly with downstream robot performance <Cite id=\"egoscale-2026\" />. Figure reports a human-to-humanoid transfer law on robot-action prediction, with Index pretraining lifting zero-shot success in 30 unseen homes from 9% to 56% <Cite id=\"helix-2-5-2026\" />. Lin et al. found single-task success following \"a roughly power-law relationship with the number of environments and objects\" <Cite id=\"lin-data-scaling-laws-2024\" />.\n",
+          "after": "EgoScale fit a log-linear <Term id=\"scaling-law\">scaling law</Term> (R² = 0.9983) from human-video pretraining hours to validation loss, which it reports correlates strongly with downstream robot performance <Cite id=\"egoscale-2026\" />. Its full recipe lifts average success by 54% over a no-pretraining baseline on a 22-DoF hand <Cite id=\"egoscale-2026\" />. Figure reports a human-to-humanoid transfer law on robot-action prediction, with Index pretraining lifting zero-shot success in 30 unseen homes from 9% to 56% <Cite id=\"helix-2-5-2026\" />. Lin et al. found single-task success following \"a roughly power-law relationship with the number of environments and objects\" <Cite id=\"lin-data-scaling-laws-2024\" />. In entirely new homes, π0.5 cleaned kitchens and bedrooms <Cite id=\"pi05-2025\" />.\n"
+        },
+        {
+          "before": "On compute, Brooks notes that \"self driving cars require about 2,500 Watts of power for computation\", while \"a human brain only requires 20 Watts\" <Cite id=\"brooks-better-lesson-2019\" />.\n",
+          "after": "On compute, Brooks notes that \"self driving cars require about 2,500 Watts of power for computation\", while \"a human brain only requires 20 Watts\" <Cite id=\"brooks-better-lesson-2019\" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)).\n"
+        },
+        {
+          "before": "The claim is that a learned model of how the world evolves can replace most real-robot data: plan in it, or train the policy inside it. NVIDIA's Cosmos 3 and Meta's V-JEPA 2 are the largest such bets ([what is a world model?](/world-models/taxonomy/)). V-JEPA 2 plans zero-shot reaching, grasping and pick-and-place on Franka arms in unseen labs after post-training on less than 62 hours of unlabeled robot video <Cite id=\"vjepa2-2025\" />. DreamZero, a world action model that serves as the policy, reports over 2x better generalization to new tasks and environments than state-of-the-art VLAs <Cite id=\"dreamzero-2026\" /> ([generative video](/world-models/generative-video/)).\n",
+          "after": "The claim is that a learned model of how the world evolves can replace most real-robot data: plan in it, or train the policy inside it. NVIDIA's Cosmos 3 and Meta's V-JEPA 2 are the largest such bets ([what is a world model?](/world-models/taxonomy/)). V-JEPA 2 plans zero-shot reaching, grasping and pick-and-place on Franka arms in unseen labs after post-training on less than 62 hours of unlabeled robot video <Cite id=\"vjepa2-2025\" />. DreamZero, a world action model that is itself the policy, reports over 2x better generalization to new tasks and environments than state-of-the-art VLAs <Cite id=\"dreamzero-2026\" /> ([generative video](/world-models/generative-video/)).\n"
+        },
+        {
+          "before": "Recap, the π*0.6 method, learns from expert teleoperated interventions <Cite id=\"pistar06-2025\" />, while Sergey Levine argues that surrogates for real robot data usually end up \"a lousy spoon with holes or an ineffective blunt fork\" <Cite id=\"levine-sporks-2025\" />. Bessemer quotes Voxel51’s Brian Moore and Foxglove’s Adrian Macneil on a data flywheel: “better decisions, better model improvements, and better deployments faster than everyone else.” Bessemer lists both companies in its portfolio <Cite id=\"bessemer-robotics-2026\" />.\n",
+          "after": "Recap, the π*0.6 method, learns from expert teleoperated interventions <Cite id=\"pistar06-2025\" />, while Sergey Levine argues that surrogates for real robot data usually end up \"a lousy spoon with holes or an ineffective blunt fork\" <Cite id=\"levine-sporks-2025\" />. Bessemer quotes Voxel51's Brian Moore and Foxglove's Adrian Macneil on a data flywheel: \"better decisions, better model improvements, and better deployments faster than everyone else.\" Bessemer lists both companies in its portfolio <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ runtime hours at BMW Spartanburg <Cite id=\"figure-bmw-production-2025\" />; neither quantifies teleoperation's share of those hours ([teleoperation rigs](/data-hardware/teleop-rigs/)). Bessemer quotes the Zeromatter CEO, Ian Glow: \"you'll never get the scale or diversity you need from teleop alone.\" He recommends internet data or simulators with reinforcement learning, and Bessemer cautions that world models are expensive and sim-to-real manipulation remains an open research problem <Cite id=\"bessemer-robotics-2026\" />.\n",
+          "after": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ runtime hours at BMW Spartanburg <Cite id=\"figure-bmw-production-2025\" />; neither quantifies teleoperation's share of those hours ([teleoperation rigs](/data-hardware/teleop-rigs/)). Bessemer quotes the Zeromatter CEO, Ian Glow: \"you'll never get the scale or diversity you need from teleop alone.\" He recommends internet data or simulators with reinforcement learning, and Bessemer cautions that world models are expensive and sim-to-real manipulation remains an open research problem <Cite id=\"bessemer-robotics-2026\" />.\n"
+        },
+        {
+          "before": "Both kill conditions are one measurement: cost per task. If task-specific robots keep winning it in the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.\n",
+          "after": "Both kill conditions are one measurement, cost per task, since the humanoid plan is to do human manual work \"at lower prices and just as well\" <Cite id=\"brooks-dexterity-2025\" />. If task-specific robots keep winning it in the same applications, the humanoid thesis dies; if a humanoid reaches parity across many tasks, the task-specific thesis does.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17973,
+        "sha256": "6a77a821e58dd11a4da30e450cabb150933e93597e9db912a684ecc92d8e8ad3"
+      },
+      "after": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 18324,
+        "sha256": "16f522154dc6d7af7f8078140c14f1c9fa9bf99b4d32568a39d68cdce7203fe3"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-18\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "The five 2026 hands below rank differently by touch and by price.\n",
+          "after": "The five 2026 hands below rank differently by touch and by price. Figure says each Figure 03 fingertip can detect three grams of pressure <Cite id=\"figure-03-2025\" />, and Shadow priced its hand at €110,000 including support in 2022 <Cite id=\"shadow-hand-cost-2022\" />.\n"
+        },
+        {
+          "before": "Dexterity is solved when one policy does Holson's fifteen tasks in unseen homes at human-competent speed, with no per-task data and with published success rates. Nobody is close: the best public scoreboard is about half success with per-task training. The open question is which data closes the gap. If Tesla or Figure reach household dexterity from video at scale, the tactile gap was a transitional hardware shortage.\n",
+          "after": "Dexterity is solved when one policy does Holson's fifteen tasks in unseen homes within ten times Holson's own time, with no per-task data and with published success rates <Cite id=\"holson-olympics-2025\" />. Nobody is close: the best public scoreboard is about half success with per-task training <Cite id=\"pi-olympics-2025\" />. The open question is which data closes the gap. If Tesla or Figure reach household dexterity from video at scale, the tactile gap was a transitional hardware shortage <Cite id=\"brooks-dexterity-2025\" /> <Cite id=\"figure-go-big-2025\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 13877,
+        "sha256": "366bd6912eba30acfc126a77745868bfcba8a0cb5adc8ae0717c5b073ebb311e"
+      },
+      "after": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 13877,
+        "sha256": "2598a647378346fa0d5761ccb3163f566b01f8d47879444c930ce4c04c6759fb"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-18\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 10847,
+        "sha256": "55c19e0c4f96b2c286b480f128c19c51f60f47d73960cd77a114c7a88c17d7da"
+      },
+      "after": {
+        "path": "content/frontier/reliability-gap.mdx",
+        "bytes": 10875,
+        "sha256": "c4d003acc2efb1cbcc5b4517db07eb5b96b7a5ea4c62511dbeaed8e889e7e8a5"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-09-24\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - pi07-blog-2026\n  - agility-digit-production\n",
+          "after": "  - pi07-blog-2026\n"
+        },
+        {
+          "before": "  - adcock-figure-livestream-2026\n",
+          "after": "  - adcock-figure-livestream-2026\n  - maker-2025\n"
+        },
+        {
+          "before": "A task succeeds only when every step does: if each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$. A result without its horizon cannot be compared, and papers often omit runs, initial conditions and success criteria <Cite id=\"kress-gazit-evaluation-2024\" />. Try the presets, then drag the per-step slider under “Adjust more” toward 100.\n",
+          "after": "A task succeeds only when every step does: if each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$ <Cite id=\"maker-2025\" />. A result without its horizon cannot be compared, and papers often omit runs, initial conditions and success criteria <Cite id=\"kress-gazit-evaluation-2024\" />. Try the presets, then drag the per-step slider under \"Adjust more\" toward 100.\n"
+        },
+        {
+          "before": "Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id=\"pistar06-blog-2025\" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id=\"pistar06-2025\" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, and a juicing robot served mall customers for about seven hours without failure <Cite id=\"rl-100-2025\" />. Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id=\"realtime-expo-ft-2026\" />.\n",
+          "after": "Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id=\"pistar06-blog-2025\" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id=\"pistar06-2025\" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, including 250 consecutive successes on one task, and a juicing robot served mall customers for about seven hours without failure <Cite id=\"rl-100-2025\" />. Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id=\"realtime-expo-ft-2026\" />.\n"
+        },
+        {
+          "before": "Agility reports 65,000 hours of Digit production experience <Cite id=\"agility-digit-production\" /> ([industrial deployment](/data-hardware/industrial-deployment/)), and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id=\"agility-digit-5-2026\" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id=\"figure-bmw-production-2025\" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q1-2026-update\" /> <Cite id=\"tesla-q2-2026-update\" />.\n",
+          "after": "Agility said in September 2026 that Digit 4 has logged more than 65,000 hours of operational time ([industrial deployment](/data-hardware/industrial-deployment/)), with about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id=\"agility-digit-5-2026\" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id=\"figure-bmw-production-2025\" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q1-2026-update\" /> <Cite id=\"tesla-q2-2026-update\" />.\n"
+        },
+        {
+          "before": "Figure's May 2026 package-sorting livestream sits under “Demo only”. Planned as one eight-hour shift <Cite id=\"adcock-figure-livestream-2026\" />, it ran for 200 hours by Figure's account <Cite id=\"helix-2-5-2026\" />. Business Insider reported that a stuck robot triggered an automatic reset <Cite id=\"bi-figure-livestream-2026\" />. It covered a single task at a single site, with no published success rate.\n",
+          "after": "Figure's May 2026 package-sorting livestream sits under \"Demo only\". Planned as one eight-hour shift <Cite id=\"adcock-figure-livestream-2026\" />, it ran for 200 hours by Figure's account <Cite id=\"helix-2-5-2026\" />. Business Insider reported that a stuck robot triggered an automatic reset <Cite id=\"bi-figure-livestream-2026\" />. It covered a single task at a single site, with no published success rate.\n"
+        },
+        {
+          "before": "      why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy’s own success rate.'\n",
+          "after": "      why: \"This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy's own success rate.\"\n"
+        },
+        {
+          "before": "      label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',\n",
+          "after": "      label: \"No, only on-robot experience moves the policy's own number: a monitor converts failures into safe stops and human escalations\",\n"
+        },
+        {
+          "before": "  takeaway=\"Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy’s own per-step number.\"\n",
+          "after": "  takeaway=\"Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy's own per-step number.\"\n"
+        }
+      ],
+      "replacedCitations": [
+        {
+          "from": "agility-digit-production",
+          "to": "agility-digit-5-2026",
+          "reason": "Agility's undated homepage figure (65,000 hours of production experience) moves to its dated September 15, 2026 Digit 5 release, which says more than 65,000 hours of operational time for Digit 4 and also carries the 98% on-task accuracy across 100,000 totes."
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18466,
+        "sha256": "6bca2f2c739c1205b6aba50f63c357c8f2f4ee9c8501dd481e17a8aa8233cde5"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18572,
+        "sha256": "beceef25138934f8a4326f8e8659bc5ff62e5ddf68b3de197383e9ec4bba86ad"
+      },
+      "edits": [
+        {
+          "before": "lastReviewed: \"2026-08-22\"\n",
+          "after": "lastReviewed: \"2026-10-26\"\n"
+        },
+        {
+          "before": "  - rr-ansi-r1506-2026\n",
+          "after": "  - rr-ansi-r1506-2026\n  - a3-r1506-2025-store\n"
+        },
+        {
+          "before": "The robot-specific layer splits liability in two. ISO 10218-1 covers the robot as partly completed machinery, the manufacturer's obligation; ISO 10218-2 covers the application and its cell, the integrator's <Cite id=\"iso-10218-1-2025\" /> <Cite id=\"iso-10218-2-2025\" />. Both were republished in February 2025 at editions 3 and 2, the first major revision since 2011. The US adoption, ANSI/A3 R15.06-2025, added a Part 3 on user requirements in October 2025 <Cite id=\"rr-ansi-r1506-2026\" />.\n",
+          "after": "The robot-specific layer splits liability in two. ISO 10218-1 covers the robot as partly completed machinery, the manufacturer's obligation; ISO 10218-2 covers the application and its cell, the integrator's <Cite id=\"iso-10218-1-2025\" /> <Cite id=\"iso-10218-2-2025\" />. Both were republished in February 2025 at editions 3 and 2, the first major revision since 2011. The US adoption, ANSI/A3 R15.06-2025, added a Part 3, approved on October 7, 2025, that gives guidance to users of industrial robot cells <Cite id=\"a3-r1506-2025-store\" /> <Cite id=\"rr-ansi-r1506-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 13919,
+        "sha256": "1dca36a9eae1c46dee33b6ee9efb6ac7d569888b6935ce5898258a10aef9e352"
+      },
+      "after": {
+        "path": "content/rl-sim2real/reward-design-mpc.mdx",
+        "bytes": 13910,
+        "sha256": "23f350fa18492c0cb429f3bf178640b235bd419367b5a6545986c9f357a9bb3f"
+      },
+      "edits": [
+        {
+          "before": "  <Stat label=\"Rudin paper reward\" value=\"9 terms\" note=\"Table 2, including feet air time\" accent />\n",
+          "after": "  <Stat label=\"Rudin paper reward\" value=\"9 terms\" note=\"including feet air time\" accent />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 12201,
+        "sha256": "198f6cbb974adb9d743d052d0d59cbe0a6cb342e8ae94417a41d80d4f8609aa8"
+      },
+      "after": {
+        "path": "content/rl-sim2real/rl-for-robotics.mdx",
+        "bytes": 12301,
+        "sha256": "8815008fd1e30b0ab297d67c73b186764295f26078734a0853a97d5ceb54687d"
+      },
+      "edits": [
+        {
+          "before": "A simulated episode restarts from a fresh state for free; a physical one ends wherever the robot is, and a person or a learned behavior has to put it back.\n",
+          "after": "A simulated episode restarts from a fresh state automatically, at only computational cost <Cite id=\"autonomous-rl-2022\" />; a physical one ends wherever the robot is, and a person or a learned behavior has to put it back <Cite id=\"leave-no-trace-2017\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 12716,
+        "sha256": "5949b267185ce2023f5f06b47d3affb3b504947ce02f0f372bd0748181f84220"
+      },
+      "after": {
+        "path": "content/world-models/jepa.mdx",
+        "bytes": 12716,
+        "sha256": "882326687d367951f7241abf1f78426c21321f40b73d2d732eb554cbd9c6e42b"
+      },
+      "edits": [
+        {
+          "before": "  <Stat label=\"SSv2 top-1\" value=\"77.3%\" note=\"ViT-g384; Table 4 frozen encoder\" />\n",
+          "after": "  <Stat label=\"SSv2 top-1\" value=\"77.3%\" note=\"frozen encoder, motion benchmark\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "62b711fb8c5f2ed1ad48caee88199e6bbac7bb16",
+      "before": {
+        "path": "content/world-models/latent-dynamics.mdx",
+        "bytes": 10797,
+        "sha256": "89dea20591cce8527f71c692ca2285389bf9c2274322ef28523823b42dbaf61e"
+      },
+      "after": {
+        "path": "content/world-models/latent-dynamics.mdx",
+        "bytes": 10777,
+        "sha256": "b25b62340cffb2bb29a836e34a05f0a45d3f2229139af5e027a6d8b5489aabcf"
+      },
+      "edits": [
+        {
+          "before": "  <Stat label=\"DreamerV3 labels\" value=\"H=15 / T=16\" note=\"2023 preprint: table / actor-critic\" />\n",
+          "after": "  <Stat label=\"DreamerV3 horizon\" value=\"15-16\" note=\"imagined steps ahead\" />\n"
+        }
+      ]
+    }
+  ]
+}

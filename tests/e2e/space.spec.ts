@@ -128,11 +128,11 @@ test.describe('adjacent space module', () => {
   }) => {
     await page.goto(ROUTE);
     const table = page.getByRole('table', {
-      name: /five on-orbit robotics milestones/i,
+      name: /six on-orbit robotics milestones/i,
     });
     await expect(table).toBeVisible();
     await expect(table.getByRole('columnheader').first()).toBeVisible();
-    await expect(table.locator('tbody tr')).toHaveCount(5);
+    await expect(table.locator('tbody tr')).toHaveCount(6);
     const text =
       (await page.locator('div.prose[data-pagefind-body]').textContent()) ?? '';
     expect(text).not.toContain('import {');

@@ -455,14 +455,20 @@ export function JepaPlanning({
             On the planning table, the ring at the left is the summary of the picture the camera sees now and
             the target at the right is the summary of the goal picture; both pictures stand on the easels in
             front. The table is the toy plane at one uniform scale, so every distance on it keeps its
-            proportion. The probe head stands on the current summary and sets out one feeler for each move it
+            proportion.
+          </p>
+          <p>
+            The probe head stands on the current summary and sets out one feeler for each move it
             tries, each ending on a pin. The lit pin sits exactly where the model predicts the kept move lands,
-            closest to the target, and &ldquo;Plan next move&rdquo; carries the head along its feeler. The
-            model&rsquo;s other moves bunch into narrow wings, so for display their pins are spread evenly
-            from 20 degrees past the kept move out to 100 degrees either side of the goal direction, each
-            keeping its side, the common reach and its order: the spread changes no pin&rsquo;s rank, and the
-            lit one stays the closest. Prick marks show
-            where the head really ended up, and the dial on the controller reads the distance left.
+            closest to the target, and &ldquo;Plan next move&rdquo; carries the head along its feeler.
+            Prick marks show where the head really ended up, and the dial on the controller reads the
+            distance left.
+          </p>
+          <p>
+            The model&rsquo;s other moves bunch into narrow wings, so for display their pins are spread
+            evenly from 20 degrees past the kept move to 100 degrees either side of the goal direction.
+            Each pin keeps its side, the common reach and its order, so the spread changes no pin&rsquo;s
+            rank and the lit one stays the closest.
           </p>
           <p>
             Each planning step tries {candidateCount} moves, scores each by the straight-line distance

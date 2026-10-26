@@ -521,6 +521,35 @@ export function explainerMounts20261026Endpoint(
 }
 
 /**
+ * Edges the convergence prose and sources slice of 2026-10-26 appended as one
+ * block after the explainer mounts: prose, relationships and front matter for
+ * the articles whose text, numbers or sources it changed, five new citation
+ * records and one citation-rendering resolution.
+ */
+export const isConvergenceProse20261026Edge = (entry: Pick<ApprovedDelta, 'id'>) =>
+  entry.id.startsWith('convergence-prose-20261026-');
+
+/**
+ * The hash the 2026-10-26 convergence prose slice leaves on a member whose
+ * chain ends at `from`: its one edge on the member must continue `from`, as a
+ * plain edge or as a resolution that reconciles it; an untouched member stays
+ * at `from`.
+ */
+export function convergenceProse20261026Endpoint(
+  entries: readonly Edge[], manifest: string, memberId: string, from: string,
+): string {
+  const edges = entries.filter((entry) => isConvergenceProse20261026Edge(entry)
+    && entry.manifest === manifest && entry.memberId === memberId);
+  if (edges.length > 1) throw new Error(`more than one 2026-10-26 convergence prose edge on ${manifest} ${memberId}`);
+  const [edge] = edges;
+  if (!edge) return from;
+  if (edge.oldHash !== from && !(edge.reconciles ?? []).some((binding) => binding.newHash === from)) {
+    throw new Error(`${edge.id} does not continue ${manifest} ${memberId} from ${from}`);
+  }
+  return edge.newHash;
+}
+
+/**
  * Edges the manipulation isometric figures of 2026-10-15 (batch
  * manipulation-b04) appended as one block after the data-hardware images: one
  * prose edge per article that gained a figure mount (action spaces, the

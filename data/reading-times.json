@@ -60,7 +60,7 @@
     "minutes": 7
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 1720,
+    "words": 1727,
     "minutes": 9
   },
   "rl-sim2real/why-rl-locomotion": {
@@ -84,7 +84,7 @@
     "minutes": 12
   },
   "rl-sim2real/reward-design-mpc": {
-    "words": 2180,
+    "words": 2178,
     "minutes": 11
   },
   "rl-sim2real/offline-rl": {
@@ -96,7 +96,7 @@
     "minutes": 8
   },
   "world-models/latent-dynamics": {
-    "words": 1372,
+    "words": 1368,
     "minutes": 7
   },
   "world-models/generative-video": {
@@ -104,7 +104,7 @@
     "minutes": 10
   },
   "world-models/jepa": {
-    "words": 1597,
+    "words": 1596,
     "minutes": 8
   },
   "world-models/generative-sim": {
@@ -128,11 +128,11 @@
     "minutes": 10
   },
   "data-hardware/datasets": {
-    "words": 1661,
+    "words": 1667,
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 2915,
+    "words": 2923,
     "minutes": 15
   },
   "data-hardware/teleop-rigs": {
@@ -140,19 +140,19 @@
     "minutes": 10
   },
   "data-hardware/evaluation-crisis": {
-    "words": 1901,
+    "words": 1902,
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2345,
+    "words": 2355,
     "minutes": 12
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1191,
+    "words": 1207,
     "minutes": 6
   },
   "classical/kinematics": {
-    "words": 1854,
+    "words": 1864,
     "minutes": 9
   },
   "classical/motion-planning": {
@@ -160,7 +160,7 @@
     "minutes": 14
   },
   "classical/control": {
-    "words": 2270,
+    "words": 2288,
     "minutes": 11
   },
   "classical/state-estimation": {
@@ -172,11 +172,11 @@
     "minutes": 9
   },
   "classical/perception": {
-    "words": 3014,
+    "words": 3042,
     "minutes": 15
   },
   "classical/scene-representation": {
-    "words": 2379,
+    "words": 2387,
     "minutes": 12
   },
   "classical/calibration": {
@@ -188,11 +188,11 @@
     "minutes": 6
   },
   "frontier/reliability-gap": {
-    "words": 1297,
-    "minutes": 6
+    "words": 1309,
+    "minutes": 7
   },
   "frontier/dexterity": {
-    "words": 2701,
+    "words": 2739,
     "minutes": 14
   },
   "frontier/generalization": {
@@ -200,15 +200,15 @@
     "minutes": 9
   },
   "frontier/competing-theses": {
-    "words": 2051,
-    "minutes": 10
+    "words": 2106,
+    "minutes": 11
   },
   "frontier/bear-case": {
-    "words": 1363,
+    "words": 1385,
     "minutes": 7
   },
   "frontier/safety-and-assurance": {
-    "words": 2552,
+    "words": 2562,
     "minutes": 13
   },
   "adjacent/autonomous-vehicles": {
@@ -220,11 +220,11 @@
     "minutes": 11
   },
   "adjacent/surgical": {
-    "words": 1878,
-    "minutes": 9
+    "words": 1987,
+    "minutes": 10
   },
   "adjacent/space": {
-    "words": 1867,
-    "minutes": 9
+    "words": 1919,
+    "minutes": 10
   }
 }

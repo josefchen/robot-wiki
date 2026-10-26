@@ -144,11 +144,12 @@ describe('content integration of 2026-09-23', () => {
     // 2026-10-10 frontier pass (landed after that batch) and the 2026-10-13
     // data-hardware domain pass and length cut, the 2026-10-14 adjacent
     // domain pass and length cut, the 2026-10-20 KOL triage batch, each
-    // domain block of the 2026-10-21 batch, the 2026-10-24 KOL overdue triage
-    // and each domain block of the 2026-10-25 KOL queue batch close the shared
-    // rendering chain with their own resolution; the newest is the head.
+    // domain block of the 2026-10-21 batch, the 2026-10-24 KOL overdue triage,
+    // each domain block of the 2026-10-25 KOL queue batch and the 2026-10-26
+    // convergence prose slice close the shared rendering chain with their own
+    // resolution; the newest is the head.
     const domainPassRendering = approvals.filter(a =>
-      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024|kol-batch-20261025-[a-z0-9-]+)-citation-rendering$/.test(a.id));
+      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024|kol-batch-20261025-[a-z0-9-]+|convergence-prose-20261026)-citation-rendering$/.test(a.id));
     expect(domainPassRendering.length).toBeGreaterThan(0);
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe(domainPassRendering.at(-1)!.id);
@@ -211,18 +212,20 @@ describe('content integration of 2026-09-23', () => {
       'web.archive.org/web/20251118224554/',
     );
     // The 2026-10-06 domain passes append the owner's verified-draft entries, checked by their own audit rows.
+    // The convergence prose slice of 2026-10-26 adds five primary sources, each with its audit row.
     expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id) && !DOMAIN_PASS_CITATION_IDS.has(id)).sort()).toEqual([
-      'ad-e2e-jepa-2026', 'agility-digit-production', 'agro-suvide-2026', 'asena-2026', 'chord-2026', 'chunktrust-2026', 'dexagent-2026',
+      'a3-r1506-2025-store', 'ad-e2e-jepa-2026', 'agibot-omdia-ranking-2026', 'agility-digit-production', 'agro-suvide-2026',
+      'asena-2026', 'bjnews-noetix-bumi-2025', 'chord-2026', 'chunktrust-2026', 'dexagent-2026',
       'dreamzero-2026', 'dsrl-2025', 'embodiedswe-2026', 'excavator-mbrl-2026', 'expo-2025',
       'expo-ft-2026', 'figure-bmw-production-2025', 'fingr-2026', 'grail-2026', 'humanoidmimicgen-2026',
-      'ifr-world-robotics-2026-release', 'insertion-world-models-2026', 'lei-cycle-time-definition',
-      'lei-takt-time-definition', 'llama-3-herd-2024', 'mesh-mcl-construction-2026', 'morphometric-imitation-2026',
+      'ifr-world-robotics-2026-release', 'insertion-world-models-2026', 'kroger-8k-ecommerce-2025', 'lei-cycle-time-definition',
+      'lei-takt-time-definition', 'llama-3-herd-2024', 'maker-2025', 'mesh-mcl-construction-2026', 'morphometric-imitation-2026',
       'nasa-availability-prediction-analysis', 'paxton-autonomous-trucks-2026',
       'perry-dong-post-training-2026', 'prefpi-2026', 'prism-humanoid-2026', 'realtime-expo-ft-2026', 'roboharn-evo-2026', 'robottt-2026',
       'shiu-ahmad-1989', 'simex-2026', 'simfoundry-2026', 't-rex-2026', 't2mem-2026', 'tesla-q1-2026-update',
       'trace-cables-2026', 'wcbf-hyper-redundant-2026',
     ]);
-    expect(CITATIONS).toHaveLength(baseIds.length + 38 + DOMAIN_PASS_CITATION_IDS.size);
+    expect(CITATIONS).toHaveLength(baseIds.length + 43 + DOMAIN_PASS_CITATION_IDS.size);
     expect(CITATIONS.find((c) => c.id === 'agility-digit-production')).toMatchObject({
       year: 'n.d.',
       accessedOn: '2026-09-24',

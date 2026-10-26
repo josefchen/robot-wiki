@@ -619,8 +619,8 @@ export function EgoScaleScaling({
             not extrapolate beyond the measured range.
           </p>
           <p data-testid="scaling-legend">
-            The line is this wiki&rsquo;s own least-squares log-linear fit through the five
-            scores, an editorial completion fit ({PUBLIC_IDENTITY}, R&sup2; ={' '}
+            The line is a least-squares log-linear fit through the five scores, an editorial
+            completion fit ({PUBLIC_IDENTITY}, R&sup2; ={' '}
             {COMPLETION_FIT.rSquared.toFixed(2)}), not the paper&rsquo;s law. It reads 0.89 at
             100k hours, crosses the 0.90 solved bar near{' '}
             {Math.round(solvedBarCrossingHours() / 1000)}k hours and passes 100% near{' '}

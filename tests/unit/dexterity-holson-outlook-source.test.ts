@@ -5,6 +5,7 @@ import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest,
   parseCompoundPlans, parseLedger,
 } from '../../lib/audit-ledger';
+import { preConvergenceProse } from '../helpers/seo-pass';
 
 const text = readFileSync('content/frontier/dexterity.mdx', 'utf8');
 const ledger = readFileSync('audit/frontier.md', 'utf8');
@@ -180,7 +181,10 @@ describe('Shared review, adjudication and preservation bindings', () => {
     expect(records()[9].sourceChecked).toContain('2026-09-14');
     expect(records()[10].sourceChecked).toContain('2026-09-14');
     expect(records()[27].sourceChecked).toContain('2026-09-14');
-    expect(text).toContain('lastReviewed: "2026-08-18"');
+    // The convergence prose slice of 2026-10-26 reviewed the article and
+    // moved its date; the article as that slice received it keeps this date.
+    expect(preConvergenceProse('content/frontier/dexterity.mdx').toString()).toContain('lastReviewed: "2026-08-18"');
+    expect(text).toContain('lastReviewed: "2026-10-26"');
   });
 
   test.each(['review', 'adjudication', 'pair', 'url', 'stale', 'passage'] as const)(

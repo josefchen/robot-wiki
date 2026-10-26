@@ -26,8 +26,8 @@
     },
     {
       "path": "data/citations.ts",
-      "bytes": 991776,
-      "sha256": "e4c3747c1b20b0f62461bc1eb2d33e4cd8e62c57ed9d895814720911c62a14cf"
+      "bytes": 997345,
+      "sha256": "b44a76825d75943cf8196a1bba277a74f822acf62c602e0c1d27bcea4f08fcaa"
     },
     {
       "path": "data/schemas/citation.ts",

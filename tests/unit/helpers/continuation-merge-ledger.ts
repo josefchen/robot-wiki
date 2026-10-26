@@ -429,6 +429,13 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   which moved those twelve articles' prose and kinematics' relationships,
  *   each member with one edge from its last approved endpoint, or one
  *   resolution from the sealed hash where its chain already holds one.
+ * - `convergence-prose-20261026-`: the convergence prose and sources slice of
+ *   2026-10-26 fixed prose, restored numbers and added primary sources over
+ *   twenty-one articles, which moved their prose, relationships and front
+ *   matter and registered five citation records, each member with one edge
+ *   from its last approved endpoint, or one resolution from the sealed hash
+ *   where its chain already holds one, and one
+ *   `citation-rendering:label-and-meta` resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -488,6 +495,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'kol-batch-20261024-',
   'kol-batch-20261025-',
   'explainer-mounts-20261026-',
+  'convergence-prose-20261026-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

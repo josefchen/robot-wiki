@@ -304,8 +304,7 @@ export function TeacherStudent({
             channel is a grey stub in the strip and a gap in the dashed guess.
           </p>
           <p>
-            This is an authored toy: reconstruction error and action divergence rise by construction as degradation
-            increases. The ground is chosen terrain, the leg readings are that terrain normalized plus seeded noise,
+            Reconstruction error and action divergence rise by construction as degradation increases. The ground is chosen terrain, the leg readings are that terrain normalized plus seeded noise,
             and the guess is the terrain plus an authored error field; it is not inferred from the strip. Higher
             ground is drawn higher, with its height exaggerated. Darker cells are higher terrain: each of the 24
             cells under the profile is shaded by its height, so the shade and the height agree.

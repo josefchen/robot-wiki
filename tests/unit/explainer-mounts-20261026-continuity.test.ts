@@ -6,17 +6,17 @@ import { join, resolve } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { EXPLAINER_MOUNTS } from '../../components/explainers/mounts';
 import {
-  EXPLAINER_IMPORT, EXPLAINER_MOUNT_CONTINUITY_DIR, explainerMountPredecessor, explainerMountSuccessorPaths,
-  keepsExplainerMountObligations, loadExplainerMountReview, verifyExplainerMountSource,
+  EXPLAINER_IMPORT, EXPLAINER_MOUNT_CONTINUITY_DIR, explainerMountPredecessor, explainerMountReviewedCue,
+  explainerMountSuccessorPaths, keepsExplainerMountObligations, loadExplainerMountReview, verifyExplainerMountSource,
 } from '../../lib/audit-explainer-mount-continuity';
 import { answerOptionsPredecessor } from '../../lib/audit-answer-options-continuity';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
-import { preAnswerOptions, preExplainerMounts, preSeoPass } from '../helpers/seo-pass';
+import { preAnswerOptions, preConvergenceProse, preExplainerMounts, preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-// No newer layer precedes this one, so the live article is itself the successor.
-const read = (path: string) => readFileSync(join(root, path));
+// The newer convergence-prose layer (2026-10-26) hands back this layer's successor.
+const read = (path: string) => preConvergenceProse(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /explainer-mount continuity drift/;
 const blank = { bytes: 0, sha256: '' };
@@ -77,7 +77,7 @@ describe('explainer mounts 2026-10-26 article successors', () => {
 
   it('admits only the import, the row\'s mount and cue, and /how-robots-work/ links around existing words', () => {
     const path = 'content/classical/kinematics.mdx';
-    const { cue } = EXPLAINER_MOUNTS.reaching;
+    const cue = explainerMountReviewedCue('reaching');
     const prior = [
       '---', 'title: Demo', '---', '', "import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';", '',
       'A serial arm is a chain of 6 links <Cite id="demo-2024" />.', '',

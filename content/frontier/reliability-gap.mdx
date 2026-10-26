@@ -5,7 +5,7 @@ domain: frontier
 slug: reliability-gap
 order: 1
 status: published
-lastReviewed: "2026-09-24"
+lastReviewed: "2026-10-26"
 citations:
   - bessemer-robotics-2026
   - pistar06-blog-2025
@@ -13,7 +13,6 @@ citations:
   - asimov-agentic-2026
   - gemini-robotics-2-2026
   - pi07-blog-2026
-  - agility-digit-production
   - figure-bmw-production-2025
   - tesla-q1-2026-update
   - kress-gazit-evaluation-2024
@@ -38,6 +37,7 @@ citations:
   - tri-lbm-2025
   - waymo-crash-rates-2025
   - adcock-figure-livestream-2026
+  - maker-2025
 seeAlso:
   - "data-hardware/industrial-deployment"
   - "manipulation/generalist-policies"
@@ -60,7 +60,7 @@ The reliability gap is the difference between the <Term id="success-rate">succes
 <span id="the-arithmetic-of-compounding" />
 ## At 99.9% per step, a 30-step task still fails about once in 34 runs
 
-A task succeeds only when every step does: if each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$. A result without its horizon cannot be compared, and papers often omit runs, initial conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />. Try the presets, then drag the per-step slider under “Adjust more” toward 100.
+A task succeeds only when every step does: if each of $N$ steps succeeds independently with probability $p$, the task completes with probability $p^N$ <Cite id="maker-2025" />. A result without its horizon cannot be compared, and papers often omit runs, initial conditions and success criteria <Cite id="kress-gazit-evaluation-2024" />. Try the presets, then drag the per-step slider under "Adjust more" toward 100.
 
 <ReliabilityCompounding minPerStepPercent={0} maxPerStepPercent={100} presets="per-step-thresholds" descriptionVariant="reliability" className="my-6" />
 
@@ -78,7 +78,7 @@ Hamilton-Jacobi reachability faces "exponential computational complexity with re
 <span id="what-is-closing-the-gap" />
 ## RL from experience lifts single tasks into the 90% range and above
 
-Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id="pistar06-blog-2025" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id="pistar06-2025" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, and a juicing robot served mall customers for about seven hours without failure <Cite id="rl-100-2025" />. Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />.
+Physical Intelligence reports that π*0.6 with Recap, learning from the robot's own experience, cuts failure rates by 2x or more on hard tasks, with more than 2x throughput on some of the hardest tasks <Cite id="pistar06-blog-2025" />. Its paper puts every task except diverse laundry in the 90%+ range <Cite id="pistar06-2025" />. RL-100 succeeded in 1,000 of 1,000 episodes across 8 tasks, including 250 consecutive successes on one task, and a juicing robot served mall customers for about seven hours without failure <Cite id="rl-100-2025" />. Real-Time EXPO-FT lifts four dynamic tasks from 42% to 97% <Cite id="realtime-expo-ft-2026" />.
 
 These are mostly per-task specialists, though RL-100 keeps about 90% zero-shot success under environmental and dynamics shifts <Cite id="rl-100-2025" /> and RAPolicy raised five jointly trained tasks from 52% to 88% <Cite id="rapolicy-2026" />. Generalist reports a pretraining route: GEN-1 averages 99% on fine-tuned tasks where GEN-0 reached 64% <Cite id="generalist-gen1-2026" />.
 
@@ -91,13 +91,13 @@ Google's ASIMOV-Agentic benchmark tests whether an embodied-reasoning agent resp
 <span id="what-is-actually-deployed" />
 ## Dated company records report hours and a single site's accuracy
 
-Agility reports 65,000 hours of Digit production experience <Cite id="agility-digit-production" /> ([industrial deployment](/data-hardware/industrial-deployment/)), and in September 2026 about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id="agility-digit-5-2026" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id="figure-bmw-production-2025" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an "Optimus Academy for training data collection" <Cite id="tesla-q1-2026-update" /> <Cite id="tesla-q2-2026-update" />.
+Agility said in September 2026 that Digit 4 has logged more than 65,000 hours of operational time ([industrial deployment](/data-hardware/industrial-deployment/)), with about 98% on-task accuracy across 100,000 totes at GXO's Flowery Branch site <Cite id="agility-digit-5-2026" />. Figure's November 2025 report says its BMW Spartanburg deployment logged 1,250+ runtime hours and loaded 90,000+ parts in eleven months, while its 84-second cycle and >99% placement accuracy were targets it did not report as achieved <Cite id="figure-bmw-production-2025" />. Tesla's Q1 and Q2 2026 updates list both Optimus lines as under construction, with first builds going to an "Optimus Academy for training data collection" <Cite id="tesla-q1-2026-update" /> <Cite id="tesla-q2-2026-update" />.
 
 <Image id="tesla-optimus-stockholm-2024" />
 
 <DeploymentDashboard className="my-6" />
 
-Figure's May 2026 package-sorting livestream sits under “Demo only”. Planned as one eight-hour shift <Cite id="adcock-figure-livestream-2026" />, it ran for 200 hours by Figure's account <Cite id="helix-2-5-2026" />. Business Insider reported that a stuck robot triggered an automatic reset <Cite id="bi-figure-livestream-2026" />. It covered a single task at a single site, with no published success rate.
+Figure's May 2026 package-sorting livestream sits under "Demo only". Planned as one eight-hour shift <Cite id="adcock-figure-livestream-2026" />, it ran for 200 hours by Figure's account <Cite id="helix-2-5-2026" />. Business Insider reported that a stuck robot triggered an automatic reset <Cite id="bi-figure-livestream-2026" />. It covered a single task at a single site, with no published success rate.
 
 <span id="what-solved-would-look-like" />
 ## Showing 99.9% takes about 3,000 straight successes
@@ -112,11 +112,11 @@ Real-robot comparisons are often limited to 10 or 50 trials <Cite id="optimal-st
     {
       value: 'monitor-closes',
       label: 'Yes, roughly: catching failures before they compound means most detected episodes still complete, so the effective rate climbs toward what the customer needs',
-      why: 'This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy’s own success rate.'
+      why: "This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy's own success rate."
     },
     {
       value: 'monitor-no',
-      label: 'No, only on-robot experience moves the policy’s own number: a monitor converts failures into safe stops and human escalations',
+      label: "No, only on-robot experience moves the policy's own number: a monitor converts failures into safe stops and human escalations",
       why: 'Monitoring catches failures instead of preventing them. The methods that move per-step reliability are RL from experience: π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, both as per-task specialists.'
     },
     {
@@ -126,5 +126,5 @@ Real-robot comparisons are often limited to 10 or 50 trials <Cite id="optimal-st
     }
   ]}
   answer="monitor-no"
-  takeaway="Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy’s own per-step number."
+  takeaway="Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy's own per-step number."
 />

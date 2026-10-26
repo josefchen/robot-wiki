@@ -4,6 +4,7 @@ import { CITATIONS } from '../../data/citations';
 import {
   compoundPartDigest, compoundPlanDigest, parseCompoundPlans, parseLedger,
 } from '../../lib/audit-ledger';
+import { preConvergenceProse } from '../helpers/seo-pass';
 
 const text = readFileSync('content/frontier/dexterity.mdx', 'utf8');
 const ledger = readFileSync('audit/frontier.md', 'utf8');
@@ -66,7 +67,10 @@ describe('Brooks dexterity source corrections', () => {
     expect(records()).toHaveLength(30);
   });
   test('preserves the article date and historical Figure15 hold', () => {
-    expect(text).toContain('lastReviewed: "2026-08-18"');
+    // The convergence prose slice of 2026-10-26 reviewed the article and
+    // moved its date; the article as that slice received it keeps this date.
+    expect(preConvergenceProse('content/frontier/dexterity.mdx').toString()).toContain('lastReviewed: "2026-08-18"');
+    expect(text).toContain('lastReviewed: "2026-10-26"');
     expect(ledger).toContain('Original15 is HELD:');
     // The separately tested Figure15 continuation supersedes the hold, not its history.
   });

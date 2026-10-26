@@ -141,7 +141,11 @@ describe('data-hardware prose truth', () => {
       // 2026-10-21 added one more to evaluation-crisis (the WorldOracle
       // paragraph), and the KOL overdue triage of 2026-10-24 one more (the
       // StopWatch paragraph). The KOL queue batch of 2026-10-25 re-resolved
-      // industrial-deployment (the Hurst paragraph on Digit 5).
+      // industrial-deployment (the Hurst paragraph on Digit 5). The
+      // convergence prose slice of 2026-10-26 added one more plain edge to
+      // evaluation-crisis (straight quotes and a source for the per-step product) and
+      // re-resolved industrial-deployment (the Kroger 8-K and the calculator
+      // defaults left to their controls).
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
@@ -151,14 +155,16 @@ describe('data-hardware prose truth', () => {
           'length-cut-20261013-data-hardware-prose-evaluation-crisis',
           'images-dh-20261015-prose-data-hardware-evaluation-crisis',
           'kol-batch-20261021-data-hardware-prose-evaluation-crisis',
-          'kol-batch-20261024-prose-data-hardware-evaluation-crisis']
+          'kol-batch-20261024-prose-data-hardware-evaluation-crisis',
+          'convergence-prose-20261026-prose-data-hardware-evaluation-crisis']
         : ['round6-prose-restores-20260929-prose-industrial-deployment',
           'seo-pass-20261002-prose-data-hardware-industrial-deployment',
           'reader-first-20261002-prose-data-hardware-industrial-deployment',
           'kol-backlog-20261005-data-hardware-prose-industrial-deployment',
           'length-cut-20261013-data-hardware-prose-industrial-deployment',
           'images-dh-20261015-prose-data-hardware-industrial-deployment',
-          'kol-batch-20261025-data-hardware-prose-industrial-deployment'];
+          'kol-batch-20261025-data-hardware-prose-industrial-deployment',
+          'convergence-prose-20261026-prose-data-hardware-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9dc0b0a15fccafff80d084e1990fcf76e293b8216ab9e6fb32777875de234590",
+  "fingerprint": "b29eea4e815486e66eaabcb5e31459142536a57a26a174a11d8a6b2b769721b6",
   "viewports": [
     "375x812",
     "1440x900"
@@ -72,7 +72,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 31767,
+      "visibleTextLength": 31927,
       "tables": [
         {
           "index": 0,
@@ -271,14 +271,14 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 22626,
+      "visibleTextLength": 22953,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Five on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, and ADRAS-J, with the year, the operator, and what each mission demonstrated.",
-          "captionText": "Five on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, and ADRAS-J, with the year, the operator, and what each mission demonstrated.",
+          "accessibleName": "Six on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, ADRAS-J and the Mission Robotic Vehicle, with the year, the operator, and what each mission demonstrated.",
+          "captionText": "Six on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, ADRAS-J and the Mission Robotic Vehicle, with the year, the operator, and what each mission demonstrated.",
           "columnHeaders": 4,
-          "rowHeaders": 5,
+          "rowHeaders": 6,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -290,10 +290,10 @@
             "role": "region",
             "accessibleName": "On-orbit servicing robotics milestones",
             "clientWidth": 327,
-            "scrollWidth": 592,
+            "scrollWidth": 657,
             "scrolledBy": 40
           },
-          "tableWidth": 592,
+          "tableWidth": 657,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -308,7 +308,7 @@
           "accessibleName": "On-orbit servicing robotics milestones",
           "tabIndex": 0,
           "clientWidth": 327,
-          "scrollWidth": 592,
+          "scrollWidth": 657,
           "scrolledBy": 40
         }
       ],
@@ -322,14 +322,14 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21786,
+      "visibleTextLength": 22536,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
-          "captionText": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
+          "accessibleName": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, Medtronic Hugo, J&J OTTAVA and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
+          "captionText": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, Medtronic Hugo, J&J OTTAVA and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
           "columnHeaders": 4,
-          "rowHeaders": 3,
+          "rowHeaders": 5,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -543,7 +543,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23643,
+      "visibleTextLength": 23737,
       "tables": [],
       "equations": [
         {
@@ -972,7 +972,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19106,
+      "visibleTextLength": 19128,
       "tables": [],
       "equations": [
         {
@@ -1411,7 +1411,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17089,
+      "visibleTextLength": 17145,
       "tables": [
         {
           "index": 0,
@@ -1973,7 +1973,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27161,
+      "visibleTextLength": 27139,
       "tables": [
         {
           "index": 0,
@@ -2777,7 +2777,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 33030,
+      "visibleTextLength": 33185,
       "tables": [],
       "equations": [
         {
@@ -3296,7 +3296,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28753,
+      "visibleTextLength": 28791,
       "tables": [],
       "equations": [
         {
@@ -3906,7 +3906,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21029,
+      "visibleTextLength": 21030,
       "tables": [
         {
           "index": 0,
@@ -3992,7 +3992,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20394,
+      "visibleTextLength": 20426,
       "tables": [
         {
           "index": 0,
@@ -4043,7 +4043,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 22042,
+      "visibleTextLength": 22276,
       "tables": [
         {
           "index": 0,
@@ -4351,7 +4351,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27747,
+      "visibleTextLength": 27963,
       "tables": [
         {
           "index": 0,
@@ -4402,7 +4402,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24840,
+      "visibleTextLength": 24599,
       "tables": [
         {
           "index": 0,
@@ -4453,7 +4453,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17272,
+      "visibleTextLength": 17588,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4467,7 +4467,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21037,
+      "visibleTextLength": 20900,
       "tables": [
         {
           "index": 0,
@@ -4518,7 +4518,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16202,
+      "visibleTextLength": 16508,
       "tables": [
         {
           "index": 0,
@@ -4569,7 +4569,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20106,
+      "visibleTextLength": 20420,
       "tables": [
         {
           "index": 0,
@@ -4620,7 +4620,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24426,
+      "visibleTextLength": 24633,
       "tables": [
         {
           "index": 0,
@@ -4671,7 +4671,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 18445,
+      "visibleTextLength": 18446,
       "tables": [
         {
           "index": 0,
@@ -4771,7 +4771,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 15593,
+      "visibleTextLength": 15759,
       "tables": [
         {
           "index": 0,
@@ -4986,7 +4986,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26719,
+      "visibleTextLength": 27168,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -6857,7 +6857,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26425,
+      "visibleTextLength": 26447,
       "tables": [
         {
           "index": 0,
@@ -7218,7 +7218,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17456,
+      "visibleTextLength": 17478,
       "tables": [
         {
           "index": 0,
@@ -7304,7 +7304,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24514,
+      "visibleTextLength": 24505,
       "tables": [
         {
           "index": 0,
@@ -7417,7 +7417,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 22001,
+      "visibleTextLength": 22054,
       "tables": [
         {
           "index": 0,
@@ -7855,7 +7855,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 15884,
+      "visibleTextLength": 15864,
       "tables": [
         {
           "index": 0,
@@ -8057,7 +8057,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 47114,
+      "visibleTextLength": 47274,
       "tables": [
         {
           "index": 0,
@@ -8108,7 +8108,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 33886,
+      "visibleTextLength": 33864,
       "tables": [
         {
           "index": 0,
@@ -8256,14 +8256,14 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 34362,
+      "visibleTextLength": 34689,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Five on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, and ADRAS-J, with the year, the operator, and what each mission demonstrated.",
-          "captionText": "Five on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, and ADRAS-J, with the year, the operator, and what each mission demonstrated.",
+          "accessibleName": "Six on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, ADRAS-J and the Mission Robotic Vehicle, with the year, the operator, and what each mission demonstrated.",
+          "captionText": "Six on-orbit robotics milestones: ETS-VII, Orbital Express, Canadarm2 with Dextre, MEV-1, ADRAS-J and the Mission Robotic Vehicle, with the year, the operator, and what each mission demonstrated.",
           "columnHeaders": 4,
-          "rowHeaders": 5,
+          "rowHeaders": 6,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -8307,14 +8307,14 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 32253,
+      "visibleTextLength": 33003,
       "tables": [
         {
           "index": 0,
-          "accessibleName": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
-          "captionText": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
+          "accessibleName": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, Medtronic Hugo, J&J OTTAVA and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
+          "captionText": "Surgical robotic systems compared: Intuitive da Vinci, CMR Versius, Medtronic Hugo, J&J OTTAVA and Moon Surgical Maestro, by design focus, differentiator, and regulatory path, with each system’s position on the six-level autonomy scale of Yang et al.",
           "columnHeaders": 4,
-          "rowHeaders": 3,
+          "rowHeaders": 5,
           "unscopedHeaders": 0,
           "sortButtons": 0,
           "sortedColumns": 0,
@@ -8528,7 +8528,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30210,
+      "visibleTextLength": 31173,
       "tables": [],
       "equations": [
         {
@@ -9396,7 +9396,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23961,
+      "visibleTextLength": 23995,
       "tables": [
         {
           "index": 0,
@@ -9958,7 +9958,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 36672,
+      "visibleTextLength": 36694,
       "tables": [
         {
           "index": 0,
@@ -10762,7 +10762,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 42868,
+      "visibleTextLength": 43197,
       "tables": [],
       "equations": [
         {
@@ -11281,7 +11281,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 37195,
+      "visibleTextLength": 37996,
       "tables": [],
       "equations": [
         {
@@ -11891,7 +11891,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28061,
+      "visibleTextLength": 28062,
       "tables": [
         {
           "index": 0,
@@ -11977,7 +11977,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27953,
+      "visibleTextLength": 28455,
       "tables": [
         {
           "index": 0,
@@ -12028,7 +12028,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30079,
+      "visibleTextLength": 30452,
       "tables": [
         {
           "index": 0,
@@ -12336,7 +12336,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 34625,
+      "visibleTextLength": 35038,
       "tables": [
         {
           "index": 0,
@@ -12387,7 +12387,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 32553,
+      "visibleTextLength": 32785,
       "tables": [
         {
           "index": 0,
@@ -12438,7 +12438,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23376,
+      "visibleTextLength": 24605,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12452,7 +12452,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27532,
+      "visibleTextLength": 27395,
       "tables": [
         {
           "index": 0,
@@ -12503,7 +12503,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21879,
+      "visibleTextLength": 22707,
       "tables": [
         {
           "index": 0,
@@ -12554,7 +12554,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26686,
+      "visibleTextLength": 27406,
       "tables": [
         {
           "index": 0,
@@ -12605,7 +12605,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30020,
+      "visibleTextLength": 30748,
       "tables": [
         {
           "index": 0,
@@ -12656,7 +12656,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 25349,
+      "visibleTextLength": 25350,
       "tables": [
         {
           "index": 0,
@@ -12756,7 +12756,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20339,
+      "visibleTextLength": 20529,
       "tables": [
         {
           "index": 0,
@@ -12971,7 +12971,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 37733,
+      "visibleTextLength": 38420,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -14842,7 +14842,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 34102,
+      "visibleTextLength": 34080,
       "tables": [
         {
           "index": 0,
@@ -15203,7 +15203,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24209,
+      "visibleTextLength": 24231,
       "tables": [
         {
           "index": 0,
@@ -15289,7 +15289,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 32254,
+      "visibleTextLength": 32245,
       "tables": [
         {
           "index": 0,
@@ -15402,7 +15402,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28131,
+      "visibleTextLength": 28502,
       "tables": [
         {
           "index": 0,
@@ -15840,7 +15840,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 22199,
+      "visibleTextLength": 22179,
       "tables": [
         {
           "index": 0,

@@ -13765,6 +13765,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:a3-r1506-2025-store",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:a3-robot-safety-standards",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -13881,6 +13886,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:agibot-omdia-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:agibot-omdia-ranking-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -14391,6 +14401,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:bjelonic-sim2real-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:bjnews-noetix-bumi-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -16990,6 +17005,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:kroger-8k-ecommerce-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:kroger-ocado-closures-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -17386,6 +17406,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:maier-hein-sds-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:maker-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21340,7 +21365,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 2007,
+        "populationSize": 2012,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21843,6 +21868,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:a2c2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:a2rl-2026-final",
           "result:VAL-B2-BASE-002:article-metadata:citation:a3-orders-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:a3-r1506-2025-store",
           "result:VAL-B2-BASE-002:article-metadata:citation:a3-robot-safety-standards",
           "result:VAL-B2-BASE-002:article-metadata:citation:ac-mpc-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:acemoglu-lelarge-restrepo-2020",
@@ -21867,6 +21893,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:agibot-go2-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:agibot-go2-robotreport-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:agibot-omdia-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:agibot-omdia-ranking-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:agibot-world-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:agibot-world-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:agibot-world-repo",
@@ -21969,6 +21996,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:bilinear-flow-policy-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:bit-star-2017",
           "result:VAL-B2-BASE-002:article-metadata:citation:bjelonic-sim2real-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:bjnews-noetix-bumi-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:blip2-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:block-generative-bc-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:blue-ghost-lister-2025",
@@ -22488,6 +22516,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:koenemann-2015",
           "result:VAL-B2-BASE-002:article-metadata:citation:koopman-safe-enough-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:kress-gazit-evaluation-2024",
+          "result:VAL-B2-BASE-002:article-metadata:citation:kroger-8k-ecommerce-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:kroger-ocado-closures-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:kschischang-2001",
           "result:VAL-B2-BASE-002:article-metadata:citation:kuindersma-2015",
@@ -22568,6 +22597,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:maestro-tavac-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:mahony-multirotor-2012",
           "result:VAL-B2-BASE-002:article-metadata:citation:maier-hein-sds-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:maker-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:manip-wm-survey-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:manipulationnet-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:maniskill3-2024",
@@ -52777,7 +52807,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:ac3da0a80c24b102",
+          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:808f1dab89f8d0de",
           "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
         },
         {
@@ -53242,7 +53272,7 @@
           "result:VAL-B2-OG-012:probe:og-face:data:d0a3fa9f0c101207",
           "result:VAL-B2-OG-012:probe:og-face:data:25c2fc40eff51fde",
           "result:VAL-B2-OG-012:probe:og-face:data:58858c2d40eb50cb",
-          "result:VAL-B2-OG-012:probe:og-face:data:ac3da0a80c24b102",
+          "result:VAL-B2-OG-012:probe:og-face:data:808f1dab89f8d0de",
           "result:VAL-B2-OG-012:probe:og-face:data:6e40e282781a403b",
           "result:VAL-B2-OG-012:probe:og-face:data:108d165c7dc82d62",
           "result:VAL-B2-OG-012:probe:og-face:data:8a138776ed52b97c",
@@ -65151,7 +65181,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#what-is-actually-automated-at-scale",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#what-the-installed-base-automates",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -65236,7 +65266,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-TYPE-009:/frontier/bear-case/#as-of-august-2026-none-of-the-eight-milestones-is-met",
+          "evidenceRowId": "result:VAL-B2-TYPE-009:/frontier/bear-case/#as-of-september-2026-none-of-the-eight-milestones-is-met",
           "mechanism": "VAL-B2-TYPE-009 per-member evidence derived from the persisted 375x812/1440x900 sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over evidence/brand-v2/article-typography.json#sectionHeadings"
         },
         {
@@ -66884,7 +66914,7 @@
           "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#the-jam-rate-is-the-lesson",
           "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#the-labour-evidence-disagreement-intact",
           "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#the-metrics-that-decide-a-deployment",
-          "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#what-is-actually-automated-at-scale",
+          "result:VAL-B2-TYPE-009:/data-hardware/industrial-deployment/#what-the-installed-base-automates",
           "result:VAL-B2-TYPE-009:/data-hardware/robot-learning-stack/#a-minimal-stack-for-a-small-team",
           "result:VAL-B2-TYPE-009:/data-hardware/robot-learning-stack/#contract-1-hardware-and-calibration",
           "result:VAL-B2-TYPE-009:/data-hardware/robot-learning-stack/#contract-2-episode-capture",
@@ -66901,7 +66931,7 @@
           "result:VAL-B2-TYPE-009:/data-hardware/teleop-rigs/#the-comparison-matrix",
           "result:VAL-B2-TYPE-009:/data-hardware/teleop-rigs/#umi-collection-without-a-robot",
           "result:VAL-B2-TYPE-009:/data-hardware/teleop-rigs/#vr-teleoperation-scale-through-headsets",
-          "result:VAL-B2-TYPE-009:/frontier/bear-case/#as-of-august-2026-none-of-the-eight-milestones-is-met",
+          "result:VAL-B2-TYPE-009:/frontier/bear-case/#as-of-september-2026-none-of-the-eight-milestones-is-met",
           "result:VAL-B2-TYPE-009:/frontier/bear-case/#brooks-calls-the-dexterity-forecasts-fantasy-and-morgan-stanley-asks-for-roi",
           "result:VAL-B2-TYPE-009:/frontier/bear-case/#four-measurable-results-would-falsify-the-bear-case",
           "result:VAL-B2-TYPE-009:/frontier/bear-case/#robotics-funding-passed-23-billion-dollars-by-june-2026-and-china-repriced-first",

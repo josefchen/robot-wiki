@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { CITATIONS } from '../../data/citations';
 import { committedSource } from '../helpers/continuation-integration';
 import { originalClaimDigest, parseCompoundPlans, parseLedger } from '../../lib/audit-ledger';
+import { preConvergenceProse } from '../helpers/seo-pass';
 
 const article = readFileSync('content/data-hardware/industrial-deployment.mdx', 'utf8');
 const catalog = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
@@ -31,7 +32,11 @@ describe('Industrial engineering originals 30 and atomic 34/45', () => {
     expect(article.includes('across that 100,000-year gap')).toBe(false);
     expect(committedSource('0cbdda1', 'content/data-hardware/industrial-deployment.mdx')
       .includes('lastReviewed: "2026-08-22"')).toBe(true);
-    expect(article.includes('lastReviewed: "2026-09-24"')).toBe(true);
+    // The convergence prose slice of 2026-10-26 moved the date again; the
+    // article as that slice received it keeps the date this pass left.
+    expect(preConvergenceProse('content/data-hardware/industrial-deployment.mdx').toString()
+      .includes('lastReviewed: "2026-09-24"')).toBe(true);
+    expect(article.includes('lastReviewed: "2026-10-26"')).toBe(true);
   });
 
   it('keeps Goldberg identity without manufacturing a metadata correction', () => {
