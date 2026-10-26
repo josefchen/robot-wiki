@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-26T11:46:09Z",
+  "observedAt": "2026-10-26T16:31:05Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -10656,8 +10656,8 @@
       },
       "after": {
         "path": "tests/e2e/dexterity.spec.ts",
-        "bytes": 13268,
-        "sha256": "c0573b4c5c4b4d32105145f81d000583f4167fcac7e34a610aabc99758a7bf97"
+        "bytes": 13499,
+        "sha256": "7ebfc7487bfeaeeb633dc7f96b6fd3d12885ba043faeef549214a18f492532c4"
       },
       "edits": [
         {
@@ -10687,6 +10687,10 @@
         {
           "before": "    expect(mainText).toContain('The honest 2026 position is intermediate');\n    expect(mainText).toContain('will be settled less by argument than');\n",
           "after": "    expect(mainText).toContain('Touch now ships on flagship hands');\n    expect(mainText).toContain('The open question is which data closes the gap.');\n"
+        },
+        {
+          "before": "    const betAgainst = main.getByRole('link', { name: 'Figure AI 2025' }).first();\n",
+          "after": "    // Figure 03's own announcement is also \"Figure AI 2025\" and is cited\n    // earlier on the page, so the Go-Big chip is picked out by its address.\n    const betAgainst = main.getByRole('link', { name: 'Figure AI 2025' })\n      .and(main.locator('a[href=\"https://www.figure.ai/news/project-go-big\"]')).first();\n"
         },
         {
           "before": "    const readout = page.getByTestId('hand-comparison-readout');\n",
@@ -10794,8 +10798,8 @@
       },
       "after": {
         "path": "tests/e2e/economics-local-evidence.spec.ts",
-        "bytes": 7290,
-        "sha256": "07859c3259e8616b9c65c65c67c722f043af4939f86c2d667694d34b8edb0ad7"
+        "bytes": 7553,
+        "sha256": "317bc0cff4461df8b4623477235bc96eb7b5f7f143602913f0682143a1876514"
       },
       "edits": [
         {
@@ -10807,8 +10811,12 @@
           "after": "  await expect(mount).toHaveCount(1);\n  await openAdjustMore(mount);\n  await openHowThisWasMade(mount);\n"
         },
         {
+          "before": "      for (const attribute of ['min', 'max', 'step'] as const) await expect(control).toHaveAttribute(attribute, String(ranges[key][attribute]));\n",
+          "after": "      for (const attribute of ['min', 'max', 'step'] as const) await expect(control).toHaveAttribute(attribute, String(ranges[key][attribute]));\n      // The article no longer restates the seven defaults; each control's\n      // own note marks its value as an assumption instead.\n      await expect(control.locator('xpath=following-sibling::*[@data-control-note]')).toContainText('Assumption:');\n"
+        },
+        {
           "before": "    await expect(page.locator('p').filter({ hasText: /^This calculator is an authored worked example/ })).toContainText('an assumed input, with no sourced arm-price quote');\n",
-          "after": "    await expect(page.locator('p').filter({ hasText: /^This authored worked example has no measured deployment/ })).toContainText('an assumed input, with no sourced arm-price quote');\n"
+          "after": "    await expect(page.locator('p').filter({ hasText: /^This worked example has no measured deployment/ })).toContainText('each of its seven inputs is an assumption, labelled beside its control');\n"
         }
       ]
     },
@@ -10821,8 +10829,8 @@
       },
       "after": {
         "path": "tests/e2e/economics-release-evidence.spec.ts",
-        "bytes": 7510,
-        "sha256": "d5095fbd6c6e6ad3d9e4bab120379da98edf04afd20d04f30dade0cac3e1316d"
+        "bytes": 7796,
+        "sha256": "543626574b0ae28c536758f18027f2f9941d7a0ae4f680c48cd34775dc00d668"
       },
       "edits": [
         {
@@ -10838,8 +10846,12 @@
           "after": "  await expect(mount).toHaveCount(1);\n  await openAdjustMore(mount);\n  await openHowThisWasMade(mount);\n"
         },
         {
+          "before": "      for (const attribute of ['min', 'max', 'step'] as const) await expect(control).toHaveAttribute(attribute, String(ranges[key][attribute]));\n",
+          "after": "      for (const attribute of ['min', 'max', 'step'] as const) await expect(control).toHaveAttribute(attribute, String(ranges[key][attribute]));\n      // The article no longer restates the seven defaults; each control's\n      // own note marks its value as an assumption instead.\n      await expect(control.locator('xpath=following-sibling::*[@data-control-note]')).toContainText('Assumption:');\n"
+        },
+        {
           "before": "    await expect(page.locator('p').filter({ hasText: /^This calculator is an authored worked example/ })).toContainText('no sourced arm-price quote');\n",
-          "after": "    await expect(page.locator('p').filter({ hasText: /^This authored worked example has no measured deployment/ })).toContainText('no sourced arm-price quote');\n"
+          "after": "    await expect(page.locator('p').filter({ hasText: /^This worked example has no measured deployment/ })).toContainText('each of its seven inputs is an assumption, labelled beside its control');\n"
         }
       ]
     },
@@ -14455,8 +14467,8 @@
       },
       "after": {
         "path": "tests/e2e/scene-representation.spec.ts",
-        "bytes": 29108,
-        "sha256": "683fecc5653ac372024f2ddea02dbd1f406d83c7e568d71e1f2c3aa6104597e9"
+        "bytes": 29417,
+        "sha256": "b05744a3beb825485895154fbf7d278e916a987800e579b152e0851da9448f10"
       },
       "edits": [
         {
@@ -14473,7 +14485,7 @@
         },
         {
           "before": "    await expect(page.locator('.prose > p [data-cite-id=\"moravec-elfes-1985\"]')).toHaveCount(2);\n    await expect(page.locator('.prose > p [data-cite-id=\"cadena-2016\"]')).toHaveCount(5);\n",
-          "after": "    await expect(page.locator('.prose > p [data-cite-id=\"moravec-elfes-1985\"]')).toHaveCount(1);\n    await expect(page.locator('.prose > p [data-cite-id=\"cadena-2016\"]')).toHaveCount(7);\n"
+          "after": "    await expect(page.locator('.prose > p [data-cite-id=\"moravec-elfes-1985\"]')).toHaveCount(1);\n    // The convergence prose pass (2026-10-26) cited the consumer-queries\n    // paragraph, two of whose four needs rest on Cadena: 7 became 9.\n    await expect(page.locator('.prose > p [data-cite-id=\"cadena-2016\"]')).toHaveCount(9);\n    await expect(page.locator('.prose > p').filter({ hasText: 'Consumers issue different queries' })\n      .locator('[data-cite-id=\"cadena-2016\"]')).toHaveCount(2);\n"
         },
         {
           "before": "      await link.evaluate((element) => element.scrollIntoView({ block: 'center' }));\n      await link.hover();\n      const tooltip = chip.getByRole('tooltip');\n",

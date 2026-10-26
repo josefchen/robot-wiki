@@ -113,7 +113,10 @@ test.describe('frontier dexterity module', () => {
     expect(mainText).not.toMatch(/the (debate|question|dispute) is (settled|resolved|over)/i);
 
     // Each side carries at least one citation chip.
-    const betAgainst = main.getByRole('link', { name: 'Figure AI 2025' }).first();
+    // Figure 03's own announcement is also "Figure AI 2025" and is cited
+    // earlier on the page, so the Go-Big chip is picked out by its address.
+    const betAgainst = main.getByRole('link', { name: 'Figure AI 2025' })
+      .and(main.locator('a[href="https://www.figure.ai/news/project-go-big"]')).first();
     await expect(betAgainst).toHaveAttribute(
       'href',
       'https://www.figure.ai/news/project-go-big',
