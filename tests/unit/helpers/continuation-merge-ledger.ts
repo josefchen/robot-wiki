@@ -436,6 +436,12 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   from its last approved endpoint, or one resolution from the sealed hash
  *   where its chain already holds one, and one
  *   `citation-rendering:label-and-meta` resolution.
+ * - `owed-figures-20261026-`: the owed-figures slice of 2026-10-26 renamed
+ *   three overlong drawing names and two schematic alts, registered twelve
+ *   maker citations for the hardware-taxonomy buyer's guide, and mounted the
+ *   owed data figures, each member with one edge from its last approved
+ *   endpoint, or one resolution from the sealed hash where its chain already
+ *   holds one, and one `citation-rendering:label-and-meta` resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -496,6 +502,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'kol-batch-20261025-',
   'explainer-mounts-20261026-',
   'convergence-prose-20261026-',
+  'owed-figures-20261026-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

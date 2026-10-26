@@ -132,7 +132,7 @@
     "minutes": 8
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 2923,
+    "words": 2969,
     "minutes": 15
   },
   "data-hardware/teleop-rigs": {
@@ -176,7 +176,7 @@
     "minutes": 15
   },
   "classical/scene-representation": {
-    "words": 2387,
+    "words": 2403,
     "minutes": 12
   },
   "classical/calibration": {

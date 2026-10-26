@@ -18087,7 +18087,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18157,7 +18157,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18227,7 +18227,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18297,7 +18297,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18367,7 +18367,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18437,7 +18437,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18507,7 +18507,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -18577,7 +18577,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -27009,7 +27009,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -38993,7 +38993,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -44613,7 +44613,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -56597,7 +56597,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -63327,7 +63327,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -63545,7 +63545,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -63911,7 +63911,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -64129,7 +64129,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -74855,7 +74855,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -74925,7 +74925,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -74995,7 +74995,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -75065,7 +75065,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -75135,7 +75135,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -75205,7 +75205,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -75275,7 +75275,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -75345,7 +75345,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -101839,7 +101839,7 @@
                 "unscopedHeaders": 0,
                 "sortButtons": 4,
                 "sortedColumns": 1,
-                "notDisclosedCells": 46,
+                "notDisclosedCells": 45,
                 "notApplicableCells": 0,
                 "scrollContainer": {
                   "overflowX": "auto",
@@ -101895,7 +101895,7 @@
                 "unscopedHeaders": 0,
                 "sortButtons": 4,
                 "sortedColumns": 1,
-                "notDisclosedCells": 46,
+                "notDisclosedCells": 45,
                 "notApplicableCells": 0,
                 "scrollContainer": {
                   "overflowX": "auto",
@@ -101903,10 +101903,10 @@
                   "role": "region",
                   "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
                   "clientWidth": 327,
-                  "scrollWidth": 858,
+                  "scrollWidth": 844,
                   "scrolledBy": 40
                 },
-                "tableWidth": 858,
+                "tableWidth": 844,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 29.73
@@ -122338,7 +122338,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/hierarchy-timescales.tsx:aria-label:2 moved from d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153 to 4bd4d906ea7323a2cbeb387f0282f5c2b83407162f624f28b91fad4ca666491b exactly as approved delta go-helix-cross-transfer-20260908-7 permits: Accessible diagram name distinguishes reported output rates, illustrative cadences and instruction initial condition. Four drawn lanes are not a four-stage disclosed architecture; all numeric and state behavior preserved. Immediate-before hash d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153. Exact source conjunctions and original/current history: validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "actual": "accessible-names member expression:components/interactive/hierarchy-timescales.tsx:aria-label:2 moved from d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153 to 4202f846e2e2d6a2ee4d61bcd3e7b3d93e3131c87f64ea4538ffa25edc3f334f exactly as approved delta owed-figures-20261026-name-hierarchy-timescales-expression-aria-label-2 permits: Owed-figures slice of 2026-10-26, item (a): the hierarchy-timescales drawing name was longer than its description (VAL-EDU-021, list in library/a11y-runtime-gate-measures-20261016.md). It now names the drawing in one clause, 'Schematic timescale lanes for <system> with the playhead at <t> of 2000 milliseconds', keeping the words schematic, timescale, lane and playhead that its description also uses; the cadences, update counts and rates stay in the description and the readouts. It moves the member from its last approved endpoint (go-helix-cross-transfer-20260908-7).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -122350,9 +122350,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:2",
           "baselineHash": "d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153",
-          "currentHash": "4bd4d906ea7323a2cbeb387f0282f5c2b83407162f624f28b91fad4ca666491b",
+          "currentHash": "4202f846e2e2d6a2ee4d61bcd3e7b3d93e3131c87f64ea4538ffa25edc3f334f",
           "status": "approved-delta",
-          "approvedDelta": "go-helix-cross-transfer-20260908-7"
+          "approvedDelta": "owed-figures-20261026-name-hierarchy-timescales-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -123962,7 +123962,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member expression:components/interactive/teacher-student.tsx:aria-label:2 moved from f163178fc7b8f1cc8720ddc8bbbd8772e0137886bcd580fda4c9c56528a631d5 to 26244d1c2948e834ba1c49761f4bd213b62afc8dfeada878ccb6dd5f7588ee5b exactly as approved delta reader-first-20261003-name-teacher-student-expression-aria-label-2 permits: Reader-first rewrite of the teacher-student figure (VAL-OPUS-142 and the A15 correction of VAL-OPUS-146): the three tile panels become one side-view ground profile under a walking four-legged robot, with the student's guess dashed on top and gaps where leg readings are lost, so the stage's accessible name describes that drawing. The degradation percent, the lost-reading count, the mean absolute error and the action divergence it reads out are unchanged.",
+      "actual": "accessible-names member expression:components/interactive/teacher-student.tsx:aria-label:2 moved from f163178fc7b8f1cc8720ddc8bbbd8772e0137886bcd580fda4c9c56528a631d5 to cdc64c972efce1e62ecd6f45613e8fc47ddcceffb3677d71483cb367fa7be05d exactly as approved delta owed-figures-20261026-name-teacher-student-expression-aria-label-2 permits: Owed-figures slice of 2026-10-26, item (a): the teacher-student drawing name was longer than its description (VAL-EDU-021). It now names the drawing in one clause, a four-legged robot on real ground with the student's dashed guess at the degradation percent and the count of lost leg readings, keeping the words student, percent, degradation and lost that its description also uses; the mean absolute error and the action divergence stay in the description and the readouts. It moves the member from its last approved endpoint (reader-first-20261003-name-teacher-student-expression-aria-label-2).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -123974,9 +123974,9 @@
           "manifest": "accessible-names",
           "member": "expression:components/interactive/teacher-student.tsx:aria-label:2",
           "baselineHash": "f163178fc7b8f1cc8720ddc8bbbd8772e0137886bcd580fda4c9c56528a631d5",
-          "currentHash": "26244d1c2948e834ba1c49761f4bd213b62afc8dfeada878ccb6dd5f7588ee5b",
+          "currentHash": "cdc64c972efce1e62ecd6f45613e8fc47ddcceffb3677d71483cb367fa7be05d",
           "status": "approved-delta",
-          "approvedDelta": "reader-first-20261003-name-teacher-student-expression-aria-label-2"
+          "approvedDelta": "owed-figures-20261026-name-teacher-student-expression-aria-label-2"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -127154,7 +127154,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "accessible-names member literal:components/interactive/ros2-policy-layout.tsx:aria-label:1 moved from null to cb08f9c5441838ef52cf9957c8790ab9059fb8480e3324e031ed94291ce83e06 exactly as approved delta reader-first-20261008-rework-name-ros2-policy-layout-literal-aria-label-1 permits: The third five-second reader test of 2026-10-08 (evidence/reader-first/classical--ros2-for-ml-engineers--ros2-policy-layout.json, reviewer session reader-session-ec98138f) stated the point but listed words and marks it did not understand, so the stage was simplified to one top-to-bottom chain (VAL-OPUS-139, VAL-OPUS-145): the frame tree and the task manager moved to How this was made, and the last box is a drawn robot arm. The graph's accessible name follows the chain it now draws, each plain name still paired with its ROS 2 name, and states that every suggested move passes the safety check before it reaches the motors. The nodes, the gate and the citations are unchanged.",
+      "actual": "accessible-names member literal:components/interactive/ros2-policy-layout.tsx:aria-label:1 moved from null to 77a855e827bf26137ec824d42ee8305a62258393b6bd388aa46aebe4f704f5e7 exactly as approved delta owed-figures-20261026-name-ros2-policy-layout-literal-aria-label-1 permits: Owed-figures slice of 2026-10-26, item (a): the ROS 2 policy graph's name was longer than its description (VAL-EDU-021). It now names the chain in one clause, 'ROS 2 graph for a learned policy, from camera and joint drivers through a command gate to the controller bridge and robot arm', keeping the words camera, joint, driver, command, gate, controller and bridge that its description also uses; the six nodes, their QoS and the tf2 wait stay in the description. It moves the member from its last approved endpoint (reader-first-20261008-rework-name-ros2-policy-layout-literal-aria-label-1).",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -127166,9 +127166,9 @@
           "manifest": "accessible-names",
           "member": "literal:components/interactive/ros2-policy-layout.tsx:aria-label:1",
           "baselineHash": null,
-          "currentHash": "cb08f9c5441838ef52cf9957c8790ab9059fb8480e3324e031ed94291ce83e06",
+          "currentHash": "77a855e827bf26137ec824d42ee8305a62258393b6bd388aa46aebe4f704f5e7",
           "status": "approved-addition",
-          "approvedDelta": "reader-first-20261008-rework-name-ros2-policy-layout-literal-aria-label-1"
+          "approvedDelta": "owed-figures-20261026-name-ros2-policy-layout-literal-aria-label-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -134070,7 +134070,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to d63ebc9ba5593fa56a39dc7e23daa4a6fdd848d87f8830371cb518f19aadf6b3 exactly as approved delta convergence-prose-20261026-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the opus-pass convergence prose and sources slice of 2026-10-26 registered 5 citation records (maker-2025, agibot-omdia-ranking-2026, a3-r1506-2025-store, kroger-8k-ecommerce-2025, bjnews-noetix-bumi-2025) and updated the provenance comment of reuters-china-humanoid-ipo-2026; no rendered label or metadata of an existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 85 earlier approved edges exactly, ending with kol-batch-20261025-data-hardware-citation-rendering.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to eccfc73e44678298879faa1dbc3c1395c7e6ff90746aaa8402086e3853db40d9 exactly as approved delta owed-figures-20261026-citation-rendering permits: Resolution entry for the citation-rendering:label-and-meta approval graph after the owed-figures slice of 2026-10-26 registered 12 citation records (nvidia-gr00t-g1-workflow-2026, noetix-bumi-page-2026, engineai-se01-2026, engineai-home-2026, fourier-gr3-docs-2026, limx-oli-spec-2026, limx-oli-launch-2025, agility-digit-5-page-2026, agility-gxo-raas-2024, agibot-a2-2026, ubtech-walker-s2-2026, ubtech-walker-s2-mass-production-2025) for the hardware-taxonomy buyer's guide rows that now cite their makers, and registered LimX Dynamics, Noetix Robotics and UBTECH Robotics as organisation chip names so those records label the whole maker name; no rendered label or metadata of an existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 86 earlier approved edges exactly, ending with convergence-prose-20261026-citation-rendering.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -134082,9 +134082,9 @@
           "manifest": "article-metadata",
           "member": "citation-rendering:label-and-meta",
           "baselineHash": null,
-          "currentHash": "d63ebc9ba5593fa56a39dc7e23daa4a6fdd848d87f8830371cb518f19aadf6b3",
+          "currentHash": "eccfc73e44678298879faa1dbc3c1395c7e6ff90746aaa8402086e3853db40d9",
           "status": "approved-addition",
-          "approvedDelta": "convergence-prose-20261026-citation-rendering"
+          "approvedDelta": "owed-figures-20261026-citation-rendering"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -135098,6 +135098,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:agibot-a2-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:agibot-a2-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:agibot-a2-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:agibot-a2-2026 moved from null to d620416fc41bf26f0539d215e523bc84f13f41b54284aa79d93dfda3246dcc07 exactly as approved delta owed-figures-20261026-citation-agibot-a2-2026 permits: Registers the new citation agibot-a2-2026 for the owed-figures slice of 2026-10-26 (AgiBot's A2 product page, cited for the A2 row in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:agibot-a2-2026",
+          "baselineHash": null,
+          "currentHash": "d620416fc41bf26f0539d215e523bc84f13f41b54284aa79d93dfda3246dcc07",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-agibot-a2-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:agibot-go2-2026",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:agibot-go2-2026",
@@ -135350,6 +135378,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:agility-digit-5-page-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:agility-digit-5-page-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:agility-digit-5-page-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:agility-digit-5-page-2026 moved from null to ea1c387c6a949d7ba57d5f1ea7d87174b6d2bf9a3c5502039d7ae571b4a0d5e4 exactly as approved delta owed-figures-20261026-citation-agility-digit-5-page-2026 permits: Registers the new citation agility-digit-5-page-2026 for the owed-figures slice of 2026-10-26 (Agility Robotics' Digit 5 product page, cited for the Digit 5 row's height, weight, payload, reach and early-access date in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:agility-digit-5-page-2026",
+          "baselineHash": null,
+          "currentHash": "ea1c387c6a949d7ba57d5f1ea7d87174b6d2bf9a3c5502039d7ae571b4a0d5e4",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-agility-digit-5-page-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:agility-digit-production",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:agility-digit-production",
@@ -135373,6 +135429,34 @@
           "currentHash": "18a78251e0ff3d7a182fe44846291e0c1dafd81ea0835f3e59456b8d79d8b046",
           "status": "approved-addition",
           "approvedDelta": "continuation-merge-2026-09-24-tech-withdrawal-citation-agility-digit-production"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:agility-gxo-raas-2024",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:agility-gxo-raas-2024",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:agility-gxo-raas-2024"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:agility-gxo-raas-2024 moved from null to d05797b8932cb44f701517cd9fcaf8fcbbee2d68a59b1399d8c24f96bacd49b2 exactly as approved delta owed-figures-20261026-citation-agility-gxo-raas-2024 permits: Registers the new citation agility-gxo-raas-2024 for the owed-figures slice of 2026-10-26 (Agility Robotics' June 2024 release on its multi-year robots-as-a-service agreement with GXO, cited for the Digit row's RaaS access in the hardware-taxonomy buyer's guide). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:agility-gxo-raas-2024",
+          "baselineHash": null,
+          "currentHash": "d05797b8932cb44f701517cd9fcaf8fcbbee2d68a59b1399d8c24f96bacd49b2",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-agility-gxo-raas-2024"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -143862,6 +143946,62 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:engineai-home-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:engineai-home-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:engineai-home-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:engineai-home-2026 moved from null to 161f12e5b118eff2fd714d477b4c9d933252c32e590dbfdbd1ef59ae7eb78a48 exactly as approved delta owed-figures-20261026-citation-engineai-home-2026 permits: Registers the new citation engineai-home-2026 for the owed-figures slice of 2026-10-26 (EngineAI's homepage, cited for the SE01 row's contact-sales route in the hardware-taxonomy buyer's guide). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:engineai-home-2026",
+          "baselineHash": null,
+          "currentHash": "161f12e5b118eff2fd714d477b4c9d933252c32e590dbfdbd1ef59ae7eb78a48",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-engineai-home-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:engineai-se01-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:engineai-se01-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:engineai-se01-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:engineai-se01-2026 moved from null to 0b6d284d244347e5c48716cadc6209b8fa58fc0c2698e63e6a9711d5c1d7dbf5 exactly as approved delta owed-figures-20261026-citation-engineai-se01-2026 permits: Registers the new citation engineai-se01-2026 for the owed-figures slice of 2026-10-26 (EngineAI's SE01 product page, cited for the SE01 row's height, speed and joint count in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:engineai-se01-2026",
+          "baselineHash": null,
+          "currentHash": "0b6d284d244347e5c48716cadc6209b8fa58fc0c2698e63e6a9711d5c1d7dbf5",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-engineai-se01-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:enpire-2026",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:enpire-2026",
@@ -145845,6 +145985,34 @@
           "currentHash": "760fd424ce7212a625f85d60e9f57dee6022c1b698a2303b31302482d97f2914",
           "status": "approved-addition",
           "approvedDelta": "domain-pass-20261006-g8-citation-foundationstereo-2025"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:fourier-gr3-docs-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:fourier-gr3-docs-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:fourier-gr3-docs-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:fourier-gr3-docs-2026 moved from null to f03d6de3fd77ba9fd82672ac299d976a5359e5ea67a9245d6c8bb561807cf58a exactly as approved delta owed-figures-20261026-citation-fourier-gr3-docs-2026 permits: Registers the new citation fourier-gr3-docs-2026 for the owed-figures slice of 2026-10-26 (Fourier's GR-3 robot overview documentation, cited for the GR-3 row's joint count and care-companion role in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:fourier-gr3-docs-2026",
+          "baselineHash": null,
+          "currentHash": "f03d6de3fd77ba9fd82672ac299d976a5359e5ea67a9245d6c8bb561807cf58a",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-fourier-gr3-docs-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -154306,6 +154474,62 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:limx-oli-launch-2025",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:limx-oli-launch-2025",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:limx-oli-launch-2025"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:limx-oli-launch-2025 moved from null to 3270b5fb6efd1586536ef8098615832152fc942b28a1486c95e1c8f27e6986b4 exactly as approved delta owed-figures-20261026-citation-limx-oli-launch-2025 permits: Registers the new citation limx-oli-launch-2025 for the owed-figures slice of 2026-10-26 (LimX Dynamics' July 2025 announcement opening Oli preorders from ¥158,000, cited for the Oli row's price and date in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:limx-oli-launch-2025",
+          "baselineHash": null,
+          "currentHash": "3270b5fb6efd1586536ef8098615832152fc942b28a1486c95e1c8f27e6986b4",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-limx-oli-launch-2025"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:limx-oli-spec-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:limx-oli-spec-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:limx-oli-spec-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:limx-oli-spec-2026 moved from null to edf862c22d8d7097758190aed4c5c0c69b53629d0869d55ab83afee13646f2e3 exactly as approved delta owed-figures-20261026-citation-limx-oli-spec-2026 permits: Registers the new citation limx-oli-spec-2026 for the owed-figures slice of 2026-10-26 (LimX Dynamics' Oli specification page, cited for the Oli row's joint count in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:limx-oli-spec-2026",
+          "baselineHash": null,
+          "currentHash": "edf862c22d8d7097758190aed4c5c0c69b53629d0869d55ab83afee13646f2e3",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-limx-oli-spec-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:lin-data-scaling-laws-2024",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:lin-data-scaling-laws-2024",
@@ -158226,6 +158450,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:noetix-bumi-page-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:noetix-bumi-page-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:noetix-bumi-page-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:noetix-bumi-page-2026 moved from null to 5e6d401b4c5939a0598daf4648b6fa2debbb1ff54970ed7736d71d6279c924a8 exactly as approved delta owed-figures-20261026-citation-noetix-bumi-page-2026 permits: Registers the new citation noetix-bumi-page-2026 for the owed-figures slice of 2026-10-26 (Noetix's Bumi product page, cited for the Bumi row's height, weight and joint count in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:noetix-bumi-page-2026",
+          "baselineHash": null,
+          "currentHash": "5e6d401b4c5939a0598daf4648b6fa2debbb1ff54970ed7736d71d6279c924a8",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-noetix-bumi-page-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:ntsb-uber-2019",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:ntsb-uber-2019",
@@ -158389,6 +158641,34 @@
           "currentHash": "c87b1ceb3a31a6384109414c7dbec69608659381ba176217f3ee412255868a77",
           "status": "approved-addition",
           "approvedDelta": "round5-closeout-citation-nvidia-cosmos-3-launch-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:nvidia-gr00t-g1-workflow-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:nvidia-gr00t-g1-workflow-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:nvidia-gr00t-g1-workflow-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:nvidia-gr00t-g1-workflow-2026 moved from null to 17e57b7c38b68c97374f1eefa23da124f25d23b94e50b3e9bc81e96aef0e368a exactly as approved delta owed-figures-20261026-citation-nvidia-gr00t-g1-workflow-2026 permits: Registers the new citation nvidia-gr00t-g1-workflow-2026 for the owed-figures slice of 2026-10-26 (NVIDIA's developer post on developing and deploying humanoids end to end with Isaac GR00T and the Unitree G1, cited by the G1 row of the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:nvidia-gr00t-g1-workflow-2026",
+          "baselineHash": null,
+          "currentHash": "17e57b7c38b68c97374f1eefa23da124f25d23b94e50b3e9bc81e96aef0e368a",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-nvidia-gr00t-g1-workflow-2026"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -170770,6 +171050,62 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:ubtech-walker-s2-2026",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:ubtech-walker-s2-2026",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:ubtech-walker-s2-2026"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:ubtech-walker-s2-2026 moved from null to acdd8e85a40150c8526751e919d429d935c4b40919f13d023b001b4441aee79f exactly as approved delta owed-figures-20261026-citation-ubtech-walker-s2-2026 permits: Registers the new citation ubtech-walker-s2-2026 for the owed-figures slice of 2026-10-26 (UBTECH's Walker S2 product page, cited for the Walker S2 row's payload in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:ubtech-walker-s2-2026",
+          "baselineHash": null,
+          "currentHash": "acdd8e85a40150c8526751e919d429d935c4b40919f13d023b001b4441aee79f",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-ubtech-walker-s2-2026"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:ubtech-walker-s2-mass-production-2025",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation:ubtech-walker-s2-mass-production-2025",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation:ubtech-walker-s2-mass-production-2025"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation:ubtech-walker-s2-mass-production-2025 moved from null to f4407085c1080e9e4180d25e174b8a02debebd10bb015ab92f8dc7ef291e41bb exactly as approved delta owed-figures-20261026-citation-ubtech-walker-s2-mass-production-2025 permits: Registers the new citation ubtech-walker-s2-mass-production-2025 for the owed-figures slice of 2026-10-26 (UBTECH's release on Walker S2 mass production and delivery, cited for the Walker S2 row's availability in the hardware-taxonomy buyer's guide in place of robozaps-humanoids-2026). Its audit row is in audit/citations.md, added 2026-10-26 (owed-figures slice). The member did not exist before; this edge approves its first reviewed record only.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation:ubtech-walker-s2-mass-production-2025",
+          "baselineHash": null,
+          "currentHash": "f4407085c1080e9e4180d25e174b8a02debebd10bb015ab92f8dc7ef291e41bb",
+          "status": "approved-addition",
+          "approvedDelta": "owed-figures-20261026-citation-ubtech-walker-s2-mass-production-2025"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:ul-4600-2023",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:ul-4600-2023",
@@ -178013,7 +178349,7 @@
         "computed": {
           "route": "/data-hardware/hardware-taxonomy/",
           "outboundAnchors": 157,
-          "distinctHrefs": 69,
+          "distinctHrefs": 76,
           "shapes": [
             "citation-chip",
             "figure-credit",
@@ -196937,7 +197273,7 @@
           "observed": {
             "focusStops": 90,
             "links": 615,
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "viewports": 3
           },
           "predicates": [
@@ -202846,7 +203182,7 @@
             "1440x900"
           ],
           "observed": {
-            "textRuns": 2700,
+            "textRuns": 2703,
             "fields": 0,
             "viewports": 3
           },
@@ -205650,7 +205986,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "viewports": 3
           },
           "predicates": [
@@ -226602,7 +226938,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -226647,7 +226983,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -226688,11 +227024,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -227863,7 +228199,7 @@
           ],
           "observed": {
             "registeredDevices": 6,
-            "proseRuns": 3472,
+            "proseRuns": 3542,
             "viewports": 3
           },
           "predicates": [
@@ -239104,7 +239440,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Mobile evidence contains fewer or equal decorative registration devices than the corresponding desktop surface and preserves all content.",
-      "actual": "route:/data-hardware/hardware-taxonomy/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 760 reachable strings at every width",
+      "actual": "route:/data-hardware/hardware-taxonomy/: 2 registered device(s) at 375x812, 2 registered device(s) at 768x1024, 2 registered device(s) at 1440x900, never more on a narrower width, and the same 765 reachable strings at every width",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -239119,7 +239455,7 @@
           ],
           "observed": {
             "devices@1440x900": 2,
-            "contentStrings": 760,
+            "contentStrings": 765,
             "devices@375x812": 2,
             "devices@768x1024": 2,
             "viewports": 3
@@ -250511,7 +250847,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 56907 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/drones/ rendered no v1 identity spelling and no v1 descriptor in 56929 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -251357,7 +251693,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 62981 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/hardware-taxonomy/ rendered no v1 identity spelling and no v1 descriptor in 63353 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -251498,7 +251834,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 48295 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/teleop-rigs/ rendered no v1 identity spelling and no v1 descriptor in 48315 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -251733,7 +252069,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 55359 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/frontier/dexterity/ rendered no v1 identity spelling and no v1 descriptor in 55403 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -252955,7 +253291,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 60527 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/humanoid-wbc/ rendered no v1 identity spelling and no v1 descriptor in 60505 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -253096,7 +253432,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 41687 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/rl-sim2real/parallel-sim-rl/ rendered no v1 identity spelling and no v1 descriptor in 41665 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -281355,7 +281691,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281425,7 +281761,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281495,7 +281831,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281565,7 +281901,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281635,7 +281971,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281705,7 +282041,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281775,7 +282111,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -281845,7 +282181,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -290324,7 +290660,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -302308,7 +302644,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -307928,7 +308264,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -319912,7 +320248,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -326642,7 +326978,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -326860,7 +327196,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+                "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -327226,7 +327562,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -327444,7 +327780,7 @@
                 "index": 0,
                 "figureKind": "original-schematic",
                 "src": "",
-                "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+                "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
                 "declaredWidth": null,
                 "declaredHeight": null,
                 "loading": null,
@@ -344370,7 +344706,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":27.8,\"maxLatencyMs\":27.8}",
+      "actual": "market-map-cases:default-reset holds on the built /market-map export at 1440x900: {\"group\":\"default-reset\",\"expectedCaseCount\":2,\"observedCaseCount\":2,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2,\"typedNotApplicable\":0,\"expectedRenderedTotal\":222,\"observedRenderedTotal\":222,\"nonEmptyCases\":2,\"timedCases\":1,\"medianLatencyMs\":30.3,\"maxLatencyMs\":30.3}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344391,8 +344727,8 @@
           "observedRenderedTotal": 222,
           "nonEmptyCases": 2,
           "timedCases": 1,
-          "medianLatencyMs": 27.8,
-          "maxLatencyMs": 27.8,
+          "medianLatencyMs": 30.3,
+          "maxLatencyMs": 30.3,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -344408,7 +344744,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":10.9,\"maxLatencyMs\":19.3}",
+      "actual": "market-map-cases:views holds on the built /market-map export at 1440x900: {\"group\":\"views\",\"expectedCaseCount\":3,\"observedCaseCount\":3,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":0,\"expectedRenderedTotal\":218,\"observedRenderedTotal\":218,\"nonEmptyCases\":3,\"timedCases\":3,\"medianLatencyMs\":19.9,\"maxLatencyMs\":30.8}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344429,8 +344765,8 @@
           "observedRenderedTotal": 218,
           "nonEmptyCases": 3,
           "timedCases": 3,
-          "medianLatencyMs": 10.9,
-          "maxLatencyMs": 19.3,
+          "medianLatencyMs": 19.9,
+          "maxLatencyMs": 30.8,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -344446,7 +344782,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.7,\"maxLatencyMs\":113.1}",
+      "actual": "market-map-cases:single-options holds on the built /market-map export at 1440x900: {\"group\":\"single-options\",\"expectedCaseCount\":258,\"observedCaseCount\":258,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":258,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":907,\"observedRenderedTotal\":907,\"nonEmptyCases\":257,\"timedCases\":258,\"medianLatencyMs\":5.6,\"maxLatencyMs\":64}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344470,8 +344806,8 @@
           "observedRenderedTotal": 907,
           "nonEmptyCases": 257,
           "timedCases": 258,
-          "medianLatencyMs": 5.7,
-          "maxLatencyMs": 113.1,
+          "medianLatencyMs": 5.6,
+          "maxLatencyMs": 64,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -344487,7 +344823,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":12.5,\"maxLatencyMs\":33.5}",
+      "actual": "market-map-cases:dependent-options holds on the built /market-map export at 1440x900: {\"group\":\"dependent-options\",\"expectedCaseCount\":38,\"observedCaseCount\":38,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":38,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-005\"],\"expectedRenderedTotal\":111,\"observedRenderedTotal\":111,\"nonEmptyCases\":38,\"timedCases\":38,\"medianLatencyMs\":11.25,\"maxLatencyMs\":39}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344511,8 +344847,8 @@
           "observedRenderedTotal": 111,
           "nonEmptyCases": 38,
           "timedCases": 38,
-          "medianLatencyMs": 12.5,
-          "maxLatencyMs": 33.5,
+          "medianLatencyMs": 11.25,
+          "maxLatencyMs": 39,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -344528,7 +344864,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":16.7,\"maxLatencyMs\":1392.1,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
+      "actual": "market-map-cases:pairwise holds on the built /market-map export at 1440x900: {\"group\":\"pairwise\",\"expectedCaseCount\":2688,\"observedCaseCount\":2688,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":2688,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":186,\"observedRenderedTotal\":186,\"nonEmptyCases\":159,\"timedCases\":2688,\"medianLatencyMs\":14,\"maxLatencyMs\":351.3,\"generator\":{\"algorithm\":\"ipog\",\"seed\":\"brand-v2-state-v1\",\"dimensions\":[\"segment\",\"country\",\"status\",\"approach\",\"openSource\",\"confidence\"],\"levels\":{\"segment\":7,\"country\":14,\"status\":6,\"approach\":192,\"openSource\":3,\"confidence\":4}}}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344552,8 +344888,8 @@
           "observedRenderedTotal": 186,
           "nonEmptyCases": 159,
           "timedCases": 2688,
-          "medianLatencyMs": 16.7,
-          "maxLatencyMs": 1392.1,
+          "medianLatencyMs": 14,
+          "maxLatencyMs": 351.3,
           "generator": {
             "algorithm": "ipog",
             "seed": "brand-v2-state-v1",
@@ -344589,7 +344925,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":15.8,\"maxLatencyMs\":32.7}",
+      "actual": "market-map-cases:higher-order holds on the built /market-map export at 1440x900: {\"group\":\"higher-order\",\"expectedCaseCount\":7,\"observedCaseCount\":7,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":7,\"typedNotApplicable\":0,\"marketMapAssertions\":[\"VAL-MKT-006\"],\"expectedRenderedTotal\":50,\"observedRenderedTotal\":50,\"nonEmptyCases\":7,\"timedCases\":7,\"medianLatencyMs\":24.6,\"maxLatencyMs\":41.6}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344613,8 +344949,8 @@
           "observedRenderedTotal": 50,
           "nonEmptyCases": 7,
           "timedCases": 7,
-          "medianLatencyMs": 15.8,
-          "maxLatencyMs": 32.7,
+          "medianLatencyMs": 24.6,
+          "maxLatencyMs": 41.6,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -344726,7 +345062,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Market-map coverage applies §1.15 to Grid, Bubble/scatter, Funding timeline, every discrete filter/view option, selected/unselected/details/dismiss, URL/history restoration, tooltip parity, one witness per implemented empty/error/loading/unavailable state, deterministic pairwise independent-filter combinations, and only registered higher-order combinations; exact non-zero expected/observed counts must match.",
-      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":18.9,\"maxLatencyMs\":37.1}",
+      "actual": "market-map-cases:states holds on the built /market-map export at 1440x900: {\"group\":\"states\",\"expectedCaseCount\":6,\"observedCaseCount\":6,\"registryCaseCount\":{\"expected\":3127,\"observed\":3127},\"selectorReconciled\":3,\"typedNotApplicable\":3,\"expectedRenderedTotal\":0,\"observedRenderedTotal\":0,\"nonEmptyCases\":0,\"timedCases\":3,\"medianLatencyMs\":18,\"maxLatencyMs\":62}",
       "selectorOrRegistryId": "evidence/brand-v2/market-map-states.json#caseGroups",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -344747,8 +345083,8 @@
           "observedRenderedTotal": 0,
           "nonEmptyCases": 0,
           "timedCases": 3,
-          "medianLatencyMs": 18.9,
-          "maxLatencyMs": 37.1,
+          "medianLatencyMs": 18,
+          "maxLatencyMs": 62,
           "evidence": [
             "evidence/brand-v2/market-map-states.json"
           ]
@@ -387036,7 +387372,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56112 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56144 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387059,7 +387395,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -387081,7 +387417,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40980 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 41012 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387104,7 +387440,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -387126,7 +387462,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Executable spacing tokens expose exactly the fixed ladder `4, 8, 12, 16, 24, 32, 48, 64, 96, 128` px; every first-party spacing value resolves to the ladder unless a registered canvas/viewport or one-pixel optical exception names its geometry reason. The ladder's half-steps (2, 6, 10, 14, 20, 28, 40, 56, 80 and 112 px), on which the research-page template sets tight label stacks, table cells and block rhythm, resolve to it; every other value needs an entry in the checked-in register naming its selector, property, exact values and geometry reason (viewport-derived clamps, em-derived insets, one-pixel optical corrections, the reference rhythm and audit-pinned margins), and an entry or value the sweep never needs is refused. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`. Same strength: every computed margin, padding and gap on every public route at 375, 768 and 1440 px.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42927 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43964 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42924 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43970 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387145,11 +387481,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -387171,7 +387507,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56112 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56144 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387194,7 +387530,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -387216,7 +387552,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40980 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 41012 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387239,7 +387575,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -387261,7 +387597,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page-inline padding is at least 20px mobile, 32px tablet, and 48px desktop on every public destination, except a registered full-bleed canvas whose controls/text retain those insets.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42927 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43964 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42924 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43970 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387280,11 +387616,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -387306,7 +387642,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56112 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56144 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387329,7 +387665,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -387351,7 +387687,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40980 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 41012 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387374,7 +387710,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -387396,7 +387732,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Major section separation is 48–80px mobile and 64–128px desktop; component interiors are 12–24px and related-control gaps 4–12px, measured from registered section/control populations. The 768 px tablet frame, which the row does not bound, takes the union of the two: 48–128 px.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42927 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43964 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42924 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43970 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387415,11 +387751,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -387441,7 +387777,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56112 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56144 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387464,7 +387800,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -387486,7 +387822,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40980 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 41012 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387509,7 +387845,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -387531,7 +387867,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The wide editorial frame remains within 1280–1440px on desktop, reading columns remain 62–68ch, and full-frame index/map/playground exceptions are registered and keep readable inner rails. Under the research-page standard the article reading column is the 960 px column (880–960 px measured; `PANTHEON-SPEC.md`: \"Content column centred, 960 px.\") inside the 1280–1440 px wide frame, a sheet page's column is 880–960 px, a narrow prose page (about, credits, editorial policy, privacy) measures 62–68ch, and the market map, playground and how-robots-work explainer are registered full-frame pages whose paragraphs stay within the 960 px rail. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row measured every reading column in characters. Same strength: every public route at 1440 px, and no paragraph wider than 960 px at any width.)",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42927 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43964 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42924 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43970 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387550,11 +387886,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -387576,7 +387912,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56112 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56144 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387599,7 +387935,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -387621,7 +387957,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40980 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 41012 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387644,7 +387980,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -387666,7 +388002,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "A page-frame registry identifies frame owner, full-bleed exceptions, optical corrections, and canvas-derived dimensions; missing ownership, unregistered off-ladder geometry, or content/control collision fails.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42927 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43964 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42924 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43970 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387685,11 +388021,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -387711,7 +388047,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56112 text boxes and 2243 keyboard stops",
+      "actual": "frame:mobile at 375x812: all 75 public routes hold the row, over 36601 spacing values, 35434 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 56144 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387734,7 +388070,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 56112,
+            "collisionTextBoxes": 56144,
             "focusStops": 2243,
             "exemptedSpacingValues": 395,
             "exemptedSectionGaps": 1,
@@ -387756,7 +388092,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 40980 text boxes and 2243 keyboard stops",
+      "actual": "frame:tablet at 768x1024: all 75 public routes hold the row, over 36634 spacing values, 36674 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 41012 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387779,7 +388115,7 @@
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 40980,
+            "collisionTextBoxes": 41012,
             "focusStops": 2243,
             "exemptedSpacingValues": 462,
             "exemptedSectionGaps": 1,
@@ -387801,7 +388137,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Collision sweeps cover page h1, section headings, UI/data labels, rails/devices, overlays, focused controls, and full-bleed figures at every layout breakpoint; any overlap, clipping, focus obscuration, or unreadable wrap fails.",
-      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42927 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43964 text boxes and 2243 keyboard stops",
+      "actual": "frame:desktop at 1440x900: all 75 public routes hold the row, over 47726 spacing values, 42924 inset text runs, 604 section gaps, 483 component interiors, 3 control gaps, 43970 text boxes and 2243 keyboard stops",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#pageFrames",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -387820,11 +388156,11 @@
             "compositionBlocks": 2648,
             "exemptedCompositionBlocks": 0,
             "spacingValues": 47726,
-            "insetTextRuns": 42927,
+            "insetTextRuns": 42924,
             "sectionGaps": 604,
             "componentInteriors": 483,
             "controlGaps": 3,
-            "collisionTextBoxes": 43964,
+            "collisionTextBoxes": 43970,
             "focusStops": 2243,
             "exemptedSpacingValues": 702,
             "exemptedSectionGaps": 1,
@@ -388712,7 +389048,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "viewports": 3
           },
           "predicates": [
@@ -396867,7 +397203,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "viewports": 3
           },
           "predicates": [
@@ -399567,7 +399903,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "viewports": 3
           },
           "predicates": [
@@ -402313,7 +402649,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "shellGrounds": 31,
             "viewports": 3
           },
@@ -405163,7 +405499,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "materialSurfaces": 3,
             "viewports": 3
           },
@@ -407967,7 +408303,7 @@
             "1440x900"
           ],
           "observed": {
-            "paintedElements": 5062,
+            "paintedElements": 5065,
             "viewports": 3
           },
           "predicates": [
@@ -457653,7 +457989,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Page h1, article h1, section display, supporting h2/h3, UI body, data/control, and registration-label populations each stay inside their sealed mobile/desktop size, line-height, family, weight, and measure ranges, with non-empty populations or an explicit inapplicable verdict. The sealed ranges are the research-page roles: page and article h1 in DM Sans 400 at 40–48 px on phones and 84–92 px at 1440 px, line height 0.90–0.96; section display in DM Sans 600 uppercase at 20–20.5 px, tracked 0.05–0.06 em; supporting heads in DM Sans 600 at 14–18 px; UI body in Geist 400–600 at 11–16 px (or a listed entry title in DM Sans 600 at 15–16 px); data/control in Geist Mono at 11–24 px; registration labels in Geist 500 uppercase at 11–14 px, tracked about 0.08 em. Every other rendered text run belongs to a sealed population too: the 16 px / 1.62 Geist reading body, sub- and superscripts at 0.60–0.85 of their line, home's featured title and dek, and the DM Sans wordmark instance, so no text falls outside every range. The 768 px tablet frame takes the union of the phone and desktop h1 ranges. (Owner decision of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row sealed Tektur display, IBM Plex Sans and IBM Plex Mono ranges. Same strength: every rendered text run on every public route at 375, 768 and 1440 px, each population non-empty.)",
-      "actual": "the ui-body population holds 55365 rendered elements in 51 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population (66 under the owner-frozen explainer register)",
+      "actual": "the ui-body population holds 55368 rendered elements in 51 distinct tuples across every public route at 375x812, 768x1024, 1440x900, each inside a sealed form of the population (66 under the owner-frozen explainer register)",
       "selectorOrRegistryId": "lib/brand-v2-global-convergence-evidence.ts#TYPE_POPULATIONS",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -457667,7 +458003,7 @@
             "1440x900"
           ],
           "observed": {
-            "elements": 55365,
+            "elements": 55368,
             "forms": 51,
             "exempted": 66
           },
@@ -458300,7 +458636,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
-      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 9 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
+      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 11 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -458312,7 +458648,7 @@
           "sourceId": "interactive:GraspWrenchLab",
           "controls": 12,
           "transitions": 19,
-          "announcements": 9,
+          "announcements": 11,
           "seriesStates": 12,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -460904,7 +461240,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-002 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -460916,7 +461252,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 41,
+          "announcements": 42,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -462382,7 +462718,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
-      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 9 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
+      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 11 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -462394,7 +462730,7 @@
           "sourceId": "interactive:GraspWrenchLab",
           "controls": 12,
           "transitions": 19,
-          "announcements": 9,
+          "announcements": 11,
           "seriesStates": 12,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -464986,7 +465322,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-007 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -464998,7 +465334,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 41,
+          "announcements": 42,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -466036,7 +466372,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
-      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 9 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
+      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 11 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -466048,7 +466384,7 @@
           "sourceId": "interactive:GraspWrenchLab",
           "controls": 12,
           "transitions": 19,
-          "announcements": 9,
+          "announcements": 11,
           "seriesStates": 12,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -468640,7 +468976,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-008 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -468652,7 +468988,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 41,
+          "announcements": 42,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -471270,9 +471606,9 @@
             {
               "viewport": "375x812",
               "state": "default",
-              "sha256": "50a4f55d1cd7341dcd94a8f47664de9c003650b3b899aafd1addf21a9474ddbd",
+              "sha256": "21688da762b6554a3f808ff09772d5ba6ef6e0a8c6666867afef64c863f42233",
               "widthPx": 327,
-              "heightPx": 6318
+              "heightPx": 6450
             },
             {
               "viewport": "375x812",
@@ -471284,9 +471620,9 @@
             {
               "viewport": "1440x900",
               "state": "default",
-              "sha256": "445f1efad479e8e9f5495afff4586869004fa2c9930fa298f412d2163758a802",
+              "sha256": "f18733548dd14aed4fecb988096484a3cac25b51f34b6bf451f52b8084da6b8e",
               "widthPx": 985,
-              "heightPx": 4509
+              "heightPx": 4573
             },
             {
               "viewport": "1440x900",
@@ -476818,7 +477154,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
-      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 9 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
+      "actual": "mount:/classical/grasp-planning/:GraspWrenchLab:1 on /classical/grasp-planning/: 12 controls operated by keyboard through 19 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 11 live announcements read, series compared in 12 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -476830,7 +477166,7 @@
           "sourceId": "interactive:GraspWrenchLab",
           "controls": 12,
           "transitions": 19,
-          "announcements": 9,
+          "announcements": 11,
           "seriesStates": 12,
           "sliderStatesCompared": 0,
           "idleMutations": {
@@ -479422,7 +479758,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
-      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 41 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
+      "actual": "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1 on /rl-sim2real/reward-design-mpc/: 22 controls operated by keyboard through 45 transitions at 1440x900, each returned by keyboard and the registered reset restoring the exact default, 42 live announcements read, series compared in 31 states (0 slider ends), and 0 under no-preference, 0 under reduce changes over a 3000 ms idle window; no VAL-B2-VIZ-016 failure",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#interactive.mounts",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -479434,7 +479770,7 @@
           "sourceId": "interactive:RewardShaping",
           "controls": 22,
           "transitions": 45,
-          "announcements": 41,
+          "announcements": 42,
           "seriesStates": 31,
           "sliderStatesCompared": 0,
           "idleMutations": {

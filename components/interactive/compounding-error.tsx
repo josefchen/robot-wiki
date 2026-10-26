@@ -408,9 +408,9 @@ export function CompoundingError({
   const ratio = rollout.halfCost > 0 ? rollout.cost / rollout.halfCost : 1;
   const noteLines = ['Twice as long:', `${timesWords(ratio)} off course`];
   const bench = rollout.bench;
-  const benchLabel = `Rollout trace on a copy-tracing bench: the groove is the path a person showed the robot, and the stylus on the cross-slide draws the robot's own path as a stepper nudges the slide by every slip. With slips of ${epsilonPercent.toFixed(1)} percent over ${steps} moves${
-    dagger ? `, a teacher winding it back every ${DAGGER_INTERVAL} moves,` : ''
-  } the slide ends ${formatUnits(rollout.finalDeviation)} units off the groove; the shaded gap is the summed drift, ${formatUnits(rollout.cost)} units, against ${formatUnits(rollout.halfCost)} over the first ${half} moves.`;
+  const benchLabel = `Rollout trace on a copy-tracing bench where slips of ${epsilonPercent.toFixed(1)} percent over ${steps} steps${
+    dagger ? `, wound back every ${DAGGER_INTERVAL},` : ''
+  } add up to ${formatUnits(rollout.cost)} units of drift`;
   const correctionDots = correctionPoints(bench, steps, dagger);
 
   const slotOf = (name: string): ReactNode => {

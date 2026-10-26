@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "3b9e38e3796c6d1e01005ef93c92e7d395274a7f5d7b63678d15dd1cc5995023",
+  "fingerprint": "6e69e106551739edd48160c7a032cc18c6d5b3d5dacd9fdff84d8a37f4857290",
   "source": "out/ static export",
   "routes": [
     {
@@ -269,7 +269,7 @@
     {
       "route": "/data-hardware/hardware-taxonomy/",
       "outboundAnchors": 157,
-      "distinctHrefs": 69,
+      "distinctHrefs": 76,
       "shapes": [
         "citation-chip",
         "figure-credit",
@@ -855,7 +855,7 @@
   ],
   "routesSwept": 76,
   "outboundAnchors": 6192,
-  "distinctOutboundHrefs": 1666,
+  "distinctOutboundHrefs": 1673,
   "anchorsByShape": {
     "citation-chip": 2638,
     "footer": 152,

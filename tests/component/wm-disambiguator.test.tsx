@@ -138,7 +138,7 @@ describe('WmDisambiguator', () => {
     const user = userEvent.setup();
     const { container } = render(<WmDisambiguator />);
     const selected = screen.getByRole('img', { name: /robot arm above a cup/i });
-    expect(selected).toHaveAccessibleName(/Latent dynamics imagines a compressed summary/);
+    expect(selected).toHaveAccessibleName(/next moment Latent dynamics imagines as a compressed summary/);
     const id = selected.getAttribute('aria-describedby');
     const desc = container.querySelector(`[id="${CSS.escape(id!)}"]`);
     expect(desc?.textContent).toMatch(/Dreamer-style/);

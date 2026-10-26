@@ -143,7 +143,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
       'Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.',
     preservationPolicy: 'first-party-restyled-semantics-preserved',
     file: '/images/covariate-shift.svg',
-    alt: 'Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.',
+    alt: 'Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.',
     caption:
       'Demonstrations cover a narrow corridor of states around the expert path. The policy\'s first mistake takes it outside that corridor, where its next mistake is more likely. Deviation feeds itself.',
     sourceName: 'Robot Wiki (original diagram)',
@@ -167,7 +167,7 @@ const ARTICLE_IMAGES: SiteImage[] = [
       'Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.',
     preservationPolicy: 'first-party-restyled-semantics-preserved',
     file: '/images/temporal-ensembling.svg',
-    alt: 'Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.',
+    alt: 'Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.',
     caption:
       'Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; divide by their sum before averaging. This emphasizes the reference convention: oldest gets the largest weight. The pinned ACT code uses m=0.01, not 0.5.',
     sourceName: 'Robot Wiki (original diagram)',

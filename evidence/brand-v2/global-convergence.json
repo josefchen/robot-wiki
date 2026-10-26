@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "9d0460df1a18d559d1e5af33341dcc274aeefd6859e00fe9871a64e2ba3b8302",
+  "fingerprint": "2bc47c059480af67e080774db1463db2d4ea7f002dc6890631b7a8b136db310d",
   "viewports": [
     "375x812",
     "768x1024",
@@ -68062,19 +68062,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1627,
+          "paintedElements": 1628,
           "actions": 241,
           "secondaryActions": 20,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 5,
           "links": 184,
-          "textRuns": 861,
+          "textRuns": 862,
           "disabledTextRuns": 1,
           "frames": 5,
           "citationMarks": 55,
           "insetTextRuns": 580,
-          "collisionTextBoxes": 1688,
+          "collisionTextBoxes": 1720,
           "headings": 12,
           "paragraphs": 128,
           "sectionHeads": 10,
@@ -68085,7 +68085,7 @@
           "alignedDevices": 2,
           "decorativeLayers": 55,
           "hiddenTextRuns": 53,
-          "proseRuns": 1241,
+          "proseRuns": 1273,
           "borderedSides": 13,
           "rails": 13,
           "shellGrounds": 10,
@@ -68285,7 +68285,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 104,
-            "count": 121,
+            "count": 122,
             "element": "div.mt-1.font-sans.text-xs",
             "text": "entry arm",
             "exemption": null
@@ -68777,8 +68777,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 760,
-          "digest": "08d1e5ec"
+          "strings": 765,
+          "digest": "eb7313fe"
         }
       },
       "focus": [
@@ -69091,19 +69091,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1627,
+          "paintedElements": 1628,
           "actions": 241,
           "secondaryActions": 20,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 5,
           "links": 184,
-          "textRuns": 861,
+          "textRuns": 862,
           "disabledTextRuns": 1,
           "frames": 5,
           "citationMarks": 55,
           "insetTextRuns": 580,
-          "collisionTextBoxes": 1477,
+          "collisionTextBoxes": 1509,
           "headings": 12,
           "paragraphs": 128,
           "sectionHeads": 10,
@@ -69114,7 +69114,7 @@
           "alignedDevices": 2,
           "decorativeLayers": 55,
           "hiddenTextRuns": 53,
-          "proseRuns": 1150,
+          "proseRuns": 1182,
           "borderedSides": 13,
           "rails": 13,
           "shellGrounds": 10,
@@ -69314,7 +69314,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 104,
-            "count": 121,
+            "count": 122,
             "element": "div.mt-1.font-sans.text-xs",
             "text": "entry arm",
             "exemption": null
@@ -69813,8 +69813,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 760,
-          "digest": "08d1e5ec"
+          "strings": 765,
+          "digest": "eb7313fe"
         }
       },
       "focus": [
@@ -70127,19 +70127,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1808,
+          "paintedElements": 1809,
           "actions": 304,
           "secondaryActions": 20,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 6,
           "links": 247,
-          "textRuns": 978,
+          "textRuns": 979,
           "disabledTextRuns": 1,
           "frames": 5,
           "citationMarks": 55,
-          "insetTextRuns": 1147,
-          "collisionTextBoxes": 1404,
+          "insetTextRuns": 1144,
+          "collisionTextBoxes": 1410,
           "headings": 12,
           "paragraphs": 128,
           "sectionHeads": 10,
@@ -70150,7 +70150,7 @@
           "alignedDevices": 2,
           "decorativeLayers": 55,
           "hiddenTextRuns": 53,
-          "proseRuns": 1081,
+          "proseRuns": 1087,
           "borderedSides": 11,
           "rails": 11,
           "shellGrounds": 11,
@@ -70394,8 +70394,8 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 147,
-            "count": 121,
+            "maxLineWidthPx": 146,
+            "count": 122,
             "element": "div.mt-1.font-sans.text-xs",
             "text": "entry arm",
             "exemption": null
@@ -70499,7 +70499,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 125,
+            "maxLineWidthPx": 127,
             "count": 160,
             "element": "span.text-text",
             "text": "SO-101 (self-build)",
@@ -70514,7 +70514,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 147,
+            "maxLineWidthPx": 146,
             "count": 80,
             "element": "span.font-mono.tabular-nums",
             "text": "$122as of Aug 2026 · US BOM for one foll",
@@ -70922,8 +70922,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 760,
-          "digest": "08d1e5ec"
+          "strings": 765,
+          "digest": "eb7313fe"
         }
       },
       "focus": [

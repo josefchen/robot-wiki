@@ -1,7 +1,7 @@
 {
  "version": 1,
  "generatedBy": "tests/e2e/brand-v2-control-states.spec.ts",
- "fingerprint": "e94fcf02b2c4fedd023858b2cb86f4749e7745c05d501b22de64f36548ae911c",
+ "fingerprint": "2f84c0bc33b88cb717e94b52a98074b9c9351c41f6af5cb4d0e1bcd3cb0b4dda",
  "viewports": [
   "375x812",
   "1440x900"
@@ -5489,8 +5489,10 @@
    "pointer": "reachable",
    "coveredBy": null,
    "hover": {
-    "changed": [],
-    "changedCount": 0
+    "changed": [
+     "button[0].background-color: rgb(250, 250, 248) -> rgb(240, 243, 246)"
+    ],
+    "changedCount": 1
    },
    "pressed": {
     "changed": [
@@ -162556,8 +162558,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/adjacent/drones/",
@@ -170110,7 +170112,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A flight-test corridor: a drone on a test carriage at a light gate that sees a brick wall 8 me",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A drone at its top safe speed of about 69 kilometres an hour that swerves past a wall 8 metres",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -170891,7 +170893,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 400\" role=\"img\" aria-label=\"Rollout trace on a copy-tracing bench: the groove is the path a person showed the robot, and t",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 400\" role=\"img\" aria-label=\"Rollout trace on a copy-tracing bench where slips of 5.0 percent over 240 steps add up to 1505",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171012,7 +171014,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"Receding horizon on a tape reader: a punch writes each plan of 16 moves as rows of holes on pa",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"Receding horizon on a tape reader that acts on the first 8 rows of each 16-row plan and bins t",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171133,7 +171135,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 405\" role=\"img\" aria-label=\"2D action-space view: 12 of 48 samples start as random noise and are carried toward two good m",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 405\" role=\"img\" aria-label=\"2D action-space view where 12 of 48 noise samples reach two good moves at mean endpoint error ",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171397,7 +171399,7 @@
    "member": null,
    "role": "figure",
    "count": 2,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A spline board: a learner's guess of how well each grip works, held by pins at the recorded tr",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A spline board where the learner's guess springs up past the tried grips to one that really wo",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171441,7 +171443,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A graphics card open on a test bench, its chip's face a grid of squares, each 128 simulated ro",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A graphics chip drawn as a grid of squares where 16,384 robots fill 128 of the 128 squares, 12",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171628,7 +171630,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 316\" role=\"img\" aria-label=\"A push bench with a mug on a table plate: a projector throws the picture of a mug onto the pla",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 316\" role=\"img\" aria-label=\"A push bench where the mug on a table has moved 0 centimetres with picture only\" aria-describe",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171650,7 +171652,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A twin-screen video console: one start frame splits into two imagined futures, push left and l",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"One start frame splits into two imagined futures, push left and lift gripper, from a video mod",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171672,7 +171674,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A robot plans by comparing compact summaries, drawn as a planning table: the ring for now, cup",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A planning table of compact summaries where 55% of the starting distance to the goal, cup in h",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171705,7 +171707,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"A round bench where a robot's imagined future is laid as track, one section per imagined step,",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"A robot's imagined track 15 steps ahead, at 2.0% off per step, ending 0.301 units of toy devia",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -171881,7 +171883,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A flight-test corridor: a drone on a test carriage at a light gate that sees a brick wall 8 me",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A drone at its top safe speed of about 69 kilometres an hour that swerves past a wall 8 metres",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -172662,7 +172664,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 400\" role=\"img\" aria-label=\"Rollout trace on a copy-tracing bench: the groove is the path a person showed the robot, and t",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 400\" role=\"img\" aria-label=\"Rollout trace on a copy-tracing bench where slips of 5.0 percent over 240 steps add up to 1505",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -172783,7 +172785,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"Receding horizon on a tape reader: a punch writes each plan of 16 moves as rows of holes on pa",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"Receding horizon on a tape reader that acts on the first 8 rows of each 16-row plan and bins t",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -172904,7 +172906,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 405\" role=\"img\" aria-label=\"2D action-space view: 12 of 48 samples start as random noise and are carried toward two good m",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 405\" role=\"img\" aria-label=\"2D action-space view where 12 of 48 noise samples reach two good moves at mean endpoint error ",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173168,7 +173170,7 @@
    "member": null,
    "role": "figure",
    "count": 2,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A spline board: a learner's guess of how well each grip works, held by pins at the recorded tr",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A spline board where the learner's guess springs up past the tried grips to one that really wo",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173212,7 +173214,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A graphics card open on a test bench, its chip's face a grid of squares, each 128 simulated ro",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A graphics chip drawn as a grid of squares where 16,384 robots fill 128 of the 128 squares, 12",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173399,7 +173401,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 316\" role=\"img\" aria-label=\"A push bench with a mug on a table plate: a projector throws the picture of a mug onto the pla",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 316\" role=\"img\" aria-label=\"A push bench where the mug on a table has moved 0 centimetres with picture only\" aria-describe",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173421,7 +173423,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"A twin-screen video console: one start frame splits into two imagined futures, push left and l",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 380\" role=\"img\" aria-label=\"One start frame splits into two imagined futures, push left and lift gripper, from a video mod",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173443,7 +173445,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A robot plans by comparing compact summaries, drawn as a planning table: the ring for now, cup",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 450\" role=\"img\" aria-label=\"A planning table of compact summaries where 55% of the starting distance to the goal, cup in h",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173476,7 +173478,7 @@
    "member": null,
    "role": "figure",
    "count": 1,
-   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"A round bench where a robot's imagined future is laid as track, one section per imagined step,",
+   "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 340\" role=\"img\" aria-label=\"A robot's imagined track 15 steps ahead, at 2.0% off per step, ending 0.301 units of toy devia",
    "ownerName": "",
    "hidden": false,
    "focusable": false

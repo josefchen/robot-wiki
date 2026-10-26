@@ -258,7 +258,7 @@ export function LatentImagination({
         width={BENCH_WIDTH}
         height={BENCH_HEIGHT}
         fit={PHONE_FIT}
-        label={`A round bench where a robot's imagined future is laid as track, one section per imagined step, each bolted to the end of the last. ${stepsWord(horizon)} ahead, at ${errorWords}, the head of the track sits ${formatUnits(deviationNow)} units of toy deviation inside the curved steel template that marks the real route.`}
+        label={`A robot's imagined track ${stepsWord(horizon)} ahead, at ${errorWords}, ending ${formatUnits(deviationNow)} units of toy deviation off the real route`}
         describedBy={rolloutDescriptionId}
       >
         {parts.map((part, index) => (

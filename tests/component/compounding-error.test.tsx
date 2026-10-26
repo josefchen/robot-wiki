@@ -187,7 +187,7 @@ describe('CompoundingError', () => {
     const { container } = render(<CompoundingError defaultSteps={240} />);
     const svg = container.querySelector('[data-anatomy-drawing] svg')!;
     expect(svg).toHaveAccessibleName(/copy-tracing bench/i);
-    expect(svg).toHaveAccessibleName(/1505 units, against 370 over the first 120 moves/);
+    expect(svg).toHaveAccessibleName(/slips of 5\.0 percent over 240 steps add up to 1505 units of drift/);
     expect(svg.querySelectorAll('text, title, desc, foreignObject')).toHaveLength(0);
     expect(svg.querySelectorAll('[data-series]')).toHaveLength(0);
     expect(screen.getByTestId('drift-first-half').getAttribute('d')).toMatch(/^M/);

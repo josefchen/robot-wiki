@@ -94,9 +94,8 @@ export function RobotsPerGpu({ className }: { className?: string }) {
   const [countId, setCountId] = useState<CountId>(DEFAULT_COUNT);
   const count = countOf(countId);
   const squares = tilesFor(count.robots);
-  const times = squares === 1 ? 'the CPU-era count' : `${thousands(squares)} times the CPU-era count`;
 
-  const stageLabel = `A graphics card open on a test bench, its chip's face a grid of squares, each 128 simulated robots: ${thousands(count.robots)} robots fill ${squares} of the ${TILES} squares, ${times}. A magnifier over the first square shows its 128 robots.`;
+  const stageLabel = `A graphics chip drawn as a grid of squares where ${thousands(count.robots)} robots fill ${squares} of the ${TILES} squares, 128 simulated robots to a square`;
 
   const tilesRef = useRef<SVGGElement>(null);
   const front = useRef(REST_FRONT);

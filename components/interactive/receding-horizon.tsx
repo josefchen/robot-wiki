@@ -367,8 +367,8 @@ export function RecedingHorizon({
   const rods = guideRodPaths(restPose.feelerY);
   const label =
     tailSteps > 0
-      ? `Receding horizon on a tape reader: a punch writes each plan of ${clamped.tp} moves as rows of holes on paper tape, the reader acts on the first ${clamped.ta} rows and inks them, then a blade cuts the strip and the ${tailSteps} unread rows drop into a bin while the next plan is punched. ${chunks.length} plans cover the ${windowSteps}-step window, so the bin holds ${chunks.length} tails once the last is cut.`
-      : `Receding horizon on a tape reader: a punch writes each plan of ${clamped.tp} moves as rows of holes on paper tape and the reader acts on every row before the next plan is punched, so nothing drops into the bin. ${chunks.length} plans cover the ${windowSteps}-step window.`;
+      ? `Receding horizon on a tape reader that acts on the first ${clamped.ta} rows of each ${clamped.tp}-row plan and bins the ${tailSteps} unread rows, ${chunks.length} plans per ${windowSteps}-step window`
+      : `Receding horizon on a tape reader that acts on every row of each ${clamped.tp}-row plan and bins nothing, ${chunks.length} plans per ${windowSteps}-step window`;
 
   return (
     <InstrumentFigure

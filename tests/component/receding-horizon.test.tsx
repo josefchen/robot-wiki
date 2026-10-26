@@ -108,8 +108,8 @@ describe('RecedingHorizon', () => {
     for (const read of screen.getAllByTestId('rh-committed')) expect(read).toHaveAttribute('data-rows', '8');
     expect(screen.getByTestId('rh-ink')).toHaveAttribute('d', expect.stringMatching(/^M/));
     const stage = screen.getByRole('img', { name: /receding horizon/i });
-    expect(stage).toHaveAttribute('aria-label', expect.stringContaining('the 8 unread rows drop into a bin'));
-    expect(stage).toHaveAttribute('aria-label', expect.stringContaining('4 plans cover the 32-step window'));
+    expect(stage).toHaveAttribute('aria-label', expect.stringContaining('bins the 8 unread rows'));
+    expect(stage).toHaveAttribute('aria-label', expect.stringContaining('4 plans per 32-step window'));
     expect(container.querySelector('[data-readout]')).toHaveTextContent('plans 1.6 seconds ahead');
   });
 

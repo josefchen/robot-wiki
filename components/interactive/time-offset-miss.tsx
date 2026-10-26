@@ -202,7 +202,7 @@ export function TimeOffsetMiss({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               fit={PHONE_FIT}
-              label={`A gripper on a rail over a ruler, moving at ${speed} centimetres a second. A camera above it aims a beam at where its latest photo shows the gripper; the beam lands ${formatMm(gap)} millimetres behind the gripper's pointer.`}
+              label={`A gripper on a rail over a ruler at ${speed} centimetres a second, the camera's beam ${formatMm(gap)} millimetres behind its pointer`}
               describedBy={descriptionId}
             >
               {RUNS.map((run, index) => {

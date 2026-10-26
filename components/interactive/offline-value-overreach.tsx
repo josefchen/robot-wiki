@@ -358,7 +358,9 @@ export function OfflineValueOverreach({ className }: { className?: string }) {
               width={WIDTH}
               height={HEIGHT}
               fit={PHONE_FIT}
-              label={`A spline board: a learner's guess of how well each grip works, held by pins at the recorded tries, against the real results engraved behind it. ${tried ? 'With enough caution the free ends are pressed down and the rider sits over the best grip it tried.' : 'Past the last pin the guess springs up, and the rider sits over a hard grip nobody tried, which really works badly.'}`}
+              label={tried
+                ? 'A spline board where caution keeps the learner on the best grip it tried'
+                : "A spline board where the learner's guess springs up past the tried grips to one that really works badly"}
               describedBy={descriptionId}
             >
               {RUNS.map((run, index) => {

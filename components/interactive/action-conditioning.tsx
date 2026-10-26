@@ -430,7 +430,7 @@ export function ActionConditioning({
         width={WIDTH}
         height={HEIGHT}
         fit={PHONE_FIT}
-        label={`A twin-screen video console: one start frame splits into two imagined futures, ${nameA.toLowerCase()} and ${nameB.toLowerCase()}, from a video model that ${model}. Each screen is fed by its own command lever, ${plugged ? 'plugged in' : 'with its plug pulled'}. ${note.join(' ')}.`}
+        label={`One start frame splits into two imagined futures, ${nameA.toLowerCase()} and ${nameB.toLowerCase()}, from a video model that ${model}`}
         describedBy={descriptionId}
       >
         {PARTS.map((part, index) => (part.kind === 'slot' ? slot(part.id) : <PartView key={index} part={part} />))}

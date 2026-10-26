@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "945aa1434b9570f35db34f804f0efbd060703ba929b0c826f3d31b124fd91498",
+  "fingerprint": "ae8680b5f1b0b9bcb5364fd1eecbe0889e1148034207129b1ddaf9b70078ce71",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5684,12 +5684,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "50a4f55d1cd7341dcd94a8f47664de9c003650b3b899aafd1addf21a9474ddbd",
+          "sha256": "21688da762b6554a3f808ff09772d5ba6ef6e0a8c6666867afef64c863f42233",
           "widthPx": 327,
-          "heightPx": 6318,
+          "heightPx": 6450,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.71,
+          "luminanceSpread": 25.3,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -5800,12 +5800,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "445f1efad479e8e9f5495afff4586869004fa2c9930fa298f412d2163758a802",
+          "sha256": "f18733548dd14aed4fecb988096484a3cac25b51f34b6bf451f52b8084da6b8e",
           "widthPx": 985,
-          "heightPx": 4509,
+          "heightPx": 4573,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.65,
+          "luminanceSpread": 29.62,
           "fontsLoaded": true,
           "rootLeftPx": 224,
           "rootRightPx": 1208,
@@ -21707,8 +21707,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-04.jpg",
-      "sha256": "ba67e621f82f3a051a0a449dd9193d0003f9d018b72877c51282199ff79680fc",
-      "bytes": 324223,
+      "sha256": "b48d621683749d69179703576a1fe3b47a26aaf9886b0aaeb02004c5cb56b7b9",
+      "bytes": 324250,
       "mountIds": [
         "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
         "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -21768,7 +21768,7 @@
         },
         {
           "key": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1@1440x900:default",
-          "sha256": "445f1efad479e8e9f5495afff4586869004fa2c9930fa298f412d2163758a802"
+          "sha256": "f18733548dd14aed4fecb988096484a3cac25b51f34b6bf451f52b8084da6b8e"
         },
         {
           "key": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1@1440x900:changed",
@@ -21776,7 +21776,7 @@
         },
         {
           "key": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1@375x812:default",
-          "sha256": "50a4f55d1cd7341dcd94a8f47664de9c003650b3b899aafd1addf21a9474ddbd"
+          "sha256": "21688da762b6554a3f808ff09772d5ba6ef6e0a8c6666867afef64c863f42233"
         },
         {
           "key": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1@375x812:changed",

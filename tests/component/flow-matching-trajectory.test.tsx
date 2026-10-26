@@ -66,7 +66,7 @@ describe('FlowMatchingTrajectory', () => {
   it('shows the vector field and the noise-to-action transport', () => {
     render(<FlowMatchingTrajectory />);
     expect(
-      screen.getByRole('img', { name: /vector field/i }),
+      screen.getByRole('img', { name: /noise samples reach two good moves/i }),
     ).toBeInTheDocument();
   });
 
