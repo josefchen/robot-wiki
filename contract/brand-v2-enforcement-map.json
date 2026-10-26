@@ -13925,6 +13925,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:aim-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:airexo-2-2025",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -15180,6 +15185,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamcan-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:dreamdojo-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -16425,12 +16435,22 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:humanoidpose-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:humanplus-2024",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:humanup-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:hurst-spectrum-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -18510,6 +18530,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pia-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:pilco-2015",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -19821,6 +19846,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:srt-h-2025",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ssio-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21300,7 +21330,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 1999,
+        "populationSize": 2005,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21835,6 +21865,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:agro-suvide-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ai-space-robot-ops-review-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ai4mars-2021",
+          "result:VAL-B2-BASE-002:article-metadata:citation:aim-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:airexo-2-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:airio-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:albu-schaffer-2003",
@@ -22086,6 +22117,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:dream-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:dream-mpc-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dream-to-fly-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:dreamcan-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamdojo-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamer-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:dreamer4-2025",
@@ -22335,8 +22367,10 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:humanoid-parkour-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:humanoidbench-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:humanoidmimicgen-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:humanoidpose-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:humanplus-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:humanup-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:hurst-spectrum-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:hutchinson-hager-corke-1996",
           "result:VAL-B2-BASE-002:article-metadata:citation:hwangbo-2019",
           "result:VAL-B2-BASE-002:article-metadata:citation:hwm-2026",
@@ -22752,6 +22786,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:pi07-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi07-blog-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pi3-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:pia-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:pilco-2015",
           "result:VAL-B2-BASE-002:article-metadata:citation:pistar06-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:pistar06-blog-2025",
@@ -23015,6 +23050,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:splatsim-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:srt-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:srt-h-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ssio-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ssrl-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:stagewise-cmorl-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:stanley-2006",
@@ -52694,6 +52730,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:1bef92a9eafff9ae",
+          "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:54fe2013630bc749",
           "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
         },
@@ -53164,7 +53205,7 @@
         "statement": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
         "expected": "OG validation records font checksum/registration, mapped static instance, `cmap` coverage, and rendered glyph probes for every assigned string with no per-glyph fallback; OCR is secondary only.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 95,
+        "populationSize": 96,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -53182,6 +53223,7 @@
           "result:VAL-B2-OG-012:probe:og-face:data:ea50c61c0f1143c2",
           "result:VAL-B2-OG-012:probe:og-face:data:80881eb6e17c6a77",
           "result:VAL-B2-OG-012:probe:og-face:data:edafdcee4f696f34",
+          "result:VAL-B2-OG-012:probe:og-face:data:1bef92a9eafff9ae",
           "result:VAL-B2-OG-012:probe:og-face:data:54fe2013630bc749",
           "result:VAL-B2-OG-012:probe:og-face:data:22375b1f2ef3ba22",
           "result:VAL-B2-OG-012:probe:og-face:data:552ed2e54a941137",

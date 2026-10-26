@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "7382674f2a43989ea253bcaab8e52aec4930ed9dc27fc21e9582059bae09f86a",
+  "fingerprint": "550711de758b43e7736dd7be4207a17e23f2c9218611209eb63f1f68b9c8c907",
   "viewports": [
     "375x812",
     "768x1024",
@@ -432,7 +432,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-25",
+            "text": "2026-10-26",
             "exemption": null
           },
           {
@@ -444,10 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 204,
+            "maxLineWidthPx": 201,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Humanoid Whole-Body Control",
+            "text": "Industrial Deployment",
             "exemption": null
           },
           {
@@ -689,8 +689,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "64c4d000"
+          "strings": 124,
+          "digest": "c503e85a"
         }
       },
       "focus": [
@@ -1344,7 +1344,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-25",
+            "text": "2026-10-26",
             "exemption": null
           },
           {
@@ -1356,10 +1356,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 293,
+            "maxLineWidthPx": 214,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Humanoid Whole-Body Control",
+            "text": "Industrial Deployment",
             "exemption": null
           },
           {
@@ -1608,8 +1608,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "64c4d000"
+          "strings": 124,
+          "digest": "c503e85a"
         }
       },
       "focus": [
@@ -2264,7 +2264,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-25",
+            "text": "2026-10-26",
             "exemption": null
           },
           {
@@ -2276,10 +2276,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 293,
+            "maxLineWidthPx": 214,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Humanoid Whole-Body Control",
+            "text": "Industrial Deployment",
             "exemption": null
           },
           {
@@ -2528,8 +2528,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "64c4d000"
+          "strings": 124,
+          "digest": "c503e85a"
         }
       },
       "focus": [
@@ -45310,30 +45310,30 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3753,
-          "actions": 151,
-          "secondaryActions": 14,
-          "links": 133,
-          "textRuns": 395,
+          "paintedElements": 3792,
+          "actions": 159,
+          "secondaryActions": 15,
+          "links": 140,
+          "textRuns": 416,
           "frames": 5,
-          "citationMarks": 49,
-          "insetTextRuns": 771,
-          "collisionTextBoxes": 805,
+          "citationMarks": 54,
+          "insetTextRuns": 797,
+          "collisionTextBoxes": 858,
           "headings": 11,
-          "paragraphs": 115,
+          "paragraphs": 121,
           "sectionHeads": 9,
-          "spacingValues": 505,
+          "spacingValues": 528,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 43,
-          "hiddenTextRuns": 41,
-          "proseRuns": 406,
+          "decorativeLayers": 45,
+          "hiddenTextRuns": 43,
+          "proseRuns": 446,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 57
+          "compositionBlocks": 59
         },
         "findings": [],
         "typeTuples": [
@@ -45437,7 +45437,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 285,
-            "count": 64,
+            "count": 69,
             "element": "p.page-lead",
             "text": "Kalman filters, factor graphs, and pose ",
             "exemption": null
@@ -45482,7 +45482,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 27,
+            "count": 29,
             "element": "p",
             "text": "State estimation computes a robot's stat",
             "exemption": null
@@ -45497,7 +45497,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 3",
             "exemption": null
@@ -45557,7 +45557,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 298,
-            "count": 46,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Legged Locomotion Lineage",
             "exemption": null
@@ -45572,7 +45572,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 321,
-            "count": 95,
+            "count": 100,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "How learned gaits became the default for",
             "exemption": null
@@ -45587,7 +45587,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 39,
+            "count": 41,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://doi.org/10.1115/1.3662552",
             "exemption": null
@@ -45719,21 +45719,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 32,
+            "count": 34,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 43,
+            "count": 45,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -45754,7 +45754,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 40,
+            "count": 42,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -45871,8 +45871,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 562,
-          "digest": "5ed50b5b"
+          "strings": 582,
+          "digest": "e8462106"
         }
       },
       "focus": [
@@ -45927,7 +45927,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"41\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46185,30 +46185,30 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3753,
-          "actions": 151,
-          "secondaryActions": 14,
-          "links": 133,
-          "textRuns": 395,
+          "paintedElements": 3792,
+          "actions": 159,
+          "secondaryActions": 15,
+          "links": 140,
+          "textRuns": 416,
           "frames": 5,
-          "citationMarks": 49,
-          "insetTextRuns": 951,
-          "collisionTextBoxes": 561,
+          "citationMarks": 54,
+          "insetTextRuns": 977,
+          "collisionTextBoxes": 596,
           "headings": 11,
-          "paragraphs": 115,
+          "paragraphs": 121,
           "sectionHeads": 9,
-          "spacingValues": 505,
+          "spacingValues": 528,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 43,
-          "hiddenTextRuns": 41,
-          "proseRuns": 288,
+          "decorativeLayers": 45,
+          "hiddenTextRuns": 43,
+          "proseRuns": 314,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 57
+          "compositionBlocks": 59
         },
         "findings": [],
         "typeTuples": [
@@ -46312,7 +46312,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 512,
-            "count": 64,
+            "count": 69,
             "element": "p.page-lead",
             "text": "Kalman filters, factor graphs, and pose ",
             "exemption": null
@@ -46357,7 +46357,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 27,
+            "count": 29,
             "element": "p",
             "text": "State estimation computes a robot's stat",
             "exemption": null
@@ -46372,7 +46372,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 3",
             "exemption": null
@@ -46432,7 +46432,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 631,
-            "count": 46,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Legged Locomotion Lineage",
             "exemption": null
@@ -46447,7 +46447,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 660,
-            "count": 95,
+            "count": 100,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "How learned gaits became the default for",
             "exemption": null
@@ -46462,7 +46462,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 39,
+            "count": 41,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://doi.org/10.1115/1.3662552",
             "exemption": null
@@ -46608,21 +46608,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 32,
+            "count": 34,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 43,
+            "count": 45,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -46643,7 +46643,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 40,
+            "count": 42,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -46753,8 +46753,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 562,
-          "digest": "5ed50b5b"
+          "strings": 582,
+          "digest": "e8462106"
         }
       },
       "focus": [
@@ -46809,7 +46809,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"41\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47067,32 +47067,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3914,
-          "actions": 207,
-          "secondaryActions": 14,
+          "paintedElements": 3968,
+          "actions": 220,
+          "secondaryActions": 15,
           "persistentStates": 1,
-          "links": 189,
-          "textRuns": 499,
+          "links": 201,
+          "textRuns": 530,
           "frames": 5,
-          "citationMarks": 49,
-          "insetTextRuns": 1055,
-          "collisionTextBoxes": 633,
+          "citationMarks": 54,
+          "insetTextRuns": 1091,
+          "collisionTextBoxes": 673,
           "headings": 11,
-          "paragraphs": 115,
+          "paragraphs": 121,
           "sectionHeads": 9,
-          "spacingValues": 709,
+          "spacingValues": 752,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 43,
-          "hiddenTextRuns": 41,
-          "proseRuns": 363,
+          "decorativeLayers": 45,
+          "hiddenTextRuns": 43,
+          "proseRuns": 394,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 57
+          "compositionBlocks": 59
         },
         "findings": [],
         "typeTuples": [
@@ -47196,7 +47196,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 512,
-            "count": 64,
+            "count": 69,
             "element": "p.page-lead",
             "text": "Kalman filters, factor graphs, and pose ",
             "exemption": null
@@ -47256,7 +47256,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 928,
-            "count": 27,
+            "count": 29,
             "element": "p",
             "text": "State estimation computes a robot's stat",
             "exemption": null
@@ -47271,7 +47271,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 3",
             "exemption": null
@@ -47286,7 +47286,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 49,
+            "count": 54,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "3",
             "exemption": null
@@ -47301,7 +47301,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 141,
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Thrun et al. 2005",
             "exemption": null
@@ -47361,7 +47361,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 719,
-            "count": 46,
+            "count": 48,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Legged Locomotion Lineage",
             "exemption": null
@@ -47376,7 +47376,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 860,
-            "count": 95,
+            "count": 100,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "How learned gaits became the default for",
             "exemption": null
@@ -47391,7 +47391,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 882,
-            "count": 39,
+            "count": 41,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://doi.org/10.1115/1.3662552",
             "exemption": null
@@ -47530,42 +47530,42 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 32,
+            "count": 34,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 49,
+            "count": 54,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 49,
+            "count": 54,
             "element": "span#_R_1g0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 49,
+            "count": 54,
             "element": "span#_R_1g0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 49,
+            "count": 54,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 43,
+            "count": 45,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -47593,7 +47593,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 40,
+            "count": 42,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -47703,8 +47703,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 562,
-          "digest": "5ed50b5b"
+          "strings": 582,
+          "digest": "e8462106"
         }
       },
       "focus": [
@@ -47759,7 +47759,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"41\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -71165,31 +71165,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1964,
-          "actions": 160,
+          "paintedElements": 1985,
+          "actions": 164,
           "secondaryActions": 13,
           "persistentStates": 1,
-          "links": 139,
-          "textRuns": 402,
+          "links": 143,
+          "textRuns": 413,
           "frames": 5,
-          "citationMarks": 46,
-          "insetTextRuns": 506,
-          "collisionTextBoxes": 903,
+          "citationMarks": 49,
+          "insetTextRuns": 520,
+          "collisionTextBoxes": 934,
           "headings": 13,
-          "paragraphs": 118,
+          "paragraphs": 121,
           "sectionHeads": 11,
-          "spacingValues": 476,
+          "spacingValues": 488,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 43,
-          "hiddenTextRuns": 41,
-          "proseRuns": 463,
+          "decorativeLayers": 44,
+          "hiddenTextRuns": 42,
+          "proseRuns": 488,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 50
+          "compositionBlocks": 51
         },
         "findings": [],
         "typeTuples": [
@@ -71293,7 +71293,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 269,
-            "count": 65,
+            "count": 68,
             "element": "p.page-lead",
             "text": "The jam-rate arithmetic that decides whe",
             "exemption": null
@@ -71338,7 +71338,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 27,
+            "count": 28,
             "element": "p",
             "text": "Industrial deployment is the installatio",
             "exemption": null
@@ -71353,7 +71353,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 20",
             "exemption": null
@@ -71428,7 +71428,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 281,
-            "count": 49,
+            "count": 50,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Evaluation Crisis",
             "exemption": null
@@ -71443,7 +71443,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 311,
-            "count": 97,
+            "count": 99,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -71458,7 +71458,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 39,
+            "count": 40,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://ifr.org/img/worldrobotics/Execut",
             "exemption": null
@@ -71590,14 +71590,14 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 35,
+            "count": 36,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -71618,14 +71618,14 @@
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 42,
+            "count": 43,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 40,
+            "count": 41,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -71762,8 +71762,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 596,
-          "digest": "543887f9"
+          "strings": 607,
+          "digest": "f5437a55"
         }
       },
       "focus": [
@@ -71818,7 +71818,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"40\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -72076,31 +72076,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1964,
-          "actions": 160,
+          "paintedElements": 1985,
+          "actions": 164,
           "secondaryActions": 13,
           "persistentStates": 1,
-          "links": 139,
-          "textRuns": 402,
+          "links": 143,
+          "textRuns": 413,
           "frames": 5,
-          "citationMarks": 46,
-          "insetTextRuns": 506,
-          "collisionTextBoxes": 602,
+          "citationMarks": 49,
+          "insetTextRuns": 520,
+          "collisionTextBoxes": 622,
           "headings": 13,
-          "paragraphs": 118,
+          "paragraphs": 121,
           "sectionHeads": 11,
-          "spacingValues": 476,
+          "spacingValues": 488,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 43,
-          "hiddenTextRuns": 41,
-          "proseRuns": 304,
+          "decorativeLayers": 44,
+          "hiddenTextRuns": 42,
+          "proseRuns": 320,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 50
+          "compositionBlocks": 51
         },
         "findings": [],
         "typeTuples": [
@@ -72204,7 +72204,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 511,
-            "count": 65,
+            "count": 68,
             "element": "p.page-lead",
             "text": "The jam-rate arithmetic that decides whe",
             "exemption": null
@@ -72249,7 +72249,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 27,
+            "count": 28,
             "element": "p",
             "text": "Industrial deployment is the installatio",
             "exemption": null
@@ -72264,7 +72264,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 20",
             "exemption": null
@@ -72339,7 +72339,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 49,
+            "count": 50,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Evaluation Crisis",
             "exemption": null
@@ -72354,7 +72354,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 659,
-            "count": 97,
+            "count": 99,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -72369,7 +72369,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 39,
+            "count": 40,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://ifr.org/img/worldrobotics/Execut",
             "exemption": null
@@ -72515,14 +72515,14 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 35,
+            "count": 36,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -72543,14 +72543,14 @@
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 42,
+            "count": 43,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 40,
+            "count": 41,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -72680,8 +72680,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 596,
-          "digest": "543887f9"
+          "strings": 607,
+          "digest": "f5437a55"
         }
       },
       "focus": [
@@ -72736,7 +72736,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"40\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -72994,32 +72994,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2120,
-          "actions": 215,
+          "paintedElements": 2150,
+          "actions": 222,
           "secondaryActions": 13,
           "persistentStates": 2,
-          "links": 194,
-          "textRuns": 502,
+          "links": 201,
+          "textRuns": 519,
           "frames": 5,
-          "citationMarks": 46,
-          "insetTextRuns": 606,
-          "collisionTextBoxes": 674,
+          "citationMarks": 49,
+          "insetTextRuns": 626,
+          "collisionTextBoxes": 698,
           "headings": 13,
-          "paragraphs": 118,
+          "paragraphs": 121,
           "sectionHeads": 11,
-          "spacingValues": 670,
+          "spacingValues": 694,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 43,
-          "hiddenTextRuns": 41,
-          "proseRuns": 378,
+          "decorativeLayers": 44,
+          "hiddenTextRuns": 42,
+          "proseRuns": 398,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 50
+          "compositionBlocks": 51
         },
         "findings": [],
         "typeTuples": [
@@ -73123,7 +73123,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 511,
-            "count": 65,
+            "count": 68,
             "element": "p.page-lead",
             "text": "The jam-rate arithmetic that decides whe",
             "exemption": null
@@ -73183,7 +73183,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 927,
-            "count": 27,
+            "count": 28,
             "element": "p",
             "text": "Industrial deployment is the installatio",
             "exemption": null
@@ -73198,7 +73198,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 20",
             "exemption": null
@@ -73213,7 +73213,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 46,
+            "count": 49,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "20",
             "exemption": null
@@ -73228,7 +73228,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 155,
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "International Federation of Robotics 202",
             "exemption": null
@@ -73303,7 +73303,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 784,
-            "count": 49,
+            "count": 50,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Evaluation Crisis",
             "exemption": null
@@ -73318,7 +73318,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 856,
-            "count": 97,
+            "count": 99,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -73333,7 +73333,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 882,
-            "count": 39,
+            "count": 40,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://ifr.org/img/worldrobotics/Execut",
             "exemption": null
@@ -73472,35 +73472,35 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 35,
+            "count": 36,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 46,
+            "count": 49,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 46,
+            "count": 49,
             "element": "span#_R_c0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 46,
+            "count": 49,
             "element": "span#_R_c0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 46,
+            "count": 49,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
@@ -73521,7 +73521,7 @@
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 42,
+            "count": 43,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -73535,7 +73535,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 40,
+            "count": 41,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -73665,8 +73665,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 596,
-          "digest": "543887f9"
+          "strings": 607,
+          "digest": "f5437a55"
         }
       },
       "focus": [
@@ -73721,7 +73721,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"40\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -192584,31 +192584,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1231,
-          "actions": 171,
-          "secondaryActions": 34,
+          "paintedElements": 1264,
+          "actions": 179,
+          "secondaryActions": 36,
           "persistentStates": 1,
-          "links": 129,
-          "textRuns": 391,
+          "links": 135,
+          "textRuns": 410,
           "frames": 7,
-          "citationMarks": 40,
-          "insetTextRuns": 482,
-          "collisionTextBoxes": 810,
+          "citationMarks": 43,
+          "insetTextRuns": 505,
+          "collisionTextBoxes": 862,
           "headings": 15,
-          "paragraphs": 115,
+          "paragraphs": 121,
           "sectionHeads": 13,
-          "spacingValues": 471,
+          "spacingValues": 492,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 42,
-          "hiddenTextRuns": 40,
-          "proseRuns": 400,
+          "decorativeLayers": 44,
+          "hiddenTextRuns": 42,
+          "proseRuns": 437,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 15,
-          "compositionBlocks": 48
+          "compositionBlocks": 50
         },
         "findings": [],
         "typeTuples": [
@@ -192712,7 +192712,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 318,
-            "count": 52,
+            "count": 56,
             "element": "p.page-lead",
             "text": "Cosmos, Genie and GR-2 use action-condit",
             "exemption": null
@@ -192757,7 +192757,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 24,
+            "count": 26,
             "element": "p",
             "text": "Generative video world models are video ",
             "exemption": null
@@ -192772,7 +192772,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 16",
             "exemption": null
@@ -192847,7 +192847,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 324,
-            "count": 50,
+            "count": 52,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "JEPA and the Non-Generative Counterargum",
             "exemption": null
@@ -192862,7 +192862,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 319,
-            "count": 116,
+            "count": 122,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "V-JEPA 2 and 2.1 predict in representati",
             "exemption": null
@@ -192877,7 +192877,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 38,
+            "count": 40,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://research.nvidia.com/labs/cosmos-",
             "exemption": null
@@ -193009,21 +193009,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 34,
+            "count": 36,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 42,
+            "count": 44,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -193044,7 +193044,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 39,
+            "count": 41,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -193191,8 +193191,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 458,
-          "digest": "d79e7480"
+          "strings": 478,
+          "digest": "0e4c3645"
         }
       },
       "focus": [
@@ -193247,7 +193247,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"38\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"40\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -193505,31 +193505,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1231,
-          "actions": 171,
-          "secondaryActions": 34,
+          "paintedElements": 1264,
+          "actions": 179,
+          "secondaryActions": 36,
           "persistentStates": 1,
-          "links": 129,
-          "textRuns": 391,
+          "links": 135,
+          "textRuns": 410,
           "frames": 7,
-          "citationMarks": 40,
-          "insetTextRuns": 482,
-          "collisionTextBoxes": 561,
+          "citationMarks": 43,
+          "insetTextRuns": 505,
+          "collisionTextBoxes": 593,
           "headings": 15,
-          "paragraphs": 115,
+          "paragraphs": 121,
           "sectionHeads": 13,
-          "spacingValues": 471,
+          "spacingValues": 492,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 42,
-          "hiddenTextRuns": 40,
-          "proseRuns": 264,
+          "decorativeLayers": 44,
+          "hiddenTextRuns": 42,
+          "proseRuns": 286,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 15,
-          "compositionBlocks": 48
+          "compositionBlocks": 50
         },
         "findings": [],
         "typeTuples": [
@@ -193633,7 +193633,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 587,
-            "count": 52,
+            "count": 56,
             "element": "p.page-lead",
             "text": "Cosmos, Genie and GR-2 use action-condit",
             "exemption": null
@@ -193678,7 +193678,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 24,
+            "count": 26,
             "element": "p",
             "text": "Generative video world models are video ",
             "exemption": null
@@ -193693,7 +193693,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 16",
             "exemption": null
@@ -193768,7 +193768,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 660,
-            "count": 50,
+            "count": 52,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "JEPA and the Non-Generative Counterargum",
             "exemption": null
@@ -193782,8 +193782,8 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 657,
-            "count": 116,
+            "maxLineWidthPx": 659,
+            "count": 122,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "V-JEPA 2 and 2.1 predict in representati",
             "exemption": null
@@ -193798,7 +193798,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 38,
+            "count": 40,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://research.nvidia.com/labs/cosmos-",
             "exemption": null
@@ -193944,21 +193944,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 34,
+            "count": 36,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 42,
+            "count": 44,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -193979,7 +193979,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 39,
+            "count": 41,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -194119,8 +194119,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 458,
-          "digest": "d79e7480"
+          "strings": 478,
+          "digest": "0e4c3645"
         }
       },
       "focus": [
@@ -194175,7 +194175,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"38\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"40\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -194433,32 +194433,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1373,
-          "actions": 222,
-          "secondaryActions": 34,
+          "paintedElements": 1415,
+          "actions": 233,
+          "secondaryActions": 36,
           "persistentStates": 2,
-          "links": 180,
-          "textRuns": 481,
+          "links": 189,
+          "textRuns": 506,
           "frames": 7,
-          "citationMarks": 40,
-          "insetTextRuns": 572,
-          "collisionTextBoxes": 626,
+          "citationMarks": 43,
+          "insetTextRuns": 601,
+          "collisionTextBoxes": 661,
           "headings": 15,
-          "paragraphs": 115,
+          "paragraphs": 121,
           "sectionHeads": 13,
-          "spacingValues": 643,
+          "spacingValues": 676,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 42,
-          "hiddenTextRuns": 40,
-          "proseRuns": 309,
+          "decorativeLayers": 44,
+          "hiddenTextRuns": 42,
+          "proseRuns": 334,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 48
+          "compositionBlocks": 50
         },
         "findings": [],
         "typeTuples": [
@@ -194562,7 +194562,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 587,
-            "count": 52,
+            "count": 56,
             "element": "p.page-lead",
             "text": "Cosmos, Genie and GR-2 use action-condit",
             "exemption": null
@@ -194622,7 +194622,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 928,
-            "count": 24,
+            "count": 26,
             "element": "p",
             "text": "Generative video world models are video ",
             "exemption": null
@@ -194637,7 +194637,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 16",
             "exemption": null
@@ -194652,7 +194652,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 40,
+            "count": 43,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "16",
             "exemption": null
@@ -194667,7 +194667,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 153,
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Yang et al. 2023",
             "exemption": null
@@ -194742,7 +194742,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 698,
-            "count": 50,
+            "count": 52,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "JEPA and the Non-Generative Counterargum",
             "exemption": null
@@ -194757,7 +194757,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 837,
-            "count": 116,
+            "count": 122,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "V-JEPA 2 and 2.1 predict in representati",
             "exemption": null
@@ -194772,7 +194772,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 826,
-            "count": 38,
+            "count": 40,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://research.nvidia.com/labs/cosmos-",
             "exemption": null
@@ -194911,42 +194911,42 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 34,
+            "count": 36,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 40,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 40,
+            "count": 43,
             "element": "span#_R_o0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 40,
+            "count": 43,
             "element": "span#_R_o0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 40,
+            "count": 43,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 42,
+            "count": 44,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -194974,7 +194974,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 39,
+            "count": 41,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -195114,8 +195114,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 458,
-          "digest": "d79e7480"
+          "strings": 478,
+          "digest": "0e4c3645"
         }
       },
       "focus": [
@@ -195170,7 +195170,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"38\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"40\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -201070,32 +201070,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1670,
-          "actions": 140,
-          "secondaryActions": 19,
+          "paintedElements": 1688,
+          "actions": 144,
+          "secondaryActions": 20,
           "persistentStates": 1,
-          "links": 113,
-          "textRuns": 328,
+          "links": 116,
+          "textRuns": 338,
           "frames": 5,
           "cards": 1,
-          "citationMarks": 33,
-          "insetTextRuns": 413,
-          "collisionTextBoxes": 629,
+          "citationMarks": 35,
+          "insetTextRuns": 425,
+          "collisionTextBoxes": 652,
           "headings": 12,
-          "paragraphs": 100,
+          "paragraphs": 103,
           "sectionHeads": 10,
-          "spacingValues": 440,
+          "spacingValues": 451,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 40,
-          "hiddenTextRuns": 38,
-          "proseRuns": 270,
+          "decorativeLayers": 41,
+          "hiddenTextRuns": 39,
+          "proseRuns": 285,
           "borderedSides": 9,
           "rails": 5,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 35
+          "compositionBlocks": 36
         },
         "findings": [],
         "typeTuples": [
@@ -201199,7 +201199,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 296,
-            "count": 45,
+            "count": 47,
             "element": "p.page-lead",
             "text": "Learn dynamics, plan through them, and i",
             "exemption": null
@@ -201244,7 +201244,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 15,
+            "count": 16,
             "element": "p",
             "text": "Model-based robot learning is the family",
             "exemption": null
@@ -201259,7 +201259,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -201319,7 +201319,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 324,
-            "count": 45,
+            "count": 46,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Reward Design and the MPC Debate",
             "exemption": null
@@ -201334,7 +201334,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 319,
-            "count": 97,
+            "count": 100,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Hand-tuned and language-model rewards, a",
             "exemption": null
@@ -201349,7 +201349,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 36,
+            "count": 37,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/1912.01603",
             "exemption": null
@@ -201481,14 +201481,14 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 23,
+            "count": 24,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -201572,14 +201572,14 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 37,
+            "count": 38,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 36,
+            "count": 37,
             "element": "p.mt-0.5.break-words.font-sans",
             "exemption": null
           },
@@ -201704,8 +201704,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 392,
-          "digest": "a009867f"
+          "strings": 401,
+          "digest": "aadfdd16"
         }
       },
       "focus": [
@@ -201760,7 +201760,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"36\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"37\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -202018,32 +202018,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1670,
-          "actions": 140,
-          "secondaryActions": 19,
+          "paintedElements": 1688,
+          "actions": 144,
+          "secondaryActions": 20,
           "persistentStates": 1,
-          "links": 113,
-          "textRuns": 328,
+          "links": 116,
+          "textRuns": 338,
           "frames": 5,
           "cards": 1,
-          "citationMarks": 33,
-          "insetTextRuns": 413,
-          "collisionTextBoxes": 436,
+          "citationMarks": 35,
+          "insetTextRuns": 425,
+          "collisionTextBoxes": 451,
           "headings": 12,
-          "paragraphs": 100,
+          "paragraphs": 103,
           "sectionHeads": 10,
-          "spacingValues": 440,
+          "spacingValues": 451,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 40,
-          "hiddenTextRuns": 38,
-          "proseRuns": 187,
+          "decorativeLayers": 41,
+          "hiddenTextRuns": 39,
+          "proseRuns": 197,
           "borderedSides": 9,
           "rails": 5,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 35
+          "compositionBlocks": 36
         },
         "findings": [],
         "typeTuples": [
@@ -202147,7 +202147,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 533,
-            "count": 45,
+            "count": 47,
             "element": "p.page-lead",
             "text": "Learn dynamics, plan through them, and i",
             "exemption": null
@@ -202192,7 +202192,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 15,
+            "count": 16,
             "element": "p",
             "text": "Model-based robot learning is the family",
             "exemption": null
@@ -202207,7 +202207,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -202267,7 +202267,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 659,
-            "count": 45,
+            "count": 46,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Reward Design and the MPC Debate",
             "exemption": null
@@ -202282,7 +202282,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 646,
-            "count": 97,
+            "count": 100,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Hand-tuned and language-model rewards, a",
             "exemption": null
@@ -202297,7 +202297,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 350,
-            "count": 36,
+            "count": 37,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/1912.01603",
             "exemption": null
@@ -202443,14 +202443,14 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 23,
+            "count": 24,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -202506,14 +202506,14 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 37,
+            "count": 38,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 36,
+            "count": 37,
             "element": "p.mt-0.5.break-words.font-sans",
             "exemption": null
           },
@@ -202631,8 +202631,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 392,
-          "digest": "a009867f"
+          "strings": 401,
+          "digest": "aadfdd16"
         }
       },
       "focus": [
@@ -202687,7 +202687,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"36\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"37\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -202945,33 +202945,33 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1785,
-          "actions": 181,
-          "secondaryActions": 19,
+          "paintedElements": 1809,
+          "actions": 187,
+          "secondaryActions": 20,
           "persistentStates": 2,
-          "links": 154,
-          "textRuns": 401,
+          "links": 159,
+          "textRuns": 415,
           "frames": 5,
           "cards": 1,
-          "citationMarks": 33,
-          "insetTextRuns": 486,
-          "collisionTextBoxes": 501,
+          "citationMarks": 35,
+          "insetTextRuns": 502,
+          "collisionTextBoxes": 519,
           "headings": 12,
-          "paragraphs": 100,
+          "paragraphs": 103,
           "sectionHeads": 10,
-          "spacingValues": 581,
+          "spacingValues": 600,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 40,
-          "hiddenTextRuns": 38,
-          "proseRuns": 237,
+          "decorativeLayers": 41,
+          "hiddenTextRuns": 39,
+          "proseRuns": 250,
           "borderedSides": 7,
           "rails": 3,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 35
+          "compositionBlocks": 36
         },
         "findings": [],
         "typeTuples": [
@@ -203075,7 +203075,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 533,
-            "count": 45,
+            "count": 47,
             "element": "p.page-lead",
             "text": "Learn dynamics, plan through them, and i",
             "exemption": null
@@ -203135,7 +203135,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 926,
-            "count": 15,
+            "count": 16,
             "element": "p",
             "text": "Model-based robot learning is the family",
             "exemption": null
@@ -203150,7 +203150,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -203165,7 +203165,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 33,
+            "count": 35,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "10",
             "exemption": null
@@ -203180,7 +203180,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 132,
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Moerland et al. 2020",
             "exemption": null
@@ -203240,7 +203240,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 781,
-            "count": 45,
+            "count": 46,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Reward Design and the MPC Debate",
             "exemption": null
@@ -203255,7 +203255,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 864,
-            "count": 97,
+            "count": 100,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Hand-tuned and language-model rewards, a",
             "exemption": null
@@ -203270,7 +203270,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 350,
-            "count": 36,
+            "count": 37,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/1912.01603",
             "exemption": null
@@ -203409,35 +203409,35 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 23,
+            "count": 24,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 33,
+            "count": 35,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 33,
-            "element": "span#_R_6lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "count": 35,
+            "element": "span#_R_c0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 33,
-            "element": "span#_R_6lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "count": 35,
+            "element": "span#_R_c0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 33,
+            "count": 35,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
@@ -203500,14 +203500,14 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 37,
+            "count": 38,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 36,
+            "count": 37,
             "element": "p.mt-0.5.break-words.font-sans",
             "exemption": null
           },
@@ -203625,8 +203625,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 392,
-          "digest": "a009867f"
+          "strings": 401,
+          "digest": "aadfdd16"
         }
       },
       "focus": [
@@ -203681,7 +203681,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"36\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"37\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",

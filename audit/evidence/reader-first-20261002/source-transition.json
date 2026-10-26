@@ -3,7 +3,7 @@
   "name": "reader-first-figures",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The reader-first figure pass of 2026-10-02 rewrote each article figure so a reader with no engineering background gets its point in five seconds: a takeaway headline, at most two visible controls with plain labels, every further control in an Adjust more fold, and the method, sources and caveats in a How this was made fold. The articles that point at those controls name them in plain words, the end-to-end specs open a fold before they use a control it now holds, and the figure sources changed with them. Each change is recorded here as exact edits over the bytes the file had before the pass. The earlier bytes stand in for the live file only while the live file is exactly the reviewed successor, so older reviews, runs and receipts that pinned them still check the bytes they recorded.",
-  "observedAt": "2026-10-25T18:36:16Z",
+  "observedAt": "2026-10-26T02:30:25Z",
   "sources": [
     {
       "archivedFrom": "6fffffaf345d1ea5e258645567df3312e8f5c71b",
@@ -11999,13 +11999,21 @@
       },
       "after": {
         "path": "tests/e2e/industrial-engineering-originals.spec.ts",
-        "bytes": 14675,
-        "sha256": "219f63383291e26aed7ce63d44932c7d97a5f1721be0b04c47b7c93314ba3f90"
+        "bytes": 15471,
+        "sha256": "3928a6f7e9c994365f9a5b43081afe03cebf49d395bdb32d3e4a939f56c9520d"
       },
       "edits": [
         {
+          "before": "import { test, expect } from '@playwright/test';\n",
+          "after": "import { test, expect, type Locator } from '@playwright/test';\n"
+        },
+        {
           "before": "import { CITATIONS } from '../../data/citations';\n",
           "after": "import { CITATIONS } from '../../data/citations';\nimport { citeNoteInMargin, citeParts, clickCiteMark, closeCiteNote, cycleInlineCiteNote } from './helpers/citation-note';\n"
+        },
+        {
+          "before": "const sha = (data: string | Buffer) => createHash('sha256').update(data).digest('hex');\n\n",
+          "after": "const sha = (data: string | Buffer) => createHash('sha256').update(data).digest('hex');\n\n/**\n * Successor of the full-byline pin (research-page standard, Josef 2026-10-10;\n * the References list caps an entry at six names, components/article/author-list.tsx):\n * an entry with more than six authors shows the first six and \"and N more\"\n * with a \"Show all N authors\" disclosure, which swaps in the complete,\n * registry-ordered byline the old pin read.\n */\nasync function expectFullByline(reference: Locator, authors: readonly string[]) {\n  const names = reference.locator('[data-author-names]');\n  if (authors.length > 6) {\n    await expect(names).toHaveText(`${authors.slice(0, 6).join(', ')}, and ${authors.length - 6} more`);\n    await reference.getByRole('button', { name: `Show all ${authors.length} authors`, exact: true }).click();\n  }\n  await expect(names).toHaveText(authors.join(', '));\n}\n\n"
         },
         {
           "before": "  const fonts = [];\n",
@@ -12060,6 +12068,10 @@
           "after": "    // Below 1200 px the number opens the note instead of jumping, so the\n    // jump to the References entry is taken at the desktop width there.\n    const viewport = page.viewportSize()!;\n    if (!wide) await page.setViewportSize({ width: 1280, height: viewport.height });\n    await tabToMark();\n"
         },
         {
+          "before": "    await expect(reference).toContainText(citation.authors.join(', '));\n",
+          "after": "    await expectFullByline(reference, citation.authors);\n"
+        },
+        {
           "before": "    })), focusRestorationAcceptance: false });\n",
           "after": "    })), focusRestorationAcceptance: false });\n    if (!wide) await page.setViewportSize(viewport);\n"
         },
@@ -12078,6 +12090,10 @@
         {
           "before": "      for (const mode of ['hover', 'focus']) {\n        await link.evaluate(e => e.blur());\n        if (mode === 'hover') await link.hover();\n        else { await page.mouse.move(0, 0); await link.focus(); }\n        const tip = chip.getByRole('tooltip');\n        await expect(tip).toBeVisible();\n        await expect(tip).toContainText('Jeremy Levine, Talia Goldberg, Janelle Teng Wade et al., 2026');\n        const bounds = (await tip.boundingBox())!;\n        const path = info.outputPath(`${i}-${mode}.png`);\n        await page.screenshot({ path });\n        // Observe peer geometry without laundering pre-existing route debt\n        // into an article-local layout repair or a global visual pass.\n        states.push({ i, mode, bounds, path, sha256: sha(readFileSync(path)),\n          contained: bounds.x >= 0 && bounds.x + bounds.width <= info.project.use.viewport!.width &&\n            bounds.y >= 0 && bounds.y + bounds.height <= info.project.use.viewport!.height });\n      }\n",
           "after": "      expect(await citeNoteInMargin(chip)).toBe(true);\n      await expect(note).toBeVisible();\n      await expect(note).toContainText('Jeremy Levine, Talia Goldberg, Janelle Teng Wade et al., 2026');\n      const bounds = (await note.boundingBox())!;\n      const path = info.outputPath(`${i}-margin.png`);\n      await page.screenshot({ path });\n      // Observe peer geometry without laundering pre-existing route debt\n      // into an article-local layout repair or a global visual pass.\n      states.push({ i, mode: 'margin', bounds, path, sha256: sha(readFileSync(path)),\n        contained: bounds.x >= 0 && bounds.x + bounds.width <= info.project.use.viewport!.width &&\n          bounds.y >= 0 && bounds.y + bounds.height <= info.project.use.viewport!.height });\n      await cycleInlineCiteNote(page, chip);\n"
+        },
+        {
+          "before": "    await expect(page.locator('#ref-bessemer-robotics-2026')).toContainText(citation.authors.join(', '));\n",
+          "after": "    await expectFullByline(page.locator('#ref-bessemer-robotics-2026'), citation.authors);\n"
         }
       ]
     },
@@ -15347,8 +15363,8 @@
       },
       "after": {
         "path": "tests/unit/content-integration-20260923.test.ts",
-        "bytes": 17439,
-        "sha256": "4e679328f2dca73ca94f0658b398e6b980ebdf7810f09aeaa51e4dc5cfdd5826"
+        "bytes": 17747,
+        "sha256": "228ba10e62f86ec0e3646af1dde3dbd6de286d7bf87b03d284eb74bc773bb452"
       },
       "edits": [
         {
@@ -15374,6 +15390,14 @@
         {
           "before": "      /^(domain-pass-(20261006-g\\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024)-citation-rendering$/.test(a.id));\n",
           "after": "      /^(domain-pass-(20261006-g\\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024|kol-batch-20261025-[a-z0-9-]+)-citation-rendering$/.test(a.id));\n"
+        },
+        {
+          "before": "        // plain edge from that endpoint where it added a paragraph, and the\n        // 2026-10-23 interactives round-1 fix one more plain edge to the live\n        // body where it rebalanced the self-check options.\n",
+          "after": "        // plain edge from that endpoint where it added a paragraph, the\n        // 2026-10-23 interactives round-1 fix one more plain edge where it\n        // rebalanced the self-check options, and the KOL queue batch of\n        // 2026-10-25 one more plain edge to the live body where it added a\n        // paragraph.\n"
+        },
+        {
+          "before": "        expect((options ?? kol ?? figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));\n",
+          "after": "        const queue = approvals.find(a => a.id === `kol-batch-20261025-world-models-prose-${slug}`);\n        if (queue) expect(queue.oldHash).toBe((options ?? kol ?? figures ?? images).newHash);\n        expect((queue ?? options ?? kol ?? figures ?? images).newHash).toBe(currentHash(entry.manifest, entry.memberId));\n"
         }
       ]
     },
@@ -15417,8 +15441,8 @@
       },
       "after": {
         "path": "tests/unit/main-merge-approved-deltas.test.ts",
-        "bytes": 433751,
-        "sha256": "db18d160ccbcd708f6715bf452f0283c8e7cb8a2bf7597c80f2d23ad56c42f5d"
+        "bytes": 435622,
+        "sha256": "dfc3516cfb8fd356c54b741629c4c4b781498c440ddacb5f1025f2ae3ef51a6e"
       },
       "edits": [
         {
@@ -15628,6 +15652,54 @@
         {
           "before": "    expect(merged.slice(afterKolBatch20261024).map(x => x.id)).toEqual(articleSources20261025Appends);\n",
           "after": "    expect(merged.slice(afterKolBatch20261024, afterArticleSources20261025).map(x => x.id))\n      .toEqual(articleSources20261025Appends);\n"
+        },
+        {
+          "before": "      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      expect(edges.at(-1)).toBe(entry);\n      expect(edges.filter(x => anatomyCrdaB0120261020Appends.includes(x.id))).toEqual([entry]);\n",
+          "after": "      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      // Only the KOL queue batch of 2026-10-25, which landed after it, may\n      // move a member after it.\n      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))\n        .toEqual(kolBatch20261025Edges(entry.manifest, entry.memberId));\n      expect(edges.filter(x => anatomyCrdaB0120261020Appends.includes(x.id))).toEqual([entry]);\n"
+        },
+        {
+          "before": "        },\n      },\n    ];\n    expect(kolBatch20261025Appends).toEqual(groups.flatMap(({ domain, articles }) => {\n",
+          "after": "        },\n      },\n      {\n        domain: 'classical',\n        articles: {\n          'state-estimation': ['ssio-2026', 'humanoidpose-2026'],\n        },\n      },\n    ];\n    expect(kolBatch20261025Appends).toEqual(groups.flatMap(({ domain, articles }) => {\n"
+        },
+        {
+          "before": "      // batch of 2026-10-21, may move the member after the cut.\n",
+          "after": "      // batch of 2026-10-21, the 2026-10-23 option fix and the KOL queue\n      // batch of 2026-10-25, may move the member after the cut.\n"
+        },
+        {
+          "before": "          ...interactivesR120261023Edges(entry.manifest, entry.memberId)]);\n",
+          "after": "          ...interactivesR120261023Edges(entry.manifest, entry.memberId),\n          ...kolBatch20261025Edges(entry.manifest, entry.memberId)]);\n"
+        },
+        {
+          "before": "      // round-1 option fix and the 2026-10-24 mount evidence, which landed\n      // after these figures, may move the member after them.\n",
+          "after": "      // round-1 option fix, the 2026-10-24 mount evidence and the KOL queue\n      // batch of 2026-10-25, which landed after these figures, may move the\n      // member after them.\n"
+        },
+        {
+          "before": "          ...interactivesR120261023Edges(entry.manifest, entry.memberId),\n          ...mountEvidence20261024Edges(entry.manifest, entry.memberId)]);\n      expect(anatomyWmB0320261015Edges(entry.manifest, entry.memberId)).toEqual([id]);\n",
+          "after": "          ...interactivesR120261023Edges(entry.manifest, entry.memberId),\n          ...mountEvidence20261024Edges(entry.manifest, entry.memberId),\n          ...kolBatch20261025Edges(entry.manifest, entry.memberId)]);\n      expect(anatomyWmB0320261015Edges(entry.manifest, entry.memberId)).toEqual([id]);\n"
+        },
+        {
+          "before": "      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      expect(edges.at(-1)).toBe(entry);\n      expect(interactivesR120261023Edges(entry.manifest, entry.memberId)).toEqual([id]);\n",
+          "after": "      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);\n      // Only the KOL queue batch of 2026-10-25, which landed after it, may\n      // move a member after it.\n      expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))\n        .toEqual(kolBatch20261025Edges(entry.manifest, entry.memberId));\n      expect(interactivesR120261023Edges(entry.manifest, entry.memberId)).toEqual([id]);\n"
+        },
+        {
+          "before": "      expect(entry.newHash).toBe(proseHash(path, shipped.toString()));\n      expect(proseHash(path, before)).toBe(prior.at(-1)!.newHash);\n",
+          "after": "      const later = kolBatch20261025Edges(entry.manifest, entry.memberId).map(x => merged.find(e => e.id === x)!);\n      if (later.length === 0) {\n        expect(entry.newHash).toBe(proseHash(path, shipped.toString()));\n        expect(proseHash(path, before)).toBe(prior.at(-1)!.newHash);\n      } else {\n        // A KOL queue paragraph of 2026-10-25 moved the article on: the option\n        // review now holds the shipped bytes over a predecessor that carries the\n        // paragraph, and the later edge runs from this endpoint to them.\n        expect(later[0]!.oldHash).toBe(entry.newHash);\n        expect(later[0]!.reason).toContain('2026-10-23 answer-options');\n        expect(later.at(-1)!.newHash).toBe(proseHash(path, shipped.toString()));\n      }\n"
+        },
+        {
+          "before": "        },\n      },\n    ];\n    expect(kolBatch20261025Appends).toEqual(groups.flatMap(({ domain, articles }) => {\n",
+          "after": "        },\n      },\n      {\n        domain: 'world-models',\n        articles: {\n          'generative-video': ['dreamcan-2026', 'aim-2026'],\n          'model-based-robot-learning': ['pia-2026'],\n        },\n      },\n    ];\n    expect(kolBatch20261025Appends).toEqual(groups.flatMap(({ domain, articles }) => {\n"
+        },
+        {
+          "before": "      // interactives round-1 option fix and the KOL overdue triage of\n      // 2026-10-24 follow it.\n",
+          "after": "      // interactives round-1 option fix, the KOL overdue triage of\n      // 2026-10-24 and the KOL queue batch of 2026-10-25 follow it.\n"
+        },
+        {
+          "before": "        ...interactivesR120261023Edges(entry.manifest, entry.memberId),\n        ...kolBatch20261024Edges(entry.manifest, entry.memberId)]);\n      expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);\n",
+          "after": "        ...interactivesR120261023Edges(entry.manifest, entry.memberId),\n        ...kolBatch20261024Edges(entry.manifest, entry.memberId),\n        ...kolBatch20261025Edges(entry.manifest, entry.memberId)]);\n      expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);\n"
+        },
+        {
+          "before": "        },\n      },\n    ];\n    expect(kolBatch20261025Appends).toEqual(groups.flatMap(({ domain, articles }) => {\n",
+          "after": "        },\n      },\n      {\n        domain: 'data-hardware',\n        articles: {\n          'industrial-deployment': ['hurst-spectrum-2026'],\n        },\n      },\n    ];\n    expect(kolBatch20261025Appends).toEqual(groups.flatMap(({ domain, articles }) => {\n"
         }
       ]
     },
@@ -15640,8 +15712,8 @@
       },
       "after": {
         "path": "tests/unit/motion-data-hardware.test.ts",
-        "bytes": 12175,
-        "sha256": "926829db949c44ea07d4d16a0bb5ffd2d4b3b5b37e4e3aa3425746d1ead98c5c"
+        "bytes": 12360,
+        "sha256": "d2a6915a70f9f40fc856972a39aefcb5012949f9d18ef9cc7ddf788053df7ce3"
       },
       "edits": [
         {
@@ -15679,6 +15751,14 @@
         {
           "before": "      const current = readFileSync(join(folder, file), 'utf8');\n",
           "after": "      // The 2026-10-13 data-hardware pass rewrote every article on purpose; this\n      // checkpoint comparison reads the pre-pass article the cut layer rebuilds.\n      const current = withoutKolBacklogParagraphs(`data-hardware/${file}`,\n        preDataHardwareCut(`content/data-hardware/${file}`).toString());\n"
+        },
+        {
+          "before": "      // StopWatch paragraph).\n",
+          "after": "      // StopWatch paragraph). The KOL queue batch of 2026-10-25 re-resolved\n      // industrial-deployment (the Hurst paragraph on Digit 5).\n"
+        },
+        {
+          "before": "          'images-dh-20261015-prose-data-hardware-industrial-deployment'];\n",
+          "after": "          'images-dh-20261015-prose-data-hardware-industrial-deployment',\n          'kol-batch-20261025-data-hardware-prose-industrial-deployment'];\n"
         }
       ]
     },
@@ -15781,8 +15861,8 @@
       },
       "after": {
         "path": "tests/unit/motion-world-models-continuity.test.ts",
-        "bytes": 11470,
-        "sha256": "525d88a94be2165553cde7cd756a92ef4c00677cff56572b95954d4ad9e9f4a6"
+        "bytes": 11613,
+        "sha256": "551a74a67915c2ed56693abbb6582b44db9204cae493a84ca6f7303c459d66ae"
       },
       "edits": [
         {
@@ -15792,6 +15872,10 @@
         {
           "before": "        ? [`anatomy-wm-b03-figures-20261015-prose-${slug}`] : []),\n",
           "after": "        ? [`anatomy-wm-b03-figures-20261015-prose-${slug}`] : []),\n      ...(['generative-sim', 'generative-video', 'jepa', 'model-based-robot-learning'].includes(slug)\n        ? [`kol-batch-20261021-world-models-prose-${slug}`] : []),\n      ...(['evaluation', 'model-based-robot-learning', 'world-models-vs-simulators'].includes(slug)\n        ? [`interactives-r1-20261023-prose-world-models-${slug}`] : []),\n"
+        },
+        {
+          "before": "        ? [`interactives-r1-20261023-prose-world-models-${slug}`] : []),\n    ]);\n",
+          "after": "        ? [`interactives-r1-20261023-prose-world-models-${slug}`] : []),\n      ...(['generative-video', 'model-based-robot-learning'].includes(slug)\n        ? [`kol-batch-20261025-world-models-prose-${slug}`] : []),\n    ]);\n"
         }
       ]
     },

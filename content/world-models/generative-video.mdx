@@ -45,6 +45,8 @@ citations:
   - openwam-2026
   - long-wam-2026
   - caster-2026
+  - dreamcan-2026
+  - aim-2026
 seeAlso:
   - "world-models/jepa"
   - "manipulation/vla-models"
@@ -102,6 +104,8 @@ OpenWAM (October 2026), from Heng Yu, Li Fei-Fei, Jiajun Wu, Ehsan Adeli and col
 
 Long-WAM (October 2026), from Wei Huang, Linxi Fan, Song Han, Yukang Chen and colleagues at NVIDIA, MIT and HKU, found that longer visual history pays off when the video model was pretrained autoregressively. On RoboCasa GR-1, extending context from 0 to 19.2 seconds raised success from 63.3% to 78.7%, while a bidirectionally pretrained start showed no net gain. On real robots it stacked moving cups in 95% of trials, a task where π0.5 and Fast-WAM succeeded in none of 20 <Cite id="long-wam-2026" />.
 
+DreamCan (October 2026), from Chongkai Gao, Jiajun Wu, Li Fei-Fei and colleagues at Stanford, NUS, Harvard and Northwestern, plans with a few generated subgoal images instead of dense video. Its training subgoals are chosen to balance whether a low-level policy can reach each one against how far each moves the task. With a 0.1-billion-parameter policy that was not pretrained, it reached 91.2% on LIBERO-Long against 82.4% for evenly spaced subgoals. π0.5 and Lingbot-VA, whose scores the authors took from the original papers, reached 92.4% and 98.5% <Cite id="dreamcan-2026" />.
+
 <span id="1x-and-odyssey-the-commercial-edges" />
 ## 1X still fails dexterous tasks, while Odyssey streams worlds live
 
@@ -113,6 +117,8 @@ Odyssey-2 (October 2025) generates each frame causally from prior frames and use
 ## Weak action conditioning is the field's main bottleneck
 
 The 2026 survey lists causal conditioning gaps first among its open challenges and calls weak action conditioning the technical bottleneck. Models trained mostly from observation history and task intent produce futures "semantically plausible or intention-consistent, but not necessarily faithful to the physical consequences of the candidate action" <Cite id="world-model-survey-2026" />. In closed-loop tests, controllability mattered more than visual quality, and post-training on action-observation data beat upgrading the base generator <Cite id="world-in-world-2025" />.
+
+Samuel Bateman, Benjamin Eysenbach, Dhruv Shah and colleagues at Princeton and Columbia (October 2026) trace the weakness to the data. They prove that how much a dataset's actions influence its next states caps the action influence any model trained on it can express, so expert demonstrations, whose next states can be predicted without the action, set a low ceiling <Cite id="aim-2026" />. In a simulated pixel-based Push-T task, 500 episodes collected by their AIM method and added to 3,000 demonstrations matched a model trained on 300,000 expert episodes on end-effector controllability, an 85-fold cut in data <Cite id="aim-2026" />.
 
 <span id="does-it-work-as-a-simulator-the-evidence-both-ways" />
 ## In IWS tests, generated demonstrations rivalled real ones for two policies

@@ -193,8 +193,8 @@
     "dependencies": [
       {
         "path": "data/citations.ts",
-        "bytes": 988066,
-        "sha256": "acc85b79f1691f70f2034447ae91fb309ec61f350cd8b62b305f1aef2ad6b478"
+        "bytes": 991776,
+        "sha256": "e4c3747c1b20b0f62461bc1eb2d33e4cd8e62c57ed9d895814720911c62a14cf"
       },
       {
         "path": "tests/e2e/control.spec.ts",
@@ -231,14 +231,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "e6ddaa19f891ba6a0c09d9a76fd5a4b6a0eff64b6b21f02807d3c9bdc7193b11"
+      "sha256": "b1f5d78d5ba014b7d6d46caa796704b927e6b25b5de0a46a48dd4667635f9b5b"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
       "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-25T15:11:07.752Z",
-      "inputDigest": "398f3a3524b6a9452f0c27d6eb45e47deb7ea5ac62a26de728afcf75d549df22"
+      "inputDigest": "d0489e922f8fab27cee38f5b48f987891c2dd1a741feedf8ee65187655a3956c"
     }
   },
   {
@@ -273,8 +273,8 @@
     "dependencies": [
       {
         "path": "data/citations.ts",
-        "bytes": 988066,
-        "sha256": "acc85b79f1691f70f2034447ae91fb309ec61f350cd8b62b305f1aef2ad6b478"
+        "bytes": 991776,
+        "sha256": "e4c3747c1b20b0f62461bc1eb2d33e4cd8e62c57ed9d895814720911c62a14cf"
       },
       {
         "path": "tests/e2e/control.spec.ts",
@@ -311,14 +311,14 @@
     "execution": {
       "path": "audit/evidence/control-citation-closeout-20260924/reader-run.json",
       "bytes": 3435,
-      "sha256": "e6ddaa19f891ba6a0c09d9a76fd5a4b6a0eff64b6b21f02807d3c9bdc7193b11"
+      "sha256": "b1f5d78d5ba014b7d6d46caa796704b927e6b25b5de0a46a48dd4667635f9b5b"
     },
     "children": [],
     "review": {
       "reviewedBy": "implementation integrator 30d764da; not independent validator",
       "rationale": "Inspected current article and both desktop/mobile reader DOM/PNG receipts. Prevalence number, dependent PI qualifier and inaccessible Åström chip are absent in prose, Stat, quiz feedback and frontmatter; LQR priority/year is separately withdrawn, while both pendulum mounts, contact lab, SelfCheck, PID and Riccati equations, actual Ziegler/Nichols and Tedrake citations remain. Retained historical source text is not repurposed as active proof. Original cells and earlier correction survive in exact snapshot; failed browser locator attempt is recorded, not silently counted.",
       "observedAt": "2026-09-25T15:11:07.753Z",
-      "inputDigest": "56e84c11903375d4a7fc06b5233fb078dea599549271bc88b0db0e16e970b309"
+      "inputDigest": "9c02333d7bb31db2e1fbb54473a701e1e050ded48974187db2d70c98405a75c0"
     }
   }
 ]

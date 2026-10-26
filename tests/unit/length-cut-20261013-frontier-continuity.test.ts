@@ -186,6 +186,83 @@ describe('frontier length cut 2026-10-13 article successors', () => {
     expect(keeps(prior.replace(block, fixedBlock), [{ before: block, after: fixedBlock, reason }])).toBe(false);
   });
 
+  it('lists every added occurrence with the sentence it went into, and each added source in the frontmatter', () => {
+    for (const source of review.sources.filter(({ added }) => added !== undefined)) {
+      const live = preImageMounts(source.after.path).toString();
+      const head = live.match(/^---\n[\s\S]*?\n---\n/)![0];
+      const body = live.slice(head.length);
+      const lists = Object.values(source.added!);
+      expect(lists.some((list) => list.length > 0)).toBe(true);
+      for (const { value, claim } of lists.flat()) {
+        expect(value.length).toBeGreaterThan(0);
+        expect(claim.length).toBeGreaterThanOrEqual(12);
+      }
+      for (const { value } of source.added!.citations) {
+        expect(body).toContain(`<Cite id="${value}"`);
+        expect(head).toContain(`  - ${value}\n`);
+      }
+    }
+  });
+
+  it('admits an addition only as recorded, beside a corrected block, and never inside one', () => {
+    const cites = Array.from({ length: 31 }, (_, i) => `<Cite id="s${i}" />`).join(' ');
+    const block = '<div className="stats">\n  <Stat label="a" value="1" />\n</div>';
+    const prior = ['---', 'title: "A"', 'citations:', '  - s0', '---', '', `Kept claim ${cites} in the [guide](/x/z).`,
+      '', block, '', 'A recap that repeats 12 links and the [guide](/x/z) <Cite id="s0" />, at length and once too often.',
+      '', '## Next', '', 'Closing words.', ''].join('\n');
+    const fixedBlock = block.replace('value="1"', 'value="2"');
+    const recap = 'A recap that repeats 12 links and the guide';
+    const dropped: LengthCutDrops = {
+      citations: [{ value: 's0', claim: recap }],
+      numbers: [{ value: '0', claim: recap }, { value: '12', claim: recap }],
+      links: [{ value: '/x/z', claim: recap }],
+      terms: [],
+    };
+    const sentence = 'New work reached 42% [n1].';
+    const added: LengthCutDrops = {
+      citations: [{ value: 'n1', claim: sentence }],
+      numbers: [{ value: '1', claim: sentence }, { value: '42', claim: sentence }],
+      links: [],
+      terms: [],
+    };
+    const reason = 'The tile had no source in the article and gives way to a cited figure.';
+    const corrected = [{ before: block, after: fixedBlock, reason }];
+    const cut = prior.replace(/A recap [^\n]+\n\n/, '').replace(block, fixedBlock);
+    const withParagraph = (text: string, inserted = 'New work reached 42% <Cite id="n1" />.\n\n') =>
+      text.replace('## Next', `${inserted}## Next`);
+    const grown = withParagraph(cut).replace('  - s0\n', '  - s0\n  - n1\n');
+    const path = 'content/frontier/x.mdx';
+    const keeps = (current: string, extra?: LengthCutDrops, fixes = corrected) =>
+      keepsFrontierLengthCutObligations(path, prior, current, dropped, [], fixes, extra);
+    expect(keeps(grown, added)).toBe(true);
+    // Unrecorded, recorded but absent, or recorded with no sentence.
+    expect(keeps(grown)).toBe(false);
+    expect(keeps(grown, { ...added, numbers: [...added.numbers, { value: '7', claim: sentence }] })).toBe(false);
+    expect(keeps(grown, { ...added, numbers: added.numbers.slice(1) })).toBe(false);
+    expect(keeps(grown, { ...added, citations: [{ value: 'n1', claim: 'n1' }] })).toBe(false);
+    // The new source must be appended to the frontmatter list, and nothing else there may change.
+    expect(keeps(withParagraph(cut), added)).toBe(false);
+    expect(keeps(withParagraph(cut).replace('  - s0\n', '  - n1\n  - s0\n'), added)).toBe(false);
+    expect(keeps(grown.replace('  - n1\n', '  - n1\n  - n2\n'), added)).toBe(false);
+    expect(keeps(grown.replace('title: "A"', 'title: "B"'), added)).toBe(false);
+    // The corrected block still has to be recorded whole, and an addition cannot ride inside it.
+    expect(keeps(grown, added, [])).toBe(false);
+    const carrying = fixedBlock.replace('/>', 'note="42" /> <Cite id="n1" />');
+    const inBlock = cut.replace(fixedBlock, carrying).replace('  - s0\n', '  - s0\n  - n1\n');
+    expect(keeps(inBlock, added, [{ before: block, after: carrying, reason }])).toBe(false);
+    // A new glossary id would change the order of first use.
+    const termed = withParagraph(cut, 'New work on a <Term id="v">new term</Term> reached 42% <Cite id="n1" />.\n\n')
+      .replace('  - s0\n', '  - s0\n  - n1\n');
+    expect(keeps(termed, { ...added, terms: [{ value: 'v', claim: 'New work on a new term reached 42% [n1].' }] }))
+      .toBe(false);
+    // The body must still end shorter than it was before the cut, additions included.
+    const long = `New work reached 42% ${'and more words '.repeat(8)}<Cite id="n1" />.\n\n`;
+    expect(keeps(withParagraph(cut, long).replace('  - s0\n', '  - s0\n  - n1\n'), added)).toBe(false);
+    // Outside the frontier.
+    expect(keepsFrontierLengthCutObligations('content/world-models/x.mdx', prior, grown, dropped, [], corrected, added))
+      .toBe(false);
+  });
+
   it('rejects a missing, corrupt or renamed review', () => {
     const [source] = review.sources;
     for (const mode of ['missing', 'corrupt', 'renamed'] as const) {

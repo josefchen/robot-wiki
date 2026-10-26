@@ -15,9 +15,17 @@
  * reason, for a tile with no source behind it, a stale date or an
  * unsupported self-check explanation. The obligations are checked with each
  * corrected block put back, so a correction cannot carry an added citation,
- * number, link or glossary id past them. The earlier bytes are rebuilt from
- * the live file by reversing the recorded edits, and older checks see them
- * only while the live article is exactly the reviewed successor. No old
+ * number, link or glossary id past them.
+ *
+ * A later reviewed addition (an attributed, dated paragraph, each claim
+ * checked against its primary source) is admitted on the world-models terms:
+ * every citation, number, link and glossary occurrence it brought into the
+ * body is listed under `added` with the sentence it went into, each new
+ * source is appended to the frontmatter citations list, and the body still
+ * ends shorter than it was before the cut. With nothing recorded under
+ * `added`, the check is as strict as before. The earlier bytes are rebuilt
+ * from the live file by reversing the recorded edits, and older checks see
+ * them only while the live article is exactly the reviewed successor. No old
  * review, run, receipt, capture or ledger cell is rewritten.
  */
 import { createHash } from 'node:crypto';
@@ -41,6 +49,8 @@ export type FrontierLengthCutSource = {
   after: Artifact;
   edits: LengthCutEdit[];
   dropped: LengthCutDrops;
+  /** Occurrences a reviewed addition brought into the body, each with the sentence it went into. */
+  added?: LengthCutDrops;
   pins: LengthCutPin[];
   corrected: LengthCutCorrection[];
 };
@@ -103,16 +113,17 @@ export function uncorrectedFrontierArticle(
 /**
  * The article obligations of the frontier cut: a frontier article that,
  * with its corrections put back, keeps every obligation of the world-models
- * length cut, whose pins hold against the live text, and whose live body has
- * fewer words than the earlier one.
+ * length cut (recorded additions included), whose pins hold against the live
+ * text, and whose live body has fewer words than the earlier one. A caller
+ * that passes no additions admits none.
  */
 export function keepsFrontierLengthCutObligations(
   path: string, prior: string, current: string, dropped: LengthCutDrops,
-  pins: readonly LengthCutPin[], corrected: readonly LengthCutCorrection[],
+  pins: readonly LengthCutPin[], corrected: readonly LengthCutCorrection[], added?: LengthCutDrops,
 ): boolean {
   if (!path.startsWith('content/frontier/') || !Array.isArray(corrected)) return false;
   const restored = uncorrectedFrontierArticle(prior, current, corrected);
-  if (restored === null || !keepsWorldModelsLengthCutObligations(path, prior, restored, dropped, [])) return false;
+  if (restored === null || !keepsWorldModelsLengthCutObligations(path, prior, restored, dropped, [], added)) return false;
   const pinHolds = ({ phrase, disposition, to, toPath, test }: LengthCutPin) => {
     if (typeof test !== 'string' || !test.startsWith('tests/') || !phrase || !prior.includes(phrase)) return false;
     if (disposition === 'retired') return toPath === undefined && !current.includes(phrase);
@@ -153,7 +164,8 @@ export function verifyFrontierLengthCutSource(source: FrontierLengthCutSource, l
   const prior = Buffer.from(rebuilt);
   if (!same(source.before, path, prior.length, digest(prior)) ||
     applyExact(rebuilt, edits.map(({ before, after }) => [before, after] as const)) !== current ||
-    !keepsFrontierLengthCutObligations(path, rebuilt, current, source.dropped, source.pins ?? [], source.corrected)) {
+    !keepsFrontierLengthCutObligations(path, rebuilt, current, source.dropped, source.pins ?? [], source.corrected,
+      source.added)) {
     throw new Error(drift);
   }
   return prior;

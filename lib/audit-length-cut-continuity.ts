@@ -88,7 +88,7 @@ export type LengthCutReview = {
 
 // BEGIN length-cut pins (written by scripts/record-length-cut-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 1075266, sha256: 'f2fb46c6f6cfa438a88a184f6a7198705aa139fb4da19e37ea2b626d0a4c303e' };
+const reviewPin = { bytes: 1080744, sha256: 'e10987eabcfa30de02fd7ddfe73ea3859980a4748a41951081afd97a0ee7560c' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -100,7 +100,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/classical/perception.mdx', [21661, '626c83e23b525154b234668f6f019805f2f1f1cd0395b096a8b2197ed77571aa']],
   ['content/classical/ros2-for-ml-engineers.mdx', [8824, '576f048d435512d798017737b7380a126045353f21f812c2e52bc712cfce957a']],
   ['content/classical/scene-representation.mdx', [16251, '31724309557796eb11ee1512cf17aa2344791eec401f3630a7f7fb4747a94e75']],
-  ['content/classical/state-estimation.mdx', [13869, '13c1151dcbd985d003f962b35d81696d39b73b5724747fabeb77032047e199fd']],
+  ['content/classical/state-estimation.mdx', [15080, '58502dda5ed11223b793e63b49a6512dce66afb683efd8312bf0306873441321']],
   ['content/manipulation/action-chunking.mdx', [10602, '2bd758433044f9e3c8c8c9471056b9d06911ccd0633ba1cb33051089f5942d9a']],
   ['content/manipulation/action-spaces.mdx', [9506, 'b024909320e11737d720cfb1b16559324d641f76e31af0d162898787ded5d1cc']],
   ['content/manipulation/bc-foundations.mdx', [12506, 'e33d1a20ed8cb7d6ba29650063b2e690ea9dbdaaaccd799696aff656f7fa7be9']],

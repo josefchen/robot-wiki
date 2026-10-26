@@ -196,7 +196,7 @@ describe('world-models length cut 2026-10-12 article successors', () => {
     const withParagraph = (text: string, inserted = paragraph) => text.replace('## Next', `${inserted}## Next`);
     const grown = withParagraph(cut).replace('  - s0\n', '  - s0\n  - n1\n');
     const path = 'content/x/y.mdx';
-    // The frontier cut calls these obligations with no additions, so it still admits none.
+    // A caller that passes no additions admits none.
     const keeps = (current: string, extra?: LengthCutDrops) =>
       keepsWorldModelsLengthCutObligations(path, prior, current, dropped, [], extra);
     expect(keeps(grown, added)).toBe(true);

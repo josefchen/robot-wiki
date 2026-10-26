@@ -71,7 +71,7 @@ export type FigureMountReview = {
 
 // BEGIN figure-mount pins (written by scripts/record-figure-mount-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 64542, sha256: '3bdbd5f82023824e1c1b165f7cdc370801336856bfd7ef53c3e2c1b96c7111cc' };
+const reviewPin = { bytes: 64544, sha256: '18ba4b7a67a62a634799366d6c6c12b0bc7e4259710c716f2a6da4fecab72e22' };
 
 /** Reviewed successor bytes per path (one per mount change, oldest first), so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = new Map([
@@ -79,7 +79,7 @@ const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = 
   ['content/classical/calibration.mdx', [[10030, 'ffc769f31d4b00ea8624283b9af7d4d9d0b71bcd6ff55ec6887f5cf83429fdf5']]],
   ['content/classical/ros2-for-ml-engineers.mdx', [[9930, '65fb50d6229dde8c3446194236429481a1ac0799e99753471a29c95317731fb7']]],
   ['content/classical/scene-representation.mdx', [[16480, '515349d6cfefb7b6df9130a8719889c0f0c56e0219b25453644f0a2929ad0078']]],
-  ['content/classical/state-estimation.mdx', [[14073, 'f4ee9d7b68feee568ecf5b21f95d37bfda3f51443c96533816d9929f214232c1']]],
+  ['content/classical/state-estimation.mdx', [[15284, 'af9e582c0644bb5b3004347685a9348680529e53ecb2bc5e22fa7400f50bd88e']]],
   ['content/data-hardware/robot-learning-stack.mdx', [[11133, 'd5721a94dca00a2436bd40421cd71a69a0419c87459c160403e2c97141564b39']]],
   ['content/data-hardware/teleop-rigs.mdx', [[10990, '387384a25f74e8bb09b6b5d808602d64e3ef81a06df2e46543b8e17330d12a60']]],
   ['content/frontier/bear-case.mdx', [[10227, '20caa5e4beb5395a272276347a9e9d6a370d7a88a7ec385df815d6e3521de8d4']]],
@@ -98,7 +98,7 @@ const successors: ReadonlyMap<string, readonly (readonly [number, string])[]> = 
   ['content/rl-sim2real/rl-for-robotics.mdx', [[17765, '79f2c2c2674b75442a8b2682648b6b14790f167c90b20553b5fc80eefc892c78']]],
   ['content/rl-sim2real/sim2real-transfer.mdx', [[19498, '1d99e5e554a7f0800e6c326db4edb90349813de0dfdd768b510e6b4997ce439a']]],
   ['content/rl-sim2real/why-rl-locomotion.mdx', [[9108, 'ba47fe9cd518551edf9ffc5e373e4aa44ab7e7cb29afec62aedcd760430d4c90']]],
-  ['content/world-models/model-based-robot-learning.mdx', [[9724, '41530e485435afc6e57c2b25f627f6c5dfcb920897c1b9016752c5cfde559f28']]],
+  ['content/world-models/model-based-robot-learning.mdx', [[10232, 'b5822694fac6cb834b4912157f23cc2e5a60b0e3379d41dda260e09e9e8e73b6']]],
   ['content/world-models/world-models-vs-simulators.mdx', [[11575, '6df3698ece3b73c20a741500c0daf5545c08c49420ccc46b178c5e103de641b5']]],
 ]);
 // END figure-mount pins

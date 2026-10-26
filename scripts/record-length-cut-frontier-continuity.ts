@@ -2,9 +2,10 @@
  * Records the frontier length-cut successor review for the named articles:
  * exact edits over each article's bytes before the cut, the component blocks
  * the cut corrected with the reason for each, every citation, number, link
- * and glossary occurrence the cut dropped with the sentence it came from, the
- * test pins the cut retired or moved, the live successor's pin, and the
- * review's own pin in lib/audit-length-cut-frontier-continuity.ts.
+ * and glossary occurrence the cut dropped with the sentence it came from,
+ * every one a later reviewed addition brought in with the sentence it went
+ * into, the test pins the cut retired or moved, the live successor's pin, and
+ * the review's own pin in lib/audit-length-cut-frontier-continuity.ts.
  *
  *   node scripts/record-length-cut-frontier-continuity.ts [--pins <file.json>] [--corrections <file.json>] <path>...
  *
@@ -66,6 +67,11 @@ function restore(current: string, corrected: readonly LengthCutCorrection[]): st
   return result;
 }
 
+/**
+ * The occurrences that left `prior` for `current`, each with the sentence of
+ * `prior` it came from. Called the other way round, it lists what a reviewed
+ * addition brought in, each with the sentence it went into.
+ */
 function drops(prior: string, current: string): LengthCutDrops {
   const priorBody = prior.slice(frontmatter(prior).length);
   const body = current.slice(frontmatter(current).length);
@@ -90,7 +96,6 @@ function drops(prior: string, current: string): LengthCutDrops {
       [...sentence.matchAll(COUNTED[key])].some((m) => (m[1] ?? m[0]) === value);
     const used = new Map<string, number>();
     for (const [value, n] of [...left].sort(([x], [y]) => x.localeCompare(y))) {
-      if (n < 0) throw new Error(`${key} ${value} added by the cut`);
       for (let i = 0; i < n; i++) {
         const fromCut = cut.filter(holds(value));
         const candidates = fromCut.length > 0 ? fromCut : all.filter(holds(value));
@@ -105,6 +110,11 @@ function drops(prior: string, current: string): LengthCutDrops {
 
 const OWNER_APPROVAL = 'Josef, 12 Oct 2026: "ensure we remove AI slop etc and keep it extremely premium. not too long text." The humanize lane\'s length decision of the same day, recorded for Josef, authorizes cutting recap paragraphs, repeated numbers, secondary corroboration and minor reporting caveats, keeps every caveat whose removal would overstate a result and at least 30 cited sources per article, and approves dropped numbers, recap citations, successor reviews of the older continuity records and retired or moved phrase pins. The frontier pass applies it to the frontier articles. Not release approval.';
 const RATIONALE = 'The owner asked for short, premium articles, and the frontier domain pass applies the humanizer standard and the length decision to the frontier articles: leads of at most two sentences, paragraphs of at most four, and about a quarter less text. That cut drops recap paragraphs, numbers stated twice, secondary examples and minor reporting caveats, which the word-budget trim cannot admit. This review records each cut as exact edits over the bytes the article had before it, lists every citation, number, link and glossary occurrence that left the body with the sentence it came from, records each corrected component block (an unsourced stat tile, a stale date, an unsupported self-check explanation) with its reason, and lists the test pins the cut retired or moved. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.';
+
+const any = (list: LengthCutDrops) => Object.values(list).some((entries) => entries.length > 0);
+// Written into the review once, the first time it records a reviewed addition.
+const ADDITIONS_APPROVAL = 'Additions: the owner-proxy directive of 2026-10-21 03:40 (owner-decision-kol-batch-next-dispatch-20261020, under owner-decision-kol-backlog-batch-20260930 and owner-decision-kol-coverage-and-evidence-standards-20260924) admits attributed, dated KOL paragraphs, each claim checked against its primary source, onto these articles; the frontier hand-off routed to opus-pass-convergence on 2026-10-14 23:20 under the same length decision restores cut facts the decision keeps and replaces press sources with primary ones. Each is recorded here as added occurrences and registered in the deltas ledger.';
+const ADDITIONS_RATIONALE = 'A later reviewed addition is recorded in the same review: every citation, number, link and glossary occurrence it brings into the body is listed under added with the sentence it went into, its new sources are appended to the frontmatter citations list, and the body stays shorter than it was before the cut.';
 
 function main(paths: string[], pinFile?: string, correctionFile?: string): void {
   const pinMap: Record<string, LengthCutPin[]> = pinFile ? JSON.parse(readFileSync(pinFile, 'utf8')) : {};
@@ -135,10 +145,13 @@ function main(paths: string[], pinFile?: string, correctionFile?: string): void 
       continue;
     }
     const corrected = fixMap[path] ?? (index >= 0 ? review.sources[index].corrected : []);
+    const restored = restore(live.toString(), corrected);
+    const added = drops(restored, prior.toString());
     const source: FrontierLengthCutSource = {
       archivedFrom, before: artifact(path, prior), after: artifact(path, live),
       edits: exactEdits(prior.toString(), live.toString()),
-      dropped: drops(prior.toString(), restore(live.toString(), corrected)),
+      dropped: drops(prior.toString(), restored),
+      ...(any(added) ? { added } : {}),
       pins: pinMap[path] ?? (index >= 0 ? review.sources[index].pins : []),
       corrected,
     };
@@ -146,8 +159,13 @@ function main(paths: string[], pinFile?: string, correctionFile?: string): void 
     else review.sources.push(source);
     const d = source.dropped;
     console.log(`${path}: ${source.edits.length} edit(s) over ${archivedFrom.slice(0, 8)}; dropped ${d.citations.length} citation, ` +
-      `${d.numbers.length} number, ${d.links.length} link and ${d.terms.length} glossary occurrence(s); ` +
-      `${corrected.length} corrected block(s); ${source.pins.length} pin(s)`);
+      `${d.numbers.length} number, ${d.links.length} link and ${d.terms.length} glossary occurrence(s); added ` +
+      `${added.citations.length} citation, ${added.numbers.length} number, ${added.links.length} link and ` +
+      `${added.terms.length} glossary occurrence(s); ${corrected.length} corrected block(s); ${source.pins.length} pin(s)`);
+  }
+  if (review.sources.some(({ added }) => added && any(added))) {
+    if (!review.ownerApproval.includes(ADDITIONS_APPROVAL)) review.ownerApproval += ` ${ADDITIONS_APPROVAL}`;
+    if (!review.rationale.includes(ADDITIONS_RATIONALE)) review.rationale += ` ${ADDITIONS_RATIONALE}`;
   }
   review.sources.sort((x, y) => x.after.path.localeCompare(y.after.path));
   review.observedAt = new Date().toISOString().replace(/\.\d+Z$/, 'Z');

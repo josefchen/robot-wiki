@@ -140,7 +140,8 @@ describe('data-hardware prose truth', () => {
       // 2026-10-15 one more (their image mounts). The KOL triage batch of
       // 2026-10-21 added one more to evaluation-crisis (the WorldOracle
       // paragraph), and the KOL overdue triage of 2026-10-24 one more (the
-      // StopWatch paragraph).
+      // StopWatch paragraph). The KOL queue batch of 2026-10-25 re-resolved
+      // industrial-deployment (the Hurst paragraph on Digit 5).
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
@@ -156,7 +157,8 @@ describe('data-hardware prose truth', () => {
           'reader-first-20261002-prose-data-hardware-industrial-deployment',
           'kol-backlog-20261005-data-hardware-prose-industrial-deployment',
           'length-cut-20261013-data-hardware-prose-industrial-deployment',
-          'images-dh-20261015-prose-data-hardware-industrial-deployment'];
+          'images-dh-20261015-prose-data-hardware-industrial-deployment',
+          'kol-batch-20261025-data-hardware-prose-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);

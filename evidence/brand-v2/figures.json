@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "767ef4735562f96d44d8be70b8e01461f76138cfc663fb65532e88dcbb4ba3a7",
+  "fingerprint": "d4cdf078f66c0993a1599e71ab6751f47512cb895e4bc69b5dd6f10272d749e5",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1395,7 +1395,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 23100,
+      "visibleTextLength": 24569,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -11941,7 +11941,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24005,
+      "visibleTextLength": 24840,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -15851,7 +15851,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21389,
+      "visibleTextLength": 23030,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -16172,7 +16172,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15496,
+      "visibleTextLength": 16203,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",
@@ -17861,7 +17861,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 30965,
+      "visibleTextLength": 33065,
       "figures": [
         {
           "imageId": "apollo-imu-draper-2019",
@@ -28407,7 +28407,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 31421,
+      "visibleTextLength": 32553,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -32317,7 +32317,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27465,
+      "visibleTextLength": 29569,
       "figures": [
         {
           "imageId": "gr1-video-prediction-2023",
@@ -32638,7 +32638,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 20800,
+      "visibleTextLength": 21831,
       "figures": [
         {
           "imageId": "daydreamer-a1-rollover-2022",

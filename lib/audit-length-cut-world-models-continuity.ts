@@ -16,8 +16,8 @@
  * frontmatter citations list, the only frontmatter change the layer admits.
  * With no recorded addition, every citation, number, link target and
  * glossary id the live article holds was already in the article, at least as
- * often. The frontier cut, which reuses these obligations, records no
- * additions.
+ * often. The frontier cut reuses these obligations, its recorded additions
+ * included.
  *
  * The cut keeps, exactly and in order, the frontmatter (apart from those
  * appended citation ids), every import line, every one-line figure or
@@ -90,16 +90,16 @@ export type LengthCutReview = {
 
 // BEGIN world-models length-cut pins (written by scripts/record-length-cut-world-models-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 218811, sha256: 'f0a9dd4d7cb48ad41bfefe433f67ef20b4fb541ea6d8e46730886691c584c548' };
+const reviewPin = { bytes: 227554, sha256: '9007210556148bc28aab392d3636c12bffd1f140dffbf4ca112620a4f61bab6e' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/world-models/evaluation.mdx', [9523, 'e05022c80e3c5d293e45fddb6ae696a9e8a234090fc06f2b82377eca4048fa2b']],
   ['content/world-models/generative-sim.mdx', [13103, 'b961312be3988fa917e33a9afb5ccc7156702dc8b4d1f9315de53e20ee0a0b13']],
-  ['content/world-models/generative-video.mdx', [14410, '4084e96053e589275a785b85dde2683b0df301167e925d06026030129c76c3a5']],
+  ['content/world-models/generative-video.mdx', [15667, '2280414347d42af98f0cafc75d316419699204193d85fbe5f5551f4b8731e834']],
   ['content/world-models/jepa.mdx', [12634, '96f0abf25e2973cfb7e3ca18d819ff90032fc426fda524f86a8d3434207b87fb']],
   ['content/world-models/latent-dynamics.mdx', [10712, '412cfecebc504968491850759dd3bce417d9b2067721bd2e63ae3eb9e3082f8d']],
-  ['content/world-models/model-based-robot-learning.mdx', [9510, '7e3bd1de20b638ca14b2142c90698dbd3a61d14b6cd0eb90723ec28914edf9da']],
+  ['content/world-models/model-based-robot-learning.mdx', [10018, '24d5e1a5dcec773dd24986b8b5306792403bfb5305ed32bd3d3750e16ef555e7']],
   ['content/world-models/taxonomy.mdx', [12440, 'b9760b615210d4881461da9780ae05ef15b21f49c1d89b26ad212f19322f93cd']],
   ['content/world-models/world-models-vs-simulators.mdx', [11326, '15665e7f2fccf679f5e58b00c6823a5eb42e70b57a0892149739276a968ac216']],
 ]);
