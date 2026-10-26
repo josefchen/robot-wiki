@@ -472,9 +472,7 @@ export function PerceptionLatency({ className }: { className?: string }) {
           <IsoFigure
             width={RIG.WIDTH}
             height={RIG.HEIGHT}
-            label={`A flight-test corridor: a drone on a test carriage at a light gate that sees a brick wall ${rangeM} metres ahead. At its top safe speed of about ${speedKmh} kilometres an hour it flies about ${metres(
-              blindM,
-            )} before its camera reports the wall, then swerves for about ${metres(swerveM)}, passing the wall's edge just as it reaches it.`}
+            label={`A drone at its top safe speed of about ${speedKmh} kilometres an hour that swerves past a wall ${rangeM} metres ahead with no margin`}
             describedBy={descriptionId}
           >
             {staticRun(RIG.PARTS, slot)}

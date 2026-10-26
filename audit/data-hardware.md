@@ -2925,3 +2925,49 @@ Rows appended 2026-10-26 by the convergence prose and sources pass, one per new 
 | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Start with versioned episode files that are never edited in place, one versioned conversion command, a checkpoint registry, a deterministic offline test batch <Cite id="lerobot-dataset-v3-2025" /> <Cite id="hidden-technical-debt-2015" />, an evaluation sheet linked to episode IDs <Cite id="kress-gazit-evaluation-2024" />, and a policy process kept apart from command gating <Cite id="lerobot-paper-2026" /> <Cite id="safety-filter-2023" />. | lerobot-dataset-v3-2025, hidden-technical-debt-2015 (Sec. 3, 8), kress-gazit-evaluation-2024 (Sec. 4.1, 5), lerobot-paper-2026 (Sec. 3), safety-filter-2023 (Sec. 2); fetched 2026-10-26 (HTTP 200). | C | The paragraph had no citation. "Append-only" had no source and became "versioned episode files that are never edited in place". | `lerobot-dataset-v3-2025`; `hidden-technical-debt-2015`; `kress-gazit-evaluation-2024`; `lerobot-paper-2026`; `safety-filter-2023` | https://arxiv.org/abs/2309.05837 | create a versioned copy of a given signal / it is important that we can re-run experiments and get similar results / the number of evaluations performed across each condition and not just percentages / This decoupling between safety and performance serves as a sort of separation principle |    |
+
+## Buyer's-guide humanoid rows against maker pages, 2026-10-26 (owed-figures slice)
+
+The 14 humanoid rows of `data/hardware.ts` cited the secondary review blog `robozaps-humanoids-2026`. Each field
+was checked against the maker's page on 2026-10-26 (raw fetches with curl or a browser render; research notes in
+the mission library, convergence-prose-research-20261026/hardware-rows.md). Every row now cites its maker. Where a
+maker prints no value the field is null ("not disclosed"), except Bumi's launch price, which no Noetix page states
+and which stays on the Beijing News report the article already cites. Verdict C = corrected, V = verified as was,
+K = kept on a secondary source because no maker page prints it.
+
+| Row and field | Was | Now | Source checked (verbatim) | Verdict |
+| --- | --- | --- | --- | --- |
+| unitree-r1 dof | null | 26; note "20 on R1 Air; 26-40 in the EDU configuration" | unitree-r1-2026: "Degree of Freedom(Total Joints) 20 / 26 / 26-40" (AIR / R1 / EDU) | C |
+| unitree-r1 price note, as-of | "Range across configurations", Jul 2026 | "R1 Air $4,900, R1 $5,900; EDU is quote-only", Oct 2026 | unitree-r1-2026: "R1 AIR $4,900", "R1 $5,900", "R1 EDU Contact Sales" | C |
+| unitree-r1 availability note | "Shipping" | "Orderable" | unitree-r1-2026 lists prices and a store link; it never says shipping | C |
+| unitree-r1 highlight | "...; the education and hobby tier" | "123 cm, ~27-29 kg" | unitree-r1-2026: "1230x357x190mm", "About 27kg / About 29kg"; the tier is not Unitree's | C |
+| unitree-g1 availability note | "Orderable; backordered" | "Orderable" | unitree-g1-2026 lists "US $13.5K" and says nothing of a backorder | C |
+| unitree-g1 highlight | "the default GR00T validation platform" | "the robot of NVIDIA's GR00T reference workflow" | nvidia-gr00t-g1-workflow-2026: "the GR00T reference workflow: a validated, open, and reproducible sim-first to deployment workflow for Unitree G1" | C |
+| unitree-h2 availability note | "Shipping" | "Orderable" | unitree-h2-2026: "H2 $29,900"; shipping is not stated | C |
+| unitree-h2 highlight | "2070 TOPS onboard" | "2070 TOPS compute option" | unitree-h2-2026: base compute "Intel Core i5"; the 2070 TOPS module is an EDU accessory | C |
+| 1x-neo dof note | "25-DoF revision announced Jul 2026" | "1X counts 25 with the 3 wrist DoF (Jul 2026)" | 1x-neos-hands-2026: "All 25 degrees of freedom (22 fully actuated DoF in the fingers and palm, plus 3 at the wrist)" | C |
+| 1x-neo availability note | "US deliveries promised by end of 2026" | "US deliveries begin in 2026, Early Access buyers first" | 1x-neo-2026: "US deliveries begin in 2026 starting with Early Access customers choosing to purchase NEO"; 1x-order-2026: "US Deliveries start 2026" | C |
+| noetix-bumi highlight, dof | "94 cm, 12 kg; STEM education focus", null | "98 cm, 17 kg; home companion and maker-education focus", 21 | noetix-bumi-page-2026: "98cm", "17kg", "21DOF"; scenarios "Family Companion", "Maker Education" | C |
+| noetix-bumi price note, as-of | "Launch price ¥9,998 at July 2026 conversion", Jul 2026 | "Launch price ¥9,998, as reported by the press; Noetix lists no price", Oct 2025 | bjnews-noetix-bumi-2025: "首发价格为9998元" (launch of 22 October 2025); no Noetix page states a price | K |
+| noetix-bumi availability | preorder, "Delivery date unconfirmed" | contact, "Sales enquiries through Noetix" | noetix-bumi-page-2026 links sales; no Noetix delivery statement | C |
+| engineai-se01 price | $12,000, "Launch price ¥88K" | null | engineai-se01-2026 states no price; ¥88K was the PM01's launch price | C |
+| engineai-se01 dof, highlight | null, "170 cm, ~55 kg" | 32 ("Full body"), "170 cm; 2 m/s normal walking speed" | engineai-home-2026: "170CM 身高 / 2M/s 常态步速 / 32pcs 全身自由度"; no maker weight | C |
+| engineai-se01 availability | buy, "Available" | contact, "Contact sales" | engineai-se01-2026: "Contact Us Now" only | C |
+| fourier-gr3 price | $27,500, "Priced above ¥200K" | null | fourier-gr3-docs-2026 gives no price; the ¥200K was a third-party estimate | C |
+| fourier-gr3 dof | null | 55 ("With the optional 12-DoF hands") | fourier-gr3-docs-2026: "Up to 55 (with optional 12-DOF dexterous hand)" | C |
+| fourier-gr3 availability, highlight | buy, "B2B shipping"; "care and healthcare focus" | null, null; "care-companion focus" | fourier-gr3-docs-2026: a "Care-bot" for companionship; no order terms | C |
+| limx-oli price note, as-of | "Starting price", Jul 2026 | "From ¥158,000 at launch", Jul 2025 | limx-oli-launch-2025: "售价 15.8 万元起，即日起开放预订" (2025/7/30); $21,800 is the conversion | C |
+| limx-oli dof | null | 31 ("Active joints, excluding end-effectors") | limx-oli-spec-2026: "Active DoF (Total) 31" | C |
+| agility-digit name, highlight | "Agility Digit", "175 cm, ~65 kg; 16 kg payload, deployed at GXO" | "Agility Digit 5", "1.81 m, 129 kg; lifts up to 22.7 kg and reaches 2.2 m; Digit 4 works at GXO" | agility-digit-5-2026: "Digit 5 weighs 284 lb. (129 kg), stands 5' 11\" (1.81 m), and can reach heights of up to 7.2 feet (2.2 m)", "lift up to 50 lb. (22.7 kg) loads", GXO among Digit 4's sites; no Agility page gives 175 cm, 65 kg or 16 kg | C |
+| agility-digit availability note | "Robot-as-a-service; no list price" | "Robots-as-a-service; Digit 5 early access expected in the first half of 2027" | agility-gxo-raas-2024: "first Robots-as-a-Service (RaaS) deployment"; agility-digit-5-2026: "Early access to Digit 5 is expected to begin in the first half of 2027" | C |
+| atlas-electric availability note | "All 2026 builds committed..." | "All 2026 deployments committed to Hyundai and Google DeepMind" | bd-atlas-unveil-2026: "All Atlas deployments are already fully committed for 2026" | C |
+| figure-03 availability note | "Fleet production; not sold individually" | "No public price or orders; Figure allocates its robots to its own R&D and use-case work" | figure-s0-2026: "Robots shipped from BotQ are allocated to internal research and development groups, data collection, efforts for robots to perform end-to-end housework, and commercial use-case development." | C |
+| agibot-a2 all fields | as was | as was, cited to the maker | agibot-a2-2026: "Height 169 cm", "Weight 69 kg", "Battery 700 wh", "40 + Active DoF" | V |
+| ubtech-walker-s2 dof | 52, "Press-reported; not an official datasheet figure" | null | ubtech-walker-s2-2026: the spec image gives no DoF; 52 appears only on aggregators | C |
+| ubtech-walker-s2 highlight | "Autonomous battery hot-swap in about 3 minutes" | "Swaps its own battery within 3 minutes; 15 kg payload" | ubtech-walker-s2-2026: "swap battery autonomously within 3 minutes", "can lift 15kg payload" | C |
+| tesla-optimus-3 availability note | "Not commercialized; no current official spec sheet" | "No public price, orders or spec sheet" | tesla-q2-2026-update lists Optimus production lines and no price; the Q3 2026 deck could not be read as text, so "not commercialized" is not asserted | C |
+
+Rows verified unchanged against their maker (prices, DoF, sizes): unitree-g1 $13,500 and 23-43 DoF, unitree-h2
+$29,900 and 31 DoF, 1x-neo $20,000 / $499 a month and 168 cm / 30 kg, atlas-electric 56 DoF, 1.9 m, 90 kg, 50 kg,
+IP67, figure-03 palm cameras and 2 kW foot charging. `robozaps-humanoids-2026` is no longer cited by any guide row;
+it stays in hardware-taxonomy's front matter, which this slice does not edit.

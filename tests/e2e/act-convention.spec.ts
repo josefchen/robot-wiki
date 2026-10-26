@@ -36,7 +36,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     // sits in "How this was made".
     const figure = page.locator('figure[data-image-id="temporal-ensembling"]');
     const drawing = figure.locator('[data-figure-stage] svg[role="img"]');
-    await expect(drawing).toHaveAttribute('aria-label', /oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37/);
+    // The name is one clause, shorter than its description (VAL-EDU-021);
+    // it still carries the three illustrative weights.
+    await expect(drawing).toHaveAttribute('aria-label', /illustrative m=0\.5 weights 1\.00, 0\.61, and 0\.37/);
     await expect(figure.locator('[data-figure-label]')).toHaveText('Original schematic');
     await expect(figure.locator('[data-figure-title]')).toHaveText('Three overlapping plans vote; the oldest gets the loudest voice');
     await expect(drawing).toContainText('oldest plan, 51%');

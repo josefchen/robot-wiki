@@ -139,6 +139,36 @@ describe('HARDWARE data', () => {
     expect(
       HARDWARE.find((e) => e.id === 'atlas-electric')?.priceUsd,
     ).toBeNull();
+
+    // Maker pages read 2026-10-26: EngineAI and Fourier print no price, and
+    // UBTECH prints no Walker S2 DoF count.
+    expect(HARDWARE.find((e) => e.id === 'engineai-se01')?.priceUsd).toBeNull();
+    expect(HARDWARE.find((e) => e.id === 'fourier-gr3')?.priceUsd).toBeNull();
+    expect(HARDWARE.find((e) => e.id === 'ubtech-walker-s2')?.dof).toBeNull();
+  });
+
+  it('cites every humanoid row to its maker, not the review blog (2026-10-26)', () => {
+    const humanoids = HARDWARE.filter((e) => e.category === 'humanoid');
+    expect(humanoids).toHaveLength(14);
+    for (const row of humanoids) {
+      expect(row.sources, row.id).not.toContain('robozaps-humanoids-2026');
+      expect(row.url, row.id).not.toContain('robozaps');
+    }
+    const bumi = HARDWARE.find((e) => e.id === 'noetix-bumi');
+    expect(bumi?.highlight).toContain('98 cm, 17 kg');
+    expect(bumi?.dof).toBe(21);
+    // The launch price is press-reported only, and the row says so.
+    expect(bumi?.priceNote).toContain('as reported by the press');
+    expect(bumi?.priceAsOf).toBe('Oct 2025');
+    const oli = HARDWARE.find((e) => e.id === 'limx-oli');
+    expect(oli?.priceNote).toContain('¥158,000');
+    expect(oli?.priceAsOf).toBe('Jul 2025');
+    expect(oli?.dof).toBe(31);
+    const digit = HARDWARE.find((e) => e.id === 'agility-digit');
+    expect(digit?.highlight).toContain('1.81 m, 129 kg');
+    expect(digit?.highlight).not.toMatch(/175 cm|65 kg|16 kg/);
+    expect(HARDWARE.find((e) => e.id === 'unitree-g1')?.availabilityNote).toBe('Orderable');
+    expect(HARDWARE.find((e) => e.id === 'unitree-g1')?.highlight).not.toContain('default');
   });
 });
 
@@ -213,9 +243,10 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       price: '10k-25k',
     });
+    // EngineAI publishes no SE01 price and Fourier none for the GR-3
+    // (maker pages read 2026-10-26), so both left the numeric buckets.
     expect(research.map((e) => e.id).sort()).toEqual([
       '1x-neo',
-      'engineai-se01',
       'limx-oli',
       'solo-ai',
       'stationary-ai',
@@ -227,7 +258,6 @@ describe('filterHardware', () => {
       price: '25k-plus',
     });
     expect(flagship.map((e) => e.id).sort()).toEqual([
-      'fourier-gr3',
       'mobile-ai',
       'reachy-2',
       'unitree-h2',
@@ -239,8 +269,9 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       price: 'unlisted',
     });
-    expect(unlisted).toHaveLength(18);
+    expect(unlisted).toHaveLength(20);
     expect(unlisted.map((entry) => entry.id)).toContain('aloha-2');
+    expect(unlisted.map((entry) => entry.id)).toEqual(expect.arrayContaining(['engineai-se01', 'fourier-gr3']));
     expect(unlisted.every((e) => e.priceUsd === null)).toBe(true);
     for (const price of ['under-1k', '1k-10k', '10k-25k', '25k-plus'] as const) {
       const bucket = filterHardware(HARDWARE, {
@@ -274,18 +305,24 @@ describe('filterHardware', () => {
       '1x-neo',
       'leap-hand',
       'neo-hand',
+      'noetix-bumi',
       'reachy-2',
       'unitree-g1',
+      'unitree-r1',
     ]);
 
     const high = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       dof: '30-plus',
     });
+    // UBTECH publishes no Walker S2 DoF count, so it moved to unknown;
+    // EngineAI, Fourier and LimX print theirs (32, 55, 31).
     expect(high.map((e) => e.id).sort()).toEqual([
       'agibot-a2',
       'atlas-electric',
-      'ubtech-walker-s2',
+      'engineai-se01',
+      'fourier-gr3',
+      'limx-oli',
       'unitree-h2',
     ]);
 
@@ -293,7 +330,8 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       dof: 'unknown',
     });
-    expect(unknown).toHaveLength(24);
+    expect(unknown).toHaveLength(20);
+    expect(unknown.map((e) => e.id)).toContain('ubtech-walker-s2');
     expect(unknown.every((e) => e.dof === null)).toBe(true);
   });
 
@@ -302,17 +340,18 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       availability: 'buy',
     });
-    expect(buyable).toHaveLength(26);
+    expect(buyable).toHaveLength(24);
     expect(buyable.every((e) => e.availability === 'buy')).toBe(true);
 
     const preorders = filterHardware(HARDWARE, {
       ...DEFAULT_HARDWARE_FILTERS,
       availability: 'preorder',
     });
+    // No Noetix statement gives Bumi delivery terms; its page routes buyers
+    // to sales, so the row is contact, not preorder.
     expect(preorders.map((e) => e.id).sort()).toEqual([
       '1x-neo',
       'neo-hand',
-      'noetix-bumi',
     ]);
 
     const closed = filterHardware(HARDWARE, {

@@ -309,7 +309,9 @@ describe('state-form chart descriptions', () => {
   it('LatentImagination track describes the drift and tracks the look-ahead', () => {
     const { container } = render(<LatentImagination />);
     const { text } = assertDescribed(
-      screen.getByRole('img', { name: /imagined future is laid as track/i }),
+      // Successor of the bench-and-template name: the drawing is named in one
+      // clause (VAL-EDU-021, owed-figures slice of 2026-10-26).
+      screen.getByRole('img', { name: /imagined track \d+ steps? ahead/i }),
       container,
     );
     expect(text).toMatch(/imagines 15 steps ahead/);

@@ -489,7 +489,7 @@ export function AppearancePhysicsPush({
       <IsoFigure
         width={WIDTH}
         height={HEIGHT}
-        label={`A push bench with a mug on a table plate: a projector throws the picture of a mug onto the plate, and a spring plunger fires along it. ${sceneName}. The mug has moved ${moved}.`}
+        label={`A push bench where the mug on a table has moved ${moved} with ${sceneName.toLowerCase()}`}
         describedBy={descriptionId}
       >
         <g ref={rootRef}>

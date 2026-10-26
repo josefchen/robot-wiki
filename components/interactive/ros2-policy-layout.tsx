@@ -382,7 +382,7 @@ function PolicyGraph({ descriptionId }: { descriptionId: string }) {
   return (
     <PlotStage
       viewBox={`0 0 ${W} ${VIEW_H}`}
-      aria-label="ROS 2 graph for a learned policy, top to bottom: camera and joint sensors (drivers), a part that gathers the latest readings (state assembly), the AI that suggests moves (policy server), a safety check (command gate), the part that drives the motors (controller bridge) and a drawn robot arm (the robot hardware). Every move the AI suggests passes the safety check before it reaches the motors."
+      aria-label="ROS 2 graph for a learned policy, from camera and joint drivers through a command gate to the controller bridge and robot arm"
       aria-describedby={descriptionId}
       data-testid="ros2-policy-graph"
     >

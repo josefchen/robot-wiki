@@ -124,21 +124,25 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     await page.getByRole('button', { name: 'Humanoids', exact: true }).click();
     await expect(page.getByText('14 of 40 entries')).toBeVisible();
 
-    // Compose with price: H2 ($29,900) and GR-3 ($27,500) are the $25k+ humanoids.
-    await page.getByRole('button', { name: '$25k and up' }).click();
-    await expect(page.getByText('2 of 40 entries')).toBeVisible();
+    // Compose with price: G1 ($13,500), NEO ($20,000) and Oli ($21,800) are
+    // the $10k-$25k humanoids (maker pages read 2026-10-26).
+    await page.getByRole('button', { name: '$10k-$25k' }).click();
+    await expect(page.getByText('3 of 40 entries')).toBeVisible();
     await expect(
-      page.getByRole('cell', { name: /Unitree H2/ }),
+      page.getByRole('cell', { name: /LimX Oli/ }),
     ).toBeVisible();
 
-    // Compose with the DoF filter; GR-3 discloses no DoF, so only the H2
-    // (31 DoF) survives the 30+ bucket.
+    // Compose with the DoF filter; G1 (23) and NEO (22 per hand) fall below
+    // it, so only Oli (31 active DoF) survives the 30+ bucket.
     await page.getByRole('button', { name: '30+', exact: true }).click();
     await expect(page.getByText('1 of 40 entries')).toBeVisible();
 
-    // Compose with availability; the H2 is orderable, so the row survives.
+    // Compose with availability; Oli's orders are open, so the row survives,
+    // and no row is both in the band and a preorder at 30+ DoF.
     await page.getByRole('button', { name: 'Orderable', exact: true }).click();
     await expect(page.getByText('1 of 40 entries')).toBeVisible();
+    await page.getByRole('button', { name: 'Preorder', exact: true }).click();
+    await expect(page.getByRole('status')).toContainText(/no hardware matches/i);
 
     // Reset restores the full set.
     await page.getByRole('button', { name: 'Reset' }).click();

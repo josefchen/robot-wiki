@@ -42,7 +42,7 @@ describe('LatentImagination', () => {
     expect(Number(screen.getByTestId('imagined-head').getAttribute('data-offset'))).toBeCloseTo(0.301 * SPREAD, 0);
     const flags = screen.getByTestId('decoded-frames').querySelectorAll('[data-part="flag"]');
     expect([...flags].map((flag) => flag.getAttribute('data-step'))).toEqual(['4', '8', '11']);
-    expect(screen.getByRole('img', { name: /15 steps ahead, at 2\.0% off per step, the head of the track sits 0\.301 units/ })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /imagined track 15 steps ahead, at 2\.0% off per step, ending 0\.301 units of toy deviation/ })).toBeInTheDocument();
   });
 
   it('lays one section per imagined step, each section ending where the model puts it', () => {

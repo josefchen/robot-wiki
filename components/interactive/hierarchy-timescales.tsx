@@ -294,7 +294,7 @@ export function HierarchyTimescales({
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${f(height)}`}
-            aria-label={`Schematic timescale lanes for ${system.name} by ${system.org}. Four drawn lanes combine reported output rates with illustrative cadences and a task-instruction initial condition. The playhead is at ${playhead} of ${HORIZON_MS} milliseconds; lanes light up only when their own update rate has elapsed.`}
+            aria-label={`Schematic timescale lanes for ${system.name} with the playhead at ${playhead} of ${HORIZON_MS} milliseconds`}
             aria-describedby={descriptionId}
           >
             {/* At settle the clock has run out and every lane has fired, so

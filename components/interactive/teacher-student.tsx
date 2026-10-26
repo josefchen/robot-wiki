@@ -200,7 +200,7 @@ export function TeacherStudent({
         >
           <PlotStage
             viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-            aria-label={`Teacher-student distillation at ${percent} percent degradation. A four-legged robot walks over the real ground profile, which the teacher sees as a privileged heightfield. The student's guess of that ground, from its legs alone, is drawn dashed on top, with gaps where ${occludedCount} of ${TERRAIN_CELLS} leg readings are lost; mean absolute error ${formatMeters(mae)}. Teacher-student action divergence ${formatDivergence(divergence)}.`}
+            aria-label={`A four-legged robot on real ground with the student's dashed guess of it at ${percent} percent degradation, ${occludedCount} of ${TERRAIN_CELLS} leg readings lost`}
             aria-describedby={descriptionId}
           >
             <StageAnnotation

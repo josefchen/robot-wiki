@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "2ee57c154fe93155a5f56e3380292d5ddf84681e47e6b5cca1fe7f57f8c26272",
+  "fingerprint": "d6d655db84f49bcd8e571e272bd18fc5e522a7d0c2b04bc424dc5479cb1295ea",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -2959,7 +2959,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 35038,
+      "visibleTextLength": 35234,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "1440x900"
     },
@@ -3313,7 +3313,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27395,
+      "visibleTextLength": 27415,
       "route": "/data-hardware/teleop-rigs/",
       "viewport": "1440x900"
     },
@@ -3903,7 +3903,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 30726,
+      "visibleTextLength": 30748,
       "route": "/frontier/dexterity/",
       "viewport": "1440x900"
     },
@@ -6971,7 +6971,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 34102,
+      "visibleTextLength": 34080,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -7325,7 +7325,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24231,
+      "visibleTextLength": 24209,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -9731,7 +9731,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23043,
+      "visibleTextLength": 23065,
       "route": "/adjacent/drones/",
       "viewport": "375x812"
     },
@@ -11855,7 +11855,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27943,
+      "visibleTextLength": 28119,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -12799,7 +12799,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24633,
+      "visibleTextLength": 24655,
       "route": "/frontier/dexterity/",
       "viewport": "375x812"
     },

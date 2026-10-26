@@ -294,6 +294,49 @@ async function computedDescriptions(
   return rows;
 }
 
+// A drawing's accessible name is the short handle a screen reader speaks
+// first; the description carries the reading. A name as long as its
+// description repeats it at the wrong level, so every described drawing on
+// the derived route set names itself in fewer characters than the text it
+// points to.
+test.describe('VAL-EDU-021 every described drawing is named more briefly than it is described', () => {
+  test('each aria-label is shorter than the description it references', async ({ browser }) => {
+    test.setTimeout(180_000);
+    const rows: { route: string; name: string; nameLength: number; descriptionLength: number }[] = [];
+    await forEachInOwnContext(browser, COVERAGE_ROUTES, async (page, route) => {
+      await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+      rows.push(
+        ...(await page.evaluate((currentRoute) =>
+          Array.from(document.querySelectorAll('svg[aria-describedby], [role="img"][aria-describedby]'))
+            .filter((el) => !el.closest('[aria-hidden="true"]'))
+            .map((el) => {
+              const name = (el.getAttribute('aria-label') ?? '').replace(/\s+/g, ' ').trim();
+              const description = (el.getAttribute('aria-describedby') ?? '')
+                .split(/\s+/)
+                .filter(Boolean)
+                .map((id) => (document.getElementById(id)?.textContent ?? '').replace(/\s+/g, ' ').trim())
+                .join(' ')
+                .trim();
+              return {
+                route: currentRoute,
+                name: name.slice(0, 80),
+                nameLength: name.length,
+                descriptionLength: description.length,
+              };
+            }), route)),
+      );
+    });
+    const compared = rows.filter((row) => row.nameLength > 0 && row.descriptionLength > 0);
+    // 92 named, described drawings on 2026-10-26; the floor catches a sweep that stops finding them.
+    expect(compared.length, 'the sweep compared named, described drawings').toBeGreaterThanOrEqual(90);
+    const overlong = compared.filter((row) => row.nameLength >= row.descriptionLength);
+    expect(
+      overlong,
+      `names at least as long as their descriptions: ${JSON.stringify(overlong, null, 1)}`,
+    ).toEqual([]);
+  });
+});
+
 test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () => {
   test('every chart description names quantities, has digits, and is unique', async ({
     browser,

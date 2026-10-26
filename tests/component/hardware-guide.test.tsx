@@ -138,11 +138,14 @@ describe('HardwareGuide', () => {
     const user = userEvent.setup();
     render(<HardwareGuide />);
     await user.click(screen.getByRole('button', { name: /^\$1k-\$10k$/i }));
-    await user.click(screen.getByRole('button', { name: /^preorder$/i }));
+    await user.click(screen.getByRole('button', { name: /^contact sales$/i }));
 
-    // The Bumi presale ($1,400) is the only preorder in the $1k-$10k band.
+    // Bumi ($1,400 at launch) is the only contact-sales row in the $1k-$10k
+    // band; Noetix's page gives no delivery terms, so it is no preorder.
     expect(bodyRows()).toHaveLength(1);
     expect(rowNamed(/Noetix Bumi/)).toBeDefined();
+    await user.click(screen.getByRole('button', { name: /^preorder$/i }));
+    expect(screen.queryByRole('table')).toBeNull();
   });
 
   it('composes three filters and reports the visible count', async () => {

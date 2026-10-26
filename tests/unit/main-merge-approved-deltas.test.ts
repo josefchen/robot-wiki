@@ -1233,6 +1233,15 @@ const explainerMounts20261026Appends = merged
 // where its chain already holds one; the citations are new members.
 const convergenceProse20261026Appends = merged
   .filter(x => x.id.startsWith('convergence-prose-20261026-')).map(x => x.id);
+// The owed-figures slice of 2026-10-26 lands after the convergence prose
+// slice and appends one block: three drawing names and two schematic alts
+// named in one clause shorter than their descriptions, twelve maker citation
+// records for the hardware-taxonomy buyer's guide and one citation-rendering
+// resolution. Each member takes one edge from its last approved endpoint, or
+// one resolution from the sealed hash where its chain already holds one; the
+// citations are new members.
+const owedFigures20261026Appends = merged
+  .filter(x => x.id.startsWith('owed-figures-20261026-')).map(x => x.id);
 const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends,
   ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends,
   ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends,
@@ -1255,7 +1264,8 @@ const laterThanSeoPass = [...allReaderFirstAppends, ...kolBacklog20261005Appends
   ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends,
   ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends,
   ...sealedDefaultsTrace20261024Appends, ...kolBatch20261024Appends, ...articleSources20261025Appends,
-  ...kolBatch20261025Appends, ...explainerMounts20261026Appends, ...convergenceProse20261026Appends];
+  ...kolBatch20261025Appends, ...explainerMounts20261026Appends, ...convergenceProse20261026Appends,
+  ...owedFigures20261026Appends];
 const beforeReaderFirst = (entries: ApprovedDelta[]) => entries.filter(x => !laterThanSeoPass.includes(x.id));
 const howRobotsWorkAppends = [
   'how-robots-work-20261002-accessible-names-explainers-rail',
@@ -1449,7 +1459,11 @@ const explainerMounts20261026Edges = (manifest: string, memberId: string) => mer
 const convergenceProse20261026Edges = (manifest: string, memberId: string) => merged
   .filter(x => convergenceProse20261026Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
   .map(x => x.id);
-const afterExplainerMounts20261026 = merged.length - convergenceProse20261026Appends.length;
+const owedFigures20261026Edges = (manifest: string, memberId: string) => merged
+  .filter(x => owedFigures20261026Appends.includes(x.id) && x.manifest === manifest && x.memberId === memberId)
+  .map(x => x.id);
+const afterConvergenceProse20261026 = merged.length - owedFigures20261026Appends.length;
+const afterExplainerMounts20261026 = afterConvergenceProse20261026 - convergenceProse20261026Appends.length;
 const afterKolBatch20261025 = afterExplainerMounts20261026 - explainerMounts20261026Appends.length;
 const afterArticleSources20261025 = afterKolBatch20261025 - kolBatch20261025Appends.length;
 const afterKolBatch20261024 = afterArticleSources20261025 - articleSources20261025Appends.length;
@@ -1626,11 +1640,11 @@ describe('two-parent exact approval reconciliation', () => {
         + mountEvidence20261024Appends.length + sealedDefaultsTrace20261024Appends.length
         + kolBatch20261024Appends.length + articleSources20261025Appends.length
         + kolBatch20261025Appends.length + explainerMounts20261026Appends.length
-        + convergenceProse20261026Appends.length]);
+        + convergenceProse20261026Appends.length + owedFigures20261026Appends.length]);
     expect(merged.slice(0, main.length)).toEqual(main);
     expect(merged.slice(main.length, main.length + localOnly.length)).toEqual(localOnly);
     expect(merged.slice(main.length + localOnly.length).map(x => x.id))
-      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends, ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends, ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends, ...sealedDefaultsTrace20261024Appends, ...kolBatch20261024Appends, ...articleSources20261025Appends, ...kolBatch20261025Appends, ...explainerMounts20261026Appends, ...convergenceProse20261026Appends]);
+      .toEqual([...resolutions.map(x => x[0]), ...packetAppends, ...techWithdrawalAppends, ...stackClassicalWorldRlAppends, ...searchStatesAppends, ...humanizerAppends, ...instrumentMigrationAppends, ...educationalConvergenceAppends, ...educationalRelocationAppends, ...educationalCueAppends, ...motionLanguageAppends, ...motionLanguageClipAppends, ...motionSceneEquationAppends, ...motionClassicalAppends, ...motionManipulationAppends, ...motionRlAppends, ...motionRlReconciliations, ...motionWorldModelAppends, ...motionDataHardwareAppends, ...motionFrontierAdjacentHomeAppends, ...motionScrutinyS12Appends, ...round5FirstScreenAppends, ...round5PinnedLeftoversAppends, ...round5FirstScreenCdAppends, ...sharedReaderLayoutAppends, ...round6ProseRestoreAppends, ...round6RemainingRepairAppends, ...opusFigureSystemAppends, ...opusHomepageAppends, ...opusFigureMigrationAppends, ...kolBacklogAppends, ...seoPassAppends, ...readerFirstAppends, ...howRobotsWorkAppends, ...readerFirstManipulationAppends, ...kolBacklog20261005Appends, ...howRobotsWork20261005Appends, ...domainPass20261006Appends, ...classicalPass20261007Appends, ...kolQueue20261009Appends, ...rlPass20261009Appends, ...rlFigures20261011Appends, ...reskin20261010Appends, ...worldModelsPass20261010Appends, ...kolQueue20261012Appends, ...frontierPass20261010Appends, ...anatomy20261012Appends, ...worldModelsLengthCut20261012Appends, ...anatomy2Figures20261012Appends, ...homeFeatured20261013Appends, ...frontierLengthCut20261013Appends, ...humanize20261012Appends, ...anatomy3Figures20261013Appends, ...imagesA20261013Appends, ...frontierLengthCut20261014Appends, ...dataHardwareCut20261013Appends, ...imagesFrontier20261015Appends, ...adjacentCut20261014Appends, ...imagesBAdjacent20261015Appends, ...anatomy4WorldModels20261015Appends, ...homeHubs20261014Appends, ...anatomyB0620261015Appends, ...imagesDh20261015Appends, ...anatomyClassicalB0320261015Appends, ...anatomyManipB0320261015Appends, ...anatomyFrontierB0220261015Appends, ...qaSweep20261015Appends, ...homeHubs20261016Appends, ...a11yGate20261017Appends, ...anatomyWmB0320261015Appends, ...anatomyManipB0420261015Appends, ...anatomyDhNew20261019Appends, ...anatomyAdjacentNew20261019Appends, ...marketMap20261019Appends, ...playgroundRedesign20261019Appends, ...playgroundFraming20261019Appends, ...polish1019Appends, ...marketMapProvenance20261019Appends, ...marketData20261019Appends, ...marketMapAudit20261019Appends, ...marketData1019b20261019Appends, ...marketData1019c20261019Appends, ...anatomyMwfB0120261020Appends, ...anatomyCrdaB0120261020Appends, ...kolBatch20261020Appends, ...anatomyLoopB0120261020Appends, ...marketMapViews20261021Appends, ...playgroundReach20261021Appends, ...kolBatch20261021Appends, ...playgroundReset20261022Appends, ...marketMapRound1Fixes20261022Appends, ...marketMapRound2Fixes20261022Appends, ...educationalCue20261023Appends, ...interactiveData20261023Appends, ...seriesLabel20261023Appends, ...interactivesR120261023Appends, ...controlStates20261023Appends, ...mountEvidence20261024Appends, ...sealedDefaultsTrace20261024Appends, ...kolBatch20261024Appends, ...articleSources20261025Appends, ...kolBatch20261025Appends, ...explainerMounts20261026Appends, ...convergenceProse20261026Appends, ...owedFigures20261026Appends]);
     expect(merged.slice(beforeRound6.length, afterRound6Prose)).toMatchObject(round6ProseRestoreEndpoints.map(
       ([memberId, , newHash], index) => ({
         id: round6ProseRestoreAppends[index], manifest: 'prose', memberId, newHash,
@@ -2008,7 +2022,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...educationalCue20261023Edges('prose', memberId),
         ...kolBatch20261025Edges('prose', memberId),
         ...explainerMounts20261026Edges('prose', memberId),
-          ...convergenceProse20261026Edges('prose', memberId)]);
+          ...convergenceProse20261026Edges('prose', memberId),
+          ...owedFigures20261026Edges('prose', memberId)]);
       const sealed = sealedProse.members.find(x => x.id === memberId)!.hash;
       const entry = edges.at(-1)!;
       const prior = edges.slice(0, -1);
@@ -2521,7 +2536,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...interactivesR120261023Edges(entry.manifest, entry.memberId),
         ...kolBatch20261024Edges(entry.manifest, entry.memberId),
         ...kolBatch20261025Edges(entry.manifest, entry.memberId),
-        ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+        ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2605,7 +2621,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...kolBatch20261024Edges(entry.manifest, entry.memberId),
         ...kolBatch20261025Edges(entry.manifest, entry.memberId),
         ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2674,7 +2691,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...kolBatch20261021Edges(entry.manifest, entry.memberId),
         ...kolBatch20261024Edges(entry.manifest, entry.memberId),
         ...kolBatch20261025Edges(entry.manifest, entry.memberId),
-        ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+        ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
@@ -2795,7 +2813,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...kolBatch20261021Edges(entry.manifest, entry.memberId),
           ...interactivesR120261023Edges(entry.manifest, entry.memberId),
           ...kolBatch20261025Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(worldModelsLengthCut20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2871,7 +2890,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...a11yGate20261017Edges(entry.manifest, entry.memberId),
         ...anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId),
         ...interactivesR120261023Edges(entry.manifest, entry.memberId),
-        ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+        ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(anatomy2Figures20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -2972,7 +2992,8 @@ describe('two-parent exact approval reconciliation', () => {
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
           ...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(frontierLengthCut20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3047,7 +3068,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...articleSources20261025Edges(entry.manifest, entry.memberId),
           ...kolBatch20261025Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(humanize20261012Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3188,7 +3210,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...articleSources20261025Edges(entry.manifest, entry.memberId),
           ...kolBatch20261025Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(imagesA20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3262,7 +3285,8 @@ describe('two-parent exact approval reconciliation', () => {
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...imagesFrontier20261015Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(frontierLengthCut20261014Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3346,7 +3370,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...kolBatch20261024Edges(entry.manifest, entry.memberId),
         ...kolBatch20261025Edges(entry.manifest, entry.memberId),
         ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(dataHardwareCut20261013Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3418,7 +3443,8 @@ describe('two-parent exact approval reconciliation', () => {
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(imagesFrontier20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3505,7 +3531,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...kolBatch20261024Edges(entry.manifest, entry.memberId),
           ...kolBatch20261025Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(adjacentCut20261014Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3581,7 +3608,8 @@ describe('two-parent exact approval reconciliation', () => {
         .toEqual([...anatomyAdjacentNew20261019Edges(entry.manifest, entry.memberId),
           ...kolBatch20261021Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(imagesBAdjacent20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3805,7 +3833,8 @@ describe('two-parent exact approval reconciliation', () => {
         ...kolBatch20261024Edges(entry.manifest, entry.memberId),
         ...kolBatch20261025Edges(entry.manifest, entry.memberId),
         ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(imagesDh20261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -3970,7 +3999,8 @@ describe('two-parent exact approval reconciliation', () => {
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...a11yGate20261017Edges(entry.manifest, entry.memberId),
           ...mountEvidence20261024Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(anatomyFrontierB0220261015Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -4324,7 +4354,8 @@ describe('two-parent exact approval reconciliation', () => {
         .toEqual([...kolBatch20261020Edges(entry.manifest, entry.memberId),
           ...kolBatch20261021Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(anatomyDhNew20261019Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5113,7 +5144,8 @@ describe('two-parent exact approval reconciliation', () => {
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...kolBatch20261025Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(edges.filter(x => anatomyCrdaB0120261020Appends.includes(x.id))).toEqual([entry]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5178,7 +5210,8 @@ describe('two-parent exact approval reconciliation', () => {
           ...kolBatch20261024Edges(entry.manifest, entry.memberId),
           ...kolBatch20261025Edges(entry.manifest, entry.memberId),
           ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(edges.filter(x => kolBatch20261020Appends.includes(x.id))).toEqual([entry]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5246,7 +5279,8 @@ describe('two-parent exact approval reconciliation', () => {
       // 2026-10-26 continue the article with one edge.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(edges.filter(x => anatomyLoopB0120261020Appends.includes(x.id))).toEqual([entry]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5468,7 +5502,8 @@ describe('two-parent exact approval reconciliation', () => {
         // and the 2026-10-26 convergence prose slice continue it with one more each.
         expect(edges.slice(edges.indexOf(entry) + 1).every(x => kolBatch20261021Appends.includes(x.id)
           || kolBatch20261024Appends.includes(x.id) || kolBatch20261025Appends.includes(x.id)
-          || convergenceProse20261026Appends.includes(x.id))).toBe(true);
+          || convergenceProse20261026Appends.includes(x.id)
+          || owedFigures20261026Appends.includes(x.id))).toBe(true);
       } else {
         // The edge is the member's last, except where the 2026-10-23 cue fix,
         // the interactives round-1 option fix, the 2026-10-24 KOL overdue
@@ -5480,7 +5515,8 @@ describe('two-parent exact approval reconciliation', () => {
             ...kolBatch20261024Edges(entry.manifest, entry.memberId),
             ...kolBatch20261025Edges(entry.manifest, entry.memberId),
             ...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
         expect(edges.filter(x => kolBatch20261021Appends.includes(x.id))).toEqual([entry]);
       }
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -5752,7 +5788,8 @@ describe('two-parent exact approval reconciliation', () => {
       // continues the article with one plain edge from the cue's endpoint.
       const later = edges.slice(edges.indexOf(entry) + 1);
       expect(later.map(x => x.id)).toEqual([...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(later.map(x => x.oldHash)).toEqual(later.map(() => entry.newHash));
       expect(educationalCue20261023Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
@@ -5990,7 +6027,8 @@ describe('two-parent exact approval reconciliation', () => {
       // after it, in that order.
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...kolBatch20261025Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(interactivesR120261023Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       expect(prior.some(x => x.reconciles !== undefined)).toBe(false);
@@ -6352,7 +6390,8 @@ describe('two-parent exact approval reconciliation', () => {
       // record).
       expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
         .toEqual([...kolBatch20261025Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(kolBatch20261024Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -6475,7 +6514,8 @@ describe('two-parent exact approval reconciliation', () => {
         expect(own).toEqual([id]);
         expect(edges.slice(edges.indexOf(entry) + 1).map(x => x.id))
           .toEqual([...explainerMounts20261026Edges(entry.manifest, entry.memberId),
-          ...convergenceProse20261026Edges(entry.manifest, entry.memberId)]);
+          ...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+          ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       }
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -6595,7 +6635,8 @@ describe('two-parent exact approval reconciliation', () => {
       // One edge per member, its last, except where the convergence prose
       // slice of 2026-10-26, which landed after it, continues it.
       const successors = edges.slice(edges.indexOf(entry) + 1);
-      expect(successors.map(x => x.id)).toEqual(convergenceProse20261026Edges(entry.manifest, entry.memberId));
+      expect(successors.map(x => x.id)).toEqual([...convergenceProse20261026Edges(entry.manifest, entry.memberId),
+        ...owedFigures20261026Edges(entry.manifest, entry.memberId)]);
       expect(explainerMounts20261026Edges(entry.manifest, entry.memberId)).toEqual([id]);
       const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
@@ -6652,7 +6693,8 @@ describe('two-parent exact approval reconciliation', () => {
   });
 
   it('binds each 2026-10-26 convergence prose edge to its previous endpoint, the sealed hash or an absent seal and the article as it ships', () => {
-    expect(merged.slice(afterExplainerMounts20261026).map(x => x.id)).toEqual(convergenceProse20261026Appends);
+    expect(merged.slice(afterExplainerMounts20261026, afterConvergenceProse20261026).map(x => x.id))
+      .toEqual(convergenceProse20261026Appends);
     // Prose for every article whose text moved, then relationships and front
     // matter where those records moved, the five new registry records in the
     // order the prose first cites them, and one rendering resolution.
@@ -6701,10 +6743,13 @@ describe('two-parent exact approval reconciliation', () => {
         readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
       const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
       const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
-      // One edge per member, its last.
-      expect(edges.at(-1)).toBe(entry);
+      // One edge per member, its last, except where the owed-figures slice of
+      // 2026-10-26, which landed after it, continues it (the citation-rendering
+      // resolution).
+      const successors = edges.slice(edges.indexOf(entry) + 1);
+      expect(successors.map(x => x.id)).toEqual(owedFigures20261026Edges(entry.manifest, entry.memberId));
       expect(convergenceProse20261026Edges(entry.manifest, entry.memberId)).toEqual([id]);
-      const prior = edges.slice(0, -1);
+      const prior = edges.slice(0, edges.indexOf(entry));
       const previous = prior.at(-1)?.newHash ?? sealed;
       expect(entry.newHash).not.toBe(previous);
       if (prior.some(x => x.reconciles)) {
@@ -6756,10 +6801,109 @@ describe('two-parent exact approval reconciliation', () => {
           expect(matter(received).data.lastReviewed).not.toBe('2026-10-26');
         }
       }
+      const path = approvedDeltaPath([...prior, entry], sealed, entry.newHash);
+      expect(path.status).toBe('approved');
+      expect(path.path.at(-1)).toBe(entry);
+      expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+    }
+  });
+
+  it('binds each 2026-10-26 owed-figures edge to its previous endpoint, the sealed hash or an absent seal', () => {
+    expect(merged.slice(afterConvergenceProse20261026).map(x => x.id)).toEqual(owedFigures20261026Appends);
+    // Three drawing names, two schematic alts, the twelve maker records in the
+    // order of the buyer's-guide rows that cite them, and one rendering
+    // resolution.
+    const names = [
+      ['hierarchy-timescales', 'expression', 2], ['teacher-student', 'expression', 2],
+      ['ros2-policy-layout', 'literal', 1],
+    ] as const;
+    const images = ['covariate-shift', 'temporal-ensembling'];
+    const citations = ['nvidia-gr00t-g1-workflow-2026', 'noetix-bumi-page-2026', 'engineai-se01-2026',
+      'engineai-home-2026', 'fourier-gr3-docs-2026', 'limx-oli-spec-2026', 'limx-oli-launch-2025',
+      'agility-digit-5-page-2026', 'agility-gxo-raas-2024', 'agibot-a2-2026', 'ubtech-walker-s2-2026',
+      'ubtech-walker-s2-mass-production-2025'];
+    expect(owedFigures20261026Appends).toEqual([
+      ...names.map(([file, kind, n]) => `name-${file}-${kind}-aria-label-${n}`),
+      ...images.map(image => `image-${image}`),
+      ...citations.map(cid => `citation-${cid}`),
+      'citation-rendering',
+    ].map(suffix => `owed-figures-20261026-${suffix}`));
+    const registry = readFileSync('data/citations.ts', 'utf8');
+    const hardware = readFileSync('data/hardware.ts', 'utf8');
+    const citationAudit = readFileSync('audit/citations.md', 'utf8').split('\n');
+    const imageRegistry = readFileSync('data/images.ts', 'utf8');
+    for (const id of owedFigures20261026Appends) {
+      const entry = merged.find(x => x.id === id)!;
+      // Approved by the sealed opus-pass directives this slice carries, and
+      // not a release approval.
+      expect(entry.ownerApproval).toContain('opus-pass-owed-figures');
+      expect(entry.ownerApproval).toContain('content-auditor rules');
+      expect(entry.ownerApproval).toMatch(/Not release approval\.$/);
+      expect(entry.responsibleMilestone).toBe('opus-pass');
+      expect(entry.disposition).toBe('permanent');
+      const sealedManifest: { members: Array<{ id: string; hash: string }> } = JSON.parse(
+        readFileSync(`evidence/brand-v2/baseline/${entry.manifest}.json`, 'utf8'));
+      const sealed = sealedManifest.members.find(x => x.id === entry.memberId)?.hash ?? MISSING_MEMBER;
+      const edges = merged.filter(x => x.manifest === entry.manifest && x.memberId === entry.memberId);
+      // One edge per member, its last.
+      expect(edges.at(-1)).toBe(entry);
+      expect(owedFigures20261026Edges(entry.manifest, entry.memberId)).toEqual([id]);
+      const prior = edges.slice(0, -1);
+      expect(entry.newHash).not.toBe(prior.at(-1)?.newHash ?? sealed);
+      if (prior.some(x => x.reconciles)) {
+        // A chain that already holds a resolution takes one more resolution
+        // from the seal that reconciles every earlier edge exactly.
+        expect(entry.oldHash).toBe(sealed);
+        expect(entry.reconciles).toEqual(prior.map(x => ({ id: x.id, oldHash: x.oldHash, newHash: x.newHash })));
+        expect(entry.reason).toContain(`reconciles the member's ${prior.length} earlier approved edges exactly`);
+      } else {
+        expect(entry.reconciles).toBeUndefined();
+        // The edge leaves the endpoint the shipped tree held: the end of the
+        // one approved path, which for the two schematic alts is not the last
+        // edge in the ledger (their chains keep superseded side branches).
+        const endpoint = prior.find(x => entry.reason.includes(`last approved endpoint (${x.id})`));
+        expect(entry.oldHash).toBe(endpoint?.newHash ?? sealed);
+        if (endpoint) {
+          expect(approvedDeltaPath(prior, sealed, endpoint.newHash).status).toBe('approved');
+        } else {
+          expect(prior).toEqual([]);
+        }
+      }
       const path = approvedDeltaPath(edges, sealed, entry.newHash);
       expect(path.status).toBe('approved');
       expect(path.path.at(-1)).toBe(entry);
       expect(approvedDeltaPath(prior, sealed, entry.newHash).status).not.toBe('approved');
+      if (entry.memberId.startsWith('citation:')) {
+        // A new record: the seal never held it, no earlier edge names it, and
+        // the registry, the citation audit and a buyer's-guide row carry it.
+        const cid = entry.memberId.slice('citation:'.length);
+        expect(citations).toContain(cid);
+        expect(sealed).toBe(MISSING_MEMBER);
+        expect(prior).toEqual([]);
+        expect(registry).toContain(`id: '${cid}'`);
+        expect(hardware).toContain(`'${cid}'`);
+        const row = citationAudit.filter(line => line.startsWith(`| ${cid} |`));
+        expect(row).toHaveLength(1);
+        expect(row[0]).toContain('added 2026-10-26 (owed-figures slice');
+        expect(entry.affectedAssertions).toContain('VAL-OPUS-091');
+      } else if (entry.memberId === 'citation-rendering:label-and-meta') {
+        expect(entry.reconciles).toBeDefined();
+        for (const cid of citations) expect(entry.reason).toContain(cid);
+      } else if (entry.manifest === 'assets-svg') {
+        // The registry alt names the inline schematic; it is one clause now.
+        const image = entry.memberId.slice('registered-image:'.length);
+        expect(images).toContain(image);
+        const alt = imageRegistry.split(`id: '${image}'`)[1].match(/alt: '([^']+)'/)![1];
+        expect(entry.reason).toContain(alt);
+        expect(alt.split(/[.;]\s/)).toHaveLength(1);
+        expect(entry.affectedAssertions).toContain('VAL-EDU-021');
+      } else {
+        expect(entry.manifest).toBe('accessible-names');
+        const [file, kind, n] = names.find(([file]) => entry.memberId.includes(`/${file}.tsx:`))!;
+        expect(entry.memberId).toBe(`${kind}:components/interactive/${file}.tsx:aria-label:${n}`);
+        expect(entry.affectedAssertions).toContain('VAL-EDU-021');
+        expect(entry.reason).toContain('in one clause');
+      }
     }
   });
 

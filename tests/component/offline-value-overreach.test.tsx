@@ -97,7 +97,7 @@ describe('OfflineValueOverreach', () => {
     expect(screen.getByTestId('overreach-caution')).toHaveTextContent(`${RETURN_AT} of ${CAUTION_MAX}`);
     expect(screen.getByTestId('overreach-choice')).toHaveAttribute('data-tried', 'yes');
     expect(slider).toHaveAttribute('aria-valuetext', expect.stringContaining('the best squeeze it tried'));
-    expect(screen.getByRole('img', { name: /rider sits over the best grip it tried/ })).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /caution keeps the learner on the best grip it tried/ })).toBeInTheDocument();
     fireEvent.change(slider, { target: { value: String(CAUTION_MAX) } });
     expect(screen.getByTestId('overreach-caution')).toHaveTextContent('strong');
   });
@@ -117,7 +117,7 @@ describe('OfflineValueOverreach', () => {
 
   it('names the stage and links both sources', () => {
     renderFigure();
-    const stage = screen.getByRole('img', { name: /learner's guess of how well each grip works/ });
+    const stage = screen.getByRole('img', { name: /learner's guess springs up past the tried grips/ });
     const described = document.getElementById(stage.getAttribute('aria-describedby') ?? '');
     expect(described).toHaveTextContent('outside the tried range');
     const links = [...screen.getByTestId('overreach-source').querySelectorAll('a')].map((a) => a.getAttribute('href'));

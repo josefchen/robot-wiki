@@ -470,14 +470,11 @@ function SplatPanel({ spacingCm }: { spacingCm: number }) {
 }
 
 const PANEL_LABEL: Record<RepresentationId, string> = {
-  'point-cloud':
-    'A small room seen from above, with a back wall, a box, a thin post, a glass bottle and a camera, stored as a point cloud: one sample per returned ray, drawn as a filled dot on opaque surfaces and as a hollow dashed ring on the thin post and the glass bottle, and nothing at all behind the box',
-  'occupancy-grid':
-    'A small room seen from above, with a back wall, a box, a thin post, a glass bottle and a camera, stored as an occupancy grid: free, occupied and unknown cells, with the region hidden behind the box held as unknown',
-  tsdf: 'A small room seen from above, with a back wall, a box, a thin post, a glass bottle and a camera, stored as a truncated signed-distance field: a narrow band of voxels straddling each observed surface, outlined with a dashed edge over the thin post and the glass bottle',
-  mesh: 'A small room seen from above, with a back wall, a box, a thin post, a glass bottle and a camera, stored as a triangle mesh: connected surface runs, dashed where the surface is thin or see-through, with a hole behind the box where nothing was observed',
-  'gaussian-splat':
-    'A small room seen from above, with a back wall, a box, a thin post, a glass bottle and a camera, stored as a Gaussian splat: solid blobs on the observed surfaces, and dashed hollow blobs filling the region behind the box that were rendered but never measured',
+  'point-cloud': 'A small room seen from above, stored as a point cloud with nothing behind the box',
+  'occupancy-grid': 'A small room seen from above, stored as an occupancy grid that holds the space behind the box as unknown',
+  tsdf: 'A small room seen from above, stored as a truncated signed-distance field around each observed surface',
+  mesh: 'A small room seen from above, stored as a triangle mesh with a hole behind the box',
+  'gaussian-splat': 'A small room seen from above, stored as a 3D Gaussian splat that fills the space behind the box with guesses',
 };
 
 type SwatchKind =

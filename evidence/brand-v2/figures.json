@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "667dd25111334385fce83eec3b7b5e3e7e30145852309f58871a722a64d419cd",
+  "fingerprint": "a422f4e438b4a64d833c1c3aaa8791664f500d748a794c498eb767b1f16f3f15",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1663,7 +1663,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+          "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -1701,7 +1701,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+          "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -11764,7 +11764,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27963,
+      "visibleTextLength": 28139,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -13037,7 +13037,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+          "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -13261,7 +13261,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+          "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -18129,7 +18129,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+          "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -18167,7 +18167,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+          "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -28230,7 +28230,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 35058,
+      "visibleTextLength": 35234,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -29503,7 +29503,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.",
+          "alt": "Three overlapping plans blend their predictions with illustrative m=0.5 weights 1.00, 0.61, and 0.37.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,
@@ -29727,7 +29727,7 @@
           "index": 0,
           "figureKind": "original-schematic",
           "src": "",
-          "alt": "Diagram of covariate shift: demonstration trajectories form a narrow corridor around the expert path, while the policy rollout starts inside the corridor and drifts outside it.",
+          "alt": "Covariate shift: a robot trained on a narrow corridor of demonstrations slips once and drifts outside it.",
           "declaredWidth": null,
           "declaredHeight": null,
           "loading": null,

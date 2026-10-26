@@ -559,7 +559,7 @@ export function FlowMatchingTrajectory({
               width={WIDTH}
               height={HEIGHT}
               fit={PHONE_FIT}
-              label={`2D action-space view: ${drawn.length} of ${field.samples.length} samples start as random noise and are carried toward two good moves along near-straight paths. With ${stepWords(steps)} the mean endpoint error is ${dispersion.toFixed(2)}${steps === 1 ? '' : `; one big jump would leave it at ${oneJump.toFixed(2)}`}. The learned vector field at mid-transport is ${showField ? 'shown' : 'hidden'}.`}
+              label={`2D action-space view where ${drawn.length} of ${field.samples.length} noise samples reach two good moves at mean endpoint error ${dispersion.toFixed(2)} after ${stepWords(steps)}`}
               describedBy={descriptionId}
             >
               <g key={running ? 'running' : 'rest'}>

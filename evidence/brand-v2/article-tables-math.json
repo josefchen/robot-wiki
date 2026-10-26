@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b29eea4e815486e66eaabcb5e31459142536a57a26a174a11d8a6b2b769721b6",
+  "fingerprint": "aa6b5a12b4b28240628cf530051f55fbe943b14757bf76248f5ef7a339eb93b0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -972,7 +972,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19128,
+      "visibleTextLength": 19106,
       "tables": [],
       "equations": [
         {
@@ -4351,7 +4351,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27963,
+      "visibleTextLength": 28139,
       "tables": [
         {
           "index": 0,
@@ -4362,7 +4362,7 @@
           "unscopedHeaders": 0,
           "sortButtons": 4,
           "sortedColumns": 1,
-          "notDisclosedCells": 46,
+          "notDisclosedCells": 45,
           "notApplicableCells": 0,
           "scrollContainer": {
             "overflowX": "auto",
@@ -4370,10 +4370,10 @@
             "role": "region",
             "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
             "clientWidth": 327,
-            "scrollWidth": 858,
+            "scrollWidth": 844,
             "scrolledBy": 40
           },
-          "tableWidth": 858,
+          "tableWidth": 844,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4388,7 +4388,7 @@
           "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
           "tabIndex": 0,
           "clientWidth": 327,
-          "scrollWidth": 858,
+          "scrollWidth": 844,
           "scrolledBy": 40
         }
       ],
@@ -4620,7 +4620,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24633,
+      "visibleTextLength": 24655,
       "tables": [
         {
           "index": 0,
@@ -6857,7 +6857,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26447,
+      "visibleTextLength": 26425,
       "tables": [
         {
           "index": 0,
@@ -9396,7 +9396,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23995,
+      "visibleTextLength": 24017,
       "tables": [
         {
           "index": 0,
@@ -9958,7 +9958,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 36694,
+      "visibleTextLength": 36672,
       "tables": [
         {
           "index": 0,
@@ -11281,7 +11281,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 37996,
+      "visibleTextLength": 38018,
       "tables": [],
       "equations": [
         {
@@ -12336,7 +12336,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 35038,
+      "visibleTextLength": 35234,
       "tables": [
         {
           "index": 0,
@@ -12347,7 +12347,7 @@
           "unscopedHeaders": 0,
           "sortButtons": 4,
           "sortedColumns": 1,
-          "notDisclosedCells": 46,
+          "notDisclosedCells": 45,
           "notApplicableCells": 0,
           "scrollContainer": {
             "overflowX": "auto",
@@ -12452,7 +12452,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27395,
+      "visibleTextLength": 27415,
       "tables": [
         {
           "index": 0,

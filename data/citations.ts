@@ -21613,6 +21613,162 @@ export const CITATIONS: Citation[] = [
     url: 'https://www.bjnews.com.cn/detail/1761307644168764.html',
     type: 'press',
   },
+  // nvidia-gr00t-g1-workflow-2026: owed-figures slice 2026-10-26 (hardware guide row unitree-g1). NVIDIA
+  // Learning course page, (c) 2026 with no page date, read 2026-10-26 (HTTP 200): "This course introduces
+  // the GR00T reference workflow: a validated, open, and reproducible sim-first to deployment workflow for
+  // Unitree G1 manipulation policy learning with Jetson Thor." NVIDIA never calls G1 the "default" platform.
+  {
+    id: 'nvidia-gr00t-g1-workflow-2026',
+    title: 'How to Develop and Deploy Humanoid Robots End-to-End with NVIDIA Isaac GR00T and Unitree G1',
+    authors: ['NVIDIA'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'NVIDIA Learning course',
+    url: 'https://docs.nvidia.com/learning/physical-ai/gr00t-e2e-workflow/latest/index.html',
+    type: 'docs',
+  },
+  // noetix-bumi-page-2026: owed-figures slice 2026-10-26 (hardware guide row noetix-bumi). Rendered
+  // through a browser fetch 2026-10-26 (HTTP 200; curl gets the app shell only): "98cm Compact Height",
+  // "17kg Lightweight and easy to carry", "21DOF 21 full-body degrees of freedom" (upper body 9, legs 12);
+  // scenarios "Family Companion", "Maker Education". The page states no price.
+  {
+    id: 'noetix-bumi-page-2026',
+    title: 'Bumi Consumer Humanoid Robot',
+    authors: ['Noetix Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'Noetix Robotics product page',
+    url: 'https://www.noetixrobotics.com/en/detail/Bumi',
+    type: 'docs',
+  },
+  // engineai-se01-2026: owed-figures slice 2026-10-26 (hardware guide row engineai-se01). English product
+  // page read 2026-10-26 (HTTP 200): it offers "Contact Us Now" and publishes no price, height or weight.
+  {
+    id: 'engineai-se01-2026',
+    title: 'SE01',
+    authors: ['EngineAI'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'EngineAI product page',
+    url: 'https://en.engineai.com.cn/product-se01.html',
+    type: 'docs',
+  },
+  // engineai-home-2026: owed-figures slice 2026-10-26 (hardware guide row engineai-se01). Chinese
+  // homepage read 2026-10-26 (HTTP 200); the SE01 card reads "170CM 身高 / 2M/s 常态步速 / 32pcs 全身自由度".
+  // The ¥88K the guide used to show was the PM01's launch price, not the SE01's.
+  {
+    id: 'engineai-home-2026',
+    title: 'EngineAI homepage',
+    authors: ['EngineAI'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'EngineAI website',
+    url: 'https://www.engineai.com.cn/',
+    type: 'docs',
+  },
+  // fourier-gr3-docs-2026: owed-figures slice 2026-10-26 (hardware guide row fourier-gr3). Fourier
+  // Developer Center, docs v3.0.2, read 2026-10-26 (HTTP 200): "Standing 165 cm tall and weighing 71 kg,
+  // the GR-3 features 55 degrees of freedom across its body"; "Total Actuator Count Up to 55 (with
+  // optional 12-DOF dexterous hand)"; Fourier's first "Care-bot" humanoid. No price or order terms.
+  {
+    id: 'fourier-gr3-docs-2026',
+    title: 'GR-3 Robot Overview',
+    authors: ['Fourier'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'Fourier Developer Center',
+    url: 'https://support.fftai.com/en/gr3/getting-started/general-information',
+    type: 'docs',
+  },
+  // limx-oli-spec-2026: owed-figures slice 2026-10-26 (hardware guide row limx-oli). Read 2026-10-26
+  // (HTTP 200, after a 90 s wait): "Height 165cm", "Weight (Battery Included) ≤55kg", "Active DoF (Total) 31".
+  {
+    id: 'limx-oli-spec-2026',
+    title: 'LimX Oli Specifications',
+    authors: ['LimX Dynamics'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'LimX Dynamics product page',
+    url: 'https://www.limxdynamics.com/en/products/oli/spec',
+    type: 'docs',
+  },
+  // limx-oli-launch-2025: owed-figures slice 2026-10-26 (hardware guide row limx-oli). Chinese release
+  // dated 2025/7/30, read 2026-10-26 (HTTP 200): "售价 15.8 万元起，即日起开放预订" (from ¥158,000; orders open
+  // from today). The English release of July 30, 2025 gives no price.
+  {
+    id: 'limx-oli-launch-2025',
+    title: '¥15.8 万起丨逐际动力全尺寸人形机器人 LimX Oli 开放预订',
+    authors: ['LimX Dynamics'],
+    year: 2025,
+    venue: 'LimX Dynamics news, 2025-07-30',
+    url: 'https://www.limxdynamics.com/zh/news/BK000022',
+    type: 'press',
+  },
+  // agility-digit-5-page-2026: owed-figures slice 2026-10-26 (hardware guide row agility-digit). Read
+  // 2026-10-26 (HTTP 200): "Payload* 23kg/50lbs", "Reach* 2.2m/7.2ft", with "*preliminary estimates based
+  // on internal testing and benchmarking of pre-production hardware and software configurations".
+  {
+    id: 'agility-digit-5-page-2026',
+    title: 'Digit 5',
+    authors: ['Agility Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'Agility Robotics product page',
+    url: 'https://www.agilityrobotics.com/solutions/digit-5',
+    type: 'docs',
+  },
+  // agility-gxo-raas-2024: owed-figures slice 2026-10-26 (hardware guide row agility-digit). Agility
+  // release of June 27, 2024, read 2026-10-26 (HTTP 200): the GXO agreement is "both the industry's first
+  // formal commercial deployment of humanoid robots and first Robots-as-a-Service (RaaS) deployment of
+  // humanoid robots."
+  {
+    id: 'agility-gxo-raas-2024',
+    title: 'GXO Signs Industry-First Multi-Year Agreement with Agility Robotics',
+    authors: ['Agility Robotics'],
+    year: 2024,
+    venue: 'Agility Robotics press release, 2024-06-27',
+    url: 'https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics',
+    type: 'press',
+  },
+  // agibot-a2-2026: owed-figures slice 2026-10-26 (hardware guide row agibot-a2). Read 2026-10-26
+  // (HTTP 200): "Height 169 cm", "Weight 69 kg", "Battery 700 wh", "Support battery swapping",
+  // "Degrees of Freedom 40 + Active DoF"; sales by "Contact us".
+  {
+    id: 'agibot-a2-2026',
+    title: 'AGIBOT A2',
+    authors: ['AgiBot'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'AgiBot product page',
+    url: 'https://www.agibot.com/products/A2',
+    type: 'docs',
+  },
+  // ubtech-walker-s2-2026: owed-figures slice 2026-10-26 (hardware guide row ubtech-walker-s2). Read
+  // 2026-10-26 (HTTP 200): "Walker S2 is able to swap battery autonomously within 3 minutes."; "Walker S2
+  // can lift 15kg payload". The spec image gives no height, weight or DoF count, so the guide's DoF is null.
+  {
+    id: 'ubtech-walker-s2-2026',
+    title: 'UBTECH Walker S2 Humanoid Robot',
+    authors: ['UBTECH Robotics'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'UBTECH product page',
+    url: 'https://www.ubtrobot.com/en/humanoid/products/walker-s2',
+    type: 'docs',
+  },
+  // ubtech-walker-s2-mass-production-2025: owed-figures slice 2026-10-26 (hardware guide row
+  // ubtech-walker-s2). UBTECH release via PR Newswire, "SHENZHEN, China, Nov. 17, 2025", read through the
+  // Yahoo Finance syndication 2026-10-26 (HTTP 200): "UBTECH has begun mass production and delivery of the
+  // first batch of several hundred full-size industrial humanoid robots, Walker S2".
+  {
+    id: 'ubtech-walker-s2-mass-production-2025',
+    title: 'UBTECH Humanoid Robot Walker S2 Begins Mass Production and Delivery, with Orders Exceeding 800 Million Yuan',
+    authors: ['UBTECH Robotics'],
+    year: 2025,
+    venue: 'UBTECH press release via PR Newswire, 2025-11-17',
+    url: 'https://finance.yahoo.com/news/ubtech-humanoid-robot-walker-s2-101200404.html',
+    type: 'press',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -21660,12 +21816,14 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['International Federation of Robotics', 'International Federation of Robotics'],
   ['Intuitive Surgical', 'Intuitive Surgical'],
   ['Lean Enterprise Institute', 'Lean Enterprise Institute'],
+  ['LimX Dynamics', 'LimX Dynamics'],
   ['Meta AI', 'Meta AI'],
   ['Moon Surgical', 'Moon Surgical'],
   ['MoveIt Maintainers', 'MoveIt Maintainers'],
   ['NASA Jet Propulsion Laboratory', 'NASA Jet Propulsion Laboratory'],
   ['National Highway Traffic Safety Administration', 'NHTSA'],
   ['Nav2 Project', 'Nav2 Project'],
+  ['Noetix Robotics', 'Noetix Robotics'],
   ['Northrop Grumman', 'Northrop Grumman'],
   ['Ocado Group plc', 'Ocado Group'],
   ['Occupational Safety and Health Administration', 'OSHA'],
@@ -21697,6 +21855,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['TRI LBM Team', 'TRI LBM Team'],
   ['Trossen Robotics', 'Trossen Robotics'],
   ['U.S. Food and Drug Administration', 'FDA'],
+  ['UBTECH Robotics', 'UBTECH Robotics'],
   ['UL Standards & Engagement', 'UL Standards & Engagement'],
   ['Unitree Robotics', 'Unitree Robotics'],
   ['Universal Robots', 'Universal Robots'],

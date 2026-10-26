@@ -319,7 +319,7 @@ function FormLabel({ form, marked }: { form: Form; marked: boolean }) {
 }
 
 function stageLabel(p: WmParadigm): string {
-  return `A robot arm above a cup on a table, about to pick it up, and three forms its imagined next moment can take: the next picture, a compressed summary or plain facts. ${p.short} imagines ${FORM_WORDS[FORM_OF[p.id]]}. ${NOTE_LINES[p.id].join(' ')}.`;
+  return `A robot arm above a cup, about to pick it up, whose next moment ${p.short} imagines as ${FORM_WORDS[FORM_OF[p.id]]}`;
 }
 
 /**

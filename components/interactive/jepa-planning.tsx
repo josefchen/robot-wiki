@@ -331,7 +331,7 @@ export function JepaPlanning({
       <IsoFigure
         width={TABLE_WIDTH}
         height={TABLE_HEIGHT}
-        label={`A robot plans by comparing compact summaries, drawn as a planning table: the ring for now, cup on the table, and the target for the goal, ${GOAL_WORDS[goalId]}. A probe head on a gantry has made ${steps} moves and ${gapNow}% of the starting distance is left; ${next ? `its ${fanCount} feelers try ${fanCount} moves, and the lit one, closest to the goal, is the move it keeps` : 'it has stopped'}.`}
+        label={`A planning table of compact summaries where ${gapNow}% of the starting distance to the goal, ${GOAL_WORDS[goalId]}, is left after ${steps} moves`}
         describedBy={descriptionId}
       >
         {parts.map((part, index) => (
