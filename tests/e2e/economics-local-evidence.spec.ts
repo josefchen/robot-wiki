@@ -46,6 +46,9 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
       const control = mount.getByRole('slider', { name: controls[i] });
       await expect(control).toHaveValue(String(input[key]));
       for (const attribute of ['min', 'max', 'step'] as const) await expect(control).toHaveAttribute(attribute, String(ranges[key][attribute]));
+      // The article no longer restates the seven defaults; each control's
+      // own note marks its value as an assumption instead.
+      await expect(control.locator('xpath=following-sibling::*[@data-control-note]')).toContainText('Assumption:');
     }
     await expect(slider.locator('xpath=following-sibling::*[@data-control-note]')).toContainText('not a sourced arm-price quote');
     await expect(mount).not.toContainText('$25k-$80k');
@@ -68,7 +71,7 @@ test('industrial52 actual default robot-cost endpoints and reset', async ({ page
       ['breakdown-jams', 'jamClearing', 'jam clearing'],
       ['breakdown-downtime', 'downtime', 'downtime'],
     ] as const) await expect(mount.getByTestId(id)).toHaveText(`${label} ${o.timeBreakdown[key].toFixed(0)} s`);
-    await expect(page.locator('p').filter({ hasText: /^This authored worked example has no measured deployment/ })).toContainText('an assumed input, with no sourced arm-price quote');
+    await expect(page.locator('p').filter({ hasText: /^This worked example has no measured deployment/ })).toContainText('each of its seven inputs is an assumption, labelled beside its control');
     await expect(page.locator('p').filter({ hasText: 'The calculator above reports capital cost per modeled pick' })).toContainText('It does not include running costs.');
     await mount.evaluate(el => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 100));
     observations.push({ name, input, mountId: 'mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1',

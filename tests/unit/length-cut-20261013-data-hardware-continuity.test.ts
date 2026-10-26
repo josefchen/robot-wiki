@@ -9,6 +9,7 @@ import {
   verifyDataHardwareCutSource,
 } from '../../lib/audit-length-cut-data-hardware-continuity';
 import { MIN_BODY_SOURCES, type LengthCutDrops } from '../../lib/audit-length-cut-world-models-continuity';
+import { loadConvergenceProseReview } from '../../lib/audit-convergence-prose-continuity';
 import { DID_YOU_KNOW } from '../../data/did-you-know';
 import { preDataHardwareCut, preFrontierLengthCut, preImageMounts, preSeoPass } from '../helpers/seo-pass';
 
@@ -34,6 +35,14 @@ const selects = (spec: string, text: string) => {
   const rendered = text.replaceAll('\\$', '$');
   return [rendered, rendered.replaceAll("'", "\\'"), rendered.replaceAll('"', '\\"')].some((form) =>
     [`'${form}'`, `"${form}"`, `/${form}/`, `/^${form}/`].some((literal) => spec.includes(literal)));
+};
+// The convergence prose slice of 2026-10-26 rewrote the calculator paragraph
+// the two economics readers open on: it no longer restates the seven
+// defaults, and each is labelled an assumption beside its control. Its
+// reviewed edit carries this cut's moved pin to the live wording, which the
+// readers select in its place.
+const convergenceMoves: Readonly<Record<string, string>> = {
+  'This authored worked example has no measured deployment': 'This worked example has no measured deployment',
 };
 
 const scratchRoots: string[] = [];
@@ -93,6 +102,7 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
 
   it('lists the pins the pass moved or retired, and the tests follow them', () => {
     const pinned = review.sources.flatMap(({ after, pins }) => pins.map((pin) => ({ ...pin, path: after.path })));
+    const convergence = loadConvergenceProseReview(root);
     const amazon = 'e2e/amazon-industrial-originals.spec.ts';
     const symbotic = 'e2e/symbotic-a3-originals.spec.ts';
     const ifr = 'e2e/ifr-industrial-originals.spec.ts';
@@ -132,7 +142,18 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
         expect(selects(spec, phrase), `${test} still selects: ${phrase}`).toBe(false);
         if (disposition === 'moved') {
           expect(live).toContain(to);
-          expect(selects(spec, to!), `${test} selects: ${to}`).toBe(true);
+          const next = convergenceMoves[to!];
+          if (next === undefined) {
+            expect(selects(spec, to!), `${test} selects: ${to}`).toBe(true);
+          } else {
+            const edit = convergence.sources.find(({ after }) => after.path === path)?.edits
+              .find(({ before }) => before.includes(to!));
+            expect(edit?.after).toContain(next);
+            expect(edit?.after).not.toContain(to);
+            expect(readFileSync(join(root, path)).toString()).toContain(next);
+            expect(selects(spec, next), `${test} selects: ${next}`).toBe(true);
+            expect(selects(spec, to!), `${test} still selects: ${to}`).toBe(false);
+          }
         } else {
           expect(disposition).toBe('retired');
         }
@@ -144,6 +165,8 @@ describe('data-hardware domain pass and length cut 2026-10-13 article successors
         expect(live).toContain(to);
       }
     }
+    expect(pinned.filter(({ to }) => to !== undefined && to in convergenceMoves).map(({ test }) => test)).toEqual(
+      ['tests/e2e/economics-local-evidence.spec.ts', 'tests/e2e/economics-release-evidence.spec.ts']);
     // The home-page fact follows the corrected ACT sentence, and the pricing
     // test holds the live article to the paper's build cost.
     const moved = pinned.filter(({ disposition, test }) => disposition === 'moved' && test.startsWith('tests/unit/'));

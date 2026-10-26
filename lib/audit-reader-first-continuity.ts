@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 3198042, sha256: '916be22908e82492ea09b99366c6c2202506df14c946b6b06c7f8f03068fbc5e' };
+const reviewPin = { bytes: 3200103, sha256: '2f20c1133583f7a5c9d4cbcffcadca581ca4652d043fbc495dee4562e8b05c5a' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -212,10 +212,10 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/data-bottleneck.spec.ts', [7908, '0405f333743028d454de2d4e2526c3780f223b5da43276b439e2fadb3ace0651']],
   ['tests/e2e/datasets.spec.ts', [5742, '4cea5c25b75caf96b4a0605c7cd90521e7b4961a6e77f5920c2d2dd2f937d33f']],
   ['tests/e2e/deviation-axis.spec.ts', [11583, 'ed700f0bca858bfeed0319f7fe4c8fe6934117601cc8e8962cb8276b9f86d2e4']],
-  ['tests/e2e/dexterity.spec.ts', [13268, 'c0573b4c5c4b4d32105145f81d000583f4167fcac7e34a610aabc99758a7bf97']],
+  ['tests/e2e/dexterity.spec.ts', [13499, '7ebfc7487bfeaeeb633dc7f96b6fd3d12885ba043faeef549214a18f492532c4']],
   ['tests/e2e/drones.spec.ts', [8862, 'da9836e3a03fe6bf58cbda8c5496c46d74a04d87ba6b28066062e8c3313e1e06']],
-  ['tests/e2e/economics-local-evidence.spec.ts', [7290, '07859c3259e8616b9c65c65c67c722f043af4939f86c2d667694d34b8edb0ad7']],
-  ['tests/e2e/economics-release-evidence.spec.ts', [7510, 'd5095fbd6c6e6ad3d9e4bab120379da98edf04afd20d04f30dade0cac3e1316d']],
+  ['tests/e2e/economics-local-evidence.spec.ts', [7553, '317bc0cff4461df8b4623477235bc96eb7b5f7f143602913f0682143a1876514']],
+  ['tests/e2e/economics-release-evidence.spec.ts', [7796, '543626574b0ae28c536758f18027f2f9941d7a0ae4f680c48cd34775dc00d668']],
   ['tests/e2e/evaluation-benchmark-readers.spec.ts', [12783, '37e2ec6263e97693ac45ae792e43c4d95f85262f91769866d4bcea205cd1eb42']],
   ['tests/e2e/evaluation-crisis.spec.ts', [11644, 'a58376a7e2a1ec4bc9ad32d3ad1c27f2482e29f086511f363608fa68d797b834']],
   ['tests/e2e/evaluation-statistics-originals.spec.ts', [14690, 'c46a204ef43f5437d40c4ebd5a62e04107fde2ba45bf53fcf4176b9659c1743f']],
@@ -265,7 +265,7 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/e2e/rma-kl-reader.spec.ts', [14864, 'c8d36cb3289ca559e9f5d090b91d1c6014404f0f07d84de5f726997f21bc24b4']],
   ['tests/e2e/safety-and-assurance.spec.ts', [26346, '04caa5a57a6d92d1565a3ca3cc09eab64d260768e24fc1279e8d78657b9642ea']],
   ['tests/e2e/saycan-cap-readers.spec.ts', [8758, 'c389ab8246140038bab03043fe24d72e9fa9cf47f5eb206da4e9a5bf16b7ef1e']],
-  ['tests/e2e/scene-representation.spec.ts', [29108, '683fecc5653ac372024f2ddea02dbd1f406d83c7e568d71e1f2c3aa6104597e9']],
+  ['tests/e2e/scene-representation.spec.ts', [29417, 'b05744a3beb825485895154fbf7d278e916a987800e579b152e0851da9448f10']],
   ['tests/e2e/see-also.spec.ts', [15224, '4bef5f3c9be7bdec6ef073bc615c03d1e645de78d5dcfbdbf39e7ab2e71f15b6']],
   ['tests/e2e/seo-static-integrity.spec.ts', [21481, '3c92ab3b5bd20a50de6b903fc160fb2bf5ee702d4a7dee72441453e97ed97f18']],
   ['tests/e2e/sim2real-local-evidence.spec.ts', [10991, 'ab74bcb826eef68b5e3dfb99d22ae51564819ed14d2e92d8cc28b042a3dbd76c']],

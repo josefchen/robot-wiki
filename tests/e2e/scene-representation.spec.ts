@@ -143,7 +143,11 @@ test.describe('classical scene-representation module', () => {
       ['cadena-2016', 0, 1, 'face range and external-light limits', 'https://arxiv.org/abs/1606.05830'],
     ] as const;
     await expect(page.locator('.prose > p [data-cite-id="moravec-elfes-1985"]')).toHaveCount(1);
-    await expect(page.locator('.prose > p [data-cite-id="cadena-2016"]')).toHaveCount(7);
+    // The convergence prose pass (2026-10-26) cited the consumer-queries
+    // paragraph, two of whose four needs rest on Cadena: 7 became 9.
+    await expect(page.locator('.prose > p [data-cite-id="cadena-2016"]')).toHaveCount(9);
+    await expect(page.locator('.prose > p').filter({ hasText: 'Consumers issue different queries' })
+      .locator('[data-cite-id="cadena-2016"]')).toHaveCount(2);
     // Cadena also supports other claims: select each tradeoff paragraph,
     // not an article-wide ordinal or the removed Source-only wrapper.
     for (const [id, ordinal, count, text, href] of expectations) {
