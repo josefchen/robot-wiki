@@ -72,6 +72,7 @@ export {
   EurekaLoop,
   ExcavatorPractice,
   ExecutionModes,
+  ExplainerFigure,
   ExpoFtResults,
   FlowMatchingTrajectory,
   FrictionTransfer,

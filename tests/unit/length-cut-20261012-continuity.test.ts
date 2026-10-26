@@ -10,7 +10,7 @@ import {
   LENGTH_CUT_CONTINUITY_DIR, MIN_BODY_SOURCES, keepsLengthCutObligations, lengthCutAppendedCitations, lengthCutPredecessor,
   lengthCutSuccessorPaths, loadLengthCutReview, verifyLengthCutSource, type LengthCutDrops,
 } from '../../lib/audit-length-cut-continuity';
-import { preImageMounts } from '../helpers/seo-pass';
+import { preExplainerMounts, preImageMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 // The newer image-mount layer of 2026-10-13 hands back the cut's successor first.
@@ -30,9 +30,10 @@ const articles: ReadonlyArray<readonly [string, readonly string[]]> = [
 ];
 const paths = articles.flatMap(([domain, slugs]) => slugs.map((slug) => `content/${domain}/${slug}.mdx`));
 // A figure mount recorded over the live article (the three manipulation mounts of 2026-10-15, after the image
-// mounts) sits above this layer, not under it: the layer rebuilds the live bytes themselves.
+// mounts) sits above this layer, not under it: the layer rebuilds the live bytes themselves. The newer
+// explainer-mount layer of 2026-10-26 hands back the bytes that figure mount was recorded over.
 const mountedOnTop = (path: string) => {
-  const live = readFileSync(join(root, path));
+  const live = preExplainerMounts(path);
   return !figureMountPredecessor(root, { path, ...blank }, live).equals(live);
 };
 

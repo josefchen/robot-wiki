@@ -118210,6 +118210,1099 @@
           "newHash": "67b4e8f3be69d404b132e5c9170bd08cdd09a02b942e0bb4213265926c733382"
         }
       ]
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-data-hardware-hardware-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "c4520e2e0b69beab00a7f96e3c83f3db22ed4f8b94b3348940264688413c165f",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on data-hardware/hardware-taxonomy: the one-line <ExplainerFigure id=\"arm\" /> mount of the \"arm\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Pull the arm apart in the figure below, then guess which motor works hardest to hold it out straight.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. The edge starts from the sealed bytes and reconciles the member's 32 earlier approved edges exactly, ending with kol-batch-20261020-prose-data-hardware-hardware-taxonomy.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9"
+        },
+        {
+          "id": "pricing-provenance-20260907-9",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20"
+        },
+        {
+          "id": "performance-worldmodels-20260908-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "754695d09e014226b660fab2d3f30997506f223495a06157a752f6306d4c260d"
+        },
+        {
+          "id": "hardware-taxonomy-r1-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r2-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r3-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r4-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r5-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r6-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r7-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r8-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r9-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r10-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r11-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r12-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r13-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r14-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r15-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r16-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r17-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r18-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r19-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r20-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r25-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "reader-f20-dates-20260923-2",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "968143da16731393e77b21d1e27a5e2cb965c1dc86cb08d83f042d97e5d05fec"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "df76d0fb7992a19bed98944b84599efd78eed419c327653146401a3e33357cad"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "acfe8dc62f1895ae6e6ecfc148508ce2c8f58c8b853d68748f94c26f05655955"
+        },
+        {
+          "id": "kol-batch-20261020-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "9950d7013e51cf07ac92763a5bdd58971c5698bf6f2dff4312596162ca674ab2"
+        }
+      ]
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-rl-sim2real-humanoid-wbc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "3108953320cb9026bf79e6c631113fea4d7a96c2b904da98fc03c43d5da55eb0",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on rl-sim2real/humanoid-wbc: the one-line <ExplainerFigure id=\"humanoid\" /> mount of the \"humanoid\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Tap a body region in the figure below to see how a humanoid's motors are shared between legs, arms and hands.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. The edge starts from the sealed bytes and reconciles the member's 30 earlier approved edges exactly, ending with kol-batch-20261025-rl-sim2real-prose-humanoid-wbc.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "humanoid-motion-20260909-a23d20d64ea736f000",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "892e08801025df819f1cad25d541bc8ee4b6f66ed7e4e0d37ac3eb2262b00f97"
+        },
+        {
+          "id": "humanoid-placement-20260909-e63998046475510500",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "98a85d01809b619ce821fea6490be0d6e27f25d282f088fbc88e6ad5bca36560"
+        },
+        {
+          "id": "humanoid-tracking-20260912-7cafdd67a0649db61f",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "041f005709bad57c91f6d6aec0e365d6001f7fde18faae417baeff811067c935"
+        },
+        {
+          "id": "humanoid-advanced-motion-20260912-6b67ecef9f56bb3866",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13"
+        },
+        {
+          "id": "hwbc-r1-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r9-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r10-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r11-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r12-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r13-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r14-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r15-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r16-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r17-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r18-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "hwbc-r19-20260915-1",
+          "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "seo-merge-20260916-prose-23",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "sweeps-registry-hwbc20-20260917-1",
+          "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "round5-closeout-humanoid-wbc-prose",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-humanoid-wbc",
+          "oldHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+          "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "eb000da1b9ee4e934f861b6448d6cdf58a38993b91e2208dea2f2ce6d057a74b"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "2a4a04969819d9d38e75c4ae07d975a1a3fc1ee0f4af833d631c6947c053515e"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "9aa90fa59fac88ccb0042faa1b6fe073a7e256ca3cc270f7c78888daf49114ef"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "3036486725845ffe5ec939d36b22309132342d3b03913e5ef67cea8a5cdc89f0"
+        },
+        {
+          "id": "rl-sim2real-figures-20261011-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "f33b14d51eb91039755b5a8ffcc91b08c32dbd290a1cbe6cc3e405bb18dfe409"
+        },
+        {
+          "id": "humanize-20261012-rl-sim2real-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "54a7827ba971456400fa35f6e2d4322b08ccef1e5cd1a5853a3a04ab5bfeb020"
+        },
+        {
+          "id": "images-a-20261013-prose-rl-sim2real-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "6cece8c6c23e50e26a0895fb622a66a07c939934c63a1d32a4583fc0814be7ec"
+        },
+        {
+          "id": "kol-batch-20261021-rl-sim2real-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "b0fd0776a5f6c234f79db6e34213459ac2e03169ae7e37657e9127e9eecb64aa"
+        },
+        {
+          "id": "kol-batch-20261025-rl-sim2real-prose-humanoid-wbc",
+          "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+          "newHash": "e2b319c09245403a2c4771905f73afc50fe27af174b012fce81ae185f6557372"
+        }
+      ]
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-frontier-dexterity",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "73f23c408b9a42b6f63fb13c2abc78eef402eac36d8d7e6b1a13b1b5b465dc52",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on frontier/dexterity: the one-line <ExplainerFigure id=\"hand\" /> mount of the \"hand\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Switch between the clamp and the hand in the figure below and try the same task with each.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. The edge starts from the sealed bytes and reconciles the member's 37 earlier approved edges exactly, ending with images-frontier-20261015-prose-frontier-dexterity.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dexterity-brooks-four-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "aa38e524616bee37d42d9350a7cc3a69d607928cb6d9c8f3cf3ba3bd595fedb8"
+        },
+        {
+          "id": "dexterity-figure15-20260914-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "191c0065fb6913e9c987df66bca3465522fe47fbb7f02d7ee9083e33f7035876"
+        },
+        {
+          "id": "dexterity-holson-pipeline-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-tactile-outlook-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-keyring-rules-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196"
+        },
+        {
+          "id": "dexterity-brooks-ernst-1-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-eweek-4-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-brooks-forecast-7-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d"
+        },
+        {
+          "id": "dexterity-holson-original8-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-gobig-navigation-12-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-figure02-dof-23-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dexterity-helix02-tasks-25-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "bd901726bf90552b94a7c77646e8409a198ca5fdb3c4686e18860f111f1e16c0"
+        },
+        {
+          "id": "dex-r9-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r13-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r14-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r16-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r17-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r18-20260915-1",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r19-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r20-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r21-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r22-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r24-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r26-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r27-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r29-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "dex-r30-20260915-1",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-dexterity",
+          "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+          "newHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-prose-dexterity",
+          "oldHash": "e4bc7f30b385437286b631fa642bec0c209a4d0352e04530670bfd57697b4878",
+          "newHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408"
+        },
+        {
+          "id": "seo-pass-20261002-prose-frontier-dexterity",
+          "oldHash": "488ab8aeb5cecc9f8911316d4e2005b9bade9fb8d7ce314b91642bfbfde69408",
+          "newHash": "cf0888dfe6b0e5adcd4266d6f125a46c5896632cc9c4318ce90763ef661b4350"
+        },
+        {
+          "id": "reader-first-20261002-prose-frontier-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "18d2f738d3097cc288cb8f4fa88cec26fec6a96f86acbd8bfdb473e1363cb7a3"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "5176aef5b158467497e1f49780aac3f9e959e7deab69fae18b43534666d46c83"
+        },
+        {
+          "id": "domain-pass-20261006-g7-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "119e1135a0961aa0f75791aacb142052e1163b8ad0abfa096dd84c754af85923"
+        },
+        {
+          "id": "domain-pass-20261009-kol-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "f84340db9994c6dbd1e8b7d399a2f9963d97ff14203973c37b7a71a5af9c0e6b"
+        },
+        {
+          "id": "domain-pass-20261012-kol-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "e08aa86fa0c022029d2b888b95edfc5ce98b527e1712a2f24e6631517bd97d35"
+        },
+        {
+          "id": "length-cut-20261014-frontier-prose-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "851aaa6118734d414ddd9c548eba07cb2158e31659e3516c1c8eaf5a5901e9d0"
+        },
+        {
+          "id": "images-frontier-20261015-prose-frontier-dexterity",
+          "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+          "newHash": "7e4f415ce8d593ddf0169c07d0f5d15159df5433288eb754a8f5109bafb62e14"
+        }
+      ]
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-classical-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "9e10dd006b3e2053f4c1681efd8641595bc438d6cdb7b8642f81966d99aeba65",
+      "newHash": "a0041f156e572f66d4c6535bf301eee790545d17c8a8056c5f56761261fad3a1",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on classical/kinematics: the one-line <ExplainerFigure id=\"reaching\" /> mount of the \"reaching\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Drag the cup in the figure below and watch the arm work out an angle for every joint.\" It also wraps a link to /how-robots-work/#arm around the existing words of the passage that introduces that idea, so the explainer's other home article points to it. No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. This edge moves the member from its last approved endpoint (images-a-20261013-prose-classical-kinematics).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-rl-sim2real-legged-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "aa0c9b91ac730bb45e091f3c6ee523ef36ef0a87ea0b9d738cf60a9bc511f7cc",
+      "newHash": "1141d58add9d261bec0fa863b248ce6f3ba53fe0db3f6f19e5905ab67809ba96",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on rl-sim2real/legged-locomotion: the one-line <ExplainerFigure id=\"upright\" /> mount of the \"upright\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Push the dog and the humanoid in the figure below to see why fewer feet on the ground make balance harder.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. This edge moves the member from its last approved endpoint (kol-batch-20261025-rl-sim2real-prose-legged-locomotion).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-adjacent-drones",
+      "manifest": "prose",
+      "memberId": "article:adjacent/drones",
+      "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+      "newHash": "3e4fea2e8b00d66e4e817e4b0d0a2a93da952022b79b39ad24958b2192ae59de",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on adjacent/drones: the one-line <ExplainerFigure id=\"flying\" /> mount of the \"flying\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Make the drone in the figure below climb, fly forward and turn, and watch its four propeller speeds change.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. The edge starts from the sealed bytes and reconciles the member's 18 earlier approved edges exactly, ending with kol-batch-20261021-adjacent-prose-drones.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dr-r1-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r2-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r3-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r4-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r5-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r6-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r7-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r8-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r9-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r10-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r11-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones",
+          "oldHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+          "newHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab"
+        },
+        {
+          "id": "round5-chart-first-screen-20260928-prose-drones",
+          "oldHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
+          "newHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29"
+        },
+        {
+          "id": "seo-pass-20261002-prose-adjacent-drones",
+          "oldHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29",
+          "newHash": "e56f7ce5f9385c6edbf63a09e2ab452d27360bd70e01eb2b0f0887a8b1e3a75e"
+        },
+        {
+          "id": "reader-first-20261002-prose-adjacent-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "94643293092ae3ebd0241bcecdff0b6d46967dfc99e70cf1f3b9c4ab2ea599f0"
+        },
+        {
+          "id": "length-cut-20261014-adjacent-prose-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "7bcf451ff6c317fe184637c4b983811da85d163ee363447b33535da9dad50d7c"
+        },
+        {
+          "id": "images-b-adjacent-20261015-prose-adjacent-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "5265adbd08af957e08ca5012e879a10c89be1146e789f31e666306245d319a6c"
+        },
+        {
+          "id": "kol-batch-20261021-adjacent-prose-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "68609b1fbe4856ba54d5c3af595fac89a577b19bf68c32e51cffa471e0971003"
+        }
+      ]
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-classical-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "f2f8187bfaa6a9dd6675a7ffe72d0bc59cf8f33a9cb65fcc239aec0fc727cdb4",
+      "newHash": "3c5e87f80130bf499b0933e9e998b824b1270d6fd6af6b89fd57a5ec86ff75ee",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on classical/motion-planning: the one-line <ExplainerFigure id=\"path\" /> mount of the \"path\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Drag the shelf in the figure below and the tree of random safe steps regrows around it to the goal.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. This edge moves the member from its last approved endpoint (educational-cue-20261023-prose-motion-planning).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-classical-grasp-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "8bc2a1fc11e3dc9d792ab7c27a75825034a0e539f30a9a79d5fdbe53716e5834",
+      "newHash": "8f2a5ad743894d481e57cb3f9f69d6479e829046d856ded92ace641764c0a819",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on classical/grasp-planning: the one-line <ExplainerFigure id=\"grip\" /> mount of the \"grip\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Tilt the grip in the figure below and pick a surface to find where the pinch lets go.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. This edge moves the member from its last approved endpoint (images-a-20261013-prose-classical-grasp-planning).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-classical-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "22c6104679d37f949f7f8613ece3f881484599d9b03e640d113b1998f4105716",
+      "newHash": "ed5ec6fac90dcf8a75289a7b522fbeb900be842eacc263de3485062ca8469ee7",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on classical/scene-representation: the one-line <ExplainerFigure id=\"mug\" /> mount of the \"mug\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Step through the figure below to see one mug stored four ways.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. This edge moves the member from its last approved endpoint (anatomy-loop-b01-figures-20261020-prose-scene-representation).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-classical-state-estimation",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "51a5edcc053e8bc2bc4dcb5cc796aed5f3e316a6bff12521ab6bf3b29f99f1a9",
+      "newHash": "772b06e27da7d35414115f88a1fc4752251c0632a381eb9bdfe9837ebd887e2c",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on classical/state-estimation: the one-line <ExplainerFigure id=\"whereami\" /> mount of the \"whereami\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Drive the robot in the figure below: its cloud of doubt grows as it moves and shrinks when it spots a landmark.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. This edge moves the member from its last approved endpoint (kol-batch-20261025-classical-prose-state-estimation).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-data-hardware-teleop-rigs",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "6b8c2231ec63f6373a80daf3e901fa6e3aca8e76cb0fd1ec04b49a415b85495f",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on data-hardware/teleop-rigs: the one-line <ExplainerFigure id=\"puppeteer\" /> mount of the \"puppeteer\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Drag the copy's hand in the figure below and the robot arm mirrors it, recording each moment.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. The edge starts from the sealed bytes and reconciles the member's 26 earlier approved edges exactly, ending with kol-batch-20261021-data-hardware-prose-teleop-rigs.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-2",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c"
+        },
+        {
+          "id": "pricing-provenance-20260907-7",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa"
+        },
+        {
+          "id": "pricing-provenance-20260907-8",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c"
+        },
+        {
+          "id": "tr-r1-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r2-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r3-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r5-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r6-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r7-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r8-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r9-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r10-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r11-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r12-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r13-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "seo-merge-20260916-prose-11",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "round5-closeout-teleop-rigs-prose",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "educational-cue-20260926-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "417fe107f09c07786ae8749eaf8df5d9bf998fe0d82000435fe5636f153d4e28"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "663d4df611a904ab841911959250fd2a4f3966a4357efb66b5d7fde1652b6670"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "68a3411f2c97f7f1992930d36e6e027b6366c012ccf0dc3f24dd4f99784a2b40"
+        },
+        {
+          "id": "anatomy-dh-new-figures-20261019-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "52c9dde6b9f7943f92d886760a936c4704f3464529164939a682d8a98f189d8c"
+        },
+        {
+          "id": "kol-batch-20261020-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "60a54731fb89110488589ff7a41874ecf2c4834ccc71bdf4103b3b75697fcfca"
+        },
+        {
+          "id": "kol-batch-20261021-data-hardware-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8a8d5764f38a431f4def29fb80733d08cb55b0f558f27e18966bb8951877e147"
+        }
+      ]
+    },
+    {
+      "id": "explainer-mounts-20261026-prose-rl-sim2real-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "e97976a88aac5ad88f94954d5c88402cedc4d9de2c2e23fbfb24530a99a0ba85",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on rl-sim2real/parallel-sim-rl: the one-line <ExplainerFigure id=\"worlds\" /> mount of the \"worlds\" curriculum explainer, its import line, and one cue sentence appended to the paragraph before it, where the article first introduces the idea: \"Zoom out in the figure below to see thousands of copies of one robot practise at once, then shuffle their worlds.\" No other text changes; every number, citation, glossary occurrence and other link is unchanged, and audit/evidence/explainer-mounts-20261026/source-transition.json records the new successor bytes as exact edits. The edge starts from the sealed bytes and reconciles the member's 23 earlier approved edges exactly, ending with images-a-20261013-prose-rl-sim2real-parallel-sim-rl.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "isaac-v1-twelve-originals-1-20260908",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "03922c2d4ac019087ce635755701f7f6fb1c70c582880393a7b3cb46586a4831"
+        },
+        {
+          "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8"
+        },
+        {
+          "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf"
+        },
+        {
+          "id": "newton-engine-20260912-2f6e8bc798bf35e18a",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r3-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r5-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r6-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r18-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4"
+        },
+        {
+          "id": "parallel-sim-rl-r1-20260916-1",
+          "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "seo-merge-20260916-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "round5-closeout-parallel-sim-rl-prose",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6"
+        },
+        {
+          "id": "parallel-local-20260923-1",
+          "oldHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-0740-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5"
+        },
+        {
+          "id": "motion-rl-sim2real-humanizer-v3-20260927-prose-parallel-sim-rl",
+          "oldHash": "ee5038d71f1c6d9a5a3369386d0f4c69a9e2ba0866d21ab401680b2a187ef3a5",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "motion-rl-sim2real-20260927-reconcile-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "18f11b1e97665df80a0928345e98952d3e6b01e1d590035418bd9fafb53ac6e5"
+        },
+        {
+          "id": "round5-first-screen-cd-20260929-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "16a9970b03691a66d3ad57e002e4875957a185c31515387e279cecb913c04013"
+        },
+        {
+          "id": "opus-figure-migration-20261001-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "5e923e1dc6c8037aa9205edf6694d9ee6633968ba629e73f3494b385705eda33"
+        },
+        {
+          "id": "seo-pass-20261002-prose-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "f87992f7ffd95c1e0bdbb5ad3bdd53cd48ee5b3b342ab3ef023380d24571f712"
+        },
+        {
+          "id": "domain-pass-20261006-g9-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "aa1d55d0fbac082870f5c604346f86d1f7caa8addd4e126e91ea66921360b485"
+        },
+        {
+          "id": "rl-sim2real-figures-20261011-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "bfe97876dacd5cdf5592aa9c3c413ad8ffbc875c5c1caddc79ecb74f195cfaef"
+        },
+        {
+          "id": "humanize-20261012-rl-sim2real-prose-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "36f267e6e5d963e6ab1d7767156e0c42d2930986e0bb2cbb3db4ccd986c6a133"
+        },
+        {
+          "id": "images-a-20261013-prose-rl-sim2real-parallel-sim-rl",
+          "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+          "newHash": "e2e58a85709b79b1011c9a72b3300db5ed2e1f571bb95d7a3f2b0c3cabb13a2d"
+        }
+      ]
+    },
+    {
+      "id": "explainer-mounts-20261026-relationships-classical-kinematics",
+      "manifest": "relationships",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "32fce5875d637f6c7ccce7f1eeeb63b64d7afd4039e3eb2a51062ecefaeef185",
+      "newHash": "a3cb651fa170a91eb0d234ea24d2875365ec7f583e1bc341016f7ad36675851a",
+      "reason": "Explainer mount of 2026-10-26 (VAL-OPUS-153) on classical/kinematics: the relationships record follows the new internal link to /how-robots-work/#arm, the explainer's anchor on the curriculum page; citations, seeAlso entries and glossary ids are unchanged. This edge moves the member from its last approved endpoint (humanize-20261012-classical-relationships-kinematics).",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-accessible-names-poster-alt",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/explainers/explainer-figure.tsx:alt:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bf7067a091a1010429075ed4ae8245c27f6d1ad3aea4cd9ed31f6f8563874586",
+      "reason": "New alt on the poster image that stands in for a mounted explainer's 3D scene until the reader presses Start, without WebGL, in print and under reduced motion (VAL-OPUS-153). The alt is the explainer's first step, read from the explainers' words file, exactly the text the viewer gives the same poster on /how-robots-work/. The member is new, in the new component components/explainers/explainer-figure.tsx.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "explainer-mounts-20261026-accessible-names-group-label",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/explainers/explainer-figure.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f356c48405713c755683fe67bdbd3637b0f271890b1fd913ae7a7c565b9c59d7",
+      "reason": "New aria-label on the group that frames each curriculum explainer mounted in an article (VAL-OPUS-153): the explainer's question, read from the explainers' words file, the same words the frame shows as its headline and /how-robots-work/ shows as that explainer's heading. The frame is a div with the group role because the viewer's own markup holds the stage, steps and controls, so the name tells a screen reader which explainer it has entered. The member is new, in the new component components/explainers/explainer-figure.tsx.",
+      "ownerApproval": "Owner directive of 2026-10-02 16:40 item 6 (\"its home article\") and its 13:45 addendum (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (\"The explainer sits where the article first introduces the concept, and the prose refers to it\"), as VAL-OPUS-153 states them; routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (\"Mount each of the 12 explainers once in its first-named home article with one prose sentence that refers to it ... The explainers themselves stay exactly as they are\"). Accessible naming only; no new factual claim, source certification or release acceptance.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-153",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

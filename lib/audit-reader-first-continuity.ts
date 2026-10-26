@@ -34,7 +34,7 @@ export type ReaderFirstReview = {
 
 // BEGIN reader-first pins (written by scripts/record-reader-first-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 3195889, sha256: '5628b8ed4cbb077631d13aa7e02e097454ffb5dffd21a1d571473290e293edc8' };
+const reviewPin = { bytes: 3181527, sha256: '20cffe114a9a1c69f2b4fc8966b570720b3e81c8c366053e2aa7a5cde5cd72fd' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -283,13 +283,13 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['tests/unit/classical-closure-evidence.test.ts', [16186, '28cda95ec399bde3b339630a35239882d53e606c5fec8d0cbca5845de283b148']],
   ['tests/unit/content-integration-20260923.test.ts', [17747, '228ba10e62f86ec0e3646af1dde3dbd6de286d7bf87b03d284eb74bc773bb452']],
   ['tests/unit/final-seven-closure-evidence.test.ts', [8409, '13a31ed2e08cc701c778e6a0da5cb946f6d373c6e5a19c67cfff021b90e70dd5']],
-  ['tests/unit/main-merge-approved-deltas.test.ts', [435622, 'dfc3516cfb8fd356c54b741629c4c4b781498c440ddacb5f1025f2ae3ef51a6e']],
+  ['tests/unit/main-merge-approved-deltas.test.ts', [445262, '46f81583f94c2e8f68938e91c82b4854aeea83d42adacaf41ba89efbdd22a567']],
   ['tests/unit/motion-data-hardware.test.ts', [12360, 'd2a6915a70f9f40fc856972a39aefcb5012949f9d18ef9cc7ddf788053df7ce3']],
   ['tests/unit/motion-frontier-adjacent-home.test.ts', [10338, '6b03cb596cd397563b0790600378cff09f811c3adfcfd7f33859d1a410a0c5a4']],
   ['tests/unit/motion-tokens.test.ts', [5443, 'b364833eb29a4892bdb2892304cb0cca5c9e5f995f510e567fed0362c6786e41']],
   ['tests/unit/motion-world-models-continuity.test.ts', [11613, '551a74a67915c2ed56693abbb6582b44db9204cae493a84ca6f7303c459d66ae']],
   ['tests/unit/parallel-local-evidence.test.ts', [5415, 'd2c39b3c94fad8f22da07efe5fa4517aef9325dc77477f510c65275e421fb687']],
-  ['tests/unit/reader-release-integration.test.ts', [32690, '179ebf0973bb53ad3ab122f11755373718e2fa7a3b6f635a7db22dd1b2c5338e']],
+  ['tests/unit/reader-release-integration.test.ts', [33157, '4e1c6a33075cbaa8f2ee8729e5d228170818d6c66af2055f5f46511ec534ad2a']],
   ['tests/unit/reward-local-evidence.test.ts', [9001, 'a5d166d0b11e1cce9ce19a093d328ccfc45c2057e61cb856ee08857cf2241c12']],
   ['tests/unit/robomind-hours-evidence.test.ts', [26666, 'a086b3901b73321a859c0f5fc86fd808e3437b3a6c1c706d61e4b4c41f57a768']],
   ['tests/unit/sim2real-local-evidence.test.ts', [9669, '80d4605b1eefcfc82ca7f1f5dd8bd3744f7cda62570e523796be856670b4fc6a']],

@@ -63,6 +63,8 @@ seeAlso:
 
 import { HardwareGuide } from '@/components/interactive/hardware-guide';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Robot-learning hardware is the equipment a learned policy runs on: arms, humanoids, dexterous hands, tactile sensors and the edge computers closing the control loop. Prices run from about \$122 in parts for an SO-101 arm <Cite id="so-arm100-repo-2026" /> to \$29,900 for a Unitree H2 humanoid <Cite id="unitree-h2-2026" />, and Boston Dynamics has scheduled its 2026 Atlas deployments at Hyundai and Google DeepMind <Cite id="bd-atlas-unveil-2026" />.
 
 <Image id="nist-dexterous-manipulation-testbed-2013" />
@@ -82,7 +84,9 @@ Try Preorder, Humanoids and \$1k-\$10k together and one row remains: Noetix's Bu
 
 ## Arms, from \$122 to \$70,000
 
-The SO-101 is a 3D-printed arm with six <Term id="degrees-of-freedom">degrees of freedom</Term>, five joints plus a gripper, built from STS3215 servos. Its community BOM for one follower arm totals \$121.94 in the US column <Cite id="so-arm100-repo-2026" />. Seeed Studio sells the SO-ARM101 Pro at \$295 unassembled or \$299 assembled, with 12-bit magnetic encoders and a 500 g payload <Cite id="seeed-so-arm101-pro-2026" />. LeRobot runs ACT, π0 and SmolVLA policies on these arms <Cite id="lerobot-docs-2026" />.
+The SO-101 is a 3D-printed arm with six <Term id="degrees-of-freedom">degrees of freedom</Term>, five joints plus a gripper, built from STS3215 servos. Its community BOM for one follower arm totals \$121.94 in the US column <Cite id="so-arm100-repo-2026" />. Seeed Studio sells the SO-ARM101 Pro at \$295 unassembled or \$299 assembled, with 12-bit magnetic encoders and a 500 g payload <Cite id="seeed-so-arm101-pro-2026" />. LeRobot runs ACT, π0 and SmolVLA policies on these arms <Cite id="lerobot-docs-2026" />. Pull the arm apart in the figure below, then guess which motor works hardest to hold it out straight.
+
+<ExplainerFigure id="arm" />
 
 Trossen Robotics renamed its ALOHA line Trossen AI. Its Solo AI, Stationary AI and Mobile AI kits list at \$11,385.95, \$23,995.95 and \$33,695.95 and integrate LeRobot and OpenPI <Cite id="trossen-ai-2026" />. The WidowX AI arm, sold in leader and follower forms for <Term id="teleoperation">teleoperation</Term>, lists at \$4,545.95 in its base configuration, with six DoF, a 1.5 kg payload and 700 mm reach <Cite id="trossen-widowx-ai-2026" />.
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "42b364c5512e8304f69f23f4567117c61bae23502e70e1561e8e50d541469c7e",
+  "fingerprint": "f0fca84df858b91dd8735a61abe183a3d3230e887c4b62c26639918f48f6e2a2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3086,
+      "visibleTextLength": 3064,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2050,7 +2050,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22636,
+      "visibleTextLength": 23065,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -2102,11 +2102,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 37,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "high-speed-flight-2021",
@@ -2766,14 +2766,24 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "decorationColour": "rgba(28, 28, 26, 0.22)",
           "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
               "count": 9,
@@ -2931,6 +2941,86 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why do two prope",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -6409,7 +6499,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18803,
+      "visibleTextLength": 19128,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7057,7 +7147,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -7072,6 +7162,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -7158,6 +7258,86 @@
           "text": "Current wrench-space quality",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why do grippers ",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -7255,7 +7435,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 16767,
+      "visibleTextLength": 17111,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -7861,7 +8041,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -7871,11 +8051,21 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -7968,6 +8158,86 @@
         },
         {
           "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why can't you ju",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 12 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -8044,7 +8314,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26754,
+      "visibleTextLength": 27161,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -8883,7 +9153,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -8898,6 +9168,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -8968,6 +9248,86 @@
           "text": "Current RRT tree state",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: A box falls into",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -11104,7 +11464,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28423,
+      "visibleTextLength": 28775,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -11944,7 +12304,7 @@
         },
         {
           "kind": "internal",
-          "count": 14,
+          "count": 15,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -11959,6 +12319,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -12058,6 +12428,86 @@
           "text": "Current representation, resoluti",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why might one ro",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -12235,7 +12685,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24569,
+      "visibleTextLength": 24996,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -12982,7 +13432,7 @@
         },
         {
           "kind": "internal",
-          "count": 11,
+          "count": 12,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -12997,6 +13447,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -13059,6 +13519,78 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why can't it sim",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -16451,7 +16983,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27370,
+      "visibleTextLength": 27747,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -16503,11 +17035,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 49,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "14 min read",
+        "readingTimeText": "15 min read",
         "citationCountText": "49 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
@@ -17009,14 +17541,24 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 6,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "decorationColour": "rgba(28, 28, 26, 0.22)",
           "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
               "count": 5,
@@ -17276,6 +17818,78 @@
         {
           "tag": "button",
           "text": "DoF",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Which motor woul",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -19233,7 +19847,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20659,
+      "visibleTextLength": 21057,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19285,11 +19899,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "act-aloha-2023",
@@ -19815,7 +20429,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -19830,6 +20444,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -19938,6 +20562,78 @@
         {
           "tag": "button",
           "text": "Embodiment gap",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why steer the ro",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -22554,7 +23250,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24072,
+      "visibleTextLength": 24448,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -22606,11 +23302,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 33,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "14 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -23302,7 +23998,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -23317,6 +24013,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -23475,6 +24181,86 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why do so many r",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -43580,7 +44366,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 26072,
+      "visibleTextLength": 26447,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44270,7 +45056,7 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -44285,6 +45071,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -44368,6 +45164,86 @@
           "text": "Current whole-body stack",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: What stops a hum",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -44673,7 +45549,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 21176,
+      "visibleTextLength": 21587,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44725,11 +45601,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "hwangbo-2019",
@@ -45301,7 +46177,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45316,6 +46192,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -45463,6 +46349,86 @@
           "text": "Where the robots train after eac",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why does a human",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -46776,7 +47742,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17046,
+      "visibleTextLength": 17478,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -47353,7 +48319,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -47368,6 +48334,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -47439,6 +48415,86 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why vary the wor",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -59172,7 +60228,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3086,
+      "visibleTextLength": 3064,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61068,7 +62124,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33457,
+      "visibleTextLength": 33886,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -61120,11 +62176,11 @@
           "Adjacent Domains"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 10,
+        "readingMinutes": 11,
         "citationCount": 37,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "10 min read",
+        "readingTimeText": "11 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "high-speed-flight-2021",
@@ -61784,14 +62840,24 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "decorationColour": "rgba(28, 28, 26, 0.22)",
           "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
               "count": 9,
@@ -61949,6 +63015,86 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why do two prope",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -65372,7 +66518,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26448,
+      "visibleTextLength": 26773,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66020,7 +67166,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -66035,6 +67181,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -66126,6 +67282,86 @@
         },
         {
           "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why do grippers ",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 8 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -66207,7 +67443,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23617,
+      "visibleTextLength": 23961,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -66813,7 +68049,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -66823,11 +68059,21 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 6,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -66920,6 +68166,86 @@
         },
         {
           "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why can't you ju",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
           "text": "Show all 12 authors",
           "familyHead": "geist",
           "sizePx": 13,
@@ -66985,7 +68311,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36287,
+      "visibleTextLength": 36694,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -67824,7 +69150,7 @@
         },
         {
           "kind": "internal",
-          "count": 8,
+          "count": 9,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -67839,6 +69165,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -67909,6 +69245,86 @@
           "text": "Current RRT tree state",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: A box falls into",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -70012,7 +71428,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 36865,
+      "visibleTextLength": 37217,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -70852,7 +72268,7 @@
         },
         {
           "kind": "internal",
-          "count": 14,
+          "count": 15,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -70867,6 +72283,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -70966,6 +72392,86 @@
           "text": "Current representation, resoluti",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why might one ro",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -71132,7 +72638,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 33065,
+      "visibleTextLength": 33492,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -71879,7 +73385,7 @@
         },
         {
           "kind": "internal",
-          "count": 11,
+          "count": 12,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -71894,6 +73400,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -71956,6 +73472,78 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why can't it sim",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -75304,7 +76892,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 34248,
+      "visibleTextLength": 34625,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75356,11 +76944,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 14,
+        "readingMinutes": 15,
         "citationCount": 49,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "14 min read",
+        "readingTimeText": "15 min read",
         "citationCountText": "49 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
@@ -75862,14 +77450,24 @@
         },
         {
           "kind": "internal",
-          "count": 5,
+          "count": 6,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
-          "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+          "decorationColour": "rgba(28, 28, 26, 0.22)",
           "familyHead": "geist",
           "shape": "inline border:0px/solid radius:0px",
           "variants": [
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
               "count": 5,
@@ -76129,6 +77727,78 @@
         {
           "tag": "button",
           "text": "DoF",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Which motor woul",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -78053,7 +79723,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27154,
+      "visibleTextLength": 27552,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78105,11 +79775,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 37,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "37 sources",
         "bibliographyIds": [
           "act-aloha-2023",
@@ -78635,7 +80305,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -78650,6 +80320,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -78758,6 +80438,78 @@
         {
           "tag": "button",
           "text": "Embodiment gap",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why steer the ro",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -81341,7 +83093,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 29644,
+      "visibleTextLength": 30020,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81393,11 +83145,11 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-08-18",
-        "readingMinutes": 13,
+        "readingMinutes": 14,
         "citationCount": 33,
         "reviewDateText": "18 August 2026",
         "reviewDateTime": "2026-08-18",
-        "readingTimeText": "13 min read",
+        "readingTimeText": "14 min read",
         "citationCountText": "33 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
@@ -82089,7 +83841,7 @@
         },
         {
           "kind": "internal",
-          "count": 7,
+          "count": 8,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -82104,6 +83856,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -82262,6 +84024,86 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why do so many r",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -102158,7 +104000,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 33727,
+      "visibleTextLength": 34102,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -102848,7 +104690,7 @@
         },
         {
           "kind": "internal",
-          "count": 9,
+          "count": 10,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -102863,6 +104705,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -102946,6 +104798,86 @@
           "text": "Current whole-body stack",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: What stops a hum",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -103240,7 +105172,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27455,
+      "visibleTextLength": 27866,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -103292,11 +105224,11 @@
           "RL, Sim-to-Real & Locomotion"
         ],
         "lastReviewed": "2026-08-17",
-        "readingMinutes": 9,
+        "readingMinutes": 10,
         "citationCount": 39,
         "reviewDateText": "17 August 2026",
         "reviewDateTime": "2026-08-17",
-        "readingTimeText": "9 min read",
+        "readingTimeText": "10 min read",
         "citationCountText": "39 sources",
         "bibliographyIds": [
           "hwangbo-2019",
@@ -103868,7 +105800,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -103883,6 +105815,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -104030,6 +105972,86 @@
           "text": "Where the robots train after eac",
           "familyHead": "geist",
           "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why does a human",
+          "familyHead": "geist",
+          "sizePx": 15,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -105321,7 +107343,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23799,
+      "visibleTextLength": 24231,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -105898,7 +107920,7 @@
         },
         {
           "kind": "internal",
-          "count": 2,
+          "count": 3,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -105913,6 +107935,16 @@
               "decorationLine": "underline",
               "decorationStyle": "solid",
               "decorationColour": "color(srgb 0.109804 0.109804 0.101961 / 0.5)",
+              "familyHead": "geist",
+              "shape": "inline border:0px/solid radius:0px"
+            },
+            {
+              "signature": "rgb(28, 28, 26)|underline|solid|rgba(28, 28, 26, 0.22)|geist|inline border:0px/solid radius:0px",
+              "count": 1,
+              "colour": "rgb(28, 28, 26)",
+              "decorationLine": "underline",
+              "decorationStyle": "solid",
+              "decorationColour": "rgba(28, 28, 26, 0.22)",
               "familyHead": "geist",
               "shape": "inline border:0px/solid radius:0px"
             }
@@ -105984,6 +108016,86 @@
           "text": "Reset",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Start in 3D",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "1",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "2",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "3",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "4",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "5",
+          "familyHead": "geist mono",
+          "sizePx": 12,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Back",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "button",
+          "text": "Next",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:primary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Check yourself: Why vary the wor",
+          "familyHead": "geist",
+          "sizePx": 15,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

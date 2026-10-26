@@ -14,6 +14,12 @@
  * A listed unclear term counts unless the fixed reviewer rubric in
  * contract/reader-first-rubric.json exempts it, and a record made under any
  * other version of that file is not current.
+ *
+ * A 3D explainer mounted in its home article (`data-explainer-mount`, see
+ * components/explainers/mounts.ts) is the same scene and words as on
+ * /how-robots-work/, so its current teach-back record (lib/teach-back.ts)
+ * stands in for a reader-test record and it needs no registry entry. Its
+ * main view is held to the same symbol and unit list.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -22,6 +28,7 @@ import { publishedModules } from '../data/modules.ts';
 import { mainViewSymbolHits } from '../lib/figure-main-view.ts';
 import { readRegistry, recordProblems, registryProblems } from '../lib/reader-first.ts';
 import { loadRubric, rubricProblems } from '../lib/reader-first-rubric.ts';
+import { teachBackProblems } from '../lib/teach-back.ts';
 
 const args = process.argv.slice(2);
 const option = (name: string, fallback: string) => {
@@ -50,7 +57,10 @@ for (const route of routes) {
     const figure = frame.getAttribute('data-figure-frame') ?? '';
     const key = `${route} ${figure}`;
     rendered.add(key);
-    if (!registered.has(key)) {
+    const explainer = frame.getAttribute('data-explainer-mount');
+    if (explainer) {
+      for (const problem of await teachBackProblems(root, explainer)) problems.push(`${route} [${figure}]: ${problem}`);
+    } else if (!registered.has(key)) {
       problems.push(`${route} [${figure}]: figure in the export has no reader-first registry entry`);
       continue;
     }

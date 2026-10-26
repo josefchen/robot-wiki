@@ -11335,6 +11335,16 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/explainer-figure.tsx:alt:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/explainer-figure.tsx:aria-label:2",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -21330,7 +21340,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 2005,
+        "populationSize": 2007,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21347,6 +21357,8 @@
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/citation-records.tsx:title:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/article/heading-permalink.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/explainer-figure.tsx:alt:1",
+          "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/explainer-figure.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/explainers/how-robots-work.tsx:alt:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/home/contents-index.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:expression:components/home/did-you-know.tsx:title:1",

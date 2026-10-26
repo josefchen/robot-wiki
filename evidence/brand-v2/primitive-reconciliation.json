@@ -477,15 +477,17 @@
     },
     "control:primary-action": {
       "kind": "controls",
-      "fingerprint": "dd005a7d449531ad6b2b992afb52f4c907f86e05843522b481dc9f3944dbbc78",
+      "fingerprint": "c7b0f82471a0f8e878dc4274a43e95bf2fca8ac1e75e769a823c76377bbdbc78",
       "mountState": "production",
       "definedIn": [
+        "components/explainers/explainer-figure.tsx",
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
         "components/three/trajectory-panel.tsx",
         "components/ui/action.tsx"
       ],
       "ownerRouteOrMount": [
+        "components/explainers/explainer-figure.tsx",
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
         "components/three/trajectory-panel.tsx",
@@ -493,13 +495,25 @@
       ],
       "renderedOn": [
         "/",
+        "/adjacent/drones/",
+        "/classical/grasp-planning/",
+        "/classical/kinematics/",
+        "/classical/motion-planning/",
+        "/classical/scene-representation/",
+        "/classical/state-estimation/",
+        "/data-hardware/hardware-taxonomy/",
+        "/data-hardware/teleop-rigs/",
+        "/frontier/dexterity/",
         "/how-robots-work/",
-        "/playground/"
+        "/playground/",
+        "/rl-sim2real/humanoid-wbc/",
+        "/rl-sim2real/legged-locomotion/",
+        "/rl-sim2real/parallel-sim-rl/"
       ]
     },
     "control:secondary-action": {
       "kind": "controls",
-      "fingerprint": "991af42054a53eaec41a8902fb31416187ca99b496be134777e8fd111dc8e04a",
+      "fingerprint": "be48271399911185ceedb6fb948561cb8a8fa5970242756c9436500b52f1980b",
       "mountState": "production",
       "definedIn": [
         "components/article/article-toc.tsx",
@@ -507,6 +521,7 @@
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
         "components/explainers/brand.ts",
+        "components/explainers/explainer-figure.tsx",
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
         "components/interactive/action-conditioning.tsx",
@@ -582,6 +597,7 @@
         "components/article/author-list.tsx",
         "components/article/commit-to-reveal.tsx",
         "components/article/heading-permalink.tsx",
+        "components/explainers/explainer-figure.tsx",
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
         "components/interactive/action-conditioning.tsx",
@@ -857,9 +873,12 @@
         "/adjacent/surgical/",
         "/classical/calibration/",
         "/classical/control/",
+        "/classical/grasp-planning/",
         "/classical/kinematics/",
+        "/classical/motion-planning/",
         "/classical/ros2-for-ml-engineers/",
         "/classical/scene-representation/",
+        "/classical/state-estimation/",
         "/data-hardware/data-bottleneck/",
         "/data-hardware/datasets/",
         "/data-hardware/evaluation-crisis/",
@@ -1069,11 +1088,12 @@
     },
     "surface:flat": {
       "kind": "surfaces",
-      "fingerprint": "4ce309836b2e4ac2d7197413a75525982c29bf41a4fa6e2bca584dbd59672ddd",
+      "fingerprint": "15774b021057554bc25dfdae9b0ae8876007be6ba55b97bb4afb597c68e96452",
       "mountState": "production",
       "definedIn": [
         "components/article/commit-to-reveal.tsx",
         "components/explainers/brand.ts",
+        "components/explainers/explainer-figure.tsx",
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",
@@ -1118,6 +1138,7 @@
       ],
       "ownerRouteOrMount": [
         "components/article/commit-to-reveal.tsx",
+        "components/explainers/explainer-figure.tsx",
         "components/explainers/how-robots-work.tsx",
         "components/home/featured-explainer.tsx",
         "components/home/home-search.tsx",

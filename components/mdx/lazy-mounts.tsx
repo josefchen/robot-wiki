@@ -103,6 +103,9 @@ export const ExcavatorPractice = dynamic(() =>
 export const ExecutionModes = dynamic(() =>
   import('@/components/interactive/execution-modes').then((m) => m.ExecutionModes),
 );
+export const ExplainerFigure = dynamic(() =>
+  import('@/components/explainers/explainer-figure').then((m) => m.ExplainerFigure),
+);
 export const ExpoFtResults = dynamic(() =>
   import('@/components/interactive/expo-ft-results').then((m) => m.ExpoFtResults),
 );

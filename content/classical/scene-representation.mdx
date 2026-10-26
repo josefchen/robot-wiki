@@ -77,6 +77,8 @@ import { SceneRepresentationLadder } from '@/components/interactive/scene-repres
 
 import { LoopClosure } from '@/components/interactive/loop-closure';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Scene representation is how a robot stores what it knows about its surroundings so that planners, controllers and other consumers can query it <Cite id="cadena-2016" />. Representations range from point clouds and occupancy grids to signed-distance fields, meshes and neural fields such as radiance fields and Gaussian splats <Cite id="cadena-2016" /><Cite id="neural-fields-survey-2024" />.
 
 <Image id="ouster-lidar-point-cloud-sf" />
@@ -91,7 +93,9 @@ Three queries separate the rungs: whether a cell is free for a planner, which wa
 
 A <Term id="point-cloud">point cloud</Term> is an unordered set of 3D points, and PointNet requires invariance to the order in which they arrive <Cite id="pointnet-2017" />. A region without points is either empty or unobserved, and the store cannot say which.
 
-Moravec and Elfes projected wide-angle sonar readings from different sensors and robot positions onto a 2D <Term id="occupancy-grid">occupancy grid</Term>. Each reading marked a probably empty beam interior and an uncertain reflecting point near the measured range, and overlapping readings refined these constraints. Zero represented unknown occupancy, and negative and positive values probably empty and probably occupied cells <Cite id="moravec-elfes-1985" />. OctoMap carries the three states into 3D in a compressed octree <Cite id="octomap-2013" />.
+Moravec and Elfes projected wide-angle sonar readings from different sensors and robot positions onto a 2D <Term id="occupancy-grid">occupancy grid</Term>. Each reading marked a probably empty beam interior and an uncertain reflecting point near the measured range, and overlapping readings refined these constraints. Zero represented unknown occupancy, and negative and positive values probably empty and probably occupied cells <Cite id="moravec-elfes-1985" />. OctoMap carries the three states into 3D in a compressed octree <Cite id="octomap-2013" />. Step through the figure below to see one mug stored four ways.
+
+<ExplainerFigure id="mug" />
 
 ### Signed-distance fields
 

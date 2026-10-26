@@ -54,6 +54,8 @@ import { PerceptionLatency } from '@/components/interactive/perception-latency';
 import { SwarmControlTable } from '@/components/mdx/swarm-control-table';
 import { SenseAvoid } from '@/components/motion/scenes/sense-avoid';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Aerial robotics is the design and control of robots that fly, from delivery drones and racing quadrotors to <Term id="swarm-robotics">swarms</Term>. Flight was an early learning success because its dynamics simulate well: a reinforcement-learning system beat human world champions in its own lab in 2023 <Cite id="swift-drone-racing-2023" />, and a one-camera drone won an organiser-run race in 2025 <Cite id="monorace-2026" />.
 
 <Image id="racing-quadrotor-minion-220-2016" />
@@ -66,7 +68,9 @@ Switch the drone below between an ordinary camera, which takes about 70 ms to re
 
 ## Why flight was the first solved testbed
 
-A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics, estimation and control <Cite id="mahony-multirotor-2012" />. Flight also has no contact: an aerial robot either flies in free space or has already failed. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id="swift-drone-racing-2023" />.
+A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics, estimation and control <Cite id="mahony-multirotor-2012" />. Flight also has no contact: an aerial robot either flies in free space or has already failed. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id="swift-drone-racing-2023" />. Make the drone in the figure below climb, fly forward and turn, and watch its four propeller speeds change.
+
+<ExplainerFigure id="flying" />
 
 Classical stacks plan a trajectory and then track it. Mellinger and Kumar generated minimum-snap trajectories for quadrotors <Cite id="mellinger-minimum-snap-2011" />, and Lee and colleagues built a geometric tracking controller on SE(3) <Cite id="lee-se3-control-2010" />. In 2021 time-optimal trajectory planning outperformed professional human pilots in racing <Cite id="foehn-time-optimal-2021" />.
 

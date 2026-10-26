@@ -181,7 +181,11 @@ export async function startExplainers(
   }
 
   // The "How this was made" fold comes from the scene module, so in poster mode it loads when opened.
-  const howFold = root.querySelector<HTMLDetailsElement>('[data-explainer-fold="how"]');
+  // An embed in an article frame has no marked fold: there the fold is the details element around `how`.
+  const howFold =
+    root.querySelector<HTMLDetailsElement>('[data-explainer-fold="how"]') ??
+    optional('how')?.closest('details') ??
+    null;
   let howFor = '';
   async function fillHow(entry: (typeof EXPLAINER_ORDER)[number], mod?: ExplainerModule) {
     if (howFor === entry.id || !optional('how')) return;

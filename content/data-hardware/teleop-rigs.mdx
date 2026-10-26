@@ -54,6 +54,8 @@ import { KinematicTwin } from '@/components/interactive/kinematic-twin';
 
 import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 <Term id="teleoperation">Teleoperation</Term> rigs are the hardware a person moves to drive a robot, or a stand-in for one, while a demonstration is recorded. Leader-follower arms, GELLO replicas, UMI handheld grippers and VR headsets trade cost and collection speed against the embodiment gap, and the largest corpora reported by 2026, 100,000 hours and more, came from wearable and handheld devices <Cite id="generalist-gen1-2026" /> <Cite id="xiaomi-robotics-1-2026" />.
 
 <Image id="inl-hot-cell-manipulators-2006" />
@@ -73,7 +75,9 @@ VR system totals are unpublished; Meta lists the Quest 3S from \$299.99 <Cite id
 
 ## Bimanual workstations: fidelity first
 
-In ALOHA, an operator drives a leader arm that twins the follower, so demonstrations arrive in the robot's joint space. ACT, the [action-chunking](/manipulation/action-chunking) policy built for that rig, learned six bimanual tasks, each from about 10 minutes of demonstrations. It reached 84 to 96% final success on four of them, 64% on taping and 20% on threading a velcro tie. The paper put the bimanual setup at \$18k, or \$20k with add-ons such as cameras <Cite id="act-aloha-2023" />.
+In ALOHA, an operator drives a leader arm that twins the follower, so demonstrations arrive in the robot's joint space. ACT, the [action-chunking](/manipulation/action-chunking) policy built for that rig, learned six bimanual tasks, each from about 10 minutes of demonstrations. It reached 84 to 96% final success on four of them, 64% on taping and 20% on threading a velcro tie. The paper put the bimanual setup at \$18k, or \$20k with add-ons such as cameras <Cite id="act-aloha-2023" />. Drag the copy's hand in the figure below and the robot arm mirrors it, recording each moment.
+
+<ExplainerFigure id="puppeteer" />
 
 Mobile ALOHA added a base; with 50 demonstrations per task and co-training on static ALOHA data, success rose by up to 90% on tasks like sauteing shrimp and opening a two-door wall cabinet <Cite id="mobile-aloha-2024" />. ALOHA 2's hardware designs are open source <Cite id="aloha-2-2024" />. The line now sells as Trossen AI at \$23,995.95 for the bimanual Stationary AI, \$33,695.95 for Mobile AI and \$4,545.95 for a single WidowX AI arm <Cite id="trossen-ai-2026" />.
 
