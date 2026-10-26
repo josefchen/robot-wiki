@@ -504,7 +504,10 @@ export function ActionConditioning({
             it and a goal zone on the left. Each screen plays what a video model imagines after one command,
             with the {ROLLOUT_STEPS} imagined frames drawn on top of each other, earlier ones faint. The command
             comes from the lever on the desk in front of the screen: left for push left, right for push right,
-            back for lift. A model that listens is the console with both plugs seated, so it slides the block
+            back for lift.
+          </p>
+          <p>
+            A model that listens is the console with both plugs seated, so it slides the block
             for a push and raises the gripper for a lift. A model that ignores the action is the console with the
             plugs pulled: it imagines the block drifting toward the goal for every command, because that is what
             most successful task videos show.

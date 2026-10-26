@@ -169,7 +169,7 @@ The layered costmap's `track_unknown_space` option defaults to false, which trea
 
 ## A representation is a service contract
 
-[Perception](/classical/perception) locates objects in the current frame. Consumers issue different queries: localization needs stable landmarks, collision checking needs occupied volume and a conservative update rule, grasping needs surface pose and identity, and rendering needs appearance.
+[Perception](/classical/perception) locates objects in the current frame <Cite id="conceptgraphs-2023" />. Consumers issue different queries: localization needs stable landmarks <Cite id="cadena-2016" />, collision checking needs occupied volume and a conservative update rule <Cite id="octomap-2013" />, grasping needs surface pose and identity, and rendering needs appearance <Cite id="cadena-2016" />.
 
 Hydra stacks rungs in one real-time system, building a local ESDF, extracting a topological map of places from it and segmenting places into rooms <Cite id="hydra-2022" />.
 

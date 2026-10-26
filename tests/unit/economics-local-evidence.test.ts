@@ -4,6 +4,7 @@ import * as model from '../../lib/deployment-economics';
 import { loadLocalBasisContext, recomputeLocalDerivation, validateLocalBasisPlan } from '../../lib/audit-local-basis';
 import { CITATIONS } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
+import { preConvergenceProse } from '../helpers/seo-pass';
 import { ARTICLE, COMPONENT, UNIT, ROUTE, artifact, cases, defaults, ranges, dependencies, oracle, save } from '../../audit/evidence/economics-local-20260923/support';
 
 function check(input: typeof defaults) {
@@ -22,8 +23,18 @@ function check(input: typeof defaults) {
 describe('industrial52 authored economics evidence', () => {
   it('distinguishes chosen prices, domains and constants from vendor context', () => {
     const body = readFileSync(ARTICLE, 'utf8');
-    for (const s of ['authored worked example', '80,000', '20,000', '250,000', '5,000', '730', '60-month', 'chosen 24-month', 'with no sourced arm-price quote']) expect(body).toContain(s);
+    // The convergence prose slice of 2026-10-26 stopped restating the seven
+    // defaults in the article: the article says every input is an assumption
+    // labelled beside its control, and the control carries the default, its
+    // range and its label. The article as that slice received it still held them.
+    for (const s of ['worked example has no measured deployment behind it', 'each of its seven inputs is an assumption, labelled beside its control',
+      '730', '60-month', 'chosen 24-month']) expect(body).toContain(s);
+    const received = preConvergenceProse(ARTICLE).toString();
+    for (const s of ['authored worked example', '80,000', '20,000', '250,000', '5,000', '730', '60-month', 'chosen 24-month', 'with no sourced arm-price quote']) expect(received).toContain(s);
     const component = readFileSync(COMPONENT, 'utf8');
+    expect(component).toContain("note: 'Assumption: $80k is a chosen example, not a sourced arm-price quote.");
+    expect(component).toContain("ends: ['$20k', '$250k']");
+    expect(component).toContain('All seven defaults and slider ranges are authored assumptions');
     expect(component).not.toContain('no cited source publishes');
     expect(component).toContain('modeled picks per elapsed hour');
   });

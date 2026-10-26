@@ -576,11 +576,11 @@ export function AppearancePhysicsPush({
             generative model draws: here, the light a projector throws onto the plate. The physics proxy
             adds what a solver needs: the real mug, with its shape, a mass of {MASS_KG} kilograms and a
             friction coefficient of {FRICTION_MU} at its felt pad. The simulation layer is the solver,
-            which turns each push into motion. &ldquo;Picture plus physics&rdquo; sets the mug on the
-            plate from its stand; &ldquo;Adjust more&rdquo; switches each layer on its own.
+            which turns each push into motion.
           </p>
           <p>
-            Each push is an authored impulse held for {CONTACT_TIME_S} seconds, {newtons(defaultForceN)}{' '}
+            &ldquo;Picture plus physics&rdquo; sets the mug on the plate from its stand; &ldquo;Adjust
+            more&rdquo; switches each layer on its own. Each push is an authored impulse held for {CONTACT_TIME_S} seconds, {newtons(defaultForceN)}{' '}
             by default and {MIN_FORCE_N} to {MAX_FORCE_N} newtons with the push-strength slider, which
             cocks the plunger further. Friction stops the mug after d = v&sup2;/(2&mu;g), so the default
             push slides it {formatCentimetres(displacementForForce(defaultForceN))}; the bench plays the

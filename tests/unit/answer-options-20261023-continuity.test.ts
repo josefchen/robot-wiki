@@ -11,11 +11,13 @@ import {
 import { createLocalArtifactReader } from '../../lib/audit-local-basis';
 import { sceneCraftPredecessor } from '../../lib/audit-scene-craft-continuity';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
-import { preAnswerOptions, preSceneCraft, preSeoPass } from '../helpers/seo-pass';
+import { preAnswerOptions, preConvergenceProse, preSceneCraft, preSeoPass } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-// No newer layer precedes this one, so the live article is itself the successor.
-const read = (path: string) => readFileSync(join(root, path));
+// The convergence prose layer of 2026-10-26 is the one newer layer that edits
+// these articles, so the successor is the article as that layer hands it on:
+// the live article wherever that layer left it alone.
+const read = (path: string) => preConvergenceProse(path);
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /answer-options continuity drift/;
 const blank = { bytes: 0, sha256: '' };

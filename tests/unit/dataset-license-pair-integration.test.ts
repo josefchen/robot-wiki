@@ -222,6 +222,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         let head = approvals.findLast(candidate => candidate.manifest === manifest &&
           candidate.memberId === memberId && candidate.newHash === currentHash(manifest, memberId))!;
         expect(head).toMatchObject({ newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The convergence prose slice of 2026-10-26 continues the datasets
+        // prose with one plain edge (its uncited-paragraph citations); the
+        // endpoint it continued is checked below.
+        if (head.id.startsWith('convergence-prose-20261026-') && head.reconciles === undefined) {
+          const continued = head.oldHash;
+          head = approvals.findLast(candidate => candidate.manifest === manifest &&
+            candidate.memberId === memberId && candidate.newHash === continued)!;
+        }
         // The data-hardware images of 2026-10-15 continue the prose with one
         // plain edge (their image mounts); the endpoint they continued is
         // checked below.
@@ -251,17 +259,20 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
           // The later data-hardware cut and image edges are not the re-anchor this edge continued.
           expect(head.oldHash).toBe(headReanchorFor(preSeoPass.filter(candidate =>
             !candidate.id.startsWith('length-cut-20261013-data-hardware-')
-            && !candidate.id.startsWith('images-dh-20261015-')), manifest, memberId)!.newHash);
+            && !candidate.id.startsWith('images-dh-20261015-')
+            && !candidate.id.startsWith('convergence-prose-20261026-')), manifest, memberId)!.newHash);
         } else expect(head.oldHash).toBe(sealedHash(manifest, memberId));
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {
         // The 2026-10-13 data-hardware domain pass and length cut later moved one
         // lane-only member, the datasets front matter (it appends the citation
         // ids the rewritten body cites), with one plain edge that continues the
-        // lane endpoint to HEAD.
-        const later = approvals.filter(x => x.id.startsWith('length-cut-20261013-data-hardware-') &&
-          x.manifest === manifest && x.memberId === memberId);
-        expect(later.length).toBeLessThanOrEqual(1);
+        // lane endpoint, and the 2026-10-26 convergence prose slice (its
+        // review date) continues that endpoint to HEAD with one more.
+        const later = approvals.filter(x => (x.id.startsWith('length-cut-20261013-data-hardware-')
+          || x.id.startsWith('convergence-prose-20261026-')) && x.manifest === manifest && x.memberId === memberId);
+        expect(later.filter(x => x.id.startsWith('length-cut-20261013-data-hardware-')).length).toBeLessThanOrEqual(1);
+        expect(later.filter(x => x.id.startsWith('convergence-prose-20261026-')).length).toBeLessThanOrEqual(1);
         let end = a?.newHash;
         for (const edge of later) {
           expect(edge.oldHash).toBe(end);
@@ -280,10 +291,13 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
     const laneApprovals = selectedApprovals.filter(a => laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
     expect(laneApprovals.length).toBeGreaterThan(0);
     // The 2026-10-13 data-hardware pass continues the datasets front matter from
-    // the lane endpoint to HEAD with one plain edge.
-    const laterLane = approvals.filter(a => a.id.startsWith('length-cut-20261013-data-hardware-') &&
-      laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
-    expect(laterLane.map(a => a.id)).toEqual(['length-cut-20261013-data-hardware-frontmatter-datasets']);
+    // the lane endpoint with one plain edge, and the 2026-10-26 convergence
+    // prose slice continues it to HEAD with one more.
+    const laterLane = approvals.filter(a => (a.id.startsWith('length-cut-20261013-data-hardware-')
+      || a.id.startsWith('convergence-prose-20261026-'))
+      && laneMembers.some(([k, id]) => a.manifest === k && a.memberId === id));
+    expect(laterLane.map(a => a.id)).toEqual(['length-cut-20261013-data-hardware-frontmatter-datasets',
+      'convergence-prose-20261026-frontmatter-data-hardware-datasets']);
     const lanePath = [...laneApprovals, ...laterLane];
     expect(compareBaseline(bundle(true, laneMembers), bundle(false, laneMembers), lanePath).ok).toBe(true);
     for (const approval of lanePath) {

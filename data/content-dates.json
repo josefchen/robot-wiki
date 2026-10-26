@@ -22,7 +22,7 @@
     },
     "classical/control": {
       "published": "2026-08-11T18:04:40+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "classical/grasp-planning": {
       "published": "2026-08-11T20:47:06+01:00",
@@ -30,7 +30,7 @@
     },
     "classical/kinematics": {
       "published": "2026-08-10T01:14:35+01:00",
-      "modified": "2026-10-26T04:13:37+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "classical/motion-planning": {
       "published": "2026-08-11T15:57:20+01:00",
@@ -38,7 +38,7 @@
     },
     "classical/perception": {
       "published": "2026-08-22T00:55:00+01:00",
-      "modified": "2026-10-23T02:26:57+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "classical/ros2-for-ml-engineers": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -46,7 +46,7 @@
     },
     "classical/scene-representation": {
       "published": "2026-08-22T07:14:45+01:00",
-      "modified": "2026-10-26T04:13:37+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "classical/state-estimation": {
       "published": "2026-08-11T19:35:26+01:00",
@@ -54,55 +54,55 @@
     },
     "data-hardware/data-bottleneck": {
       "published": "2026-08-08T23:06:19+01:00",
-      "modified": "2026-10-20T18:35:28+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "data-hardware/datasets": {
       "published": "2026-08-09T16:59:07+01:00",
-      "modified": "2026-10-15T19:03:39+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "data-hardware/evaluation-crisis": {
       "published": "2026-08-09T20:01:27+01:00",
-      "modified": "2026-10-25T00:30:54+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "data-hardware/hardware-taxonomy": {
       "published": "2026-08-09T18:27:43+01:00",
-      "modified": "2026-10-26T04:13:37+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "data-hardware/industrial-deployment": {
       "published": "2026-08-22T21:24:51+01:00",
-      "modified": "2026-10-26T00:24:24+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "data-hardware/robot-learning-stack": {
       "published": "2026-09-16T07:39:57+02:00",
-      "modified": "2026-10-23T15:07:25+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "data-hardware/teleop-rigs": {
       "published": "2026-08-09T19:30:31+01:00",
-      "modified": "2026-10-26T04:13:37+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "frontier/bear-case": {
       "published": "2026-08-12T17:20:13+01:00",
-      "modified": "2026-10-16T02:17:38+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "frontier/competing-theses": {
       "published": "2026-08-12T16:14:42+01:00",
-      "modified": "2026-10-15T17:10:10+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "frontier/dexterity": {
       "published": "2026-08-12T04:47:30+01:00",
-      "modified": "2026-10-26T04:13:37+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "frontier/generalization": {
       "published": "2026-08-12T15:08:41+01:00",
-      "modified": "2026-10-15T17:10:10+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "frontier/reliability-gap": {
       "published": "2026-08-12T04:02:00+01:00",
-      "modified": "2026-10-15T17:10:10+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "frontier/safety-and-assurance": {
       "published": "2026-08-22T18:00:18+01:00",
-      "modified": "2026-10-16T02:17:38+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "manipulation/action-chunking": {
       "published": "2026-08-07T17:34:21+01:00",
@@ -182,11 +182,11 @@
     },
     "rl-sim2real/reward-design-mpc": {
       "published": "2026-08-08T19:46:55+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "rl-sim2real/rl-for-robotics": {
       "published": "2026-08-22T16:07:21+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "rl-sim2real/sim2real-transfer": {
       "published": "2026-08-08T18:11:48+01:00",
@@ -210,11 +210,11 @@
     },
     "world-models/jepa": {
       "published": "2026-08-08T21:53:43+01:00",
-      "modified": "2026-10-21T13:48:25+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "world-models/latent-dynamics": {
       "published": "2026-08-08T21:06:45+01:00",
-      "modified": "2026-10-14T00:20:13+02:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "world-models/model-based-robot-learning": {
       "published": "2026-09-16T07:39:57+02:00",
@@ -231,7 +231,7 @@
   },
   "routes": {
     "/": {
-      "modified": "2026-10-26T04:13:37+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "/manipulation/": {
       "modified": "2026-10-22T22:31:48+02:00"
@@ -261,10 +261,10 @@
       "modified": "2026-10-22T22:31:48+02:00"
     },
     "/how-robots-work/": {
-      "modified": "2026-10-26T09:03:11+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "/glossary/": {
-      "modified": "2026-10-26T00:24:24+01:00"
+      "modified": "2026-10-26T13:03:33+01:00"
     },
     "/credits/": {
       "modified": "2026-10-22T20:45:04+02:00"

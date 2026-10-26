@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3064,
+      "visibleTextLength": 3062,
       "header": {
         "present": true,
         "display": "flex",
@@ -722,7 +722,7 @@
     },
     {
       "route": "/adjacent/autonomous-vehicles/",
-      "visibleTextLength": 31767,
+      "visibleTextLength": 31927,
       "header": {
         "present": true,
         "display": "flex",
@@ -1046,7 +1046,7 @@
     },
     {
       "route": "/adjacent/space/",
-      "visibleTextLength": 22626,
+      "visibleTextLength": 22953,
       "header": {
         "present": true,
         "display": "flex",
@@ -1208,7 +1208,7 @@
     },
     {
       "route": "/adjacent/surgical/",
-      "visibleTextLength": 21786,
+      "visibleTextLength": 22536,
       "header": {
         "present": true,
         "display": "flex",
@@ -1694,7 +1694,7 @@
     },
     {
       "route": "/classical/control/",
-      "visibleTextLength": 23643,
+      "visibleTextLength": 23737,
       "header": {
         "present": true,
         "display": "flex",
@@ -2018,7 +2018,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 17111,
+      "visibleTextLength": 17167,
       "header": {
         "present": true,
         "display": "flex",
@@ -2342,7 +2342,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 33030,
+      "visibleTextLength": 33185,
       "header": {
         "present": true,
         "display": "flex",
@@ -2666,7 +2666,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28775,
+      "visibleTextLength": 28813,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 21029,
+      "visibleTextLength": 21030,
       "header": {
         "present": true,
         "display": "flex",
@@ -3476,7 +3476,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 20394,
+      "visibleTextLength": 20426,
       "header": {
         "present": true,
         "display": "flex",
@@ -3638,7 +3638,7 @@
     },
     {
       "route": "/data-hardware/evaluation-crisis/",
-      "visibleTextLength": 22042,
+      "visibleTextLength": 22276,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 27747,
+      "visibleTextLength": 27963,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24840,
+      "visibleTextLength": 24599,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 17272,
+      "visibleTextLength": 17588,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 21057,
+      "visibleTextLength": 20920,
       "header": {
         "present": true,
         "display": "flex",
@@ -4764,7 +4764,7 @@
     },
     {
       "route": "/frontier/bear-case/",
-      "visibleTextLength": 16202,
+      "visibleTextLength": 16508,
       "header": {
         "present": true,
         "display": "flex",
@@ -4926,7 +4926,7 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "visibleTextLength": 20106,
+      "visibleTextLength": 20420,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 24448,
+      "visibleTextLength": 24655,
       "header": {
         "present": true,
         "display": "flex",
@@ -5250,7 +5250,7 @@
     },
     {
       "route": "/frontier/generalization/",
-      "visibleTextLength": 18445,
+      "visibleTextLength": 18446,
       "header": {
         "present": true,
         "display": "flex",
@@ -5412,7 +5412,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 15593,
+      "visibleTextLength": 15759,
       "header": {
         "present": true,
         "display": "flex",
@@ -5574,7 +5574,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 26719,
+      "visibleTextLength": 27168,
       "header": {
         "present": true,
         "display": "flex",
@@ -9940,7 +9940,7 @@
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",
-      "visibleTextLength": 24514,
+      "visibleTextLength": 24505,
       "header": {
         "present": true,
         "display": "flex",
@@ -10102,7 +10102,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 22001,
+      "visibleTextLength": 22054,
       "header": {
         "present": true,
         "display": "flex",
@@ -11552,7 +11552,7 @@
     },
     {
       "route": "/world-models/latent-dynamics/",
-      "visibleTextLength": 15884,
+      "visibleTextLength": 15864,
       "header": {
         "present": true,
         "display": "flex",

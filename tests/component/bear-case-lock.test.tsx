@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 describe('the bear-case lock model', () => {
-  it("takes each pin's status from the watchlist's milestone for that result, and none is met in August 2026", () => {
+  it("takes each pin's status from the watchlist's milestone for that result, and none is met in September 2026", () => {
     expect(PREMISES.map(({ id }) => id)).toEqual(['commercial', 'generalization', 'form-factor', 'plateau']);
     for (const premise of PREMISES) {
       const milestone = MILESTONES.find(({ id }) => id === premise.milestone);

@@ -17,9 +17,11 @@ test('economics article and explorer retain named claims, source caveats and rea
   await page.goto(route);
   await page.evaluate(() => document.fonts.ready);
   const prose = page.locator('div.prose[data-pagefind-body]');
-  const flywheel = prose.locator('p').filter({ hasText: 'Bessemer quotes Voxel51’s Brian Moore' }).last();
+  // The article's prose uses straight apostrophes (convergence prose slice of
+  // 2026-10-26); the thesis explorer's card text below keeps its own.
+  const flywheel = prose.locator('p').filter({ hasText: "Bessemer quotes Voxel51's Brian Moore" }).last();
   const glow = prose.locator('p').filter({ hasText: 'Bessemer quotes the Zeromatter CEO' }).last();
-  await expect(flywheel).toContainText('Foxglove’s Adrian Macneil');
+  await expect(flywheel).toContainText("Foxglove's Adrian Macneil");
   await expect(flywheel).toContainText('better model improvements');
   await expect(flywheel).toContainText('Bessemer lists both companies in its portfolio');
   await expect(glow).toContainText("you'll never get the scale or diversity you need from teleop alone.");

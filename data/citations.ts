@@ -18063,8 +18063,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   // reuters-china-humanoid-ipo-2026: domain pass 2026-10-06, from drafts/frontier/bear-case.citations.ts.
-  // Reuters wire dated Sept 21, 2026, "Writing by Eduardo Baptista". reuters.com returns 401 to our
-  // User-Agent; text read from the MarketScreener syndication of the same wire (fetched 2026-10-04):
+  // Reuters wire dated Sept 21, 2026, "Writing by Eduardo Baptista". reuters.com returns 401 to curl
+  // but renders (HTTP 200) through a browser fetch, re-read 2026-10-26 with the same text; SRN News
+  // carries the wire verbatim (https://srnnews.com/china-slows-humanoid-robot-ipo-rush-as-hype-outruns-reality/).
+  // The 30% to 50% cuts are a venture capitalist's quote ("he said"), not a Reuters finding.
+  // Text first read from the MarketScreener syndication of the same wire (fetched 2026-10-04):
   // "Chinese regulators are putting the brakes on a rush of humanoid-robot companies seeking
   // listings"; "The slowdown was mainly triggered by a volatile start for shares in Unitree Robotics
   // ... The stock soared more than fivefold in its Shanghai debut a month ago and has slumped 55%
@@ -21519,6 +21522,95 @@ export const CITATIONS: Citation[] = [
     year: 2026,
     venue: 'IEEE Spectrum, 2026-10-19',
     url: 'https://spectrum.ieee.org/agility-robotics-digit-5-redesign',
+    type: 'press',
+  },
+  // maker-2025: convergence prose pass 2026-10-26 (frontier/reliability-gap, data-hardware/evaluation-crisis).
+  // arXiv abstract and HTML v1 read 2026-10-26 (HTTP 200), v1 dated 2025-11-12. Sec. 3.1: "the
+  // probability of generating it without error is exponentially decaying as the number of steps
+  // increases" (Eq. 8, a product of per-step probabilities); Sec. 1: "a system with a 1% per-step
+  // error rate is expected to fail after only 100 steps of a million-step task." An LLM-agent paper,
+  // cited only for the per-step product rule of an illustrative model.
+  {
+    id: 'maker-2025',
+    title: 'Solving a Million-Step LLM Task with Zero Errors',
+    authors: [
+      'Elliot Meyerson',
+      'Giuseppe Paolo',
+      'Roberto Dailey',
+      'Hormoz Shahrzad',
+      'Olivier Francon',
+      'Conor F. Hayes',
+      'Xin Qiu',
+      'Babak Hodjat',
+      'Risto Miikkulainen',
+    ],
+    year: 2025,
+    arxiv: '2511.09030',
+    url: 'https://arxiv.org/abs/2511.09030',
+    type: 'paper',
+  },
+  // agibot-omdia-ranking-2026: convergence prose pass 2026-10-26 (data-hardware/hardware-taxonomy,
+  // frontier/bear-case). AgiBot's own release, datelined "SHANGHAI, CHINA, January 8, 2026", read
+  // 2026-10-26 (HTTP 200): "Omdia reports that the global humanoid robot market entered a phase of
+  // rapid growth in 2025, with total annual shipments reaching approximately 13,000 units"; "AGIBOT
+  // shipped 5,168 humanoid robots during the year, accounting for 39% of global market share". No
+  // Omdia-hosted release was found; the release does not say the count includes mobile manipulators
+  // (that is The Robot Report's analysis, agibot-omdia-2026).
+  {
+    id: 'agibot-omdia-ranking-2026',
+    title: 'Omdia Ranks AGIBOT No.1 Worldwide in Humanoid Robot Shipments in 2025',
+    authors: ['AgiBot'],
+    year: 2026,
+    venue: 'AgiBot press release, 2026-01-08',
+    url: 'https://www.agibot.com/article/231/detail/33.html',
+    type: 'press',
+  },
+  // a3-r1506-2025-store: convergence prose pass 2026-10-26 (frontier/safety-and-assurance). A3 store
+  // page read 2026-10-26 through a browser fetch (HTTP 200; curl gets 403): "Published with all three
+  // parts on October 29, 2025. 403 Pages. Parts 1 and 2 of ANSI/A3 R15.06-2025, approved August 21,
+  // 2025, are a revision of ANSI/RIA R15.06-2012. ... Part 3, approved October 7, 2025."; "ANSI/A3
+  // R15.06-3-2025 (Part 3), Use of Industrial Robot Cells, was developed in the United States with
+  // input from corresponding standards development experts in Canada to provide guidance to users of
+  // industrial robot cells."
+  {
+    id: 'a3-r1506-2025-store',
+    title: 'ANSI/A3 R15.06-2025 (Parts 1&2) & ANSI/A3 R15.06-3-2025 (Part 3) American National Standard for Industrial Robots and Robot Systems: Safety Requirements',
+    authors: ['Association for Advancing Automation'],
+    year: 2025,
+    venue: 'A3 store, published 2025-10-29',
+    url: 'https://www.automate.org/store/products/ansi-a3-r15-06-2025-american-national-standard-for-industrial-robots-and-robot-systems-safety-requirements-pdf-download',
+    type: 'docs',
+  },
+  // kroger-8k-ecommerce-2025: convergence prose pass 2026-10-26 (data-hardware/industrial-deployment).
+  // Form 8-K Exhibit 99.1, "CINCINNATI – November 18, 2025", read on SEC EDGAR 2026-10-26 (HTTP 200):
+  // "Kroger identified opportunities to optimize its fulfillment network by closing facilities in
+  // Pleasant Prairie, Wis.; Frederick, Md.; and Groveland, Fla. in January, while monitoring the
+  // remaining facilities’ performance."; "The company expects to incur impairment and related charges
+  // in the third fiscal quarter of 2025 of approximately $2.6 billion as a result of these closures
+  // and its automated fulfillment network not meeting financial expectations." It gives no count of
+  // remaining sites; "five" stays on kroger-ocado-closures-2025.
+  {
+    id: 'kroger-8k-ecommerce-2025',
+    title: 'Kroger Evolves eCommerce Offerings to Improve the Customer Experience, Drive Profitable Sales Growth',
+    authors: ['Kroger'],
+    year: 2025,
+    venue: 'Kroger Form 8-K, Exhibit 99.1, 2025-11-18',
+    url: 'https://www.sec.gov/Archives/edgar/data/56873/000110465925113746/tm2531591d1_ex99-1.htm',
+    type: 'press',
+  },
+  // bjnews-noetix-bumi-2025: convergence prose pass 2026-10-26 (data-hardware/hardware-taxonomy).
+  // Beijing News (Bei Ke Cai Jing), reporter Zhang Han, dated 2025-10-24 20:07, read 2026-10-26
+  // (HTTP 200): "10月22日，人形机器人企业松延动力（北京）科技有限公司（以下简称：松延动力）发布业内首款
+  // 万元级消费机器人“Bumi小布米”，身高约94cm，体重约12kg，自由度不小于21个"; "“Bumi小布米”首发价格为
+  // 9998元，将于“双11”至“双12”期间开启限量预售". No dated Noetix announcement was reachable; its current
+  // product page gives 98 cm and 17 kg with no price.
+  {
+    id: 'bjnews-noetix-bumi-2025',
+    title: '松延动力发布万元内人形机器人，或将推动机器人普及',
+    authors: ['Han Zhang'],
+    year: 2025,
+    venue: 'Beijing News (新京报), 2025-10-24',
+    url: 'https://www.bjnews.com.cn/detail/1761307644168764.html',
     type: 'press',
   },
 ];

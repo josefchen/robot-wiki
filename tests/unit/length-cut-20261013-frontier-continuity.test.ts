@@ -11,7 +11,8 @@ import {
   verifyFrontierLengthCutSource,
 } from '../../lib/audit-length-cut-frontier-continuity';
 import { MIN_BODY_SOURCES, type LengthCutDrops } from '../../lib/audit-length-cut-world-models-continuity';
-import { preFrontierLengthCut, preImageMounts } from '../helpers/seo-pass';
+import { loadConvergenceProseReview } from '../../lib/audit-convergence-prose-continuity';
+import { preConvergenceProse, preFrontierLengthCut, preImageMounts } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => readFileSync(join(root, path));
@@ -28,6 +29,11 @@ const dexterityPins = (counts: ReadonlyArray<readonly [string, number, string?]>
 const literals = (text: string) => [`'${text.replaceAll("'", "\\'")}'`, `"${text.replaceAll('"', '\\"')}"`];
 const holds = (spec: string, text: string) =>
   [text, text.replaceAll("'", "\\'"), text.replaceAll('"', '\\"')].some((form) => spec.includes(form));
+// The convergence prose slice of 2026-10-26 straightened the curly quotes in
+// these articles' prose (humanizer v3 section 21) and changed nothing else in
+// the text this review pinned; the live article and its reader specs carry
+// the straight form.
+const straight = (text: string) => text.replaceAll('’', "'").replaceAll('“', '"').replaceAll('”', '"');
 
 const scratchRoots: string[] = [];
 afterEach(() => {
@@ -104,18 +110,23 @@ describe('frontier length cut 2026-10-13 article successors', () => {
       ['content/frontier/safety-and-assurance.mdx', 'tests/helpers/kol-backlog-20261012.ts', 'moved'],
     ]);
     for (const { path, test, phrase, disposition, to, reason } of pinned) {
+      const received = preConvergenceProse(path).toString();
       const live = read(path).toString();
       const spec = read(test).toString();
       expect(reason?.length ?? 0).toBeGreaterThan(40);
-      expect(live).not.toContain(phrase);
+      expect(received).not.toContain(phrase);
+      expect(live).not.toContain(straight(phrase));
       if (disposition === 'moved' && test.startsWith('tests/helpers/kol-backlog-')) {
         // The KOL batch helper keeps the paragraph as its batch wrote it, as a record.
-        expect(live).toContain(to);
+        expect(received).toContain(to);
+        expect(live).toContain(straight(to!));
         expect(holds(spec, phrase)).toBe(true);
       } else if (disposition === 'moved') {
-        expect(live).toContain(to);
-        expect(literals(to!).some((literal) => spec.includes(literal)), `${test} selects: ${to}`).toBe(true);
+        expect(received).toContain(to);
+        expect(live).toContain(straight(to!));
+        expect(literals(straight(to!)).some((literal) => spec.includes(literal)), `${test} selects: ${straight(to!)}`).toBe(true);
         expect(holds(spec, phrase), `${test} still selects: ${phrase}`).toBe(false);
+        expect(holds(spec, straight(phrase)), `${test} still selects: ${straight(phrase)}`).toBe(false);
       } else if (path.endsWith('competing-theses.mdx')) {
         // The thesis explorer's form-factor card keeps the fact, and the spec checks it there.
         expect(read('lib/competing-theses.ts').toString()).toContain(phrase);
@@ -133,11 +144,20 @@ describe('frontier length cut 2026-10-13 article successors', () => {
     const corrected = review.sources.flatMap(({ after, corrected }) => corrected.map((c) => ({ ...c, path: after.path })));
     expect(corrected.map(({ path }) => path)).toEqual(
       ['content/frontier/competing-theses.mdx', 'content/frontier/reliability-gap.mdx']);
+    // The convergence prose slice's reviewed edits carry each corrected block
+    // to the live article (its quote straightening reaches the self-check).
+    const convergence = loadConvergenceProseReview(root);
+    const forward = (path: string, text: string) => (convergence.sources
+      .find(({ after }) => after.path === path)?.edits ?? [])
+      .reduce((block, edit) => block.includes(edit.before) ? block.replace(edit.before, edit.after) : block, text);
     for (const { path, before, after, reason } of corrected) {
+      const received = preConvergenceProse(path).toString();
       const live = read(path).toString();
       expect(reason.length).toBeGreaterThan(40);
-      expect(live).toContain(after);
-      expect(live).not.toContain(before);
+      expect(received).toContain(after);
+      expect(received).not.toContain(before);
+      expect(live).toContain(forward(path, after));
+      expect(live).not.toContain(straight(before));
     }
     const [stats, selfCheck] = corrected;
     expect(stats.before).toContain('value="~300k h"');

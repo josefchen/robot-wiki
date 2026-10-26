@@ -102,7 +102,9 @@ describe('bounded Dreamer reader closeout, zero original completions', () => {
     expect(horizon).toContain('prediction horizon T = 16 in its actor-critic section');
     expect(horizon).toContain('the 2024 revision keeps both labels, and the 2025 Nature article uses T = 16');
     expect(horizon).toContain('<Cite id="dreamerv3-2023" />');
-    expect(latent).toContain('value="H=15 / T=16" note="2023 preprint: table / actor-critic"');
+    // Successor (2026-10-26 convergence prose pass): the stat tile keeps the
+    // horizon without paper internals; the paragraph above still pins both labels.
+    expect(latent).toContain('<Stat label="DreamerV3 horizon" value="15-16" note="imagined steps ahead" />');
     expect(horizon).toContain('DayDreamer states H = 16 in its methods and H = 15 in its appendix');
     expect(horizon).toContain('<Cite id="daydreamer-2022" />');
     expect(horizon).toContain('TD-MPC2 plans with H = 3');

@@ -84,7 +84,7 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
       const prose = page.locator('div.prose[data-pagefind-body]');
       await capture(page.getByRole('heading', { level: 1 }), `${slug}-title`);
       await fontAndContrast(page.getByRole('heading', { level: 1 }), `${slug}-title`);
-      const stats = prose.locator('div.grid').filter({ has: page.getByText(/Rudin abstract; single GPU|Table 2, including feet air time/) });
+      const stats = prose.locator('div.grid').filter({ has: page.getByText(/Rudin abstract; single GPU|including feet air time/) });
       await expect(stats).toHaveCount(1);
       await capture(stats, `${slug}-stats`);
       for (const item of await stats.locator('div.min-w-0 > div').all()) await fontAndContrast(item, `${slug}-stat`);

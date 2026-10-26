@@ -26,7 +26,9 @@ import {
   sealedHash,
   showAt,
 } from './helpers/continuation-merge-ledger';
-import { preDataHardwareCut, preImageMounts, preKolBacklog, preReaderFirst, preSeoPassText } from '../helpers/seo-pass';
+import {
+  preConvergenceProse, preDataHardwareCut, preImageMounts, preKolBacklog, preReaderFirst, preSeoPassText,
+} from '../helpers/seo-pass';
 
 const ledgerPath = 'audit/data-hardware.md';
 const markdown = readFileSync(ledgerPath, 'utf8');
@@ -303,7 +305,7 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')
       && !delta.id.startsWith('reader-first-20261002-') && !delta.id.startsWith('kol-backlog-20261005-')
       && !delta.id.startsWith('length-cut-20261013-data-hardware-')
-      && !delta.id.startsWith('kol-batch-20261025-')),
+      && !delta.id.startsWith('kol-batch-20261025-') && !delta.id.startsWith('convergence-prose-20261026-')),
       'prose', 'article:data-hardware/industrial-deployment')!;
     expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
     const motion = approvals.find(delta =>
@@ -377,14 +379,25 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     });
     expect(images.newHash).toBe(proseHash(showAt('19ddce94', articlePath)));
     // The 2026-10-25 KOL queue resolution binds the images endpoint and
-    // reaches the live article, which adds the Hurst paragraph on Digit 5.
+    // reaches the article the convergence prose slice received, which adds
+    // the Hurst paragraph on Digit 5.
     const kolQueue = approvals.find(delta =>
       delta.id === 'kol-batch-20261025-data-hardware-prose-industrial-deployment')!;
     expect(kolQueue.oldHash).toBe(preMotion.oldHash);
     expect(kolQueue.reconciles?.at(-1)).toEqual({
       id: images.id, oldHash: images.oldHash, newHash: images.newHash,
     });
-    expect(kolQueue.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(kolQueue.newHash).toBe(proseHash(preConvergenceProse(articlePath).toString('utf8')));
+    // The 2026-10-26 convergence prose resolution binds the KOL queue endpoint
+    // and reaches the live article, which cites the Kroger 8-K and stops
+    // restating the calculator's seven defaults.
+    const convergence = approvals.find(delta =>
+      delta.id === 'convergence-prose-20261026-prose-data-hardware-industrial-deployment')!;
+    expect(convergence.oldHash).toBe(preMotion.oldHash);
+    expect(convergence.reconciles?.at(-1)).toEqual({
+      id: kolQueue.id, oldHash: kolQueue.oldHash, newHash: kolQueue.newHash,
+    });
+    expect(convergence.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

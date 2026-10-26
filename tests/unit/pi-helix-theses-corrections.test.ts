@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { committedSource } from '../helpers/continuation-integration';
+import { preConvergenceProse } from '../helpers/seo-pass';
 
 const article = readFileSync('content/frontier/competing-theses.mdx', 'utf8');
 const table = readFileSync('lib/competing-theses.ts', 'utf8');
@@ -43,6 +44,10 @@ describe('bounded PI and Helix thesis corrections', () => {
     expect(table).toContain("citationIds: ['pi07-2026', 'pi07-blog-2026']");
     expect(committedSource('0cbdda1', 'content/frontier/competing-theses.mdx'))
       .toMatch(/lastReviewed: ['"]?2026-08-18/);
-    expect(article).toMatch(/lastReviewed: ['"]?2026-09-24/);
+    // The convergence prose slice of 2026-10-26 moved the date again; the
+    // article as that slice received it keeps the date this correction left.
+    expect(preConvergenceProse('content/frontier/competing-theses.mdx').toString())
+      .toMatch(/lastReviewed: ['"]?2026-09-24/);
+    expect(article).toMatch(/lastReviewed: ['"]?2026-10-26/);
   });
 });

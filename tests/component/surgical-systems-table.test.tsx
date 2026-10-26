@@ -6,10 +6,12 @@ describe('SurgicalSystemsTable', () => {
   it('renders one row per system with the required names', () => {
     const { container } = render(<SurgicalSystemsTable />);
     const rows = container.querySelectorAll('tbody tr');
-    expect(rows).toHaveLength(3);
+    expect(rows).toHaveLength(5);
     for (const name of [
       'Intuitive da Vinci',
       'CMR Versius',
+      'Medtronic Hugo',
+      'J&J OTTAVA',
       'Moon Surgical Maestro',
     ]) {
       expect(screen.getByText(name)).toBeInTheDocument();
@@ -52,9 +54,9 @@ describe('SurgicalSystemsTable', () => {
   it('carries the autonomy level as a compact mono chip, not prose', () => {
     const { container } = render(<SurgicalSystemsTable />);
     const chips = container.querySelectorAll('[data-testid^="surgical-level-"]');
-    expect(chips).toHaveLength(3);
-    // da Vinci and Versius are both Level 0; Maestro is Level 1.
-    expect(screen.getAllByText('L0')).toHaveLength(2);
+    expect(chips).toHaveLength(5);
+    // da Vinci, Versius, Hugo and OTTAVA are all Level 0; Maestro is Level 1.
+    expect(screen.getAllByText('L0')).toHaveLength(4);
     expect(screen.getByText('L1')).toBeInTheDocument();
     for (const chip of chips) {
       expect(chip.tagName).toBe('SPAN');

@@ -6,7 +6,7 @@ slug: robot-learning-stack
 order: 7
 status: published
 datePublished: "2026-08-24"
-lastReviewed: "2026-09-24"
+lastReviewed: "2026-10-26"
 citations:
   - open-x-embodiment-2023
   - droid-2024
@@ -18,6 +18,7 @@ citations:
   - openvla-2024
   - exploy-2026
   - lerobot-paper-2026
+  - safety-filter-2023
   - hidden-technical-debt-2015
   - kalibr-2013
   - ros2-iron-mcap-2023
@@ -136,4 +137,4 @@ Mulligan, from Shuran Song, Chelsea Finn and colleagues at Stanford (October 202
 
 ## A minimal stack for a small team
 
-Start with append-only episode files, one versioned conversion command, a checkpoint registry, a deterministic offline test batch, an evaluation sheet linked to episode IDs, and a policy process kept apart from command gating.
+Start with versioned episode files that are never edited in place, one versioned conversion command, a checkpoint registry, a deterministic offline test batch <Cite id="lerobot-dataset-v3-2025" /> <Cite id="hidden-technical-debt-2015" />, an evaluation sheet linked to episode IDs <Cite id="kress-gazit-evaluation-2024" />, and a policy process kept apart from command gating <Cite id="lerobot-paper-2026" /> <Cite id="safety-filter-2023" />.

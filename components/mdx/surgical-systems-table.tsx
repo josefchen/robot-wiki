@@ -2,7 +2,7 @@ import { cx } from '@/lib/utils';
 import { SURGICAL_SYSTEM_ROWS } from '@/lib/surgical-systems';
 
 /**
- * SurgicalSystemsTable: the three commercial systems the adjacent/surgical
+ * SurgicalSystemsTable: the five commercial systems the adjacent/surgical
  * module covers, compared across design focus, differentiator, regulatory
  * path, and position on the Yang et al. autonomy scale. Static,
  * server-renderable, no client state. Row data lives in
@@ -31,7 +31,8 @@ export function SurgicalSystemsTable({ className }: { className?: string }) {
       <table className="w-full min-w-[620px] border-collapse text-left">
         <caption className="sr-only">
           Surgical robotic systems compared: Intuitive da Vinci, CMR Versius,
-          and Moon Surgical Maestro, by design focus, differentiator, and
+          Medtronic Hugo, J&amp;J OTTAVA and Moon Surgical Maestro, by design
+          focus, differentiator, and
           regulatory path, with each system’s position on the six-level
           autonomy scale of Yang et al.
         </caption>

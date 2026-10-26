@@ -1,9 +1,9 @@
 import { cx } from '@/lib/utils';
 
 /**
- * OrbitalServicingTable: five on-orbit robotics milestones for the
+ * OrbitalServicingTable: six on-orbit robotics milestones for the
  * adjacent/space module, from autonomous rendezvous and docking in 1998
- * to commercial debris inspection. Static, server-renderable,
+ * to commercial debris inspection and a robotic servicer launched in 2026. Static, server-renderable,
  * no client state. Every row is cited in the module prose.
  */
 
@@ -41,7 +41,14 @@ const ROWS = [
     year: '2024',
     operator: 'Astroscale (for JAXA)',
     demonstrated:
-      'Rendezvous with a discarded rocket upper stage, fly-around inspections, and a 15-metre approach, the closest any commercial craft has come to debris'
+      'Rendezvous with a discarded rocket upper stage, fly-around inspections, and a 15-metre approach, the closest any commercial craft has come to debris; controlled deorbit begun by March 25, 2026, after 293 days in orbit'
+  },
+  {
+    mission: 'Mission Robotic Vehicle',
+    year: '2026',
+    operator: 'Northrop Grumman / DARPA',
+    demonstrated:
+      'Launched on July 21, 2026 with the RSGS payload, twin robotic arms built by the U.S. Naval Research Laboratory, to install mission extension pods that extend satellites’ lives'
   },
 ] as const;
 
@@ -64,9 +71,10 @@ export function OrbitalServicingTable({ className }: { className?: string }) {
     >
       <table className="w-full min-w-[560px] border-collapse text-left">
         <caption className="sr-only">
-          Five on-orbit robotics milestones: ETS-VII, Orbital Express,
-          Canadarm2 with Dextre, MEV-1, and ADRAS-J, with the year, the
-          operator, and what each mission demonstrated.
+          Six on-orbit robotics milestones: ETS-VII, Orbital Express,
+          Canadarm2 with Dextre, MEV-1, ADRAS-J and the Mission Robotic
+          Vehicle, with the year, the operator, and what each mission
+          demonstrated.
         </caption>
         <thead>
           <tr className="border-b border-border">

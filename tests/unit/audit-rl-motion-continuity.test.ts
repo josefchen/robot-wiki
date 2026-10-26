@@ -50,6 +50,8 @@ function fixture() {
     'audit/evidence/image-mounts-20261013/source-transition.json',
     // The explainer mounts (2026-10-26) rebuild the pre-mount articles from this review.
     'audit/evidence/explainer-mounts-20261026/source-transition.json',
+    // The convergence prose slice (2026-10-26) rebuilds the pre-edit articles from this review.
+    'audit/evidence/convergence-prose-20261026/source-transition.json',
     // The parallel18 rebinding (2026-10-12) archived the proofs the parallel-sim-rl population names.
     'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
     ...entries.flatMap((entry) => [entry.snapshot.path, entry.current.path]),

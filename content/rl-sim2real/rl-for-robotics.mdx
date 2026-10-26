@@ -127,7 +127,7 @@ Andrychowicz and colleagues trained DDPG with HER on a simulated seven-DoF Fetch
 
 ## The reset problem
 
-A simulated episode restarts from a fresh state for free; a physical one ends wherever the robot is, and a person or a learned behavior has to put it back.
+A simulated episode restarts from a fresh state automatically, at only computational cost <Cite id="autonomous-rl-2022" />; a physical one ends wherever the robot is, and a person or a learned behavior has to put it back <Cite id="leave-no-trace-2017" />.
 
 Zhu and colleagues name learning from raw sensory inputs, assigning rewards without hand-designed instrumentation, and learning without human episode resets as the requirements for real-world RL; their D'Claw hand trained unattended, but evaluation included manual resets for bead manipulation <Cite id="real-world-rl-ingredients-2020" />. Leave No Trace learns a reset policy alongside the forward policy and aborts before non-reversible states <Cite id="leave-no-trace-2017" />. Sharma and colleagues' EARL benchmark sums gaps to optimal deployment return over training and treats interventions as constrained costs, though its experiments still schedule resets during training <Cite id="autonomous-rl-2022" />.
 

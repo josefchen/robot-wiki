@@ -96,7 +96,8 @@ test.describe('frontier reliability-gap module', () => {
     await expect(
       main.getByRole('link', { name: 'Lei et al. 2025' }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2510.14830');
-    await expect(main.locator('a[href="https://www.agilityrobotics.com/"]').first()).toBeVisible();
+    // The dated Digit 5 release replaced the undated homepage for the 65,000 hours (2026-10-26).
+    await expect(main.locator('a[href="https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale"]').first()).toBeVisible();
     await expect(main.locator('a[href="https://www.figure.ai/news/production-at-bmw"]').first()).toBeVisible();
     await expect(main.locator('a[href="https://assets-ir.tesla.com/tesla-contents/IR/TSLA-Q1-2026-Update.pdf"]').first()).toBeVisible();
     // At least five inline citation chips, all external.
@@ -112,9 +113,10 @@ test.describe('frontier reliability-gap module', () => {
       'rl-100-2025',
       'asimov-agentic-2026',
       'gemini-robotics-2-2026',
-      'agility-digit-production',
+      'agility-digit-5-2026',
       'figure-bmw-production-2025',
       'tesla-q1-2026-update',
+      'maker-2025',
     ]) {
       expect(await main.getByText(`missing citation: ${id}`).count()).toBe(0);
     }

@@ -19,7 +19,10 @@ import { currentAuditContext, finalSevenBefore } from '../helpers/residual-integ
 import { preservedLegacySurvivors } from '../helpers/audit-plan-history';
 import { committedText, committedJson } from '../helpers/editorial-current-context';
 import { preKolBacklog, preReaderFirst, preSeoPassText, preDataHardwareCut } from '../helpers/seo-pass';
-import { dataHardwareCut20261013Endpoint, imagesDh20261015Endpoint, kolBatch20261020Endpoint, kolQueue20261012Endpoint } from '../helpers/domain-pass';
+import {
+  convergenceProse20261026Endpoint, dataHardwareCut20261013Endpoint, imagesDh20261015Endpoint, kolBatch20261020Endpoint,
+  kolQueue20261012Endpoint,
+} from '../helpers/domain-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = '358f5050333386606f041505613e4a65d90dc703';
@@ -242,14 +245,16 @@ describe('RoboMIND paper-v3 hours correction, zero completion credit', () => {
     // article with one more edge that continues that endpoint to the live
     // article; the triage paragraph is pinned on the pre-pass article. The
     // data-hardware images of 2026-10-15 then added the article's two image
-    // mounts with one more plain edge, and the KOL triage batch of 2026-10-20
-    // added two dated paragraphs with one more.
+    // mounts with one more plain edge, the KOL triage batch of 2026-10-20
+    // added two dated paragraphs with one more, and the convergence prose
+    // slice of 2026-10-26 straightened its quotes with one more.
     const entries = JSON.parse(read('contract/brand-v2-approved-deltas.json')).entries;
     const triage = kolQueue20261012Endpoint(entries, 'prose', 'article:data-hardware/data-bottleneck', kol[0].newHash);
-    expect(adjacentHash(read(adjacentPath))).toBe(kolBatch20261020Endpoint(
-      entries, 'prose', 'article:data-hardware/data-bottleneck', imagesDh20261015Endpoint(
-        entries, 'prose', 'article:data-hardware/data-bottleneck', dataHardwareCut20261013Endpoint(
-          entries, 'prose', 'article:data-hardware/data-bottleneck', triage))));
+    expect(adjacentHash(read(adjacentPath))).toBe(convergenceProse20261026Endpoint(
+      entries, 'prose', 'article:data-hardware/data-bottleneck', kolBatch20261020Endpoint(
+        entries, 'prose', 'article:data-hardware/data-bottleneck', imagesDh20261015Endpoint(
+          entries, 'prose', 'article:data-hardware/data-bottleneck', dataHardwareCut20261013Endpoint(
+            entries, 'prose', 'article:data-hardware/data-bottleneck', triage)))));
     expect(adjacentHash(preDataHardwareCut(adjacentPath).toString())).toBe(triage);
     expect(adjacentHash(read(adjacentPath))).not.toBe(kol[0].newHash);
     expect(preDataHardwareCut(adjacentPath).toString()).toContain('Real-world robot data is different. Every hour of it');

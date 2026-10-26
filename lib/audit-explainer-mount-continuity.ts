@@ -67,6 +67,20 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
 // END explainer-mount pins
 
 export const EXPLAINER_IMPORT = "import { ExplainerFigure } from '@/components/explainers/explainer-figure';";
+
+/**
+ * Cue sentences as this review recorded them where a later reviewed edit
+ * rewrote the row's cue (the 2026-10-26 convergence-prose layer records the
+ * article side of that rewrite), so the reviewed successors keep checking the
+ * exact cue they were recorded with.
+ */
+const REVIEWED_CUES: Readonly<Record<string, string>> = {
+  reaching: 'Drag the cup in the figure below and watch the arm work out an angle for every joint.',
+};
+
+/** The cue sentence this review recorded for an explainer's mount. */
+export const explainerMountReviewedCue = (id: string): string =>
+  REVIEWED_CUES[id] ?? EXPLAINER_MOUNTS[id as keyof typeof EXPLAINER_MOUNTS].cue;
 const HOW_ROBOTS_WORK_LINK = /\[([^\]\n]+)\]\(\/how-robots-work\/#[a-z]+\)/g;
 const once = (text: string, part: string) => text.split(part).length === 2;
 
@@ -83,7 +97,8 @@ export function keepsExplainerMountObligations(path: string, prior: string, curr
   if (homes.length > 1 || (homes.length === 0 && !linked)) return false;
   let text = current;
   if (homes.length === 1) {
-    const [id, { cue }] = homes[0];
+    const [id] = homes[0];
+    const cue = explainerMountReviewedCue(id);
     const importLine = `\n${EXPLAINER_IMPORT}\n\n`;
     const mount = `\n\n<ExplainerFigure id="${id}" />`;
     const cued = ` ${cue}${mount}\n\n`;

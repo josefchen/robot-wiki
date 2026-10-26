@@ -5,7 +5,7 @@ domain: classical
 slug: control
 order: 3
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-10-26"
 citations:
   - ziegler-nichols-1942
   - tedrake-underactuated
@@ -143,7 +143,7 @@ $$
 \min_{u_0, \dots, u_{N-1}} \; \sum_{k=0}^{N-1} \left( x_k^{\top} Q x_k + u_k^{\top} R u_k \right) \quad \text{s.t.} \quad x_{k+1} = f(x_k, u_k), \; u_k \in \mathcal{U}, \; x_k \in \mathcal{X}
 $$
 
-Only the first input is applied before the next solve, so feedback absorbs part of the model error, and torque limits, joint limits and friction cones enter the optimization directly.
+Only the first input is applied before the next solve, so feedback from the measured state absorbs part of the model error <Cite id="tedrake-underactuated" /><Cite id="di-carlo-2018" />, and limits on states and inputs, from torque bounds to friction cones, enter the optimization directly <Cite id="di-carlo-2018" /><Cite id="neunert-2018" />.
 
 MPC grew out of 1970s and 1980s power-plant and refinery practice, where slow, constrained, multivariable plants defeated PID <Cite id="garcia-1989" /><Cite id="qin-badgwell-2003" />. On the MIT Cheetah 3, Di Carlo and colleagues' convex MPC solved each QP in under a millisecond at 20 to 30 Hz, and one gain set served every gait from standing to gallop <Cite id="di-carlo-2018" />.
 
@@ -167,7 +167,7 @@ $$
 \end{aligned}
 $$
 
-Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective.
+Its variables are joint accelerations, torques and contact forces; the rigid-body dynamics are the equality constraint, $\mathcal{F}$ holds the friction cones, and each task is one weighted row of the objective <Cite id="kuindersma-2015" />.
 
 <Image id="atlas-darpa-testing-2013" />
 

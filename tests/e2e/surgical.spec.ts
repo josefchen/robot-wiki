@@ -128,7 +128,7 @@ test.describe('adjacent surgical module', () => {
     });
     await expect(table).toBeVisible();
     await expect(table.getByRole('columnheader').first()).toBeVisible();
-    await expect(table.locator('tbody tr')).toHaveCount(3);
+    await expect(table.locator('tbody tr')).toHaveCount(5);
     // The overflow wrapper is a scrollable region: it must be keyboard
     // reachable (axe scrollable-region-focusable).
     const wrap = table.locator('xpath=ancestor::div[contains(@tabindex,"0")]');

@@ -5,6 +5,7 @@ import {
   compoundPartDigest, compoundPlanDigest, originalClaimDigest,
   parseCompoundPlans, parseLedger,
 } from '../../lib/audit-ledger';
+import { preConvergenceProse } from '../helpers/seo-pass';
 
 const text = readFileSync('content/frontier/dexterity.mdx', 'utf8');
 const ledger = readFileSync('audit/frontier.md', 'utf8');
@@ -79,7 +80,10 @@ describe('Figure15 retained-source correction', () => {
     expect(records()[14].sourceChecked).toContain('2026-09-13T03:39:56.393Z');
     expect(records()[14].sourceChecked).toContain('2026-09-07T16:07:28.926Z');
     expect(records()[14].sourceChecked).toContain('review2026-09-14 is not retrieval');
-    expect(text).toContain('lastReviewed: "2026-08-18"');
+    // The convergence prose slice of 2026-10-26 reviewed the article and
+    // moved its date; the article as that slice received it keeps this date.
+    expect(preConvergenceProse('content/frontier/dexterity.mdx').toString()).toContain('lastReviewed: "2026-08-18"');
+    expect(text).toContain('lastReviewed: "2026-10-26"');
   });
 
   test('has a genuine whole-plan review and all four digest-bound supported adjudications', () => {

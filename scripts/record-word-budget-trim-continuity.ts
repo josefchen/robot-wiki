@@ -85,6 +85,7 @@ function main(paths: string[]): void {
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
+  const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
   const { explainerMountPredecessor } = await import('../lib/audit-explainer-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { lengthCutPredecessor } = await import('../lib/audit-length-cut-continuity.ts');
@@ -100,7 +101,7 @@ async function verify(): Promise<boolean> {
       // rl-sim2real) and world-models length-cut layers hand back the word-budget trim successor first.
       const prior = layer.wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before,
         lengthCutPredecessor(root, source.before,
-          frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, mounts.figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))))));
+          frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, mounts.figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       if (mounts.figureMountSuccessorPaths().includes(source.after.path)) {
         mounts.figureMountPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, prior);

@@ -154,7 +154,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           viewWidth={WIDTH}
           hint="The plug turns only when all four pins sit on the lit line"
           readout={readoutFor(supposed, pose.turn)}
-          status="Pin status from the watchlist, August 2026; pin heights illustrative"
+          status="Pin status from the watchlist, September 2026; pin heights illustrative"
           data-testid="bear-lock-stage-frame"
         >
           <div
@@ -182,7 +182,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           </div>
         </AnatomyStage>
       }
-      caption="Four results would each break one premise of the bear case. The lock opens only with all four; by August 2026, none had arrived."
+      caption="Four results would each break one premise of the bear case. The lock opens only with all four; by September 2026, none had arrived."
       method={
         <>
           <p>
@@ -190,7 +190,7 @@ export function BearCaseLock({ className }: { className?: string }) {
             verified deployment of 10,000 humanoids doing documented work (commercial viability), one policy above
             90% across more than ten unseen homes (generalization), a cost-per-task parity analysis (form factor),
             and a real-world success-rate scaling law across tasks (the plateau). Each pin starts where the
-            bear-case watchlist above puts that result in August 2026: not met for the deployment and the cost
+            bear-case watchlist above puts that result in September 2026: not met for the deployment and the cost
             analysis, partial for the unseen homes and the scaling law. None is met.
           </p>
           <p id={drawingId}>
@@ -207,7 +207,7 @@ export function BearCaseLock({ className }: { className?: string }) {
           </p>
         </>
       }
-      source="Results from the article's final section; status calls from the bear-case watchlist (August 2026)."
+      source="Results from the article's final section; status calls from the bear-case watchlist (September 2026)."
     />
   );
 }

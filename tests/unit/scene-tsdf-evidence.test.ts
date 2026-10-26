@@ -4,8 +4,9 @@ import { committedSource, preservedApprovalPacket, preservedCompoundPacket } fro
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import { preSeoPassHash } from '../helpers/seo-pass';
 import {
-  anatomyLoopB0120261020Endpoint, classicalPassEndpoint, domainPassEndpoint, explainerMounts20261026Endpoint,
-  homeHubs20261014Endpoint, homeHubs20261016Endpoint, isExplainerMounts20261026Edge,
+  anatomyLoopB0120261020Endpoint, classicalPassEndpoint, convergenceProse20261026Endpoint, domainPassEndpoint,
+  explainerMounts20261026Endpoint,
+  homeHubs20261014Endpoint, homeHubs20261016Endpoint, isConvergenceProse20261026Edge, isExplainerMounts20261026Edge,
   humanize20261012Endpoint, isClassicalPassEdge, isDomainPassEdge, imagesA20261013Endpoint, isHomeHubs20261014Edge,
   isAnatomyLoopB0120261020Edge, isHomeHubs20261016Edge, isHumanize20261012Edge, isImagesA20261013Edge,
   isKolQueue20261012Edge, isLandedPassEdge, kolQueue20261012Endpoint, landedPassEndpoint,
@@ -234,8 +235,9 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
       // blocks landed on 2026-10-10, the 2026-10-12 classical humanize pass,
       // images bundle A of 2026-10-13, the discovery passes of 2026-10-14
       // and 2026-10-16 (the shared glossary source), the LoopClosure figure
-      // mount of 2026-10-20 (batch loop-b01) and the explainer mount of
-      // 2026-10-26 are checked last, in that order,
+      // mount of 2026-10-20 (batch loop-b01), the explainer mount of
+      // 2026-10-26 and the convergence prose slice of 2026-10-26 are checked
+      // last, in that order,
       // from the endpoint the earlier ledger reached. (The frontier
       // block landed after the KOL batch; the world-models block touches none
       // of these members.)
@@ -244,7 +246,7 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         && !isClassicalPassEdge(entry) && !isKolQueue20261012Edge(entry) && !isLandedPassEdge(entry)
         && !isHumanize20261012Edge(entry) && !isImagesA20261013Edge(entry) && !isHomeHubs20261014Edge(entry)
         && !isHomeHubs20261016Edge(entry) && !isAnatomyLoopB0120261020Edge(entry)
-        && !isExplainerMounts20261026Edge(entry));
+        && !isExplainerMounts20261026Edge(entry) && !isConvergenceProse20261026Edge(entry));
       for (const later of preSeoPass.slice(preSeoPass.indexOf(delta) + 1).filter((entry) =>
         entry.manifest === delta.manifest && entry.memberId === delta.memberId &&
         !entry.id.startsWith('continuation-merge-') && entry.id !== 'reader-source-flow-20260923-1')) {
@@ -265,14 +267,15 @@ describe('scene original 10: source-scoped TSDF correction', { timeout: 30_000 }
         (entry.oldHash === seoEndpoint || (entry.reconciles ?? []).some((binding) => binding.newHash === seoEndpoint)));
       const domainEndpoint = (domainPass ? domainPassEndpoint(entries, domainPass).newHash : undefined) ?? seoEndpoint;
       const classicalEndpoint = classicalPassEndpoint(entries, delta.manifest, delta.memberId, domainEndpoint);
-      expect(explainerMounts20261026Endpoint(entries, delta.manifest, delta.memberId,
-        anatomyLoopB0120261020Endpoint(entries, delta.manifest, delta.memberId,
-          homeHubs20261016Endpoint(entries, delta.manifest, delta.memberId,
-            homeHubs20261014Endpoint(entries, delta.manifest, delta.memberId,
-              imagesA20261013Endpoint(entries, delta.manifest, delta.memberId,
-                humanize20261012Endpoint(entries, delta.manifest, delta.memberId,
-                  landedPassEndpoint(entries, delta.manifest, delta.memberId,
-                    kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint)))))))))
+      expect(convergenceProse20261026Endpoint(entries, delta.manifest, delta.memberId,
+        explainerMounts20261026Endpoint(entries, delta.manifest, delta.memberId,
+          anatomyLoopB0120261020Endpoint(entries, delta.manifest, delta.memberId,
+            homeHubs20261016Endpoint(entries, delta.manifest, delta.memberId,
+              homeHubs20261014Endpoint(entries, delta.manifest, delta.memberId,
+                imagesA20261013Endpoint(entries, delta.manifest, delta.memberId,
+                  humanize20261012Endpoint(entries, delta.manifest, delta.memberId,
+                    landedPassEndpoint(entries, delta.manifest, delta.memberId,
+                      kolQueue20261012Endpoint(entries, delta.manifest, delta.memberId, classicalEndpoint))))))))))
         .toBe(buildManifest(delta.manifest, [inputs[index]]).members[0].hash);
     });
   });

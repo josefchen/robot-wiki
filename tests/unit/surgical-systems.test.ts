@@ -14,12 +14,29 @@ import {
  * et al. six-level autonomy framework that organizes the table.
  */
 describe('SURGICAL_SYSTEM_ROWS', () => {
-  it('covers the three systems the module is required to name', () => {
+  it('covers the three systems the module is required to name and the two cleared since', () => {
     const names = SURGICAL_SYSTEM_ROWS.map((r) => r.system);
     expect(names).toContain('Intuitive da Vinci');
     expect(names).toContain('CMR Versius');
     expect(names).toContain('Moon Surgical Maestro');
-    expect(SURGICAL_SYSTEM_ROWS).toHaveLength(3);
+    expect(names).toContain('Medtronic Hugo');
+    expect(names).toContain('J&J OTTAVA');
+    expect(SURGICAL_SYSTEM_ROWS).toHaveLength(5);
+  });
+
+  it('states the da Vinci installed base and cardiac clearance from Intuitive\'s 2026 releases', () => {
+    const row = SURGICAL_SYSTEM_ROWS.find((r) => r.system === 'Intuitive da Vinci');
+    expect(row?.regulatory).toMatch(/11,710 systems installed by June 30, 2026/);
+    expect(row?.regulatory).toMatch(/cardiac procedures in January 2026/);
+  });
+
+  it('states the Hugo and OTTAVA entry points from their US authorizations', () => {
+    const hugo = SURGICAL_SYSTEM_ROWS.find((r) => r.system === 'Medtronic Hugo');
+    expect(hugo?.regulatory).toMatch(/December 3, 2025/);
+    expect(hugo?.regulatory).toMatch(/urologic/);
+    const ottava = SURGICAL_SYSTEM_ROWS.find((r) => r.system === 'J&J OTTAVA');
+    expect(ottava?.regulatory).toMatch(/De Novo authorization in July 2026/);
+    expect(ottava?.edge).toMatch(/30 to 50 percent less space/);
   });
 
   it('states the da Vinci 5 figures from the clearance release', () => {

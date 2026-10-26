@@ -82,15 +82,17 @@ function main(paths: string[]): void {
   console.log(`recorded ${review.sources.length} successor(s); review ${bytes.length} bytes`);
 }
 
-/** Reads every recorded successor back through the written layer, which no newer layer precedes. */
+/** Reads every recorded successor back through the newer convergence-prose layer and the written layer. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-explainer-mount-continuity.ts');
+  const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   let ok = true;
   for (const source of layer.loadExplainerMountReview(root).sources) {
     try {
-      const prior = layer.explainerMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)));
+      const prior = layer.explainerMountPredecessor(root, source.before,
+        convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the newest older layer's successor, which that layer still decides.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

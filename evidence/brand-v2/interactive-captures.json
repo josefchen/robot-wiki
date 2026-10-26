@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b455e69f632d817b5b90e7299df592f7ce6ec93d9fac6e707346735a1e33c73d",
+  "fingerprint": "945aa1434b9570f35db34f804f0efbd060703ba929b0c826f3d31b124fd91498",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1202,7 +1202,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "4d6356be1fcc28811a6c61c91837b567a91c69154ee495f41dac143f85f7a551",
+          "sha256": "e8c1b75bc55b5f588e1b9ecfa7d099eb8eecf98d2d65d94de864c4c3418fcfef",
           "widthPx": 327,
           "heightPx": 767,
           "settleAttempts": 2,
@@ -1217,12 +1217,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Surgeon places it\"",
-          "sha256": "2c753c03761c141483ae559af3776979c55b51c5aea7bdcd11d09dda6f668c33",
+          "sha256": "f8d48ee764e439303fd65371b71cbc9a670e89e7616905ab9be9f428ce4feb40",
           "widthPx": 327,
           "heightPx": 767,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 23.75,
+          "luminanceSpread": 23.74,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -1310,9 +1310,9 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "07b5f4e9e9361f2ba7a4e2a9f3056588b32b4a6a432451db08060530d143321e",
+          "sha256": "2530c53de6c6bd90417829e065c91618687589e84da97f923b64bb9a6a9c9fd0",
           "widthPx": 930,
-          "heightPx": 1192,
+          "heightPx": 1191,
           "settleAttempts": 2,
           "settled": true,
           "luminanceSpread": 15.42,
@@ -1325,12 +1325,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Surgeon places it\"",
-          "sha256": "e8b16f7bba868166787c9e340985ba3145645ae2ed006212d0ab422d80c84e07",
+          "sha256": "cefb4b244a6549e335a07f578660e73678cf6b3b685f30c9c6473d1c90904899",
           "widthPx": 930,
-          "heightPx": 1192,
+          "heightPx": 1191,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.41,
+          "luminanceSpread": 15.42,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -2050,12 +2050,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "a6b79e385cbeb095b84152a91fcc7d6fab1cd8bb7d81fccd247aa0d4c532a5f2",
+          "sha256": "00fbc5012249b89a95451a1a8f5a2e26b00055ddbcd1bc189309846c1ecf8f6f",
           "widthPx": 327,
-          "heightPx": 800,
+          "heightPx": 801,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 23.13,
+          "luminanceSpread": 23.12,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -2065,12 +2065,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Softness: desired stiffness in newtons per metre, currently \" 800 to 20000",
-          "sha256": "45a16fcb7307356c300794ab4f6fead86c5cc04f4fc0e857c1043f042064a86a",
+          "sha256": "e9be6b72e127f5db93626dd5553b35e67858d90c13f126e2d82e07bf2e348a4c",
           "widthPx": 327,
-          "heightPx": 800,
+          "heightPx": 801,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 23.7,
+          "luminanceSpread": 23.69,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -5916,7 +5916,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "f1f09c748d577bcbb9c56b5c8b839714d7e48deb870e1de45fd5df8776739cb0",
+          "sha256": "20788fcf2b707de0c68e626fdbced0c456945f0e5bbc950752089590385419be",
           "widthPx": 327,
           "heightPx": 703,
           "settleAttempts": 2,
@@ -5931,7 +5931,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time to fix each jam (jam-clearing time), currently 5 minute\" 15 to 300",
-          "sha256": "89055ffb4f27faacd835a32a212fc8219070e9865db1726705690350a142d9c7",
+          "sha256": "4877d90f7a47a152b03ff6f1b516a3960705fe84e832196553949b4b918d5817",
           "widthPx": 327,
           "heightPx": 703,
           "settleAttempts": 2,
@@ -6049,7 +6049,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "22061dcecaab2a0f4a97cd42f26ec6b185f161ce90d7956a47446288481a4da7",
+          "sha256": "2e1107a93068f02ab1562483f2f3b47e9feb8b1d5ad84a9813e9501575ec8e77",
           "widthPx": 930,
           "heightPx": 751,
           "settleAttempts": 2,
@@ -6064,7 +6064,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time to fix each jam (jam-clearing time), currently 5 minute\" 15 to 300",
-          "sha256": "ac23f9bd00f9a137333f53552bcf8ccb626e284fda6e8b2f265502176867e51f",
+          "sha256": "b4b3d0e385fdd8004dc7a44fb67227583c16f2625269874d49d4438c87fcde06",
           "widthPx": 930,
           "heightPx": 751,
           "settleAttempts": 2,
@@ -6868,12 +6868,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "8330683322f9c17b44019c4b4fd88e40eebeebcaa00cf110c6bd96977e08f758",
+          "sha256": "bb147956497f413e85461e6e2511da39872f653d86b705cd47a8974e8f51dd9f",
           "widthPx": 327,
           "heightPx": 684,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.68,
+          "luminanceSpread": 25.91,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -6883,12 +6883,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"10,000 at work\"",
-          "sha256": "cd8f31e708d3592daf65bf53ffb2b3d4b230dbdf878b6517ffe3ed66c55b8893",
+          "sha256": "e6503f54de29586563d965c31b116e8e55f5c2de278de3899d4a7b2bdc619d3d",
           "widthPx": 327,
           "heightPx": 684,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 26.44,
+          "luminanceSpread": 26.66,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -6976,12 +6976,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "5ecfdf056f191b9bf7ed277a8cb3a330813b6cec4108245558c1d82418ecaf45",
+          "sha256": "9baed0313276ea436fa62b1168cea03c9ad447836fb7d5256c1cc4b82e676e4d",
           "widthPx": 930,
           "heightPx": 883,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.36,
+          "luminanceSpread": 15.43,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -6991,12 +6991,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"10,000 at work\"",
-          "sha256": "f1d3e15755dd28993ddf1f72bf2c40f702d570aef0df1c6441f839bf73060c9c",
+          "sha256": "320fc43f773db1e1aa490e59c3d30cf807c844c56ae547326c5b09e5a74f36be",
           "widthPx": 930,
           "heightPx": 883,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.69,
+          "luminanceSpread": 15.76,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -7084,12 +7084,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "95f64ab48323bb8fbe9fb475762c70d27b19d2fb86c77aed67b04d0193b644d0",
+          "sha256": "868be148cf2b2463a9df7d567e9fbc8b5af82ea49b9b1562a109cefb50a1d01f",
           "widthPx": 327,
           "heightPx": 948,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 30.72,
+          "luminanceSpread": 30.77,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7099,12 +7099,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Not yet\"",
-          "sha256": "8b468104e82e3c2fa3635dc5ba5cda763495cbfee5c34dbd1aa366cb46778d00",
+          "sha256": "f48641cecd38ccdabb35844b0f5a1bc07a5b1d3358bd343ca923dff99a7114a4",
           "widthPx": 327,
           "heightPx": 596,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.62,
+          "luminanceSpread": 29.7,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7203,12 +7203,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "1493c7963bfa4cbba22388fab8740d1560eddc5799f0ca67bea6c2bf6e024305",
+          "sha256": "65be295d55ceb3d585eb9e9866eb27601c7647b2db79b5eabb79ae26b341be7b",
           "widthPx": 985,
           "heightPx": 488,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 24.98,
+          "luminanceSpread": 25.02,
           "fontsLoaded": true,
           "rootLeftPx": 224,
           "rootRightPx": 1208,
@@ -7218,12 +7218,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Not yet\"",
-          "sha256": "33d550d79e2810b699620bcd5213add4bbfed2d1a502a9b67c0b42f6eb02c467",
+          "sha256": "a9b2e41e91609dcd23cd0a499c5828a0bb40105a46938c622122d52a15e31eee",
           "widthPx": 985,
           "heightPx": 381,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 21.77,
+          "luminanceSpread": 21.83,
           "fontsLoaded": true,
           "rootLeftPx": 224,
           "rootRightPx": 1208,
@@ -7322,12 +7322,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "1a8086f272aadac21de21e79887750ce702581bf08eca4b7ea38ef848b5a45b0",
+          "sha256": "732b7eadfea2c2b42aba479eaecac639dcb6f8ef95df44fb86602ba1b07bddeb",
           "widthPx": 327,
           "heightPx": 685,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.36,
+          "luminanceSpread": 28.35,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7337,12 +7337,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time on the clock\" 7 to 20",
-          "sha256": "de62f986fb25f2df8296edf2c20cf011bdc001ede9a0fe9b00f1dba5b4a08fb3",
+          "sha256": "5130416754f3cc2357ee7af4f18168a8798861cef6e4772fb6b4a6a629c5045d",
           "widthPx": 327,
           "heightPx": 705,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 28.75,
+          "luminanceSpread": 28.74,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7430,7 +7430,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "bf082641ae4e878a00093447da686c1503195f760a942e64c22651d2f7cda00e",
+          "sha256": "b0a2cc6d98d4b398eeb2a8d3bcf10b320b162bdf7336403d7525d72cfc1bcb4a",
           "widthPx": 930,
           "heightPx": 894,
           "settleAttempts": 2,
@@ -7445,12 +7445,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Time on the clock\" 7 to 20",
-          "sha256": "5f6df6463d82a46263946a66474dec3d94fb1b9927e9c0f222a0dda5e47ad36d",
+          "sha256": "38aa24e0fc1cd151d39b9dce9a9abb045ec6187224c3b7050a34fce95a4b1e23",
           "widthPx": 930,
           "heightPx": 894,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 18.21,
+          "luminanceSpread": 18.2,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -7553,7 +7553,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Just make it bigger\"",
-          "sha256": "f571c3dc06c74534f95253a0426a27573f16282976d9d14f25ace54f9008856b",
+          "sha256": "fb9d7209d0ef93972c94149f2cda80a0af87c6ba5c0d2e7ee86cb281e793d52e",
           "widthPx": 327,
           "heightPx": 2777,
           "settleAttempts": 2,
@@ -7672,7 +7672,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Just make it bigger\"",
-          "sha256": "d570ed099bdf9417f800847135934fe4c6a7b6425b5d797e2183d4b24a7e35d1",
+          "sha256": "1244c81b5e41264f8fc389b528791bfa545ec3ee5265a81ab88e218751d43b97",
           "widthPx": 985,
           "heightPx": 1388,
           "settleAttempts": 2,
@@ -7776,7 +7776,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "35dd31827fddbd996e5096ec092ff8fae48077c827663623810f48b9728cab6e",
+          "sha256": "82c309dcf7190a78fd546bcaa01873f9c9c5032dd7ebd48f59070e67f8fda169",
           "widthPx": 327,
           "heightPx": 1130,
           "settleAttempts": 2,
@@ -7791,7 +7791,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Most joints\"",
-          "sha256": "b224026f3335a603cf6467a59c10aa8af0ef94974961470623e9e44b6297bc3e",
+          "sha256": "479f6f08e072838880ef85eddcb4def5e995a27c3c8088dab11dc140df63f4cc",
           "widthPx": 327,
           "heightPx": 1130,
           "settleAttempts": 2,
@@ -7894,7 +7894,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "9579c958556088b774a09ffbfe68e01bc23517c6e308a05d9e107eec486e99dd",
+          "sha256": "adfc6663a29c9bb4e09a09acd0e2cb32c36c01f26bd6544e522109782ef3d403",
           "widthPx": 930,
           "heightPx": 684,
           "settleAttempts": 2,
@@ -7909,7 +7909,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Most joints\"",
-          "sha256": "c4b9e6261de3bda207bfa7b1d1a3d15972fbb49c1804eb2fd3261a246d726b6c",
+          "sha256": "f9cbbe5263d20f2029864fa7814d316193015551cef8b5554490e3e7794846a3",
           "widthPx": 930,
           "heightPx": 684,
           "settleAttempts": 2,
@@ -8278,7 +8278,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "c0458cbc4dfa05c3b270a781896cb9372c6d460e724d75826b53a062ec9235c6",
+          "sha256": "2121efc3ccd22b95ff37e3741b34b02773f085a6d7334cc073114d9f2090e81e",
           "widthPx": 327,
           "heightPx": 733,
           "settleAttempts": 2,
@@ -8293,7 +8293,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Backed by a company document\"",
-          "sha256": "fd62cadd1c172e86ee7a1f2f51311b7331869ab1f753fb4ae21fa110151272ec",
+          "sha256": "7e0ddbe9d837f655ac568da5482a89f0deac3a890fed21f17b4e5716f136a898",
           "widthPx": 327,
           "heightPx": 653,
           "settleAttempts": 2,
@@ -9046,7 +9046,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "d456ee7febb4d1ac5f57c506d9e059d74fe6f4d6eedcab842d690e7555e8e32b",
+          "sha256": "9eb1f2b90dd4ab85a662cd818ec992c349e1767838d6306ccbada4892b8cc3a7",
           "widthPx": 327,
           "heightPx": 645,
           "settleAttempts": 2,
@@ -9061,7 +9061,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Along the stroke\" 50 to 100",
-          "sha256": "3c9122ae0600c670bfc77784c29d1c2ec288ed6b550a2ece8122a367554f813a",
+          "sha256": "c26f07a83af2c5fc12a43815f1ac8bd7455b8413d2060c7b3a7f42704e534a45",
           "widthPx": 327,
           "heightPx": 645,
           "settleAttempts": 2,
@@ -21371,8 +21371,8 @@
   "sheets": [
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-01.jpg",
-      "sha256": "806a24bcd6080a7d9a6eafd2c25a6f4ad169fe237faf0a23bbacd542432aa510",
-      "bytes": 186627,
+      "sha256": "7f0c71c75640ef0e059cbdcd18a3552d06922f022b3a793474f16890594b7ad7",
+      "bytes": 187190,
       "mountIds": [
         "mount:/adjacent/drones/:PerceptionLatency:1",
         "mount:/adjacent/surgical/:MotionPantograph:1",
@@ -21416,19 +21416,19 @@
         },
         {
           "key": "mount:/adjacent/surgical/:ScopeFollow:1@1440x900:default",
-          "sha256": "07b5f4e9e9361f2ba7a4e2a9f3056588b32b4a6a432451db08060530d143321e"
+          "sha256": "2530c53de6c6bd90417829e065c91618687589e84da97f923b64bb9a6a9c9fd0"
         },
         {
           "key": "mount:/adjacent/surgical/:ScopeFollow:1@1440x900:changed",
-          "sha256": "e8b16f7bba868166787c9e340985ba3145645ae2ed006212d0ab422d80c84e07"
+          "sha256": "cefb4b244a6549e335a07f578660e73678cf6b3b685f30c9c6473d1c90904899"
         },
         {
           "key": "mount:/adjacent/surgical/:ScopeFollow:1@375x812:default",
-          "sha256": "4d6356be1fcc28811a6c61c91837b567a91c69154ee495f41dac143f85f7a551"
+          "sha256": "e8c1b75bc55b5f588e1b9ecfa7d099eb8eecf98d2d65d94de864c4c3418fcfef"
         },
         {
           "key": "mount:/adjacent/surgical/:ScopeFollow:1@375x812:changed",
-          "sha256": "2c753c03761c141483ae559af3776979c55b51c5aea7bdcd11d09dda6f668c33"
+          "sha256": "f8d48ee764e439303fd65371b71cbc9a670e89e7616905ab9be9f428ce4feb40"
         },
         {
           "key": "mount:/classical/calibration/:CalibrationChain:1@1440x900:default",
@@ -21483,8 +21483,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-02.jpg",
-      "sha256": "b482e6b60c1b6bffc1ddd56fef6f038368efe637110edd1e3e98b4290c0ec2eb",
-      "bytes": 185257,
+      "sha256": "f7ec9b300fafc88886a1ff64ec0f51acfe3cca035daabafaff3c7e424fe524cf",
+      "bytes": 185951,
       "mountIds": [
         "mount:/classical/control/:ImpedanceContactLab:1",
         "mount:/classical/control/:PendulumController:1",
@@ -21504,11 +21504,11 @@
         },
         {
           "key": "mount:/classical/control/:ImpedanceContactLab:1@375x812:default",
-          "sha256": "a6b79e385cbeb095b84152a91fcc7d6fab1cd8bb7d81fccd247aa0d4c532a5f2"
+          "sha256": "00fbc5012249b89a95451a1a8f5a2e26b00055ddbcd1bc189309846c1ecf8f6f"
         },
         {
           "key": "mount:/classical/control/:ImpedanceContactLab:1@375x812:changed",
-          "sha256": "45a16fcb7307356c300794ab4f6fead86c5cc04f4fc0e857c1043f042064a86a"
+          "sha256": "e9be6b72e127f5db93626dd5553b35e67858d90c13f126e2d82e07bf2e348a4c"
         },
         {
           "key": "mount:/classical/control/:PendulumController:1@1440x900:default",
@@ -21707,8 +21707,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-04.jpg",
-      "sha256": "50336f8a7864332267c6794c1388b019ad58e1b3749ea11422797edf40a1bf7b",
-      "bytes": 324220,
+      "sha256": "ba67e621f82f3a051a0a449dd9193d0003f9d018b72877c51282199ff79680fc",
+      "bytes": 324223,
       "mountIds": [
         "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
         "mount:/data-hardware/datasets/:DatasetTable:1",
@@ -21784,19 +21784,19 @@
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@1440x900:default",
-          "sha256": "22061dcecaab2a0f4a97cd42f26ec6b185f161ce90d7956a47446288481a4da7"
+          "sha256": "2e1107a93068f02ab1562483f2f3b47e9feb8b1d5ad84a9813e9501575ec8e77"
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@1440x900:changed",
-          "sha256": "ac23f9bd00f9a137333f53552bcf8ccb626e284fda6e8b2f265502176867e51f"
+          "sha256": "b4b3d0e385fdd8004dc7a44fb67227583c16f2625269874d49d4438c87fcde06"
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@375x812:default",
-          "sha256": "f1f09c748d577bcbb9c56b5c8b839714d7e48deb870e1de45fd5df8776739cb0"
+          "sha256": "20788fcf2b707de0c68e626fdbced0c456945f0e5bbc950752089590385419be"
         },
         {
           "key": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1@375x812:changed",
-          "sha256": "89055ffb4f27faacd835a32a212fc8219070e9865db1726705690350a142d9c7"
+          "sha256": "4877d90f7a47a152b03ff6f1b516a3960705fe84e832196553949b4b918d5817"
         },
         {
           "key": "mount:/data-hardware/robot-learning-stack/:SceneSplit:1@1440x900:default",
@@ -21819,8 +21819,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-05.jpg",
-      "sha256": "c320090f86fba618dba2f5426090d17351a7894ccc8d99092e346133e6caab78",
-      "bytes": 275818,
+      "sha256": "009e57230c6ff6ad6f5d9d48a51ccfbbfb2e180c647747e03f2364f2465ba3d9",
+      "bytes": 275915,
       "mountIds": [
         "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
         "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -21864,51 +21864,51 @@
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@1440x900:default",
-          "sha256": "5ecfdf056f191b9bf7ed277a8cb3a330813b6cec4108245558c1d82418ecaf45"
+          "sha256": "9baed0313276ea436fa62b1168cea03c9ad447836fb7d5256c1cc4b82e676e4d"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@1440x900:changed",
-          "sha256": "f1d3e15755dd28993ddf1f72bf2c40f702d570aef0df1c6441f839bf73060c9c"
+          "sha256": "320fc43f773db1e1aa490e59c3d30cf807c844c56ae547326c5b09e5a74f36be"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@375x812:default",
-          "sha256": "8330683322f9c17b44019c4b4fd88e40eebeebcaa00cf110c6bd96977e08f758"
+          "sha256": "bb147956497f413e85461e6e2511da39872f653d86b705cd47a8974e8f51dd9f"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@375x812:changed",
-          "sha256": "cd8f31e708d3592daf65bf53ffb2b3d4b230dbdf878b6517ffe3ed66c55b8893"
+          "sha256": "e6503f54de29586563d965c31b116e8e55f5c2de278de3899d4a7b2bdc619d3d"
         },
         {
           "key": "mount:/frontier/bear-case/:MilestonesWatchlist:1@1440x900:default",
-          "sha256": "1493c7963bfa4cbba22388fab8740d1560eddc5799f0ca67bea6c2bf6e024305"
+          "sha256": "65be295d55ceb3d585eb9e9866eb27601c7647b2db79b5eabb79ae26b341be7b"
         },
         {
           "key": "mount:/frontier/bear-case/:MilestonesWatchlist:1@1440x900:changed",
-          "sha256": "33d550d79e2810b699620bcd5213add4bbfed2d1a502a9b67c0b42f6eb02c467"
+          "sha256": "a9b2e41e91609dcd23cd0a499c5828a0bb40105a46938c622122d52a15e31eee"
         },
         {
           "key": "mount:/frontier/bear-case/:MilestonesWatchlist:1@375x812:default",
-          "sha256": "95f64ab48323bb8fbe9fb475762c70d27b19d2fb86c77aed67b04d0193b644d0"
+          "sha256": "868be148cf2b2463a9df7d567e9fbc8b5af82ea49b9b1562a109cefb50a1d01f"
         },
         {
           "key": "mount:/frontier/bear-case/:MilestonesWatchlist:1@375x812:changed",
-          "sha256": "8b468104e82e3c2fa3635dc5ba5cda763495cbfee5c34dbd1aa366cb46778d00"
+          "sha256": "f48641cecd38ccdabb35844b0f5a1bc07a5b1d3358bd343ca923dff99a7114a4"
         },
         {
           "key": "mount:/frontier/competing-theses/:HelixClockwork:1@1440x900:default",
-          "sha256": "bf082641ae4e878a00093447da686c1503195f760a942e64c22651d2f7cda00e"
+          "sha256": "b0a2cc6d98d4b398eeb2a8d3bcf10b320b162bdf7336403d7525d72cfc1bcb4a"
         },
         {
           "key": "mount:/frontier/competing-theses/:HelixClockwork:1@1440x900:changed",
-          "sha256": "5f6df6463d82a46263946a66474dec3d94fb1b9927e9c0f222a0dda5e47ad36d"
+          "sha256": "38aa24e0fc1cd151d39b9dce9a9abb045ec6187224c3b7050a34fce95a4b1e23"
         },
         {
           "key": "mount:/frontier/competing-theses/:HelixClockwork:1@375x812:default",
-          "sha256": "1a8086f272aadac21de21e79887750ce702581bf08eca4b7ea38ef848b5a45b0"
+          "sha256": "732b7eadfea2c2b42aba479eaecac639dcb6f8ef95df44fb86602ba1b07bddeb"
         },
         {
           "key": "mount:/frontier/competing-theses/:HelixClockwork:1@375x812:changed",
-          "sha256": "de62f986fb25f2df8296edf2c20cf011bdc001ede9a0fe9b00f1dba5b4a08fb3"
+          "sha256": "5130416754f3cc2357ee7af4f18168a8798861cef6e4772fb6b4a6a629c5045d"
         },
         {
           "key": "mount:/frontier/competing-theses/:ThesisExplorer:1@1440x900:default",
@@ -21916,7 +21916,7 @@
         },
         {
           "key": "mount:/frontier/competing-theses/:ThesisExplorer:1@1440x900:changed",
-          "sha256": "d570ed099bdf9417f800847135934fe4c6a7b6425b5d797e2183d4b24a7e35d1"
+          "sha256": "1244c81b5e41264f8fc389b528791bfa545ec3ee5265a81ab88e218751d43b97"
         },
         {
           "key": "mount:/frontier/competing-theses/:ThesisExplorer:1@375x812:default",
@@ -21924,15 +21924,15 @@
         },
         {
           "key": "mount:/frontier/competing-theses/:ThesisExplorer:1@375x812:changed",
-          "sha256": "f571c3dc06c74534f95253a0426a27573f16282976d9d14f25ace54f9008856b"
+          "sha256": "fb9d7209d0ef93972c94149f2cda80a0af87c6ba5c0d2e7ee86cb281e793d52e"
         }
       ],
       "renderedTwiceIdentical": true
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-06.jpg",
-      "sha256": "951ca228b17fee181be2ec2ebc624aa918f66ebc579ef8f0850f87785bbf3e1b",
-      "bytes": 203001,
+      "sha256": "33f6b992286fdd7cc5988be4ed2e47b732316ef09aa4555b627114eb1428b5d8",
+      "bytes": 202968,
       "mountIds": [
         "mount:/frontier/dexterity/:HandComparison:1",
         "mount:/frontier/generalization/:EgoScaleScaling:1",
@@ -21944,19 +21944,19 @@
       "captures": [
         {
           "key": "mount:/frontier/dexterity/:HandComparison:1@1440x900:default",
-          "sha256": "9579c958556088b774a09ffbfe68e01bc23517c6e308a05d9e107eec486e99dd"
+          "sha256": "adfc6663a29c9bb4e09a09acd0e2cb32c36c01f26bd6544e522109782ef3d403"
         },
         {
           "key": "mount:/frontier/dexterity/:HandComparison:1@1440x900:changed",
-          "sha256": "c4b9e6261de3bda207bfa7b1d1a3d15972fbb49c1804eb2fd3261a246d726b6c"
+          "sha256": "f9cbbe5263d20f2029864fa7814d316193015551cef8b5554490e3e7794846a3"
         },
         {
           "key": "mount:/frontier/dexterity/:HandComparison:1@375x812:default",
-          "sha256": "35dd31827fddbd996e5096ec092ff8fae48077c827663623810f48b9728cab6e"
+          "sha256": "82c309dcf7190a78fd546bcaa01873f9c9c5032dd7ebd48f59070e67f8fda169"
         },
         {
           "key": "mount:/frontier/dexterity/:HandComparison:1@375x812:changed",
-          "sha256": "b224026f3335a603cf6467a59c10aa8af0ef94974961470623e9e44b6297bc3e"
+          "sha256": "479f6f08e072838880ef85eddcb4def5e995a27c3c8088dab11dc140df63f4cc"
         },
         {
           "key": "mount:/frontier/generalization/:EgoScaleScaling:1@1440x900:default",
@@ -21984,11 +21984,11 @@
         },
         {
           "key": "mount:/frontier/reliability-gap/:DeploymentDashboard:1@375x812:default",
-          "sha256": "c0458cbc4dfa05c3b270a781896cb9372c6d460e724d75826b53a062ec9235c6"
+          "sha256": "2121efc3ccd22b95ff37e3741b34b02773f085a6d7334cc073114d9f2090e81e"
         },
         {
           "key": "mount:/frontier/reliability-gap/:DeploymentDashboard:1@375x812:changed",
-          "sha256": "fd62cadd1c172e86ee7a1f2f51311b7331869ab1f753fb4ae21fa110151272ec"
+          "sha256": "7e0ddbe9d837f655ac568da5482a89f0deac3a890fed21f17b4e5716f136a898"
         },
         {
           "key": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1@1440x900:default",
@@ -22032,11 +22032,11 @@
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@375x812:default",
-          "sha256": "d456ee7febb4d1ac5f57c506d9e059d74fe6f4d6eedcab842d690e7555e8e32b"
+          "sha256": "9eb1f2b90dd4ab85a662cd818ec992c349e1767838d6306ccbada4892b8cc3a7"
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@375x812:changed",
-          "sha256": "3c9122ae0600c670bfc77784c29d1c2ec288ed6b550a2ece8122a367554f813a"
+          "sha256": "c26f07a83af2c5fc12a43815f1ac8bd7455b8413d2060c7b3a7f42704e534a45"
         }
       ],
       "renderedTwiceIdentical": true
