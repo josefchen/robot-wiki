@@ -58,6 +58,8 @@ import { Clip } from '@/components/motion/clip';
 
 import { LinearizationGap } from '@/components/interactive/linearization-gap';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 State estimation computes a robot's state, such as its [configuration](/classical/kinematics) or velocity over ground, from noisy, biased and intermittent sensor readings, and [planning](/classical/motion-planning) and [control](/classical/control) assume that state is known. Probabilistic estimators report a belief, so each estimate carries its uncertainty <Cite id="thrun-2005" />.
 
 <Image id="apollo-imu-draper-2019" />
@@ -85,7 +87,9 @@ $$
 bel(x_t) = \eta \, p(z_t \mid x_t) \, \overline{bel}(x_t)
 $$
 
-with normalizer $\eta$. This recursion is the Bayes filter, which Thrun, Burgard and Fox call the basis of virtually every technique in their book, and each tractable filter adds assumptions or approximations that make the integral computable <Cite id="thrun-2005" />. The bootstrap filter of Gordon, Salmond and Smith drops the linearity and Gaussian-noise assumptions and applies to any state transition or measurement model <Cite id="gordon-salmond-smith-1993" />.
+with normalizer $\eta$. This recursion is the Bayes filter, which Thrun, Burgard and Fox call the basis of virtually every technique in their book, and each tractable filter adds assumptions or approximations that make the integral computable <Cite id="thrun-2005" />. The bootstrap filter of Gordon, Salmond and Smith drops the linearity and Gaussian-noise assumptions and applies to any state transition or measurement model <Cite id="gordon-salmond-smith-1993" />. Drive the robot in the figure below: its cloud of doubt grows as it moves and shrinks when it spots a landmark.
+
+<ExplainerFigure id="whereami" />
 
 ## The Kalman filter
 

@@ -62,6 +62,8 @@ import {
   TrajOptFullBodyTable,
 } from '@/components/mdx/trajopt-results-table';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Motion planning computes a collision-free route from a robot's current configuration to a goal <Cite id="lavalle-2006" />, a sequence of the joint angles that [kinematics](/classical/kinematics) maps to poses. Sampling-based planners explore configurations and the connections between them; trajectory optimizers improve a complete candidate trajectory against an objective <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
 <Image id="pr2-willow-garage-2010" />
@@ -105,7 +107,9 @@ $$
 
 with starting state $x$ and input $u$; the report recommends a higher-order integrator such as Runge-Kutta <Cite id="lavalle-1998" />. LaValle's 2006 book drops the step size: each sample connects to the nearest point on the tree's swath, the union of its edge paths, splitting an edge when needed <Cite id="lavalle-2006" />.
 
-Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id="lavalle-1998" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id="lavalle-kuffner-2001" />.
+Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id="lavalle-1998" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id="lavalle-kuffner-2001" />. Drag the shelf in the figure below and the tree of random safe steps regrows around it to the goal.
+
+<ExplainerFigure id="path" />
 
 Kuffner and LaValle's RRT-Connect grows two trees, rooted at the start and the goal <Cite id="rrt-connect-2000" />. In the six manipulation problems of a 2023 comparison, it had the best overall success rate <Cite id="orthey-review-2023" />.
 

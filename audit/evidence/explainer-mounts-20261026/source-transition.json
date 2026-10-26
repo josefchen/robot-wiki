@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "explainer-mount-continuity-v1",
+  "name": "explainer-mounts-20261026",
+  "reviewedBy": "implementation worker for opus-pass-convergence, 2026-10-26 (not independent acceptance)",
+  "rationale": "VAL-OPUS-153 and rule 12 of the 3D curriculum (owner-decision-3d-curriculum-20261002) mount each of the twelve curriculum explainers once, in the first home article the curriculum names for it, where that article first introduces the concept, with prose beside it that refers to it; every other home article the curriculum names links to the explainer. Each article change is recorded here as exact edits over the bytes the article had before it. An article may differ from those bytes only by the explainer figure import line, the one-line mount of the explainer its row in components/explainers/mounts.ts names, that row's one cue sentence appended to the paragraph before the mount, and links to /how-robots-work/ anchors wrapped around existing words; every number, citation, glossary occurrence and other link is unchanged. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "ownerApproval": "Owner directives of 2026-10-02 16:40 item 6 (\"its home article\") and 13:45 (\"linked from\"), with rule 12 of owner-decision-3d-curriculum-20261002 (mount where the concept is first introduced, the prose refers to it, never stacked at the top), as sealed in contract/opus-pass.md VAL-OPUS-153 and routed to opus-pass-convergence by the parent note of 2026-10-19 06:20 (add only the mount and its one sentence where a home article is held by an owner lane). Not release approval.",
+  "observedAt": "2026-10-26T02:21:51Z",
+  "sources": [
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/adjacent/drones.mdx",
+        "bytes": 13642,
+        "sha256": "ebf249ec3991c6e7f018663d7d73aea77654608877ed43110b5f047a3a8a7af3"
+      },
+      "after": {
+        "path": "content/adjacent/drones.mdx",
+        "bytes": 13860,
+        "sha256": "a4433d509c6b9f63950a41bb485cece53cd74b455cf8aa5b82be5adb01bbacfe"
+      },
+      "edits": [
+        {
+          "before": "import { SenseAvoid } from '@/components/motion/scenes/sense-avoid';\n\n",
+          "after": "import { SenseAvoid } from '@/components/motion/scenes/sense-avoid';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id=\"faessler-flatness-2018\" />, and standard models cover its dynamics, estimation and control <Cite id=\"mahony-multirotor-2012\" />. Flight also has no contact: an aerial robot either flies in free space or has already failed. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id=\"swift-drone-racing-2023\" />.\n",
+          "after": "A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id=\"faessler-flatness-2018\" />, and standard models cover its dynamics, estimation and control <Cite id=\"mahony-multirotor-2012\" />. Flight also has no contact: an aerial robot either flies in free space or has already failed. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id=\"swift-drone-racing-2023\" />. Make the drone in the figure below climb, fly forward and turn, and watch its four propeller speeds change.\n\n<ExplainerFigure id=\"flying\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/classical/grasp-planning.mdx",
+        "bytes": 12638,
+        "sha256": "319462256bce91bc457ae3ce5a91bd36f7b8418244a4e0ea331438e4167cf00c"
+      },
+      "after": {
+        "path": "content/classical/grasp-planning.mdx",
+        "bytes": 12832,
+        "sha256": "64451cba15010e4039106b9e941de34febba8741e654f82ac82c4ec30be5c808"
+      },
+      "edits": [
+        {
+          "before": "import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';\n\n",
+          "after": "import { GraspWrenchLab } from '@/components/interactive/grasp-wrench-lab';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "The admissible forces form the <Term id=\"friction-cone\">friction cone</Term> around the inward normal, with half-angle $\\alpha = \\arctan \\mu$. In the plane the cone is a wedge; in space it is a quadratic cone, and approximating it by a polyhedral one keeps the analysis linear <Cite id=\"murray-li-sastry-1994\" /> <Cite id=\"prattichizzo-trinkle-2016\" />. A soft-finger contact adds a torsional moment about the normal, bounded by a torsional coefficient times the normal load <Cite id=\"murray-li-sastry-1994\" />.\n",
+          "after": "The admissible forces form the <Term id=\"friction-cone\">friction cone</Term> around the inward normal, with half-angle $\\alpha = \\arctan \\mu$. In the plane the cone is a wedge; in space it is a quadratic cone, and approximating it by a polyhedral one keeps the analysis linear <Cite id=\"murray-li-sastry-1994\" /> <Cite id=\"prattichizzo-trinkle-2016\" />. A soft-finger contact adds a torsional moment about the normal, bounded by a torsional coefficient times the normal load <Cite id=\"murray-li-sastry-1994\" />. Tilt the grip in the figure below and pick a surface to find where the pinch lets go.\n\n<ExplainerFigure id=\"grip\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 10771,
+        "sha256": "ba9f8e122801d873d4b13b4ee118a6166a976a9420f84c485e614e04716c81f6"
+      },
+      "after": {
+        "path": "content/classical/kinematics.mdx",
+        "bytes": 10994,
+        "sha256": "8451978739c776c203605c0ac66ab411b990f155569262820f75d07060bd4c45"
+      },
+      "edits": [
+        {
+          "before": "import { DhParameterTable } from '@/components/mdx/dh-parameter-table';\n\n",
+          "after": "import { DhParameterTable } from '@/components/mdx/dh-parameter-table';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "A serial arm is a chain of rigid links and joints, with a coordinate frame on each link. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id=\"modern-robotics-2017\" />:\n",
+          "after": "[A serial arm is a chain](/how-robots-work/#arm) of rigid links and joints, with a coordinate frame on each link. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id=\"modern-robotics-2017\" />:\n"
+        },
+        {
+          "before": "Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id=\"modern-robotics-2017\" />.\n",
+          "after": "Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id=\"modern-robotics-2017\" />. Drag the cup in the figure below and watch the arm work out an angle for every joint.\n\n<ExplainerFigure id=\"reaching\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 18345,
+        "sha256": "5971af8f62c33546c994c2ac715474ef3f59ea7e891a85f47feb93784352fcd6"
+      },
+      "after": {
+        "path": "content/classical/motion-planning.mdx",
+        "bytes": 18553,
+        "sha256": "cc21591384cfdaeb31252ee9e8c122dc2a38e9442d4e435316663240b0b82b7c"
+      },
+      "edits": [
+        {
+          "before": "} from '@/components/mdx/trajopt-results-table';\n\n",
+          "after": "} from '@/components/mdx/trajopt-results-table';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id=\"lavalle-1998\" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id=\"lavalle-kuffner-2001\" />.\n",
+          "after": "Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id=\"lavalle-1998\" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id=\"lavalle-kuffner-2001\" />. Drag the shelf in the figure below and the tree of random safe steps regrows around it to the goal.\n\n<ExplainerFigure id=\"path\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16480,
+        "sha256": "515349d6cfefb7b6df9130a8719889c0f0c56e0219b25453644f0a2929ad0078"
+      },
+      "after": {
+        "path": "content/classical/scene-representation.mdx",
+        "bytes": 16650,
+        "sha256": "4a1265574ee4408e040ced46ef2b61665bac9083771a330e8dc1945dfbdad75a"
+      },
+      "edits": [
+        {
+          "before": "import { LoopClosure } from '@/components/interactive/loop-closure';\n\n",
+          "after": "import { LoopClosure } from '@/components/interactive/loop-closure';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "Moravec and Elfes projected wide-angle sonar readings from different sensors and robot positions onto a 2D <Term id=\"occupancy-grid\">occupancy grid</Term>. Each reading marked a probably empty beam interior and an uncertain reflecting point near the measured range, and overlapping readings refined these constraints. Zero represented unknown occupancy, and negative and positive values probably empty and probably occupied cells <Cite id=\"moravec-elfes-1985\" />. OctoMap carries the three states into 3D in a compressed octree <Cite id=\"octomap-2013\" />.\n",
+          "after": "Moravec and Elfes projected wide-angle sonar readings from different sensors and robot positions onto a 2D <Term id=\"occupancy-grid\">occupancy grid</Term>. Each reading marked a probably empty beam interior and an uncertain reflecting point near the measured range, and overlapping readings refined these constraints. Zero represented unknown occupancy, and negative and positive values probably empty and probably occupied cells <Cite id=\"moravec-elfes-1985\" />. OctoMap carries the three states into 3D in a compressed octree <Cite id=\"octomap-2013\" />. Step through the figure below to see one mug stored four ways.\n\n<ExplainerFigure id=\"mug\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 15284,
+        "sha256": "af9e582c0644bb5b3004347685a9348680529e53ecb2bc5e22fa7400f50bd88e"
+      },
+      "after": {
+        "path": "content/classical/state-estimation.mdx",
+        "bytes": 15508,
+        "sha256": "12bdc339311f21d8bb24a8152deabb2081f3f25a23dae7ba2b85d532c2f1609c"
+      },
+      "edits": [
+        {
+          "before": "import { LinearizationGap } from '@/components/interactive/linearization-gap';\n\n",
+          "after": "import { LinearizationGap } from '@/components/interactive/linearization-gap';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "with normalizer $\\eta$. This recursion is the Bayes filter, which Thrun, Burgard and Fox call the basis of virtually every technique in their book, and each tractable filter adds assumptions or approximations that make the integral computable <Cite id=\"thrun-2005\" />. The bootstrap filter of Gordon, Salmond and Smith drops the linearity and Gaussian-noise assumptions and applies to any state transition or measurement model <Cite id=\"gordon-salmond-smith-1993\" />.\n",
+          "after": "with normalizer $\\eta$. This recursion is the Bayes filter, which Thrun, Burgard and Fox call the basis of virtually every technique in their book, and each tractable filter adds assumptions or approximations that make the integral computable <Cite id=\"thrun-2005\" />. The bootstrap filter of Gordon, Salmond and Smith drops the linearity and Gaussian-noise assumptions and applies to any state transition or measurement model <Cite id=\"gordon-salmond-smith-1993\" />. Drive the robot in the figure below: its cloud of doubt grows as it moves and shrinks when it spots a landmark.\n\n<ExplainerFigure id=\"whereami\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 11225,
+        "sha256": "01727d1b7c0ddd110bdafd3c957475ab217d338cf71adad943ce4bf76969a180"
+      },
+      "after": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 11434,
+        "sha256": "e0c7afb20c2a5de3d63e0500014efa386a4ade66ca1d6b4bdcc28f051afc4579"
+      },
+      "edits": [
+        {
+          "before": "import { HardwareGuide } from '@/components/interactive/hardware-guide';\n\n",
+          "after": "import { HardwareGuide } from '@/components/interactive/hardware-guide';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "The SO-101 is a 3D-printed arm with six <Term id=\"degrees-of-freedom\">degrees of freedom</Term>, five joints plus a gripper, built from STS3215 servos. Its community BOM for one follower arm totals \\$121.94 in the US column <Cite id=\"so-arm100-repo-2026\" />. Seeed Studio sells the SO-ARM101 Pro at \\$295 unassembled or \\$299 assembled, with 12-bit magnetic encoders and a 500 g payload <Cite id=\"seeed-so-arm101-pro-2026\" />. LeRobot runs ACT, π0 and SmolVLA policies on these arms <Cite id=\"lerobot-docs-2026\" />.\n",
+          "after": "The SO-101 is a 3D-printed arm with six <Term id=\"degrees-of-freedom\">degrees of freedom</Term>, five joints plus a gripper, built from STS3215 servos. Its community BOM for one follower arm totals \\$121.94 in the US column <Cite id=\"so-arm100-repo-2026\" />. Seeed Studio sells the SO-ARM101 Pro at \\$295 unassembled or \\$299 assembled, with 12-bit magnetic encoders and a 500 g payload <Cite id=\"seeed-so-arm101-pro-2026\" />. LeRobot runs ACT, π0 and SmolVLA policies on these arms <Cite id=\"lerobot-docs-2026\" />. Pull the arm apart in the figure below, then guess which motor works hardest to hold it out straight.\n\n<ExplainerFigure id=\"arm\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 10990,
+        "sha256": "387384a25f74e8bb09b6b5d808602d64e3ef81a06df2e46543b8e17330d12a60"
+      },
+      "after": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 11197,
+        "sha256": "b3106048faa1dd919137f754db6840e90f1e83c22eae122915c355be2395af1b"
+      },
+      "edits": [
+        {
+          "before": "import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';\n\n",
+          "after": "import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "In ALOHA, an operator drives a leader arm that twins the follower, so demonstrations arrive in the robot's joint space. ACT, the [action-chunking](/manipulation/action-chunking) policy built for that rig, learned six bimanual tasks, each from about 10 minutes of demonstrations. It reached 84 to 96% final success on four of them, 64% on taping and 20% on threading a velcro tie. The paper put the bimanual setup at \\$18k, or \\$20k with add-ons such as cameras <Cite id=\"act-aloha-2023\" />.\n",
+          "after": "In ALOHA, an operator drives a leader arm that twins the follower, so demonstrations arrive in the robot's joint space. ACT, the [action-chunking](/manipulation/action-chunking) policy built for that rig, learned six bimanual tasks, each from about 10 minutes of demonstrations. It reached 84 to 96% final success on four of them, 64% on taping and 20% on threading a velcro tie. The paper put the bimanual setup at \\$18k, or \\$20k with add-ons such as cameras <Cite id=\"act-aloha-2023\" />. Drag the copy's hand in the figure below and the robot arm mirrors it, recording each moment.\n\n<ExplainerFigure id=\"puppeteer\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17774,
+        "sha256": "62e378f98f9ae2edaacb5e154f17ab248d5c2afd7e0909174841a6fd3858beeb"
+      },
+      "after": {
+        "path": "content/frontier/dexterity.mdx",
+        "bytes": 17973,
+        "sha256": "6a77a821e58dd11a4da30e450cabb150933e93597e9db912a684ecc92d8e8ad3"
+      },
+      "edits": [
+        {
+          "before": "import { TactileSlip } from '@/components/motion/scenes/tactile-slip';\n\n",
+          "after": "import { TactileSlip } from '@/components/motion/scenes/tactile-slip';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "<Term id=\"in-hand-manipulation\">In-hand manipulation</Term>, reorienting a held object without setting it down, separates a hand from a gripper. In the gold-medal \"Use a key\" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id=\"holson-olympics-2025\" />. The challenge rules do not report a completed robot run.\n",
+          "after": "<Term id=\"in-hand-manipulation\">In-hand manipulation</Term>, reorienting a held object without setting it down, separates a hand from a gripper. In the gold-medal \"Use a key\" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id=\"holson-olympics-2025\" />. The challenge rules do not report a completed robot run. Switch between the clamp and the hand in the figure below and try the same task with each.\n\n<ExplainerFigure id=\"hand\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 15614,
+        "sha256": "4e46438de2c8da181c27f9aa42ec2a32952f0bf6a71535d5c8e2a22377924c45"
+      },
+      "after": {
+        "path": "content/rl-sim2real/humanoid-wbc.mdx",
+        "bytes": 15836,
+        "sha256": "d2890829da00f251c161b5f4e4019d4589a0842fe6a0d2aac8853e73ded1daf1"
+      },
+      "edits": [
+        {
+          "before": "import { RetargetingGap } from '@/components/interactive/retargeting-gap';\n\n",
+          "after": "import { RetargetingGap } from '@/components/interactive/retargeting-gap';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "Google DeepMind puts everything in one model: its 30 July 2026 announcement reports that Gemini Robotics 2 controls full humanoids \"from feet to fingertips\", fetching and shelving a watering can on Apptronik's Apollo 2. One checkpoint runs Apollo 2 with SharpaWave hands, Apollo 2 with Inspire hands and the Franka Duo with Robotiq grippers, and DeepMind reports adapting to new bi-arm robots in a few hours, with fewer than 200 examples in most cases <Cite id=\"gemini-robotics-2-2026\" />.\n",
+          "after": "Google DeepMind puts everything in one model: its 30 July 2026 announcement reports that Gemini Robotics 2 controls full humanoids \"from feet to fingertips\", fetching and shelving a watering can on Apptronik's Apollo 2. One checkpoint runs Apollo 2 with SharpaWave hands, Apollo 2 with Inspire hands and the Franka Duo with Robotiq grippers, and DeepMind reports adapting to new bi-arm robots in a few hours, with fewer than 200 examples in most cases <Cite id=\"gemini-robotics-2-2026\" />. Tap a body region in the figure below to see how a humanoid's motors are shared between legs, arms and hands.\n\n<ExplainerFigure id=\"humanoid\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 12812,
+        "sha256": "f9ac67931d46fd8980063ecfe926e3d8e4e32d832af2287320dceb5e64c50788"
+      },
+      "after": {
+        "path": "content/rl-sim2real/legged-locomotion.mdx",
+        "bytes": 13030,
+        "sha256": "647285a60c502735f82f944ebce0869127db25d15e2dee071162b0a9da8a9534"
+      },
+      "edits": [
+        {
+          "before": "import { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';\n\n",
+          "after": "import { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id=\"walk-these-ways-2022\" />.\n",
+          "after": "A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id=\"walk-these-ways-2022\" />. Push the dog and the humanoid in the figure below to see why fewer feet on the ground make balance harder.\n\n<ExplainerFigure id=\"upright\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "1cfe571be32c633c8b76b74b037ca07df5ab38ec",
+      "before": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 10077,
+        "sha256": "4309475a7e10f3ed0cbfede8a8b55a8983bbce35ffdf133e224dd13bea396e9b"
+      },
+      "after": {
+        "path": "content/rl-sim2real/parallel-sim-rl.mdx",
+        "bytes": 10301,
+        "sha256": "c633af5ff2cc7a40311c33c0832cc4a1d0672e3c047ae6d1a8f3e361aa991891"
+      },
+      "edits": [
+        {
+          "before": "import { NewtonSolvers } from '@/components/interactive/newton-solvers';\n\n",
+          "after": "import { NewtonSolvers } from '@/components/interactive/newton-solvers';\n\nimport { ExplainerFigure } from '@/components/explainers/explainer-figure';\n\n"
+        },
+        {
+          "before": "Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty. Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id=\"rudin-2021\" />.\n",
+          "after": "Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty. Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id=\"rudin-2021\" />. Zoom out in the figure below to see thousands of copies of one robot practise at once, then shuffle their worlds.\n\n<ExplainerFigure id=\"worlds\" />\n"
+        }
+      ]
+    }
+  ]
+}

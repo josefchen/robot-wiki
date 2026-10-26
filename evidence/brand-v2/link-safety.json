@@ -920,7 +920,7 @@
       "reachedByTab": 105,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 240
+      "tabStops": 247
     },
     {
       "route": "/adjacent/space/",
@@ -968,7 +968,7 @@
       "reachedByTab": 98,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 220
+      "tabStops": 228
     },
     {
       "route": "/classical/kinematics/",
@@ -976,7 +976,7 @@
       "reachedByTab": 91,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 220
+      "tabStops": 229
     },
     {
       "route": "/classical/motion-planning/",
@@ -984,7 +984,7 @@
       "reachedByTab": 112,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 258
+      "tabStops": 267
     },
     {
       "route": "/classical/perception/",
@@ -1008,7 +1008,7 @@
       "reachedByTab": 121,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 268
+      "tabStops": 277
     },
     {
       "route": "/classical/state-estimation/",
@@ -1016,7 +1016,7 @@
       "reachedByTab": 102,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 239
+      "tabStops": 246
     },
     {
       "route": "/credits/",
@@ -1064,7 +1064,7 @@
       "reachedByTab": 154,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 295
+      "tabStops": 302
     },
     {
       "route": "/data-hardware/industrial-deployment/",
@@ -1088,7 +1088,7 @@
       "reachedByTab": 96,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 234
+      "tabStops": 241
     },
     {
       "route": "/editorial-policy/",
@@ -1128,7 +1128,7 @@
       "reachedByTab": 99,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 228
+      "tabStops": 236
     },
     {
       "route": "/frontier/generalization/",
@@ -1336,7 +1336,7 @@
       "reachedByTab": 114,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 269
+      "tabStops": 277
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
@@ -1344,7 +1344,7 @@
       "reachedByTab": 92,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 211
+      "tabStops": 219
     },
     {
       "route": "/rl-sim2real/offline-rl/",
@@ -1360,7 +1360,7 @@
       "reachedByTab": 89,
       "unreached": [],
       "withoutFocusIndicator": [],
-      "tabStops": 209
+      "tabStops": 217
     },
     {
       "route": "/rl-sim2real/reward-design-mpc/",

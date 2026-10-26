@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { answerOptionsPredecessor } from './audit-answer-options-continuity.ts';
+import { explainerMountPredecessor } from './audit-explainer-mount-continuity.ts';
 import { figureMountPredecessor } from './audit-figure-mount-continuity.ts';
 import { imageMountPredecessor } from './audit-image-mount-continuity.ts';
 import { dataHardwareCutPredecessor } from './audit-length-cut-data-hardware-continuity.ts';
@@ -2146,10 +2147,10 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
   if (!pinned) return citations;
-  // The newer answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
+  // The newer explainer-mount (2026-10-26), answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
   // length-cut (manipulation, classical and rl-sim2real), world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
   const ref = { path, bytes: 0, sha256: '' };
-  const cutSuccessor = frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, answerOptionsPredecessor(root, ref, readFileSync(join(root, path))))))));
+  const cutSuccessor = frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, readFileSync(join(root, path)))))))));
   const worldModelsSuccessor = lengthCutPredecessor(root, ref, cutSuccessor);
   const live = figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref,
     worldModelsLengthCutPredecessor(root, ref, worldModelsSuccessor)));

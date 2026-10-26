@@ -145,6 +145,39 @@
 .explainers .pager a { text-decoration: none; }
 .explainers .pager .lab { display: block; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--dim); }
 
+/*
+ * An explainer mounted in an article is the stage of the shared figure
+ * frame: the frame draws the hairline box, headline, caption and fold, so
+ * the stage draws no rule of its own and the step text reads at the
+ * article's prose size. Overflow stays visible so focus rings on the
+ * stage's edge controls are not cut.
+ */
+.explainers.in-article { font-size: 16px; line-height: 1.62; overflow: visible; }
+.explainers.in-article .stage { border-top: 0; border-bottom: 0; }
+.explainers.in-article .step-text,
+.explainers.in-article .summary .sentence { font-size: 16px; }
+/*
+ * The owner freeze that lets the viewer's controls keep their frozen state
+ * paint covers only /how-robots-work/ and home. In an article they paint
+ * hover and pressed as the figure system's own actions and tabs do. The
+ * figure frame resolves --wash to paper (no tinted panels on the light
+ * stage), so the viewer's hover fill would not show there; an ink-text
+ * control takes a 1 px underline instead, as the figure's start action does.
+ * The figure system draws every box square, so the viewer's rounded
+ * controls, labels and card are squared here too.
+ */
+.explainers.in-article .btn:not(.primary):not(:disabled):hover,
+.explainers.in-article .seg:hover,
+.explainers.in-article .parts .part:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.explainers.in-article :is(.btn, .seg, .seg-frame, .dots button, .parts .part, .hint, .tag, .card) { border-radius: 0; }
+.explainers.in-article .btn:active:not(:disabled) { transform: translateY(1px); }
+.explainers.in-article .stage .start:active { transform: translate(-50%, 1px); }
+.explainers.in-article .dots button:hover { color: var(--ink); border-color: var(--ink); }
+
 @container (max-width: 760px) {
   .explainers .layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .explainers nav.rail { position: static; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }

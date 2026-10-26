@@ -49,6 +49,8 @@ seeAlso:
 import { HandComparison } from '@/components/interactive/hand-comparison';
 import { TactileSlip } from '@/components/motion/scenes/tactile-slip';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Dexterity is skilled <Term id="contact-rich-manipulation">contact-rich manipulation</Term>, such as reorienting an object in the hand or folding cloth. It remains unsolved: a model Physical Intelligence fine-tuned on Benjie Holson's Humanoid Olympics tasks averaged 52% success on them <Cite id="pi-olympics-2025" />.
 
 <Image id="uskin-tactile-allegro-hand-2021" />
@@ -116,7 +118,9 @@ In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of
 
 ## In-hand manipulation
 
-<Term id="in-hand-manipulation">In-hand manipulation</Term>, reorienting a held object without setting it down, separates a hand from a gripper. In the gold-medal "Use a key" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id="holson-olympics-2025" />. The challenge rules do not report a completed robot run.
+<Term id="in-hand-manipulation">In-hand manipulation</Term>, reorienting a held object without setting it down, separates a hand from a gripper. In the gold-medal "Use a key" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id="holson-olympics-2025" />. The challenge rules do not report a completed robot run. Switch between the clamp and the hand in the figure below and try the same task with each.
+
+<ExplainerFigure id="hand" />
 
 Sanctuary announced in-hand manipulation with its 21-DoF hydraulic hands in December 2024 <Cite id="sanctuary-inhand-2024" /> <Cite id="robozaps-phoenix-2026" />. It then showed a sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result <Cite id="sanctuary-hydraulic-rl-2025" />.
 

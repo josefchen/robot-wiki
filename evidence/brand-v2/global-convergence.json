@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "550711de758b43e7736dd7be4207a17e23f2c9218611209eb63f1f68b9c8c907",
+  "fingerprint": "ec2e0e46c2a11cef9fe154c59e3d350a5819e3800cee9317b38b33531777f37b",
   "viewports": [
     "375x812",
     "768x1024",
@@ -104,7 +104,7 @@
           "frames": 0,
           "citationLabels": 3,
           "insetTextRuns": 156,
-          "collisionTextBoxes": 186,
+          "collisionTextBoxes": 185,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
@@ -444,10 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 201,
+            "maxLineWidthPx": 185,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Industrial Deployment",
+            "text": "Drones and Aerial Robotics",
             "exemption": null
           },
           {
@@ -689,8 +689,8 @@
           }
         ],
         "content": {
-          "strings": 124,
-          "digest": "c503e85a"
+          "strings": 123,
+          "digest": "e78c0c23"
         }
       },
       "focus": [
@@ -1356,10 +1356,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 214,
+            "maxLineWidthPx": 238,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Industrial Deployment",
+            "text": "Drones and Aerial Robotics",
             "exemption": null
           },
           {
@@ -1608,8 +1608,8 @@
           }
         ],
         "content": {
-          "strings": 124,
-          "digest": "c503e85a"
+          "strings": 123,
+          "digest": "e78c0c23"
         }
       },
       "focus": [
@@ -2276,10 +2276,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 214,
+            "maxLineWidthPx": 238,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Industrial Deployment",
+            "text": "Drones and Aerial Robotics",
             "exemption": null
           },
           {
@@ -2528,8 +2528,8 @@
           }
         ],
         "content": {
-          "strings": 124,
-          "digest": "c503e85a"
+          "strings": 123,
+          "digest": "e78c0c23"
         }
       },
       "focus": [
@@ -11738,16 +11738,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 4348,
-          "actions": 165,
-          "secondaryActions": 15,
-          "persistentStates": 2,
+          "paintedElements": 4372,
+          "actions": 173,
+          "secondaryActions": 16,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 140,
-          "textRuns": 414,
-          "frames": 4,
+          "textRuns": 425,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 61,
-          "insetTextRuns": 520,
-          "collisionTextBoxes": 923,
+          "insetTextRuns": 533,
+          "collisionTextBoxes": 945,
           "headings": 11,
           "paragraphs": 109,
           "sectionHeads": 8,
@@ -11756,13 +11759,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 41,
           "hiddenTextRuns": 39,
-          "proseRuns": 504,
+          "proseRuns": 508,
           "borderedSides": 7,
           "rails": 7,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 46
+          "compositionBlocks": 47
         },
         "findings": [],
         "typeTuples": [
@@ -12309,8 +12312,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 558,
-          "digest": "7b59fad2"
+          "strings": 576,
+          "digest": "67d0e555"
         }
       },
       "focus": [
@@ -12623,16 +12626,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 4348,
-          "actions": 165,
-          "secondaryActions": 15,
-          "persistentStates": 2,
+          "paintedElements": 4372,
+          "actions": 173,
+          "secondaryActions": 16,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 140,
-          "textRuns": 414,
-          "frames": 4,
+          "textRuns": 425,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 61,
-          "insetTextRuns": 536,
-          "collisionTextBoxes": 655,
+          "insetTextRuns": 549,
+          "collisionTextBoxes": 672,
           "headings": 11,
           "paragraphs": 109,
           "sectionHeads": 8,
@@ -12641,13 +12647,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 41,
           "hiddenTextRuns": 39,
-          "proseRuns": 367,
+          "proseRuns": 370,
           "borderedSides": 7,
           "rails": 7,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 46
+          "compositionBlocks": 47
         },
         "findings": [],
         "typeTuples": [
@@ -13201,8 +13207,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 558,
-          "digest": "7b59fad2"
+          "strings": 576,
+          "digest": "67d0e555"
         }
       },
       "focus": [
@@ -13515,16 +13521,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 4543,
-          "actions": 232,
-          "secondaryActions": 15,
-          "persistentStates": 3,
+          "paintedElements": 4567,
+          "actions": 240,
+          "secondaryActions": 16,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 4,
           "links": 207,
-          "textRuns": 541,
-          "frames": 4,
+          "textRuns": 552,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 61,
-          "insetTextRuns": 663,
-          "collisionTextBoxes": 710,
+          "insetTextRuns": 676,
+          "collisionTextBoxes": 724,
           "headings": 11,
           "paragraphs": 109,
           "sectionHeads": 8,
@@ -13534,13 +13543,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 41,
           "hiddenTextRuns": 39,
-          "proseRuns": 438,
+          "proseRuns": 439,
           "borderedSides": 5,
           "rails": 5,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 9,
-          "compositionBlocks": 46
+          "compositionBlocks": 47
         },
         "findings": [],
         "typeTuples": [
@@ -14160,8 +14169,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 558,
-          "digest": "7b59fad2"
+          "strings": 576,
+          "digest": "67d0e555"
         }
       },
       "focus": [
@@ -27929,15 +27938,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1807,
-          "actions": 152,
-          "secondaryActions": 17,
+          "paintedElements": 1831,
+          "actions": 160,
+          "secondaryActions": 18,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 131,
-          "textRuns": 380,
-          "frames": 3,
+          "textRuns": 391,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 50,
-          "insetTextRuns": 646,
-          "collisionTextBoxes": 750,
+          "insetTextRuns": 659,
+          "collisionTextBoxes": 767,
           "headings": 12,
           "paragraphs": 112,
           "sectionHeads": 10,
@@ -27946,13 +27959,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 45,
           "hiddenTextRuns": 43,
-          "proseRuns": 371,
+          "proseRuns": 374,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 48
+          "compositionBlocks": 49
         },
         "findings": [],
         "typeTuples": [
@@ -28510,8 +28523,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 513,
-          "digest": "83e429fc"
+          "strings": 525,
+          "digest": "b93d5018"
         }
       },
       "focus": [
@@ -28796,7 +28809,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-x=\"start\"][data-brand-control-id=\"control:secondary-action\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -28806,7 +28819,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -28824,15 +28837,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1807,
-          "actions": 152,
-          "secondaryActions": 17,
+          "paintedElements": 1831,
+          "actions": 160,
+          "secondaryActions": 18,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 131,
-          "textRuns": 380,
-          "frames": 3,
+          "textRuns": 391,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 50,
-          "insetTextRuns": 646,
-          "collisionTextBoxes": 533,
+          "insetTextRuns": 659,
+          "collisionTextBoxes": 548,
           "headings": 12,
           "paragraphs": 112,
           "sectionHeads": 10,
@@ -28841,13 +28858,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 45,
           "hiddenTextRuns": 43,
-          "proseRuns": 274,
+          "proseRuns": 276,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 48
+          "compositionBlocks": 49
         },
         "findings": [],
         "typeTuples": [
@@ -29412,8 +29429,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 513,
-          "digest": "83e429fc"
+          "strings": 525,
+          "digest": "b93d5018"
         }
       },
       "focus": [
@@ -29698,7 +29715,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-x=\"start\"][data-brand-control-id=\"control:secondary-action\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -29708,7 +29725,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -29726,16 +29743,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1973,
-          "actions": 210,
-          "secondaryActions": 17,
-          "persistentStates": 1,
+          "paintedElements": 1997,
+          "actions": 218,
+          "secondaryActions": 18,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 189,
-          "textRuns": 487,
-          "frames": 3,
+          "textRuns": 498,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 50,
-          "insetTextRuns": 753,
-          "collisionTextBoxes": 607,
+          "insetTextRuns": 766,
+          "collisionTextBoxes": 621,
           "headings": 12,
           "paragraphs": 112,
           "sectionHeads": 10,
@@ -29745,13 +29765,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 45,
           "hiddenTextRuns": 43,
-          "proseRuns": 350,
+          "proseRuns": 352,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 48
+          "compositionBlocks": 49
         },
         "findings": [],
         "typeTuples": [
@@ -30382,8 +30402,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 513,
-          "digest": "83e429fc"
+          "strings": 525,
+          "digest": "b93d5018"
         }
       },
       "focus": [
@@ -30696,15 +30716,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2363,
-          "actions": 148,
-          "secondaryActions": 13,
-          "links": 128,
-          "textRuns": 387,
-          "frames": 3,
+          "paintedElements": 2388,
+          "actions": 157,
+          "secondaryActions": 14,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
+          "links": 129,
+          "textRuns": 399,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 49,
-          "insetTextRuns": 746,
-          "collisionTextBoxes": 673,
+          "insetTextRuns": 760,
+          "collisionTextBoxes": 691,
           "headings": 11,
           "paragraphs": 107,
           "sectionHeads": 9,
@@ -30713,13 +30737,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 39,
           "hiddenTextRuns": 37,
-          "proseRuns": 333,
+          "proseRuns": 337,
           "borderedSides": 7,
           "rails": 7,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 55
+          "compositionBlocks": 56
         },
         "findings": [],
         "typeTuples": [
@@ -30823,7 +30847,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 310,
-            "count": 60,
+            "count": 61,
             "element": "p.page-lead",
             "text": "How joint angles place a robot's hand, a",
             "exemption": null
@@ -31359,8 +31383,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 503,
-          "digest": "d1096974"
+          "strings": 516,
+          "digest": "7b0a2801"
         }
       },
       "focus": [
@@ -31585,16 +31609,6 @@
           "offsetExemption": null
         },
         {
-          "element": "span",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
           "element": "a[data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
@@ -31625,16 +31639,6 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
           "element": "span",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
@@ -31646,6 +31650,26 @@
         },
         {
           "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "span",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -31673,15 +31697,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2363,
-          "actions": 148,
-          "secondaryActions": 13,
-          "links": 128,
-          "textRuns": 387,
-          "frames": 3,
+          "paintedElements": 2388,
+          "actions": 157,
+          "secondaryActions": 14,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
+          "links": 129,
+          "textRuns": 399,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 49,
-          "insetTextRuns": 848,
-          "collisionTextBoxes": 504,
+          "insetTextRuns": 862,
+          "collisionTextBoxes": 520,
           "headings": 11,
           "paragraphs": 107,
           "sectionHeads": 9,
@@ -31690,13 +31718,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 39,
           "hiddenTextRuns": 37,
-          "proseRuns": 268,
+          "proseRuns": 271,
           "borderedSides": 7,
           "rails": 7,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 55
+          "compositionBlocks": 56
         },
         "findings": [],
         "typeTuples": [
@@ -31800,7 +31828,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 401,
-            "count": 60,
+            "count": 61,
             "element": "p.page-lead",
             "text": "How joint angles place a robot's hand, a",
             "exemption": null
@@ -32343,8 +32371,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 503,
-          "digest": "d1096974"
+          "strings": 516,
+          "digest": "7b0a2801"
         }
       },
       "focus": [
@@ -32569,16 +32597,6 @@
           "offsetExemption": null
         },
         {
-          "element": "span",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
           "element": "a[data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
@@ -32609,16 +32627,6 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
           "element": "span",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
@@ -32630,6 +32638,26 @@
         },
         {
           "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "span",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -32657,16 +32685,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2524,
-          "actions": 204,
-          "secondaryActions": 13,
-          "persistentStates": 1,
-          "links": 184,
-          "textRuns": 491,
-          "frames": 3,
+          "paintedElements": 2549,
+          "actions": 213,
+          "secondaryActions": 14,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
+          "links": 185,
+          "textRuns": 503,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 49,
-          "insetTextRuns": 952,
-          "collisionTextBoxes": 595,
+          "insetTextRuns": 966,
+          "collisionTextBoxes": 611,
           "headings": 11,
           "paragraphs": 107,
           "sectionHeads": 9,
@@ -32676,13 +32707,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 39,
           "hiddenTextRuns": 37,
-          "proseRuns": 352,
+          "proseRuns": 355,
           "borderedSides": 5,
           "rails": 5,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 55
+          "compositionBlocks": 56
         },
         "findings": [],
         "typeTuples": [
@@ -32786,7 +32817,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 401,
-            "count": 60,
+            "count": 61,
             "element": "p.page-lead",
             "text": "How joint angles place a robot's hand, a",
             "exemption": null
@@ -33395,8 +33426,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 503,
-          "digest": "d1096974"
+          "strings": 516,
+          "digest": "7b0a2801"
         }
       },
       "focus": [
@@ -33709,15 +33740,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2976,
-          "actions": 175,
-          "secondaryActions": 18,
+          "paintedElements": 3000,
+          "actions": 183,
+          "secondaryActions": 19,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 153,
-          "textRuns": 485,
-          "frames": 3,
+          "textRuns": 496,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 62,
-          "insetTextRuns": 788,
-          "collisionTextBoxes": 989,
+          "insetTextRuns": 801,
+          "collisionTextBoxes": 1010,
           "headings": 15,
           "paragraphs": 141,
           "sectionHeads": 9,
@@ -33726,13 +33761,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 47,
           "hiddenTextRuns": 45,
-          "proseRuns": 582,
+          "proseRuns": 586,
           "borderedSides": 10,
           "rails": 10,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 74
+          "compositionBlocks": 75
         },
         "findings": [],
         "typeTuples": [
@@ -34336,8 +34371,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 598,
-          "digest": "1a1b98dc"
+          "strings": 610,
+          "digest": "ba60d73d"
         }
       },
       "focus": [
@@ -34650,15 +34685,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2976,
-          "actions": 175,
-          "secondaryActions": 18,
+          "paintedElements": 3000,
+          "actions": 183,
+          "secondaryActions": 19,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 153,
-          "textRuns": 485,
-          "frames": 3,
+          "textRuns": 496,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 62,
-          "insetTextRuns": 928,
-          "collisionTextBoxes": 697,
+          "insetTextRuns": 941,
+          "collisionTextBoxes": 714,
           "headings": 15,
           "paragraphs": 141,
           "sectionHeads": 9,
@@ -34667,13 +34706,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 47,
           "hiddenTextRuns": 45,
-          "proseRuns": 410,
+          "proseRuns": 412,
           "borderedSides": 10,
           "rails": 10,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 74
+          "compositionBlocks": 75
         },
         "findings": [],
         "typeTuples": [
@@ -35284,8 +35323,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 598,
-          "digest": "1a1b98dc"
+          "strings": 610,
+          "digest": "ba60d73d"
         }
       },
       "focus": [
@@ -35598,16 +35637,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3176,
-          "actions": 244,
-          "secondaryActions": 18,
-          "persistentStates": 1,
+          "paintedElements": 3200,
+          "actions": 252,
+          "secondaryActions": 19,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 222,
-          "textRuns": 615,
-          "frames": 3,
+          "textRuns": 626,
+          "disabledTextRuns": 1,
+          "frames": 4,
           "citationMarks": 62,
-          "insetTextRuns": 1058,
-          "collisionTextBoxes": 777,
+          "insetTextRuns": 1071,
+          "collisionTextBoxes": 792,
           "headings": 15,
           "paragraphs": 141,
           "sectionHeads": 9,
@@ -35617,13 +35659,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 47,
           "hiddenTextRuns": 45,
-          "proseRuns": 499,
+          "proseRuns": 501,
           "borderedSides": 8,
           "rails": 8,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 74
+          "compositionBlocks": 75
         },
         "findings": [],
         "typeTuples": [
@@ -36300,8 +36342,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 598,
-          "digest": "1a1b98dc"
+          "strings": 610,
+          "digest": "ba60d73d"
         }
       },
       "focus": [
@@ -42541,16 +42583,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2903,
-          "actions": 200,
-          "secondaryActions": 26,
-          "persistentStates": 1,
+          "paintedElements": 2927,
+          "actions": 208,
+          "secondaryActions": 27,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 163,
-          "textRuns": 512,
-          "frames": 5,
+          "textRuns": 523,
+          "disabledTextRuns": 1,
+          "frames": 6,
           "citationMarks": 52,
-          "insetTextRuns": 653,
-          "collisionTextBoxes": 1063,
+          "insetTextRuns": 666,
+          "collisionTextBoxes": 1081,
           "headings": 13,
           "paragraphs": 165,
           "sectionHeads": 8,
@@ -42559,13 +42604,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 64,
           "hiddenTextRuns": 62,
-          "proseRuns": 489,
+          "proseRuns": 491,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 58
+          "compositionBlocks": 59
         },
         "findings": [],
         "typeTuples": [
@@ -43123,8 +43168,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 635,
-          "digest": "a0bf4bee"
+          "strings": 647,
+          "digest": "377f6b16"
         }
       },
       "focus": [
@@ -43437,16 +43482,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2903,
-          "actions": 200,
-          "secondaryActions": 26,
-          "persistentStates": 1,
+          "paintedElements": 2927,
+          "actions": 208,
+          "secondaryActions": 27,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 163,
-          "textRuns": 512,
-          "frames": 5,
+          "textRuns": 523,
+          "disabledTextRuns": 1,
+          "frames": 6,
           "citationMarks": 52,
-          "insetTextRuns": 653,
-          "collisionTextBoxes": 726,
+          "insetTextRuns": 666,
+          "collisionTextBoxes": 741,
           "headings": 13,
           "paragraphs": 165,
           "sectionHeads": 8,
@@ -43455,13 +43503,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 64,
           "hiddenTextRuns": 62,
-          "proseRuns": 317,
+          "proseRuns": 318,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 58
+          "compositionBlocks": 59
         },
         "findings": [],
         "typeTuples": [
@@ -44026,8 +44074,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 635,
-          "digest": "a0bf4bee"
+          "strings": 647,
+          "digest": "377f6b16"
         }
       },
       "focus": [
@@ -44340,16 +44388,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3095,
-          "actions": 256,
-          "secondaryActions": 26,
-          "persistentStates": 2,
+          "paintedElements": 3119,
+          "actions": 264,
+          "secondaryActions": 27,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 219,
-          "textRuns": 617,
-          "frames": 5,
+          "textRuns": 628,
+          "disabledTextRuns": 1,
+          "frames": 6,
           "citationMarks": 52,
-          "insetTextRuns": 758,
-          "collisionTextBoxes": 784,
+          "insetTextRuns": 771,
+          "collisionTextBoxes": 799,
           "headings": 13,
           "paragraphs": 165,
           "sectionHeads": 8,
@@ -44359,13 +44410,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 64,
           "hiddenTextRuns": 62,
-          "proseRuns": 388,
+          "proseRuns": 390,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 9,
-          "compositionBlocks": 58
+          "compositionBlocks": 59
         },
         "findings": [],
         "typeTuples": [
@@ -44996,8 +45047,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 635,
-          "digest": "a0bf4bee"
+          "strings": 647,
+          "digest": "377f6b16"
         }
       },
       "focus": [
@@ -45310,15 +45361,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3792,
-          "actions": 159,
-          "secondaryActions": 15,
+          "paintedElements": 3815,
+          "actions": 166,
+          "secondaryActions": 16,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 140,
-          "textRuns": 416,
-          "frames": 5,
+          "textRuns": 426,
+          "disabledTextRuns": 1,
+          "frames": 6,
           "citationMarks": 54,
-          "insetTextRuns": 797,
-          "collisionTextBoxes": 858,
+          "insetTextRuns": 809,
+          "collisionTextBoxes": 877,
           "headings": 11,
           "paragraphs": 121,
           "sectionHeads": 9,
@@ -45327,13 +45382,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 45,
           "hiddenTextRuns": 43,
-          "proseRuns": 446,
+          "proseRuns": 450,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 59
+          "compositionBlocks": 60
         },
         "findings": [],
         "typeTuples": [
@@ -45871,8 +45926,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 582,
-          "digest": "e8462106"
+          "strings": 593,
+          "digest": "c0fb69e5"
         }
       },
       "focus": [
@@ -46117,7 +46172,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-x=\"start\"][data-brand-control-id=\"control:secondary-action\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46127,7 +46182,7 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-heading-permalink=\"the-kalman-filter\"][data-pagefind-ignore=\"true\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46137,7 +46192,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46147,7 +46202,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46157,7 +46212,7 @@
           "offsetExemption": null
         },
         {
-          "element": "span",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46167,7 +46222,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-x=\"next\"][data-next=\"true\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -46185,15 +46240,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3792,
-          "actions": 159,
-          "secondaryActions": 15,
+          "paintedElements": 3815,
+          "actions": 166,
+          "secondaryActions": 16,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 140,
-          "textRuns": 416,
-          "frames": 5,
+          "textRuns": 426,
+          "disabledTextRuns": 1,
+          "frames": 6,
           "citationMarks": 54,
-          "insetTextRuns": 977,
-          "collisionTextBoxes": 596,
+          "insetTextRuns": 989,
+          "collisionTextBoxes": 611,
           "headings": 11,
           "paragraphs": 121,
           "sectionHeads": 9,
@@ -46202,13 +46261,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 45,
           "hiddenTextRuns": 43,
-          "proseRuns": 314,
+          "proseRuns": 316,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 59
+          "compositionBlocks": 60
         },
         "findings": [],
         "typeTuples": [
@@ -46753,8 +46812,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 582,
-          "digest": "e8462106"
+          "strings": 593,
+          "digest": "c0fb69e5"
         }
       },
       "focus": [
@@ -46999,7 +47058,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-x=\"start\"][data-brand-control-id=\"control:secondary-action\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47009,7 +47068,7 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-heading-permalink=\"the-kalman-filter\"][data-pagefind-ignore=\"true\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47019,7 +47078,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47029,7 +47088,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47039,7 +47098,7 @@
           "offsetExemption": null
         },
         {
-          "element": "span",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47049,7 +47108,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-x=\"next\"][data-next=\"true\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -47067,16 +47126,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 3968,
-          "actions": 220,
-          "secondaryActions": 15,
-          "persistentStates": 1,
+          "paintedElements": 3991,
+          "actions": 227,
+          "secondaryActions": 16,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 201,
-          "textRuns": 530,
-          "frames": 5,
+          "textRuns": 540,
+          "disabledTextRuns": 1,
+          "frames": 6,
           "citationMarks": 54,
-          "insetTextRuns": 1091,
-          "collisionTextBoxes": 673,
+          "insetTextRuns": 1103,
+          "collisionTextBoxes": 687,
           "headings": 11,
           "paragraphs": 121,
           "sectionHeads": 9,
@@ -47086,13 +47148,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 45,
           "hiddenTextRuns": 43,
-          "proseRuns": 394,
+          "proseRuns": 396,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 59
+          "compositionBlocks": 60
         },
         "findings": [],
         "typeTuples": [
@@ -47703,8 +47765,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 582,
-          "digest": "e8462106"
+          "strings": 593,
+          "digest": "c0fb69e5"
         }
       },
       "focus": [
@@ -68000,16 +68062,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1589,
-          "actions": 231,
-          "secondaryActions": 19,
-          "persistentStates": 4,
+          "paintedElements": 1612,
+          "actions": 238,
+          "secondaryActions": 20,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 5,
           "links": 181,
-          "textRuns": 844,
-          "frames": 4,
+          "textRuns": 854,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 53,
-          "insetTextRuns": 559,
-          "collisionTextBoxes": 1660,
+          "insetTextRuns": 571,
+          "collisionTextBoxes": 1678,
           "headings": 12,
           "paragraphs": 126,
           "sectionHeads": 10,
@@ -68020,13 +68085,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 54,
           "hiddenTextRuns": 52,
-          "proseRuns": 1233,
+          "proseRuns": 1237,
           "borderedSides": 13,
           "rails": 13,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 41
+          "compositionBlocks": 42
         },
         "findings": [],
         "typeTuples": [
@@ -68712,8 +68777,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 721,
-          "digest": "2849d74d"
+          "strings": 747,
+          "digest": "609d328a"
         }
       },
       "focus": [
@@ -69026,16 +69091,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1589,
-          "actions": 231,
-          "secondaryActions": 19,
-          "persistentStates": 4,
+          "paintedElements": 1612,
+          "actions": 238,
+          "secondaryActions": 20,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 5,
           "links": 181,
-          "textRuns": 844,
-          "frames": 4,
+          "textRuns": 854,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 53,
-          "insetTextRuns": 559,
-          "collisionTextBoxes": 1454,
+          "insetTextRuns": 571,
+          "collisionTextBoxes": 1468,
           "headings": 12,
           "paragraphs": 126,
           "sectionHeads": 10,
@@ -69046,13 +69114,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 54,
           "hiddenTextRuns": 52,
-          "proseRuns": 1143,
+          "proseRuns": 1145,
           "borderedSides": 13,
           "rails": 13,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 41
+          "compositionBlocks": 42
         },
         "findings": [],
         "typeTuples": [
@@ -69745,8 +69813,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 721,
-          "digest": "2849d74d"
+          "strings": 747,
+          "digest": "609d328a"
         }
       },
       "focus": [
@@ -70059,16 +70127,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1764,
-          "actions": 292,
-          "secondaryActions": 19,
-          "persistentStates": 5,
+          "paintedElements": 1787,
+          "actions": 299,
+          "secondaryActions": 20,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 6,
           "links": 242,
-          "textRuns": 957,
-          "frames": 4,
+          "textRuns": 967,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 53,
-          "insetTextRuns": 1122,
-          "collisionTextBoxes": 1379,
+          "insetTextRuns": 1134,
+          "collisionTextBoxes": 1392,
           "headings": 12,
           "paragraphs": 126,
           "sectionHeads": 10,
@@ -70079,13 +70150,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 54,
           "hiddenTextRuns": 52,
-          "proseRuns": 1072,
+          "proseRuns": 1073,
           "borderedSides": 11,
           "rails": 11,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 41
+          "compositionBlocks": 42
         },
         "findings": [],
         "typeTuples": [
@@ -70643,14 +70714,14 @@
             "valuePx": 4.55,
             "property": "marginTop",
             "count": 53,
-            "element": "span#_R_2lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "element": "span#_R_40lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
             "count": 53,
-            "element": "span#_R_2lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "element": "span#_R_40lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
@@ -70851,8 +70922,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 721,
-          "digest": "2849d74d"
+          "strings": 747,
+          "digest": "609d328a"
         }
       },
       "focus": [
@@ -76833,15 +76904,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1479,
-          "actions": 177,
-          "secondaryActions": 32,
+          "paintedElements": 1502,
+          "actions": 184,
+          "secondaryActions": 33,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 137,
-          "textRuns": 441,
-          "frames": 4,
+          "textRuns": 451,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 43,
-          "insetTextRuns": 474,
-          "collisionTextBoxes": 940,
+          "insetTextRuns": 486,
+          "collisionTextBoxes": 959,
           "headings": 12,
           "paragraphs": 109,
           "sectionHeads": 10,
@@ -76852,13 +76927,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 42,
           "hiddenTextRuns": 40,
-          "proseRuns": 557,
+          "proseRuns": 560,
           "borderedSides": 12,
           "rails": 12,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -77563,8 +77638,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 476,
-          "digest": "e8f90fd5"
+          "strings": 487,
+          "digest": "31e787bd"
         }
       },
       "focus": [
@@ -77877,15 +77952,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1479,
-          "actions": 177,
-          "secondaryActions": 32,
+          "paintedElements": 1502,
+          "actions": 184,
+          "secondaryActions": 33,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 1,
           "links": 137,
-          "textRuns": 441,
-          "frames": 4,
+          "textRuns": 451,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 43,
-          "insetTextRuns": 534,
-          "collisionTextBoxes": 705,
+          "insetTextRuns": 546,
+          "collisionTextBoxes": 720,
           "headings": 12,
           "paragraphs": 109,
           "sectionHeads": 10,
@@ -77896,13 +77975,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 42,
           "hiddenTextRuns": 40,
-          "proseRuns": 433,
+          "proseRuns": 435,
           "borderedSides": 12,
           "rails": 12,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -78614,8 +78693,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 476,
-          "digest": "e8f90fd5"
+          "strings": 487,
+          "digest": "31e787bd"
         }
       },
       "focus": [
@@ -78928,16 +79007,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1624,
-          "actions": 228,
-          "secondaryActions": 32,
-          "persistentStates": 1,
+          "paintedElements": 1647,
+          "actions": 235,
+          "secondaryActions": 33,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 188,
-          "textRuns": 534,
-          "frames": 4,
+          "textRuns": 544,
+          "disabledTextRuns": 1,
+          "frames": 5,
           "citationMarks": 43,
-          "insetTextRuns": 627,
-          "collisionTextBoxes": 720,
+          "insetTextRuns": 639,
+          "collisionTextBoxes": 734,
           "headings": 12,
           "paragraphs": 109,
           "sectionHeads": 10,
@@ -78948,13 +79030,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 42,
           "hiddenTextRuns": 40,
-          "proseRuns": 447,
+          "proseRuns": 449,
           "borderedSides": 10,
           "rails": 10,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -79739,8 +79821,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 476,
-          "digest": "e8f90fd5"
+          "strings": 487,
+          "digest": "31e787bd"
         }
       },
       "focus": [
@@ -89300,16 +89382,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1475,
-          "actions": 156,
-          "secondaryActions": 19,
-          "persistentStates": 1,
+          "paintedElements": 1499,
+          "actions": 164,
+          "secondaryActions": 20,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 128,
-          "textRuns": 423,
-          "frames": 7,
+          "textRuns": 434,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 47,
-          "insetTextRuns": 509,
-          "collisionTextBoxes": 908,
+          "insetTextRuns": 521,
+          "collisionTextBoxes": 926,
           "headings": 12,
           "paragraphs": 113,
           "sectionHeads": 10,
@@ -89318,13 +89403,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 37,
           "hiddenTextRuns": 35,
-          "proseRuns": 504,
+          "proseRuns": 506,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 54
+          "compositionBlocks": 55
         },
         "findings": [],
         "typeTuples": [
@@ -89892,8 +89977,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 480,
-          "digest": "23884682"
+          "strings": 491,
+          "digest": "3681e995"
         }
       },
       "focus": [
@@ -90206,16 +90291,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1490,
-          "actions": 156,
-          "secondaryActions": 19,
-          "persistentStates": 1,
+          "paintedElements": 1514,
+          "actions": 164,
+          "secondaryActions": 20,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 128,
-          "textRuns": 423,
-          "frames": 7,
+          "textRuns": 434,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 47,
-          "insetTextRuns": 509,
-          "collisionTextBoxes": 623,
+          "insetTextRuns": 521,
+          "collisionTextBoxes": 638,
           "headings": 12,
           "paragraphs": 113,
           "sectionHeads": 10,
@@ -90224,13 +90312,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 37,
           "hiddenTextRuns": 35,
-          "proseRuns": 317,
+          "proseRuns": 318,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 54
+          "compositionBlocks": 55
         },
         "findings": [],
         "typeTuples": [
@@ -90805,8 +90893,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 480,
-          "digest": "23884682"
+          "strings": 491,
+          "digest": "3681e995"
         }
       },
       "focus": [
@@ -91119,16 +91207,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1647,
-          "actions": 211,
-          "secondaryActions": 19,
-          "persistentStates": 2,
+          "paintedElements": 1671,
+          "actions": 219,
+          "secondaryActions": 20,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 183,
-          "textRuns": 524,
-          "frames": 7,
+          "textRuns": 535,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 47,
-          "insetTextRuns": 610,
-          "collisionTextBoxes": 680,
+          "insetTextRuns": 622,
+          "collisionTextBoxes": 694,
           "headings": 12,
           "paragraphs": 113,
           "sectionHeads": 10,
@@ -91138,13 +91229,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 37,
           "hiddenTextRuns": 35,
-          "proseRuns": 374,
+          "proseRuns": 375,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 54
+          "compositionBlocks": 55
         },
         "findings": [],
         "typeTuples": [
@@ -91785,8 +91876,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 480,
-          "digest": "23884682"
+          "strings": 491,
+          "digest": "3681e995"
         }
       },
       "focus": [
@@ -158922,16 +159013,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1871,
-          "actions": 201,
-          "secondaryActions": 35,
-          "persistentStates": 2,
+          "paintedElements": 1895,
+          "actions": 209,
+          "secondaryActions": 36,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 151,
-          "textRuns": 537,
-          "frames": 6,
+          "textRuns": 548,
+          "disabledTextRuns": 1,
+          "frames": 7,
           "citationMarks": 55,
-          "insetTextRuns": 593,
-          "collisionTextBoxes": 1065,
+          "insetTextRuns": 606,
+          "collisionTextBoxes": 1084,
           "headings": 12,
           "paragraphs": 133,
           "sectionHeads": 7,
@@ -158940,13 +159034,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 51,
           "hiddenTextRuns": 49,
-          "proseRuns": 566,
+          "proseRuns": 569,
           "borderedSides": 7,
           "rails": 7,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 9,
-          "compositionBlocks": 49
+          "compositionBlocks": 50
         },
         "findings": [],
         "typeTuples": [
@@ -159643,8 +159737,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 601,
-          "digest": "2ac51b8d"
+          "strings": 619,
+          "digest": "9dbdb315"
         }
       },
       "focus": [
@@ -159957,16 +160051,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1871,
-          "actions": 201,
-          "secondaryActions": 35,
-          "persistentStates": 2,
+          "paintedElements": 1895,
+          "actions": 209,
+          "secondaryActions": 36,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 151,
-          "textRuns": 537,
-          "frames": 6,
+          "textRuns": 548,
+          "disabledTextRuns": 1,
+          "frames": 7,
           "citationMarks": 55,
-          "insetTextRuns": 654,
-          "collisionTextBoxes": 746,
+          "insetTextRuns": 667,
+          "collisionTextBoxes": 761,
           "headings": 12,
           "paragraphs": 133,
           "sectionHeads": 7,
@@ -159975,13 +160072,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 51,
           "hiddenTextRuns": 49,
-          "proseRuns": 399,
+          "proseRuns": 401,
           "borderedSides": 7,
           "rails": 7,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 9,
-          "compositionBlocks": 49
+          "compositionBlocks": 50
         },
         "findings": [],
         "typeTuples": [
@@ -160685,8 +160782,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 601,
-          "digest": "2ac51b8d"
+          "strings": 619,
+          "digest": "9dbdb315"
         }
       },
       "focus": [
@@ -160999,16 +161096,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2046,
-          "actions": 261,
-          "secondaryActions": 35,
-          "persistentStates": 3,
+          "paintedElements": 2070,
+          "actions": 269,
+          "secondaryActions": 36,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 4,
           "links": 211,
-          "textRuns": 651,
-          "frames": 6,
+          "textRuns": 662,
+          "disabledTextRuns": 1,
+          "frames": 7,
           "citationMarks": 55,
-          "insetTextRuns": 768,
-          "collisionTextBoxes": 803,
+          "insetTextRuns": 781,
+          "collisionTextBoxes": 817,
           "headings": 12,
           "paragraphs": 133,
           "sectionHeads": 7,
@@ -161018,13 +161118,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 51,
           "hiddenTextRuns": 49,
-          "proseRuns": 457,
+          "proseRuns": 459,
           "borderedSides": 5,
           "rails": 5,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 8,
-          "compositionBlocks": 49
+          "compositionBlocks": 50
         },
         "findings": [],
         "typeTuples": [
@@ -161794,8 +161894,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 601,
-          "digest": "2ac51b8d"
+          "strings": 619,
+          "digest": "9dbdb315"
         }
       },
       "focus": [
@@ -162108,16 +162208,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2230,
-          "actions": 158,
-          "secondaryActions": 23,
-          "persistentStates": 1,
+          "paintedElements": 2254,
+          "actions": 166,
+          "secondaryActions": 24,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 123,
-          "textRuns": 390,
-          "frames": 7,
+          "textRuns": 401,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 40,
-          "insetTextRuns": 503,
-          "collisionTextBoxes": 806,
+          "insetTextRuns": 516,
+          "collisionTextBoxes": 826,
           "headings": 10,
           "paragraphs": 110,
           "sectionHeads": 8,
@@ -162126,13 +162229,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 43,
           "hiddenTextRuns": 41,
-          "proseRuns": 362,
+          "proseRuns": 366,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 43
+          "compositionBlocks": 44
         },
         "findings": [],
         "typeTuples": [
@@ -162753,8 +162856,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 514,
-          "digest": "5c5f92dc"
+          "strings": 526,
+          "digest": "c09dcb1c"
         }
       },
       "focus": [
@@ -163067,16 +163170,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2230,
-          "actions": 158,
-          "secondaryActions": 23,
-          "persistentStates": 1,
+          "paintedElements": 2254,
+          "actions": 166,
+          "secondaryActions": 24,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 2,
           "links": 123,
-          "textRuns": 390,
-          "frames": 7,
+          "textRuns": 401,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 40,
-          "insetTextRuns": 503,
-          "collisionTextBoxes": 556,
+          "insetTextRuns": 516,
+          "collisionTextBoxes": 572,
           "headings": 10,
           "paragraphs": 110,
           "sectionHeads": 8,
@@ -163085,13 +163191,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 43,
           "hiddenTextRuns": 41,
-          "proseRuns": 248,
+          "proseRuns": 250,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 43
+          "compositionBlocks": 44
         },
         "findings": [],
         "typeTuples": [
@@ -163719,8 +163825,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 514,
-          "digest": "5c5f92dc"
+          "strings": 526,
+          "digest": "c09dcb1c"
         }
       },
       "focus": [
@@ -164033,16 +164139,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2362,
-          "actions": 204,
-          "secondaryActions": 23,
-          "persistentStates": 2,
+          "paintedElements": 2386,
+          "actions": 212,
+          "secondaryActions": 24,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 169,
-          "textRuns": 475,
-          "frames": 7,
+          "textRuns": 486,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 40,
-          "insetTextRuns": 588,
-          "collisionTextBoxes": 607,
+          "insetTextRuns": 601,
+          "collisionTextBoxes": 622,
           "headings": 10,
           "paragraphs": 110,
           "sectionHeads": 8,
@@ -164052,13 +164161,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 43,
           "hiddenTextRuns": 41,
-          "proseRuns": 304,
+          "proseRuns": 306,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 9,
-          "compositionBlocks": 43
+          "compositionBlocks": 44
         },
         "findings": [],
         "typeTuples": [
@@ -164752,8 +164861,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 514,
-          "digest": "5c5f92dc"
+          "strings": 526,
+          "digest": "c09dcb1c"
         }
       },
       "focus": [
@@ -168145,16 +168254,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2106,
-          "actions": 151,
-          "secondaryActions": 17,
-          "persistentStates": 2,
+          "paintedElements": 2130,
+          "actions": 159,
+          "secondaryActions": 18,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 119,
-          "textRuns": 366,
-          "frames": 7,
+          "textRuns": 377,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 45,
-          "insetTextRuns": 458,
-          "collisionTextBoxes": 697,
+          "insetTextRuns": 471,
+          "collisionTextBoxes": 717,
           "headings": 11,
           "paragraphs": 97,
           "sectionHeads": 9,
@@ -168163,13 +168275,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 37,
           "hiddenTextRuns": 35,
-          "proseRuns": 308,
+          "proseRuns": 311,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 38
+          "compositionBlocks": 39
         },
         "findings": [],
         "typeTuples": [
@@ -168775,8 +168887,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 457,
-          "digest": "7767301c"
+          "strings": 469,
+          "digest": "0867fa4f"
         }
       },
       "focus": [
@@ -168991,7 +169103,7 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-cpu\"]",
+          "element": "button[data-x=\"start\"][data-brand-control-id=\"control:secondary-action\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169001,7 +169113,7 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-policy\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169011,7 +169123,47 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-gpu\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-x=\"next\"][data-next=\"true\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169031,47 +169183,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-cpu\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169089,16 +169201,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2106,
-          "actions": 151,
-          "secondaryActions": 17,
-          "persistentStates": 2,
+          "paintedElements": 2130,
+          "actions": 159,
+          "secondaryActions": 18,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 3,
           "links": 119,
-          "textRuns": 366,
-          "frames": 7,
+          "textRuns": 377,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 45,
-          "insetTextRuns": 458,
-          "collisionTextBoxes": 503,
+          "insetTextRuns": 471,
+          "collisionTextBoxes": 520,
           "headings": 11,
           "paragraphs": 97,
           "sectionHeads": 9,
@@ -169107,13 +169222,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 37,
           "hiddenTextRuns": 35,
-          "proseRuns": 226,
+          "proseRuns": 229,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 38
+          "compositionBlocks": 39
         },
         "findings": [],
         "typeTuples": [
@@ -169726,8 +169841,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 457,
-          "digest": "7767301c"
+          "strings": 469,
+          "digest": "0867fa4f"
         }
       },
       "focus": [
@@ -169942,7 +170057,7 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-cpu\"]",
+          "element": "button[data-x=\"start\"][data-brand-control-id=\"control:secondary-action\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169952,7 +170067,7 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-policy\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169962,7 +170077,47 @@
           "offsetExemption": null
         },
         {
-          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-gpu\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-brand-control-id=\"control:selection\"]",
+          "outlineStyle": "solid",
+          "outlineWidthPx": 1,
+          "outlineColour": "rgb(28, 28, 26)",
+          "outlineOffsetPx": 2,
+          "obscuredBy": null,
+          "exemption": null,
+          "offsetExemption": null
+        },
+        {
+          "element": "button[data-x=\"next\"][data-next=\"true\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -169982,47 +170137,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
-          "outlineStyle": "solid",
-          "outlineWidthPx": 1,
-          "outlineColour": "rgb(28, 28, 26)",
-          "outlineOffsetPx": 2,
-          "obscuredBy": null,
-          "exemption": null,
-          "offsetExemption": null
-        },
-        {
-          "element": "a[data-brand-control-id=\"control:link-focus\"]",
+          "element": "button[data-brand-control-id=\"control:selection\"][data-testid=\"robots-count-cpu\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -170040,16 +170155,19 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2255,
-          "actions": 203,
-          "secondaryActions": 17,
-          "persistentStates": 3,
+          "paintedElements": 2279,
+          "actions": 211,
+          "secondaryActions": 18,
+          "disabledActions": 1,
+          "primaryActions": 1,
+          "persistentStates": 4,
           "links": 171,
-          "textRuns": 462,
-          "frames": 7,
+          "textRuns": 473,
+          "disabledTextRuns": 1,
+          "frames": 8,
           "citationMarks": 45,
-          "insetTextRuns": 554,
-          "collisionTextBoxes": 581,
+          "insetTextRuns": 567,
+          "collisionTextBoxes": 596,
           "headings": 11,
           "paragraphs": 97,
           "sectionHeads": 9,
@@ -170059,13 +170177,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 37,
           "hiddenTextRuns": 35,
-          "proseRuns": 303,
+          "proseRuns": 305,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 10,
-          "compositionBlocks": 38
+          "compositionBlocks": 39
         },
         "findings": [],
         "typeTuples": [
@@ -170744,8 +170862,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 457,
-          "digest": "7767301c"
+          "strings": 469,
+          "digest": "0867fa4f"
         }
       },
       "focus": [

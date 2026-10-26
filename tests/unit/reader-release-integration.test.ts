@@ -319,6 +319,15 @@ function throughSeoPass(path: string) {
     expect(continues(figures, end)).toBe(true);
     end = figures.newHash;
   }
+  // The explainer mounts of 2026-10-26 landed last; their one edge on a home
+  // article that gained an explainer mount continues the endpoint too.
+  const explainerEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('explainer-mounts-20261026-'));
+  expect(explainerEdges.length).toBeLessThanOrEqual(1);
+  for (const mount of explainerEdges) {
+    expect(continues(mount, end)).toBe(true);
+    end = mount.newHash;
+  }
   expect(end).toBe(hashOf(readLive(path)));
 }
 

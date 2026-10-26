@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3086,
+      "visibleTextLength": 3064,
       "header": {
         "present": true,
         "display": "flex",
@@ -884,7 +884,7 @@
     },
     {
       "route": "/adjacent/drones/",
-      "visibleTextLength": 22636,
+      "visibleTextLength": 23065,
       "header": {
         "present": true,
         "display": "flex",
@@ -1856,7 +1856,7 @@
     },
     {
       "route": "/classical/grasp-planning/",
-      "visibleTextLength": 18803,
+      "visibleTextLength": 19128,
       "header": {
         "present": true,
         "display": "flex",
@@ -2018,7 +2018,7 @@
     },
     {
       "route": "/classical/kinematics/",
-      "visibleTextLength": 16767,
+      "visibleTextLength": 17111,
       "header": {
         "present": true,
         "display": "flex",
@@ -2180,7 +2180,7 @@
     },
     {
       "route": "/classical/motion-planning/",
-      "visibleTextLength": 26754,
+      "visibleTextLength": 27161,
       "header": {
         "present": true,
         "display": "flex",
@@ -2666,7 +2666,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 28423,
+      "visibleTextLength": 28775,
       "header": {
         "present": true,
         "display": "flex",
@@ -2828,7 +2828,7 @@
     },
     {
       "route": "/classical/state-estimation/",
-      "visibleTextLength": 24569,
+      "visibleTextLength": 24996,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 27370,
+      "visibleTextLength": 27747,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 20659,
+      "visibleTextLength": 21057,
       "header": {
         "present": true,
         "display": "flex",
@@ -5088,7 +5088,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 24072,
+      "visibleTextLength": 24448,
       "header": {
         "present": true,
         "display": "flex",
@@ -9292,7 +9292,7 @@
     },
     {
       "route": "/rl-sim2real/humanoid-wbc/",
-      "visibleTextLength": 26072,
+      "visibleTextLength": 26447,
       "header": {
         "present": true,
         "display": "flex",
@@ -9454,7 +9454,7 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
-      "visibleTextLength": 21176,
+      "visibleTextLength": 21587,
       "header": {
         "present": true,
         "display": "flex",
@@ -9778,7 +9778,7 @@
     },
     {
       "route": "/rl-sim2real/parallel-sim-rl/",
-      "visibleTextLength": 17046,
+      "visibleTextLength": 17478,
       "header": {
         "present": true,
         "display": "flex",

@@ -182,6 +182,7 @@ function main(paths: string[], pinFile?: string, correctionFile?: string): void 
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-length-cut-adjacent-continuity.ts');
   const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
+  const { explainerMountPredecessor } = await import('../lib/audit-explainer-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
@@ -189,9 +190,9 @@ async function verify(): Promise<boolean> {
   let ok = true;
   for (const source of layer.loadAdjacentCutReview(root).sources) {
     try {
-      // The newer answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts) and image-mount (the adjacent images of bundle B, 2026-10-15) layers hand back the cut's successor first.
+      // The newer explainer-mount (2026-10-26), answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts) and image-mount (the adjacent images of bundle B, 2026-10-15) layers hand back the cut's successor first.
       const prior = layer.adjacentCutPredecessor(root, source.before,
-        imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, readFileSync(join(root, source.after.path))))));
+        imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the older layers' successors, which those layers still decide.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

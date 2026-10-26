@@ -58,6 +58,8 @@ import { ActuatorGap } from '@/components/interactive/actuator-gap';
 
 import { TerrainCurriculum } from '@/components/interactive/terrain-curriculum';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 <Term id="legged-locomotion">Legged locomotion</Term> is the control of walking and running robots, and the area where sim-to-real reinforcement learning reached shipping products such as Spot <Cite id="bd-spot-rl-2024" />. ETH Zurich's ANYmal line went from simulation-trained policies on hardware in 2019 <Cite id="hwangbo-2019" /> to a 2.2 km alpine hike in 2022 <Cite id="miki-2022" />.
 
 <Image id="spot-boston-dynamics-2023" />
@@ -91,7 +93,9 @@ ANYmal Parkour's high-level policy selects walking, jumping, climbing and crouch
 
 ## A gait is a timing pattern
 
-A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id="walk-these-ways-2022" />.
+A gait is a footfall-timing pattern: each leg's phase offset in the stride and its duty factor $\beta$, the fraction of the cycle on the ground. Walk These Ways commands a gait as three timing offsets between foot pairs plus a stepping frequency: (0.5, 0, 0) trots, (0, 0.5, 0) bounds and (0, 0, 0) pronks <Cite id="walk-these-ways-2022" />. Push the dog and the humanoid in the figure below to see why fewer feet on the ground make balance harder.
+
+<ExplainerFigure id="upright" />
 
 <Image id="horse-in-motion-muybridge-1878" />
 

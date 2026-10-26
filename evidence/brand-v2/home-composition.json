@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "5a8fa21640be8b4faaa5b0c54d66aca27ebd2eb65000f99ee8b8674a493aeb58",
+  "fingerprint": "5681a47de58bb9771664c88e996d8bb4d4052e201489c9a96d064b8b0ee0f796",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2852,
+  "visibleTextLength": 2830,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Industrial Deployment",
-      "href": "/data-hardware/industrial-deployment/",
+      "accessibleName": "Drones and Aerial Robotics",
+      "href": "/adjacent/drones/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2299.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Generative Video World Models",
-      "href": "/world-models/generative-video/",
+      "accessibleName": "Grasp Planning",
+      "href": "/classical/grasp-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2349.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Model-Based Robot Learning",
-      "href": "/world-models/model-based-robot-learning/",
+      "accessibleName": "Kinematics",
+      "href": "/classical/kinematics/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2399.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "State Estimation",
-      "href": "/classical/state-estimation/",
+      "accessibleName": "Motion Planning",
+      "href": "/classical/motion-planning/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2449.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Humanoid Whole-Body Control",
-      "href": "/rl-sim2real/humanoid-wbc/",
+      "accessibleName": "Scene Representation and Mapping",
+      "href": "/classical/scene-representation/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2499.89,
@@ -1003,9 +1003,7 @@
     },
     {
       "label": "RECENTLY UPDATED",
-      "names": [
-        "World Models"
-      ]
+      "names": []
     },
     {
       "label": "Tools",
@@ -1047,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-26 Industrial Deployment 2026-10-25 Generative Video World Models 2026-10-25 Model-Based Robot Learning 2026-10-25 State Estimation 2026-10-25 Humanoid Whole-Body Control"
+      "text": "RECENTLY UPDATED 2026-10-26 Drones and Aerial Robotics 2026-10-26 Grasp Planning 2026-10-26 Kinematics 2026-10-26 Motion Planning 2026-10-26 Scene Representation and Mapping"
     },
     {
       "label": "Tools",

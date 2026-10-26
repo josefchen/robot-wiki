@@ -50,6 +50,8 @@ seeAlso:
 import { PlanarFkArm } from '@/components/interactive/planar-fk-arm';
 import { DhParameterTable } from '@/components/mdx/dh-parameter-table';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Kinematics is the geometry of robot motion, studied without forces or torques. <Term id="forward-kinematics">Forward kinematics</Term> maps joint angles to the <Term id="end-effector">end-effector</Term> pose through a unique composition of transforms, and <Term id="inverse-kinematics">inverse kinematics</Term> maps a pose back to joint angles, with no solution, one, or many <Cite id="modern-robotics-2017" />.
 
 <Image id="ur16e-cobot-arm-2020" />
@@ -65,7 +67,7 @@ Kinematics is the geometry of robot motion, studied without forces or torques. <
 
 ## Forward kinematics
 
-A serial arm is a chain of rigid links and joints, with a coordinate frame on each link. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id="modern-robotics-2017" />:
+[A serial arm is a chain](/how-robots-work/#arm) of rigid links and joints, with a coordinate frame on each link. A rigid transform packs a rotation $R$ and a translation $p$ into one matrix <Cite id="modern-robotics-2017" />:
 
 $$
 T = \begin{bmatrix} R & p \\ 0 & 1 \end{bmatrix}
@@ -148,7 +150,9 @@ A redundant arm uses the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose spare
 
 ## Inverse kinematics
 
-Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id="modern-robotics-2017" />.
+Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id="modern-robotics-2017" />. Drag the cup in the figure below and watch the arm work out an angle for every joint.
+
+<ExplainerFigure id="reaching" />
 
 Closed forms exist for special geometries, such as six-revolute arms with intersecting wrist axes <Cite id="modern-robotics-2017" />. A general 6R arm reduces to one minimum-degree polynomial in a single joint variable <Cite id="raghavan-roth-1993" />, which Manocha and Canny's 1994 algorithm solved in 11 ms on average on an IBM RS/6000 workstation <Cite id="manocha-canny-1994" />, and Diankov's IKFast generates closed-form solvers that answer in about 6 microseconds, against about 10 milliseconds for most numerical solvers <Cite id="ikfast-diankov-2010" />. The general tool is iterative: linearize, step, repeat <Cite id="modern-robotics-2017" />:
 

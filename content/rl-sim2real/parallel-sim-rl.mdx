@@ -52,6 +52,8 @@ import { RobotsPerGpu } from '@/components/interactive/robots-per-gpu';
 
 import { NewtonSolvers } from '@/components/interactive/newton-solvers';
 
+import { ExplainerFigure } from '@/components/explainers/explainer-figure';
+
 Massively parallel simulation is training a robot policy across thousands of simulated copies of its environment at once, with the physics on a GPU. It produced Rudin and colleagues' four-minute [ANYmal walking run](/rl-sim2real/why-rl-locomotion) <Cite id="rudin-2021" />, trained with the 2017 <Term id="ppo">PPO</Term> algorithm <Cite id="ppo-2017" />.
 
 <Image id="isaac-gym-shadow-hand-envs-2021" />
@@ -69,7 +71,9 @@ Massively parallel simulation is training a robot policy across thousands of sim
 
 Isaac Gym kept physics and policy training on one GPU, passing PhysX buffers straight to PyTorch tensors without CPU round trips. Its authors report 2 to 3 orders of magnitude improvement over a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />.
 
-Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty. Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id="rudin-2021" />.
+Rudin and colleagues scaled from 128 robots, typical of CPU implementations, to 16,384 on one workstation GPU. Flat terrain took under four minutes and uneven terrain twenty. Their deployment policy used 4,096 robots, 98,304-transition batches (24 steps per robot) and 1,500 updates in under 20 minutes on an i9-11900k CPU and RTX A6000 GPU <Cite id="rudin-2021" />. Zoom out in the figure below to see thousands of copies of one robot practise at once, then shuffle their worlds.
+
+<ExplainerFigure id="worlds" />
 
 <RobotsPerGpu className="my-6" />
 

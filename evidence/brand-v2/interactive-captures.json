@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "24931afc1e1fcd53959b8b63b7baccb88e5ed927d057443c19b4a42c27b50358",
+  "fingerprint": "b455e69f632d817b5b90e7299df592f7ce6ec93d9fac6e707346735a1e33c73d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -4222,7 +4222,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "f354edbfe568c3741d83a17d7d7e08673c9d8979447dc993a8fed634795528b0",
+          "sha256": "8894dbc51121e86089f16c4c43e44ce862248b499ff14a7c1ef4cac1dd673a90",
           "widthPx": 327,
           "heightPx": 702,
           "settleAttempts": 2,
@@ -4237,7 +4237,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far each turn is off\" 1.5 to 2",
-          "sha256": "1bb663616bb8a4f5038f24364f6b882c12996bdedcaa4903ff041c0b69711afa",
+          "sha256": "220c546e80e8a93b8e789eaf209c843f154f5efbdd97c0458472d88493abf650",
           "widthPx": 327,
           "heightPx": 702,
           "settleAttempts": 2,
@@ -4330,12 +4330,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "1cc7762c173f8dde5faab7d738551a780ae9bd2669f25c90e140d04b52d715be",
+          "sha256": "0bb28f0ac6fbf50160aca29bda323b72450f40a30fdf3382685147bc173bbb01",
           "widthPx": 930,
           "heightPx": 886,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.5,
+          "luminanceSpread": 17.58,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -4345,12 +4345,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How far each turn is off\" 1.5 to 2",
-          "sha256": "7b243decbcab75e3e6cea38639a1d0904369e59527a6815a84cdd6b2fbdf9c43",
+          "sha256": "b5302da0d1413383cb18508afcbc943da31db94b86f50c8e8ea9d0389b48fb6c",
           "widthPx": 930,
           "heightPx": 886,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.51,
+          "luminanceSpread": 17.59,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -4704,12 +4704,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "3970c13c91689b31e74eb124e6aca53cd23469a12f2216243259959e7acae0f2",
+          "sha256": "e317660212cb2e5652fef14a788c41fb7b98d7132eaebe0afb554526d0109f1c",
           "widthPx": 327,
-          "heightPx": 779,
+          "heightPx": 780,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.21,
+          "luminanceSpread": 25.2,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -4719,12 +4719,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How uncertain the guess is\" 30 to 40",
-          "sha256": "1b9e892f678ba4cffc022e1e4cc1fe2ab69d0a6a57dd4dca40b87ed000feb04d",
+          "sha256": "b41b7e164755bc850fb03c72322eb60e9f1d22db2ef2651883c65d7505a5bc4a",
           "widthPx": 327,
-          "heightPx": 779,
+          "heightPx": 780,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.28,
+          "luminanceSpread": 25.26,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -4812,12 +4812,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "97073e93fb244d9f768ee8bce75ffa4e0a4fba752fee697757211e36d2644027",
+          "sha256": "5dc6200a887d68ed5e13006ba2d4da8b652f1718878a80ceac8f86c61b4dc818",
           "widthPx": 930,
-          "heightPx": 1101,
+          "heightPx": 1102,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 16.75,
+          "luminanceSpread": 16.74,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -4827,12 +4827,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"How uncertain the guess is\" 30 to 40",
-          "sha256": "c7b60c1e51801600c14f9395406a8a45669830e2a90c8f64224624a49d02c658",
+          "sha256": "ea925f5c42283627f926fa410512b297a1362e29be5ac270956361f680b429b8",
           "widthPx": 930,
-          "heightPx": 1101,
+          "heightPx": 1102,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 16.78,
+          "luminanceSpread": 16.77,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -6420,7 +6420,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "259cc20f17e78b33ce041a94f4738aaf3c71c90afd16ecb13158671cd7a98dfc",
+          "sha256": "45373aa137923695eb62d20990780eaa36201f9a80362bbbf407b647f9e5b213",
           "widthPx": 327,
           "heightPx": 684,
           "settleAttempts": 2,
@@ -6435,7 +6435,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Leader's shoulder\" 28 to 44",
-          "sha256": "4a9772d44a7476c4697e7561bbafc1fa5c87e11b9e70fc692c4c90470fd59f6d",
+          "sha256": "eeca9ca506d51fa788e6be61754a7ca08ee04ec757d33129c7ceb8d47395df03",
           "widthPx": 327,
           "heightPx": 684,
           "settleAttempts": 2,
@@ -6528,12 +6528,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "70ebafc9427226f5874055885b8ae05cb6c9a7e3173cc81db3e8e4556ff06979",
+          "sha256": "21c4ee0654aebfe8bdc8830fc79eccc533fe364941a78843e0f8b4b376df7e27",
           "widthPx": 930,
-          "heightPx": 864,
+          "heightPx": 863,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17,
+          "luminanceSpread": 17.01,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -6543,9 +6543,9 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Leader's shoulder\" 28 to 44",
-          "sha256": "187d0ec8f8b978447142dd774d93dac5466a6fec78b36212c3ea7fa78f3f0520",
+          "sha256": "e2d350451ca10c7c868e2ee246a50cc6f448b6332e512e8181329dbc699b0523",
           "widthPx": 930,
-          "heightPx": 864,
+          "heightPx": 863,
           "settleAttempts": 2,
           "settled": true,
           "luminanceSpread": 16.96,
@@ -14684,12 +14684,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "44c59899f6c5af964db39e5a844e1dcfb18f9f3d7fca186cad344f67161de03f",
+          "sha256": "9f1e1880d4f029f3b4a6b95e78fcce2c35c1adfcde7cd435c5834dc7fab5fe65",
           "widthPx": 327,
-          "heightPx": 513,
+          "heightPx": 514,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.72,
+          "luminanceSpread": 29.69,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14699,12 +14699,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"A shelf\"",
-          "sha256": "df600601e2ef55569d60e330eeccf5b7ed77a5c01cd0a3ea20291ea844f33b09",
+          "sha256": "bd4be0f5cf892da9a897ea364ce7cb5d730194433502f6a5238622724f888c33",
           "widthPx": 327,
-          "heightPx": 513,
+          "heightPx": 514,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 29.63,
+          "luminanceSpread": 29.6,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14791,12 +14791,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "8c94a3038eadf9f164de1823019d24cbaf4119bd2bd709c8f32defb88124179a",
+          "sha256": "acfc31f85826c88bda3b510773e0ce9efa2acadc3c88e98fbe484b4c7fdc8f06",
           "widthPx": 930,
-          "heightPx": 668,
+          "heightPx": 667,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 18.92,
+          "luminanceSpread": 18.94,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -14806,12 +14806,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"A shelf\"",
-          "sha256": "82f264ce56dc72f63921cf928e025ad14f96b201e0a972843936a7d24b592095",
+          "sha256": "46d1cb90e4d2e015ff0d958c9281023ec23a5618aa171962219cb9997aff2e52",
           "widthPx": 930,
-          "heightPx": 668,
+          "heightPx": 667,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 18.92,
+          "luminanceSpread": 18.94,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -14898,12 +14898,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "aa0155c072f84fb12ab5a6aa5e7b10b5c77c57272309e9269c2a4343136a2c0d",
+          "sha256": "e11751ff56324ef0fae3867fd4a58dde507e980f49147102bb37d49d446e38ef",
           "widthPx": 327,
           "heightPx": 595,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.14,
+          "luminanceSpread": 27.09,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -14913,12 +14913,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Robot's leg length as a percentage of the person's, currentl\" 75 to 130",
-          "sha256": "794d15df98527a9c911f46319e3f5a76a910595ac5778923a69d385ebdca7521",
+          "sha256": "da5098649ade113b9a455b937dce16ff62feea6af2d4f745779085fac642a3ed",
           "widthPx": 327,
           "heightPx": 595,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 27.21,
+          "luminanceSpread": 27.17,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -15006,12 +15006,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "30f89f2b38516c12241f5d3040adcdfb4948d4dd6d9c4cd439a615f28af32c89",
+          "sha256": "df703eaac638fee20331e9b4b135b67059c31fa014dbe38e465d729a9db9e0a4",
           "widthPx": 930,
           "heightPx": 824,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.16,
+          "luminanceSpread": 17.14,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -15021,12 +15021,12 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Robot's leg length as a percentage of the person's, currentl\" 75 to 130",
-          "sha256": "af164630c96c51d3c4dd9a06ce4865a81a6816f27cb11172197a4ffde205d2a9",
+          "sha256": "5c35a30f67f276c20bc594d0a11459eecc680a357fcfe367e646928cdf3d8214",
           "widthPx": 930,
           "heightPx": 824,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 17.29,
+          "luminanceSpread": 17.27,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -16436,7 +16436,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "5a95496909cae2da5ff8b8518ad720b0c9f64d850e627add9b7b5b8efca95a6a",
+          "sha256": "a99c986fcee59a360f191e1d6da858e0df8c8cdd4034b2d4b98bcfe6651b56ac",
           "widthPx": 327,
           "heightPx": 497,
           "settleAttempts": 2,
@@ -16451,12 +16451,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Closed-chain linkages\"",
-          "sha256": "4f19d1af8169f95a4f58fec3b4e641fb753dca0daa0bd1d0e71ea7b8d42848f2",
+          "sha256": "69488f1a3073ec37d1ff8cd54d44c990d4053883ce4ee0957d7186c555bfbfbc",
           "widthPx": 327,
           "heightPx": 497,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 34.4,
+          "luminanceSpread": 34.39,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -16543,12 +16543,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "1402ae2e6df1cc7013e7f7e64d2a3b0619f3dbc54c215959f91d379163301b44",
+          "sha256": "800da9ae2ec2cdb54f705cbe4d69ad43d35a45cd54aac5d2fc6fa6c3c36a41be",
           "widthPx": 930,
-          "heightPx": 579,
+          "heightPx": 578,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 22,
+          "luminanceSpread": 22.01,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -16558,12 +16558,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Closed-chain linkages\"",
-          "sha256": "f9c0b0c0766ecf207b39fbd67899a36f10897d1cf54d17a3f4a0eee5e8c20d85",
+          "sha256": "cb5e27ba80e057e40c7ae11e944bdb98f0ab9151485a7793b24b5f515c0efdad",
           "widthPx": 930,
-          "heightPx": 579,
+          "heightPx": 578,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 22.09,
+          "luminanceSpread": 22.11,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -16650,7 +16650,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "d412323f0a2e0b5327017d781c6522d77733c9833e38129cd7ae5c6a88cc5128",
+          "sha256": "2707e2b350c78d61639d557ce67b8bab624fe5b764fb2c3e5bef0fb16903fa0f",
           "widthPx": 327,
           "heightPx": 571,
           "settleAttempts": 2,
@@ -16665,7 +16665,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"128\"",
-          "sha256": "c8f018d4a04fb1e44781e708fdef8be6e33542a5246dd9c4248890d1e4defca8",
+          "sha256": "675e75970636769ddf4c2d81efaad2daed2c058e60731ed3fb43fbe780417ac6",
           "widthPx": 327,
           "heightPx": 553,
           "settleAttempts": 2,
@@ -16758,7 +16758,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "672ea45efbd8a290414cdb685fc1e2ef60d6d023822bf98b2f6ec967c8a753ad",
+          "sha256": "4b4d2ae31f5213a3dbce35df98fddbb72a649d88b328bdc71af65dec166da93e",
           "widthPx": 930,
           "heightPx": 818,
           "settleAttempts": 2,
@@ -16773,7 +16773,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"128\"",
-          "sha256": "783e18e6901ec519e8c0a4ee4ae5adb29d01e0af2c821ac064b7be24c88d0a4d",
+          "sha256": "663aec58541987097661e9f6fc8dfe9be7c980a333cf700cbbc7af4fdd43867f",
           "widthPx": 930,
           "heightPx": 818,
           "settleAttempts": 2,
@@ -21595,8 +21595,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-03.jpg",
-      "sha256": "19aa93d14b770c531b8f83b9a75db1e82e97dd0c39d0fc39b812b3a5c7d55cc6",
-      "bytes": 187336,
+      "sha256": "8fef90e7d8ebf4d1d8e290a6c245b1b0d35dc23e408387d506544fef1498c186",
+      "bytes": 187234,
       "mountIds": [
         "mount:/classical/ros2-for-ml-engineers/:QosQueueAge:1",
         "mount:/classical/ros2-for-ml-engineers/:Ros2Interfaces:1",
@@ -21656,19 +21656,19 @@
         },
         {
           "key": "mount:/classical/scene-representation/:LoopClosure:1@1440x900:default",
-          "sha256": "1cc7762c173f8dde5faab7d738551a780ae9bd2669f25c90e140d04b52d715be"
+          "sha256": "0bb28f0ac6fbf50160aca29bda323b72450f40a30fdf3382685147bc173bbb01"
         },
         {
           "key": "mount:/classical/scene-representation/:LoopClosure:1@1440x900:changed",
-          "sha256": "7b243decbcab75e3e6cea38639a1d0904369e59527a6815a84cdd6b2fbdf9c43"
+          "sha256": "b5302da0d1413383cb18508afcbc943da31db94b86f50c8e8ea9d0389b48fb6c"
         },
         {
           "key": "mount:/classical/scene-representation/:LoopClosure:1@375x812:default",
-          "sha256": "f354edbfe568c3741d83a17d7d7e08673c9d8979447dc993a8fed634795528b0"
+          "sha256": "8894dbc51121e86089f16c4c43e44ce862248b499ff14a7c1ef4cac1dd673a90"
         },
         {
           "key": "mount:/classical/scene-representation/:LoopClosure:1@375x812:changed",
-          "sha256": "1bb663616bb8a4f5038f24364f6b882c12996bdedcaa4903ff041c0b69711afa"
+          "sha256": "220c546e80e8a93b8e789eaf209c843f154f5efbdd97c0458472d88493abf650"
         },
         {
           "key": "mount:/classical/scene-representation/:SceneRepresentationLadder:1@1440x900:default",
@@ -21688,19 +21688,19 @@
         },
         {
           "key": "mount:/classical/state-estimation/:LinearizationGap:1@1440x900:default",
-          "sha256": "97073e93fb244d9f768ee8bce75ffa4e0a4fba752fee697757211e36d2644027"
+          "sha256": "5dc6200a887d68ed5e13006ba2d4da8b652f1718878a80ceac8f86c61b4dc818"
         },
         {
           "key": "mount:/classical/state-estimation/:LinearizationGap:1@1440x900:changed",
-          "sha256": "c7b60c1e51801600c14f9395406a8a45669830e2a90c8f64224624a49d02c658"
+          "sha256": "ea925f5c42283627f926fa410512b297a1362e29be5ac270956361f680b429b8"
         },
         {
           "key": "mount:/classical/state-estimation/:LinearizationGap:1@375x812:default",
-          "sha256": "3970c13c91689b31e74eb124e6aca53cd23469a12f2216243259959e7acae0f2"
+          "sha256": "e317660212cb2e5652fef14a788c41fb7b98d7132eaebe0afb554526d0109f1c"
         },
         {
           "key": "mount:/classical/state-estimation/:LinearizationGap:1@375x812:changed",
-          "sha256": "1b9e892f678ba4cffc022e1e4cc1fe2ab69d0a6a57dd4dca40b87ed000feb04d"
+          "sha256": "b41b7e164755bc850fb03c72322eb60e9f1d22db2ef2651883c65d7505a5bc4a"
         }
       ],
       "renderedTwiceIdentical": true
@@ -21819,8 +21819,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-05.jpg",
-      "sha256": "3d11ea8bdce7ffc10fbfd57da358f39bfba0230b52307e17ba2d262dceb0302c",
-      "bytes": 275077,
+      "sha256": "c320090f86fba618dba2f5426090d17351a7894ccc8d99092e346133e6caab78",
+      "bytes": 275818,
       "mountIds": [
         "mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
         "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
@@ -21832,19 +21832,19 @@
       "captures": [
         {
           "key": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1@1440x900:default",
-          "sha256": "70ebafc9427226f5874055885b8ae05cb6c9a7e3173cc81db3e8e4556ff06979"
+          "sha256": "21c4ee0654aebfe8bdc8830fc79eccc533fe364941a78843e0f8b4b376df7e27"
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1@1440x900:changed",
-          "sha256": "187d0ec8f8b978447142dd774d93dac5466a6fec78b36212c3ea7fa78f3f0520"
+          "sha256": "e2d350451ca10c7c868e2ee246a50cc6f448b6332e512e8181329dbc699b0523"
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1@375x812:default",
-          "sha256": "259cc20f17e78b33ce041a94f4738aaf3c71c90afd16ecb13158671cd7a98dfc"
+          "sha256": "45373aa137923695eb62d20990780eaa36201f9a80362bbbf407b647f9e5b213"
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:KinematicTwin:1@375x812:changed",
-          "sha256": "4a9772d44a7476c4697e7561bbafc1fa5c87e11b9e70fc692c4c90470fd59f6d"
+          "sha256": "eeca9ca506d51fa788e6be61754a7ca08ee04ec757d33129c7ceb8d47395df03"
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1@1440x900:default",
@@ -22379,8 +22379,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-10.jpg",
-      "sha256": "73d05188ba67cab0a73441a9004e908d4582271e81edc89c4265c85947b8cd1f",
-      "bytes": 192422,
+      "sha256": "868e48eb4f298610c65ff0bd300c23a96e4c8b783074798dd14ea55e69f90212",
+      "bytes": 192464,
       "mountIds": [
         "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
         "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
@@ -22456,35 +22456,35 @@
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@1440x900:default",
-          "sha256": "8c94a3038eadf9f164de1823019d24cbaf4119bd2bd709c8f32defb88124179a"
+          "sha256": "acfc31f85826c88bda3b510773e0ce9efa2acadc3c88e98fbe484b4c7fdc8f06"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@1440x900:changed",
-          "sha256": "82f264ce56dc72f63921cf928e025ad14f96b201e0a972843936a7d24b592095"
+          "sha256": "46d1cb90e4d2e015ff0d958c9281023ec23a5618aa171962219cb9997aff2e52"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@375x812:default",
-          "sha256": "44c59899f6c5af964db39e5a844e1dcfb18f9f3d7fca186cad344f67161de03f"
+          "sha256": "9f1e1880d4f029f3b4a6b95e78fcce2c35c1adfcde7cd435c5834dc7fab5fe65"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1@375x812:changed",
-          "sha256": "df600601e2ef55569d60e330eeccf5b7ed77a5c01cd0a3ea20291ea844f33b09"
+          "sha256": "bd4be0f5cf892da9a897ea364ce7cb5d730194433502f6a5238622724f888c33"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@1440x900:default",
-          "sha256": "30f89f2b38516c12241f5d3040adcdfb4948d4dd6d9c4cd439a615f28af32c89"
+          "sha256": "df703eaac638fee20331e9b4b135b67059c31fa014dbe38e465d729a9db9e0a4"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@1440x900:changed",
-          "sha256": "af164630c96c51d3c4dd9a06ce4865a81a6816f27cb11172197a4ffde205d2a9"
+          "sha256": "5c35a30f67f276c20bc594d0a11459eecc680a357fcfe367e646928cdf3d8214"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@375x812:default",
-          "sha256": "aa0155c072f84fb12ab5a6aa5e7b10b5c77c57272309e9269c2a4343136a2c0d"
+          "sha256": "e11751ff56324ef0fae3867fd4a58dde507e980f49147102bb37d49d446e38ef"
         },
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@375x812:changed",
-          "sha256": "794d15df98527a9c911f46319e3f5a76a910595ac5778923a69d385ebdca7521"
+          "sha256": "da5098649ade113b9a455b937dce16ff62feea6af2d4f745779085fac642a3ed"
         }
       ],
       "renderedTwiceIdentical": true
@@ -22603,8 +22603,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-12.jpg",
-      "sha256": "789550cf51e3261b8a93bcba40572b1ba8362fb13d400df2f568ff1fb6478533",
-      "bytes": 173758,
+      "sha256": "f31872bfb0b190309dc533877c85afcc05e66d4a28ffd98d78c4fb9a411abd9b",
+      "bytes": 173412,
       "mountIds": [
         "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
         "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
@@ -22616,35 +22616,35 @@
       "captures": [
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1@1440x900:default",
-          "sha256": "1402ae2e6df1cc7013e7f7e64d2a3b0619f3dbc54c215959f91d379163301b44"
+          "sha256": "800da9ae2ec2cdb54f705cbe4d69ad43d35a45cd54aac5d2fc6fa6c3c36a41be"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1@1440x900:changed",
-          "sha256": "f9c0b0c0766ecf207b39fbd67899a36f10897d1cf54d17a3f4a0eee5e8c20d85"
+          "sha256": "cb5e27ba80e057e40c7ae11e944bdb98f0ab9151485a7793b24b5f515c0efdad"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1@375x812:default",
-          "sha256": "5a95496909cae2da5ff8b8518ad720b0c9f64d850e627add9b7b5b8efca95a6a"
+          "sha256": "a99c986fcee59a360f191e1d6da858e0df8c8cdd4034b2d4b98bcfe6651b56ac"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1@375x812:changed",
-          "sha256": "4f19d1af8169f95a4f58fec3b4e641fb753dca0daa0bd1d0e71ea7b8d42848f2"
+          "sha256": "69488f1a3073ec37d1ff8cd54d44c990d4053883ce4ee0957d7186c555bfbfbc"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1@1440x900:default",
-          "sha256": "672ea45efbd8a290414cdb685fc1e2ef60d6d023822bf98b2f6ec967c8a753ad"
+          "sha256": "4b4d2ae31f5213a3dbce35df98fddbb72a649d88b328bdc71af65dec166da93e"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1@1440x900:changed",
-          "sha256": "783e18e6901ec519e8c0a4ee4ae5adb29d01e0af2c821ac064b7be24c88d0a4d"
+          "sha256": "663aec58541987097661e9f6fc8dfe9be7c980a333cf700cbbc7af4fdd43867f"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1@375x812:default",
-          "sha256": "d412323f0a2e0b5327017d781c6522d77733c9833e38129cd7ae5c6a88cc5128"
+          "sha256": "2707e2b350c78d61639d557ce67b8bab624fe5b764fb2c3e5bef0fb16903fa0f"
         },
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1@375x812:changed",
-          "sha256": "c8f018d4a04fb1e44781e708fdef8be6e33542a5246dd9c4248890d1e4defca8"
+          "sha256": "675e75970636769ddf4c2d81efaad2daed2c058e60731ed3fb43fbe780417ac6"
         },
         {
           "key": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1@1440x900:default",

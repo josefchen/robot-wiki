@@ -2,7 +2,8 @@ import { createHash } from 'node:crypto';
 import { committedSource, CONTINUATION_CHECKPOINT, preservedApprovalPacket, preservedCompoundPacket } from '../helpers/continuation-integration';
 import { headReanchorFor } from './helpers/continuation-merge-ledger';
 import {
-  classicalPassEndpoint, educationalCue20261023Endpoint, humanize20261012Endpoint, imagesA20261013Endpoint,
+  classicalPassEndpoint, educationalCue20261023Endpoint, explainerMounts20261026Endpoint, humanize20261012Endpoint,
+  imagesA20261013Endpoint,
   kolBatch20261021Endpoint, kolQueue20261012Endpoint, polish1019Endpoint,
 } from '../helpers/domain-pass';
 import { preFigureMigration } from '../helpers/figure-migration';
@@ -322,7 +323,8 @@ describe('four bounded local truth repairs without completion credit', { timeout
       const merged = headReanchorFor(entries.filter(({ id }) => !id.startsWith('seo-pass-20261002-')
         && !id.startsWith('reader-first-20261003-') && !id.startsWith('domain-pass-20261006-')
         && !id.startsWith('humanize-20261012-manipulation-') && !id.startsWith('images-a-20261013-')
-        && !id.startsWith('kol-batch-20261021-') && !id.startsWith('educational-cue-20261023-')),
+        && !id.startsWith('kol-batch-20261021-') && !id.startsWith('educational-cue-20261023-')
+        && !id.startsWith('explainer-mounts-20261026-')),
         delta.manifest, delta.memberId);
       const restore = restores.find((entry) => entry.memberId === delta.memberId);
       if (restore) expect(restore.oldHash).toBe(merged!.newHash);
@@ -376,14 +378,16 @@ describe('four bounded local truth repairs without completion credit', { timeout
         // The 2026-10-12 KOL triage batch may add one more edge after that,
         // the 2026-10-12 humanize pass one more after it, images bundle A of
         // 2026-10-13 one more after that, polish-1019 of 2026-10-19 one
-        // more after that, the KOL triage batch of 2026-10-21 one more, and
-        // the 2026-10-23 cue fix one more.
-        expect(educationalCue20261023Endpoint(entries, 'prose', delta.memberId,
-          kolBatch20261021Endpoint(entries, 'prose', delta.memberId, polish1019Endpoint(entries, 'prose', delta.memberId,
-            imagesA20261013Endpoint(entries, 'prose', delta.memberId,
-              humanize20261012Endpoint(entries, 'prose', delta.memberId,
-                kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
-                  classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint)))))))).toBe(memberHash(read(path)));
+        // more after that, the KOL triage batch of 2026-10-21 one more, the
+        // 2026-10-23 cue fix one more, and the 2026-10-26 explainer mounts one
+        // more.
+        expect(explainerMounts20261026Endpoint(entries, 'prose', delta.memberId,
+          educationalCue20261023Endpoint(entries, 'prose', delta.memberId,
+            kolBatch20261021Endpoint(entries, 'prose', delta.memberId, polish1019Endpoint(entries, 'prose', delta.memberId,
+              imagesA20261013Endpoint(entries, 'prose', delta.memberId,
+                humanize20261012Endpoint(entries, 'prose', delta.memberId,
+                  kolQueue20261012Endpoint(entries, 'prose', delta.memberId,
+                    classicalPassEndpoint(entries, 'prose', delta.memberId, domainEndpoint))))))))).toBe(memberHash(read(path)));
       } else {
         expect(migrated).toHaveLength(0);
       }
