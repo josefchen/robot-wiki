@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "fd5c8e70fd8ec951a5af7ca30786e8e7036bcd70b94541f1a7b0538377e1e6d5",
+  "fingerprint": "22fc4f067406a131cb50fa664f546d5c68356e111e3f9775401b8b2fd9854046",
   "viewports": [
     "375x812",
     "1440x900"
@@ -12262,7 +12262,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 16508,
+      "visibleTextLength": 17510,
       "figures": [
         {
           "imageId": "asimo-miraikan-2016",
@@ -12583,7 +12583,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18446,
+      "visibleTextLength": 18847,
       "figures": [
         {
           "imageId": "droid-cook-lentils-rollouts-2024",
@@ -12769,7 +12769,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 27168,
+      "visibleTextLength": 27804,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",
@@ -28728,7 +28728,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22707,
+      "visibleTextLength": 23919,
       "figures": [
         {
           "imageId": "asimo-miraikan-2016",
@@ -29049,7 +29049,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 25350,
+      "visibleTextLength": 25751,
       "figures": [
         {
           "imageId": "droid-cook-lentils-rollouts-2024",
@@ -29235,7 +29235,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 38420,
+      "visibleTextLength": 39056,
       "figures": [
         {
           "imageId": "robotic-welding-cell-guarding-2014",

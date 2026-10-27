@@ -229,6 +229,33 @@ test.describe('frontier generalization module', () => {
     );
   });
 
+  test('Helix 2.5 zero-shot bars sit against the 90% bar for solved (VAL-OPUS-081)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="helix-zero-shot-success"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Helix 2.5 reached 56% in unseen homes, short of 90%',
+    );
+    const width = async (id: string) =>
+      Number(await figure.getByTestId(`helix-zero-shot-${id}`).locator('rect').first().getAttribute('width'));
+    expect((await width('index-pretrained')) / (await width('from-scratch'))).toBeCloseTo(56 / 9, 1);
+    await expect(
+      figure.getByTestId('helix-zero-shot-index-pretrained').locator('rect').first(),
+    ).toHaveAttribute('data-chart-role', 'highlight');
+    await expect(figure.getByTestId('helix-solved-bar')).toContainText('bar for solved, 90%');
+    await expect(figure.getByTestId('helix-zero-shot-gap')).toHaveText('34 points short');
+    const stage = figure.getByRole('img', { name: /Zero-shot success in unseen homes/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('9% for a policy trained from scratch and 56% for Helix 2.5');
+    expect(description).toContain('Figure published no trial counts.');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('helix-zero-shot-success-source').locator('a')).toHaveAttribute(
+      'href',
+      'https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization',
+    );
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

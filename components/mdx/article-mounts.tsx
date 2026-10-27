@@ -24,10 +24,12 @@ import {
   DatasetRunsHours as LazyDatasetRunsHours,
   DemoOrSim as LazyDemoOrSim,
   DeploymentDashboard as LazyDeploymentDashboard,
+  FundingHumanoidCounts as LazyFundingHumanoidCounts,
   GeneralistReleaseTimeline as LazyGeneralistReleaseTimeline,
   HandComparison as LazyHandComparison,
   HandEyePoses as LazyHandEyePoses,
   HardwarePriceLadder as LazyHardwarePriceLadder,
+  HelixZeroShotSuccess as LazyHelixZeroShotSuccess,
   HierarchyTimescales as LazyHierarchyTimescales,
   HindsightRelabel as LazyHindsightRelabel,
   HumanoidPickHeight as LazyHumanoidPickHeight,
@@ -45,6 +47,7 @@ import {
   RobotsPerGpu as LazyRobotsPerGpu,
   Ros2Interfaces as LazyRos2Interfaces,
   Ros2PolicyLayout as LazyRos2PolicyLayout,
+  SafetyRulesTimeline as LazySafetyRulesTimeline,
   SampleEfficiencyLedger as LazySampleEfficiencyLedger,
   ScannedTwinCheck as LazyScannedTwinCheck,
   SceneRepresentationLadder as LazySceneRepresentationLadder,
@@ -150,10 +153,12 @@ export const CubeTrials = withCitationRecords('CubeTrials', LazyCubeTrials);
 export const DatasetRunsHours = withCitationRecords('DatasetRunsHours', LazyDatasetRunsHours);
 export const DemoOrSim = withCitationRecords('DemoOrSim', LazyDemoOrSim);
 export const DeploymentDashboard = withCitationRecords('DeploymentDashboard', LazyDeploymentDashboard);
+export const FundingHumanoidCounts = withCitationRecords('FundingHumanoidCounts', LazyFundingHumanoidCounts);
 export const GeneralistReleaseTimeline = withCitationRecords('GeneralistReleaseTimeline', LazyGeneralistReleaseTimeline);
 export const HandComparison = withCitationRecords('HandComparison', LazyHandComparison);
 export const HandEyePoses = withCitationRecords('HandEyePoses', LazyHandEyePoses);
 export const HardwarePriceLadder = withCitationRecords('HardwarePriceLadder', LazyHardwarePriceLadder);
+export const HelixZeroShotSuccess = withCitationRecords('HelixZeroShotSuccess', LazyHelixZeroShotSuccess);
 export const HierarchyTimescales = withCitationRecords('HierarchyTimescales', LazyHierarchyTimescales);
 export const HindsightRelabel = withCitationRecords('HindsightRelabel', LazyHindsightRelabel);
 export const HumanoidPickHeight = withCitationRecords('HumanoidPickHeight', LazyHumanoidPickHeight);
@@ -171,6 +176,7 @@ export const RetargetingGap = withCitationRecords('RetargetingGap', LazyRetarget
 export const RobotsPerGpu = withCitationRecords('RobotsPerGpu', LazyRobotsPerGpu);
 export const Ros2Interfaces = withCitationRecords('Ros2Interfaces', LazyRos2Interfaces);
 export const Ros2PolicyLayout = withCitationRecords('Ros2PolicyLayout', LazyRos2PolicyLayout);
+export const SafetyRulesTimeline = withCitationRecords('SafetyRulesTimeline', LazySafetyRulesTimeline);
 export const SampleEfficiencyLedger = withCitationRecords('SampleEfficiencyLedger', LazySampleEfficiencyLedger);
 export const ScannedTwinCheck = withCitationRecords('ScannedTwinCheck', LazyScannedTwinCheck);
 export const SceneRepresentationLadder = withCitationRecords('SceneRepresentationLadder', LazySceneRepresentationLadder);

@@ -337,13 +337,22 @@ function throughSeoPass(path: string) {
     expect(continues(edit, end)).toBe(true);
     end = edit.newHash;
   }
-  // The data-hardware owed-figures block of the same day landed last; its one
-  // edge on an article that gained a figure or a sourced sentence continues
-  // the endpoint too.
+  // The data-hardware owed-figures block of the same day landed after them;
+  // its one edge on an article that gained a figure or a sourced sentence
+  // continues the endpoint too.
   const owedFiguresEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('owed-figures-dh-20261026-'));
   expect(owedFiguresEdges.length).toBeLessThanOrEqual(1);
   for (const edit of owedFiguresEdges) {
+    expect(continues(edit, end)).toBe(true);
+    end = edit.newHash;
+  }
+  // The frontier owed-figures block of 2026-10-27 landed last; its one edge on
+  // a frontier article that gained a figure continues the endpoint too.
+  const owedFiguresFrontierEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('owed-figures-frontier-20261027-'));
+  expect(owedFiguresFrontierEdges.length).toBeLessThanOrEqual(1);
+  for (const edit of owedFiguresFrontierEdges) {
     expect(continues(edit, end)).toBe(true);
     end = edit.newHash;
   }

@@ -266,8 +266,11 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'sim2real-transfer 2, why-rl-locomotion 2, latent-dynamics 1; the owed ' +
       'data-hardware figures made it 40: the datasets runs-and-hours scatter, the ' +
       'hardware-taxonomy price ladder and the teleop-rigs collection-rate bars, one ' +
-      'each; a change here means a chart was added, removed or re-declared form)',
-  ).toBe(40);
+      'each; the owed frontier figures made it 43: the bear-case funding and ' +
+      'humanoid-count bars, the safety-and-assurance rules timeline and the ' +
+      'generalization Helix 2.5 zero-shot bars, one each; a change here means a ' +
+      'chart was added, removed or re-declared form)',
+  ).toBe(43);
   // An unresolved svg yields no ticks, which clause (a) would otherwise
   // record as one more carve-out: the payback chart went ungraded that way
   // while its svg named a caption and the description in one id list.
@@ -378,6 +381,14 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // datasets, the x-axis counts runs), the hardware-taxonomy price ladder
   // (rows are products) and the teleop-rigs collection-rate bars (rows are
   // collection methods). The floor and cap keep their margin of two.
+  // Re-measured after the owed frontier figures (population 43, pinned
+  // above): pass=6 skip=37 fail=0. The three new tables are keyed by name
+  // too, so their axes join the same family: the bear-case funding and
+  // humanoid-count bars (rows are series and periods, the axes are dollars
+  // and units), the safety-and-assurance rules timeline (rows are rules,
+  // the axis is years) and the generalization Helix 2.5 bars (rows are
+  // policies, the axis is percent). The floor and cap keep their margin of
+  // two.
   // Name every carve-out in the failure text, so a floor or cap breach
   // says which charts moved instead of only how many.
   const skipList = aSkips
@@ -385,12 +396,12 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
     .join(' | ');
   expect(
     aGraded.length,
-    `clause (a) graded population (measured 6 of 40 after the owed data-hardware figures; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
+    `clause (a) graded population (measured 6 of 43 after the owed frontier figures; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
   ).toBeGreaterThanOrEqual(4);
   expect(
     aSkips.length,
-    `clause (a) skip count (measured 34 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
-  ).toBeLessThanOrEqual(36);
+    `clause (a) skip count (measured 37 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
+  ).toBeLessThanOrEqual(39);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {

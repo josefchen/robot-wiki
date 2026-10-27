@@ -459,6 +459,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     leadSeriesId: 'expo-ft',
     leadPaints: ['accent'],
   },
+  'interactive:FundingHumanoidCounts': {
+    // Crunchbase's yearly robotics funding totals beside the IFR and SAG humanoid counts, on separate rulers.
+    kind: 'source-data',
+  },
   'interactive:GeneralistReleaseTimeline': {
     // Release dates and availability from public model releases.
     kind: 'source-data',
@@ -473,6 +477,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:HardwarePriceLadder': {
     // Maker and seller list prices read from the buyer's-guide rows (data/hardware.ts).
+    kind: 'source-data',
+  },
+  'interactive:HelixZeroShotSuccess': {
+    // Figure's Helix 2.5 zero-shot rates in 30 unseen homes, 9% from scratch and 56% with Index pretraining; the 90% bar is the article's own.
     kind: 'source-data',
   },
   'interactive:HumanoidPickHeight': {
@@ -497,6 +505,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:RobotsPerGpu': {
     // Rudin and colleagues' robot counts (128 CPU-era, 4,096 deployed policy, 16,384 on one GPU), one square per 128.
+    kind: 'source-data',
+  },
+  'interactive:SafetyRulesTimeline': {
+    // Publication and application dates of five robot safety rules, each from its own catalogue or legal text.
     kind: 'source-data',
   },
   'interactive:ScannedTwinCheck': {

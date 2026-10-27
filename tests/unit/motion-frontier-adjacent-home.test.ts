@@ -37,6 +37,7 @@ const figures = new Set([
   'MilestonesWatchlist', 'CollaborativeOperationModes', 'AvStackTable',
   'PerceptionLatency', 'SwarmControlTable', 'OrbitalServicingTable',
   'SurgicalSystemsTable', 'ReliabilityThreshold', 'TactileSlip', 'SenseAvoid',
+  'FundingHumanoidCounts', 'SafetyRulesTimeline', 'HelixZeroShotSuccess',
 ]);
 /**
  * Home's one figure is the 3D explainer it features from How robots work;

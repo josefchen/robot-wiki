@@ -1,10 +1,10 @@
 {
   "schemaVersion": "owed-figures-continuity-v1",
   "name": "owed-figures-20261026",
-  "reviewedBy": "implementation worker for opus-pass-owed-figures (data-hardware figures), 2026-10-26 (not independent acceptance)",
+  "reviewedBy": "implementation workers for opus-pass-owed-figures (data-hardware figures, 2026-10-26) and opus-pass-owed-figures-frontier (frontier figures, 2026-10-27) (not independent acceptance)",
   "rationale": "The opus-pass owed-figures slices build the data figures the domain passes owed and mount each where its article discusses the data, with the sentences and sources that came with them (VAL-OPUS-093 leftovers) and the front-matter citations no sentence, figure or guide row cites any more. Each article change is recorded here as exact edits over the bytes the article had before it. A figure may be added, never dropped or reordered; every source the earlier body cited is still cited unless this review names the source that replaced it and why; and the front matter changes only in its citation list, each removal named with its reason. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
-  "ownerApproval": "Owner directives sealed in contract/opus-pass.md (VAL-OPUS-089 data-hardware figures and VAL-OPUS-093 item 3), routed to opus-pass-owed-figures by the orchestrator notes of 2026-10-26 17:00 and 20:40. Not release approval.",
-  "observedAt": "2026-10-26T21:49:15Z",
+  "ownerApproval": "Owner directives sealed in contract/opus-pass.md (VAL-OPUS-089 data-hardware figures, VAL-OPUS-081 frontier figures and VAL-OPUS-093 item 3), routed to opus-pass-owed-figures by the orchestrator notes of 2026-10-26 17:00 and 20:40 and to opus-pass-owed-figures-frontier by the note of 2026-10-27 00:50. Not release approval.",
+  "observedAt": "2026-10-27T01:25:17Z",
   "sources": [
     {
       "archivedFrom": "e77820660711291bc8599b59a5e473347a9b797a",
@@ -140,6 +140,87 @@
         {
           "before": "Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id=\"lin-data-scaling-laws-2024\" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id=\"hifi-umi-2026\" />.\n",
           "after": "Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id=\"lin-data-scaling-laws-2024\" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id=\"hifi-umi-2026\" />.\n\nPollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper that carries out the learned movements on a real or simulated arm <Cite id=\"grabette-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "4f14215b2f209e8a028002bb55e5c3f8bd314fdf",
+      "before": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10521,
+        "sha256": "752dac5da3000fd7c3da1432b201d52628e899a267a9eb139b97cce7a5780bbc"
+      },
+      "after": {
+        "path": "content/frontier/bear-case.mdx",
+        "bytes": 10805,
+        "sha256": "72adb49067d062ceb347672b0a4c9d1b10e0d73837def21f04de399b33642f09"
+      },
+      "edits": [
+        {
+          "before": "  - sag-humanoid-shipments-2026\n",
+          "after": "  - sag-humanoid-shipments-2026\n  - ifr-service-robots-2026\n"
+        },
+        {
+          "before": "import { BearCaseLock } from '@/components/interactive/bear-case-lock';\n\n",
+          "after": "import { BearCaseLock } from '@/components/interactive/bear-case-lock';\n\nimport { FundingHumanoidCounts } from '@/components/interactive/funding-humanoid-counts';\n\n"
+        },
+        {
+          "before": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id=\"figure-bmw-production-2025\" />; neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). Omdia counted about 13,000 humanoids shipped in 2025 <Cite id=\"agibot-omdia-ranking-2026\" /> <Cite id=\"agibot-omdia-2026\" /> and SAG 19.1K in the first half of 2026 <Cite id=\"sag-humanoid-shipments-2026\" />. Tesla's Q2 2026 update says it is still installing its first Optimus lines, whose initial builds go to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q2-2026-update\" />.\n",
+          "after": "Agility reports 65,000 hours of Digit production experience on an undated homepage <Cite id=\"agility-digit-production\" />, and Figure reports 1,250+ hours at BMW Spartanburg by November 2025 <Cite id=\"figure-bmw-production-2025\" />; neither counts autonomous units or supervised time ([evaluation crisis](/data-hardware/evaluation-crisis/)). Omdia counted about 13,000 humanoids shipped in 2025 <Cite id=\"agibot-omdia-ranking-2026\" /> <Cite id=\"agibot-omdia-2026\" /> and SAG 19.1K in the first half of 2026 <Cite id=\"sag-humanoid-shipments-2026\" />. The IFR counted about 7,000 full-size humanoids, those above 140 cm, sold in 2025 <Cite id=\"ifr-service-robots-2026\" />. Tesla's Q2 2026 update says it is still installing its first Optimus lines, whose initial builds go to an \"Optimus Academy for training data collection\" <Cite id=\"tesla-q2-2026-update\" />.\n"
+        },
+        {
+          "before": "Evidence: beyond Crunchbase's narrower venture count <Cite id=\"crunchbase-robotics-funding-2026\" />, a newsletter writeup put the total above \\$23B by early June 2026 by PitchBook's tally <Cite id=\"robotics-funding-23b-2026\" />. Bessemer Venture Partners argues there is \"no robotics bubble\" and that the sector is \"structurally underinvested\", but concedes that \"some valuations are stretched\" <Cite id=\"bessemer-robotics-2026\" />. The skeptic side rests on Brooks's timeline predictions and Morgan Stanley's demand for ROI evidence: Brooks calls some humanoid hype \"downright delusional\" <Cite id=\"brooks-scorecard-2026\" />, while Morgan Stanley makes no bubble call <Cite id=\"morgan-stanley-pr-problem-2026\" /> ([competing theses](/frontier/competing-theses/)).\n",
+          "after": "Evidence: beyond Crunchbase's narrower venture count <Cite id=\"crunchbase-robotics-funding-2026\" />, a newsletter writeup put the total above \\$23B by early June 2026 by PitchBook's tally <Cite id=\"robotics-funding-23b-2026\" />. Bessemer Venture Partners argues there is \"no robotics bubble\" and that the sector is \"structurally underinvested\", but concedes that \"some valuations are stretched\" <Cite id=\"bessemer-robotics-2026\" />. The skeptic side rests on Brooks's timeline predictions and Morgan Stanley's demand for ROI evidence: Brooks calls some humanoid hype \"downright delusional\" <Cite id=\"brooks-scorecard-2026\" />, while Morgan Stanley makes no bubble call <Cite id=\"morgan-stanley-pr-problem-2026\" /> ([competing theses](/frontier/competing-theses/)).\n\n<FundingHumanoidCounts className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "4f14215b2f209e8a028002bb55e5c3f8bd314fdf",
+      "before": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 13877,
+        "sha256": "2598a647378346fa0d5761ccb3163f566b01f8d47879444c930ce4c04c6759fb"
+      },
+      "after": {
+        "path": "content/frontier/generalization.mdx",
+        "bytes": 14019,
+        "sha256": "0060735bb589f03d72b1227a9b5344cbc3599c2f9f39934c6e5866589a27fb3a"
+      },
+      "edits": [
+        {
+          "before": "import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';\n\n",
+          "after": "import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';\n\nimport { HelixZeroShotSuccess } from '@/components/interactive/helix-zero-shot-success';\n\n"
+        },
+        {
+          "before": "The solved bar sits at 0.90 on the chart's completion axis, and the best measured point is 0.71, on a friendlier metric, after post-training, on tasks the evaluators chose <Cite id=\"egoscale-2026\" />. The extrapolation crosses the bar only near 111k hours of human video, five times past the measured range.\n",
+          "after": "<HelixZeroShotSuccess className=\"my-6\" />\n\nThe solved bar sits at 0.90 on the EgoScale chart's completion axis, and the best measured point is 0.71, on a friendlier metric, after post-training, on tasks the evaluators chose <Cite id=\"egoscale-2026\" />. The extrapolation crosses the bar only near 111k hours of human video, five times past the measured range.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "4f14215b2f209e8a028002bb55e5c3f8bd314fdf",
+      "before": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18572,
+        "sha256": "beceef25138934f8a4326f8e8659bc5ff62e5ddf68b3de197383e9ec4bba86ad"
+      },
+      "after": {
+        "path": "content/frontier/safety-and-assurance.mdx",
+        "bytes": 18747,
+        "sha256": "c8a1d199c227e6a60abd825496b3ca991c39d9e440faad6f8a020fbe32c652c1"
+      },
+      "edits": [
+        {
+          "before": "import { CollaborativeOperationModes } from '@/components/interactive/collaborative-operation-modes';\n\n",
+          "after": "import { CollaborativeOperationModes } from '@/components/interactive/collaborative-operation-modes';\n\nimport { SafetyRulesTimeline } from '@/components/interactive/safety-rules-timeline';\n\n"
+        },
+        {
+          "before": "A humanoid falls, a hazard class the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots that need active control to remain balanced, including bipedal machines <Cite id=\"iso-cd-25785-1\" />. It is a committee draft: in late September 2026 the catalogue still showed stage 30.60, close of the comment period, with edition 1 unpublished <Cite id=\"iso-cd-25785-1\" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id=\"agility-digit-5-2026\" />.\n",
+          "after": "A humanoid falls, a hazard class the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots that need active control to remain balanced, including bipedal machines <Cite id=\"iso-cd-25785-1\" />. It is a committee draft: the comment period closed on 8 July 2026, and in late October 2026 the catalogue still showed stage 30.60, with edition 1 unpublished and no date for the next stage <Cite id=\"iso-cd-25785-1\" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id=\"agility-digit-5-2026\" />.\n"
+        },
+        {
+          "before": "From 20 January 2027, the EU Machinery Regulation lists \"safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions\" in Annex I Part A. Its recitals call for third-party conformity assessment of such components <Cite id=\"eu-machinery-regulation-2023\" />. The AI Act's rules for high-risk AI systems embedded in the regulated products of its Annex I apply from 2 August 2028, after the AI Omnibus extended the transition <Cite id=\"eu-ai-act-framework-2026\" />.\n",
+          "after": "From 20 January 2027, the EU Machinery Regulation lists \"safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions\" in Annex I Part A. Its recitals call for third-party conformity assessment of such components <Cite id=\"eu-machinery-regulation-2023\" />. The AI Act's rules for high-risk AI systems embedded in the regulated products of its Annex I apply from 2 August 2028, after the AI Omnibus extended the transition <Cite id=\"eu-ai-act-framework-2026\" />.\n\n<SafetyRulesTimeline className=\"my-6\" />\n"
         }
       ]
     }

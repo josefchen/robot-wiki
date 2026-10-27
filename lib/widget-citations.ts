@@ -34,12 +34,15 @@ import { DATASET_RUNS_HOURS } from '@/lib/dataset-runs-hours';
 import { DEPLOYMENT_ROWS } from '@/lib/deployment-reality';
 import { DEXTEROUS_HANDS } from '@/lib/dexterous-hands';
 import { TRANSIENT_CONTACT_LIMIT_CITATION } from '@/lib/force-limits';
+import { FUNDING_HUMANOID_SOURCES } from '@/lib/funding-humanoid-counts';
 import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
 import { LADDER_POINTS } from '@/lib/hardware-price-ladder';
+import { HELIX_ZERO_SHOT_CITATION_ID } from '@/lib/helix-zero-shot';
 import { HIERARCHY_SYSTEMS } from '@/lib/hierarchy-timescales';
 import { KNOWLEDGE_INSULATION_CITATION_ID } from '@/lib/knowledge-insulation';
 import { PI_GENERATIONS } from '@/lib/pi-generations';
 import { GAIN_STUDIES } from '@/lib/real-robot-rl-gains';
+import { SAFETY_RULE_SOURCES } from '@/lib/safety-rules-timeline';
 import { UMI_RATES_CITATION_ID } from '@/lib/umi-collection-rates';
 
 export const WIDGET_CITATION_IDS = {
@@ -80,6 +83,9 @@ export const WIDGET_CITATION_IDS = {
   DatasetRunsHours: () => DATASET_RUNS_HOURS.map((dataset) => dataset.citationId),
   HardwarePriceLadder: () => LADDER_POINTS.map((point) => point.citationId),
   UmiCollectionRates: () => [UMI_RATES_CITATION_ID],
+  FundingHumanoidCounts: () => [...FUNDING_HUMANOID_SOURCES],
+  SafetyRulesTimeline: () => [...SAFETY_RULE_SOURCES],
+  HelixZeroShotSuccess: () => [HELIX_ZERO_SHOT_CITATION_ID],
   TrajectoryStitching: () => ['offline-rl-vs-bc-2022', 'cog-2020'],
   ActuatorGap: () => ['hwangbo-2019'],
   RetargetingGap: () => ['gmr-retargeting-2025', 'h2o-2024'],

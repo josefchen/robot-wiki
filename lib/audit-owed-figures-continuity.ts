@@ -62,7 +62,7 @@ export type OwedFiguresReview = {
 
 // BEGIN owed-figures pins (written by scripts/record-owed-figures-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 13690, sha256: 'd9125b83aabdd5dbfb35d89af77923148d1df1351bbfa71e3df401df61f6616f' };
+const reviewPin = { bytes: 23127, sha256: 'fb1784035dbe93f965d5661fed256bcabefdf640db633cc6fd455890e75e75fa' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
@@ -71,6 +71,9 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/data-hardware/industrial-deployment.mdx', [17821, '090208e45063d44a37090bb328158b98d53faa9edc951a88db1fcb078127c299']],
   ['content/data-hardware/robot-learning-stack.mdx', [10929, 'b75b094ff7c2b1442aa2f90259dd89f8e93b137d775c307c72a78ba9f36327b1']],
   ['content/data-hardware/teleop-rigs.mdx', [11644, '91ea6ee42d4635e6a7f9ccaa2898fad0e0b7f56bada85dc392df0eae14521a44']],
+  ['content/frontier/bear-case.mdx', [10805, '72adb49067d062ceb347672b0a4c9d1b10e0d73837def21f04de399b33642f09']],
+  ['content/frontier/generalization.mdx', [14019, '0060735bb589f03d72b1227a9b5344cbc3599c2f9f39934c6e5866589a27fb3a']],
+  ['content/frontier/safety-and-assurance.mdx', [18747, 'c8a1d199c227e6a60abd825496b3ca991c39d9e440faad6f8a020fbe32c652c1']],
 ]);
 // END owed-figures pins
 

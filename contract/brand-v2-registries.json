@@ -8850,6 +8850,50 @@
         "fingerprint": "cf01ba795ce3304dcd13b3d7fb1f79a3a282ee0c07f6c1996f8ac6dbe49b8049"
       },
       {
+        "id": "interactive:FundingHumanoidCounts",
+        "component": "FundingHumanoidCounts",
+        "sourcePath": "components/interactive/funding-humanoid-counts.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "fa8fd7a1780ca0ad66b88a9ec8463f8a59c368d1c7310e3bc52c0f8017509026"
+      },
+      {
         "id": "interactive:GaitDiagram",
         "component": "GaitDiagram",
         "sourcePath": "components/interactive/gait-diagram.tsx",
@@ -9330,6 +9374,50 @@
         ],
         "expectedCaseCount": 8,
         "fingerprint": "9548d0db0e0d5ce409c13559bc70e556eebb43134d8c5ea80a342e68cdad2672"
+      },
+      {
+        "id": "interactive:HelixZeroShotSuccess",
+        "component": "HelixZeroShotSuccess",
+        "sourcePath": "components/interactive/helix-zero-shot-success.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "4ceb40008a1945364ac558344f0c4b7028cdc5f7689b0f0c7e902ae608c3d934"
       },
       {
         "id": "interactive:HierarchyTimescales",
@@ -11430,6 +11518,50 @@
         ],
         "expectedCaseCount": 8,
         "fingerprint": "f26276184cba6ee390f3ae51f784468813f746637d8c5a8835fc02d22f2c8c88"
+      },
+      {
+        "id": "interactive:SafetyRulesTimeline",
+        "component": "SafetyRulesTimeline",
+        "sourcePath": "components/interactive/safety-rules-timeline.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "acb2a713bb592d70bfbdda0c1186656f00b377afdfe55d4810c6830762af628e"
       },
       {
         "id": "interactive:SampleEfficiencyLedger",
@@ -14056,6 +14188,54 @@
         "fingerprint": "e1386831c12487267d04489c50d1ca743ae0638f895a6340c9c83a59b3d61b1c"
       },
       {
+        "id": "mount:/frontier/bear-case/:FundingHumanoidCounts:1",
+        "sourceId": "interactive:FundingHumanoidCounts",
+        "route": "/frontier/bear-case/",
+        "ownerPath": "content/frontier/bear-case.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "d12500b99e1514e24b25b7de2e8b4098df582ed3fb1af262a2d08264aedf1d00"
+      },
+      {
         "id": "mount:/frontier/bear-case/:MilestonesWatchlist:1",
         "sourceId": "interactive:MilestonesWatchlist",
         "route": "/frontier/bear-case/",
@@ -14366,6 +14546,54 @@
         "fingerprint": "b4e3da3102e9e86da5c83ed21c895d7d0ef1ba8f2f91f87b20e6cbf7d952965d"
       },
       {
+        "id": "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
+        "sourceId": "interactive:HelixZeroShotSuccess",
+        "route": "/frontier/generalization/",
+        "ownerPath": "content/frontier/generalization.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "02759d7241d6e1cea242ba03c801da3bceeac81891c72d966d3a413924dab284"
+      },
+      {
         "id": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
         "sourceId": "interactive:DeploymentDashboard",
         "route": "/frontier/reliability-gap/",
@@ -14618,6 +14846,54 @@
         ],
         "expectedCaseCount": 8,
         "fingerprint": "5761d7e0f04545933d3ef4de4f96ea868085036e49497f9727fdb05611a576fd"
+      },
+      {
+        "id": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1",
+        "sourceId": "interactive:SafetyRulesTimeline",
+        "route": "/frontier/safety-and-assurance/",
+        "ownerPath": "content/frontier/safety-and-assurance.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "603c39db03758d117c3f67d2805a6969e6a26f7d4f19a4ad7fea704a43d36fea"
       },
       {
         "id": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
@@ -18600,11 +18876,13 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/funding-humanoid-counts.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hand-eye-poses.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hardware-price-ladder.tsx",
+        "components/interactive/helix-zero-shot-success.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/hindsight-relabel.tsx",
         "components/interactive/humanoid-pick-height.tsx",
@@ -18619,6 +18897,7 @@
         "components/interactive/robots-per-gpu.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/ros2-policy-layout.tsx",
+        "components/interactive/safety-rules-timeline.tsx",
         "components/interactive/scanned-twin-check.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/terrain-curriculum.tsx",
@@ -18671,11 +18950,13 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/funding-humanoid-counts.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hand-eye-poses.tsx",
         "components/interactive/hardware-guide.tsx",
         "components/interactive/hardware-price-ladder.tsx",
+        "components/interactive/helix-zero-shot-success.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/hindsight-relabel.tsx",
         "components/interactive/humanoid-pick-height.tsx",
@@ -18690,6 +18971,7 @@
         "components/interactive/robots-per-gpu.tsx",
         "components/interactive/ros2-interfaces.tsx",
         "components/interactive/ros2-policy-layout.tsx",
+        "components/interactive/safety-rules-timeline.tsx",
         "components/interactive/scanned-twin-check.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/terrain-curriculum.tsx",
@@ -18729,7 +19011,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "57110218e4ced2baab156cb2fc6319c38f78f8eb388969c4fc3eef7019b34b50"
+      "fingerprint": "81521b72173df4ccec8a033164e3122838c9f6355891db326ea0a7224c9bb13e"
     },
     {
       "id": "control:segmented",
@@ -18954,5 +19236,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "7acb638da699712cdb8ffdbb35988c88a10a5a53bbe11d24214b9328aeb1818a"
+  "rootFingerprint": "6567b28e194b78636eb68aa0e012036516688627924868aaa9f0daa719ad5e92"
 }

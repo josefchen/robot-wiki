@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "be0b03c95e707348b93e7f04b4c83844186001e6ad2e0efe546b9526e8730871",
+  "fingerprint": "11dcb256da8e86919a72e31329bb56786e577a8c67ac482af7f3bee8fab7d325",
   "viewports": [
     "375x812",
     "1440x900"
@@ -37,15 +37,18 @@
     "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
     "mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
     "mount:/frontier/bear-case/:BearCaseLock:1",
+    "mount:/frontier/bear-case/:FundingHumanoidCounts:1",
     "mount:/frontier/bear-case/:MilestonesWatchlist:1",
     "mount:/frontier/competing-theses/:HelixClockwork:1",
     "mount:/frontier/competing-theses/:ThesisExplorer:1",
     "mount:/frontier/dexterity/:HandComparison:1",
     "mount:/frontier/generalization/:EgoScaleScaling:1",
+    "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
     "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
     "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
     "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
     "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
+    "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1",
     "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
     "mount:/manipulation/action-chunking/:LatencyComparison:1",
     "mount:/manipulation/action-spaces/:ImpedancePress:1",
@@ -310,6 +313,13 @@
       "notApplicableReason": null
     },
     {
+      "sourceId": "interactive:FundingHumanoidCounts",
+      "mountIds": [
+        "mount:/frontier/bear-case/:FundingHumanoidCounts:1"
+      ],
+      "notApplicableReason": null
+    },
+    {
       "sourceId": "interactive:GaitDiagram",
       "mountIds": [],
       "notApplicableReason": "GaitDiagram has no production mount (no article or route module mounts it), so no reader-reachable render exists to capture; its source stays in the registry and in the VIZ-010 three-way parity"
@@ -367,6 +377,13 @@
       "sourceId": "interactive:HelixClockwork",
       "mountIds": [
         "mount:/frontier/competing-theses/:HelixClockwork:1"
+      ],
+      "notApplicableReason": null
+    },
+    {
+      "sourceId": "interactive:HelixZeroShotSuccess",
+      "mountIds": [
+        "mount:/frontier/generalization/:HelixZeroShotSuccess:1"
       ],
       "notApplicableReason": null
     },
@@ -627,6 +644,13 @@
       "sourceId": "interactive:SafetyFilterFence",
       "mountIds": [
         "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1"
+      ],
+      "notApplicableReason": null
+    },
+    {
+      "sourceId": "interactive:SafetyRulesTimeline",
+      "mountIds": [
+        "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1"
       ],
       "notApplicableReason": null
     },
@@ -7077,7 +7101,7 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"Cost\"",
-          "sha256": "b70807884269d96beda76ee439c1ac9ced5248bb106db646afc519eb3719a416",
+          "sha256": "22aa36f7d8a9f75bd19a8484467ce5a0189478751baefde76e0937a71765647b",
           "widthPx": 327,
           "heightPx": 2222,
           "settleAttempts": 2,
@@ -7496,12 +7520,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "bb147956497f413e85461e6e2511da39872f653d86b705cd47a8974e8f51dd9f",
+          "sha256": "a55a5f54ed75a58cceb3b7109d00f50ceb423abf6a0c9dde25cff5b0a65b74c3",
           "widthPx": 327,
-          "heightPx": 684,
+          "heightPx": 683,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 25.91,
+          "luminanceSpread": 25.94,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7511,12 +7535,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"10,000 at work\"",
-          "sha256": "e6503f54de29586563d965c31b116e8e55f5c2de278de3899d4a7b2bdc619d3d",
+          "sha256": "37899d2441224d0395d07daa602c2fb35b660e7c7659e7aa5f273db6385f66fa",
           "widthPx": 327,
-          "heightPx": 684,
+          "heightPx": 683,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 26.66,
+          "luminanceSpread": 26.69,
           "fontsLoaded": true,
           "rootLeftPx": 24,
           "rootRightPx": 351,
@@ -7604,12 +7628,12 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "9baed0313276ea436fa62b1168cea03c9ad447836fb7d5256c1cc4b82e676e4d",
+          "sha256": "d6bcf8a2e1ed9bdf409afed606a8368c1d1446e85bf5f77bf3ac75f5a7233823",
           "widthPx": 930,
-          "heightPx": 883,
+          "heightPx": 884,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.43,
+          "luminanceSpread": 15.6,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -7619,12 +7643,12 @@
           "state": "changed",
           "caseId": "discrete-options",
           "control": "button \"10,000 at work\"",
-          "sha256": "320fc43f773db1e1aa490e59c3d30cf807c844c56ae547326c5b09e5a74f36be",
+          "sha256": "e69a117af8eed8d9a8da0bc1674fb8bebf399f458394d24c7054b4b9b8086aa4",
           "widthPx": 930,
-          "heightPx": 883,
+          "heightPx": 884,
           "settleAttempts": 2,
           "settled": true,
-          "luminanceSpread": 15.76,
+          "luminanceSpread": 15.93,
           "fontsLoaded": true,
           "rootLeftPx": 251.7,
           "rootRightPx": 1180.3,
@@ -7693,6 +7717,208 @@
       "findings": [],
       "headline": {
         "text": "Four results together would falsify the bear case",
+        "lines": 1
+      },
+      "deviceCount": 0,
+      "families": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "retiredFamilies": [],
+      "alternateIdentity": []
+    },
+    {
+      "mountId": "mount:/frontier/bear-case/:FundingHumanoidCounts:1",
+      "viewport": "375x812",
+      "status": 200,
+      "captures": [
+        {
+          "state": "default",
+          "caseId": "default",
+          "control": null,
+          "sha256": "a3ea4e14055cec554ddd520bfd768d17df5573f82ffeacefde2feea26912cba1",
+          "widthPx": 327,
+          "heightPx": 594,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 47.28,
+          "fontsLoaded": true,
+          "rootLeftPx": 24,
+          "rootRightPx": 351,
+          "documentOverflowPx": 0
+        },
+        {
+          "state": "changed",
+          "caseId": "focus-each-control",
+          "control": "keyboard focus on summary \"How this was made\"",
+          "sha256": "749b8f7aea6ced3c7fe6f5aad1880b13c821f78566d036d033735bd51270c12b",
+          "widthPx": 327,
+          "heightPx": 594,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 48.06,
+          "fontsLoaded": true,
+          "rootLeftPx": 24,
+          "rootRightPx": 351,
+          "documentOverflowPx": 0
+        }
+      ],
+      "reset": null,
+      "cases": [
+        {
+          "caseId": "default",
+          "kind": "default",
+          "status": "observed",
+          "matched": null,
+          "detail": "the default capture of the mount root"
+        },
+        {
+          "caseId": "focus-each-control",
+          "kind": "focus",
+          "status": "observed",
+          "matched": 3,
+          "detail": "3 control(s) match button, input, select, summary, [tabindex] in the mount root"
+        },
+        {
+          "caseId": "hover-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "No button or registered hover target is implemented."
+        },
+        {
+          "caseId": "loading-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a loading state."
+        },
+        {
+          "caseId": "error-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a error state."
+        },
+        {
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a empty state."
+        },
+        {
+          "caseId": "unavailable-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a unavailable state."
+        }
+      ],
+      "findings": [],
+      "headline": {
+        "text": "Startups raised a record while humanoids shipped in the thousands",
+        "lines": 2
+      },
+      "deviceCount": 0,
+      "families": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "retiredFamilies": [],
+      "alternateIdentity": []
+    },
+    {
+      "mountId": "mount:/frontier/bear-case/:FundingHumanoidCounts:1",
+      "viewport": "1440x900",
+      "status": 200,
+      "captures": [
+        {
+          "state": "default",
+          "caseId": "default",
+          "control": null,
+          "sha256": "77b2e3cd59527e488e7b68b061cd046a2cab0c4ecdf4347bd88f423e086f5a72",
+          "widthPx": 930,
+          "heightPx": 793,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 37.76,
+          "fontsLoaded": true,
+          "rootLeftPx": 251.7,
+          "rootRightPx": 1180.3,
+          "documentOverflowPx": 0
+        },
+        {
+          "state": "changed",
+          "caseId": "focus-each-control",
+          "control": "keyboard focus on summary \"How this was made\"",
+          "sha256": "6c03ff0393359cbd644ce4e7d077e964927c5b4228fe669c47ae37bb103e0006",
+          "widthPx": 930,
+          "heightPx": 793,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 38.04,
+          "fontsLoaded": true,
+          "rootLeftPx": 251.7,
+          "rootRightPx": 1180.3,
+          "documentOverflowPx": 0
+        }
+      ],
+      "reset": null,
+      "cases": [
+        {
+          "caseId": "default",
+          "kind": "default",
+          "status": "observed",
+          "matched": null,
+          "detail": "the default capture of the mount root"
+        },
+        {
+          "caseId": "focus-each-control",
+          "kind": "focus",
+          "status": "observed",
+          "matched": 3,
+          "detail": "3 control(s) match button, input, select, summary, [tabindex] in the mount root"
+        },
+        {
+          "caseId": "hover-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "No button or registered hover target is implemented."
+        },
+        {
+          "caseId": "loading-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a loading state."
+        },
+        {
+          "caseId": "error-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a error state."
+        },
+        {
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a empty state."
+        },
+        {
+          "caseId": "unavailable-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a unavailable state."
+        }
+      ],
+      "findings": [],
+      "headline": {
+        "text": "Startups raised a record while humanoids shipped in the thousands",
         "lines": 1
       },
       "deviceCount": 0,
@@ -8898,6 +9124,208 @@
       "alternateIdentity": []
     },
     {
+      "mountId": "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
+      "viewport": "375x812",
+      "status": 200,
+      "captures": [
+        {
+          "state": "default",
+          "caseId": "default",
+          "control": null,
+          "sha256": "1bda2bacc27aa31a0b08b530089ebf41e4da3b7f7b1bc78d0dcdc8d1841fd319",
+          "widthPx": 327,
+          "heightPx": 364,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 37.46,
+          "fontsLoaded": true,
+          "rootLeftPx": 24,
+          "rootRightPx": 351,
+          "documentOverflowPx": 0
+        },
+        {
+          "state": "changed",
+          "caseId": "focus-each-control",
+          "control": "keyboard focus on summary \"How this was made\"",
+          "sha256": "e85d5f6e7b8c715d1f4fe69abb2b2d2ebc49c00247bf28d185f6734f0c54b837",
+          "widthPx": 327,
+          "heightPx": 364,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 39.15,
+          "fontsLoaded": true,
+          "rootLeftPx": 24,
+          "rootRightPx": 351,
+          "documentOverflowPx": 0
+        }
+      ],
+      "reset": null,
+      "cases": [
+        {
+          "caseId": "default",
+          "kind": "default",
+          "status": "observed",
+          "matched": null,
+          "detail": "the default capture of the mount root"
+        },
+        {
+          "caseId": "focus-each-control",
+          "kind": "focus",
+          "status": "observed",
+          "matched": 3,
+          "detail": "3 control(s) match button, input, select, summary, [tabindex] in the mount root"
+        },
+        {
+          "caseId": "hover-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "No button or registered hover target is implemented."
+        },
+        {
+          "caseId": "loading-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a loading state."
+        },
+        {
+          "caseId": "error-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a error state."
+        },
+        {
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a empty state."
+        },
+        {
+          "caseId": "unavailable-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a unavailable state."
+        }
+      ],
+      "findings": [],
+      "headline": {
+        "text": "Helix 2.5 reached 56% in unseen homes, short of 90%",
+        "lines": 2
+      },
+      "deviceCount": 0,
+      "families": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "retiredFamilies": [],
+      "alternateIdentity": []
+    },
+    {
+      "mountId": "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
+      "viewport": "1440x900",
+      "status": 200,
+      "captures": [
+        {
+          "state": "default",
+          "caseId": "default",
+          "control": null,
+          "sha256": "d97849e8b7033853fe34a959d6dda716ea73d4b889602ba2cc2b60230e884b23",
+          "widthPx": 930,
+          "heightPx": 440,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 26.84,
+          "fontsLoaded": true,
+          "rootLeftPx": 251.7,
+          "rootRightPx": 1180.3,
+          "documentOverflowPx": 0
+        },
+        {
+          "state": "changed",
+          "caseId": "focus-each-control",
+          "control": "keyboard focus on summary \"How this was made\"",
+          "sha256": "9e8024d908a36a50d0e77ceaaff0de54c0ff9ca2ed613e390a17f90e8fa2cae8",
+          "widthPx": 930,
+          "heightPx": 440,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 27.58,
+          "fontsLoaded": true,
+          "rootLeftPx": 251.7,
+          "rootRightPx": 1180.3,
+          "documentOverflowPx": 0
+        }
+      ],
+      "reset": null,
+      "cases": [
+        {
+          "caseId": "default",
+          "kind": "default",
+          "status": "observed",
+          "matched": null,
+          "detail": "the default capture of the mount root"
+        },
+        {
+          "caseId": "focus-each-control",
+          "kind": "focus",
+          "status": "observed",
+          "matched": 3,
+          "detail": "3 control(s) match button, input, select, summary, [tabindex] in the mount root"
+        },
+        {
+          "caseId": "hover-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "No button or registered hover target is implemented."
+        },
+        {
+          "caseId": "loading-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a loading state."
+        },
+        {
+          "caseId": "error-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a error state."
+        },
+        {
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a empty state."
+        },
+        {
+          "caseId": "unavailable-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a unavailable state."
+        }
+      ],
+      "findings": [],
+      "headline": {
+        "text": "Helix 2.5 reached 56% in unseen homes, short of 90%",
+        "lines": 1
+      },
+      "deviceCount": 0,
+      "families": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "retiredFamilies": [],
+      "alternateIdentity": []
+    },
+    {
       "mountId": "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
       "viewport": "375x812",
       "status": 200,
@@ -9674,7 +10102,7 @@
           "state": "default",
           "caseId": "default",
           "control": null,
-          "sha256": "9eb1f2b90dd4ab85a662cd818ec992c349e1767838d6306ccbada4892b8cc3a7",
+          "sha256": "a554264d089ac2394913bb1834c60f28cc572c1ad92c82982baf4fbb3b0ff38c",
           "widthPx": 327,
           "heightPx": 645,
           "settleAttempts": 2,
@@ -9689,7 +10117,7 @@
           "state": "changed",
           "caseId": "slider-boundaries-and-anchors",
           "control": "input[type=range] \"Along the stroke\" 50 to 100",
-          "sha256": "c26f07a83af2c5fc12a43815f1ac8bd7455b8413d2060c7b3a7f42704e534a45",
+          "sha256": "9fe2d3cdf4bec6595fe2ad686df614fe5193d95ae9bf8565e090b2dbdd9811ad",
           "widthPx": 327,
           "heightPx": 645,
           "settleAttempts": 2,
@@ -9871,6 +10299,208 @@
       "findings": [],
       "headline": {
         "text": "A safety filter changes the path only where it must",
+        "lines": 1
+      },
+      "deviceCount": 0,
+      "families": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "retiredFamilies": [],
+      "alternateIdentity": []
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1",
+      "viewport": "375x812",
+      "status": 200,
+      "captures": [
+        {
+          "state": "default",
+          "caseId": "default",
+          "control": null,
+          "sha256": "af4065c876933fbc10218952028c55ff373f14ea3b8c71eb6f55275e1b16ae51",
+          "widthPx": 327,
+          "heightPx": 438,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 42.48,
+          "fontsLoaded": true,
+          "rootLeftPx": 24,
+          "rootRightPx": 351,
+          "documentOverflowPx": 0
+        },
+        {
+          "state": "changed",
+          "caseId": "focus-each-control",
+          "control": "keyboard focus on summary \"How this was made\"",
+          "sha256": "af65eda94b981e202de7ef0ff8089dcb30164cbc2cbc6f2293a6f7f2971c8b83",
+          "widthPx": 327,
+          "heightPx": 438,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 43.69,
+          "fontsLoaded": true,
+          "rootLeftPx": 24,
+          "rootRightPx": 351,
+          "documentOverflowPx": 0
+        }
+      ],
+      "reset": null,
+      "cases": [
+        {
+          "caseId": "default",
+          "kind": "default",
+          "status": "observed",
+          "matched": null,
+          "detail": "the default capture of the mount root"
+        },
+        {
+          "caseId": "focus-each-control",
+          "kind": "focus",
+          "status": "observed",
+          "matched": 3,
+          "detail": "3 control(s) match button, input, select, summary, [tabindex] in the mount root"
+        },
+        {
+          "caseId": "hover-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "No button or registered hover target is implemented."
+        },
+        {
+          "caseId": "loading-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a loading state."
+        },
+        {
+          "caseId": "error-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a error state."
+        },
+        {
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a empty state."
+        },
+        {
+          "caseId": "unavailable-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a unavailable state."
+        }
+      ],
+      "findings": [],
+      "headline": {
+        "text": "Industrial standards landed in 2025; EU law applies from 2027",
+        "lines": 2
+      },
+      "deviceCount": 0,
+      "families": [
+        "Geist",
+        "Geist Mono"
+      ],
+      "retiredFamilies": [],
+      "alternateIdentity": []
+    },
+    {
+      "mountId": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1",
+      "viewport": "1440x900",
+      "status": 200,
+      "captures": [
+        {
+          "state": "default",
+          "caseId": "default",
+          "control": null,
+          "sha256": "c7b7a9942ece7ff3bc9eb9d7916dfb388d8a9131ad6ae3f8ad7327c4efeebbda",
+          "widthPx": 930,
+          "heightPx": 543,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 24.5,
+          "fontsLoaded": true,
+          "rootLeftPx": 251.7,
+          "rootRightPx": 1180.3,
+          "documentOverflowPx": 0
+        },
+        {
+          "state": "changed",
+          "caseId": "focus-each-control",
+          "control": "keyboard focus on summary \"How this was made\"",
+          "sha256": "b0039d9591dcca6b56bc1a621d9d93a09dba7f2deb37b9c1d0e8a9c7f67cdaec",
+          "widthPx": 930,
+          "heightPx": 543,
+          "settleAttempts": 2,
+          "settled": true,
+          "luminanceSpread": 25.16,
+          "fontsLoaded": true,
+          "rootLeftPx": 251.7,
+          "rootRightPx": 1180.3,
+          "documentOverflowPx": 0
+        }
+      ],
+      "reset": null,
+      "cases": [
+        {
+          "caseId": "default",
+          "kind": "default",
+          "status": "observed",
+          "matched": null,
+          "detail": "the default capture of the mount root"
+        },
+        {
+          "caseId": "focus-each-control",
+          "kind": "focus",
+          "status": "observed",
+          "matched": 3,
+          "detail": "3 control(s) match button, input, select, summary, [tabindex] in the mount root"
+        },
+        {
+          "caseId": "hover-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "No button or registered hover target is implemented."
+        },
+        {
+          "caseId": "loading-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a loading state."
+        },
+        {
+          "caseId": "error-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a error state."
+        },
+        {
+          "caseId": "empty-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a empty state."
+        },
+        {
+          "caseId": "unavailable-not-applicable",
+          "kind": "exception",
+          "status": "not-applicable",
+          "matched": null,
+          "detail": "Source does not implement a unavailable state."
+        }
+      ],
+      "findings": [],
+      "headline": {
+        "text": "Industrial standards landed in 2025; EU law applies from 2027",
         "lines": 1
       },
       "deviceCount": 0,
@@ -22447,8 +23077,8 @@
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-05.jpg",
-      "sha256": "f9c5df4766e7d2672930656ad25ab5cb1db76f5b609c9cf0f7712b0d8a59f424",
-      "bytes": 210009,
+      "sha256": "bca1c6877a45cc728077ea0b1319fbe6da99990cbb16e1a8791a37d534e1f7e0",
+      "bytes": 209630,
       "mountIds": [
         "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
         "mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
@@ -22520,7 +23150,7 @@
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1@375x812:changed",
-          "sha256": "b70807884269d96beda76ee439c1ac9ced5248bb106db646afc519eb3719a416"
+          "sha256": "22aa36f7d8a9f75bd19a8484467ce5a0189478751baefde76e0937a71765647b"
         },
         {
           "key": "mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1@1440x900:default",
@@ -22540,36 +23170,52 @@
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@1440x900:default",
-          "sha256": "9baed0313276ea436fa62b1168cea03c9ad447836fb7d5256c1cc4b82e676e4d"
+          "sha256": "d6bcf8a2e1ed9bdf409afed606a8368c1d1446e85bf5f77bf3ac75f5a7233823"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@1440x900:changed",
-          "sha256": "320fc43f773db1e1aa490e59c3d30cf807c844c56ae547326c5b09e5a74f36be"
+          "sha256": "e69a117af8eed8d9a8da0bc1674fb8bebf399f458394d24c7054b4b9b8086aa4"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@375x812:default",
-          "sha256": "bb147956497f413e85461e6e2511da39872f653d86b705cd47a8974e8f51dd9f"
+          "sha256": "a55a5f54ed75a58cceb3b7109d00f50ceb423abf6a0c9dde25cff5b0a65b74c3"
         },
         {
           "key": "mount:/frontier/bear-case/:BearCaseLock:1@375x812:changed",
-          "sha256": "e6503f54de29586563d965c31b116e8e55f5c2de278de3899d4a7b2bdc619d3d"
+          "sha256": "37899d2441224d0395d07daa602c2fb35b660e7c7659e7aa5f273db6385f66fa"
         }
       ],
       "renderedTwiceIdentical": true
     },
     {
       "path": "evidence/brand-v2/interactive-captures/sheet-06.jpg",
-      "sha256": "ff43606f5da49f2a2fc33c00fd3e6ad7368e51b66fb04e0f53f2d7a95371400d",
-      "bytes": 244736,
+      "sha256": "1ef18bb0efb4f5b3dc1f6ff9214524fb28732fd54094f56d8fddfb583381a83a",
+      "bytes": 246644,
       "mountIds": [
+        "mount:/frontier/bear-case/:FundingHumanoidCounts:1",
         "mount:/frontier/bear-case/:MilestonesWatchlist:1",
         "mount:/frontier/competing-theses/:HelixClockwork:1",
         "mount:/frontier/competing-theses/:ThesisExplorer:1",
         "mount:/frontier/dexterity/:HandComparison:1",
-        "mount:/frontier/generalization/:EgoScaleScaling:1",
-        "mount:/frontier/reliability-gap/:DeploymentDashboard:1"
+        "mount:/frontier/generalization/:EgoScaleScaling:1"
       ],
       "captures": [
+        {
+          "key": "mount:/frontier/bear-case/:FundingHumanoidCounts:1@1440x900:default",
+          "sha256": "77b2e3cd59527e488e7b68b061cd046a2cab0c4ecdf4347bd88f423e086f5a72"
+        },
+        {
+          "key": "mount:/frontier/bear-case/:FundingHumanoidCounts:1@1440x900:changed",
+          "sha256": "6c03ff0393359cbd644ce4e7d077e964927c5b4228fe669c47ae37bb103e0006"
+        },
+        {
+          "key": "mount:/frontier/bear-case/:FundingHumanoidCounts:1@375x812:default",
+          "sha256": "a3ea4e14055cec554ddd520bfd768d17df5573f82ffeacefde2feea26912cba1"
+        },
+        {
+          "key": "mount:/frontier/bear-case/:FundingHumanoidCounts:1@375x812:changed",
+          "sha256": "749b8f7aea6ced3c7fe6f5aad1880b13c821f78566d036d033735bd51270c12b"
+        },
         {
           "key": "mount:/frontier/bear-case/:MilestonesWatchlist:1@1440x900:default",
           "sha256": "65be295d55ceb3d585eb9e9866eb27601c7647b2db79b5eabb79ae26b341be7b"
@@ -22649,6 +23295,38 @@
         {
           "key": "mount:/frontier/generalization/:EgoScaleScaling:1@375x812:changed",
           "sha256": "96b1a2d5db61fd9af22406e82521c48e93e19a44e6f0d75f7a90dd7b714f87c5"
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-07.jpg",
+      "sha256": "6992d310f5cfe5b6558abacfa7358f14acac46b4dffdb5b1579b8d79d122d5b8",
+      "bytes": 178381,
+      "mountIds": [
+        "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
+        "mount:/frontier/reliability-gap/:DeploymentDashboard:1",
+        "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
+        "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
+        "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
+        "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1"
+      ],
+      "captures": [
+        {
+          "key": "mount:/frontier/generalization/:HelixZeroShotSuccess:1@1440x900:default",
+          "sha256": "d97849e8b7033853fe34a959d6dda716ea73d4b889602ba2cc2b60230e884b23"
+        },
+        {
+          "key": "mount:/frontier/generalization/:HelixZeroShotSuccess:1@1440x900:changed",
+          "sha256": "9e8024d908a36a50d0e77ceaaff0de54c0ff9ca2ed613e390a17f90e8fa2cae8"
+        },
+        {
+          "key": "mount:/frontier/generalization/:HelixZeroShotSuccess:1@375x812:default",
+          "sha256": "1bda2bacc27aa31a0b08b530089ebf41e4da3b7f7b1bc78d0dcdc8d1841fd319"
+        },
+        {
+          "key": "mount:/frontier/generalization/:HelixZeroShotSuccess:1@375x812:changed",
+          "sha256": "e85d5f6e7b8c715d1f4fe69abb2b2d2ebc49c00247bf28d185f6734f0c54b837"
         },
         {
           "key": "mount:/frontier/reliability-gap/:DeploymentDashboard:1@1440x900:default",
@@ -22665,23 +23343,7 @@
         {
           "key": "mount:/frontier/reliability-gap/:DeploymentDashboard:1@375x812:changed",
           "sha256": "7e0ddbe9d837f655ac568da5482a89f0deac3a890fed21f17b4e5716f136a898"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-07.jpg",
-      "sha256": "51cb96e8922f8be5ccc4f116374baa6112a5545d3b3651b5a30d34de4482222a",
-      "bytes": 204634,
-      "mountIds": [
-        "mount:/frontier/reliability-gap/:ReliabilityCompounding:1",
-        "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
-        "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1",
-        "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
-        "mount:/manipulation/action-chunking/:LatencyComparison:1",
-        "mount:/manipulation/action-spaces/:ImpedancePress:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/frontier/reliability-gap/:ReliabilityCompounding:1@1440x900:default",
           "sha256": "1ba11cd03627d99e8f4d0647bc6162780d287d30cfca24f9e930a591363a5d4e"
@@ -22724,12 +23386,44 @@
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@375x812:default",
-          "sha256": "9eb1f2b90dd4ab85a662cd818ec992c349e1767838d6306ccbada4892b8cc3a7"
+          "sha256": "a554264d089ac2394913bb1834c60f28cc572c1ad92c82982baf4fbb3b0ff38c"
         },
         {
           "key": "mount:/frontier/safety-and-assurance/:SafetyFilterFence:1@375x812:changed",
-          "sha256": "c26f07a83af2c5fc12a43815f1ac8bd7455b8413d2060c7b3a7f42704e534a45"
+          "sha256": "9fe2d3cdf4bec6595fe2ad686df614fe5193d95ae9bf8565e090b2dbdd9811ad"
         },
+        {
+          "key": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1@1440x900:default",
+          "sha256": "c7b7a9942ece7ff3bc9eb9d7916dfb388d8a9131ad6ae3f8ad7327c4efeebbda"
+        },
+        {
+          "key": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1@1440x900:changed",
+          "sha256": "b0039d9591dcca6b56bc1a621d9d93a09dba7f2deb37b9c1d0e8a9c7f67cdaec"
+        },
+        {
+          "key": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1@375x812:default",
+          "sha256": "af4065c876933fbc10218952028c55ff373f14ea3b8c71eb6f55275e1b16ae51"
+        },
+        {
+          "key": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1@375x812:changed",
+          "sha256": "af65eda94b981e202de7ef0ff8089dcb30164cbc2cbc6f2293a6f7f2971c8b83"
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
+      "sha256": "b9fb907fa3e326e3a465261b3a9e0c355aece42f84e7cdd3dafeed5c6006cbe4",
+      "bytes": 244070,
+      "mountIds": [
+        "mount:/manipulation/action-chunking/:ChunkSizeCurve:1",
+        "mount:/manipulation/action-chunking/:LatencyComparison:1",
+        "mount:/manipulation/action-spaces/:ImpedancePress:1",
+        "mount:/manipulation/bc-foundations/:CompoundingError:1",
+        "mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
+        "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1"
+      ],
+      "captures": [
         {
           "key": "mount:/manipulation/action-chunking/:ChunkSizeCurve:1@1440x900:default",
           "sha256": "9270323785a5aeaa657ece67b6a1c3fe03282cea6a140fbb6df5c18b7039cc9e"
@@ -22777,23 +23471,7 @@
         {
           "key": "mount:/manipulation/action-spaces/:ImpedancePress:1@375x812:changed",
           "sha256": "c639bcc86c2d860d404ecf3413ff2bec7a00322644ab0c55051868c1e7c742f9"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-08.jpg",
-      "sha256": "584191a60644d5046df7592d031516877e7c9bb46a8ee2e7dbfef8e071bc1ac8",
-      "bytes": 237729,
-      "mountIds": [
-        "mount:/manipulation/bc-foundations/:CompoundingError:1",
-        "mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
-        "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
-        "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
-        "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
-        "mount:/manipulation/diffusion-policy/:RecedingHorizon:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/manipulation/bc-foundations/:CompoundingError:1@1440x900:default",
           "sha256": "e81889e82e55512ebb8d9c33b7e2ebc6f648c39468955ec4f765493be4962aa2"
@@ -22841,7 +23519,23 @@
         {
           "key": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1@375x812:changed",
           "sha256": "9f238b0c92fb5c0532871647efa4fc5682b2b262b04bb8a9cdd548535bd39c45"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-09.jpg",
+      "sha256": "4fc9cd2216bfb975d750b2250e2e0e8c880ace76d629f8012b6e134b6aafa81f",
+      "bytes": 196849,
+      "mountIds": [
+        "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
+        "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
+        "mount:/manipulation/diffusion-policy/:RecedingHorizon:1",
+        "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
+        "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
+        "mount:/manipulation/hierarchical/:KeypointString:1"
+      ],
+      "captures": [
         {
           "key": "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1@1440x900:default",
           "sha256": "f8d82e77cdbcf03842c666465fc151d6f7d106bd2684e0000f473298d33e7b4e"
@@ -22889,23 +23583,7 @@
         {
           "key": "mount:/manipulation/diffusion-policy/:RecedingHorizon:1@375x812:changed",
           "sha256": "f4206d752f8e4bc12a714c84a0d3ea895019723fd09774b03d1a60bf9c6e91e1"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-09.jpg",
-      "sha256": "a3f080c12e42a916bfc5ab120a260276a56883e54f6c4cd2ee02b7fc25d1deaa",
-      "bytes": 201537,
-      "mountIds": [
-        "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1",
-        "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
-        "mount:/manipulation/hierarchical/:KeypointString:1",
-        "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
-        "mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
-        "mount:/manipulation/pi-line/:PiGenerationTimeline:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/manipulation/generalist-policies/:GeneralistReleaseTimeline:1@1440x900:default",
           "sha256": "eb84d60dd9ee4af37f66f9b9b96e721b20a2e8b633ac2022fe7a8a5f14f38a11"
@@ -22953,7 +23631,23 @@
         {
           "key": "mount:/manipulation/hierarchical/:KeypointString:1@375x812:changed",
           "sha256": "c526c34d7a9a337df5a750a4f859ea3e22172dd2dcd6a946bbca915f431d485b"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-10.jpg",
+      "sha256": "01235c32c82ccd3f94b2da86ddf6797bb9dcb79dcf96055cb8b1e00c0fb69bc8",
+      "bytes": 184389,
+      "mountIds": [
+        "mount:/manipulation/knowledge-insulation/:MotInsulation:1",
+        "mount:/manipulation/pi-line/:FlowMatchingTrajectory:1",
+        "mount:/manipulation/pi-line/:PiGenerationTimeline:1",
+        "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
+        "mount:/manipulation/realtime-execution/:ExecutionModes:1",
+        "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1"
+      ],
+      "captures": [
         {
           "key": "mount:/manipulation/knowledge-insulation/:MotInsulation:1@1440x900:default",
           "sha256": "520cb5a348a20580c2264c06cb2cf4ec90bf7406043d9f652d75078a102a33ed"
@@ -23001,23 +23695,7 @@
         {
           "key": "mount:/manipulation/pi-line/:PiGenerationTimeline:1@375x812:changed",
           "sha256": "ec292d515a84a972dda49bb4cab35b1f0ba1a7a99d21ffdb42bb733c87ff3bb9"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-10.jpg",
-      "sha256": "81f7941af0e9bee823a9abcf55f5745ba1766aedfa75cb5e21d33272d9ab0031",
-      "bytes": 176338,
-      "mountIds": [
-        "mount:/manipulation/realtime-execution/:ControlLoopBudget:1",
-        "mount:/manipulation/realtime-execution/:ExecutionModes:1",
-        "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1",
-        "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
-        "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
-        "mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/manipulation/realtime-execution/:ControlLoopBudget:1@1440x900:default",
           "sha256": "c05193212c91d6238db376e9d696a988a0ecc5c4910c22422f0e3428e0b1b132"
@@ -23065,7 +23743,23 @@
         {
           "key": "mount:/manipulation/rl-finetuning/:AdvantageScrubber:1@375x812:changed",
           "sha256": "cdf3025c5ccf1539efe9db4bf9992942b6cd87b1805d47f102905b9794b76200"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-11.jpg",
+      "sha256": "868e48eb4f298610c65ff0bd300c23a96e4c8b783074798dd14ea55e69f90212",
+      "bytes": 192464,
+      "mountIds": [
+        "mount:/manipulation/rl-finetuning/:ExpoFtResults:1",
+        "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
+        "mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1",
+        "mount:/manipulation/vla-models/:ActionTokenization:1",
+        "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
+        "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1"
+      ],
+      "captures": [
         {
           "key": "mount:/manipulation/rl-finetuning/:ExpoFtResults:1@1440x900:default",
           "sha256": "022a7a6e0b34b1e4b51c24bb9a353a4b06ad540645a226aca56a372e73019fa7"
@@ -23113,23 +23807,7 @@
         {
           "key": "mount:/manipulation/robot-learning-roadmap/:DeltaFrame:1@375x812:changed",
           "sha256": "fc50fd9fdf8c92c76ae31c36da82188126a9737d1eb0221451e392d96b9d3fdc"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-11.jpg",
-      "sha256": "02d0f223db362b01d48cd5a79e9491755e5bda3931c99c0fd3f9783586c7cebd",
-      "bytes": 170814,
-      "mountIds": [
-        "mount:/manipulation/vla-models/:ActionTokenization:1",
-        "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
-        "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
-        "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
-        "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
-        "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/manipulation/vla-models/:ActionTokenization:1@1440x900:default",
           "sha256": "65ed9a13e1c6a0aeb3036d3f29181ed71cc0541b518ddc4d3aff87949419b4b4"
@@ -23177,7 +23855,23 @@
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1@375x812:changed",
           "sha256": "da5098649ade113b9a455b937dce16ff62feea6af2d4f745779085fac642a3ed"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-12.jpg",
+      "sha256": "8e103d902585e77d2a04224a07f0687562e09e3fac8c5bd26fb74c93aa5aff2a",
+      "bytes": 149517,
+      "mountIds": [
+        "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1",
+        "mount:/rl-sim2real/legged-locomotion/:ActuatorGap:1",
+        "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1",
+        "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
+        "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1",
+        "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1"
+      ],
+      "captures": [
         {
           "key": "mount:/rl-sim2real/humanoid-wbc/:WbcDecomposition:1@1440x900:default",
           "sha256": "c09c75d815894b9513611935fcff397a5ba13458b45507ea43dbb74f38ab3a40"
@@ -23225,23 +23919,7 @@
         {
           "key": "mount:/rl-sim2real/legged-locomotion/:TerrainCurriculum:1@375x812:changed",
           "sha256": "a24974294161eefb869dbc9d6f598a878986123ecee5e3155147f863da803849"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-12.jpg",
-      "sha256": "a25cc306160aad21ace2fde29a80ac186bcf517e67a5c9ee045e98312250e747",
-      "bytes": 160759,
-      "mountIds": [
-        "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1",
-        "mount:/rl-sim2real/offline-rl/:RealRobotRlGains:1",
-        "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1",
-        "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
-        "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
-        "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/rl-sim2real/offline-rl/:OfflineValueOverreach:1@1440x900:default",
           "sha256": "57a6225abb9404bba6da7fb6139cc083e9417f5b569103ff4a0c8a54e8f38ccf"
@@ -23289,7 +23967,23 @@
         {
           "key": "mount:/rl-sim2real/offline-rl/:TrajectoryStitching:1@375x812:changed",
           "sha256": "c1100a7b7f13db582ab25e00a618ac9654282b166a26ffceaacffbcba772330b"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-13.jpg",
+      "sha256": "f31872bfb0b190309dc533877c85afcc05e66d4a28ffd98d78c4fb9a411abd9b",
+      "bytes": 173412,
+      "mountIds": [
+        "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1",
+        "mount:/rl-sim2real/parallel-sim-rl/:RobotsPerGpu:1",
+        "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1",
+        "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
+        "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
+        "mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1"
+      ],
+      "captures": [
         {
           "key": "mount:/rl-sim2real/parallel-sim-rl/:NewtonSolvers:1@1440x900:default",
           "sha256": "800da9ae2ec2cdb54f705cbe4d69ad43d35a45cd54aac5d2fc6fa6c3c36a41be"
@@ -23337,23 +24031,7 @@
         {
           "key": "mount:/rl-sim2real/reward-design-mpc/:EurekaLoop:1@375x812:changed",
           "sha256": "4a5d88844db47c61cc40b2914d1d8609a1d8335f844bc92a7b4e787bca16bcba"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-13.jpg",
-      "sha256": "12dca38b69094df79e4f9e9fc63cd213bbbffea061d25b4b73427ab11fc83f0e",
-      "bytes": 173471,
-      "mountIds": [
-        "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1",
-        "mount:/rl-sim2real/reward-design-mpc/:RewardShaping:1",
-        "mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1",
-        "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
-        "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
-        "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/rl-sim2real/reward-design-mpc/:MpcVsRl:1@1440x900:default",
           "sha256": "b8332f92cb0215da2a578e4671b5a34f2333c86626efa375cb11d1753699987e"
@@ -23401,7 +24079,23 @@
         {
           "key": "mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1@375x812:changed",
           "sha256": "e86bd353dc89ad3cab60b1fe8b2d515c52a6dcdf107e483359ae46fbac344bd5"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-14.jpg",
+      "sha256": "6fa411447d8bc5f2aab1b7df53dc875317c685b5f482ab1fd86ba54756cda1f0",
+      "bytes": 165886,
+      "mountIds": [
+        "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1",
+        "mount:/rl-sim2real/rl-for-robotics/:SampleEfficiencyLedger:1",
+        "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
+        "mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1",
+        "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
+        "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1"
+      ],
+      "captures": [
         {
           "key": "mount:/rl-sim2real/rl-for-robotics/:ReplayReuse:1@1440x900:default",
           "sha256": "16bd07a8de255b2d98423301a44f4f8ea8456058d3f34e2468e924a2eae00136"
@@ -23449,23 +24143,7 @@
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1@375x812:changed",
           "sha256": "67c8ed525cb74e0e7287b3dabdac52631f06a7a57e0e2252ba0282e9d36735c1"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-14.jpg",
-      "sha256": "009a9a074816ed82bebd3072ba543ffd216cd3dd19cc5ef03f2b1068abb2c34b",
-      "bytes": 154949,
-      "mountIds": [
-        "mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1",
-        "mount:/rl-sim2real/sim2real-transfer/:TeacherStudent:1",
-        "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
-        "mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
-        "mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
-        "mount:/world-models/generative-sim/:AppearancePhysicsPush:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/rl-sim2real/sim2real-transfer/:ScannedTwinCheck:1@1440x900:default",
           "sha256": "7d9ab8986c3107e0d085cbe899374e70ff6bf366f91d9e4bb2128e2a28743092"
@@ -23513,7 +24191,23 @@
         {
           "key": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1@375x812:changed",
           "sha256": "b450d5ffc3b74d47fe1c8d273f3085818c5ed7be56f8c672c71ba02c3a0512da"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-15.jpg",
+      "sha256": "2c710ff28eef15ffe6a75f9d9a51a050b59234cb8a0e8e27fc67300e53ef2cc3",
+      "bytes": 162142,
+      "mountIds": [
+        "mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
+        "mount:/rl-sim2real/why-rl-locomotion/:DemoOrSim:1",
+        "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
+        "mount:/world-models/generative-video/:ActionConditioning:1",
+        "mount:/world-models/jepa/:JepaPlanning:1",
+        "mount:/world-models/latent-dynamics/:LatentImagination:1"
+      ],
+      "captures": [
         {
           "key": "mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1@1440x900:default",
           "sha256": "6b776c4c54847175e6d3879b4bd21e53a9dde87b6a0ededa49535dbaf0065f21"
@@ -23561,23 +24255,7 @@
         {
           "key": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1@375x812:changed",
           "sha256": "7cb37dbc57430f3ff90e1827b8eafe4e62ae03afcd95dd8a1d30efe6bd39d705"
-        }
-      ],
-      "renderedTwiceIdentical": true
-    },
-    {
-      "path": "evidence/brand-v2/interactive-captures/sheet-15.jpg",
-      "sha256": "e664589777cb0a291426383dcb105de678c5936d928d99c2aef93bab74834db5",
-      "bytes": 182383,
-      "mountIds": [
-        "mount:/world-models/generative-video/:ActionConditioning:1",
-        "mount:/world-models/jepa/:JepaPlanning:1",
-        "mount:/world-models/latent-dynamics/:LatentImagination:1",
-        "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
-        "mount:/world-models/taxonomy/:WmDisambiguator:1",
-        "mount:/world-models/world-models-vs-simulators/:PlannerExploit:1"
-      ],
-      "captures": [
+        },
         {
           "key": "mount:/world-models/generative-video/:ActionConditioning:1@1440x900:default",
           "sha256": "776bd96c2de457b5fb052ab9428c7023433ee7466289072dc52afd372e247514"
@@ -23625,7 +24303,20 @@
         {
           "key": "mount:/world-models/latent-dynamics/:LatentImagination:1@375x812:changed",
           "sha256": "a3efe341357378128c71df12cc1b88e9f3ad14f021ce025bac6e0b01809f1774"
-        },
+        }
+      ],
+      "renderedTwiceIdentical": true
+    },
+    {
+      "path": "evidence/brand-v2/interactive-captures/sheet-16.jpg",
+      "sha256": "cbe432c0d7fdabd5f008ee5b21a46be66eabce9a99c4163b68a2809ec3164955",
+      "bytes": 87804,
+      "mountIds": [
+        "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
+        "mount:/world-models/taxonomy/:WmDisambiguator:1",
+        "mount:/world-models/world-models-vs-simulators/:PlannerExploit:1"
+      ],
+      "captures": [
         {
           "key": "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1@1440x900:default",
           "sha256": "c183677b78d674b1ce09446052be288d7519724218cd09cedb98efb8226d5696"

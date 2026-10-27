@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "fbbf66deb6174a5c078f2dc37c9993fab8b35211a90e04c6f9f7f50374f57670",
+  "fingerprint": "c03a2df922493f6d99977cb58d2d3bdd630fc3cda3f901f839181cdfc751c185",
   "viewports": [
     "375x812",
     "1440x900"
@@ -972,7 +972,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 19106,
+      "visibleTextLength": 19128,
       "tables": [],
       "equations": [
         {
@@ -1411,7 +1411,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17167,
+      "visibleTextLength": 17145,
       "tables": [
         {
           "index": 0,
@@ -4623,7 +4623,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 16508,
+      "visibleTextLength": 17510,
       "tables": [
         {
           "index": 0,
@@ -4648,6 +4648,30 @@
           "tableWidth": 0,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Funding by year and the humanoid counts",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 10,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Funding by year and the humanoid counts",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -4658,6 +4682,17 @@
           "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Funding by year and the humanoid counts",
           "tabIndex": 0,
           "clientWidth": 0,
           "scrollWidth": 0,
@@ -4725,7 +4760,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24633,
+      "visibleTextLength": 24655,
       "tables": [
         {
           "index": 0,
@@ -4776,7 +4811,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 18446,
+      "visibleTextLength": 18847,
       "tables": [
         {
           "index": 0,
@@ -4794,6 +4829,30 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Zero-shot success, with and without pretraining",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Zero-shot success, with and without pretraining",
             "clientWidth": 0,
             "scrollWidth": 0,
             "scrolledBy": 0
@@ -4860,6 +4919,17 @@
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Zero-shot success, with and without pretraining",
           "tabIndex": 0,
           "clientWidth": 0,
           "scrollWidth": 0,
@@ -5091,10 +5161,47 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27168,
-      "tables": [],
+      "visibleTextLength": 27804,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Every rule and its date",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 5,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Every rule and its date",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Every rule and its date",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/frontier/safety-and-assurance/",
       "viewport": "375x812"
     },
@@ -8213,7 +8320,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 33864,
+      "visibleTextLength": 33886,
       "tables": [
         {
           "index": 0,
@@ -9062,7 +9169,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26751,
+      "visibleTextLength": 26773,
       "tables": [],
       "equations": [
         {
@@ -10063,7 +10170,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 36672,
+      "visibleTextLength": 36694,
       "tables": [
         {
           "index": 0,
@@ -12627,7 +12734,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28487,
+      "visibleTextLength": 28507,
       "tables": [
         {
           "index": 0,
@@ -12713,7 +12820,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 22707,
+      "visibleTextLength": 23919,
       "tables": [
         {
           "index": 0,
@@ -12738,6 +12845,30 @@
           "tableWidth": 0,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Funding by year and the humanoid counts",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 10,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Funding by year and the humanoid counts",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -12748,6 +12879,17 @@
           "outline": "<div class=\"overflow-x-auto pt-1\">",
           "role": "region",
           "accessibleName": "Eight milestones that would settle the bear case, with the status call, the evidence behind it and the observation that would flip it to met.",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Funding by year and the humanoid counts",
           "tabIndex": 0,
           "clientWidth": 0,
           "scrollWidth": 0,
@@ -12815,7 +12957,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30726,
+      "visibleTextLength": 30748,
       "tables": [
         {
           "index": 0,
@@ -12866,7 +13008,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 25350,
+      "visibleTextLength": 25751,
       "tables": [
         {
           "index": 0,
@@ -12884,6 +13026,30 @@
             "tabIndex": 0,
             "role": "region",
             "accessibleName": "Sampled loss and completion by pretraining hours",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Zero-shot success, with and without pretraining",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Zero-shot success, with and without pretraining",
             "clientWidth": 0,
             "scrollWidth": 0,
             "scrolledBy": 0
@@ -12950,6 +13116,17 @@
           "outline": "<div class=\"overflow-x-auto mt-2\">",
           "role": "region",
           "accessibleName": "Sampled loss and completion by pretraining hours",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Zero-shot success, with and without pretraining",
           "tabIndex": 0,
           "clientWidth": 0,
           "scrollWidth": 0,
@@ -13181,10 +13358,47 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 38420,
-      "tables": [],
+      "visibleTextLength": 39056,
+      "tables": [
+        {
+          "index": 0,
+          "accessibleName": "Every rule and its date",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 5,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Every rule and its date",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
+        }
+      ],
       "equations": [],
-      "scrollRegions": [],
+      "scrollRegions": [
+        {
+          "index": 0,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Every rule and its date",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
+        }
+      ],
       "route": "/frontier/safety-and-assurance/",
       "viewport": "1440x900"
     },

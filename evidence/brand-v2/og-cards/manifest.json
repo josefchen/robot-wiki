@@ -5909,7 +5909,7 @@
         "/frontier/bear-case/"
       ],
       "alt": "Open graph card for the Robot Wiki article The Bear Case",
-      "treeDigest": "ac346fd6a1bf3f51d79485a3e6edb17ca26958953b1b1296c15a0b1c78b3f8b5",
+      "treeDigest": "36718ed4824e38424b920c576ae172ef6b01a7cc71c634d3f7726ed1b26d0d4f",
       "strings": [
         {
           "field": "domain",
@@ -5941,10 +5941,10 @@
         },
         {
           "field": "referenceCount",
-          "text": "34 REFERENCES",
+          "text": "35 REFERENCES",
           "faceId": "og-face:data",
           "sourceId": "content/frontier/bear-case.mdx#frontmatter.citations",
-          "sourceValue": 34
+          "sourceValue": 35
         }
       ],
       "facts": {
@@ -5952,7 +5952,7 @@
         "domain": "frontier",
         "domainName": "Frontier & Open Problems",
         "reviewYear": 2026,
-        "referenceCount": 34
+        "referenceCount": 35
       },
       "devices": [
         "device:section-rule#header",
@@ -5977,23 +5977,23 @@
         "path": "/og/frontier/bear-case.png",
         "width": 1200,
         "height": 630,
-        "bytes": 29774,
-        "sha256": "3bb47cd3a55c098d7d3de6a58f17c642d7d04da3888cd85d0eb0446dae7c6531"
+        "bytes": 29841,
+        "sha256": "3c1c604f211191b18c84c0a99ac5e0b845e4de4e01275b651da9b097c4374dc3"
       },
       "structuredVariants": [
         {
           "path": "/structured-images/frontier/bear-case-4x3.png",
           "width": 1200,
           "height": 900,
-          "bytes": 37432,
-          "sha256": "9ffb7971f518b4a44798b4f76027bb4ca3472c7149703c33ccf4a7b3fbc0bcf1"
+          "bytes": 37492,
+          "sha256": "18a02c94f702dc1c2aa632b3a3e5bfd4793e3422063aadd6cee235c7e7c8c27a"
         },
         {
           "path": "/structured-images/frontier/bear-case-square.png",
           "width": 1200,
           "height": 1200,
-          "bytes": 45914,
-          "sha256": "8a288f10d164183b809819e044f36e0ceca6cd3f6cddf55d796b88044e889c93"
+          "bytes": 45975,
+          "sha256": "a15e98bba9aa113afa07992604de0dc90410df7a53f8f5c9467eb125b5d4dd1c"
         }
       ],
       "pixels": {
@@ -6008,7 +6008,7 @@
           "title": 14854,
           "identity": 1178
         },
-        "secondRenderSha256": "3bb47cd3a55c098d7d3de6a58f17c642d7d04da3888cd85d0eb0446dae7c6531"
+        "secondRenderSha256": "3c1c604f211191b18c84c0a99ac5e0b845e4de4e01275b651da9b097c4374dc3"
       }
     },
     {
@@ -6637,7 +6637,6 @@
       "family": "IBM Plex Mono",
       "text": "34 REFERENCES",
       "assignedBy": [
-        "card:frontier/bear-case",
         "card:manipulation/diffusion-policy",
         "card:manipulation/realtime-execution",
         "card:rl-sim2real/why-rl-locomotion"
@@ -6659,6 +6658,7 @@
       "text": "35 REFERENCES",
       "assignedBy": [
         "card:classical/kinematics",
+        "card:frontier/bear-case",
         "card:world-models/world-models-vs-simulators"
       ],
       "codePointCount": 13,
@@ -8555,5 +8555,5 @@
       "fallbackFree": true
     }
   ],
-  "corpusSha256": "be7541937b376d7863e6b1098aef22045e145f32248820db953ab617c46c6442"
+  "corpusSha256": "d7bdd1068c3533b2a945258a3e0db7c81a0d3a4cb0316c3812c42171f94037c8"
 }

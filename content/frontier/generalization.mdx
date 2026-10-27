@@ -47,6 +47,8 @@ seeAlso:
 
 import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
 
+import { HelixZeroShotSuccess } from '@/components/interactive/helix-zero-shot-success';
+
 Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id="distribution-shift">distribution shift</Term> of new geometry, objects and clutter without per-site data. Even the most general policies are "mostly trained on data collected in a small number of environments" <Cite id="droid-2024" />, and in a new home a one-centimeter grasp error drops the object.
 
 <Image id="droid-cook-lentils-rollouts-2024" />
@@ -144,4 +146,6 @@ The settling test is whether a 10x or 100x data increase, with no architectural 
 
 Generalization is solved when a single policy achieves better than 90% success across many unseen homes, dozens of them, with no per-site data collection or fine-tuning, in a published, reproducible evaluation spanning many tasks and objects. No current system has been evaluated this way. Figure reports that Helix 2.5 reached 56% zero-shot success, against 9% without Index pretraining, on three whole-body tasks in 30 unseen Bay Area homes, graded blind with no published trial counts <Cite id="helix-2-5-2026" />.
 
-The solved bar sits at 0.90 on the chart's completion axis, and the best measured point is 0.71, on a friendlier metric, after post-training, on tasks the evaluators chose <Cite id="egoscale-2026" />. The extrapolation crosses the bar only near 111k hours of human video, five times past the measured range.
+<HelixZeroShotSuccess className="my-6" />
+
+The solved bar sits at 0.90 on the EgoScale chart's completion axis, and the best measured point is 0.71, on a friendlier metric, after post-training, on tasks the evaluators chose <Cite id="egoscale-2026" />. The extrapolation crosses the bar only near 111k hours of human video, five times past the measured range.

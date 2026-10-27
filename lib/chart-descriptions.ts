@@ -284,6 +284,27 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     text: "Demonstrations recorded per hour on UMI's cup-arrangement task: 231 by bare hand with no robot, 111 with the UMI handheld gripper and 35 by spacemouse teleoperation of a robot. The UMI gripper ran at 48 percent of bare-hand speed and 3.2 times the teleoperation rate.",
   },
   {
+    component: 'FundingHumanoidCounts',
+    file: 'components/interactive/funding-humanoid-counts.tsx',
+    route: '/frontier/bear-case/',
+    quantityNames: ['funding', 'humanoids'],
+    text: "Venture funding raised by robotics startups, by Crunchbase's count, in billions of US dollars: 5.8 in 2020, 14.1 in 2021, 9 in 2022, 7 in 2023, 8.4 in 2024, a record 15 in 2025, then 18.8 in 2026 to 22 June. Humanoids counted: about 7,000 full-size humanoids sold in 2025 (IFR), and about 5,100 shipped in the first half of 2025 and 19,100 in the first half of 2026 (SAG). The funding covers every robotics startup, not only humanoid makers.",
+  },
+  {
+    component: 'SafetyRulesTimeline',
+    file: 'components/interactive/safety-rules-timeline.tsx',
+    route: '/frontier/safety-and-assurance/',
+    quantityNames: ['published', 'applies'],
+    text: "Five robot safety rules by date: ISO 10218 parts 1 and 2 were published on 5 February 2025; the US adoption, ANSI/A3 R15.06-2025, was published with all three parts on 29 October 2025; the humanoid committee draft ISO/CD 25785-1 closed its comment period on 8 July 2026, with no date yet for its next stage; the EU Machinery Regulation, which lists machine-learning safety components, applies from 20 January 2027; and the AI Act's rules for high-risk AI in regulated products apply from 2 August 2028.",
+  },
+  {
+    component: 'HelixZeroShotSuccess',
+    file: 'components/interactive/helix-zero-shot-success.tsx',
+    route: '/frontier/generalization/',
+    quantityNames: ['zero-shot success', 'homes'],
+    text: "Zero-shot success on three whole-body tasks in 30 unseen homes, as Figure reports it: 9% for a policy trained from scratch and 56% for Helix 2.5, pretrained on Figure's Index human data, both trained on the same task data. Helix 2.5 sits 34 points below the 90% bar this article sets for solved. Figure published no trial counts.",
+  },
+  {
     component: 'HumanoidPickHeight',
     file: 'components/interactive/humanoid-pick-height.tsx',
     route: '/rl-sim2real/humanoid-wbc/',

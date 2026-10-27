@@ -61,6 +61,8 @@ import { SafetyFilterFence } from '@/components/interactive/safety-filter-fence'
 
 import { CollaborativeOperationModes } from '@/components/interactive/collaborative-operation-modes';
 
+import { SafetyRulesTimeline } from '@/components/interactive/safety-rules-timeline';
+
 Safety assurance is the procedure for showing that a robot system is safe enough to run. Industrial robots have a settled, numerical standards stack, but none certifies a learned policy, so what ships is a verifiable safety layer around it <Cite id="iso-iec-tr-5469-2024" />.
 
 <Image id="robotic-welding-cell-guarding-2014" />
@@ -108,7 +110,7 @@ For mobile robots, ISO 3691-4, at edition 2 from 2023, covers driverless industr
 <span id="the-humanoid-gap-and-the-standard-that-is-not-finished" />
 ### The humanoid standard is still a committee draft at stage 30.60
 
-A humanoid falls, a hazard class the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots that need active control to remain balanced, including bipedal machines <Cite id="iso-cd-25785-1" />. It is a committee draft: in late September 2026 the catalogue still showed stage 30.60, close of the comment period, with edition 1 unpublished <Cite id="iso-cd-25785-1" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id="agility-digit-5-2026" />.
+A humanoid falls, a hazard class the industrial documents were not written for. ISO/CD 25785-1 covers industrial mobile robots that need active control to remain balanced, including bipedal machines <Cite id="iso-cd-25785-1" />. It is a committee draft: the comment period closed on 8 July 2026, and in late October 2026 the catalogue still showed stage 30.60, with edition 1 unpublished and no date for the next stage <Cite id="iso-cd-25785-1" />. A parallel technical report for the United States and Canada, ANSI/A3 TR R15.108, is under development for dynamically stable industrial mobile robots including humanoids <Cite id="agility-digit-5-2026" />.
 
 Until those documents are agreed, a humanoid deployed beside people runs under a risk assessment that invents its own treatment of fall risk. Agility reports that Digit 5 avoids people, stops or sits down under an independent safety controller, and that Digit passed an independent field evaluation on a customer production line against safety standards administered by OSHA <Cite id="agility-digit-5-2026" />. Brooks predicts that without new types of mechanical systems walking humanoids "will remain too unsafe to be in close proximity to real humans" <Cite id="brooks-scorecard-2026" />.
 
@@ -162,6 +164,8 @@ The ASIMOV benchmark tests semantic safety in robotics agents, from payload and 
 ## EU rules for learned safety components apply from January 2027
 
 From 20 January 2027, the EU Machinery Regulation lists "safety components with fully or partially self-evolving behaviour using machine learning approaches ensuring safety functions" in Annex I Part A. Its recitals call for third-party conformity assessment of such components <Cite id="eu-machinery-regulation-2023" />. The AI Act's rules for high-risk AI systems embedded in the regulated products of its Annex I apply from 2 August 2028, after the AI Omnibus extended the transition <Cite id="eu-ai-act-framework-2026" />.
+
+<SafetyRulesTimeline className="my-6" />
 
 <span id="what-would-actually-close-this" />
 ## Three missing pieces block certification of learned systems
