@@ -435,5 +435,26 @@
     "decision": "keep",
     "teachingGoal": "Show the source paper's own figure whole, uncropped, with its credit and license.",
     "reason": "A published paper figure keeps its native identity and attribution, not the scene palette."
+  },
+  {
+    "article": "datasets",
+    "element": "DatasetRunsHours",
+    "decision": "keep",
+    "teachingGoal": "Show that run counts and hours rank the five datasets differently, with FineART's long runs apart.",
+    "reason": "A static log-log scatter of printed totals; the comparison is read at a glance and needs no motion."
+  },
+  {
+    "article": "hardware-taxonomy",
+    "element": "HardwarePriceLadder",
+    "decision": "keep",
+    "teachingGoal": "Place every listed arm, humanoid and robot-computer price on one ten-times ruler.",
+    "reason": "A static strip of list prices; motion would add nothing to fixed values read side by side."
+  },
+  {
+    "article": "teleop-rigs",
+    "element": "UmiCollectionRates",
+    "decision": "keep",
+    "teachingGoal": "Compare demonstrations per hour by bare hand, UMI gripper and spacemouse teleoperation.",
+    "reason": "Three fixed rates from one task read as plain bars; animating them would only delay the comparison."
   }
 ]

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a422f4e438b4a64d833c1c3aaa8791664f500d748a794c498eb767b1f16f3f15",
+  "fingerprint": "fd5c8e70fd8ec951a5af7ca30786e8e7036bcd70b94541f1a7b0538377e1e6d5",
   "viewports": [
     "375x812",
     "1440x900"
@@ -11485,7 +11485,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21030,
+      "visibleTextLength": 21153,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -11578,7 +11578,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20426,
+      "visibleTextLength": 20904,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -11764,7 +11764,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 28139,
+      "visibleTextLength": 29210,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -11941,7 +11941,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 24599,
+      "visibleTextLength": 24667,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -12076,7 +12076,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 17588,
+      "visibleTextLength": 17995,
       "figures": [
         {
           "imageId": "openvla-overview-2024",
@@ -12169,7 +12169,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 20920,
+      "visibleTextLength": 21842,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",
@@ -27951,7 +27951,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28062,
+      "visibleTextLength": 28185,
       "figures": [
         {
           "imageId": "droid-in-the-wild-scenes-2024",
@@ -28044,7 +28044,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 28455,
+      "visibleTextLength": 28933,
       "figures": [
         {
           "imageId": "open-x-embodiment-overview-2023",
@@ -28230,7 +28230,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 35234,
+      "visibleTextLength": 36496,
       "figures": [
         {
           "imageId": "nist-dexterous-manipulation-testbed-2013",
@@ -28407,7 +28407,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 32785,
+      "visibleTextLength": 32853,
       "figures": [
         {
           "imageId": "bmw-leipzig-body-shop-spot-welding-2005",
@@ -28542,7 +28542,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 24605,
+      "visibleTextLength": 25167,
       "figures": [
         {
           "imageId": "openvla-overview-2024",
@@ -28635,7 +28635,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 27415,
+      "visibleTextLength": 28507,
       "figures": [
         {
           "imageId": "inl-hot-cell-manipulators-2006",

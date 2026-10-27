@@ -112,7 +112,9 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await unknownFilter.focus();
     await page.keyboard.press('Enter');
     await expect(unknownFilter).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByText('18 of 40 entries')).toBeVisible();
+    // Successor of 18 of 40 (maker-page pass, 2026-10-26): the EngineAI SE01
+    // and Fourier GR-3 rows lost prices no maker page prints (2bdc3f0a).
+    await expect(page.getByText('20 of 40 entries')).toBeVisible();
     const hardware = page.getByRole('table', { name: /hardware entries/i });
     const hardwarePrice = hardware.locator('tbody tr').filter({ has: page.getByText('ALOHA 2', { exact: true }) }).locator('td').nth(2);
     await expect(hardwarePrice.getByText('not disclosed', { exact: true })).toBeVisible();

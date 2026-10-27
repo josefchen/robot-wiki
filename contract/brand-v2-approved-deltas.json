@@ -123266,6 +123266,1402 @@
           "newHash": "d63ebc9ba5593fa56a39dc7e23daa4a6fdd848d87f8830371cb518f19aadf6b3"
         }
       ]
+    },
+    {
+      "id": "owed-figures-dh-20261026-prose-data-hardware-datasets",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "91dec99fcb7a3c44fe471a97e2c6777f81420f69ffae046e907565e1b52915b5",
+      "newHash": "d93bb25e40ccad95851a1950ad28846cee97315ea39d7488897605522214b0b9",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/datasets: the article mounts the new DatasetRunsHours figure (recorded runs against recorded hours for FineART, DROID, Galaxea, RoboMIND and AgiBot World, each value from the dataset's own paper or card) once, after the comparison-table paragraph, as one import line after the DatasetTable import and one mount line `<DatasetRunsHours className=\"my-6\" />`, each between blank lines. No sentence, number, citation or link changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. It moves the member from its last approved endpoint (convergence-prose-20261026-prose-data-hardware-datasets).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-prose-data-hardware-hardware-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "7d2ceed595c777388de4f0e271e7dd49aac4a24ff7ea8ad17063cdb6cc5d44b7",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/hardware-taxonomy: the article mounts the new HardwarePriceLadder figure (the buyer's-guide listed prices from data/hardware.ts on one log scale, arms, humanoids and robot computers) once, at the start of \"How to read these prices\", as one import line after the HardwareGuide import and one mount line `<HardwarePriceLadder className=\"my-6\" />`; and the hands paragraph gains two sentences after the Shadow hand: \"Sharpa's Wave, a human-scale five-finger hand with 22 active DoF and high-resolution tactile sensing, is sold through a sales enquiry and lists no price\" (sharpa-wave-2026) and \"PSYONIC designed its Ability Hand as a prosthesis and opened it to robotics researchers in November 2022\" (psyonic-ability-hand-2022). Every other sentence, number, citation and link is unchanged, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 34 earlier approved edges exactly, ending with convergence-prose-20261026-prose-data-hardware-hardware-taxonomy.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9"
+        },
+        {
+          "id": "pricing-provenance-20260907-9",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20"
+        },
+        {
+          "id": "performance-worldmodels-20260908-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "754695d09e014226b660fab2d3f30997506f223495a06157a752f6306d4c260d"
+        },
+        {
+          "id": "hardware-taxonomy-r1-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r2-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r3-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r4-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r5-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r6-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r7-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r8-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r9-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r10-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r11-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r12-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r13-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r14-20260915-1",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r15-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r16-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r17-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r18-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r19-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r20-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "hardware-taxonomy-r25-20260915-1",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af"
+        },
+        {
+          "id": "reader-f20-dates-20260923-2",
+          "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "cf5a2b851f5a0fe492dd594762d82163f02424d275e3fceb4410798aa43455af"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "558956d6f13ce7c7c7c1c7a37df64bc879248777c0910a0fd7caf08cbb3ed7a3"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "968143da16731393e77b21d1e27a5e2cb965c1dc86cb08d83f042d97e5d05fec"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "df76d0fb7992a19bed98944b84599efd78eed419c327653146401a3e33357cad"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "acfe8dc62f1895ae6e6ecfc148508ce2c8f58c8b853d68748f94c26f05655955"
+        },
+        {
+          "id": "kol-batch-20261020-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "9950d7013e51cf07ac92763a5bdd58971c5698bf6f2dff4312596162ca674ab2"
+        },
+        {
+          "id": "explainer-mounts-20261026-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "c4520e2e0b69beab00a7f96e3c83f3db22ed4f8b94b3348940264688413c165f"
+        },
+        {
+          "id": "convergence-prose-20261026-prose-data-hardware-hardware-taxonomy",
+          "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+          "newHash": "a74bbbbffc03ee6e0d9521473260d185b8ff35c6ea395233ba18ddd0057cc6ac"
+        }
+      ]
+    },
+    {
+      "id": "owed-figures-dh-20261026-prose-data-hardware-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "d1c3cd88bf21fb89cf9d848e397717d1c1533c80583058eef920fa86ea6db4f5",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/industrial-deployment: the logistics sentence keeps 117,500 transport and logistics robots and 47 percent and now names the base the share is of, \"47 percent of the almost 250,000 professional service robots shipped that year, up 24 percent on 2024\", both read in the cited IFR release (ifr-service-robots-2026). No other text changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 36 earlier approved edges exactly, ending with convergence-prose-20261026-prose-data-hardware-industrial-deployment.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "content-audit-2026-09-06-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba"
+        },
+        {
+          "id": "retained-cross-20260907-3",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589"
+        },
+        {
+          "id": "retained-cross-20260907-6",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4"
+        },
+        {
+          "id": "industrial-cost-responsibility-20260909-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77"
+        },
+        {
+          "id": "symbotic-a3-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "499dd7bc6734ff5e01ac914b97242a49689345824b9ec9e93d3243ab2a99b97a"
+        },
+        {
+          "id": "amazon-industrial-tooltip-placement-20260913",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "18f396ad337f224e3eb055525e10eb03dc529c7e05201045de408bfc8b4f6292"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "0dd12f5fa30be2bd301761106404bce26e2ec66d6ad49269ac364ed3312d336d"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-4",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "osha-industrial-modes-38-20260915-1",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8"
+        },
+        {
+          "id": "seo-20260824-prose-349c6badf01f",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0"
+        },
+        {
+          "id": "seo-merge-20260916-prose-9",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d3c361e063873351e4a90bd1372d09076bd3792149cb3c9e583a7dcc7d2c9b45"
+        },
+        {
+          "id": "as0917a-industrial-ocado-scope",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d"
+        },
+        {
+          "id": "mit-industrial-43-prose-20260921",
+          "oldHash": "6063818cca0a9e5d84fddddd801ca6a098309f9a1b3baa6fe41cff7f735f743d",
+          "newHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba"
+        },
+        {
+          "id": "continuation-merge-20260922-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "04577b7063dd224b8a7d0ed35fa2527b17870f253c029f55f54c794e72789a49"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-1",
+          "oldHash": "125ef32b92ffe8c9444379f6fc3a00caeaad89e7330c836081d91b33deec33ba",
+          "newHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "76eee12ee99d7fedbc725d7be11966f66df5d2633e96e496011aec9b925dc909"
+        },
+        {
+          "id": "economics-local-20260923-1",
+          "oldHash": "e4d07fe8707f63020473fae7a08d9796f65c26f4b1e2dee0be167486f13ad048",
+          "newHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1430-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "b380f81feab53d71f7f5bdbd369266d90da609c486d0e225282b6ba28bb11de9"
+        },
+        {
+          "id": "industrial-closure-20260923-6",
+          "oldHash": "cd8e0b49caaf68ae4576e17e84a64292bdc9309a0e912f9b762de60a4a765422",
+          "newHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-prose-article-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "1aea5cd4a2064ec784e74a5a804c5338a4c57154b6a95ee7787141fc63172afc"
+        },
+        {
+          "id": "citation-closeout-20260924-kroger-temporal-prose",
+          "oldHash": "92d46c724b16b1d90ecc32ae7d4a481c43e4c7f69a2afc68d306fd52ac02342c",
+          "newHash": "f502a1a2d97d58701321a793dc285deb1e340725c3575155d7c0f38789503528"
+        },
+        {
+          "id": "main-merge-20260924-industrial-prose",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "4448010ee139b50e98f5967aa77eebcb5d842ff39a9dc1d16287a70a359b052c"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d8f091fdc26d87b8de37a8736324f0e715ad60759a23271c0ce7168661c6360a"
+        },
+        {
+          "id": "educational-relocation-20260926-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "915117232269b0ec152a0ccedd7ac8bdeb0126e40fdf1891118e84b68eabf3a8"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f76ec68e7881c2c2e748561fcebb76d6829909e3827711484fb0f591dc1662fe"
+        },
+        {
+          "id": "motion-data-hardware-source-qualification-20260927-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d6912e7b80390fcfa1b2430b4fe4b0c3d8f3e01b32ec8cf7259a6800119d32f3"
+        },
+        {
+          "id": "round6-prose-restores-20260929-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "d52ef321eaa188ee867b49f827b0f8445992ed79e8399ee577ffb47b84542249"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "ef1736ed9508d63bf57e307d1cde7b03450a9a400becc3abb0ceb1499cb9b06b"
+        },
+        {
+          "id": "reader-first-20261002-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "af0b3110dde1f4f7fb6c766084cd4ced074fb36ad375787a5df06d194affbcca"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "faca0356b24dc53223dbebb7706d7f0d100da7ceb3e3c16519c06d941003fc83"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "f7ddef9c4c2b92c847636bf3afaa9302eeb11e71d84198ee327fc291e825ba8b"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "bd1c878eb6a3f22324cb71ab85e31cd942b6021c15ca5dd5c4f8fb14c03f7811"
+        },
+        {
+          "id": "kol-batch-20261025-data-hardware-prose-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "336e019700ecdf4644ada971f16b8719fba1f1fcde690c2a8a9781c395780adf"
+        },
+        {
+          "id": "convergence-prose-20261026-prose-data-hardware-industrial-deployment",
+          "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+          "newHash": "2fd59b2effa1cb0a07f97f954198090bb5e5e3a575d6f359aa7b8bdda3efe7f7"
+        }
+      ]
+    },
+    {
+      "id": "owed-figures-dh-20261026-prose-data-hardware-robot-learning-stack",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "cf6d91989bef4c0855233aa05d10c678a1e9b6175376242892734df015e06ac8",
+      "newHash": "2ecad7e7630f64fccf6d857552b99a49ab7ae1a214643754c59c636cd45d5fe7",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/robot-learning-stack: the production-inference paragraph gains one sentence after the ROS 2 guide link, \"For the controller bridge, ros2_control is a ROS 2 framework for robot control, real-time control included; it rewrites the ros_control packages of the original ROS, with the stated goal of making new hardware simpler to integrate\", cited to the ros2_control documentation (ros2-control-docs-2026). No other text changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. It moves the member from its last approved endpoint (convergence-prose-20261026-prose-data-hardware-robot-learning-stack).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-prose-data-hardware-teleop-rigs",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "e3f5e08a0d5b08d4576501eefa17d8d1066f31e787f02cceaa2a2a6dbdf7ee80",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/teleop-rigs: the article mounts the new UmiCollectionRates figure (demonstrations per hour by bare hand 231, UMI handheld gripper 111 and spacemouse teleoperation 35, from the UMI project page already cited) once, after the UMI rates sentence, as one import line after the TeleopRigMatrix import and one mount line `<UmiCollectionRates className=\"my-6\" />`; and one paragraph follows the HiFi-UMI paragraph: \"Pollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper that carries out the learned movements on a real or simulated arm\" (grabette-2026). Every other sentence, number, citation and link is unchanged, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 27 earlier approved edges exactly, ending with explainer-mounts-20261026-prose-data-hardware-teleop-rigs.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "pricing-provenance-20260907-2",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c"
+        },
+        {
+          "id": "pricing-provenance-20260907-7",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa"
+        },
+        {
+          "id": "pricing-provenance-20260907-8",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c"
+        },
+        {
+          "id": "tr-r1-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r2-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r3-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r5-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r6-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r7-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r8-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r9-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r10-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r11-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r12-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "tr-r13-20260916-1",
+          "oldHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "seo-merge-20260916-prose-11",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "round5-closeout-teleop-rigs-prose",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-prose-article-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8168a6517e249478812a61b3ded91f8fefd40809b3776bd0fefd1e720fd7ce13"
+        },
+        {
+          "id": "educational-cue-20260926-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "dc7c65001342ac5decfa2db1607e03a15111d92b706aa43f999e7c29ee15ab21"
+        },
+        {
+          "id": "motion-data-hardware-humanizer-v3-20260927-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "b82c876afa479ce49a0291cb4e0e41a4a7336c6d0d0f7f846a25dfb35f863ffa"
+        },
+        {
+          "id": "seo-pass-20261002-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "417fe107f09c07786ae8749eaf8df5d9bf998fe0d82000435fe5636f153d4e28"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "663d4df611a904ab841911959250fd2a4f3966a4357efb66b5d7fde1652b6670"
+        },
+        {
+          "id": "images-dh-20261015-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "68a3411f2c97f7f1992930d36e6e027b6366c012ccf0dc3f24dd4f99784a2b40"
+        },
+        {
+          "id": "anatomy-dh-new-figures-20261019-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "52c9dde6b9f7943f92d886760a936c4704f3464529164939a682d8a98f189d8c"
+        },
+        {
+          "id": "kol-batch-20261020-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "60a54731fb89110488589ff7a41874ecf2c4834ccc71bdf4103b3b75697fcfca"
+        },
+        {
+          "id": "kol-batch-20261021-data-hardware-prose-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "8a8d5764f38a431f4def29fb80733d08cb55b0f558f27e18966bb8951877e147"
+        },
+        {
+          "id": "explainer-mounts-20261026-prose-data-hardware-teleop-rigs",
+          "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+          "newHash": "6b8c2231ec63f6373a80daf3e901fa6e3aca8e76cb0fd1ec04b49a415b85495f"
+        }
+      ]
+    },
+    {
+      "id": "owed-figures-dh-20261026-relationships-data-hardware-hardware-taxonomy",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+      "newHash": "64456d491d841fd52ea108192cd6d15879521fb26841c0acb5bb800e7e080821",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/hardware-taxonomy: the relationships record follows the new inline citations of sharpa-wave-2026 and psyonic-ability-hand-2022 and the removal of robozaps-humanoids-2026 from the front matter (no sentence, figure or buyer's-guide row cites the review blog since the guide's humanoid rows cite their makers); seeAlso entries, glossary ids and internal links are unchanged. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 8 earlier approved edges exactly, ending with convergence-prose-20261026-relationships-data-hardware-hardware-taxonomy.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "performance-worldmodels-20260908-7",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b"
+        },
+        {
+          "id": "reader-f20-dates-20260923-4",
+          "oldHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b",
+          "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1745-relationships-article-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-0305-relationships-article-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "6a04c7da51634bd39cb729e97fd4d10b7297830b9497ead0fc126d826d484598"
+        },
+        {
+          "id": "seo-pass-20261002-relationships-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "9562870df49306e75b47084aced85dfa22e01a74800f14cb46e166e684e4c781"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-relationships-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "ad80d48553372e3268b3c39143014e578afb816e40de29361ae282bb826a9aed"
+        },
+        {
+          "id": "kol-batch-20261020-relationships-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "009480792758b5500e5fc1aa06fadbec7ad43af59a55c8737da94eee2ac71d1e"
+        },
+        {
+          "id": "convergence-prose-20261026-relationships-data-hardware-hardware-taxonomy",
+          "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+          "newHash": "a59554734a0b501db5cdb7fa058b2c74f25a18fb251bfa702bbbe9b15a5157c4"
+        }
+      ]
+    },
+    {
+      "id": "owed-figures-dh-20261026-relationships-data-hardware-robot-learning-stack",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "e8dcb3a68b05d9e76def1d7b9c62dd84f222257b84768ffcf0d2c2b1a97153f7",
+      "newHash": "c1b92b777ebcfbd2d7b0a858d0fa0473ec70a6266098d80ae327eacc010ba853",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/robot-learning-stack: the relationships record follows the new inline citation of ros2-control-docs-2026; seeAlso entries, glossary ids and internal links are unchanged. It moves the member from its last approved endpoint (convergence-prose-20261026-relationships-data-hardware-robot-learning-stack).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-relationships-data-hardware-teleop-rigs",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "1de5bb1df1cbc021005e18a7a833320ab173909fb460621f370100eeb2eadbec",
+      "newHash": "a116306464378fffd18778a732b99affaa690e82204680fdebfbbd6f29f535da",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/teleop-rigs: the relationships record follows the new inline citation of grabette-2026; seeAlso entries, glossary ids and internal links are unchanged. It moves the member from its last approved endpoint (kol-batch-20261021-data-hardware-relationships-teleop-rigs).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-frontmatter-data-hardware-hardware-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
+      "oldHash": "09c0e6ff7194df4d9976b80256442ce0278ac9f1d0c876227936132b8759b12b",
+      "newHash": "2c996d0e3157f08b1af447ce514b044b4591650e277821b5cd6629d6de72d968",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/hardware-taxonomy: the citation list drops robozaps-humanoids-2026, which nothing on the page cites any more, and adds sharpa-wave-2026 and psyonic-ability-hand-2022 for the two new hand sentences; lerobot-pricing-2026 stays while guide rows cite it. Title, description, status, lastReviewed (already 2026-10-26) and seeAlso are unchanged. It moves the member from its last approved endpoint (convergence-prose-20261026-frontmatter-data-hardware-hardware-taxonomy).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-frontmatter-data-hardware-robot-learning-stack",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/robot-learning-stack",
+      "oldHash": "d2eba61540ce0eb9d1b833b1022f200adbd577e3578be882a8f1a1e1174f9208",
+      "newHash": "8aaceda643ae36304ab20972015569fb8df3b4b51bf91065d56b841cc140a566",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/robot-learning-stack: the citation list adds ros2-control-docs-2026 for the new ros2_control sentence. Title, description, status, lastReviewed (already 2026-10-26) and seeAlso are unchanged. It moves the member from its last approved endpoint (convergence-prose-20261026-frontmatter-data-hardware-robot-learning-stack).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-frontmatter-data-hardware-teleop-rigs",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/teleop-rigs",
+      "oldHash": "35c416af8487d24f0be86563336e331d4a908b0ead8b54aa299cc1587911e7cf",
+      "newHash": "95ad2cad085f5b05cf99edbfe923f9cd8886941679fb5a15e503df9f8150b33c",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26 on data-hardware/teleop-rigs: the citation list adds grabette-2026 for the new Grabette paragraph. Title, description, status, lastReviewed (already 2026-10-26) and seeAlso are unchanged. It moves the member from its last approved endpoint (convergence-prose-20261026-frontmatter-data-hardware-teleop-rigs).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-name-dataset-runs-hours-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/dataset-runs-hours.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ec9a7ce616eaa917390daa9bf4c55a078e69d0b54100ca72def9fea3e5ec3483",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: the new DatasetRunsHours figure names its plot \"Recorded runs against recorded hours for five robot datasets\", one clause shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-name-hardware-price-ladder-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/hardware-price-ladder.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "270d731cda2b70c06322e64f695033ef29a86b23077b2a6337e394ff24ea957b",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: the new HardwarePriceLadder figure names its plot \"Listed prices of arms, humanoids and robot computers\", one clause shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-name-umi-collection-rates-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/umi-collection-rates.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "67f68b6d5930a2828741a4b65c84a51fe6e6f07055cdf5e712b9e728c239c708",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: the new UmiCollectionRates figure names its plot \"Demonstrations per hour by bare hand, UMI gripper and spacemouse teleoperation\", one clause shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-source-dataset-runs-hours",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/dataset-runs-hours.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "642277320ac795b7777898cb1228feec845d9dec91f2c92c698de982538d2ab2",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: the new DatasetRunsHours figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/dataset-runs-hours.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-source-hardware-price-ladder",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hardware-price-ladder.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2794c9a2179745dab19f92247ec8c499b275979f4063faeb3667c80e9bff0a39",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: the new HardwarePriceLadder figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/hardware-price-ladder.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-source-umi-collection-rates",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/umi-collection-rates.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9da781fcbc474ed9df6aac09527b0f46240b220482b58c4aee155d4fb57efe37",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: the new UmiCollectionRates figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/umi-collection-rates.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-mount-datasets-DatasetRunsHours-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/datasets.mdx:DatasetRunsHours:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8697a1b14a5fa62225532743e04680707db64e9ec0d51784ec2368bfc32ba776",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: data-hardware/datasets mounts the new DatasetRunsHours once, after the comparison-table paragraph, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-mount-hardware-taxonomy-HardwarePriceLadder-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/hardware-taxonomy.mdx:HardwarePriceLadder:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "059c0471692ec504f67c80f8125fb6326547538f833666331292e3b53da960ee",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: data-hardware/hardware-taxonomy mounts the new HardwarePriceLadder once, at the start of \"How to read these prices\", as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-mount-teleop-rigs-UmiCollectionRates-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/data-hardware/teleop-rigs.mdx:UmiCollectionRates:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c237cdc8a5f5259d34fe79ae97ec92066518574d380d5b2396484edf16820255",
+      "reason": "Data-hardware owed-figures slice of 2026-10-26: data-hardware/teleop-rigs mounts the new UmiCollectionRates once, after the UMI rates sentence, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-089",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-citation-sharpa-wave-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:sharpa-wave-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3df0a98638048931fdcb15c2451fa79aa50738ac94e268c124031b390f84594c",
+      "reason": "Registers the new citation sharpa-wave-2026 for the data-hardware owed-figures slice of 2026-10-26 (Sharpa, \"Sharpa Wave\", product page, read 2026-10-26, cited for the Wave sentence in hardware-taxonomy). Its audit row is in audit/citations.md under the owed-figures slice of 2026-10-26. The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-citation-psyonic-ability-hand-2022",
+      "manifest": "article-metadata",
+      "memberId": "citation:psyonic-ability-hand-2022",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7fc762ee5cea953c8e1ff110b8369aea83749599efdd43d44f2dfe4172c38f9f",
+      "reason": "Registers the new citation psyonic-ability-hand-2022 for the data-hardware owed-figures slice of 2026-10-26 (PSYONIC, \"PSYONIC releases Ability Hand for research users\", news post of 2022-11-02, cited for the Ability Hand sentence in hardware-taxonomy). Its audit row is in audit/citations.md under the owed-figures slice of 2026-10-26. The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-citation-ros2-control-docs-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:ros2-control-docs-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "73348e527e62a98395a0c2e35e4210fe6af6c3c206994aafd29fd1c91e6da6d4",
+      "reason": "Registers the new citation ros2-control-docs-2026 for the data-hardware owed-figures slice of 2026-10-26 (ros2_control Development Team, \"Welcome to the ros2_control documentation!\", Rolling documentation as of 2026-10-26, cited for the ros2_control sentence in robot-learning-stack). Its audit row is in audit/citations.md under the owed-figures slice of 2026-10-26. The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-citation-grabette-2026",
+      "manifest": "article-metadata",
+      "memberId": "citation:grabette-2026",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "af3548a083b0ef9c9172ccfdf9a4e4dd91f3a6e95500500d73e467027082b405",
+      "reason": "Registers the new citation grabette-2026 for the data-hardware owed-figures slice of 2026-10-26 (Nguyen et al., \"Grabette: an open system to record robot-manipulation data\", Hugging Face blog of 2026-07-21, cited for the Grabette paragraph in teleop-rigs). Its audit row is in audit/citations.md under the owed-figures slice of 2026-10-26. The member did not exist before; this edge approves its first reviewed record only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-dh-20261026-citation-rendering",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d99b571bb716c93ee0f9df26d7b268c191c56c50ec0012974ac722a79ea40b61",
+      "reason": "Resolution entry for the citation-rendering:label-and-meta approval graph after the data-hardware owed-figures slice of 2026-10-26 registered 4 citation records (sharpa-wave-2026, psyonic-ability-hand-2022, ros2-control-docs-2026, grabette-2026) and registered ros2_control Development Team as an organisation chip name (chip label ros2_control); no rendered label or metadata of an existing record changes. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 87 earlier approved edges exactly, ending with owed-figures-20261026-citation-rendering.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-089 data-hardware figures and the VAL-OPUS-093 item-3 leftovers), routed to opus-pass-owed-figures by the orchestrator note of 2026-10-26 20:40, which made it the data-hardware figures slice. Every plotted value and every changed number and source was read in its primary source and is recorded in the audit ledgers under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-093",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "brand-v2-citation-rendering-seal-added",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8"
+        },
+        {
+          "id": "current-dp-td3-20260907-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259"
+        },
+        {
+          "id": "act-convention-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8"
+        },
+        {
+          "id": "bc-foundations-20260907-6",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33"
+        },
+        {
+          "id": "act-current-claims-20260907-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571"
+        },
+        {
+          "id": "act-five-sources-20260907-18",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2"
+        },
+        {
+          "id": "cross-article-closeouts-20260907-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf"
+        },
+        {
+          "id": "oft-gemini-oxe-20260908-39",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d"
+        },
+        {
+          "id": "go-helix-cross-transfer-20260908-23",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8"
+        },
+        {
+          "id": "vla-generalist-closeouts-20260908-10",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19"
+        },
+        {
+          "id": "rl-source-closeouts-20260908-8",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8"
+        },
+        {
+          "id": "jepa-source-closeouts-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6"
+        },
+        {
+          "id": "cosmos-reader-closeout-20260908-7",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e"
+        },
+        {
+          "id": "isaac-v1-twelve-originals-7-20260908",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5"
+        },
+        {
+          "id": "pirl-pld-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e"
+        },
+        {
+          "id": "neural-scene-originals-12-16-20260908-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6"
+        },
+        {
+          "id": "classical-slam-cadena-25-20260908-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9"
+        },
+        {
+          "id": "pose-metrics-bop-four-originals-20260908-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8"
+        },
+        {
+          "id": "servo-apollo-integration-20260909-5",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af"
+        },
+        {
+          "id": "randomization-citation-rendering-reconciliation-20260909",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205"
+        },
+        {
+          "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208"
+        },
+        {
+          "id": "ifr-industrial-originals-20260912-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856"
+        },
+        {
+          "id": "amazon-industrial-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "ad43c3cc6acae54840e4bb247b68fd857c46e4ebea2bde03d12ac9be86fb30cd"
+        },
+        {
+          "id": "industrial-engineering-originals-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "71f7df8ba7ae919b5e2049f73fb4fb4d1d36d969368d856a073a79bbf5181a46"
+        },
+        {
+          "id": "evaluation-statistics-originals-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5570fa96d9961e65be4a31f072b16d1ec616bfbbaa1e00e599686bd829e6c446"
+        },
+        {
+          "id": "perception-foundations-20260913-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195"
+        },
+        {
+          "id": "perception-depth-20260913-2",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76"
+        },
+        {
+          "id": "optimal-sampling-ompl-20260913-3",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3"
+        },
+        {
+          "id": "orb-scene-four-20260914-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e"
+        },
+        {
+          "id": "seo-merge-20260916-article-metadata-143",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "079a39b797d139832e982ce57f899d1bbe5ac8c1dc7d266e34d96952a49702a2"
+        },
+        {
+          "id": "seo-merge-20260916-b3-article-metadata-4",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "21c594db74adf7e091b5ef8b35615dfe145f87dd2a681fc2434ede2c1e1fb223"
+        },
+        {
+          "id": "seo-merge-20260916-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c6d54bfdf8468ccbc39743598bc452a64dc59a6e5bf489e8fb366a747cc59bc1"
+        },
+        {
+          "id": "wm-cost-labelmeta-20260917-1",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d4b364d55f8c6a688b5c2a17484919b1fd3efa21a3c148010034904bac0376c5"
+        },
+        {
+          "id": "round5-closeout-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6aec4b2772e8d4a5cb9c9ad1c462534912f9a8b01958c39e6fb9069e27c00cc7"
+        },
+        {
+          "id": "aq0917a-citation-rendering-digest",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507"
+        },
+        {
+          "id": "dataset-license-pair-20260921-2",
+          "oldHash": "8c97b4c2c2475caf673e5e25f0a654784734716a434c4f3f41c3249248d80507",
+          "newHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b"
+        },
+        {
+          "id": "generalist-attribution-p1-20260922-4",
+          "oldHash": "525d7e43d59c75f31cb2dee4e5c449bc583f757b95b475c146155764c342fc7b",
+          "newHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef"
+        },
+        {
+          "id": "continuation-merge-20260922-article-metadata-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "5f3bad00fb7f68ff333ded54c5a51dfbada7ac788bb2f213839864ec17e5cefb"
+        },
+        {
+          "id": "content-integration-20260923-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3955fc201543cf29cabfe07ea3d65b0a726c26be36d7387bd7fa4315520085fb"
+        },
+        {
+          "id": "industrial-perception-zero-credit-20260922-6",
+          "oldHash": "40f4007276443c40512e8a7ad8ab461aec51eacf8f9a372f99c0e2a36563d3ef",
+          "newHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "833ab76d14390836473994dfb50f9b70b384d4de8a37157be70a88ccce449a2f"
+        },
+        {
+          "id": "industrial-closure-20260923-3",
+          "oldHash": "f00819fcdb746cca4f9aa4cc25e3b0d56e10202fc6f8ab83f1f85a0bb963c450",
+          "newHash": "51f54329ecb1d1a289c6764b3e38e5653abbd9144f3470266d8a489fcec467ab"
+        },
+        {
+          "id": "continuation-merge-2026-09-23-1940-article-metadata-citation-rendering-label-and-meta",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3373e6623166e653a62074c4d156e1e5a454dfb89f5c56691ce6d35521ade5f2"
+        },
+        {
+          "id": "control-citation-20260924-rendering-inventory",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4eef21fee12072861cf36b8849218a09714aace4ee4199f2da71fa6cfebcf7b6"
+        },
+        {
+          "id": "main-merge-20260924-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "03de761700f6c1776eeeb9336c009832040f21d39951916c7a20c6025b1e9e53"
+        },
+        {
+          "id": "continuation-merge-2026-09-24-tech-withdrawal-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "2822722c660d8405d900c39dadeeb0e6efc72016bf5ea756a61211ea049ee6a0"
+        },
+        {
+          "id": "expo-ft-intake-20260925-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "dc3c6a368d704a0fc06005dd34dd7985b3fc1e36fa68f4fa81a84d6c9b89d96f"
+        },
+        {
+          "id": "kol-backlog-20261001-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "0f638d06385adacc58d419c23a0fa24860069dd6dfc63a53ec0250766064c5d0"
+        },
+        {
+          "id": "kol-backlog-20261001-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d0708a60d3214684fda52170fcd4447bcd66c56ff7078283c9ab19be9f8ee92d"
+        },
+        {
+          "id": "kol-backlog-20261001-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "86bdaf2aad9c7973398e9465830cfd5b157a4933034ddd17f285ee5e6ff9ab12"
+        },
+        {
+          "id": "kol-backlog-20261001-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bacb386d64e42b7c3c9e8d2d79257fa1c4bc2a2245cbd846ceb9c9cc495f08fa"
+        },
+        {
+          "id": "seo-pass-20261002-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4275fce1f2fa6fcab3e9f65b8451c851a1c9000c0ce172fe97ba5e9f46d443b0"
+        },
+        {
+          "id": "kol-backlog-20261005-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d5fa6de0920efb6f604b3adb78671398a2f7315e701b7679c84db792de6ca6c9"
+        },
+        {
+          "id": "kol-backlog-20261005-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "fb35cb7a742017f7eb5c1fff3b0002b8a60a6c67776a33db155b0aebe0b4a8f0"
+        },
+        {
+          "id": "kol-backlog-20261005-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ed90498df28ec03385a9fec964589aaf8d39c804f9460765cd315ebf06bea31"
+        },
+        {
+          "id": "kol-backlog-20261005-frontier-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "126e7b445dc19b681249cf921a88515accb5ce3d2ca9014530a39252d7629134"
+        },
+        {
+          "id": "kol-backlog-20261005-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d88adcb29d51f3923544c1761f138cc80ada2ac4861b0f1f84e0f8ad67319de4"
+        },
+        {
+          "id": "kol-backlog-20261005-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "6d7fb89f953cd5806346a46d295a04f6925fd41f3174d80f05f1a812435c81e4"
+        },
+        {
+          "id": "domain-pass-20261006-g1-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "3e1ca8a9c5dc154bd815e226b7d53d9527f38e7255f2a3a0dabb7fcf3df91849"
+        },
+        {
+          "id": "domain-pass-20261006-g2-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "912315196c4c4633c733b5e0b53ef0c0c3c8be2237449b78c8652e036210819f"
+        },
+        {
+          "id": "domain-pass-20261006-g3-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7c11f6330dc6494c88e40d10722e448679cc4356022d05e3f8240a41afc671da"
+        },
+        {
+          "id": "domain-pass-20261006-g4-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "bf7a5e8a8094ce208c548b783c6a54d45f5a1de61a4d0886bbf2a8928061fa60"
+        },
+        {
+          "id": "domain-pass-20261006-g5-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "8e198326a8254e01cbabb3b442d824528d3ab013b1ecba871daf4aecdcc36c80"
+        },
+        {
+          "id": "domain-pass-20261006-g7-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b9884a99b341adbd61edfb1ee0968fafc7071fac3eff926c79a54fbb8e207342"
+        },
+        {
+          "id": "domain-pass-20261006-g8-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b817d91fe450f5361e69424260f9ce9c17683eb871046a99ed68ed8b034c1e46"
+        },
+        {
+          "id": "domain-pass-20261006-g9-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "e454bc12da7af25f2f486b8850ef29d126e93f28db7e22323fd1aaf05c6d96ab"
+        },
+        {
+          "id": "domain-pass-20261008-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4ecd1cd4d56707722fb52bb3f46671b1a7e0b50bf78ab49a9aa078c8500f8bc4"
+        },
+        {
+          "id": "domain-pass-20261008-sweep-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "284c1d91aa330bf70f66063372c4b6767b211f89b6a42ca0438fde97337c5355"
+        },
+        {
+          "id": "domain-pass-20261009-kol-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "cfe62d4fd0a7085eb72e5df25eeae253959b5a5472b2e59a04e274c7f019f5f1"
+        },
+        {
+          "id": "world-models-pass-20261010-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "decf48d442e8a32c2531606aa90ff903e46fd6a48998e7cd1111acd8771fe6db"
+        },
+        {
+          "id": "domain-pass-20261012-kol-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "72aa201802f2689ab7d3c89812de121dd464de5c93e10c0f1fd0d8c0acce8431"
+        },
+        {
+          "id": "frontier-pass-20261010-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "37b45901df39a3d8226c014b0774ef57f2b3fbd8478fcb76dc206d8056e1007f"
+        },
+        {
+          "id": "length-cut-20261013-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "27a0c875d6ff2797cc6807a2fab163ed4d01d3b03e9399eacb469ed1c8fa1ee6"
+        },
+        {
+          "id": "length-cut-20261014-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c1445dc1508c859643078986a8caf3f1b1a75e552e39398ca3f995b525928296"
+        },
+        {
+          "id": "kol-batch-20261020-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "9d79af3ee4d28de077643253799d9528b5130f54063dfe5d9495496b498b3043"
+        },
+        {
+          "id": "kol-batch-20261021-manipulation-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c0075deaa827731bec7db8cbf3eb76071dbaedd9ff28dc45089d152f0a58240b"
+        },
+        {
+          "id": "kol-batch-20261021-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "b88b0b54523f3c43d208fd2f553336acee5230558fecc3a58b9694be8b15a386"
+        },
+        {
+          "id": "kol-batch-20261021-adjacent-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "7836294e4bdf9d4481ae6ed84293393094d7bb964f62a00a5dc62bbad7b2197b"
+        },
+        {
+          "id": "kol-batch-20261021-rl-sim2real-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "381ab357a85139a74622308ce69675b957a449102f9e4923d6000600282df4ad"
+        },
+        {
+          "id": "kol-batch-20261021-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "990fbefa4b7a9cabfb2230c4c8439ebaa6753913cce027f4ff180c3b7d98afa7"
+        },
+        {
+          "id": "kol-batch-20261024-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "4d4367c5f0ed55ee62b51b1d37c49dd3685cfc159826c85807972c4bb493159b"
+        },
+        {
+          "id": "kol-batch-20261025-rl-sim2real-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d2a182b2d6b3951c6330e1318fd0817ad2803e87202453b2946db2f1fb0ebc2e"
+        },
+        {
+          "id": "kol-batch-20261025-classical-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "51bf78b5a146417826cd4c1dd3f1bd066df8e92f095056d3117a83dd34960714"
+        },
+        {
+          "id": "kol-batch-20261025-world-models-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "67b4e8f3be69d404b132e5c9170bd08cdd09a02b942e0bb4213265926c733382"
+        },
+        {
+          "id": "kol-batch-20261025-data-hardware-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "c77554c6435e502a7b2e334e38a7d1d615747f32b601d7a168466d2faa682272"
+        },
+        {
+          "id": "convergence-prose-20261026-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "d63ebc9ba5593fa56a39dc7e23daa4a6fdd848d87f8830371cb518f19aadf6b3"
+        },
+        {
+          "id": "owed-figures-20261026-citation-rendering",
+          "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "newHash": "eccfc73e44678298879faa1dbc3c1395c7e6ff90746aaa8402086e3853db40d9"
+        }
+      ]
     }
   ]
 }

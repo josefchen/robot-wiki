@@ -30,6 +30,7 @@ import { adjacentCutPredecessor } from './audit-length-cut-adjacent-continuity.t
 import { frontierLengthCutPredecessor } from './audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
 import { lengthCutPredecessor } from './audit-length-cut-continuity.ts';
+import { owedFiguresPredecessor } from './audit-owed-figures-continuity.ts';
 import { parallelLocalPredecessor } from './audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from './audit-reader-first-continuity.ts';
 import { reskinPredecessor } from './audit-reskin-site-foundation-continuity.ts';
@@ -368,7 +369,9 @@ function revealPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
  * live bytes, a path with no reviewed successor, and any bytes other than the
  * reviewed successor come back unchanged, so those checks still decide them.
  * The reviewed successor is verified, and its rebuilt predecessor returned.
- * The newer layers see the live bytes first: the 2026-10-26 explainer-mount
+ * The newer layers see the live bytes first: the 2026-10-26 owed-figures
+ * layer, for the articles whose owed data figures it mounted, then the
+ * 2026-10-26 convergence-prose layer; then the 2026-10-26 explainer-mount
  * layer, for the home articles that mount a 3D explainer; then the
  * 2026-10-23 answer-options
  * layer, for the articles whose self-check option sets it rebalanced; then
@@ -396,7 +399,7 @@ export function seoPassPredecessor(root: string, ref: Artifact, liveBytes: Buffe
       wordBudgetTrimPredecessor(root, ref, worldModelsLengthCutPredecessor(root, ref, lengthCutPredecessor(root, ref,
         parallelLocalPredecessor(root, ref, reskinPredecessor(root, ref,
           frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref,
-            figureMountPredecessor(root, ref, sceneCraftPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, convergenceProsePredecessor(root, ref, liveBytes))))))))))))))))));
+            figureMountPredecessor(root, ref, sceneCraftPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, convergenceProsePredecessor(root, ref, owedFiguresPredecessor(root, ref, liveBytes)))))))))))))))))));
   if (ref.path === revealAfter.path) return revealPredecessor(root, ref, live);
   const spec = specSuccessors.get(ref.path);
   if (spec) {

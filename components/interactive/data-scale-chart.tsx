@@ -42,8 +42,8 @@ import {
   rateById,
   yearsToTarget,
   type CollectionRateId,
-  type DataScalePoint,
 } from '@/lib/data-scaling';
+import { COMPANY_POINTS, type ScaleRow } from '@/lib/data-scale-company';
 import { MOTION_STAGE, MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
 
 /**
@@ -54,6 +54,9 @@ import { MOTION_STAGE, MOTION_STAGE_TYPE } from '@/lib/motion-tokens';
  * rate between an hour of robot practice and a token of text exists. Panel
  * A is two rulers: chatbot corpora in tokens, and robot and human-video
  * datasets in hours, each dataset on its own row, its marker filled or open for its kind.
+ * The three largest rows are company-reported totals with no data released;
+ * they take a square marker and their value reads "over", the companies' own
+ * lower bound.
  * Panel B is the farm projection: the hours a year the chosen number of
  * robots would collect, against the goal, with the years to reach it named
  * on the stage.
@@ -103,22 +106,28 @@ const TOKEN_TICKS = [
   { exp: 13, label: '10 trillion', anchor: 'middle' as const },
 ];
 
-/* Panel A, bottom ruler: practice data in hours, 100 to 100,000. */
+/* Panel A, bottom ruler: practice data in hours, 100 to 1,000,000. */
 const NAME_X = LEFT;
-const HOURS_X0 = 142;
-const HOURS_X = logRuler(2, 5, HOURS_X0, RIGHT);
+/** Just right of the longest name, AgiBot World, at the phone type size. */
+const HOURS_X0 = 120;
+const HOURS_X = logRuler(2, 6, HOURS_X0, RIGHT);
 const HOURS_TITLE_Y = f(TOKEN_AXIS_Y + TICK + LINE + 28);
 const ROW_PITCH = f(LINE + 3);
-const ROWS = [...ROBOT_POINTS].sort((a, b) => a.magnitude - b.magnitude);
+const ROWS = [...ROBOT_POINTS, ...COMPANY_POINTS].sort((a, b) => a.magnitude - b.magnitude);
 const rowY = (index: number) => f(HOURS_TITLE_Y + LINE + 8 + index * ROW_PITCH);
 const HOURS_AXIS_Y = f(rowY(ROWS.length - 1) + 14);
 const HOURS_TICKS = [
-  { exp: 2, label: '100' },
-  { exp: 3, label: '1,000' },
-  { exp: 4, label: '10,000' },
-  // Unlabelled: on a phone the label would run into 10,000.
-  { exp: 5, label: '' },
+  { exp: 2, label: '100', anchor: 'middle' as const },
+  { exp: 3, label: '1,000', anchor: 'middle' as const },
+  { exp: 4, label: '10,000', anchor: 'middle' as const },
+  // Unlabelled: on a phone the label would run into its neighbours.
+  { exp: 5, label: '', anchor: 'middle' as const },
+  { exp: 6, label: '1 million', anchor: 'end' as const },
 ];
+
+type RowSeries = 'robot-data' | 'human-video' | 'company-total';
+const seriesOf = (p: ScaleRow): RowSeries =>
+  p.kind === 'human-video' ? 'human-video' : p.kind === 'company' ? 'company-total' : 'robot-data';
 
 /* Panel B: hours a year the farm collects, 1 to 1,000,000, and the goal. */
 const FARM_X = logRuler(0, 6, LEFT, RIGHT);
@@ -138,26 +147,55 @@ const HEIGHT = f(FARM_NAME_Y + 8);
 /** Rough stage width of a label on the narrowest stage, to keep it inside. */
 const textWidth = (text: string) => text.length * TEXT_H * 0.55;
 
-/** The kind of a dataset in its marker: robot data a filled dot, human video an open ring. */
-function KindSwatch({ kind }: { kind: 'robot' | 'camera' }) {
+/**
+ * The kind of a dataset in its marker: robot data a filled dot, human video
+ * an open ring, a company's unreleased total an open square.
+ */
+function KindMark({ series, x, y, swatch = false }: { series: RowSeries; x: number; y: number; swatch?: boolean }) {
+  const common = {
+    stroke: MEASUREMENT,
+    strokeWidth: CHART_STROKE.structure,
+    ...(swatch ? {} : { 'data-chart-mark': 'dot', 'data-chart-role': 'measurement' }),
+  };
+  if (series === 'company-total') {
+    return (
+      <rect
+        x={f(x - MARKER_R)}
+        y={f(y - MARKER_R)}
+        width={MARKER_R * 2}
+        height={MARKER_R * 2}
+        fill={MOTION_STAGE.background}
+        {...common}
+      />
+    );
+  }
+  return (
+    <circle
+      cx={x}
+      cy={y}
+      r={MARKER_R}
+      fill={series === 'human-video' ? MOTION_STAGE.background : MEASUREMENT}
+      {...common}
+    />
+  );
+}
+
+function KindSwatch({ series }: { series: RowSeries }) {
   const h = CHART_TYPE.tickPx;
   return (
     <svg aria-hidden="true" focusable="false" width={h} height={h} viewBox={`0 0 ${h} ${h}`} className="shrink-0">
-      <circle
-        cx={h / 2}
-        cy={h / 2}
-        r={MARKER_R}
-        fill={kind === 'robot' ? MEASUREMENT : MOTION_STAGE.background}
-        stroke={MEASUREMENT}
-        strokeWidth={CHART_STROKE.structure}
-      />
+      <KindMark series={series} x={h / 2} y={h / 2} swatch />
     </svg>
   );
 }
 
-/** A dataset's size as the stage writes it: the number, "about" for an estimate. */
-function stageValue(p: DataScalePoint): string {
-  return `${p.estimated ? 'about ' : ''}${p.magnitude.toLocaleString('en-US')}`;
+/**
+ * A dataset's size as the stage writes it: the number, "about" for an
+ * estimate, "over" for a company's own lower bound.
+ */
+function stageValue(p: ScaleRow): string {
+  const prefix = p.kind === 'company' ? 'over ' : p.estimated ? 'about ' : '';
+  return `${prefix}${p.magnitude.toLocaleString('en-US')}`;
 }
 
 /** formatDuration in words: the same rounding, no unit abbreviations. */
@@ -185,10 +223,15 @@ const RATE_PRESETS: { id: CollectionRateId; label: string; word: string }[] = [
 type GoalId = 'ten-thousand' | 'one-million';
 const GOALS: Record<GoalId, number> = { 'ten-thousand': OXE_SCALE_HOURS, 'one-million': FRONTIER_HOURS };
 
-type KindFilter = 'all' | 'robot' | 'human-video';
+type KindFilter = 'all' | 'robot' | 'human-video' | 'company';
+const FILTER_SERIES: Record<Exclude<KindFilter, 'all'>, RowSeries> = {
+  robot: 'robot-data',
+  'human-video': 'human-video',
+  company: 'company-total',
+};
 
 const CAPTION =
-  'Text piles up online for free; every hour of robot data needs a real machine, usually driven by a paid person.';
+  'Text piles up online for free; robot data needs people and hardware. The three largest totals are company reports, with no data released.';
 
 export function DataScaleChart({
   defaultRigs = DEFAULT_RIGS,
@@ -308,6 +351,7 @@ export function DataScaleChart({
               { id: 'all', label: 'All' },
               { id: 'robot', label: 'Robot data' },
               { id: 'human-video', label: 'Human video' },
+              { id: 'company', label: 'Company totals' },
             ]}
             value={kindFilter}
             onChange={setKindFilter}
@@ -332,11 +376,14 @@ export function DataScaleChart({
                 <span data-testid="frontier-years-readout">{durationInWords(largerTargetYears)}</span>
               </StageReadout>
               <InstrumentLegend className="basis-full">
-                <LegendItem series="robot-data" swatch={<KindSwatch kind="robot" />}>
+                <LegendItem series="robot-data" swatch={<KindSwatch series="robot-data" />}>
                   robot data
                 </LegendItem>
-                <LegendItem series="human-video" swatch={<KindSwatch kind="camera" />}>
+                <LegendItem series="human-video" swatch={<KindSwatch series="human-video" />}>
                   human video
+                </LegendItem>
+                <LegendItem series="company-total" swatch={<KindSwatch series="company-total" />}>
+                  company total, not released
                 </LegendItem>
                 <LegendItem series="farm-projection" swatch={<LegendSwatch role="value" mark="dot" />}>
                   your robots, one year
@@ -400,31 +447,22 @@ export function DataScaleChart({
               {ROWS.map((p, index) => {
                 const x = HOURS_X(p.magnitude);
                 const y = rowY(index);
-                const human = p.kind === 'human-video';
-                const picked = kindFilter === 'all' || (kindFilter === 'robot') !== human;
+                const series = seriesOf(p);
+                const picked = kindFilter === 'all' || FILTER_SERIES[kindFilter] === series;
                 const value = stageValue(p);
                 const right = x + MARKER_R + 6 + textWidth(value) <= RIGHT;
                 return (
                   <g
                     key={p.id}
                     data-testid={`robot-marker-${p.id}`}
-                    data-series={human ? 'human-video' : 'robot-data'}
+                    data-series={series}
                     data-picked={picked ? 'true' : 'false'}
                     opacity={picked ? 1 : 0.3}
                   >
-                    <DirectLabel x={NAME_X} y={f(y + MIDDLE)} seriesFor={human ? 'human-video' : 'robot-data'}>
+                    <DirectLabel x={NAME_X} y={f(y + MIDDLE)} seriesFor={series}>
                       {p.label}
                     </DirectLabel>
-                    <circle
-                      data-chart-mark="dot"
-                      data-chart-role="measurement"
-                      cx={x}
-                      cy={y}
-                      r={MARKER_R}
-                      fill={human ? MOTION_STAGE.background : MEASUREMENT}
-                      stroke={MEASUREMENT}
-                      strokeWidth={CHART_STROKE.structure}
-                    />
+                    <KindMark series={series} x={x} y={y} />
                     <DirectLabel x={right ? f(x + MARKER_R + 6) : f(x - MARKER_R - 6)} y={f(y + MIDDLE)} anchor={right ? 'start' : 'end'}>
                       {value}
                     </DirectLabel>
@@ -444,7 +482,7 @@ export function DataScaleChart({
                   data-testid={`hours-tick-${tick.exp}`}
                   x={HOURS_X(10 ** tick.exp)}
                   y={f(HOURS_AXIS_Y + TICK + TEXT_H)}
-                  textAnchor="middle"
+                  textAnchor={tick.anchor}
                   fontSize={CHART_TYPE.tickPx}
                   fill={CHART_STRUCTURE.labelSecondary}
                 >
@@ -555,7 +593,9 @@ export function DataScaleChart({
             <p>
               {rate.note} The 10,000-hour and 1,000,000-hour targets are authored hypothetical
               inputs, not OXE totals or measured frontier requirements. Hours marked &ldquo;about&rdquo; on
-              dataset points are estimates.
+              dataset points are estimates. Hours marked &ldquo;over&rdquo; are totals Xiaomi and Generalist
+              report for their own models; neither company has released the data, so no one outside
+              can count them.
             </p>
             <ul className="list-disc space-y-1 pl-5">
               {COLLECTION_RATES.map((r) => (
@@ -573,7 +613,7 @@ export function DataScaleChart({
           </p>
           <p>
             Sources for each count:{' '}
-            {[...ROBOT_POINTS, ...LLM_POINTS].map((p, index, all) => (
+            {[...ROBOT_POINTS, ...COMPANY_POINTS, ...LLM_POINTS].map((p, index, all) => (
               <span key={p.id}>
                 <a data-brand-control-id="control:link-focus" href={`#ref-${p.cite}`} className="text-link underline">
                   {p.label}
@@ -595,6 +635,8 @@ export function DataScaleChart({
             rows={[
               // A dataset has no token count and a corpus no demonstration
               // hours: the house "n/a" (inapplicable), not "not disclosed".
+              // The company totals are named in the description, not here:
+              // the sampled table stays within ten rows.
               ...ROBOT_POINTS.map((p) => ({ label: p.label, values: [p.value, 'n/a'] })),
               { label: OXE_DURATION.label, values: [OXE_DURATION.value, 'n/a'] },
               ...LLM_POINTS.map((p) => ({ label: p.label, values: ['n/a', p.value] })),
@@ -607,7 +649,12 @@ export function DataScaleChart({
               <>
                 Demonstration hours span {ROBOT_POINTS[0].value} (DROID) to{' '}
                 {ROBOT_POINTS[ROBOT_POINTS.length - 1].value} (EgoScale) across{' '}
-                {ROBOT_POINTS.length} robot and human datasets, while pretraining tokens span{' '}
+                {ROBOT_POINTS.length} robot and human datasets, and companies report unreleased totals
+                of{' '}
+                {COMPANY_POINTS.map((p, i) =>
+                  `${i === 0 ? '' : i === COMPANY_POINTS.length - 1 ? ' and ' : ', '}${p.value} (${p.label})`,
+                ).join('')},
+                while pretraining tokens span{' '}
                 {LLM_POINTS[0].value.replace(' tokens', '')} (GPT-3) to{' '}
                 {LLM_POINTS[LLM_POINTS.length - 1].value.replace(' tokens', '')} (Llama 3), on
                 separate rulers with no honest hour-to-token exchange rate between them; your{' '}

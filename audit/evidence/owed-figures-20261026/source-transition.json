@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "owed-figures-continuity-v1",
+  "name": "owed-figures-20261026",
+  "reviewedBy": "implementation worker for opus-pass-owed-figures (data-hardware figures), 2026-10-26 (not independent acceptance)",
+  "rationale": "The opus-pass owed-figures slices build the data figures the domain passes owed and mount each where its article discusses the data, with the sentences and sources that came with them (VAL-OPUS-093 leftovers) and the front-matter citations no sentence, figure or guide row cites any more. Each article change is recorded here as exact edits over the bytes the article had before it. A figure may be added, never dropped or reordered; every source the earlier body cited is still cited unless this review names the source that replaced it and why; and the front matter changes only in its citation list, each removal named with its reason. The earlier bytes stand in for the live article only while the live article is exactly the reviewed successor, so older reviews, runs and receipts that pinned the earlier bytes still check the bytes they recorded.",
+  "ownerApproval": "Owner directives sealed in contract/opus-pass.md (VAL-OPUS-089 data-hardware figures and VAL-OPUS-093 item 3), routed to opus-pass-owed-figures by the orchestrator notes of 2026-10-26 17:00 and 20:40. Not release approval.",
+  "observedAt": "2026-10-26T21:49:15Z",
+  "sources": [
+    {
+      "archivedFrom": "e77820660711291bc8599b59a5e473347a9b797a",
+      "before": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 12200,
+        "sha256": "84b52070b682ec6f504101f7a4142da30c77d010182788c2783166602316712a"
+      },
+      "after": {
+        "path": "content/data-hardware/datasets.mdx",
+        "bytes": 12320,
+        "sha256": "7e04f8b17c68b6caf8c43e1f77c996933c38fe5a3260f3d8abe9d324eb105738"
+      },
+      "edits": [
+        {
+          "before": "import { DatasetTable } from '@/components/interactive/dataset-table';\n\n",
+          "after": "import { DatasetTable } from '@/components/interactive/dataset-table';\n\nimport { DatasetRunsHours } from '@/components/interactive/dataset-runs-hours';\n\n"
+        },
+        {
+          "before": "Set the size filter to 1M+ episodes and one row remains; sort by Hours to compare published durations. Episodes and hours measure different things, because a trajectory can last eight seconds or eight minutes. RoboMIND reports 305.5 hours for its 107k-trajectory cohort, which mixes real and simulated data <Cite id=\"robomind-2024\" />. NVIDIA's open Physical AI dataset reports both, 15 terabytes and more than 320,000 trajectories <Cite id=\"nvidia-physical-ai-dataset-2025\" />.\n",
+          "after": "Set the size filter to 1M+ episodes and one row remains; sort by Hours to compare published durations. Episodes and hours measure different things, because a trajectory can last eight seconds or eight minutes. RoboMIND reports 305.5 hours for its 107k-trajectory cohort, which mixes real and simulated data <Cite id=\"robomind-2024\" />. NVIDIA's open Physical AI dataset reports both, 15 terabytes and more than 320,000 trajectories <Cite id=\"nvidia-physical-ai-dataset-2025\" />.\n\n<DatasetRunsHours className=\"my-6\" />\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e77820660711291bc8599b59a5e473347a9b797a",
+      "before": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 11562,
+        "sha256": "5a951632d7f979d9962b97253705179c71253c663b25ecd5b861c8120cc0a095"
+      },
+      "after": {
+        "path": "content/data-hardware/hardware-taxonomy.mdx",
+        "bytes": 12045,
+        "sha256": "7fc97eecb1680f24639e3625bab657780f6634a7fc6359f49ac65ac0c0e54af5"
+      },
+      "edits": [
+        {
+          "before": "  - agibot-world-2025\n  - robozaps-humanoids-2026\n",
+          "after": "  - agibot-world-2025\n"
+        },
+        {
+          "before": "  - paxton-iros-2026\n",
+          "after": "  - paxton-iros-2026\n  - sharpa-wave-2026\n  - psyonic-ability-hand-2022\n"
+        },
+        {
+          "before": "import { HardwareGuide } from '@/components/interactive/hardware-guide';\n\n",
+          "after": "import { HardwareGuide } from '@/components/interactive/hardware-guide';\n\nimport { HardwarePriceLadder } from '@/components/interactive/hardware-price-ladder';\n\n"
+        },
+        {
+          "before": "The open LEAP Hand has 16 DoF and costs about \\$2,000 in catalog parts, roughly an eighth of the Allegro Hand it was benchmarked against <Cite id=\"leap-hand-2023\" />. RUKA's authors put the Allegro at \\$15,000 and built a five-fingered hand for under \\$1,300 <Cite id=\"ruka-2025\" />. ORCA is an open 17-DoF tendon-driven hand with tactile sensors, under 2,000 CHF in materials <Cite id=\"orca-hand-2025\" />, and the commercial Shadow Dexterous Hand uses 20 motors for 24 degrees of freedom <Cite id=\"shadow-dexterous-hand-2026\" />.\n",
+          "after": "The open LEAP Hand has 16 DoF and costs about \\$2,000 in catalog parts, roughly an eighth of the Allegro Hand it was benchmarked against <Cite id=\"leap-hand-2023\" />. RUKA's authors put the Allegro at \\$15,000 and built a five-fingered hand for under \\$1,300 <Cite id=\"ruka-2025\" />. ORCA is an open 17-DoF tendon-driven hand with tactile sensors, under 2,000 CHF in materials <Cite id=\"orca-hand-2025\" />, and the commercial Shadow Dexterous Hand uses 20 motors for 24 degrees of freedom <Cite id=\"shadow-dexterous-hand-2026\" />. Sharpa's Wave, a human-scale five-finger hand with 22 active DoF and high-resolution tactile sensing, is sold through a sales enquiry and lists no price <Cite id=\"sharpa-wave-2026\" />. PSYONIC designed its Ability Hand as a prosthesis and opened it to robotics researchers in November 2022 <Cite id=\"psyonic-ability-hand-2022\" />.\n"
+        },
+        {
+          "before": "## How to read these prices\n",
+          "after": "## How to read these prices\n\n<HardwarePriceLadder className=\"my-6\" />\n"
+        }
+      ],
+      "removedFrontMatterCitations": [
+        {
+          "id": "robozaps-humanoids-2026",
+          "reason": "A secondary review blog that no sentence, figure or buyer's-guide row cites any more: the 14 humanoid guide rows cite their makers since the maker-page pass of 2026-10-26 (commit 2bdc3f0a, audit/data-hardware.md)."
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e77820660711291bc8599b59a5e473347a9b797a",
+      "before": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 17753,
+        "sha256": "8c7229f5f8a07b525e5523e0750743e18116ed5146a912b98c84560c5a52fe8e"
+      },
+      "after": {
+        "path": "content/data-hardware/industrial-deployment.mdx",
+        "bytes": 17821,
+        "sha256": "090208e45063d44a37090bb328158b98d53faa9edc951a88db1fcb078127c299"
+      },
+      "edits": [
+        {
+          "before": "Learned systems enter mostly through logistics. <Term id=\"automated-storage-and-retrieval\">Automated storage and retrieval</Term> puts high-bay racking and shuttles where aisles and forklifts used to be, and AutoStore reports about 2,000 systems in 68 countries <Cite id=\"autostore-q2-2026\" />. <Term id=\"autonomous-mobile-robot\">Autonomous mobile robot</Term> fleets move cases and totes, and transport and logistics robots sold 117,500 units in 2025, 47 percent of professional service robots <Cite id=\"ifr-service-robots-2026\" />. <Term id=\"goods-to-person\">Goods-to-person</Term> stations bring the shelf to a stationary worker, which sets the productivity bar for automated piece picking.\n",
+          "after": "Learned systems enter mostly through logistics. <Term id=\"automated-storage-and-retrieval\">Automated storage and retrieval</Term> puts high-bay racking and shuttles where aisles and forklifts used to be, and AutoStore reports about 2,000 systems in 68 countries <Cite id=\"autostore-q2-2026\" />. <Term id=\"autonomous-mobile-robot\">Autonomous mobile robot</Term> fleets move cases and totes, and transport and logistics robots sold 117,500 units in 2025, 47 percent of the almost 250,000 professional service robots shipped that year, a total up 24 percent on 2024 <Cite id=\"ifr-service-robots-2026\" />. <Term id=\"goods-to-person\">Goods-to-person</Term> stations bring the shelf to a stationary worker, which sets the productivity bar for automated piece picking.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e77820660711291bc8599b59a5e473347a9b797a",
+      "before": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10647,
+        "sha256": "88357b660995fad31819eade32e62869f012b635f571966fb56105d623c930ec"
+      },
+      "after": {
+        "path": "content/data-hardware/robot-learning-stack.mdx",
+        "bytes": 10929,
+        "sha256": "b75b094ff7c2b1442aa2f90259dd89f8e93b137d775c307c72a78ba9f36327b1"
+      },
+      "edits": [
+        {
+          "before": "  - mulligan-2026\n",
+          "after": "  - mulligan-2026\n  - ros2-control-docs-2026\n"
+        },
+        {
+          "before": "Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor, with safety and high-rate feedback below the learned policy. ROS 2 was redesigned from the ground up because ROS 1 lacked production-grade features <Cite id=\"ros2-science-robotics-2022\" />, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces. In September 2026 Intrinsic released Intrinsic Core, ROS-compatible real-time control, motion planning and Gazebo simulation under Apache 2.0 <Cite id=\"intrinsic-core-2026\" />. The same month, Qualcomm agreed to acquire PickNik, the longtime steward of MoveIt <Cite id=\"qualcomm-picknik-2026\" />.\n",
+          "after": "Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor, with safety and high-rate feedback below the learned policy. ROS 2 was redesigned from the ground up because ROS 1 lacked production-grade features <Cite id=\"ros2-science-robotics-2022\" />, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces. For the controller bridge, ros2_control is a ROS 2 framework for robot control, including real-time control. Its packages rewrite the ros_control packages of the original ROS to make new hardware simpler to integrate <Cite id=\"ros2-control-docs-2026\" />. In September 2026 Intrinsic released Intrinsic Core, ROS-compatible real-time control, motion planning and Gazebo simulation under Apache 2.0 <Cite id=\"intrinsic-core-2026\" />. The same month, Qualcomm agreed to acquire PickNik, the longtime steward of MoveIt <Cite id=\"qualcomm-picknik-2026\" />.\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e77820660711291bc8599b59a5e473347a9b797a",
+      "before": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 11172,
+        "sha256": "4b96137ef5926269f13434ace22197c31e436828d9af5c757ce184a5fc79fe86"
+      },
+      "after": {
+        "path": "content/data-hardware/teleop-rigs.mdx",
+        "bytes": 11644,
+        "sha256": "91ea6ee42d4635e6a7f9ccaa2898fad0e0b7f56bada85dc392df0eae14521a44"
+      },
+      "edits": [
+        {
+          "before": "  - fomo-dex-2026\n",
+          "after": "  - fomo-dex-2026\n  - grabette-2026\n"
+        },
+        {
+          "before": "import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';\n\n",
+          "after": "import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';\n\nimport { UmiCollectionRates } from '@/components/interactive/umi-collection-rates';\n\n"
+        },
+        {
+          "before": "The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \\$73 and the GoPro and accessories at \\$298, for a \\$371 rig <Cite id=\"umi-2024\" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id=\"umi-gripper-site-2024\" />.\n\n",
+          "after": "The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \\$73 and the GoPro and accessories at \\$298, for a \\$371 rig <Cite id=\"umi-2024\" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id=\"umi-gripper-site-2024\" />.\n\n<UmiCollectionRates className=\"my-6\" />\n\n"
+        },
+        {
+          "before": "Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id=\"lin-data-scaling-laws-2024\" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id=\"hifi-umi-2026\" />.\n",
+          "after": "Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id=\"lin-data-scaling-laws-2024\" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id=\"hifi-umi-2026\" />.\n\nPollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper that carries out the learned movements on a real or simulated arm <Cite id=\"grabette-2026\" />.\n"
+        }
+      ]
+    }
+  ]
+}

@@ -165,6 +165,7 @@ async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-length-cut-continuity.ts');
   const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
   const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
+  const { owedFiguresPredecessor } = await import('../lib/audit-owed-figures-continuity.ts');
   const { explainerMountPredecessor } = await import('../lib/audit-explainer-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { wordBudgetTrimPredecessor } = await import('../lib/audit-word-budget-trim-continuity.ts');
@@ -175,7 +176,7 @@ async function verify(): Promise<boolean> {
     try {
       // The newer explainer-mount (2026-10-26), answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts) and image-mount (2026-10-13) layers hand back the length-cut successor first.
       const prior = layer.lengthCutPredecessor(root, source.before,
-        imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path))))))));
+        imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, owedFiguresPredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the older layers' successors, which those layers still decide.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

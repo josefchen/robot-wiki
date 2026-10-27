@@ -80,6 +80,9 @@ export const DataScaleChart = dynamic(() =>
 export const DatasetTable = dynamic(() =>
   import('@/components/interactive/dataset-table').then((m) => m.DatasetTable),
 );
+export const DatasetRunsHours = dynamic(() =>
+  import('@/components/interactive/dataset-runs-hours').then((m) => m.DatasetRunsHours),
+);
 export const DeltaFrame = dynamic(() =>
   import('@/components/interactive/delta-frame').then((m) => m.DeltaFrame),
 );
@@ -135,6 +138,9 @@ export const HandMotionShare = dynamic(() =>
 );
 export const HardwareGuide = dynamic(() =>
   import('@/components/interactive/hardware-guide').then((m) => m.HardwareGuide),
+);
+export const HardwarePriceLadder = dynamic(() =>
+  import('@/components/interactive/hardware-price-ladder').then((m) => m.HardwarePriceLadder),
 );
 export const HelixClockwork = dynamic(() =>
   import('@/components/interactive/helix-clockwork').then((m) => m.HelixClockwork),
@@ -282,6 +288,9 @@ export const TrajectoryStitching = dynamic(() =>
 );
 export const TrainingTimeChart = dynamic(() =>
   import('@/components/interactive/training-time-chart').then((m) => m.TrainingTimeChart),
+);
+export const UmiCollectionRates = dynamic(() =>
+  import('@/components/interactive/umi-collection-rates').then((m) => m.UmiCollectionRates),
 );
 export const WbcDecomposition = dynamic(() =>
   import('@/components/interactive/wbc-decomposition').then((m) => m.WbcDecomposition),

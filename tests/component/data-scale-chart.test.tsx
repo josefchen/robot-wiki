@@ -59,7 +59,8 @@ describe('DataScaleChart', () => {
     const ticks = screen
       .getAllByTestId(/^hours-tick-/)
       .map((el) => el.textContent);
-    expect(ticks).toEqual(['100', '1,000', '10,000']);
+    // 100,000 stays unlabelled: on a phone it would run into its neighbours.
+    expect(ticks).toEqual(['100', '1,000', '10,000', '1 million']);
     const tokenTicks = screen
       .getAllByTestId(/^token-tick-/)
       .map((el) => el.textContent);
@@ -181,5 +182,23 @@ describe('farm goal, dataset filter and the stage note', () => {
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(note()).toBe('10 part-time robots: 143 yearsto reach 10,000 hours');
     expect(screen.getByTestId('robot-marker-droid')).toHaveAttribute('data-picked', 'true');
+  });
+
+  it('plots the three company totals as unreleased lower bounds with their own filter', async () => {
+    const user = userEvent.setup();
+    render(<DataScaleChart />);
+    const expected = { 'xiaomi-robotics-1': 'over 100,000', 'gen-0': 'over 270,000', 'gen-1': 'over 500,000' };
+    for (const [id, value] of Object.entries(expected)) {
+      const marker = screen.getByTestId(`robot-marker-${id}`);
+      expect(marker).toHaveAttribute('data-series', 'company-total');
+      expect(marker).toHaveTextContent(value);
+      expect(marker.querySelector('rect[data-chart-mark="dot"]')).not.toBeNull();
+    }
+    expect(screen.getByText('company total, not released')).toBeInTheDocument();
+    expect(screen.getByTestId('rate-explanation')).toHaveTextContent(/neither company has released the data/);
+    await user.click(screen.getByTestId('dataset-kind-company'));
+    expect(screen.getByTestId('robot-marker-gen-1')).toHaveAttribute('data-picked', 'true');
+    expect(screen.getByTestId('robot-marker-agibot')).toHaveAttribute('data-picked', 'false');
+    expect(screen.getByTestId('robot-marker-egoscale')).toHaveAttribute('data-picked', 'false');
   });
 });

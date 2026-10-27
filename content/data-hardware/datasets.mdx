@@ -53,6 +53,8 @@ seeAlso:
 
 import { DatasetTable } from '@/components/interactive/dataset-table';
 
+import { DatasetRunsHours } from '@/components/interactive/dataset-runs-hours';
+
 Major robot learning datasets are the open collections of recorded robot trajectories that generalist policies train on. <Term id="open-x-embodiment">Open X-Embodiment</Term> pools over a million trajectories from 22 embodiments <Cite id="open-x-embodiment-2023" />, AgiBot World holds 1,001,552 (2,976 hours) on one robot platform <Cite id="agibot-world-2025" />, and DROID holds 76,000 (350 hours) across 564 scenes <Cite id="droid-2024" />.
 
 <Image id="open-x-embodiment-overview-2023" />
@@ -69,6 +71,8 @@ Major robot learning datasets are the open collections of recorded robot traject
 <DatasetTable className="my-6 wide-measure" />
 
 Set the size filter to 1M+ episodes and one row remains; sort by Hours to compare published durations. Episodes and hours measure different things, because a trajectory can last eight seconds or eight minutes. RoboMIND reports 305.5 hours for its 107k-trajectory cohort, which mixes real and simulated data <Cite id="robomind-2024" />. NVIDIA's open Physical AI dataset reports both, 15 terabytes and more than 320,000 trajectories <Cite id="nvidia-physical-ai-dataset-2025" />.
+
+<DatasetRunsHours className="my-6" />
 
 ## Open X-Embodiment: breadth by federation
 

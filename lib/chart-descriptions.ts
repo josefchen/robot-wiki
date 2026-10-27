@@ -55,7 +55,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/data-scale-chart.tsx',
     route: '/data-hardware/data-bottleneck/',
     quantityNames: ['hours', 'tokens'],
-    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), on separate rulers with no honest hour-to-token exchange rate between them; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.',
+    text: 'Demonstration hours span 350 h (DROID) to 20,854 h (EgoScale) across 6 robot and human datasets, and companies report unreleased totals of 100,000+ h (Xiaomi), 270,000+ h (GEN-0) and 500,000+ h (GEN-1), while pretraining tokens span 300B (GPT-3) to 15T (Llama 3), on separate rulers with no honest hour-to-token exchange rate between them; your 10-rig farm at the low-rate hypothetical rate projects 70 h per year, reaching the authored 10,000-hour target in 143 yr and the authored 1,000,000-hour target in 14,286 yr. No OXE hour estimate is supplied or plotted here.',
   },
   {
     component: 'GaitDiagram',
@@ -261,6 +261,27 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     route: '/rl-sim2real/offline-rl/',
     quantityNames: ['success', 'percentage points'],
     text: 'After reinforcement learning, real-robot success reads RankQ 88.9%, SCORE 89.9%, PA-RL 70%, BORA 82.5%; each study raised its own policy by 21.7 to 52.1 percentage points, on tasks that differ, so the rows are not a ranking.',
+  },
+  {
+    component: 'DatasetRunsHours',
+    file: 'components/interactive/dataset-runs-hours.tsx',
+    route: '/data-hardware/datasets/',
+    quantityNames: ['runs', 'hours'],
+    text: "Five robot datasets by runs and hours: FineART 40,543 runs and 1,718 hours, DROID 76,000 runs and 350 hours, Galaxea 100,000 runs and 500 hours, RoboMIND 107,000 runs and 305.5 hours, AgiBot World 1,001,552 runs and 2,976.4 hours. AgiBot World has about 25 times FineART's runs but 1.7 times its hours, because FineART's runs average 2.5 minutes and the other four average 10 to 18 seconds.",
+  },
+  {
+    component: 'HardwarePriceLadder',
+    file: 'components/interactive/hardware-price-ladder.tsx',
+    route: '/data-hardware/hardware-taxonomy/',
+    quantityNames: ['prices', 'arms'],
+    text: 'Listed prices of 15 robot products on a ruler that steps by ten times: arms from $295 (SO-ARM101 Pro kit) to $70,000 (Reachy 2), humanoids from $4,900 (Unitree R1 Air) to $29,900 (Unitree H2), and robot computers from $2,999 (Jetson Thor T4000) to $4,999 (Jetson Thor T5000). EngineAI SE01, Fourier GR-3 and UBTECH Walker S2 have no maker price, and Figure 03, Atlas and Optimus 3 are not on open sale.',
+  },
+  {
+    component: 'UmiCollectionRates',
+    file: 'components/interactive/umi-collection-rates.tsx',
+    route: '/data-hardware/teleop-rigs/',
+    quantityNames: ['demonstrations', 'hour'],
+    text: "Demonstrations recorded per hour on UMI's cup-arrangement task: 231 by bare hand with no robot, 111 with the UMI handheld gripper and 35 by spacemouse teleoperation of a robot. The UMI gripper ran at 48 percent of bare-hand speed and 3.2 times the teleoperation rate.",
   },
   {
     component: 'HumanoidPickHeight',

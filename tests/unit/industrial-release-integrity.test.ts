@@ -253,6 +253,8 @@ describe('industrial release preserves both evidence histories', { timeout: 60_0
             'audit/evidence/explainer-mounts-20261026',
             // The convergence prose slice (2026-10-26) rebuilds the pre-edit articles from this review.
             'audit/evidence/convergence-prose-20261026',
+            // The owed figures (2026-10-26) rebuild the pre-mount articles from this review.
+            'audit/evidence/owed-figures-20261026',
             'audit/evidence/parallel-local-20261009/checker-transition.json',
             'audit/evidence/parallel-local-20261009/previous-parallel-plan-and-proofs.json',
             'audit/evidence/citation-closeout-20260924/relevant-continuity.json',

@@ -21,11 +21,13 @@ import {
   ComparisonMatrix as LazyComparisonMatrix,
   CrossEmbodimentStrategies as LazyCrossEmbodimentStrategies,
   CubeTrials as LazyCubeTrials,
+  DatasetRunsHours as LazyDatasetRunsHours,
   DemoOrSim as LazyDemoOrSim,
   DeploymentDashboard as LazyDeploymentDashboard,
   GeneralistReleaseTimeline as LazyGeneralistReleaseTimeline,
   HandComparison as LazyHandComparison,
   HandEyePoses as LazyHandEyePoses,
+  HardwarePriceLadder as LazyHardwarePriceLadder,
   HierarchyTimescales as LazyHierarchyTimescales,
   HindsightRelabel as LazyHindsightRelabel,
   HumanoidPickHeight as LazyHumanoidPickHeight,
@@ -50,6 +52,7 @@ import {
   ThesisExplorer as LazyThesisExplorer,
   TimeOffsetMiss as LazyTimeOffsetMiss,
   TrajectoryStitching as LazyTrajectoryStitching,
+  UmiCollectionRates as LazyUmiCollectionRates,
 } from './lazy-mounts';
 
 export {
@@ -144,11 +147,13 @@ export const CalibrationChain = withCitationRecords('CalibrationChain', LazyCali
 export const ComparisonMatrix = withCitationRecords('ComparisonMatrix', LazyComparisonMatrix);
 export const CrossEmbodimentStrategies = withCitationRecords('CrossEmbodimentStrategies', LazyCrossEmbodimentStrategies);
 export const CubeTrials = withCitationRecords('CubeTrials', LazyCubeTrials);
+export const DatasetRunsHours = withCitationRecords('DatasetRunsHours', LazyDatasetRunsHours);
 export const DemoOrSim = withCitationRecords('DemoOrSim', LazyDemoOrSim);
 export const DeploymentDashboard = withCitationRecords('DeploymentDashboard', LazyDeploymentDashboard);
 export const GeneralistReleaseTimeline = withCitationRecords('GeneralistReleaseTimeline', LazyGeneralistReleaseTimeline);
 export const HandComparison = withCitationRecords('HandComparison', LazyHandComparison);
 export const HandEyePoses = withCitationRecords('HandEyePoses', LazyHandEyePoses);
+export const HardwarePriceLadder = withCitationRecords('HardwarePriceLadder', LazyHardwarePriceLadder);
 export const HierarchyTimescales = withCitationRecords('HierarchyTimescales', LazyHierarchyTimescales);
 export const HindsightRelabel = withCitationRecords('HindsightRelabel', LazyHindsightRelabel);
 export const HumanoidPickHeight = withCitationRecords('HumanoidPickHeight', LazyHumanoidPickHeight);
@@ -173,3 +178,4 @@ export const TerrainCurriculum = withCitationRecords('TerrainCurriculum', LazyTe
 export const ThesisExplorer = withCitationRecords('ThesisExplorer', LazyThesisExplorer);
 export const TimeOffsetMiss = withCitationRecords('TimeOffsetMiss', LazyTimeOffsetMiss);
 export const TrajectoryStitching = withCitationRecords('TrajectoryStitching', LazyTrajectoryStitching);
+export const UmiCollectionRates = withCitationRecords('UmiCollectionRates', LazyUmiCollectionRates);

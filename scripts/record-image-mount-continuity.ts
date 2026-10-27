@@ -98,6 +98,7 @@ async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-image-mount-continuity.ts');
   const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
   const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
+  const { owedFiguresPredecessor } = await import('../lib/audit-owed-figures-continuity.ts');
   const { explainerMountPredecessor } = await import('../lib/audit-explainer-mount-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   let ok = true;
@@ -105,7 +106,7 @@ async function verify(): Promise<boolean> {
     try {
       // The newer explainer-mount (2026-10-26), answer-options (2026-10-23) and figure-mount (its 2026-10-15 frontier mounts, after the image mounts) layers hand back the image-mount successor first.
       const prior = layer.imageMountPredecessor(root, source.before,
-        figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path)))))));
+        figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, owedFiguresPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {
       ok = false;

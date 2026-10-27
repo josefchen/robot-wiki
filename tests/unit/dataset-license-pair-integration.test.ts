@@ -222,6 +222,14 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
         let head = approvals.findLast(candidate => candidate.manifest === manifest &&
           candidate.memberId === memberId && candidate.newHash === currentHash(manifest, memberId))!;
         expect(head).toMatchObject({ newHash: currentHash(manifest, memberId), disposition: 'permanent' });
+        // The data-hardware owed-figures block of 2026-10-26 continues the
+        // datasets prose with one plain edge (its runs-and-hours figure
+        // mount); the endpoint it continued is checked below.
+        if (head.id.startsWith('owed-figures-dh-20261026-') && head.reconciles === undefined) {
+          const continued = head.oldHash;
+          head = approvals.findLast(candidate => candidate.manifest === manifest &&
+            candidate.memberId === memberId && candidate.newHash === continued)!;
+        }
         // The convergence prose slice of 2026-10-26 continues the datasets
         // prose with one plain edge (its uncited-paragraph citations); the
         // endpoint it continued is checked below.
@@ -260,7 +268,8 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
           expect(head.oldHash).toBe(headReanchorFor(preSeoPass.filter(candidate =>
             !candidate.id.startsWith('length-cut-20261013-data-hardware-')
             && !candidate.id.startsWith('images-dh-20261015-')
-            && !candidate.id.startsWith('convergence-prose-20261026-')), manifest, memberId)!.newHash);
+            && !candidate.id.startsWith('convergence-prose-20261026-')
+            && !candidate.id.startsWith('owed-figures-dh-20261026-')), manifest, memberId)!.newHash);
         } else expect(head.oldHash).toBe(sealedHash(manifest, memberId));
         expect(approvals.indexOf(head)).toBeGreaterThanOrEqual(approvals.indexOf(reanchor!));
       } else {

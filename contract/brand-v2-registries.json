@@ -8120,6 +8120,50 @@
         "fingerprint": "55e0b975522b2e178448295db8363f2dc790fb2358351613dbcefa3211c44562"
       },
       {
+        "id": "interactive:DatasetRunsHours",
+        "component": "DatasetRunsHours",
+        "sourcePath": "components/interactive/dataset-runs-hours.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "c51949b33154a417c7a554d709c4b8db102db44e7958c0b3bfeb164d1813407a"
+      },
+      {
         "id": "interactive:DatasetTable",
         "component": "DatasetTable",
         "sourcePath": "components/interactive/dataset-table.tsx",
@@ -9191,6 +9235,50 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "e04d88876ac7292e4ebee7000625c37573ccc3b8beacea63f9370f51749f10a8"
+      },
+      {
+        "id": "interactive:HardwarePriceLadder",
+        "component": "HardwarePriceLadder",
+        "sourcePath": "components/interactive/hardware-price-ladder.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "0e62cfdf6e5d58fbe9cc1cb4613a4c1b3ba82cd315c30ee05e2b73d5f0a85548"
       },
       {
         "id": "interactive:HelixClockwork",
@@ -12015,6 +12103,50 @@
         "fingerprint": "25ed0e594b3b9de22c2206df087ee5ea2e259b9d590b2398b98778817254e13b"
       },
       {
+        "id": "interactive:UmiCollectionRates",
+        "component": "UmiCollectionRates",
+        "sourcePath": "components/interactive/umi-collection-rates.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "5729503cdf86603e1012105c1db2e49fa5dd9ce742b33aef0a930d62626ea66d"
+      },
+      {
         "id": "interactive:WbcDecomposition",
         "component": "WbcDecomposition",
         "sourcePath": "components/interactive/wbc-decomposition.tsx",
@@ -13286,6 +13418,54 @@
         "fingerprint": "0b973d059a931c76cbb6fd5c2823f19c14857c468d529f6e7dd2e502b1fc4eab"
       },
       {
+        "id": "mount:/data-hardware/datasets/:DatasetRunsHours:1",
+        "sourceId": "interactive:DatasetRunsHours",
+        "route": "/data-hardware/datasets/",
+        "ownerPath": "content/data-hardware/datasets.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "b8270f39959179fb040f57c3c7b62b4cdcf27b80da6aae3d7ab3afcbaddcdff1"
+      },
+      {
         "id": "mount:/data-hardware/datasets/:DatasetTable:1",
         "sourceId": "interactive:DatasetTable",
         "route": "/data-hardware/datasets/",
@@ -13480,6 +13660,54 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "5163f1f69b01a4de25169960757117531317d52362d332dfb450b5cfe615b9a6"
+      },
+      {
+        "id": "mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
+        "sourceId": "interactive:HardwarePriceLadder",
+        "route": "/data-hardware/hardware-taxonomy/",
+        "ownerPath": "content/data-hardware/hardware-taxonomy.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "25f6309e626108cc67588d46c5b936f2ff816ebab976d0c20545af1ee326835f"
       },
       {
         "id": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
@@ -13723,6 +13951,54 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "a85fc3755a7c8041e279b12155e853ea9e5c3ace31f1cf5581c1435b6c3cf6dc"
+      },
+      {
+        "id": "mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
+        "sourceId": "interactive:UmiCollectionRates",
+        "route": "/data-hardware/teleop-rigs/",
+        "ownerPath": "content/data-hardware/teleop-rigs.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "d5b82f599782df9674873b6959a172419c299f12ae04924c8068ceb80ae1e048"
       },
       {
         "id": "mount:/frontier/bear-case/:BearCaseLock:1",
@@ -18320,6 +18596,7 @@
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/cube-trials.tsx",
         "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-runs-hours.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
@@ -18327,6 +18604,7 @@
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hand-eye-poses.tsx",
         "components/interactive/hardware-guide.tsx",
+        "components/interactive/hardware-price-ladder.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/hindsight-relabel.tsx",
         "components/interactive/humanoid-pick-height.tsx",
@@ -18346,6 +18624,7 @@
         "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
+        "components/interactive/umi-collection-rates.tsx",
         "components/market-map/company-card.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
@@ -18388,6 +18667,7 @@
         "components/interactive/cross-embodiment-strategies.tsx",
         "components/interactive/cube-trials.tsx",
         "components/interactive/data-scale-chart.tsx",
+        "components/interactive/dataset-runs-hours.tsx",
         "components/interactive/dataset-table.tsx",
         "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
@@ -18395,6 +18675,7 @@
         "components/interactive/hand-comparison.tsx",
         "components/interactive/hand-eye-poses.tsx",
         "components/interactive/hardware-guide.tsx",
+        "components/interactive/hardware-price-ladder.tsx",
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/hindsight-relabel.tsx",
         "components/interactive/humanoid-pick-height.tsx",
@@ -18414,6 +18695,7 @@
         "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
+        "components/interactive/umi-collection-rates.tsx",
         "components/market-map/company-card.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
@@ -18447,7 +18729,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "8a319186e54a7085aa3a77c991d7f83e66ab815493a871a0229b6018b98cd502"
+      "fingerprint": "57110218e4ced2baab156cb2fc6319c38f78f8eb388969c4fc3eef7019b34b50"
     },
     {
       "id": "control:segmented",
@@ -18672,5 +18954,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "553e627294277975af4e3c70068af8015601eb7c41af49ca1b4c9d769337cd4d"
+  "rootFingerprint": "7acb638da699712cdb8ffdbb35988c88a10a5a53bbe11d24214b9328aeb1818a"
 }

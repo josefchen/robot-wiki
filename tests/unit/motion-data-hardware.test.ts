@@ -34,6 +34,7 @@ const figures = new Set([
   'ReliabilityCompounding', 'HardwareGuide', 'DeploymentEconomics',
   'TeleopRigMatrix', 'Stat', 'PredictThenReveal', 'SelfCheck', 'Image',
   'FarmThroughput', 'EpisodeSurvival', 'JamOverhead',
+  'DatasetRunsHours', 'HardwarePriceLadder', 'UmiCollectionRates',
 ]);
 const scenes = [JAM_OVERHEAD_SCENE];
 // A removed row stays in the inventory as the record of the decision, and
@@ -59,7 +60,7 @@ describe('data-hardware motion inventory', () => {
     expect(mounts.sort()).toEqual(covered.sort());
     expect(new Set(covered).size).toBe(active.length);
     expect(articles).toHaveLength(7);
-    expect(inventory).toHaveLength(56);
+    expect(inventory).toHaveLength(59);
     for (const row of inventory) {
       expect(articles).toContain(`${row.article}.mdx`);
       expect(row.teachingGoal.length).toBeGreaterThan(25);
@@ -145,7 +146,9 @@ describe('data-hardware prose truth', () => {
       // convergence prose slice of 2026-10-26 added one more plain edge to
       // evaluation-crisis (straight quotes and a source for the per-step product) and
       // re-resolved industrial-deployment (the Kroger 8-K and the calculator
-      // defaults left to their controls).
+      // defaults left to their controls), and the data-hardware owed-figures
+      // block of the same day re-resolved it once more (the IFR base of the
+      // 47 percent share).
       const laterIds = slug === 'evaluation-crisis'
         ? ['round5-pinned-leftovers-20260928-prose-evaluation-crisis',
           'opus-figure-migration-20261001-prose-evaluation-crisis',
@@ -164,7 +167,8 @@ describe('data-hardware prose truth', () => {
           'length-cut-20261013-data-hardware-prose-industrial-deployment',
           'images-dh-20261015-prose-data-hardware-industrial-deployment',
           'kol-batch-20261025-data-hardware-prose-industrial-deployment',
-          'convergence-prose-20261026-prose-data-hardware-industrial-deployment'];
+          'convergence-prose-20261026-prose-data-hardware-industrial-deployment',
+          'owed-figures-dh-20261026-prose-data-hardware-industrial-deployment'];
       const later = edges.filter((entry) => laterIds.includes(entry.id));
       expect(later.map((entry) => entry.id)).toEqual(laterIds);
       expect(edges.slice(edges.indexOf(qualification))).toEqual([qualification, ...later]);
