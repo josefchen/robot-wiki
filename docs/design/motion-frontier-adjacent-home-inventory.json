@@ -314,5 +314,26 @@
     "decision": "keep",
     "teachingGoal": "Take a Unitree G1 apart in 3D and count where its 23 motors go: 12 move the legs and keep it balanced.",
     "reason": "The front page's featured scene is the humanoid explainer from How robots work, in the same viewer with the same scene, shown on its poster until the reader starts it."
+  },
+  {
+    "article": "frontier/bear-case",
+    "element": "FundingHumanoidCounts",
+    "decision": "keep",
+    "teachingGoal": "Set yearly robotics startup funding beside the humanoid counts two trackers publish, on separate rulers.",
+    "reason": "Fixed yearly totals and dated counts read as plain bars; animating them would invent a growth story."
+  },
+  {
+    "article": "frontier/safety-and-assurance",
+    "element": "SafetyRulesTimeline",
+    "decision": "keep",
+    "teachingGoal": "Place the robot safety standards and the two EU laws on one dated axis, with the humanoid draft undated ahead.",
+    "reason": "Five fixed dates read side by side; a moving timeline would suggest progress the records do not date."
+  },
+  {
+    "article": "frontier/generalization",
+    "element": "HelixZeroShotSuccess",
+    "decision": "keep",
+    "teachingGoal": "Compare zero-shot success with and without human-data pretraining against the article's 90 percent bar.",
+    "reason": "Two published rates from one evaluation read at a glance; motion would add nothing to fixed values."
   }
 ]

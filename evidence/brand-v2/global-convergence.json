@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "e526699f349a7dfd25f3fa0262cd9ed0bd3a4e611bc339c3c78ce23dabeb1716",
+  "fingerprint": "27928536de65bf01b4089d24ccf1d7c28c4fd9cabbb8bb81b5335e3503785338",
   "viewports": [
     "375x812",
     "768x1024",
@@ -432,7 +432,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-26",
+            "text": "2026-10-27",
             "exemption": null
           },
           {
@@ -444,10 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 176,
+            "maxLineWidthPx": 147,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Major Datasets",
+            "text": "The Bear Case",
             "exemption": null
           },
           {
@@ -689,8 +689,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "de8bfdf8"
+          "strings": 124,
+          "digest": "be03dd55"
         }
       },
       "focus": [
@@ -1344,7 +1344,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-26",
+            "text": "2026-10-27",
             "exemption": null
           },
           {
@@ -1356,10 +1356,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 176,
+            "maxLineWidthPx": 147,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Major Datasets",
+            "text": "The Bear Case",
             "exemption": null
           },
           {
@@ -1608,8 +1608,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "de8bfdf8"
+          "strings": 124,
+          "digest": "be03dd55"
         }
       },
       "focus": [
@@ -2264,7 +2264,7 @@
             "maxLineWidthPx": 80,
             "count": 5,
             "element": "time.w-24.shrink-0.font-mono",
-            "text": "2026-10-26",
+            "text": "2026-10-27",
             "exemption": null
           },
           {
@@ -2276,10 +2276,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 176,
+            "maxLineWidthPx": 147,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Major Datasets",
+            "text": "The Bear Case",
             "exemption": null
           },
           {
@@ -2528,8 +2528,8 @@
           }
         ],
         "content": {
-          "strings": 123,
-          "digest": "de8bfdf8"
+          "strings": 124,
+          "digest": "be03dd55"
         }
       },
       "focus": [
@@ -83669,31 +83669,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1211,
-          "actions": 160,
+          "paintedElements": 1291,
+          "actions": 165,
           "secondaryActions": 20,
           "persistentStates": 1,
-          "links": 120,
-          "textRuns": 364,
-          "frames": 4,
-          "citationMarks": 62,
-          "insetTextRuns": 468,
-          "collisionTextBoxes": 698,
+          "links": 122,
+          "textRuns": 379,
+          "frames": 5,
+          "citationMarks": 63,
+          "insetTextRuns": 485,
+          "collisionTextBoxes": 726,
           "headings": 12,
-          "paragraphs": 94,
+          "paragraphs": 96,
           "sectionHeads": 10,
-          "spacingValues": 411,
+          "spacingValues": 420,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 38,
-          "hiddenTextRuns": 36,
-          "proseRuns": 312,
+          "decorativeLayers": 39,
+          "hiddenTextRuns": 37,
+          "proseRuns": 317,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -83797,7 +83797,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 311,
-            "count": 49,
+            "count": 50,
             "element": "p.page-lead",
             "text": "Why this could be another robotics winte",
             "exemption": null
@@ -83857,7 +83857,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 9",
             "exemption": null
@@ -83947,7 +83947,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 38,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Data Bottleneck",
             "exemption": null
@@ -83962,7 +83962,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 313,
-            "count": 90,
+            "count": 92,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Robot data comes in hours; language data",
             "exemption": null
@@ -83977,7 +83977,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 34,
+            "count": 35,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://rodneybrooks.com/why-todays-huma",
             "exemption": null
@@ -84116,14 +84116,14 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 37,
+            "count": 38,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -84144,7 +84144,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 35,
+            "count": 36,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -84272,12 +84272,22 @@
               16
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              16,
+              16,
+              14,
+              16
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 470,
-          "digest": "998abf35"
+          "strings": 532,
+          "digest": "5dad266c"
         }
       },
       "focus": [
@@ -84332,7 +84342,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"34\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"35\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -84590,31 +84600,31 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1211,
-          "actions": 160,
+          "paintedElements": 1291,
+          "actions": 165,
           "secondaryActions": 20,
           "persistentStates": 1,
-          "links": 120,
-          "textRuns": 364,
-          "frames": 4,
-          "citationMarks": 62,
-          "insetTextRuns": 468,
-          "collisionTextBoxes": 510,
+          "links": 122,
+          "textRuns": 379,
+          "frames": 5,
+          "citationMarks": 63,
+          "insetTextRuns": 485,
+          "collisionTextBoxes": 529,
           "headings": 12,
-          "paragraphs": 94,
+          "paragraphs": 96,
           "sectionHeads": 10,
-          "spacingValues": 411,
+          "spacingValues": 420,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 38,
-          "hiddenTextRuns": 36,
-          "proseRuns": 224,
+          "decorativeLayers": 39,
+          "hiddenTextRuns": 37,
+          "proseRuns": 228,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -84718,7 +84728,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 311,
-            "count": 49,
+            "count": 50,
             "element": "p.page-lead",
             "text": "Why this could be another robotics winte",
             "exemption": null
@@ -84778,7 +84788,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 9",
             "exemption": null
@@ -84868,7 +84878,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 635,
-            "count": 38,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Data Bottleneck",
             "exemption": null
@@ -84883,7 +84893,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 660,
-            "count": 90,
+            "count": 92,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Robot data comes in hours; language data",
             "exemption": null
@@ -84898,7 +84908,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 34,
+            "count": 35,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://rodneybrooks.com/why-todays-huma",
             "exemption": null
@@ -85051,14 +85061,14 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 37,
+            "count": 38,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -85079,7 +85089,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 35,
+            "count": 36,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -85200,12 +85210,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 470,
-          "digest": "998abf35"
+          "strings": 532,
+          "digest": "5dad266c"
         }
       },
       "focus": [
@@ -85260,7 +85280,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"34\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"35\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -85518,32 +85538,32 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1359,
-          "actions": 212,
+          "paintedElements": 1442,
+          "actions": 218,
           "secondaryActions": 20,
           "persistentStates": 2,
-          "links": 172,
-          "textRuns": 459,
-          "frames": 4,
-          "citationMarks": 62,
-          "insetTextRuns": 563,
-          "collisionTextBoxes": 589,
+          "links": 175,
+          "textRuns": 476,
+          "frames": 5,
+          "citationMarks": 63,
+          "insetTextRuns": 582,
+          "collisionTextBoxes": 609,
           "headings": 12,
-          "paragraphs": 94,
+          "paragraphs": 96,
           "sectionHeads": 10,
-          "spacingValues": 596,
+          "spacingValues": 609,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 38,
-          "hiddenTextRuns": 36,
-          "proseRuns": 293,
+          "decorativeLayers": 39,
+          "hiddenTextRuns": 37,
+          "proseRuns": 300,
           "borderedSides": 2,
           "rails": 2,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 40
+          "compositionBlocks": 41
         },
         "findings": [],
         "typeTuples": [
@@ -85647,7 +85667,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 311,
-            "count": 49,
+            "count": 50,
             "element": "p.page-lead",
             "text": "Why this could be another robotics winte",
             "exemption": null
@@ -85722,7 +85742,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 9",
             "exemption": null
@@ -85737,7 +85757,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 44,
+            "count": 45,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "9",
             "exemption": null
@@ -85751,8 +85771,8 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 151,
-            "count": 44,
+            "maxLineWidthPx": 155,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Azevedo 2026",
             "exemption": null
@@ -85842,7 +85862,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 880,
-            "count": 38,
+            "count": 39,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Data Bottleneck",
             "exemption": null
@@ -85857,7 +85877,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 880,
-            "count": 90,
+            "count": 92,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Robot data comes in hours; language data",
             "exemption": null
@@ -85872,7 +85892,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 763,
-            "count": 34,
+            "count": 35,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://rodneybrooks.com/why-todays-huma",
             "exemption": null
@@ -86018,35 +86038,35 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 44,
+            "count": 45,
             "element": "span#_R_c0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 44,
+            "count": 45,
             "element": "span#_R_c0lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 44,
+            "count": 45,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 37,
+            "count": 38,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -86074,7 +86094,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 35,
+            "count": 36,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -86195,12 +86215,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 470,
-          "digest": "998abf35"
+          "strings": 532,
+          "digest": "5dad266c"
         }
       },
       "focus": [
@@ -86255,7 +86285,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"34\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"35\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -92148,16 +92178,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 763,
-          "actions": 151,
+          "paintedElements": 795,
+          "actions": 152,
           "secondaryActions": 25,
           "persistentStates": 1,
           "links": 119,
-          "textRuns": 355,
-          "frames": 5,
+          "textRuns": 360,
+          "frames": 6,
           "citationMarks": 45,
-          "insetTextRuns": 462,
-          "collisionTextBoxes": 725,
+          "insetTextRuns": 467,
+          "collisionTextBoxes": 734,
           "headings": 11,
           "paragraphs": 96,
           "sectionHeads": 9,
@@ -92166,13 +92196,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 36,
           "hiddenTextRuns": 34,
-          "proseRuns": 382,
+          "proseRuns": 383,
           "borderedSides": 5,
           "rails": 5,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 41
+          "compositionBlocks": 42
         },
         "findings": [],
         "typeTuples": [
@@ -92802,12 +92832,22 @@
               16
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              16,
+              16,
+              14,
+              16
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 489,
-          "digest": "0223e135"
+          "strings": 511,
+          "digest": "9407596f"
         }
       },
       "focus": [
@@ -93120,16 +93160,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 763,
-          "actions": 151,
+          "paintedElements": 795,
+          "actions": 152,
           "secondaryActions": 25,
           "persistentStates": 1,
           "links": 119,
-          "textRuns": 355,
-          "frames": 5,
+          "textRuns": 360,
+          "frames": 6,
           "citationMarks": 45,
-          "insetTextRuns": 462,
-          "collisionTextBoxes": 505,
+          "insetTextRuns": 467,
+          "collisionTextBoxes": 511,
           "headings": 11,
           "paragraphs": 96,
           "sectionHeads": 9,
@@ -93138,13 +93178,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 36,
           "hiddenTextRuns": 34,
-          "proseRuns": 262,
+          "proseRuns": 263,
           "borderedSides": 5,
           "rails": 5,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 41
+          "compositionBlocks": 42
         },
         "findings": [],
         "typeTuples": [
@@ -93781,12 +93821,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 489,
-          "digest": "0223e135"
+          "strings": 511,
+          "digest": "9407596f"
         }
       },
       "focus": [
@@ -94099,16 +94149,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 912,
-          "actions": 203,
+          "paintedElements": 944,
+          "actions": 204,
           "secondaryActions": 25,
           "persistentStates": 2,
           "links": 171,
-          "textRuns": 451,
-          "frames": 5,
+          "textRuns": 456,
+          "frames": 6,
           "citationMarks": 45,
-          "insetTextRuns": 558,
-          "collisionTextBoxes": 587,
+          "insetTextRuns": 563,
+          "collisionTextBoxes": 592,
           "headings": 11,
           "paragraphs": 96,
           "sectionHeads": 9,
@@ -94124,7 +94174,7 @@
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 41
+          "compositionBlocks": 42
         },
         "findings": [],
         "typeTuples": [
@@ -94287,7 +94337,7 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 927,
+            "maxLineWidthPx": 928,
             "count": 22,
             "element": "p",
             "text": "Generalization is a robot policy's abili",
@@ -94827,12 +94877,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 489,
-          "digest": "0223e135"
+          "strings": 511,
+          "digest": "9407596f"
         }
       },
       "focus": [
@@ -98257,16 +98317,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2578,
-          "actions": 188,
+          "paintedElements": 2631,
+          "actions": 194,
           "secondaryActions": 19,
           "persistentStates": 1,
           "links": 157,
-          "textRuns": 451,
-          "frames": 8,
+          "textRuns": 466,
+          "frames": 9,
           "citationMarks": 59,
-          "insetTextRuns": 573,
-          "collisionTextBoxes": 1029,
+          "insetTextRuns": 588,
+          "collisionTextBoxes": 1050,
           "headings": 17,
           "paragraphs": 130,
           "sectionHeads": 12,
@@ -98275,13 +98335,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 48,
           "hiddenTextRuns": 46,
-          "proseRuns": 530,
+          "proseRuns": 532,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 59
+          "compositionBlocks": 60
         },
         "findings": [],
         "typeTuples": [
@@ -98815,12 +98875,22 @@
               16
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              16,
+              16,
+              14,
+              16
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 575,
-          "digest": "37b21dcd"
+          "strings": 608,
+          "digest": "7726338c"
         }
       },
       "focus": [
@@ -99133,16 +99203,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2578,
-          "actions": 188,
+          "paintedElements": 2631,
+          "actions": 194,
           "secondaryActions": 19,
           "persistentStates": 1,
           "links": 157,
-          "textRuns": 451,
-          "frames": 8,
+          "textRuns": 466,
+          "frames": 9,
           "citationMarks": 59,
-          "insetTextRuns": 573,
-          "collisionTextBoxes": 685,
+          "insetTextRuns": 588,
+          "collisionTextBoxes": 702,
           "headings": 17,
           "paragraphs": 130,
           "sectionHeads": 12,
@@ -99151,13 +99221,13 @@
           "alignedDevices": 2,
           "decorativeLayers": 48,
           "hiddenTextRuns": 46,
-          "proseRuns": 342,
+          "proseRuns": 343,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 59
+          "compositionBlocks": 60
         },
         "findings": [],
         "typeTuples": [
@@ -99698,12 +99768,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 575,
-          "digest": "37b21dcd"
+          "strings": 608,
+          "digest": "7726338c"
         }
       },
       "focus": [
@@ -100016,16 +100096,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 2775,
-          "actions": 257,
+          "paintedElements": 2828,
+          "actions": 263,
           "secondaryActions": 19,
           "persistentStates": 2,
           "links": 226,
-          "textRuns": 578,
-          "frames": 8,
+          "textRuns": 593,
+          "frames": 9,
           "citationMarks": 59,
-          "insetTextRuns": 700,
-          "collisionTextBoxes": 785,
+          "insetTextRuns": 715,
+          "collisionTextBoxes": 800,
           "headings": 17,
           "paragraphs": 130,
           "sectionHeads": 12,
@@ -100041,7 +100121,7 @@
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 59
+          "compositionBlocks": 60
         },
         "findings": [],
         "typeTuples": [
@@ -100648,12 +100728,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 575,
-          "digest": "37b21dcd"
+          "strings": 608,
+          "digest": "7726338c"
         }
       },
       "focus": [

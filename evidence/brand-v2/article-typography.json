@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "b5e1db28c77866aa1e5c85796c686c4f03ecab18d8bc441bc34788dfd55e44ae",
+  "fingerprint": "ad3494eeeeba6cc4f855127c096082b4b925a939607837326f66cd7afcb363b1",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3061,
+      "visibleTextLength": 3045,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21231,7 +21231,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 16508,
+      "visibleTextLength": 17510,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21283,12 +21283,12 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-10-26",
-        "readingMinutes": 7,
-        "citationCount": 34,
+        "readingMinutes": 8,
+        "citationCount": 35,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
-        "readingTimeText": "7 min read",
-        "citationCountText": "34 sources",
+        "readingTimeText": "8 min read",
+        "citationCountText": "35 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "brooks-scorecard-2026",
@@ -21314,6 +21314,7 @@
           "agibot-omdia-2026",
           "agibot-omdia-ranking-2026",
           "sag-humanoid-shipments-2026",
+          "ifr-service-robots-2026",
           "tesla-q2-2026-update",
           "reuters-china-humanoid-ipo-2026",
           "lighthill-1973",
@@ -21451,6 +21452,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Venture funding raised by robotics startups, by Crunchbase's"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 327,
@@ -21510,7 +21520,7 @@
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3030 F"
+          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3131 F"
         },
         {
           "familyHead": "geist",
@@ -21720,7 +21730,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 35,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -21730,7 +21740,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -21742,7 +21752,7 @@
         },
         {
           "kind": "citation",
-          "count": 124,
+          "count": 126,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -21752,7 +21762,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -21762,7 +21772,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -21816,7 +21826,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -21826,7 +21836,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -22123,6 +22133,22 @@
           "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Funding by year and the humanoid",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -24486,7 +24512,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18446,
+      "visibleTextLength": 18847,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -24866,12 +24892,21 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Zero-shot success on three whole-body tasks in 30 unseen hom"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 327,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The solved bar sits at 0.90 on the chart's completion axis, "
+          "text": "The solved bar sits at 0.90 on the EgoScale chart's completi"
         }
       ],
       "sectionLinks": [
@@ -25085,7 +25120,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -25095,7 +25130,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -25224,6 +25259,22 @@
         {
           "tag": "summary",
           "text": "Read the reasoning",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Zero-shot success, with and with",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": true,
@@ -26229,7 +26280,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27168,
+      "visibleTextLength": 27804,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26720,6 +26771,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Five robot safety rules by date: ISO 10218 parts 1 and 2 wer"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 327,
@@ -27074,7 +27134,7 @@
         },
         {
           "kind": "external",
-          "count": 8,
+          "count": 14,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -27084,7 +27144,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 14,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -27221,6 +27281,22 @@
           "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Every rule and its date",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -60368,7 +60444,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3061,
+      "visibleTextLength": 3045,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81236,7 +81312,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 22707,
+      "visibleTextLength": 23919,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -81288,12 +81364,12 @@
           "Frontier & Open Problems"
         ],
         "lastReviewed": "2026-10-26",
-        "readingMinutes": 7,
-        "citationCount": 34,
+        "readingMinutes": 8,
+        "citationCount": 35,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
-        "readingTimeText": "7 min read",
-        "citationCountText": "34 sources",
+        "readingTimeText": "8 min read",
+        "citationCountText": "35 sources",
         "bibliographyIds": [
           "brooks-dexterity-2025",
           "brooks-scorecard-2026",
@@ -81319,6 +81395,7 @@
           "agibot-omdia-2026",
           "agibot-omdia-ranking-2026",
           "sag-humanoid-shipments-2026",
+          "ifr-service-robots-2026",
           "tesla-q2-2026-update",
           "reuters-china-humanoid-ipo-2026",
           "lighthill-1973",
@@ -81456,6 +81533,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Venture funding raised by robotics startups, by Crunchbase's"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 928.66,
@@ -81515,7 +81601,7 @@
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3030 F"
+          "text": "Figure's Helix 02 takes fingertip tactile inputSource 3131 F"
         },
         {
           "familyHead": "geist",
@@ -81725,7 +81811,7 @@
         },
         {
           "kind": "reference",
-          "count": 34,
+          "count": 35,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81735,7 +81821,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 34,
+              "count": 35,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81747,7 +81833,7 @@
         },
         {
           "kind": "citation",
-          "count": 124,
+          "count": 126,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -81757,7 +81843,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -81767,7 +81853,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 44,
+              "count": 45,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -81821,7 +81907,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -81831,7 +81917,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 7,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -82128,6 +82214,22 @@
           "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Funding by year and the humanoid",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -84458,7 +84560,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 25350,
+      "visibleTextLength": 25751,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -84838,12 +84940,21 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Zero-shot success on three whole-body tasks in 30 unseen hom"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 928.66,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "The solved bar sits at 0.90 on the chart's completion axis, "
+          "text": "The solved bar sits at 0.90 on the EgoScale chart's completi"
         }
       ],
       "sectionLinks": [
@@ -85057,7 +85168,7 @@
         },
         {
           "kind": "external",
-          "count": 4,
+          "count": 5,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -85067,7 +85178,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -85196,6 +85307,22 @@
         {
           "tag": "summary",
           "text": "Read the reasoning",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Zero-shot success, with and with",
           "familyHead": "geist",
           "sizePx": 14,
           "inProse": true,
@@ -86179,7 +86306,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 38420,
+      "visibleTextLength": 39056,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -86670,6 +86797,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Five robot safety rules by date: ISO 10218 parts 1 and 2 wer"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 928.66,
@@ -87024,7 +87160,7 @@
         },
         {
           "kind": "external",
-          "count": 8,
+          "count": 14,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -87034,7 +87170,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 14,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -87171,6 +87307,22 @@
           "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Every rule and its date",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

@@ -21,12 +21,22 @@ const blank = { bytes: 0, sha256: '' };
 const ARTICLES = [
   'content/data-hardware/datasets.mdx', 'content/data-hardware/hardware-taxonomy.mdx',
   'content/data-hardware/industrial-deployment.mdx', 'content/data-hardware/robot-learning-stack.mdx',
-  'content/data-hardware/teleop-rigs.mdx',
+  'content/data-hardware/teleop-rigs.mdx', 'content/frontier/bear-case.mdx',
+  'content/frontier/generalization.mdx', 'content/frontier/safety-and-assurance.mdx',
 ];
 const MOUNTS: Record<string, string[]> = {
   'content/data-hardware/datasets.mdx': ['DatasetRunsHours'],
   'content/data-hardware/hardware-taxonomy.mdx': ['HardwarePriceLadder'],
   'content/data-hardware/teleop-rigs.mdx': ['UmiCollectionRates'],
+  'content/frontier/bear-case.mdx': ['FundingHumanoidCounts'],
+  'content/frontier/generalization.mdx': ['HelixZeroShotSuccess'],
+  'content/frontier/safety-and-assurance.mdx': ['SafetyRulesTimeline'],
+};
+/** The data-hardware slice reads its predecessors at e7782066, the frontier slice at 4f14215b. */
+const PREDECESSORS: Record<string, string> = {
+  'content/frontier/bear-case.mdx': '4f14215b2f209e8a028002bb55e5c3f8bd314fdf',
+  'content/frontier/generalization.mdx': '4f14215b2f209e8a028002bb55e5c3f8bd314fdf',
+  'content/frontier/safety-and-assurance.mdx': '4f14215b2f209e8a028002bb55e5c3f8bd314fdf',
 };
 const blocks = (text: string) => [...text.replace(/^---\n[\s\S]*?\n---\n/, '').matchAll(/^<([A-Z][A-Za-z0-9.]*)/gm)]
   .map((match) => match[1]);
@@ -39,12 +49,15 @@ afterEach(() => {
 describe('owed figures 2026-10-26 article successors', () => {
   const review = loadOwedFiguresReview(root);
 
-  it('reviews exactly the five data-hardware articles the figures slice edits', () => {
+  it('reviews exactly the five data-hardware and three frontier articles the figures slices edit', () => {
     expect([...owedFiguresSuccessorPaths()].sort()).toEqual(ARTICLES);
     expect(review.sources.map(({ after }) => after.path).sort()).toEqual(ARTICLES);
+    for (const { after, archivedFrom } of review.sources) {
+      expect(archivedFrom, after.path).toBe(PREDECESSORS[after.path] ?? 'e77820660711291bc8599b59a5e473347a9b797a');
+    }
   });
 
-  it('adds one figure each to three articles and drops none', () => {
+  it('adds one figure each to six articles and drops none', () => {
     for (const source of review.sources) {
       const path = source.after.path;
       const prior = owedFiguresPredecessor(root, source.before, read(path)).toString();

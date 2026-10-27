@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "53041039304b85ec5c64c5fffbca8e25bf7a94570bc3a5aeb732f9b503008b05",
+  "fingerprint": "d62d0420ed583cdbceafaa6a0796705b18e8cdd7577fbd8fba4bf27545351b3b",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -245,7 +245,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3036,
+      "visibleTextLength": 3020,
       "route": "/",
       "viewport": "1440x900"
     },
@@ -3667,7 +3667,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22707,
+      "visibleTextLength": 23919,
       "route": "/frontier/bear-case/",
       "viewport": "1440x900"
     },
@@ -4021,7 +4021,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 25350,
+      "visibleTextLength": 25751,
       "route": "/frontier/generalization/",
       "viewport": "1440x900"
     },
@@ -4257,7 +4257,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 38420,
+      "visibleTextLength": 39056,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "1440x900"
     },
@@ -6971,7 +6971,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 34102,
+      "visibleTextLength": 34080,
       "route": "/rl-sim2real/humanoid-wbc/",
       "viewport": "1440x900"
     },
@@ -7325,7 +7325,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24209,
+      "visibleTextLength": 24231,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "1440x900"
     },
@@ -9141,7 +9141,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 3061,
+      "visibleTextLength": 3045,
       "route": "/",
       "viewport": "375x812"
     },
@@ -11855,7 +11855,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 29210,
+      "visibleTextLength": 29190,
       "route": "/data-hardware/hardware-taxonomy/",
       "viewport": "375x812"
     },
@@ -12563,7 +12563,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 16508,
+      "visibleTextLength": 17510,
       "route": "/frontier/bear-case/",
       "viewport": "375x812"
     },
@@ -12917,7 +12917,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18446,
+      "visibleTextLength": 18847,
       "route": "/frontier/generalization/",
       "viewport": "375x812"
     },
@@ -13153,7 +13153,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27168,
+      "visibleTextLength": 27804,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "375x812"
     },
@@ -16221,7 +16221,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17456,
+      "visibleTextLength": 17478,
       "route": "/rl-sim2real/parallel-sim-rl/",
       "viewport": "375x812"
     },

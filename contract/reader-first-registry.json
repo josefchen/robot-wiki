@@ -1216,6 +1216,42 @@
         "lib/umi-collection-rates.ts"
       ],
       "takeaway": "Recording demonstrations with a handheld gripper was three times faster than steering a robot, though about half as fast as doing the task by hand."
+    },
+    {
+      "id": "frontier--bear-case--funding-humanoid-counts",
+      "route": "/frontier/bear-case/",
+      "mount": "mount:/frontier/bear-case/:FundingHumanoidCounts:1",
+      "figure": "funding-humanoid-counts",
+      "audit": null,
+      "sources": [
+        "components/interactive/funding-humanoid-counts.tsx",
+        "lib/funding-humanoid-counts.ts"
+      ],
+      "takeaway": "Robotics startups raised more money by June 2026 than in any earlier full year, while the humanoids actually sold or shipped still number in the thousands."
+    },
+    {
+      "id": "frontier--safety-and-assurance--safety-rules-timeline",
+      "route": "/frontier/safety-and-assurance/",
+      "mount": "mount:/frontier/safety-and-assurance/:SafetyRulesTimeline:1",
+      "figure": "safety-rules-timeline",
+      "audit": null,
+      "sources": [
+        "components/interactive/safety-rules-timeline.tsx",
+        "lib/safety-rules-timeline.ts"
+      ],
+      "takeaway": "The industrial robot safety standards were renewed in 2025, the humanoid standard is still a draft with no next date, and EU law reaches learned safety parts in January 2027."
+    },
+    {
+      "id": "frontier--generalization--helix-zero-shot-success",
+      "route": "/frontier/generalization/",
+      "mount": "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
+      "figure": "helix-zero-shot-success",
+      "audit": null,
+      "sources": [
+        "components/interactive/helix-zero-shot-success.tsx",
+        "lib/helix-zero-shot.ts"
+      ],
+      "takeaway": "Pretraining on human data lifted Figure's robot from 9% to 56% success in homes it had never seen, still well short of the 90% this article calls solved."
     }
   ]
 }

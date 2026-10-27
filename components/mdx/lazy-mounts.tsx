@@ -118,6 +118,9 @@ export const FlowMatchingTrajectory = dynamic(() =>
 export const FrictionTransfer = dynamic(() =>
   import('@/components/interactive/friction-transfer').then((m) => m.FrictionTransfer),
 );
+export const FundingHumanoidCounts = dynamic(() =>
+  import('@/components/interactive/funding-humanoid-counts').then((m) => m.FundingHumanoidCounts),
+);
 export const GaitDiagram = dynamic(() =>
   import('@/components/interactive/gait-diagram').then((m) => m.GaitDiagram),
 );
@@ -144,6 +147,9 @@ export const HardwarePriceLadder = dynamic(() =>
 );
 export const HelixClockwork = dynamic(() =>
   import('@/components/interactive/helix-clockwork').then((m) => m.HelixClockwork),
+);
+export const HelixZeroShotSuccess = dynamic(() =>
+  import('@/components/interactive/helix-zero-shot-success').then((m) => m.HelixZeroShotSuccess),
 );
 export const HierarchyTimescales = dynamic(() =>
   import('@/components/interactive/hierarchy-timescales').then((m) => m.HierarchyTimescales),
@@ -255,6 +261,9 @@ export const SampleEfficiencyLedger = dynamic(() =>
 );
 export const SafetyFilterFence = dynamic(() =>
   import('@/components/interactive/safety-filter-fence').then((m) => m.SafetyFilterFence),
+);
+export const SafetyRulesTimeline = dynamic(() =>
+  import('@/components/interactive/safety-rules-timeline').then((m) => m.SafetyRulesTimeline),
 );
 export const ScannedTwinCheck = dynamic(() =>
   import('@/components/interactive/scanned-twin-check').then((m) => m.ScannedTwinCheck),

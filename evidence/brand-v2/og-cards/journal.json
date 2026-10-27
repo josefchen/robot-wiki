@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "state": "complete",
-  "corpusDigest": "6f05f56f27f9188bcf590c4d2a7fcea63a78ad9a71d3c719ac8068b343e57824",
+  "corpusDigest": "afa284a27a9b43fd6a1bcb8ed8e99a2faa3df27fa0d22642901bdb0913a25736",
   "trees": [
     {
       "path": "public/og",
-      "stagedDigest": "a1878b4b7e4936cc03b1343300b46386838109b1cc90b4eddd7398dd5644df71",
+      "stagedDigest": "b4617e462a6a52ce571d206db310b9b21ac265303c489015a02fd178896a9c1f",
       "status": "swapped"
     },
     {
       "path": "public/structured-images",
-      "stagedDigest": "88767e05811665ea7bb22fc10a0d3e44742da553501e183f8b9251c9adc1ce9b",
+      "stagedDigest": "612e0bd8e09b444a85993bce43600422122f4010673afc63869db3e33df09108",
       "status": "swapped"
     },
     {
       "path": "out/og",
-      "stagedDigest": "a1878b4b7e4936cc03b1343300b46386838109b1cc90b4eddd7398dd5644df71",
+      "stagedDigest": "b4617e462a6a52ce571d206db310b9b21ac265303c489015a02fd178896a9c1f",
       "status": "swapped"
     },
     {
       "path": "out/structured-images",
-      "stagedDigest": "88767e05811665ea7bb22fc10a0d3e44742da553501e183f8b9251c9adc1ce9b",
+      "stagedDigest": "612e0bd8e09b444a85993bce43600422122f4010673afc63869db3e33df09108",
       "status": "swapped"
     },
     {
       "path": "evidence/brand-v2/og-cards",
-      "stagedDigest": "c318e39c1b40bf65046b660d3cf37a167134eee27cd31bfc3195706316eeec0e",
+      "stagedDigest": "618ec4013ef724ed0d1a9a6e3f79eaded4d7dd8596b747b2a67606f42eb97d99",
       "status": "swapped"
     }
   ]

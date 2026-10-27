@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "fingerprint": "ead0dd53b6cb5f50c727f7f9c994804666a8e87875deecd907cb1447db1b069e",
+  "fingerprint": "040a16262f6eea3583a305a1ce983094b535812033f21d205d3762984ecdfc01",
   "viewport": "1440x900",
   "route": "/",
-  "visibleTextLength": 2827,
+  "visibleTextLength": 2811,
   "documentScrollWidthPx": 1440,
   "documentClientWidthPx": 1440,
   "heroLockups": [
@@ -772,8 +772,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Major Datasets",
-      "href": "/data-hardware/datasets/",
+      "accessibleName": "The Bear Case",
+      "href": "/frontier/bear-case/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2299.89,
@@ -781,8 +781,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Hardware Taxonomy",
-      "href": "/data-hardware/hardware-taxonomy/",
+      "accessibleName": "Generalization",
+      "href": "/frontier/generalization/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2349.89,
@@ -790,8 +790,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Industrial Deployment",
-      "href": "/data-hardware/industrial-deployment/",
+      "accessibleName": "Safety and Assurance",
+      "href": "/frontier/safety-and-assurance/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2399.89,
@@ -799,8 +799,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "The Robot Learning Stack",
-      "href": "/data-hardware/robot-learning-stack/",
+      "accessibleName": "Major Datasets",
+      "href": "/data-hardware/datasets/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2449.89,
@@ -808,8 +808,8 @@
     },
     {
       "controlId": "control:link-focus",
-      "accessibleName": "Teleoperation Rigs",
-      "href": "/data-hardware/teleop-rigs/",
+      "accessibleName": "Hardware Taxonomy",
+      "href": "/data-hardware/hardware-taxonomy/",
       "backgroundColour": "rgba(0, 0, 0, 0)",
       "colour": "rgb(28, 28, 26)",
       "topPx": 2499.89,
@@ -1045,7 +1045,7 @@
       "label": "RECENTLY UPDATED",
       "signature": "plain/module-heading/dated-links",
       "prose": "",
-      "text": "RECENTLY UPDATED 2026-10-26 Major Datasets 2026-10-26 Hardware Taxonomy 2026-10-26 Industrial Deployment 2026-10-26 The Robot Learning Stack 2026-10-26 Teleoperation Rigs"
+      "text": "RECENTLY UPDATED 2026-10-27 The Bear Case 2026-10-27 Generalization 2026-10-27 Safety and Assurance 2026-10-26 Major Datasets 2026-10-26 Hardware Taxonomy"
     },
     {
       "label": "Tools",

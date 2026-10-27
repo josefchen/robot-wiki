@@ -449,6 +449,13 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   endpoint, or one resolution from the sealed hash where its chain already
  *   holds one, the new figure members and four citation records from an
  *   absent seal, and one `citation-rendering:label-and-meta` resolution.
+ * - `owed-figures-frontier-20261027-`: the frontier figures slice mounted
+ *   three data figures in bear-case, safety-and-assurance and generalization,
+ *   with one sourced sentence in bear-case and a re-dated sentence in
+ *   safety-and-assurance, each article member with one resolution from the
+ *   sealed hash where its chain already holds one, or one edge from its last
+ *   approved endpoint, and the new figure members from an absent seal. No
+ *   citation record changed, so it carries no rendering resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -511,6 +518,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'convergence-prose-20261026-',
   'owed-figures-20261026-',
   'owed-figures-dh-20261026-',
+  'owed-figures-frontier-20261027-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

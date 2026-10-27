@@ -1,7 +1,7 @@
 {
  "version": 1,
  "generatedBy": "tests/e2e/brand-v2-control-states.spec.ts",
- "fingerprint": "c24f211650a943ec1bf404d7a402c1249c2c7ea8974d51435cfb56d6b0ce051e",
+ "fingerprint": "66c3cebdc5a6cedf23e6dbb421f7849471ae8a25a13bf0872c5236e6ce25e60f",
  "viewports": [
   "375x812",
   "1440x900"
@@ -1007,8 +1007,8 @@
    "viewport": "375x812",
    "status": 200,
    "controls": {
-    "control:link-focus": 143,
-    "control:secondary-action": 25,
+    "control:link-focus": 148,
+    "control:secondary-action": 27,
     "control:segmented": 2,
     "control:selection": 16
    },
@@ -1016,8 +1016,8 @@
    "codeBlocks": 0,
    "census": {
     "variants": {
-     "control:link-focus": 12,
-     "control:secondary-action": 6,
+     "control:link-focus": 13,
+     "control:secondary-action": 7,
      "control:segmented": 1,
      "control:selection": 3
     },
@@ -1028,11 +1028,11 @@
      "control:segmented": 1
     },
     "actions": {
-     "disclosure": 2,
+     "disclosure": 3,
      "reset": 1,
      "copy-link": 1
     },
-    "icons": 16,
+    "icons": 17,
     "statusChips": 0
    }
   },
@@ -1112,8 +1112,8 @@
    "viewport": "375x812",
    "status": 200,
    "controls": {
-    "control:link-focus": 124,
-    "control:secondary-action": 31,
+    "control:link-focus": 125,
+    "control:secondary-action": 33,
     "control:selection": 7,
     "control:segmented": 1,
     "control:input": 1
@@ -1122,7 +1122,7 @@
    "codeBlocks": 0,
    "census": {
     "variants": {
-     "control:link-focus": 12,
+     "control:link-focus": 13,
      "control:secondary-action": 8,
      "control:selection": 3,
      "control:segmented": 1,
@@ -1139,7 +1139,7 @@
      "reset": 1,
      "copy-link": 1
     },
-    "icons": 7,
+    "icons": 8,
     "statusChips": 0
    }
   },
@@ -1184,8 +1184,8 @@
    "viewport": "375x812",
    "status": 200,
    "controls": {
-    "control:link-focus": 166,
-    "control:secondary-action": 25,
+    "control:link-focus": 172,
+    "control:secondary-action": 27,
     "control:segmented": 1,
     "control:selection": 4,
     "control:input": 3
@@ -1194,7 +1194,7 @@
    "codeBlocks": 0,
    "census": {
     "variants": {
-     "control:link-focus": 12,
+     "control:link-focus": 13,
      "control:secondary-action": 7,
      "control:segmented": 1,
      "control:selection": 2,
@@ -1211,7 +1211,7 @@
      "copy-link": 1,
      "reset": 1
     },
-    "icons": 15,
+    "icons": 16,
     "statusChips": 0
    }
   },
@@ -3524,8 +3524,8 @@
    "viewport": "1440x900",
    "status": 200,
    "controls": {
-    "control:link-focus": 195,
-    "control:secondary-action": 24,
+    "control:link-focus": 201,
+    "control:secondary-action": 26,
     "control:segmented": 2,
     "control:selection": 16
    },
@@ -3533,8 +3533,8 @@
    "codeBlocks": 0,
    "census": {
     "variants": {
-     "control:link-focus": 12,
-     "control:secondary-action": 5,
+     "control:link-focus": 13,
+     "control:secondary-action": 6,
      "control:segmented": 1,
      "control:selection": 3
     },
@@ -3545,11 +3545,11 @@
      "control:segmented": 1
     },
     "actions": {
-     "disclosure": 1,
+     "disclosure": 2,
      "reset": 1,
      "copy-link": 1
     },
-    "icons": 16,
+    "icons": 17,
     "statusChips": 0
    }
   },
@@ -3629,8 +3629,8 @@
    "viewport": "1440x900",
    "status": 200,
    "controls": {
-    "control:link-focus": 176,
-    "control:secondary-action": 30,
+    "control:link-focus": 177,
+    "control:secondary-action": 32,
     "control:selection": 7,
     "control:segmented": 1,
     "control:input": 1
@@ -3639,7 +3639,7 @@
    "codeBlocks": 0,
    "census": {
     "variants": {
-     "control:link-focus": 12,
+     "control:link-focus": 13,
      "control:secondary-action": 7,
      "control:selection": 3,
      "control:segmented": 1,
@@ -3656,7 +3656,7 @@
      "reset": 1,
      "copy-link": 1
     },
-    "icons": 7,
+    "icons": 8,
     "statusChips": 0
    }
   },
@@ -3701,8 +3701,8 @@
    "viewport": "1440x900",
    "status": 200,
    "controls": {
-    "control:link-focus": 235,
-    "control:secondary-action": 24,
+    "control:link-focus": 241,
+    "control:secondary-action": 26,
     "control:segmented": 1,
     "control:selection": 4,
     "control:input": 3
@@ -3711,7 +3711,7 @@
    "codeBlocks": 0,
    "census": {
     "variants": {
-     "control:link-focus": 12,
+     "control:link-focus": 13,
      "control:secondary-action": 6,
      "control:segmented": 1,
      "control:selection": 2,
@@ -3728,7 +3728,7 @@
      "disclosure": 2,
      "reset": 1
     },
-    "icons": 15,
+    "icons": 16,
     "statusChips": 0
    }
   },
@@ -5715,8 +5715,8 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||min-w-0 ink-link|false|none|",
    "instances": 5,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/data-hardware/datasets/\" data-cs-probe=\"87\">Major Datasets</a>",
-   "name": "Major Datasets",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/frontier/bear-case/\" data-cs-probe=\"87\">The Bear Case</a>",
+   "name": "The Bear Case",
    "disabled": false,
    "selected": "none",
    "exemption": null,
@@ -32714,7 +32714,7 @@
    "viewport": "375x812",
    "member": "control:link-focus",
    "variant": "control:link-focus|a||||false|none|",
-   "instances": 81,
+   "instances": 82,
    "element": "<a data-brand-control-id=\"control:link-focus\" href=\"/frontier/\" data-cs-probe=\"4\">Frontier &amp; Open Problems</a>",
    "name": "Frontier & Open Problems",
    "disabled": false,
@@ -32994,7 +32994,7 @@
    "viewport": "375x812",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden|false|none|",
-   "instances": 3,
+   "instances": 4,
    "element": "<summary data-brand-control-id=\"control:secondary-action\" data-pagefind-ignore=\"true\" class=\"inline-flex min-h-8 cursor-pointer select-none list-none items-cent",
    "name": "Adjust more",
    "disabled": false,
@@ -33193,10 +33193,102 @@
   {
    "route": "/frontier/bear-case/",
    "viewport": "375x812",
+   "member": "control:secondary-action",
+   "variant": "control:secondary-action|summary|||inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text|false|none|",
+   "instances": 1,
+   "element": "<summary id=\"_R_4mlav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer select",
+   "name": "Funding by year and the humanoid counts",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "summary[0].color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-top-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-right-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-bottom-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-left-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].::before: none;rgb(108, 107, 102);rgba(0, 0, 0, 0);rgb(108, 107, 102);0px;1;none;auto -> none;rgb(28, 28, 26);rgba(0, 0, 0, 0);rgb(28, 28, 26);0px;1;none;auto"
+    ],
+    "changedCount": 7
+   },
+   "pressed": {
+    "changed": [
+     "summary[0].color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-top-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-right-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-bottom-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-left-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].::before: none;rgb(108, 107, 102);rgba(0, 0, 0, 0);rgb(108, 107, 102);0px;1;none;auto -> none;rgb(28, 28, 26);rgba(0, 0, 0, 0);rgb(28, 28, 26);0px;1;none;auto"
+    ],
+    "changedCount": 7
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "summary[0].outline-style: none -> solid",
+     "summary[0].outline-width:  -> 1px",
+     "summary[0].outline-color:  -> rgb(28, 28, 26)",
+     "summary[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "375x812",
+   "member": "control:link-focus",
+   "variant": "control:link-focus|a|||underline-offset-2|false|none|",
+   "instances": 3,
+   "element": "<a data-brand-control-id=\"control:link-focus\" href=\"https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/\" target=\"_blank\" rel=\"noopene",
+   "name": "Azevedo 2026",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "pressed": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "a[0].outline-style: none -> solid",
+     "a[0].outline-width:  -> 1px",
+     "a[0].outline-color:  -> rgb(28, 28, 26)",
+     "a[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "375x812",
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||term-link|false|none|",
    "instances": 4,
-   "element": "<a aria-describedby=\"_R_6rlav5ubsnmtb_\" data-brand-control-id=\"control:link-focus\" class=\"term-link\" href=\"/glossary/#success-rate\" data-cs-probe=\"85\">success-r",
+   "element": "<a aria-describedby=\"_R_6slav5ubsnmtb_\" data-brand-control-id=\"control:link-focus\" class=\"term-link\" href=\"/glossary/#success-rate\" data-cs-probe=\"91\">success-r",
    "name": "success-rate",
    "disabled": false,
    "selected": "none",
@@ -33277,7 +33369,7 @@
    "viewport": "375x812",
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||ink-link break-words font-sans text-[14px] font-medium leading-snug|false|none|",
-   "instances": 34,
+   "instances": 35,
    "element": "<a href=\"https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/\" target=\"_blank\" rel=\"noopener noreferrer\" data-brand-control-id=\"control:link-focu",
    "name": "Why Today's Humanoids Won't Learn Dexterity",
    "disabled": false,
@@ -33462,7 +33554,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"175\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"182\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -36389,7 +36481,7 @@
    "viewport": "375x812",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden|false|none|",
-   "instances": 2,
+   "instances": 3,
    "element": "<summary data-brand-control-id=\"control:secondary-action\" data-pagefind-ignore=\"true\" class=\"inline-flex min-h-8 cursor-pointer select-none list-none items-cent",
    "name": "Adjust more",
    "disabled": false,
@@ -36525,7 +36617,7 @@
    "viewport": "375x812",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text|false|none|",
-   "instances": 1,
+   "instances": 2,
    "element": "<summary id=\"_R_ae3lav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer selec",
    "name": "Sampled loss and completion by pretraining hours",
    "disabled": false,
@@ -36667,6 +36759,47 @@
      "button[0].opacity: 0.35 -> 1"
     ],
     "changedCount": 5
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/generalization/",
+   "viewport": "375x812",
+   "member": "control:link-focus",
+   "variant": "control:link-focus|a|||underline-offset-2|false|none|",
+   "instances": 1,
+   "element": "<a data-brand-control-id=\"control:link-focus\" href=\"https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization\" target=\"_blank\" rel=\"noopener\" class=",
+   "name": "Figure AI 2026",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "pressed": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "a[0].outline-style: none -> solid",
+     "a[0].outline-width:  -> 1px",
+     "a[0].outline-color:  -> rgb(28, 28, 26)",
+     "a[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
    },
    "transientAria": {
     "hover": [],
@@ -36905,7 +37038,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"153\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"156\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -38866,7 +38999,7 @@
    "viewport": "375x812",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden|false|none|",
-   "instances": 3,
+   "instances": 4,
    "element": "<summary data-brand-control-id=\"control:secondary-action\" data-pagefind-ignore=\"true\" class=\"inline-flex min-h-8 cursor-pointer select-none list-none items-cent",
    "name": "Adjust more",
    "disabled": false,
@@ -38917,7 +39050,7 @@
    "viewport": "375x812",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text|false|none|",
-   "instances": 1,
+   "instances": 2,
    "element": "<summary id=\"_R_46lav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer select",
    "name": "Current workcell settings",
    "disabled": false,
@@ -38954,6 +39087,47 @@
      "summary[0].outline-width:  -> 1px",
      "summary[0].outline-color:  -> rgb(28, 28, 26)",
      "summary[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/safety-and-assurance/",
+   "viewport": "375x812",
+   "member": "control:link-focus",
+   "variant": "control:link-focus|a|||underline-offset-2|false|none|",
+   "instances": 6,
+   "element": "<a data-brand-control-id=\"control:link-focus\" href=\"https://www.iso.org/standard/73933.html\" target=\"_blank\" rel=\"noopener\" class=\"underline-offset-2\" data-cs-p",
+   "name": "ISO 2025",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "pressed": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "a[0].outline-style: none -> solid",
+     "a[0].outline-width:  -> 1px",
+     "a[0].outline-color:  -> rgb(28, 28, 26)",
+     "a[0].outline-offset:  -> 2px"
     ],
     "changedCount": 4
    },
@@ -39194,7 +39368,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"188\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"196\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -80449,8 +80623,8 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||min-w-0 ink-link|false|none|",
    "instances": 5,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/data-hardware/datasets/\" data-cs-probe=\"87\">Major Datasets</a>",
-   "name": "Major Datasets",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"min-w-0 ink-link\" href=\"/frontier/bear-case/\" data-cs-probe=\"87\">The Bear Case</a>",
+   "name": "The Bear Case",
    "disabled": false,
    "selected": "none",
    "exemption": null,
@@ -106428,7 +106602,7 @@
    "viewport": "1440x900",
    "member": "control:link-focus",
    "variant": "control:link-focus|a||||false|none|",
-   "instances": 133,
+   "instances": 135,
    "element": "<a data-brand-control-id=\"control:link-focus\" href=\"/frontier/\" data-cs-probe=\"4\">Frontier &amp; Open Problems</a>",
    "name": "Frontier & Open Problems",
    "disabled": false,
@@ -106657,7 +106831,7 @@
    "viewport": "1440x900",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden|false|none|",
-   "instances": 3,
+   "instances": 4,
    "element": "<summary data-brand-control-id=\"control:secondary-action\" data-pagefind-ignore=\"true\" class=\"inline-flex min-h-8 cursor-pointer select-none list-none items-cent",
    "name": "Adjust more",
    "disabled": false,
@@ -106856,10 +107030,102 @@
   {
    "route": "/frontier/bear-case/",
    "viewport": "1440x900",
+   "member": "control:secondary-action",
+   "variant": "control:secondary-action|summary|||inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text|false|none|",
+   "instances": 1,
+   "element": "<summary id=\"_R_4mlav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer select",
+   "name": "Funding by year and the humanoid counts",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "summary[0].color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-top-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-right-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-bottom-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-left-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].::before: none;rgb(108, 107, 102);rgba(0, 0, 0, 0);rgb(108, 107, 102);0px;1;none;auto -> none;rgb(28, 28, 26);rgba(0, 0, 0, 0);rgb(28, 28, 26);0px;1;none;auto"
+    ],
+    "changedCount": 7
+   },
+   "pressed": {
+    "changed": [
+     "summary[0].color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-top-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-right-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-bottom-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].border-left-color: rgb(108, 107, 102) -> rgb(28, 28, 26)",
+     "summary[0].::before: none;rgb(108, 107, 102);rgba(0, 0, 0, 0);rgb(108, 107, 102);0px;1;none;auto -> none;rgb(28, 28, 26);rgba(0, 0, 0, 0);rgb(28, 28, 26);0px;1;none;auto"
+    ],
+    "changedCount": 7
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "summary[0].outline-style: none -> solid",
+     "summary[0].outline-width:  -> 1px",
+     "summary[0].outline-color:  -> rgb(28, 28, 26)",
+     "summary[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "1440x900",
+   "member": "control:link-focus",
+   "variant": "control:link-focus|a|||underline-offset-2|false|none|",
+   "instances": 3,
+   "element": "<a data-brand-control-id=\"control:link-focus\" href=\"https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/\" target=\"_blank\" rel=\"noopene",
+   "name": "Azevedo 2026",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "pressed": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "a[0].outline-style: none -> solid",
+     "a[0].outline-width:  -> 1px",
+     "a[0].outline-color:  -> rgb(28, 28, 26)",
+     "a[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "1440x900",
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||term-link|false|none|",
    "instances": 4,
-   "element": "<a aria-describedby=\"_R_6rlav5ubsnmtb_\" data-brand-control-id=\"control:link-focus\" class=\"term-link\" href=\"/glossary/#success-rate\" data-cs-probe=\"117\">success-",
+   "element": "<a aria-describedby=\"_R_6slav5ubsnmtb_\" data-brand-control-id=\"control:link-focus\" class=\"term-link\" href=\"/glossary/#success-rate\" data-cs-probe=\"124\">success-",
    "name": "success-rate",
    "disabled": false,
    "selected": "none",
@@ -106940,7 +107206,7 @@
    "viewport": "1440x900",
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||ink-link break-words font-sans text-[14px] font-medium leading-snug|false|none|",
-   "instances": 34,
+   "instances": 35,
    "element": "<a href=\"https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/\" target=\"_blank\" rel=\"noopener noreferrer\" data-brand-control-id=\"control:link-focu",
    "name": "Why Today's Humanoids Won't Learn Dexterity",
    "disabled": false,
@@ -107125,7 +107391,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"226\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"234\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -109899,7 +110165,7 @@
    "viewport": "1440x900",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden|false|none|",
-   "instances": 2,
+   "instances": 3,
    "element": "<summary data-brand-control-id=\"control:secondary-action\" data-pagefind-ignore=\"true\" class=\"inline-flex min-h-8 cursor-pointer select-none list-none items-cent",
    "name": "Adjust more",
    "disabled": false,
@@ -110035,7 +110301,7 @@
    "viewport": "1440x900",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text|false|none|",
-   "instances": 1,
+   "instances": 2,
    "element": "<summary id=\"_R_ae3lav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer selec",
    "name": "Sampled loss and completion by pretraining hours",
    "disabled": false,
@@ -110177,6 +110443,47 @@
      "button[0].opacity: 0.35 -> 1"
     ],
     "changedCount": 5
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/generalization/",
+   "viewport": "1440x900",
+   "member": "control:link-focus",
+   "variant": "control:link-focus|a|||underline-offset-2|false|none|",
+   "instances": 1,
+   "element": "<a data-brand-control-id=\"control:link-focus\" href=\"https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization\" target=\"_blank\" rel=\"noopener\" class=",
+   "name": "Figure AI 2026",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "pressed": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "a[0].outline-style: none -> solid",
+     "a[0].outline-width:  -> 1px",
+     "a[0].outline-color:  -> rgb(28, 28, 26)",
+     "a[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
    },
    "transientAria": {
     "hover": [],
@@ -110415,7 +110722,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"204\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"207\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -112274,7 +112581,7 @@
    "viewport": "1440x900",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-8 cursor-pointer select-none list-none items-center gap-2 font-sans text-[13px] text-text-dim transition-colors hover:text-text [&::-webkit-details-marker]:hidden|false|none|",
-   "instances": 3,
+   "instances": 4,
    "element": "<summary data-brand-control-id=\"control:secondary-action\" data-pagefind-ignore=\"true\" class=\"inline-flex min-h-8 cursor-pointer select-none list-none items-cent",
    "name": "Adjust more",
    "disabled": false,
@@ -112325,7 +112632,7 @@
    "viewport": "1440x900",
    "member": "control:secondary-action",
    "variant": "control:secondary-action|summary|||inline-flex min-h-6 cursor-pointer select-none items-center font-sans text-sm font-medium text-text-dim transition-colors hover:text-text|false|none|",
-   "instances": 1,
+   "instances": 2,
    "element": "<summary id=\"_R_46lav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer select",
    "name": "Current workcell settings",
    "disabled": false,
@@ -112362,6 +112669,47 @@
      "summary[0].outline-width:  -> 1px",
      "summary[0].outline-color:  -> rgb(28, 28, 26)",
      "summary[0].outline-offset:  -> 2px"
+    ],
+    "changedCount": 4
+   },
+   "transientAria": {
+    "hover": [],
+    "pressed": []
+   },
+   "restStable": true
+  },
+  {
+   "route": "/frontier/safety-and-assurance/",
+   "viewport": "1440x900",
+   "member": "control:link-focus",
+   "variant": "control:link-focus|a|||underline-offset-2|false|none|",
+   "instances": 6,
+   "element": "<a data-brand-control-id=\"control:link-focus\" href=\"https://www.iso.org/standard/73933.html\" target=\"_blank\" rel=\"noopener\" class=\"underline-offset-2\" data-cs-p",
+   "name": "ISO 2025",
+   "disabled": false,
+   "selected": "none",
+   "exemption": null,
+   "pointer": "reachable",
+   "coveredBy": null,
+   "hover": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "pressed": {
+    "changed": [
+     "a[0].text-decoration-color: color(srgb 0.109804 0.109804 0.101961 / 0.5) -> rgb(28, 28, 26)"
+    ],
+    "changedCount": 1
+   },
+   "focusVisible": {
+    "matched": true,
+    "changed": [
+     "a[0].outline-style: none -> solid",
+     "a[0].outline-width:  -> 1px",
+     "a[0].outline-color:  -> rgb(28, 28, 26)",
+     "a[0].outline-offset:  -> 2px"
     ],
     "changedCount": 4
    },
@@ -112602,7 +112950,7 @@
    "member": "control:link-focus",
    "variant": "control:link-focus|a|||quiet-link|false|none|",
    "instances": 6,
-   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"256\">A-Z index</a>",
+   "element": "<a data-brand-control-id=\"control:link-focus\" class=\"quiet-link\" href=\"/a-z/\" data-cs-probe=\"264\">A-Z index</a>",
    "name": "A-Z index",
    "disabled": false,
    "selected": "none",
@@ -163673,8 +164021,8 @@
    "nameContainsVisibleText": true,
    "focusVisible": true,
    "performed": true,
-   "restored": true,
-   "detail": "reset returned the mount to its default state digest"
+   "restored": null,
+   "detail": "reset restarts the mount at one fixed state, reached again after a second change"
   },
   {
    "route": "/classical/motion-planning/",
@@ -164613,6 +164961,20 @@
    "performed": true,
    "restored": null,
    "detail": "clipboard equals the section URL (119 characters expected, 119 read)"
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "375x812",
+   "member": "control:secondary-action",
+   "kind": "disclosure",
+   "element": "<summary id=\"_R_4mlav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer select",
+   "name": "Funding by year and the humanoid counts",
+   "visibleText": "Funding by year and the humanoid counts",
+   "nameContainsVisibleText": true,
+   "focusVisible": true,
+   "performed": true,
+   "restored": true,
+   "detail": "expanded false -> true -> false"
   },
   {
    "route": "/frontier/competing-theses/",
@@ -168577,6 +168939,20 @@
    "detail": "clipboard equals the section URL (119 characters expected, 119 read)"
   },
   {
+   "route": "/frontier/bear-case/",
+   "viewport": "1440x900",
+   "member": "control:secondary-action",
+   "kind": "disclosure",
+   "element": "<summary id=\"_R_4mlav5ubsnmtb_-description-chart-data-summary\" data-brand-control-id=\"control:secondary-action\" class=\"inline-flex min-h-6 cursor-pointer select",
+   "name": "Funding by year and the humanoid counts",
+   "visibleText": "Funding by year and the humanoid counts",
+   "nameContainsVisibleText": true,
+   "focusVisible": true,
+   "performed": true,
+   "restored": true,
+   "detail": "expanded false -> true -> false"
+  },
+  {
    "route": "/frontier/competing-theses/",
    "viewport": "1440x900",
    "member": "control:secondary-action",
@@ -171493,6 +171869,17 @@
    "member": null,
    "role": "figure",
    "count": 1,
+   "element": "<svg viewBox=\"0 0 340 387\" role=\"img\" data-chart=\"\" class=\"motion-stage-svg block h-auto w-full\" font-family=\"var(--font-sans)\" style=\"--motion-stage-view-width",
+   "ownerName": "",
+   "hidden": false,
+   "focusable": false
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "375x812",
+   "member": null,
+   "role": "figure",
+   "count": 1,
    "element": "<svg class=\"iso-svg\" viewBox=\"0 0 600 401\" role=\"img\" aria-label=\"A pin-tumbler lock cut open in front of its four pin stacks, one per premise of the bear case.",
    "ownerName": "",
    "hidden": false,
@@ -171547,7 +171934,7 @@
    "viewport": "375x812",
    "member": null,
    "role": "figure",
-   "count": 1,
+   "count": 2,
    "element": "<svg viewBox=\"0 0 340 326\" role=\"img\" data-chart=\"\" class=\"motion-stage-svg block h-auto w-full\" font-family=\"var(--font-sans)\" style=\"--motion-stage-view-width",
    "ownerName": "",
    "hidden": false,
@@ -171604,6 +171991,17 @@
    "role": "figure",
    "count": 2,
    "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 397\" role=\"img\" focusable=\"false\" aria-label=\"A robot arm at the left and a person 1.60 m away, under speed and separation",
+   "ownerName": "",
+   "hidden": false,
+   "focusable": false
+  },
+  {
+   "route": "/frontier/safety-and-assurance/",
+   "viewport": "375x812",
+   "member": null,
+   "role": "figure",
+   "count": 1,
+   "element": "<svg viewBox=\"0 0 340 230\" role=\"img\" data-chart=\"\" class=\"motion-stage-svg block h-auto w-full\" font-family=\"var(--font-sans)\" style=\"--motion-stage-view-width",
    "ownerName": "",
    "hidden": false,
    "focusable": false
@@ -173297,6 +173695,17 @@
    "member": null,
    "role": "figure",
    "count": 1,
+   "element": "<svg viewBox=\"0 0 340 387\" role=\"img\" data-chart=\"\" class=\"motion-stage-svg block h-auto w-full\" font-family=\"var(--font-sans)\" style=\"--motion-stage-view-width",
+   "ownerName": "",
+   "hidden": false,
+   "focusable": false
+  },
+  {
+   "route": "/frontier/bear-case/",
+   "viewport": "1440x900",
+   "member": null,
+   "role": "figure",
+   "count": 1,
    "element": "<svg class=\"iso-svg\" viewBox=\"0 0 600 401\" role=\"img\" aria-label=\"A pin-tumbler lock cut open in front of its four pin stacks, one per premise of the bear case.",
    "ownerName": "",
    "hidden": false,
@@ -173351,7 +173760,7 @@
    "viewport": "1440x900",
    "member": null,
    "role": "figure",
-   "count": 1,
+   "count": 2,
    "element": "<svg viewBox=\"0 0 340 326\" role=\"img\" data-chart=\"\" class=\"motion-stage-svg block h-auto w-full\" font-family=\"var(--font-sans)\" style=\"--motion-stage-view-width",
    "ownerName": "",
    "hidden": false,
@@ -173408,6 +173817,17 @@
    "role": "figure",
    "count": 2,
    "element": "<svg class=\"iso-svg\" viewBox=\"0 0 640 397\" role=\"img\" focusable=\"false\" aria-label=\"A robot arm at the left and a person 1.60 m away, under speed and separation",
+   "ownerName": "",
+   "hidden": false,
+   "focusable": false
+  },
+  {
+   "route": "/frontier/safety-and-assurance/",
+   "viewport": "1440x900",
+   "member": null,
+   "role": "figure",
+   "count": 1,
+   "element": "<svg viewBox=\"0 0 340 230\" role=\"img\" data-chart=\"\" class=\"motion-stage-svg block h-auto w-full\" font-family=\"var(--font-sans)\" style=\"--motion-stage-view-width",
    "ownerName": "",
    "hidden": false,
    "focusable": false

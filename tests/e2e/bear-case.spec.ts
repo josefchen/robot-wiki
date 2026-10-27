@@ -297,6 +297,41 @@ test.describe('frontier bear-case module', () => {
     expect(text).not.toMatch(/critics say|skeptics say|some argue/i);
   });
 
+  test('funding bars and humanoid counts sit on separate rulers (VAL-OPUS-081)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="funding-humanoid-counts"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Startups raised a record while humanoids shipped in the thousands',
+    );
+    const width = async (testId: string) =>
+      Number(await figure.getByTestId(testId).locator('rect').first().getAttribute('width'));
+    expect((await width('funding-2026')) / (await width('funding-2020'))).toBeCloseTo(18.8 / 5.8, 1);
+    expect(await width('funding-2025')).toBeGreaterThan(await width('funding-2021'));
+    expect((await width('humanoids-sag-first-half-2026')) / (await width('humanoids-sag-first-half-2025'))).toBeCloseTo(
+      19100 / 5100,
+      1,
+    );
+    await expect(figure.getByTestId('funding-2026')).toContainText('$18.8B to 22 June');
+    await expect(figure.getByTestId('humanoids-ifr-2025')).toContainText('about 7,000');
+    const stage = figure.getByRole('img', { name: /Robotics startup funding by year/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('then 18.8 in 2026 to 22 June');
+    expect(description).toContain('The funding covers every robotics startup, not only humanoid makers.');
+    expect(name.length).toBeLessThan(description.length);
+    const links = figure.getByTestId('funding-humanoid-counts-source').locator('a');
+    await expect(links).toHaveCount(3);
+    await expect(links.first()).toHaveAttribute(
+      'href',
+      'https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/',
+    );
+    // The IFR count the figure draws has its own cited sentence in the article.
+    await expect(
+      page.locator('#main-content').getByText(/The IFR counted about 7,000 full-size humanoids/),
+    ).toBeVisible();
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

@@ -196,7 +196,7 @@
     "minutes": 14
   },
   "frontier/generalization": {
-    "words": 1708,
+    "words": 1780,
     "minutes": 9
   },
   "frontier/competing-theses": {
@@ -204,11 +204,11 @@
     "minutes": 11
   },
   "frontier/bear-case": {
-    "words": 1385,
-    "minutes": 7
+    "words": 1503,
+    "minutes": 8
   },
   "frontier/safety-and-assurance": {
-    "words": 2562,
+    "words": 2675,
     "minutes": 13
   },
   "adjacent/autonomous-vehicles": {

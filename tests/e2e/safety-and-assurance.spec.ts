@@ -599,6 +599,37 @@ test.describe('safety-and-assurance module', () => {
     await expect(term.locator('[role="tooltip"]')).toBeVisible();
   });
 
+  test('the rules timeline dates each standard and EU law from its record (VAL-OPUS-081)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="safety-rules-timeline"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Industrial standards landed in 2025; EU law applies from 2027',
+    );
+    const ids = ['iso-10218', 'r15-06', 'iso-25785-1', 'eu-machinery-regulation', 'eu-ai-act'];
+    const xs: number[] = [];
+    for (const id of ids) {
+      xs.push(Number(await figure.getByTestId(`safety-rule-${id}`).locator('circle').first().getAttribute('cx')));
+    }
+    expect([...xs].sort((a, b) => a - b)).toEqual(xs);
+    await expect(
+      figure.getByTestId('safety-rule-eu-machinery-regulation').locator('circle').first(),
+    ).toHaveAttribute('data-chart-role', 'highlight');
+    await expect(figure.getByTestId('safety-rule-eu-machinery-regulation')).toContainText('20 January 2027');
+    await expect(figure.getByTestId('safety-rule-eu-ai-act')).toContainText('2 August 2028');
+    await expect(figure.getByTestId('safety-rule-undated-next-stage')).toContainText('next stage not dated');
+    const stage = figure.getByRole('img', { name: /Timeline of robot safety standards/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('closed its comment period on 8 July 2026, with no date yet for its next stage');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('safety-rules-timeline-source').locator('a')).toHaveCount(6);
+    // The humanoid draft's sentence carries the same dated stage.
+    await expect(
+      page.locator('#main-content').getByText(/the comment period closed on 8 July 2026/),
+    ).toBeVisible();
+  });
+
   test('no horizontal page scroll at 375px (VAL-FRONT-029)', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },
