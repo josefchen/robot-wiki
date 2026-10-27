@@ -46,6 +46,7 @@ citations:
   - sirius-2022
   - cupid-2025
   - mulligan-2026
+  - ros2-control-docs-2026
 seeAlso:
   - "data-hardware/evaluation-crisis"
   - "data-hardware/teleop-rigs"
@@ -125,7 +126,7 @@ RoboArena ranks generalist policies through double-blind pairwise episodes run a
 
 ## Contract 7: serving and robot integration
 
-Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor, with safety and high-rate feedback below the learned policy. ROS 2 was redesigned from the ground up because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces. In September 2026 Intrinsic released Intrinsic Core, ROS-compatible real-time control, motion planning and Gazebo simulation under Apache 2.0 <Cite id="intrinsic-core-2026" />. The same month, Qualcomm agreed to acquire PickNik, the longtime steward of MoveIt <Cite id="qualcomm-picknik-2026" />.
+Production inference needs an observation assembler, model server, command gate, controller bridge and supervisor, with safety and high-rate feedback below the learned policy. ROS 2 was redesigned from the ground up because ROS 1 lacked production-grade features <Cite id="ros2-science-robotics-2022" />, and the [ROS 2 guide](/classical/ros2-for-ml-engineers) defines the interfaces. For the controller bridge, ros2_control is a ROS 2 framework for robot control, including real-time control. Its packages rewrite the ros_control packages of the original ROS to make new hardware simpler to integrate <Cite id="ros2-control-docs-2026" />. In September 2026 Intrinsic released Intrinsic Core, ROS-compatible real-time control, motion planning and Gazebo simulation under Apache 2.0 <Cite id="intrinsic-core-2026" />. The same month, Qualcomm agreed to acquire PickNik, the longtime steward of MoveIt <Cite id="qualcomm-picknik-2026" />.
 
 Real-time chunking generates the next action chunk during execution, avoiding pauses at chunk boundaries <Cite id="real-time-chunking-2025" />, and SmolVLA decouples action prediction from execution <Cite id="smolvla-2025" />; [real-time execution](/manipulation/realtime-execution) has the latency budgets. Exploy, which the RAI Institute open-sourced on October 7, 2026, exports a PyTorch policy's observation code, network and action processing into one ONNX file for a C++ runtime. It checks numerical equivalence before hardware runs, and the institute says it already deploys policies on Spot, Atlas and the Unitree G1 <Cite id="exploy-2026" />.
 

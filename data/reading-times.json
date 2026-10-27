@@ -124,19 +124,19 @@
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {
-    "words": 1930,
+    "words": 1947,
     "minutes": 10
   },
   "data-hardware/datasets": {
-    "words": 1667,
-    "minutes": 8
+    "words": 1746,
+    "minutes": 9
   },
   "data-hardware/hardware-taxonomy": {
-    "words": 2969,
-    "minutes": 15
+    "words": 3115,
+    "minutes": 16
   },
   "data-hardware/teleop-rigs": {
-    "words": 1917,
+    "words": 2029,
     "minutes": 10
   },
   "data-hardware/evaluation-crisis": {
@@ -144,11 +144,11 @@
     "minutes": 10
   },
   "data-hardware/industrial-deployment": {
-    "words": 2355,
+    "words": 2368,
     "minutes": 12
   },
   "data-hardware/robot-learning-stack": {
-    "words": 1207,
+    "words": 1242,
     "minutes": 6
   },
   "classical/kinematics": {

@@ -30,14 +30,17 @@ import { METHODS } from '@/data/methods';
 import { MILESTONES } from '@/lib/bear-case';
 import { THESES } from '@/lib/competing-theses';
 import { RELATIVE_EEF_CONTEXT_CITATION_ID, STRATEGIES } from '@/lib/cross-embodiment';
+import { DATASET_RUNS_HOURS } from '@/lib/dataset-runs-hours';
 import { DEPLOYMENT_ROWS } from '@/lib/deployment-reality';
 import { DEXTEROUS_HANDS } from '@/lib/dexterous-hands';
 import { TRANSIENT_CONTACT_LIMIT_CITATION } from '@/lib/force-limits';
 import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
+import { LADDER_POINTS } from '@/lib/hardware-price-ladder';
 import { HIERARCHY_SYSTEMS } from '@/lib/hierarchy-timescales';
 import { KNOWLEDGE_INSULATION_CITATION_ID } from '@/lib/knowledge-insulation';
 import { PI_GENERATIONS } from '@/lib/pi-generations';
 import { GAIN_STUDIES } from '@/lib/real-robot-rl-gains';
+import { UMI_RATES_CITATION_ID } from '@/lib/umi-collection-rates';
 
 export const WIDGET_CITATION_IDS = {
   // Row-driven source links (useCitationLookup).
@@ -74,6 +77,9 @@ export const WIDGET_CITATION_IDS = {
   OfflineValueOverreach: () => ['offline-rl-tutorial-2020', 'cql-2020'],
   HumanoidPickHeight: () => ['gemini-robotics-2-2026'],
   RealRobotRlGains: () => GAIN_STUDIES.map((study) => study.citationId),
+  DatasetRunsHours: () => DATASET_RUNS_HOURS.map((dataset) => dataset.citationId),
+  HardwarePriceLadder: () => LADDER_POINTS.map((point) => point.citationId),
+  UmiCollectionRates: () => [UMI_RATES_CITATION_ID],
   TrajectoryStitching: () => ['offline-rl-vs-bc-2022', 'cog-2020'],
   ActuatorGap: () => ['hwangbo-2019'],
   RetargetingGap: () => ['gmr-retargeting-2025', 'h2o-2024'],

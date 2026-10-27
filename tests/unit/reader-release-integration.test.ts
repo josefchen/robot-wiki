@@ -328,12 +328,22 @@ function throughSeoPass(path: string) {
     expect(continues(mount, end)).toBe(true);
     end = mount.newHash;
   }
-  // The convergence prose and sources slice of 2026-10-26 landed last; its
-  // one edge on an article whose text it changed continues the endpoint too.
+  // The convergence prose and sources slice of 2026-10-26 landed after them;
+  // its one edge on an article whose text it changed continues the endpoint too.
   const convergenceEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
     && a.id.startsWith('convergence-prose-20261026-'));
   expect(convergenceEdges.length).toBeLessThanOrEqual(1);
   for (const edit of convergenceEdges) {
+    expect(continues(edit, end)).toBe(true);
+    end = edit.newHash;
+  }
+  // The data-hardware owed-figures block of the same day landed last; its one
+  // edge on an article that gained a figure or a sourced sentence continues
+  // the endpoint too.
+  const owedFiguresEdges = approvals.filter(a => a.manifest === 'prose' && a.memberId === id
+    && a.id.startsWith('owed-figures-dh-20261026-'));
+  expect(owedFiguresEdges.length).toBeLessThanOrEqual(1);
+  for (const edit of owedFiguresEdges) {
     expect(continues(edit, end)).toBe(true);
     end = edit.newHash;
   }

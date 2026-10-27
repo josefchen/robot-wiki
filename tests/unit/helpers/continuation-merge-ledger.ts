@@ -437,11 +437,18 @@ export const INTEGRATION_COMMIT = 'ab5437b35478893adc972add9d3f24736e4f128d';
  *   where its chain already holds one, and one
  *   `citation-rendering:label-and-meta` resolution.
  * - `owed-figures-20261026-`: the owed-figures slice of 2026-10-26 renamed
- *   three overlong drawing names and two schematic alts, registered twelve
- *   maker citations for the hardware-taxonomy buyer's guide, and mounted the
- *   owed data figures, each member with one edge from its last approved
+ *   three overlong drawing names and two schematic alts and registered twelve
+ *   maker citations for the hardware-taxonomy buyer's guide, each member with
+ *   one edge from its last approved endpoint, or one resolution from the
+ *   sealed hash where its chain already holds one, and one
+ *   `citation-rendering:label-and-meta` resolution.
+ * - `owed-figures-dh-20261026-`: the data-hardware figures block of that
+ *   slice mounted three data figures in datasets, hardware-taxonomy and
+ *   teleop-rigs and applied the VAL-OPUS-093 leftovers over five data-hardware
+ *   articles, each article member with one edge from its last approved
  *   endpoint, or one resolution from the sealed hash where its chain already
- *   holds one, and one `citation-rendering:label-and-meta` resolution.
+ *   holds one, the new figure members and four citation records from an
+ *   absent seal, and one `citation-rendering:label-and-meta` resolution.
  */
 export const LATER_REANCHOR_PREFIXES = [
   'content-integration-20260923-',
@@ -503,6 +510,7 @@ export const LATER_REANCHOR_PREFIXES = [
   'explainer-mounts-20261026-',
   'convergence-prose-20261026-',
   'owed-figures-20261026-',
+  'owed-figures-dh-20261026-',
 ] as const;
 
 let integratedObservations: Map<string, string | undefined> | undefined;

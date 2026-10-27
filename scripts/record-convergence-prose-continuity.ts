@@ -89,15 +89,17 @@ function main(paths: string[], replaced: Record<string, ConvergenceProseReplacem
   console.log(`recorded ${review.sources.length} successor(s); review ${bytes.length} bytes`);
 }
 
-/** Reads every recorded successor back through the written layer, which no newer layer precedes, and the older chain. */
+/** Reads every recorded successor back through the newer owed-figures layer, the written layer and the older chain. */
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-convergence-prose-continuity.ts');
+  const { owedFiguresPredecessor } = await import('../lib/audit-owed-figures-continuity.ts');
   const { seoPassPredecessor } = await import('../lib/audit-seo-pass-continuity.ts');
   let ok = true;
   for (const source of layer.loadConvergenceProseReview(root).sources) {
     try {
       const live = readFileSync(join(root, source.after.path));
-      const prior = layer.convergenceProsePredecessor(root, source.before, live);
+      const prior = layer.convergenceProsePredecessor(root, source.before,
+        owedFiguresPredecessor(root, source.before, live));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The whole older chain reads the live article through this layer without drift.
       seoPassPredecessor(root, { path: source.after.path, bytes: 0, sha256: '' }, live);

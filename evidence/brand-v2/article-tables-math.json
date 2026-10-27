@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "aa6b5a12b4b28240628cf530051f55fbe943b14757bf76248f5ef7a339eb93b0",
+  "fingerprint": "fbbf66deb6174a5c078f2dc37c9993fab8b35211a90e04c6f9f7f50374f57670",
   "viewports": [
     "375x812",
     "1440x900"
@@ -123,7 +123,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 23043,
+      "visibleTextLength": 23065,
       "tables": [
         {
           "index": 0,
@@ -1411,7 +1411,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17145,
+      "visibleTextLength": 17167,
       "tables": [
         {
           "index": 0,
@@ -3906,7 +3906,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 21030,
+      "visibleTextLength": 21153,
       "tables": [
         {
           "index": 0,
@@ -3992,7 +3992,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20426,
+      "visibleTextLength": 20904,
       "tables": [
         {
           "index": 0,
@@ -4017,6 +4017,30 @@
           "tableWidth": 896,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Runs, hours and average run length per dataset",
+          "captionText": "",
+          "columnHeaders": 4,
+          "rowHeaders": 5,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Runs, hours and average run length per dataset",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -4031,6 +4055,17 @@
           "clientWidth": 327,
           "scrollWidth": 896,
           "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Runs, hours and average run length per dataset",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
         }
       ],
       "route": "/data-hardware/datasets/",
@@ -4351,7 +4386,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28139,
+      "visibleTextLength": 29210,
       "tables": [
         {
           "index": 0,
@@ -4376,6 +4411,30 @@
           "tableWidth": 844,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Every listed price on the ladder",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 15,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Every listed price on the ladder",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -4390,6 +4449,17 @@
           "clientWidth": 327,
           "scrollWidth": 844,
           "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Every listed price on the ladder",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
         }
       ],
       "route": "/data-hardware/hardware-taxonomy/",
@@ -4402,7 +4472,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24599,
+      "visibleTextLength": 24667,
       "tables": [
         {
           "index": 0,
@@ -4453,7 +4523,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17588,
+      "visibleTextLength": 17995,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -4467,7 +4537,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 20900,
+      "visibleTextLength": 21822,
       "tables": [
         {
           "index": 0,
@@ -4492,6 +4562,30 @@
           "tableWidth": 620,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Demonstrations per hour, three ways",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Demonstrations per hour, three ways",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -4506,6 +4600,17 @@
           "clientWidth": 327,
           "scrollWidth": 620,
           "scrolledBy": 40
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Demonstrations per hour, three ways",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
         }
       ],
       "route": "/data-hardware/teleop-rigs/",
@@ -4620,7 +4725,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24655,
+      "visibleTextLength": 24633,
       "tables": [
         {
           "index": 0,
@@ -6857,7 +6962,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 26425,
+      "visibleTextLength": 26447,
       "tables": [
         {
           "index": 0,
@@ -7218,7 +7323,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 327,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 17478,
+      "visibleTextLength": 17456,
       "tables": [
         {
           "index": 0,
@@ -11281,7 +11386,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 38018,
+      "visibleTextLength": 37996,
       "tables": [],
       "equations": [
         {
@@ -11891,7 +11996,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28062,
+      "visibleTextLength": 28185,
       "tables": [
         {
           "index": 0,
@@ -11977,7 +12082,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 28455,
+      "visibleTextLength": 28933,
       "tables": [
         {
           "index": 0,
@@ -12002,6 +12107,30 @@
           "tableWidth": 984.02,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Runs, hours and average run length per dataset",
+          "captionText": "",
+          "columnHeaders": 4,
+          "rowHeaders": 5,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Runs, hours and average run length per dataset",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -12015,6 +12144,17 @@
           "tabIndex": 0,
           "clientWidth": 984,
           "scrollWidth": 984,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Runs, hours and average run length per dataset",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
           "scrolledBy": 0
         }
       ],
@@ -12336,7 +12476,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 35234,
+      "visibleTextLength": 36496,
       "tables": [
         {
           "index": 0,
@@ -12361,6 +12501,30 @@
           "tableWidth": 984.02,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Every listed price on the ladder",
+          "captionText": "",
+          "columnHeaders": 3,
+          "rowHeaders": 15,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Every listed price on the ladder",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -12375,6 +12539,17 @@
           "clientWidth": 984,
           "scrollWidth": 984,
           "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Every listed price on the ladder",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "scrolledBy": 0
         }
       ],
       "route": "/data-hardware/hardware-taxonomy/",
@@ -12387,7 +12562,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 32785,
+      "visibleTextLength": 32853,
       "tables": [
         {
           "index": 0,
@@ -12438,7 +12613,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 24605,
+      "visibleTextLength": 25167,
       "tables": [],
       "equations": [],
       "scrollRegions": [],
@@ -12452,7 +12627,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 27415,
+      "visibleTextLength": 28487,
       "tables": [
         {
           "index": 0,
@@ -12477,6 +12652,30 @@
           "tableWidth": 984.02,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
+        },
+        {
+          "index": 1,
+          "accessibleName": "Demonstrations per hour, three ways",
+          "captionText": "",
+          "columnHeaders": 2,
+          "rowHeaders": 3,
+          "unscopedHeaders": 0,
+          "sortButtons": 0,
+          "sortedColumns": 0,
+          "notDisclosedCells": 0,
+          "notApplicableCells": 0,
+          "scrollContainer": {
+            "overflowX": "auto",
+            "tabIndex": 0,
+            "role": "region",
+            "accessibleName": "Demonstrations per hour, three ways",
+            "clientWidth": 0,
+            "scrollWidth": 0,
+            "scrolledBy": 0
+          },
+          "tableWidth": 0,
+          "containerOverflowPx": 0,
+          "viewportOverflowPx": 0
         }
       ],
       "equations": [],
@@ -12490,6 +12689,17 @@
           "tabIndex": 0,
           "clientWidth": 984,
           "scrollWidth": 984,
+          "scrolledBy": 0
+        },
+        {
+          "index": 1,
+          "kind": "table",
+          "outline": "<div class=\"overflow-x-auto mt-2\">",
+          "role": "region",
+          "accessibleName": "Demonstrations per hour, three ways",
+          "tabIndex": 0,
+          "clientWidth": 0,
+          "scrollWidth": 0,
           "scrolledBy": 0
         }
       ],
@@ -12605,7 +12815,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 30748,
+      "visibleTextLength": 30726,
       "tables": [
         {
           "index": 0,
@@ -14842,7 +15052,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 928.66,
       "zeroAdvancePx": 11,
-      "visibleTextLength": 34080,
+      "visibleTextLength": 34102,
       "tables": [
         {
           "index": 0,

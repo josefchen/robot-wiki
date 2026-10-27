@@ -21769,6 +21769,62 @@ export const CITATIONS: Citation[] = [
     url: 'https://finance.yahoo.com/news/ubtech-humanoid-robot-walker-s2-101200404.html',
     type: 'press',
   },
+  // sharpa-wave-2026: owed-figures slice 2026-10-26 (data-hardware/hardware-taxonomy, hands). Read
+  // 2026-10-26 (HTTP 200): "Sharpa Wave is a human-scale, five-finger dexterous hand with 22 active DoF,
+  // high-resolution tactile sensing for physical AI research and robot integration." The page offers
+  // "Enquire about Wave" and a sales form, and prints no price.
+  {
+    id: 'sharpa-wave-2026',
+    title: 'Sharpa Wave',
+    authors: ['Sharpa'],
+    year: 'n.d.',
+    accessedOn: '2026-10-26',
+    venue: 'Sharpa product page',
+    url: 'https://www.sharpa.com/pages/wave',
+    type: 'docs',
+  },
+  // psyonic-ability-hand-2022: owed-figures slice 2026-10-26 (data-hardware/hardware-taxonomy, hands).
+  // PSYONIC news post, datePublished 2022-11-02, read 2026-10-26 (HTTP 200): "PSYONIC announced that it is
+  // releasing the Ability Hand for use by robotics researchers worldwide. The hand was designed as a
+  // prosthesis for people with upper-limb difference".
+  {
+    id: 'psyonic-ability-hand-2022',
+    title: 'PSYONIC releases Ability Hand for research users',
+    authors: ['PSYONIC'],
+    year: 2022,
+    venue: 'PSYONIC news, 2022-11-02',
+    url: 'https://www.psyonic.io/news/psyonic-releases-ability-hand-for-research-users',
+    type: 'press',
+  },
+  // grabette-2026: owed-figures slice 2026-10-26 (data-hardware/teleop-rigs, UMI). Hugging Face blog,
+  // "Published July 21, 2026", read 2026-10-26 (HTTP 200); bylines as printed, the last one a first name
+  // only: "Grabette is directly inspired by the Universal Manipulation Interface (UMI)"; "Grabette, the
+  // handheld demonstration device (camera + IMU + gripper, BOM cost ~490€)"; "Gripette, the motorized
+  // gripper (camera + two servomotors, BOM cost ~120€) that closes the loop on a real or simulated robot
+  // arm"; "LeRobot for datasets"; "Everything is open source".
+  {
+    id: 'grabette-2026',
+    title: 'Grabette: an open system to record robot-manipulation data',
+    authors: ['Steve Nguyen', 'Claire Houziel', 'Gaelle Lannuzel', 'Simon Le Goff', 'Jeremy Laville', 'Étienne'],
+    year: 2026,
+    venue: 'Hugging Face blog, 2026-07-21',
+    url: 'https://huggingface.co/blog/grabette',
+    type: 'blog',
+  },
+  // ros2-control-docs-2026: owed-figures slice 2026-10-26 (data-hardware/robot-learning-stack, Contract 7).
+  // ros2_control documentation, Rolling, "Built on 2026-10-26", read 2026-10-26 (HTTP 200): "The
+  // ros2_control is a framework for (real-time) control of robots using (ROS 2). Its packages are a rewrite
+  // of ros_control packages used in ROS (Robot Operating System). ros2_control's goal is to simplify
+  // integrating new hardware and overcome some drawbacks."
+  {
+    id: 'ros2-control-docs-2026',
+    title: 'Welcome to the ros2_control documentation!',
+    authors: ['ros2_control Development Team'],
+    year: 2026,
+    venue: 'ros2_control documentation (Rolling), as of 2026-10-26',
+    url: 'https://control.ros.org/rolling/index.html',
+    type: 'docs',
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -21836,6 +21892,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Robotics and AI Institute', 'RAI Institute'],
   ['Rocking Robots', 'Rocking Robots'],
   ['ROS 2 Project', 'ROS 2 Project'],
+  ['ros2_control Development Team', 'ros2_control'],
   ['SAM 3D Team', 'SAM 3D Team'],
   ['Sanctuary AI', 'Sanctuary AI'],
   ['SCSC Assurance Case Working Group', 'SCSC'],

@@ -16,7 +16,6 @@ citations:
   - mobile-aloha-2024
   - droid-2024
   - agibot-world-2025
-  - robozaps-humanoids-2026
   - unitree-g1-2026
   - unitree-h2-2026
   - 1x-neo-2026
@@ -57,12 +56,16 @@ citations:
   - helix-2025
   - fcc-covered-list-robots-2026
   - paxton-iros-2026
+  - sharpa-wave-2026
+  - psyonic-ability-hand-2022
 seeAlso:
   - "frontier/dexterity"
   - "rl-sim2real/humanoid-wbc"
 ---
 
 import { HardwareGuide } from '@/components/interactive/hardware-guide';
+
+import { HardwarePriceLadder } from '@/components/interactive/hardware-price-ladder';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
@@ -113,7 +116,7 @@ Figure's third-generation humanoid has a palm camera in each hand, no disclosed 
 
 <span id="hands-ship-bundled" />Most [dexterous hands](/frontier/dexterity) ship with a robot: Unitree's Dex3-1, a G1 EDU option, has seven active DoF per hand (three thumb, two index, two middle) and an optional tactile array <Cite id="unitree-g1-2026" />. 1X's order page lists 22 DoF per NEO hand <Cite id="1x-neo-2026" />. Its July 9, 2026 hand post counts 25, adding 3 wrist DoF to the 22 fully actuated ones in the fingers and palm <Cite id="1x-neos-hands-2026" />. Boston Dynamics' October 2026 Atlas hand has four fingers and 13 DoF, with pressure sensors over the fingertips and palm <Cite id="bd-atlas-hand-2026" />.
 
-The open LEAP Hand has 16 DoF and costs about \$2,000 in catalog parts, roughly an eighth of the Allegro Hand it was benchmarked against <Cite id="leap-hand-2023" />. RUKA's authors put the Allegro at \$15,000 and built a five-fingered hand for under \$1,300 <Cite id="ruka-2025" />. ORCA is an open 17-DoF tendon-driven hand with tactile sensors, under 2,000 CHF in materials <Cite id="orca-hand-2025" />, and the commercial Shadow Dexterous Hand uses 20 motors for 24 degrees of freedom <Cite id="shadow-dexterous-hand-2026" />.
+The open LEAP Hand has 16 DoF and costs about \$2,000 in catalog parts, roughly an eighth of the Allegro Hand it was benchmarked against <Cite id="leap-hand-2023" />. RUKA's authors put the Allegro at \$15,000 and built a five-fingered hand for under \$1,300 <Cite id="ruka-2025" />. ORCA is an open 17-DoF tendon-driven hand with tactile sensors, under 2,000 CHF in materials <Cite id="orca-hand-2025" />, and the commercial Shadow Dexterous Hand uses 20 motors for 24 degrees of freedom <Cite id="shadow-dexterous-hand-2026" />. Sharpa's Wave, a human-scale five-finger hand with 22 active DoF and high-resolution tactile sensing, is sold through a sales enquiry and lists no price <Cite id="sharpa-wave-2026" />. PSYONIC designed its Ability Hand as a prosthesis and opened it to robotics researchers in November 2022 <Cite id="psyonic-ability-hand-2022" />.
 
 ## Sensors: touch is the missing channel
 
@@ -134,5 +137,7 @@ VLA-Perf's roofline model predicts π0 inference at 19.0 Hz on Jetson Thor, 32.2
 <Image id="jetson-agx-orin-auledas-2024" />
 
 ## How to read these prices
+
+<HardwarePriceLadder className="my-6" />
 
 On July 28, 2026 the FCC added foreign-produced mobile robots, such as humanoids and quadrupeds, to its Covered List. New models on it cannot get FCC authorization for US sale; earlier-authorized models can still be sold <Cite id="fcc-covered-list-robots-2026" />.

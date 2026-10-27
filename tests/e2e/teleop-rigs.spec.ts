@@ -222,6 +222,34 @@ test.describe('data-hardware teleop-rigs module', () => {
     ).toHaveAttribute('aria-sort', 'descending');
   });
 
+  test('collection-rate bars compare bare hand, UMI and teleoperation (VAL-OPUS-089)', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="umi-collection-rates"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Holding the gripper was three times faster than teleoperation',
+    );
+    const width = async (id: string) =>
+      Number(await figure.getByTestId(`umi-rate-${id}`).locator('rect').first().getAttribute('width'));
+    const [hand, umi, spacemouse] = [await width('bare-hand'), await width('umi'), await width('spacemouse')];
+    expect(hand).toBeGreaterThan(umi);
+    expect(umi).toBeGreaterThan(spacemouse);
+    expect(hand / spacemouse).toBeCloseTo(231 / 35, 1);
+    await expect(figure.getByTestId('umi-rate-umi')).toContainText('111');
+    const stage = figure.getByRole('img', { name: /Demonstrations per hour by bare hand/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('48 percent of bare-hand speed and 3.2 times the teleoperation rate');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('umi-collection-rates-source').locator('a')).toHaveAttribute(
+      'href', 'https://umi-gripper.github.io/',
+    );
+    // Grabette, the open UMI-style recorder, is named under the figure with its source.
+    await expect(page.locator('#main-content').getByText(/Grabette \(July 2026\)/)).toBeVisible();
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

@@ -146,10 +146,11 @@ describe('content integration of 2026-09-23', () => {
     // domain pass and length cut, the 2026-10-20 KOL triage batch, each
     // domain block of the 2026-10-21 batch, the 2026-10-24 KOL overdue triage,
     // each domain block of the 2026-10-25 KOL queue batch, the 2026-10-26
-    // convergence prose slice and the 2026-10-26 owed-figures slice close the
-    // shared rendering chain with their own resolution; the newest is the head.
+    // convergence prose slice, the 2026-10-26 owed-figures slice and its
+    // data-hardware figures block close the shared rendering chain with their
+    // own resolution; the newest is the head.
     const domainPassRendering = approvals.filter(a =>
-      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024|kol-batch-20261025-[a-z0-9-]+|convergence-prose-20261026|owed-figures-20261026)-citation-rendering$/.test(a.id));
+      /^(domain-pass-(20261006-g\d+|20261008|20261008-sweep|20261009-kol|20261012-kol)|(world-models|frontier)-pass-20261010|length-cut-20261013-data-hardware|length-cut-20261014-adjacent|kol-batch-20261020|kol-batch-20261021-[a-z0-9-]+|kol-batch-20261024|kol-batch-20261025-[a-z0-9-]+|convergence-prose-20261026|owed-figures-20261026|owed-figures-dh-20261026)-citation-rendering$/.test(a.id));
     expect(domainPassRendering.length).toBeGreaterThan(0);
     expect(headReanchorFor(approvals, 'article-metadata', 'citation-rendering:label-and-meta')?.id)
       .toBe(domainPassRendering.at(-1)!.id);
@@ -219,8 +220,10 @@ describe('content integration of 2026-09-23', () => {
       'fourier-gr3-docs-2026', 'limx-oli-launch-2025', 'limx-oli-spec-2026', 'noetix-bumi-page-2026',
       'nvidia-gr00t-g1-workflow-2026', 'ubtech-walker-s2-2026', 'ubtech-walker-s2-mass-production-2025',
     ];
+    // Its data-hardware figures block adds four primary sources for the VAL-OPUS-093 leftovers, each with its audit row.
+    const owedFiguresDhSources = ['grabette-2026', 'psyonic-ability-hand-2022', 'ros2-control-docs-2026', 'sharpa-wave-2026'];
     expect(CITATIONS.map((c) => c.id).filter((id) => !baseIds.includes(id) && !DOMAIN_PASS_CITATION_IDS.has(id) &&
-      !owedFiguresMakers.includes(id)).sort()).toEqual([
+      !owedFiguresMakers.includes(id) && !owedFiguresDhSources.includes(id)).sort()).toEqual([
       'a3-r1506-2025-store', 'ad-e2e-jepa-2026', 'agibot-omdia-ranking-2026', 'agility-digit-production', 'agro-suvide-2026',
       'asena-2026', 'bjnews-noetix-bumi-2025', 'chord-2026', 'chunktrust-2026', 'dexagent-2026',
       'dreamzero-2026', 'dsrl-2025', 'embodiedswe-2026', 'excavator-mbrl-2026', 'expo-2025',
@@ -232,8 +235,11 @@ describe('content integration of 2026-09-23', () => {
       'shiu-ahmad-1989', 'simex-2026', 'simfoundry-2026', 't-rex-2026', 't2mem-2026', 'tesla-q1-2026-update',
       'trace-cables-2026', 'wcbf-hyper-redundant-2026',
     ]);
-    for (const id of owedFiguresMakers) expect(CITATIONS.filter((c) => c.id === id), id).toHaveLength(1);
-    expect(CITATIONS).toHaveLength(baseIds.length + 43 + owedFiguresMakers.length + DOMAIN_PASS_CITATION_IDS.size);
+    for (const id of [...owedFiguresMakers, ...owedFiguresDhSources]) {
+      expect(CITATIONS.filter((c) => c.id === id), id).toHaveLength(1);
+    }
+    expect(CITATIONS).toHaveLength(baseIds.length + 43 + owedFiguresMakers.length + owedFiguresDhSources.length
+      + DOMAIN_PASS_CITATION_IDS.size);
     expect(CITATIONS.find((c) => c.id === 'agility-digit-production')).toMatchObject({
       year: 'n.d.',
       accessedOn: '2026-09-24',

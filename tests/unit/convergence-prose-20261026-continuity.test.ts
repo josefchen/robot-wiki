@@ -11,7 +11,7 @@ import {
 import { explainerMountPredecessor } from '../../lib/audit-explainer-mount-continuity';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
-import { preConvergenceProse, preExplainerMounts } from '../helpers/seo-pass';
+import { preConvergenceProse, preExplainerMounts, preOwedFigures } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
 const read = (path: string) => readFileSync(join(root, path));
@@ -51,7 +51,8 @@ describe('convergence prose and sources 2026-10-26 article successors', () => {
   it('rebuilds every reviewed successor into the committed bytes the older layers and proofs still decide', () => {
     for (const source of review.sources) {
       const path = source.after.path;
-      const live = read(path);
+      // The owed-figures layer (2026-10-26) is newer; it hands this layer the convergence successor.
+      const live = preOwedFigures(path);
       const prior = convergenceProsePredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       expect(prior).toEqual(execFileSync('git', ['show', `${source.archivedFrom}:${path}`], { cwd: root }));

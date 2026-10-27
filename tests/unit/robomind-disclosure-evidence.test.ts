@@ -20,7 +20,7 @@ import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { committedSource, preservedApprovalPacket } from '../helpers/continuation-integration';
 import { headReanchorFor, sealedHash } from './helpers/continuation-merge-ledger';
 import {
-  preSeoPassHash, preSeoPassText, preConvergenceProse, preDataHardwareCut, preImageMounts,
+  preSeoPassHash, preSeoPassText, preConvergenceProse, preDataHardwareCut, preImageMounts, preOwedFigures,
 } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
@@ -111,11 +111,15 @@ const preImagesText = preImageMounts(articlePath).toString();
 // The same article as the convergence prose slice of 2026-10-26 found it,
 // before it cited its one uncited paragraph, rebuilt by that layer.
 const preConvergenceText = preConvergenceProse(articlePath).toString();
+// The same article as the data-hardware owed-figures block of 2026-10-26 found
+// it, before its runs-and-hours figure mount, rebuilt by that layer.
+const preOwedFiguresText = preOwedFigures(articlePath).toString();
 type Stage = 'before' | 'historical' | 'sealed' | 'preMotion' | 'preSeoPass' | 'preDataHardwareCut' | 'preImageMounts'
-  | 'preConvergenceProse' | 'current';
+  | 'preConvergenceProse' | 'preOwedFigures' | 'current';
 function scopedBundle(stage: Stage): BaselineBundle {
   const stageText = stage === 'preImageMounts' ? preImagesText
-    : stage === 'preConvergenceProse' ? preConvergenceText : preCutText;
+    : stage === 'preConvergenceProse' ? preConvergenceText
+      : stage === 'preOwedFigures' ? preOwedFiguresText : preCutText;
   const members = [
     ['prose', 'article:data-hardware/datasets', '4d2f822a1df86e4a4a78b4fdc6bba8fd580bf78ee1ab98d5beaa45902041cf95'],
     ['relationships', 'article:data-hardware/datasets', '40bbf9cc032869ee25165c5d9b2ab3c88cc848bbdaa5f3063050409103f2cc39'],
@@ -127,7 +131,8 @@ function scopedBundle(stage: Stage): BaselineBundle {
       if (stage === 'sealed') return { id, hash: sealedHash(kind, id) };
       if (stage === 'preSeoPass') return { id, hash: preSeoPassHash(kind, id) };
       const manifests = stage === 'historical' ? historicalTruth
-        : stage === 'preDataHardwareCut' || stage === 'preImageMounts' || stage === 'preConvergenceProse' ? [
+        : stage === 'preDataHardwareCut' || stage === 'preImageMounts' || stage === 'preConvergenceProse'
+          || stage === 'preOwedFigures' ? [
           buildManifest('prose', [{
             id: 'article:data-hardware/datasets',
             value: { path: articlePath, body: matter(stageText).content.trim() },
@@ -333,7 +338,7 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
     const reanchors = (['prose', 'relationships'] as const).map(kind =>
       headReanchorFor(approvals.filter(a => !a.id.startsWith('seo-pass-20261002-')
         && !a.id.startsWith('length-cut-20261013-data-hardware-') && !a.id.startsWith('images-dh-20261015-')
-        && !a.id.startsWith('convergence-prose-20261026-')),
+        && !a.id.startsWith('convergence-prose-20261026-') && !a.id.startsWith('owed-figures-dh-20261026-')),
         kind, 'article:data-hardware/datasets')!);
     const motion = approvals.find(a => a.id === 'motion-data-hardware-humanizer-v3-20260927-prose-datasets')!;
     const seoPass = approvals.filter(a => a.id.startsWith('seo-pass-20261002-') &&
@@ -351,10 +356,15 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
       a.memberId === 'article:data-hardware/datasets');
     expect(imagesDh.map(a => a.manifest)).toEqual(['prose']);
     // The convergence prose slice of 2026-10-26 then moved both members with
-    // one plain edge each (three sources for the one uncited paragraph), to HEAD.
+    // one plain edge each (three sources for the one uncited paragraph).
     const convergence = approvals.filter(a => a.id.startsWith('convergence-prose-20261026-') &&
       a.memberId === 'article:data-hardware/datasets');
     expect(convergence.map(a => a.manifest)).toEqual(['prose', 'relationships']);
+    // The data-hardware owed-figures block of the same day then moved the prose
+    // alone with one plain edge (its runs-and-hours figure mount), to HEAD.
+    const owedFigures = approvals.filter(a => a.id.startsWith('owed-figures-dh-20261026-') &&
+      a.memberId === 'article:data-hardware/datasets');
+    expect(owedFigures.map(a => a.manifest)).toEqual(['prose']);
     for (const [previous, next, edges] of [
       [scopedBundle('before'), scopedBundle('historical'), relevant],
       [scopedBundle('sealed'), scopedBundle('preMotion'), reanchors],
@@ -362,7 +372,8 @@ describe('RoboMIND original10 truthful release licensing disclosure', { timeout:
       [scopedBundle('preSeoPass'), scopedBundle('preDataHardwareCut'), seoPass],
       [scopedBundle('preDataHardwareCut'), scopedBundle('preImageMounts'), dataHardwareCut],
       [scopedBundle('preImageMounts'), scopedBundle('preConvergenceProse'), imagesDh],
-      [scopedBundle('preConvergenceProse'), scopedBundle('current'), convergence],
+      [scopedBundle('preConvergenceProse'), scopedBundle('preOwedFigures'), convergence],
+      [scopedBundle('preOwedFigures'), scopedBundle('current'), owedFigures],
     ] as const) {
       const comparison = compareBaseline(previous, next, edges);
       expect(comparison.ok, JSON.stringify(comparison)).toBe(true);

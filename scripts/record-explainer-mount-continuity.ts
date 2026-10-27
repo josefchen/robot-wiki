@@ -86,13 +86,14 @@ function main(paths: string[]): void {
 async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-explainer-mount-continuity.ts');
   const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
+  const { owedFiguresPredecessor } = await import('../lib/audit-owed-figures-continuity.ts');
   const { figureMountPredecessor } = await import('../lib/audit-figure-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   let ok = true;
   for (const source of layer.loadExplainerMountReview(root).sources) {
     try {
       const prior = layer.explainerMountPredecessor(root, source.before,
-        convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path))));
+        convergenceProsePredecessor(root, source.before, owedFiguresPredecessor(root, source.before, readFileSync(join(root, source.after.path)))));
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
       // The rebuilt bytes are the newest older layer's successor, which that layer still decides.
       const ref = { path: source.after.path, bytes: 0, sha256: '' };

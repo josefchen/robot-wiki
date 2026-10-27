@@ -26,6 +26,7 @@ import { adjacentCutPredecessor } from './audit-length-cut-adjacent-continuity.t
 import { frontierLengthCutPredecessor } from './audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutAppendedCitations, worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
 import { lengthCutAppendedCitations, lengthCutPredecessor } from './audit-length-cut-continuity.ts';
+import { owedFiguresPredecessor } from './audit-owed-figures-continuity.ts';
 import { parallelLocalCheckerPredecessor } from './audit-parallel-local-continuity.ts';
 import { wordBudgetTrimPredecessor } from './audit-word-budget-trim-continuity.ts';
 
@@ -2148,10 +2149,10 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
   if (!pinned) return citations;
-  // The newer explainer-mount (2026-10-26), answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
+  // The newer owed-figures and convergence-prose (2026-10-26), explainer-mount (2026-10-26), answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
   // length-cut (manipulation, classical and rl-sim2real), world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
   const ref = { path, bytes: 0, sha256: '' };
-  const cutSuccessor = frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, convergenceProsePredecessor(root, ref, readFileSync(join(root, path))))))))));
+  const cutSuccessor = frontierLengthCutPredecessor(root, ref, dataHardwareCutPredecessor(root, ref, adjacentCutPredecessor(root, ref, imageMountPredecessor(root, ref, figureMountPredecessor(root, ref, answerOptionsPredecessor(root, ref, explainerMountPredecessor(root, ref, convergenceProsePredecessor(root, ref, owedFiguresPredecessor(root, ref, readFileSync(join(root, path)))))))))));
   const worldModelsSuccessor = lengthCutPredecessor(root, ref, cutSuccessor);
   const live = figureMountPredecessor(root, ref, wordBudgetTrimPredecessor(root, ref,
     worldModelsLengthCutPredecessor(root, ref, worldModelsSuccessor)));

@@ -437,6 +437,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // OpenAI's Rubik's-cube trial counts: 2 of 10 with a sensor cube, 0 of 10 with vision for face angles.
     kind: 'source-data',
   },
+  'interactive:DatasetRunsHours': {
+    // Run and hour totals as the FineART, DROID, Galaxea, RoboMIND and AgiBot World papers print them.
+    kind: 'source-data',
+  },
   'interactive:DatasetTable': {
     // Dataset registry table (sizes, embodiments, licences).
     kind: 'source-data',
@@ -465,6 +469,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:HardwareGuide': {
     // Buyer's-guide table; undisclosed figures render "not disclosed".
+    kind: 'source-data',
+  },
+  'interactive:HardwarePriceLadder': {
+    // Maker and seller list prices read from the buyer's-guide rows (data/hardware.ts).
     kind: 'source-data',
   },
   'interactive:HumanoidPickHeight': {
@@ -501,6 +509,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:ThesisExplorer': {
     // Six falsifiable theses with named proponents and evidence.
+    kind: 'source-data',
+  },
+  'interactive:UmiCollectionRates': {
+    // Demonstrations per hour on the UMI project site: bare hand 231, UMI gripper 111, spacemouse 35.
     kind: 'source-data',
   },
 

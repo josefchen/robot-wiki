@@ -263,9 +263,11 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'reliability-gap 1, action-chunking 3, bc-foundations 1, realtime-execution ' +
       '2, rl-finetuning 2, vla-models 1, humanoid-wbc 2, legged-locomotion 2, ' +
       'offline-rl 3, parallel-sim-rl 2, reward-design-mpc 1, rl-for-robotics 3, ' +
-      'sim2real-transfer 2, why-rl-locomotion 2, latent-dynamics 1; a change here ' +
-      'means a chart was added, removed or re-declared form)',
-  ).toBe(37);
+      'sim2real-transfer 2, why-rl-locomotion 2, latent-dynamics 1; the owed ' +
+      'data-hardware figures made it 40: the datasets runs-and-hours scatter, the ' +
+      'hardware-taxonomy price ladder and the teleop-rigs collection-rate bars, one ' +
+      'each; a change here means a chart was added, removed or re-declared form)',
+  ).toBe(40);
   // An unresolved svg yields no ticks, which clause (a) would otherwise
   // record as one more carve-out: the payback chart went ungraded that way
   // while its svg named a caption and the description in one id list.
@@ -369,6 +371,13 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // numeric-axis charts into scenes; no carve-out is an extractor miss.
   // The floor and cap keep the same margin of two honest new
   // carve-outs, so with the population pinned they still fail together.
+  // Re-measured after the owed data-hardware figures (population 40, pinned
+  // above): pass=6 skip=34 fail=0. The three new tables are keyed by name,
+  // not by an x value, so their axes are honest carve-outs of the
+  // categorical-rows family: the datasets runs-and-hours scatter (rows are
+  // datasets, the x-axis counts runs), the hardware-taxonomy price ladder
+  // (rows are products) and the teleop-rigs collection-rate bars (rows are
+  // collection methods). The floor and cap keep their margin of two.
   // Name every carve-out in the failure text, so a floor or cap breach
   // says which charts moved instead of only how many.
   const skipList = aSkips
@@ -376,12 +385,12 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
     .join(' | ');
   expect(
     aGraded.length,
-    `clause (a) graded population (measured 6 of 37 on the final opus-pass tree; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
+    `clause (a) graded population (measured 6 of 40 after the owed data-hardware figures; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
   ).toBeGreaterThanOrEqual(4);
   expect(
     aSkips.length,
-    `clause (a) skip count (measured 31 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
-  ).toBeLessThanOrEqual(33);
+    `clause (a) skip count (measured 34 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
+  ).toBeLessThanOrEqual(36);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {

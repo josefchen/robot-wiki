@@ -82,7 +82,7 @@
   "observations": [
     {
       "route": "/",
-      "visibleTextLength": 3062,
+      "visibleTextLength": 3061,
       "header": {
         "present": true,
         "display": "flex",
@@ -3314,7 +3314,7 @@
     },
     {
       "route": "/data-hardware/data-bottleneck/",
-      "visibleTextLength": 21030,
+      "visibleTextLength": 21153,
       "header": {
         "present": true,
         "display": "flex",
@@ -3476,7 +3476,7 @@
     },
     {
       "route": "/data-hardware/datasets/",
-      "visibleTextLength": 20426,
+      "visibleTextLength": 20904,
       "header": {
         "present": true,
         "display": "flex",
@@ -3800,7 +3800,7 @@
     },
     {
       "route": "/data-hardware/hardware-taxonomy/",
-      "visibleTextLength": 28139,
+      "visibleTextLength": 29210,
       "header": {
         "present": true,
         "display": "flex",
@@ -3962,7 +3962,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 24599,
+      "visibleTextLength": 24667,
       "header": {
         "present": true,
         "display": "flex",
@@ -4124,7 +4124,7 @@
     },
     {
       "route": "/data-hardware/robot-learning-stack/",
-      "visibleTextLength": 17588,
+      "visibleTextLength": 17995,
       "header": {
         "present": true,
         "display": "flex",
@@ -4286,7 +4286,7 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
-      "visibleTextLength": 20920,
+      "visibleTextLength": 21842,
       "header": {
         "present": true,
         "display": "flex",

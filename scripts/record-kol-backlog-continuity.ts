@@ -84,6 +84,7 @@ async function verify(): Promise<boolean> {
   const layer = await import('../lib/audit-kol-backlog-continuity.ts');
   const { answerOptionsPredecessor } = await import('../lib/audit-answer-options-continuity.ts');
   const { convergenceProsePredecessor } = await import('../lib/audit-convergence-prose-continuity.ts');
+  const { owedFiguresPredecessor } = await import('../lib/audit-owed-figures-continuity.ts');
   const { explainerMountPredecessor } = await import('../lib/audit-explainer-mount-continuity.ts');
   const { imageMountPredecessor } = await import('../lib/audit-image-mount-continuity.ts');
   const { lengthCutPredecessor } = await import('../lib/audit-length-cut-continuity.ts');
@@ -103,7 +104,7 @@ async function verify(): Promise<boolean> {
       const live = domainPassPredecessor(root, source.before, figureMountPredecessor(root, source.before,
         wordBudgetTrimPredecessor(root, source.before, worldModelsLengthCutPredecessor(root, source.before,
           lengthCutPredecessor(root, source.before,
-            frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, readFileSync(join(root, source.after.path)))))))))))))));
+            frontierLengthCutPredecessor(root, source.before, dataHardwareCutPredecessor(root, source.before, adjacentCutPredecessor(root, source.before, imageMountPredecessor(root, source.before, figureMountPredecessor(root, source.before, answerOptionsPredecessor(root, source.before, explainerMountPredecessor(root, source.before, convergenceProsePredecessor(root, source.before, owedFiguresPredecessor(root, source.before, readFileSync(join(root, source.after.path))))))))))))))));
       const prior = layer.kolBacklogPredecessor(root, source.before, live);
       if (digest(prior) !== source.before.sha256) throw new Error('rebuilt bytes differ from the predecessor');
     } catch (error) {

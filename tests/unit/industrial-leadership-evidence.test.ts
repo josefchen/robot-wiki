@@ -27,7 +27,7 @@ import {
   showAt,
 } from './helpers/continuation-merge-ledger';
 import {
-  preConvergenceProse, preDataHardwareCut, preImageMounts, preKolBacklog, preReaderFirst, preSeoPassText,
+  preConvergenceProse, preDataHardwareCut, preImageMounts, preKolBacklog, preOwedFigures, preReaderFirst, preSeoPassText,
 } from '../helpers/seo-pass';
 
 const ledgerPath = 'audit/data-hardware.md';
@@ -305,7 +305,8 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     const preMotion = headReanchorFor(approvals.filter(delta => !delta.id.startsWith('seo-pass-20261002-')
       && !delta.id.startsWith('reader-first-20261002-') && !delta.id.startsWith('kol-backlog-20261005-')
       && !delta.id.startsWith('length-cut-20261013-data-hardware-')
-      && !delta.id.startsWith('kol-batch-20261025-') && !delta.id.startsWith('convergence-prose-20261026-')),
+      && !delta.id.startsWith('kol-batch-20261025-') && !delta.id.startsWith('convergence-prose-20261026-')
+      && !delta.id.startsWith('owed-figures-dh-20261026-')),
       'prose', 'article:data-hardware/industrial-deployment')!;
     expect(preMotion.oldHash).toBe(sealedHash('prose', 'article:data-hardware/industrial-deployment'));
     const motion = approvals.find(delta =>
@@ -389,15 +390,26 @@ describe('industrial deployment originals 51 and 43: bounded MIT closeout', () =
     });
     expect(kolQueue.newHash).toBe(proseHash(preConvergenceProse(articlePath).toString('utf8')));
     // The 2026-10-26 convergence prose resolution binds the KOL queue endpoint
-    // and reaches the live article, which cites the Kroger 8-K and stops
-    // restating the calculator's seven defaults.
+    // and reaches the article the data-hardware owed-figures block received,
+    // which cites the Kroger 8-K and stops restating the calculator's seven
+    // defaults.
     const convergence = approvals.find(delta =>
       delta.id === 'convergence-prose-20261026-prose-data-hardware-industrial-deployment')!;
     expect(convergence.oldHash).toBe(preMotion.oldHash);
     expect(convergence.reconciles?.at(-1)).toEqual({
       id: kolQueue.id, oldHash: kolQueue.oldHash, newHash: kolQueue.newHash,
     });
-    expect(convergence.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
+    expect(convergence.newHash).toBe(proseHash(preOwedFigures(articlePath).toString('utf8')));
+    // The owed-figures resolution of the same day binds the convergence
+    // endpoint and reaches the live article, which names the base of the
+    // 47 percent logistics share.
+    const owed = approvals.find(delta =>
+      delta.id === 'owed-figures-dh-20261026-prose-data-hardware-industrial-deployment')!;
+    expect(owed.oldHash).toBe(preMotion.oldHash);
+    expect(owed.reconciles?.at(-1)).toEqual({
+      id: convergence.id, oldHash: convergence.oldHash, newHash: convergence.newHash,
+    });
+    expect(owed.newHash).toBe(proseHash(readFileSync(articlePath, 'utf8')));
     expect(laneArticle.match(/<Cite\s/g)).toHaveLength(32);
     expect(showAt('ac65cf4', articlePath).match(/<Cite\s/g)).toHaveLength(33);
     expect(showAt('0cbdda1', articlePath).match(/<Cite\s/g)).toHaveLength(34);

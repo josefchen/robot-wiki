@@ -181,6 +181,29 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     ).toHaveAttribute('aria-sort', 'ascending');
   });
 
+  test('price ladder plots maker list prices and names the unpriced humanoids (VAL-OPUS-089)', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="hardware-price-ladder"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText('Listed prices run from $295 to $70,000');
+    await expect(figure.locator('[data-figure-caption]')).toHaveText(
+      'No maker price for EngineAI SE01, Fourier GR-3 or UBTECH Walker S2; Figure 03, Atlas and Optimus 3 are not on open sale.',
+    );
+    await expect(figure.getByTestId('price-strip-humanoid').locator('circle')).toHaveCount(6);
+    await expect(figure.getByTestId('price-strip-compute').locator('circle')).toHaveCount(2);
+    await expect(figure.getByTestId('price-label-so-arm101-pro-unassembled-low')).toHaveText('SO-ARM101 Pro kit$295');
+    await expect(figure.getByTestId('price-label-reachy-2-low')).toHaveText('Reachy 2$70,000');
+    const stage = figure.getByRole('img', { name: /Listed prices of arms, humanoids and robot computers/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('humanoids from $4,900 (Unitree R1 Air) to $29,900 (Unitree H2)');
+    expect(name.length).toBeLessThan(description.length);
+    // The review blog left the article with the maker-page pass; its rows cite makers.
+    await expect(page.locator('#main-content a[href*="robozaps"]')).toHaveCount(0);
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

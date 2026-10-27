@@ -136,6 +136,36 @@ test.describe('data-hardware datasets module', () => {
     ).toHaveAttribute('aria-sort', 'ascending');
   });
 
+  test('runs-and-hours figure plots five datasets with their papers (VAL-OPUS-089)', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="dataset-runs-hours"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Run counts and hours rank these datasets differently',
+    );
+    for (const [id, runs] of [
+      ['fineart', '40543'], ['droid', '76000'], ['galaxea', '100000'],
+      ['robomind', '107000'], ['agibot', '1001552'],
+    ]) {
+      await expect(figure.getByTestId(`dataset-point-${id}`)).toHaveAttribute('data-runs', runs);
+    }
+    // BridgeData V2 prints no total hours, so it is left off the plane.
+    await expect(figure.locator('[data-testid^="dataset-point-bridge"]')).toHaveCount(0);
+    await expect(figure.locator('[data-figure-caption]')).toContainText(
+      "FineART's runs average 2.5 minutes, the others under 20 seconds.",
+    );
+    const stage = figure.getByRole('img', { name: /Recorded runs against recorded hours/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('AgiBot World 1,001,552 runs and 2,976.4 hours');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(
+      figure.getByTestId('dataset-runs-hours-source').locator('a[href^="https://arxiv.org/abs/"]'),
+    ).toHaveCount(5);
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

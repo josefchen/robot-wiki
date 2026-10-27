@@ -274,6 +274,7 @@
       "audit": "A22",
       "sources": [
         "components/interactive/data-scale-chart.tsx",
+        "lib/data-scale-company.ts",
         "lib/data-scaling.ts"
       ],
       "takeaway": "Robot training data is tiny next to the text used to train chatbots: ten part-time robots would need 143 years to collect 10,000 hours."
@@ -1178,6 +1179,43 @@
         "lib/hand-motion-share.ts"
       ],
       "takeaway": "A person's joint angles copied onto a robot of other proportions put its hand on a skewed path, while the hand's own motion, replayed from wherever the robot's hand is, draws the same stroke, which is why human and robot data can share relative end-effector actions."
+    },
+    {
+      "id": "data-hardware--datasets--dataset-runs-hours",
+      "route": "/data-hardware/datasets/",
+      "mount": "mount:/data-hardware/datasets/:DatasetRunsHours:1",
+      "figure": "dataset-runs-hours",
+      "audit": null,
+      "sources": [
+        "components/interactive/dataset-runs-hours.tsx",
+        "lib/dataset-runs-hours.ts"
+      ],
+      "takeaway": "Counting recorded runs and counting hours rank robot datasets differently: AgiBot World has about 25 times FineART's runs but under twice its hours, because FineART's runs are much longer."
+    },
+    {
+      "id": "data-hardware--hardware-taxonomy--hardware-price-ladder",
+      "route": "/data-hardware/hardware-taxonomy/",
+      "mount": "mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
+      "figure": "hardware-price-ladder",
+      "audit": null,
+      "sources": [
+        "components/interactive/hardware-price-ladder.tsx",
+        "lib/hardware-price-ladder.ts",
+        "data/hardware.ts"
+      ],
+      "takeaway": "Robot arms on sale cost from about $300 to $70,000 and humanoids from about $5,000 to $30,000, while several humanoid makers publish no price at all."
+    },
+    {
+      "id": "data-hardware--teleop-rigs--umi-collection-rates",
+      "route": "/data-hardware/teleop-rigs/",
+      "mount": "mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
+      "figure": "umi-collection-rates",
+      "audit": null,
+      "sources": [
+        "components/interactive/umi-collection-rates.tsx",
+        "lib/umi-collection-rates.ts"
+      ],
+      "takeaway": "Recording demonstrations with a handheld gripper was three times faster than steering a robot, though about half as fast as doing the task by hand."
     }
   ]
 }

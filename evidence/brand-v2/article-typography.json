@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "8fba142e929fd9c0322f17cea59ea609e443b4ac5344b2e4b7b5beec3b3feebe",
+  "fingerprint": "b5e1db28c77866aa1e5c85796c686c4f03ecab18d8bc441bc34788dfd55e44ae",
   "viewports": [
     "375x812",
     "1440x900"
@@ -143,7 +143,7 @@
   ],
   "observations": [
     {
-      "visibleTextLength": 3062,
+      "visibleTextLength": 3061,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14040,7 +14040,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 21030,
+      "visibleTextLength": 21153,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -14667,7 +14667,7 @@
         },
         {
           "kind": "internal",
-          "count": 17,
+          "count": 20,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -14677,7 +14677,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 16,
+              "count": 19,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -14776,6 +14776,14 @@
         {
           "tag": "button",
           "text": "Human video",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Company totals",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -15011,7 +15019,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20426,
+      "visibleTextLength": 20904,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15063,11 +15071,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-10-26",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 38,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
@@ -15142,6 +15150,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Set the size filter to 1M+ episodes and one row remains; sor"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Five robot datasets by runs and hours: FineART 40,543 runs a"
         },
         {
           "familyHead": "geist",
@@ -15580,7 +15597,7 @@
         },
         {
           "kind": "external",
-          "count": 11,
+          "count": 16,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -15590,7 +15607,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -15825,6 +15842,22 @@
           "text": "Embodiments",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Runs, hours and average run leng",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -16992,7 +17025,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28139,
+      "visibleTextLength": 29210,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -17044,12 +17077,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-10-26",
-        "readingMinutes": 15,
-        "citationCount": 50,
+        "readingMinutes": 16,
+        "citationCount": 51,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
-        "readingTimeText": "15 min read",
-        "citationCountText": "50 sources",
+        "readingTimeText": "16 min read",
+        "citationCountText": "51 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -17099,8 +17132,9 @@
           "helix-2025",
           "fcc-covered-list-robots-2026",
           "paxton-iros-2026",
-          "lerobot-pricing-2026",
-          "robozaps-humanoids-2026"
+          "sharpa-wave-2026",
+          "psyonic-ability-hand-2022",
+          "lerobot-pricing-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -17282,6 +17316,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Listed prices of 15 robot products on a ruler that steps by "
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 327,
@@ -17443,7 +17486,7 @@
         },
         {
           "kind": "reference",
-          "count": 50,
+          "count": 51,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17453,7 +17496,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 50,
+              "count": 51,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17465,7 +17508,7 @@
         },
         {
           "kind": "citation",
-          "count": 110,
+          "count": 114,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -17475,7 +17518,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 55,
+              "count": 57,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -17485,7 +17528,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 55,
+              "count": 57,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17519,7 +17562,7 @@
         },
         {
           "kind": "external",
-          "count": 49,
+          "count": 59,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17529,7 +17572,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 18,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17551,7 +17594,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -17571,7 +17614,7 @@
             },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 6,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -17906,6 +17949,22 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Every listed price on the ladder",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Show all 52 authors",
           "familyHead": "geist",
@@ -17983,7 +18042,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24599,
+      "visibleTextLength": 24667,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18935,7 +18994,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17588,
+      "visibleTextLength": 17995,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -18988,11 +19047,11 @@
         ],
         "lastReviewed": "2026-10-26",
         "readingMinutes": 6,
-        "citationCount": 38,
+        "citationCount": 39,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
         "readingTimeText": "6 min read",
-        "citationCountText": "38 sources",
+        "citationCountText": "39 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
           "droid-2024",
@@ -19031,7 +19090,8 @@
           "dagger-2011",
           "sirius-2022",
           "cupid-2025",
-          "mulligan-2026"
+          "mulligan-2026",
+          "ros2-control-docs-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -19464,7 +19524,7 @@
         },
         {
           "kind": "reference",
-          "count": 38,
+          "count": 39,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -19474,7 +19534,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 38,
+              "count": 39,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19486,7 +19546,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 86,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -19496,7 +19556,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 42,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -19506,7 +19566,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 43,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -19856,7 +19916,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 20920,
+      "visibleTextLength": 21842,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -19909,11 +19969,11 @@
         ],
         "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
-        "citationCount": 36,
+        "citationCount": 37,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
-        "citationCountText": "36 sources",
+        "citationCountText": "37 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "mobile-aloha-2024",
@@ -19950,7 +20010,8 @@
           "egodex-2025",
           "generalist-gen0-2025",
           "i3l-2026",
-          "fomo-dex-2026"
+          "fomo-dex-2026",
+          "grabette-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -20087,6 +20148,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Demonstrations recorded per hour on UMI's cup-arrangement ta"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 327,
@@ -20102,6 +20172,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Four collectors gathered enough UMI data in one afternoon fo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 327,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Pollen Robotics' Grabette (July 2026) is an open-source hand"
         },
         {
           "familyHead": "geist",
@@ -20329,7 +20408,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 37,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20339,7 +20418,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20351,7 +20430,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -20361,7 +20440,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -20371,7 +20450,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20405,7 +20484,7 @@
         },
         {
           "kind": "external",
-          "count": 13,
+          "count": 14,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -20415,7 +20494,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -20660,6 +20739,22 @@
           "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Demonstrations per hour, three w",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -60273,7 +60368,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 3062,
+      "visibleTextLength": 3061,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74027,7 +74122,7 @@
       "isArticle": false
     },
     {
-      "visibleTextLength": 28062,
+      "visibleTextLength": 28185,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -74654,7 +74749,7 @@
         },
         {
           "kind": "internal",
-          "count": 17,
+          "count": 20,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -74664,7 +74759,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 16,
+              "count": 19,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -74763,6 +74858,14 @@
         {
           "tag": "button",
           "text": "Human video",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:selection"
+        },
+        {
+          "tag": "button",
+          "text": "Company totals",
           "familyHead": "geist",
           "sizePx": 13,
           "inProse": true,
@@ -74987,7 +75090,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 28455,
+      "visibleTextLength": 28933,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -75039,11 +75142,11 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-10-26",
-        "readingMinutes": 8,
+        "readingMinutes": 9,
         "citationCount": 38,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
-        "readingTimeText": "8 min read",
+        "readingTimeText": "9 min read",
         "citationCountText": "38 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
@@ -75118,6 +75221,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Set the size filter to 1M+ episodes and one row remains; sor"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Five robot datasets by runs and hours: FineART 40,543 runs a"
         },
         {
           "familyHead": "geist",
@@ -75556,7 +75668,7 @@
         },
         {
           "kind": "external",
-          "count": 11,
+          "count": 16,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -75566,7 +75678,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 10,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -75801,6 +75913,22 @@
           "text": "Embodiments",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Runs, hours and average run leng",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },
@@ -76946,7 +77074,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 35234,
+      "visibleTextLength": 36496,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -76998,12 +77126,12 @@
           "Data, Hardware & Evaluation"
         ],
         "lastReviewed": "2026-10-26",
-        "readingMinutes": 15,
-        "citationCount": 50,
+        "readingMinutes": 16,
+        "citationCount": 51,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
-        "readingTimeText": "15 min read",
-        "citationCountText": "50 sources",
+        "readingTimeText": "16 min read",
+        "citationCountText": "51 sources",
         "bibliographyIds": [
           "so-arm100-repo-2026",
           "seeed-so-arm101-pro-2026",
@@ -77053,8 +77181,9 @@
           "helix-2025",
           "fcc-covered-list-robots-2026",
           "paxton-iros-2026",
-          "lerobot-pricing-2026",
-          "robozaps-humanoids-2026"
+          "sharpa-wave-2026",
+          "psyonic-ability-hand-2022",
+          "lerobot-pricing-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -77236,6 +77365,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Listed prices of 15 robot products on a ruler that steps by "
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 928.66,
@@ -77397,7 +77535,7 @@
         },
         {
           "kind": "reference",
-          "count": 50,
+          "count": 51,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77407,7 +77545,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 50,
+              "count": 51,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77419,7 +77557,7 @@
         },
         {
           "kind": "citation",
-          "count": 110,
+          "count": 114,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -77429,7 +77567,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 55,
+              "count": 57,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -77439,7 +77577,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 55,
+              "count": 57,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77473,7 +77611,7 @@
         },
         {
           "kind": "external",
-          "count": 49,
+          "count": 59,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77483,7 +77621,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 8,
+              "count": 18,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77505,7 +77643,7 @@
         },
         {
           "kind": "internal",
-          "count": 6,
+          "count": 7,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -77525,7 +77663,7 @@
             },
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 5,
+              "count": 6,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -77860,6 +77998,22 @@
           "controlId": "control:secondary-action"
         },
         {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Every listed price on the ladder",
+          "familyHead": "geist",
+          "sizePx": 14,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
           "tag": "button",
           "text": "Show all 52 authors",
           "familyHead": "geist",
@@ -77926,7 +78080,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 32785,
+      "visibleTextLength": 32853,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78867,7 +79021,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24605,
+      "visibleTextLength": 25167,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -78920,11 +79074,11 @@
         ],
         "lastReviewed": "2026-10-26",
         "readingMinutes": 6,
-        "citationCount": 38,
+        "citationCount": 39,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
         "readingTimeText": "6 min read",
-        "citationCountText": "38 sources",
+        "citationCountText": "39 sources",
         "bibliographyIds": [
           "open-x-embodiment-2023",
           "droid-2024",
@@ -78963,7 +79117,8 @@
           "dagger-2011",
           "sirius-2022",
           "cupid-2025",
-          "mulligan-2026"
+          "mulligan-2026",
+          "ros2-control-docs-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -79396,7 +79551,7 @@
         },
         {
           "kind": "reference",
-          "count": 38,
+          "count": 39,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -79406,7 +79561,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 38,
+              "count": 39,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79418,7 +79573,7 @@
         },
         {
           "kind": "citation",
-          "count": 84,
+          "count": 86,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -79428,7 +79583,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 42,
+              "count": 43,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -79438,7 +79593,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 42,
+              "count": 43,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -79777,7 +79932,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27415,
+      "visibleTextLength": 28507,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -79830,11 +79985,11 @@
         ],
         "lastReviewed": "2026-10-26",
         "readingMinutes": 10,
-        "citationCount": 36,
+        "citationCount": 37,
         "reviewDateText": "26 October 2026",
         "reviewDateTime": "2026-10-26",
         "readingTimeText": "10 min read",
-        "citationCountText": "36 sources",
+        "citationCountText": "37 sources",
         "bibliographyIds": [
           "act-aloha-2023",
           "mobile-aloha-2024",
@@ -79871,7 +80026,8 @@
           "egodex-2025",
           "generalist-gen0-2025",
           "i3l-2026",
-          "fomo-dex-2026"
+          "fomo-dex-2026",
+          "grabette-2026"
         ],
         "imageCount": 0,
         "badgeCount": 0,
@@ -80008,6 +80164,15 @@
         },
         {
           "familyHead": "geist",
+          "sizePx": 13,
+          "lineHeightRatio": 1.5,
+          "widthPx": 0,
+          "zeroAdvancePx": 9,
+          "insideRegisteredFrame": true,
+          "text": "Demonstrations recorded per hour on UMI's cup-arrangement ta"
+        },
+        {
+          "familyHead": "geist",
           "sizePx": 16,
           "lineHeightRatio": 1.62,
           "widthPx": 928.66,
@@ -80023,6 +80188,15 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "Four collectors gathered enough UMI data in one afternoon fo"
+        },
+        {
+          "familyHead": "geist",
+          "sizePx": 16,
+          "lineHeightRatio": 1.62,
+          "widthPx": 928.66,
+          "zeroAdvancePx": 11,
+          "insideRegisteredFrame": false,
+          "text": "Pollen Robotics' Grabette (July 2026) is an open-source hand"
         },
         {
           "familyHead": "geist",
@@ -80250,7 +80424,7 @@
         },
         {
           "kind": "reference",
-          "count": 36,
+          "count": 37,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80260,7 +80434,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.55)|geist|inline border:0px/solid radius:0px",
-              "count": 36,
+              "count": 37,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80272,7 +80446,7 @@
         },
         {
           "kind": "citation",
-          "count": 86,
+          "count": 88,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "none",
           "decorationStyle": "solid",
@@ -80282,7 +80456,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|none|solid|rgb(28, 28, 26)|geist|chip sup border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "none",
               "decorationStyle": "solid",
@@ -80292,7 +80466,7 @@
             },
             {
               "signature": "rgb(108, 107, 102)|underline|solid|color(srgb 0.423529 0.419608 0.4 / 0.6)|geist|chip border:0px/solid radius:0px",
-              "count": 43,
+              "count": 44,
               "colour": "rgb(108, 107, 102)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80326,7 +80500,7 @@
         },
         {
           "kind": "external",
-          "count": 13,
+          "count": 14,
           "colour": "rgb(28, 28, 26)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -80336,7 +80510,7 @@
           "variants": [
             {
               "signature": "rgb(28, 28, 26)|underline|solid|color(srgb 0.109804 0.109804 0.101961 / 0.5)|geist|inline border:0px/solid radius:0px",
-              "count": 4,
+              "count": 5,
               "colour": "rgb(28, 28, 26)",
               "decorationLine": "underline",
               "decorationStyle": "solid",
@@ -80581,6 +80755,22 @@
           "text": "How this was made",
           "familyHead": "geist",
           "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "How this was made",
+          "familyHead": "geist",
+          "sizePx": 13,
+          "inProse": true,
+          "controlId": "control:secondary-action"
+        },
+        {
+          "tag": "summary",
+          "text": "Demonstrations per hour, three w",
+          "familyHead": "geist",
+          "sizePx": 14,
           "inProse": true,
           "controlId": "control:secondary-action"
         },

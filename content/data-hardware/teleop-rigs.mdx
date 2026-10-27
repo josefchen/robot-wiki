@@ -43,6 +43,7 @@ citations:
   - generalist-gen0-2025
   - i3l-2026
   - fomo-dex-2026
+  - grabette-2026
 seeAlso:
   - "manipulation/action-chunking"
   - "data-hardware/datasets"
@@ -52,6 +53,8 @@ seeAlso:
 import { KinematicTwin } from '@/components/interactive/kinematic-twin';
 
 import { TeleopRigMatrix } from '@/components/interactive/teleop-rig-matrix';
+
+import { UmiCollectionRates } from '@/components/interactive/umi-collection-rates';
 
 import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
@@ -96,11 +99,15 @@ JoyLo+, from Wensi Ai, Jiajun Wu, Li Fei-Fei, Ruohan Zhang and colleagues at Sta
 
 The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted GoPro and a 155-degree fisheye lens; SLAM recovers the gripper pose from the video. The paper bills the printed gripper at \$73 and the GoPro and accessories at \$298, for a \$371 rig <Cite id="umi-2024" />. On cup arrangement the project site reports 111 demonstrations per hour, against 35 for spacemouse teleoperation and 231 by bare hand <Cite id="umi-gripper-site-2024" />.
 
+<UmiCollectionRates className="my-6" />
+
 <Image id="umi-handheld-grippers-2024" />
 
 Latency matching at inference time and a camera-relative action representation let UMI policies deploy zero-shot on any arm with a compatible gripper and camera, shown on UR5 and Franka. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with force-feedback teleoperation <Cite id="forcemimic-2024" />.
 
 Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id="lin-data-scaling-laws-2024" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id="hifi-umi-2026" />.
+
+Pollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper that carries out the learned movements on a real or simulated arm <Cite id="grabette-2026" />.
 
 ## VR teleoperation: scale through headsets
 

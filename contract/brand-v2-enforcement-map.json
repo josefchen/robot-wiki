@@ -9816,7 +9816,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/datasets/|1440x900|table#1",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/datasets/|375x812|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/datasets/|375x812|table#1",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
         {
@@ -9836,7 +9846,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|1440x900|table#1",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|375x812|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|375x812|table#1",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
         {
@@ -9856,7 +9876,17 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|1440x900|table#1",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|375x812|table#0",
+          "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|375x812|table#1",
           "mechanism": "VAL-B2-ART-008 per-member evidence derived from the persisted 375x812/1440x900 sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over evidence/brand-v2/article-tables-math.json#tables"
         },
         {
@@ -10357,7 +10387,7 @@
         "statement": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "expected": "Tables remain inside the viewport through internal horizontal scrolling without reducing the prose measure below readable bounds.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 134,
+        "populationSize": 140,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -10395,15 +10425,21 @@
           "result:VAL-B2-ART-008:/data-hardware/data-bottleneck/|375x812|table#0",
           "result:VAL-B2-ART-008:/data-hardware/data-bottleneck/|375x812|table#1",
           "result:VAL-B2-ART-008:/data-hardware/datasets/|1440x900|table#0",
+          "result:VAL-B2-ART-008:/data-hardware/datasets/|1440x900|table#1",
           "result:VAL-B2-ART-008:/data-hardware/datasets/|375x812|table#0",
+          "result:VAL-B2-ART-008:/data-hardware/datasets/|375x812|table#1",
           "result:VAL-B2-ART-008:/data-hardware/evaluation-crisis/|1440x900|table#0",
           "result:VAL-B2-ART-008:/data-hardware/evaluation-crisis/|375x812|table#0",
           "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|1440x900|table#0",
+          "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|1440x900|table#1",
           "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|375x812|table#0",
+          "result:VAL-B2-ART-008:/data-hardware/hardware-taxonomy/|375x812|table#1",
           "result:VAL-B2-ART-008:/data-hardware/industrial-deployment/|1440x900|table#0",
           "result:VAL-B2-ART-008:/data-hardware/industrial-deployment/|375x812|table#0",
           "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|1440x900|table#0",
+          "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|1440x900|table#1",
           "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|375x812|table#0",
+          "result:VAL-B2-ART-008:/data-hardware/teleop-rigs/|375x812|table#1",
           "result:VAL-B2-ART-008:/frontier/bear-case/|1440x900|table#0",
           "result:VAL-B2-ART-008:/frontier/bear-case/|375x812|table#0",
           "result:VAL-B2-ART-008:/frontier/competing-theses/|1440x900|table#0",
@@ -12350,6 +12386,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/dataset-runs-hours.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -12396,6 +12437,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hand-comparison.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hardware-price-ladder.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -12491,6 +12537,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/thesis-explorer.tsx:aria-label:1",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/umi-collection-rates.tsx:aria-label:1",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -16115,6 +16166,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:grabette-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:grail-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -18755,6 +18811,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:psyonic-ability-hand-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ptr-2022",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -19310,6 +19371,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ros2-control-docs-2026",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:ros2-dds-design-2014",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -19691,6 +19757,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:shadow-hand-cost-2022",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:sharpa-wave-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
         {
@@ -21425,7 +21496,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 2024,
+        "populationSize": 2031,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -21645,6 +21716,7 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/comparison-matrix.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/compounding-error.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/control-loop-budget.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/dataset-runs-hours.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/expo-ft-results.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/gait-diagram.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/gait-diagram.tsx:aria-label:2",
@@ -21655,6 +21727,7 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/grasp-wrench-lab.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hand-comparison.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/hardware-price-ladder.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/impedance-contact-lab.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/milestones-watchlist.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/mot-insulation.tsx:aria-label:1",
@@ -21674,6 +21747,7 @@
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/teleop-rig-matrix.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/teleop-rig-matrix.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/thesis-explorer.tsx:aria-label:1",
+          "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/umi-collection-rates.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wm-disambiguator.tsx:aria-label:1",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/interactive/wm-disambiguator.tsx:aria-label:2",
           "result:VAL-B2-BASE-002:accessible-names:literal:components/market-map/bubble-view.tsx:aria-label:1",
@@ -22398,6 +22472,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:gr00t-n1-5-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr00t-n1-6-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:gr00t-n1-7-release-2026",
+          "result:VAL-B2-BASE-002:article-metadata:citation:grabette-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:grail-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:grandia-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:grandtour-2026",
@@ -22926,6 +23001,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:project-genie-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:prompt-depth-anything-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:prrtc-2025",
+          "result:VAL-B2-BASE-002:article-metadata:citation:psyonic-ability-hand-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:ptr-2022",
           "result:VAL-B2-BASE-002:article-metadata:citation:pulse-2023",
           "result:VAL-B2-BASE-002:article-metadata:citation:puppeteer-2024",
@@ -23037,6 +23113,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:ros-llm-2024",
           "result:VAL-B2-BASE-002:article-metadata:citation:ros2-buffer-backends-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ros2-clock-design",
+          "result:VAL-B2-BASE-002:article-metadata:citation:ros2-control-docs-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ros2-dds-design-2014",
           "result:VAL-B2-BASE-002:article-metadata:citation:ros2-distributions-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:ros2-executors-2026",
@@ -23114,6 +23191,7 @@
           "result:VAL-B2-BASE-002:article-metadata:citation:shadow-2025",
           "result:VAL-B2-BASE-002:article-metadata:citation:shadow-dexterous-hand-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:shadow-hand-cost-2022",
+          "result:VAL-B2-BASE-002:article-metadata:citation:sharpa-wave-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:sheetz-adoption-2020",
           "result:VAL-B2-BASE-002:article-metadata:citation:sheridan-time-delay-1993",
           "result:VAL-B2-BASE-002:article-metadata:citation:shiu-ahmad-1989",
@@ -52879,7 +52957,7 @@
         },
         {
           "kind": "evidence-row",
-          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:808f1dab89f8d0de",
+          "evidenceRowId": "result:VAL-B2-OG-012:probe:og-face:data:b1680133ef597b7a",
           "mechanism": "VAL-B2-OG-012 per-member evidence derived from the published Open Graph/X corpus: the renderer-input manifest rebuilt from the current tree and the shipped bytes, every shipped card decoded again, the sealed card matrix, the publication journal and the trees it swapped, and the card metadata in each route's exported head, over lib/og-card-glyph-probes.ts#glyphProbePopulation"
         },
         {
@@ -53344,7 +53422,7 @@
           "result:VAL-B2-OG-012:probe:og-face:data:d0a3fa9f0c101207",
           "result:VAL-B2-OG-012:probe:og-face:data:25c2fc40eff51fde",
           "result:VAL-B2-OG-012:probe:og-face:data:58858c2d40eb50cb",
-          "result:VAL-B2-OG-012:probe:og-face:data:808f1dab89f8d0de",
+          "result:VAL-B2-OG-012:probe:og-face:data:b1680133ef597b7a",
           "result:VAL-B2-OG-012:probe:og-face:data:6e40e282781a403b",
           "result:VAL-B2-OG-012:probe:og-face:data:108d165c7dc82d62",
           "result:VAL-B2-OG-012:probe:og-face:data:8a138776ed52b97c",
@@ -68764,7 +68842,7 @@
         "statement": "Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description.",
         "expected": "Every stateful chart or interactive provides a visible or screen-reader-accessible current-state description.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -68878,6 +68956,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-002:mount:/data-hardware/datasets/:DatasetRunsHours:1",
+          "mechanism": "VAL-B2-VIZ-002 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-002:mount:/data-hardware/datasets/:DatasetTable:1",
           "mechanism": "VAL-B2-VIZ-002 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
@@ -68889,6 +68972,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-002:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "mechanism": "VAL-B2-VIZ-002 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-002:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "mechanism": "VAL-B2-VIZ-002 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -68909,6 +68997,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-002:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "mechanism": "VAL-B2-VIZ-002 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-002:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "mechanism": "VAL-B2-VIZ-002 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -69258,7 +69351,7 @@
         "statement": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
         "expected": "Every series/state remains distinguishable without colour through label, marker, dash, geometry, or position.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 87,
+        "populationSize": 90,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -69286,13 +69379,16 @@
           "result:VAL-B2-VIZ-002:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
           "result:VAL-B2-VIZ-002:mount:/classical/state-estimation/:LinearizationGap:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "result:VAL-B2-VIZ-002:mount:/data-hardware/datasets/:DatasetRunsHours:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/datasets/:DatasetTable:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "result:VAL-B2-VIZ-002:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
           "result:VAL-B2-VIZ-002:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "result:VAL-B2-VIZ-002:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "result:VAL-B2-VIZ-002:mount:/frontier/bear-case/:BearCaseLock:1",
           "result:VAL-B2-VIZ-002:mount:/frontier/bear-case/:MilestonesWatchlist:1",
           "result:VAL-B2-VIZ-002:mount:/frontier/competing-theses/:HelixClockwork:1",
@@ -69390,7 +69486,7 @@
         "statement": "The one muted accent (`#3B6EA8`) marks the lead active path/series or the one lit part of a figure and reaches a figure geometry only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); any other accent paint on a figure geometry fails, a retired signal blue (`#245FFF`, or `#245EDB` of `VAL-B2-RES-003`) appears on no figure geometry, links included, and selection is ink weight, never a colour fill or an unlabeled second series. (Owner decisions of 10 October 2026 and 19 October 2026; the brand-v2 row made signal blue the lead active path/series and lime the selection/highlight.)",
         "expected": "The one muted accent (`#3B6EA8`) marks the lead active path/series or the one lit part of a figure and reaches a figure geometry only through the highlight role (`--role-highlight-*`) or the isometric kit's lit part (`--anatomy-lit`); any other accent paint on a figure geometry fails, a retired signal blue (`#245FFF`, or `#245EDB` of `VAL-B2-RES-003`) appears on no figure geometry, links included, and selection is ink weight, never a colour fill or an unlabeled second series. (Owner decisions of 10 October 2026 and 19 October 2026; the brand-v2 row made signal blue the lead active path/series and lime the selection/highlight.)",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -69436,7 +69532,7 @@
         "statement": "Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone.",
         "expected": "Legends agree with actual rendered tokens and name the state or series rather than relying on colour names alone.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -69482,7 +69578,7 @@
         "statement": "Source values remain source-backed and unknowns remain explicitly unknown.",
         "expected": "Source values remain source-backed and unknowns remain explicitly unknown.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -69528,7 +69624,7 @@
         "statement": "Every schematic labels itself and every generated/non-source signal labels its generative status.",
         "expected": "Every schematic labels itself and every generated/non-source signal labels its generative status.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -69642,6 +69738,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-007:mount:/data-hardware/datasets/:DatasetRunsHours:1",
+          "mechanism": "VAL-B2-VIZ-007 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-007:mount:/data-hardware/datasets/:DatasetTable:1",
           "mechanism": "VAL-B2-VIZ-007 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
@@ -69653,6 +69754,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-007:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "mechanism": "VAL-B2-VIZ-007 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-007:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "mechanism": "VAL-B2-VIZ-007 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -69673,6 +69779,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-007:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "mechanism": "VAL-B2-VIZ-007 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-007:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "mechanism": "VAL-B2-VIZ-007 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -70016,7 +70127,7 @@
         "statement": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
         "expected": "Native or equivalent controls work by keyboard, expose state, render visible focus, and return to a deterministic default: where the figure has a reset control, activating it by keyboard restores the exact default state (control values, readouts, drawing state and any running animation stopped); where the figure has no reset control, returning each changed control to its default value by keyboard alone restores the same default state digest, the default value of each control is stated in its visible readout, and any started run ends or can be stopped on the default frame. (Owner decision of 2 October 2026, reader-first figures addendum item 4, no \"Reset\" unless it is truly needed, under the research-page standard of 10 October 2026, `PANTHEON-SPEC.md`; the brand-v2 row required a return to a deterministic default through reset on every mount. Same strength: every registered mount, by keyboard, with the default state measured.)",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 87,
+        "populationSize": 90,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -70044,13 +70155,16 @@
           "result:VAL-B2-VIZ-007:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
           "result:VAL-B2-VIZ-007:mount:/classical/state-estimation/:LinearizationGap:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "result:VAL-B2-VIZ-007:mount:/data-hardware/datasets/:DatasetRunsHours:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/datasets/:DatasetTable:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "result:VAL-B2-VIZ-007:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
           "result:VAL-B2-VIZ-007:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "result:VAL-B2-VIZ-007:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "result:VAL-B2-VIZ-007:mount:/frontier/bear-case/:BearCaseLock:1",
           "result:VAL-B2-VIZ-007:mount:/frontier/bear-case/:MilestonesWatchlist:1",
           "result:VAL-B2-VIZ-007:mount:/frontier/competing-theses/:HelixClockwork:1",
@@ -70216,6 +70330,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-008:mount:/data-hardware/datasets/:DatasetRunsHours:1",
+          "mechanism": "VAL-B2-VIZ-008 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-008:mount:/data-hardware/datasets/:DatasetTable:1",
           "mechanism": "VAL-B2-VIZ-008 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
@@ -70227,6 +70346,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-008:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "mechanism": "VAL-B2-VIZ-008 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-008:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "mechanism": "VAL-B2-VIZ-008 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -70247,6 +70371,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-008:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "mechanism": "VAL-B2-VIZ-008 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-008:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "mechanism": "VAL-B2-VIZ-008 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -70590,7 +70719,7 @@
         "statement": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
         "expected": "No explanatory sequence autoplays and no visualization contains decorative fake telemetry.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 87,
+        "populationSize": 90,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -70618,13 +70747,16 @@
           "result:VAL-B2-VIZ-008:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
           "result:VAL-B2-VIZ-008:mount:/classical/state-estimation/:LinearizationGap:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "result:VAL-B2-VIZ-008:mount:/data-hardware/datasets/:DatasetRunsHours:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/datasets/:DatasetTable:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "result:VAL-B2-VIZ-008:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
           "result:VAL-B2-VIZ-008:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "result:VAL-B2-VIZ-008:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "result:VAL-B2-VIZ-008:mount:/frontier/bear-case/:BearCaseLock:1",
           "result:VAL-B2-VIZ-008:mount:/frontier/bear-case/:MilestonesWatchlist:1",
           "result:VAL-B2-VIZ-008:mount:/frontier/competing-theses/:HelixClockwork:1",
@@ -70716,7 +70848,7 @@
         "statement": "Reduced motion produces an immediate, understandable state without losing data, controls, or direct manipulation.",
         "expected": "Reduced motion produces an immediate, understandable state without losing data, controls, or direct manipulation.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -70756,7 +70888,7 @@
         "statement": "Milestone 1 baselines the current 52 interactive source files and 62 production mounts, but release checks derive both counts from source exports and rendered mounts; source exports, production mounts, and registry entries have three-way equality, stable mount IDs/config fingerprints, and omission/empty-population mutation tests.",
         "expected": "Milestone 1 baselines the current 52 interactive source files and 62 production mounts, but release checks derive both counts from source exports and rendered mounts; source exports, production mounts, and registry entries have three-way equality, stable mount IDs/config fingerprints, and omission/empty-population mutation tests.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -70796,7 +70928,7 @@
         "statement": "Every source and materially distinct mount declares the exact bounded §1.15 case set: each discrete option independently; slider min/default/max plus registered discontinuities/source anchors; reset/default/focus/meaningful hover/selected; one witness per implemented loading/error/empty/unavailable state; deterministic pairwise independent-control combinations; and only listed higher-order combinations. Expected case count is exact and non-zero; unsupported states use typed `notApplicableReason`.",
         "expected": "Every source and materially distinct mount declares the exact bounded §1.15 case set: each discrete option independently; slider min/default/max plus registered discontinuities/source anchors; reset/default/focus/meaningful hover/selected; one witness per implemented loading/error/empty/unavailable state; deterministic pairwise independent-control combinations; and only listed higher-order combinations. Expected case count is exact and non-zero; unsupported states use typed `notApplicableReason`.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -70910,6 +71042,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/datasets/:DatasetRunsHours:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/datasets/:DatasetTable:1",
           "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
         },
@@ -70921,6 +71058,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -70941,6 +71083,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "mechanism": "VAL-B2-VIZ-012 per-member evidence derived from the persisted interactive-captures sweep of the built export at 375x812/1440x900 with reduced motion, one member per production mount: its settled, non-blank default and changed element captures at each width, the committed contact sheet that tiles them (re-hashed here), its exact expected and observed case counts, its reset read from the mount's own state, and the §1.12 rubric decided from the convergence findings scoped to the mount's own root, its text families, devices and headline lines; the 2 registered sources without a production mount carry a typed reason, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -71296,7 +71443,7 @@
         "statement": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
         "expected": "Every source and materially distinct mount produces the registered bounded default/changed mobile/desktop `captures[]`, a deterministic contact sheet, exact expected/observed case counts, and the §1.12 rubric; root computed styles alone cannot satisfy visual coverage.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 87,
+        "populationSize": 90,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -71324,13 +71471,16 @@
           "result:VAL-B2-VIZ-012:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
           "result:VAL-B2-VIZ-012:mount:/classical/state-estimation/:LinearizationGap:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/datasets/:DatasetRunsHours:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/datasets/:DatasetTable:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
           "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "result:VAL-B2-VIZ-012:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "result:VAL-B2-VIZ-012:mount:/frontier/bear-case/:BearCaseLock:1",
           "result:VAL-B2-VIZ-012:mount:/frontier/bear-case/:MilestonesWatchlist:1",
           "result:VAL-B2-VIZ-012:mount:/frontier/competing-theses/:HelixClockwork:1",
@@ -71428,7 +71578,7 @@
         "statement": "Source/render parity uses independent expected-value-to-coordinate/label/readout checks, legend-to-mark bijection, and source/assumption IDs; an expected value copied from rendered output is vacuous and fails.",
         "expected": "Source/render parity uses independent expected-value-to-coordinate/label/readout checks, legend-to-mark bijection, and source/assumption IDs; an expected value copied from rendered output is vacuous and fails.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -71520,7 +71670,7 @@
         "statement": "Canvas renderers expose deterministic coordinate/label/readout probes and bound textual alternatives; resize/DPR changes preserve semantic coordinates, reset/default state, and source-backed values.",
         "expected": "Canvas renderers expose deterministic coordinate/label/readout probes and bound textual alternatives; resize/DPR changes preserve semantic coordinates, reset/default state, and source-backed values.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 88,
+        "populationSize": 91,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -71634,6 +71784,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-016:mount:/data-hardware/datasets/:DatasetRunsHours:1",
+          "mechanism": "VAL-B2-VIZ-016 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-016:mount:/data-hardware/datasets/:DatasetTable:1",
           "mechanism": "VAL-B2-VIZ-016 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
@@ -71645,6 +71800,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-016:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "mechanism": "VAL-B2-VIZ-016 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-016:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "mechanism": "VAL-B2-VIZ-016 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -71665,6 +71825,11 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-VIZ-016:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "mechanism": "VAL-B2-VIZ-016 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-VIZ-016:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "mechanism": "VAL-B2-VIZ-016 per-member evidence derived from the persisted keyboard transition ledger of the built export at 1440x900, one member per production mount (7 site sections, each swept by its own test): every control enumerated from the mount's registered focus case and operated by real key presses, sliders by End, Home and arrow keys, each transition's state digest before and after, the control's exposed state, every designated readout and how it was spoken, each live region's announcement, focus, duplicate ids, the pointer equivalent from the same state, the series re-read in the new state and the keyboard return through the control or the registered reset, the hover and focus reveals, the Tab order, and a 3000 ms idle window under no-preference and reduce motion, over contract/brand-v2-registries.json#interactive.mounts"
         },
         {
@@ -72008,7 +72173,7 @@
         "statement": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
         "expected": "Tooltips, legends, and table equivalents have pointer/keyboard parity, logical focus order, retained focus across async updates, unique IDs, label-in-name, and complete live-region state announcements.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 87,
+        "populationSize": 90,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -72036,13 +72201,16 @@
           "result:VAL-B2-VIZ-016:mount:/classical/scene-representation/:SceneRepresentationLadder:1",
           "result:VAL-B2-VIZ-016:mount:/classical/state-estimation/:LinearizationGap:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
+          "result:VAL-B2-VIZ-016:mount:/data-hardware/datasets/:DatasetRunsHours:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/datasets/:DatasetTable:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
+          "result:VAL-B2-VIZ-016:mount:/data-hardware/hardware-taxonomy/:HardwarePriceLadder:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/robot-learning-stack/:SceneSplit:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/teleop-rigs/:KinematicTwin:1",
           "result:VAL-B2-VIZ-016:mount:/data-hardware/teleop-rigs/:TeleopRigMatrix:1",
+          "result:VAL-B2-VIZ-016:mount:/data-hardware/teleop-rigs/:UmiCollectionRates:1",
           "result:VAL-B2-VIZ-016:mount:/frontier/bear-case/:BearCaseLock:1",
           "result:VAL-B2-VIZ-016:mount:/frontier/bear-case/:MilestonesWatchlist:1",
           "result:VAL-B2-VIZ-016:mount:/frontier/competing-theses/:HelixClockwork:1",

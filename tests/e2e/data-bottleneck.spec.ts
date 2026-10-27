@@ -102,10 +102,10 @@ test.describe('data-hardware data-bottleneck module', () => {
     await page.goto(ROUTE, { waitUntil: 'networkidle' });
     const chart = await openChart(page);
     // Tokens and hours never share a plane: each family has its own ruler.
+    // The company totals (over 500,000 hours) carry the ruler to 1 million;
+    // 100,000 stays unlabelled so a phone keeps its neighbours apart.
     const hourTicks = chart.locator('[data-testid^="hours-tick-"]');
-    await expect(hourTicks).toHaveCount(3);
-    await expect(hourTicks.first()).toHaveText('100');
-    await expect(hourTicks.last()).toHaveText('10,000');
+    await expect(hourTicks).toHaveText(['100', '1,000', '10,000', '1 million']);
     const tokenTicks = chart.locator('[data-testid^="token-tick-"]');
     await expect(tokenTicks).toHaveCount(2);
     await expect(tokenTicks.first()).toHaveText('100 billion');
@@ -157,6 +157,27 @@ test.describe('data-hardware data-bottleneck module', () => {
     await expect(
       chart.getByRole('button', { name: /part-time/i }),
     ).toHaveAttribute('aria-pressed', 'true');
+  });
+
+  test('company totals plot as unreleased lower bounds beside the public datasets (VAL-OPUS-089)', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE, { waitUntil: 'networkidle' });
+    const chart = await openChart(page);
+    for (const [id, value] of [
+      ['xiaomi-robotics-1', 'over 100,000'], ['gen-0', 'over 270,000'], ['gen-1', 'over 500,000'],
+    ]) {
+      const marker = chart.getByTestId(`robot-marker-${id}`);
+      await expect(marker).toHaveAttribute('data-series', 'company-total');
+      await expect(marker).toContainText(value);
+    }
+    await expect(chart.locator('[data-legend-series="company-total"]')).toHaveText('company total, not released');
+    await expect(chart.locator('[data-legend-series="company-total"]')).toBeVisible();
+    await expect(chart.getByTestId('rate-explanation')).toContainText('neither company has released the data');
+    await openAdjustMore(chart);
+    await chart.getByTestId('dataset-kind-company').click();
+    await expect(chart.getByTestId('robot-marker-gen-1')).toHaveAttribute('data-picked', 'true');
+    await expect(chart.getByTestId('robot-marker-droid')).toHaveAttribute('data-picked', 'false');
   });
 
   test('no horizontal page scroll at 375px', async ({ browser }) => {

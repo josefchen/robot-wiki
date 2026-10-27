@@ -13,6 +13,7 @@ import { adjacentCutPredecessor } from '../../lib/audit-length-cut-adjacent-cont
 import { frontierLengthCutPredecessor } from '../../lib/audit-length-cut-frontier-continuity.ts';
 import { worldModelsLengthCutPredecessor } from '../../lib/audit-length-cut-world-models-continuity.ts';
 import { lengthCutPredecessor } from '../../lib/audit-length-cut-continuity.ts';
+import { owedFiguresPredecessor } from '../../lib/audit-owed-figures-continuity.ts';
 import { parallelLocalPredecessor } from '../../lib/audit-parallel-local-continuity.ts';
 import { readerFirstPredecessor } from '../../lib/audit-reader-first-continuity.ts';
 import { reskinPredecessor } from '../../lib/audit-reskin-site-foundation-continuity.ts';
@@ -171,12 +172,22 @@ export function preSceneCraft(path: string): Buffer {
 }
 
 /**
- * The bytes the convergence-prose layer of 2026-10-26 hands every check older
- * than the convergence prose and sources edits: the rebuilt pre-edit article
+ * The bytes the owed-figures layer of 2026-10-26 hands every check older than
+ * the owed data figures and their sentences: the rebuilt pre-edit article
  * while the live article is the reviewed successor, otherwise the live bytes.
  */
+export function preOwedFigures(path: string): Buffer {
+  return owedFiguresPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+}
+
+/**
+ * The bytes the convergence-prose layer of 2026-10-26 hands every check older
+ * than the convergence prose and sources edits: the rebuilt pre-edit article
+ * while the live article is the reviewed successor, otherwise the bytes the
+ * newer owed-figures read hands on.
+ */
 export function preConvergenceProse(path: string): Buffer {
-  return convergenceProsePredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(resolve(root, path)));
+  return convergenceProsePredecessor(root, { path, bytes: 0, sha256: '' }, preOwedFigures(path));
 }
 
 /**

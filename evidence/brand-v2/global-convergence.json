@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "fingerprint": "2bc47c059480af67e080774db1463db2d4ea7f002dc6890631b7a8b136db310d",
+  "fingerprint": "e526699f349a7dfd25f3fa0262cd9ed0bd3a4e611bc339c3c78ce23dabeb1716",
   "viewports": [
     "375x812",
     "768x1024",
@@ -104,7 +104,7 @@
           "frames": 0,
           "citationLabels": 3,
           "insetTextRuns": 156,
-          "collisionTextBoxes": 185,
+          "collisionTextBoxes": 184,
           "headings": 6,
           "paragraphs": 13,
           "sectionHeads": 5,
@@ -444,10 +444,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 186,
+            "maxLineWidthPx": 176,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Control",
+            "text": "Major Datasets",
             "exemption": null
           },
           {
@@ -690,7 +690,7 @@
         ],
         "content": {
           "strings": 123,
-          "digest": "ea8c10dc"
+          "digest": "de8bfdf8"
         }
       },
       "focus": [
@@ -1356,10 +1356,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 238,
+            "maxLineWidthPx": 176,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Control",
+            "text": "Major Datasets",
             "exemption": null
           },
           {
@@ -1609,7 +1609,7 @@
         ],
         "content": {
           "strings": 123,
-          "digest": "ea8c10dc"
+          "digest": "de8bfdf8"
         }
       },
       "focus": [
@@ -2276,10 +2276,10 @@
             "trackingEm": 0,
             "transform": "none",
             "parentSizeRatio": 1,
-            "maxLineWidthPx": 238,
+            "maxLineWidthPx": 176,
             "count": 5,
             "element": "a[data-brand-control-id=\"control:link-focus\"].min-w-0.ink-link",
-            "text": "Control",
+            "text": "Major Datasets",
             "exemption": null
           },
           {
@@ -2529,7 +2529,7 @@
         ],
         "content": {
           "strings": 123,
-          "digest": "ea8c10dc"
+          "digest": "de8bfdf8"
         }
       },
       "focus": [
@@ -58795,16 +58795,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 880,
+          "paintedElements": 896,
           "actions": 169,
           "secondaryActions": 28,
           "persistentStates": 1,
           "links": 134,
-          "textRuns": 432,
+          "textRuns": 433,
           "frames": 5,
           "citationMarks": 46,
-          "insetTextRuns": 503,
-          "collisionTextBoxes": 837,
+          "insetTextRuns": 504,
+          "collisionTextBoxes": 838,
           "headings": 10,
           "paragraphs": 114,
           "sectionHeads": 9,
@@ -59490,8 +59490,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 575,
-          "digest": "37552c9e"
+          "strings": 586,
+          "digest": "6dec0830"
         }
       },
       "focus": [
@@ -59804,16 +59804,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 880,
+          "paintedElements": 896,
           "actions": 169,
           "secondaryActions": 28,
           "persistentStates": 1,
           "links": 134,
-          "textRuns": 432,
+          "textRuns": 433,
           "frames": 5,
           "citationMarks": 46,
-          "insetTextRuns": 531,
-          "collisionTextBoxes": 586,
+          "insetTextRuns": 532,
+          "collisionTextBoxes": 588,
           "headings": 10,
           "paragraphs": 114,
           "sectionHeads": 9,
@@ -60506,8 +60506,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 575,
-          "digest": "37552c9e"
+          "strings": 586,
+          "digest": "6dec0830"
         }
       },
       "focus": [
@@ -60820,16 +60820,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1032,
+          "paintedElements": 1048,
           "actions": 222,
           "secondaryActions": 28,
           "persistentStates": 2,
           "links": 187,
-          "textRuns": 530,
+          "textRuns": 531,
           "frames": 5,
           "citationMarks": 46,
-          "insetTextRuns": 629,
-          "collisionTextBoxes": 661,
+          "insetTextRuns": 630,
+          "collisionTextBoxes": 662,
           "headings": 10,
           "paragraphs": 114,
           "sectionHeads": 9,
@@ -61589,8 +61589,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 575,
-          "digest": "37552c9e"
+          "strings": 586,
+          "digest": "6dec0830"
         }
       },
       "focus": [
@@ -61903,16 +61903,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 919,
-          "actions": 202,
+          "paintedElements": 973,
+          "actions": 207,
           "secondaryActions": 40,
           "persistentStates": 3,
           "links": 145,
-          "textRuns": 485,
-          "frames": 4,
+          "textRuns": 498,
+          "frames": 5,
           "citationMarks": 51,
-          "insetTextRuns": 507,
-          "collisionTextBoxes": 934,
+          "insetTextRuns": 520,
+          "collisionTextBoxes": 951,
           "headings": 13,
           "paragraphs": 111,
           "sectionHeads": 12,
@@ -61929,7 +61929,7 @@
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 43
+          "compositionBlocks": 44
         },
         "findings": [],
         "typeTuples": [
@@ -62571,6 +62571,16 @@
             "exemption": null
           },
           {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              16,
+              16,
+              14,
+              16
+            ],
+            "exemption": null
+          },
+          {
             "element": "figure[data-figure-kind=\"paper-figure\"][data-image-id=\"bridgedata-v2-sink-tasks-2023\"].my-6.w-full",
             "paddingPx": [
               16,
@@ -62583,8 +62593,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 521,
-          "digest": "4783452f"
+          "strings": 560,
+          "digest": "35c9b7bc"
         }
       },
       "focus": [
@@ -62897,16 +62907,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 919,
-          "actions": 202,
+          "paintedElements": 973,
+          "actions": 207,
           "secondaryActions": 40,
           "persistentStates": 3,
           "links": 145,
-          "textRuns": 485,
-          "frames": 4,
+          "textRuns": 498,
+          "frames": 5,
           "citationMarks": 51,
-          "insetTextRuns": 507,
-          "collisionTextBoxes": 704,
+          "insetTextRuns": 520,
+          "collisionTextBoxes": 719,
           "headings": 13,
           "paragraphs": 111,
           "sectionHeads": 12,
@@ -62923,7 +62933,7 @@
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 14,
-          "compositionBlocks": 43
+          "compositionBlocks": 44
         },
         "findings": [],
         "typeTuples": [
@@ -63572,6 +63582,16 @@
             "exemption": null
           },
           {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
+          },
+          {
             "element": "figure[data-figure-kind=\"paper-figure\"][data-image-id=\"bridgedata-v2-sink-tasks-2023\"].my-6.w-full",
             "paddingPx": [
               24,
@@ -63584,8 +63604,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 521,
-          "digest": "4783452f"
+          "strings": 560,
+          "digest": "35c9b7bc"
         }
       },
       "focus": [
@@ -63898,16 +63918,16 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1092,
-          "actions": 263,
+          "paintedElements": 1146,
+          "actions": 268,
           "secondaryActions": 40,
           "persistentStates": 4,
           "links": 206,
-          "textRuns": 596,
-          "frames": 4,
+          "textRuns": 609,
+          "frames": 5,
           "citationMarks": 51,
-          "insetTextRuns": 698,
-          "collisionTextBoxes": 782,
+          "insetTextRuns": 711,
+          "collisionTextBoxes": 795,
           "headings": 13,
           "paragraphs": 111,
           "sectionHeads": 12,
@@ -63924,7 +63944,7 @@
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 13,
-          "compositionBlocks": 43
+          "compositionBlocks": 44
         },
         "findings": [],
         "typeTuples": [
@@ -64646,6 +64666,16 @@
             "exemption": null
           },
           {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
+          },
+          {
             "element": "figure[data-figure-kind=\"paper-figure\"][data-image-id=\"bridgedata-v2-sink-tasks-2023\"].my-6.w-full",
             "paddingPx": [
               24,
@@ -64658,8 +64688,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 521,
-          "digest": "4783452f"
+          "strings": 560,
+          "digest": "35c9b7bc"
         }
       },
       "focus": [
@@ -68062,36 +68092,36 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1628,
-          "actions": 241,
+          "paintedElements": 1724,
+          "actions": 255,
           "secondaryActions": 20,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 5,
-          "links": 184,
-          "textRuns": 862,
+          "links": 188,
+          "textRuns": 894,
           "disabledTextRuns": 1,
-          "frames": 5,
-          "citationMarks": 55,
-          "insetTextRuns": 580,
-          "collisionTextBoxes": 1720,
+          "frames": 6,
+          "citationMarks": 57,
+          "insetTextRuns": 616,
+          "collisionTextBoxes": 1770,
           "headings": 12,
-          "paragraphs": 128,
+          "paragraphs": 130,
           "sectionHeads": 10,
           "joinedSegments": 16,
-          "spacingValues": 1771,
+          "spacingValues": 1781,
           "autoMargins": 1,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 55,
-          "hiddenTextRuns": 53,
-          "proseRuns": 1273,
+          "decorativeLayers": 56,
+          "hiddenTextRuns": 54,
+          "proseRuns": 1287,
           "borderedSides": 13,
           "rails": 13,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 42
+          "compositionBlocks": 43
         },
         "findings": [],
         "typeTuples": [
@@ -68195,7 +68225,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 323,
-            "count": 60,
+            "count": 63,
             "element": "p.page-lead",
             "text": "A buyer's guide from SO-101 to Jetson Th",
             "exemption": null
@@ -68255,7 +68285,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -68420,7 +68450,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 283,
-            "count": 56,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Dexterity",
             "exemption": null
@@ -68435,7 +68465,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 320,
-            "count": 118,
+            "count": 120,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Contact-rich manipulation, touch sensing",
             "exemption": null
@@ -68450,7 +68480,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 50,
+            "count": 51,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://github.com/TheRobotStudio/SO-ARM",
             "exemption": null
@@ -68589,14 +68619,14 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 54,
+            "count": 55,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -68652,7 +68682,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 51,
+            "count": 52,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -68773,12 +68803,22 @@
               16
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              16,
+              16,
+              14,
+              16
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 765,
-          "digest": "eb7313fe"
+          "strings": 821,
+          "digest": "9949911e"
         }
       },
       "focus": [
@@ -68833,7 +68873,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"50\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"51\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -69091,36 +69131,36 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1628,
-          "actions": 241,
+          "paintedElements": 1724,
+          "actions": 255,
           "secondaryActions": 20,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 5,
-          "links": 184,
-          "textRuns": 862,
+          "links": 188,
+          "textRuns": 894,
           "disabledTextRuns": 1,
-          "frames": 5,
-          "citationMarks": 55,
-          "insetTextRuns": 580,
-          "collisionTextBoxes": 1509,
+          "frames": 6,
+          "citationMarks": 57,
+          "insetTextRuns": 616,
+          "collisionTextBoxes": 1549,
           "headings": 12,
-          "paragraphs": 128,
+          "paragraphs": 130,
           "sectionHeads": 10,
           "joinedSegments": 19,
-          "spacingValues": 1790,
+          "spacingValues": 1800,
           "autoMargins": 1,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 55,
-          "hiddenTextRuns": 53,
-          "proseRuns": 1182,
+          "decorativeLayers": 56,
+          "hiddenTextRuns": 54,
+          "proseRuns": 1193,
           "borderedSides": 13,
           "rails": 13,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 42
+          "compositionBlocks": 43
         },
         "findings": [],
         "typeTuples": [
@@ -69224,7 +69264,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 323,
-            "count": 60,
+            "count": 63,
             "element": "p.page-lead",
             "text": "A buyer's guide from SO-101 to Jetson Th",
             "exemption": null
@@ -69284,7 +69324,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -69449,7 +69489,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 657,
-            "count": 56,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Dexterity",
             "exemption": null
@@ -69464,7 +69504,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 659,
-            "count": 118,
+            "count": 120,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Contact-rich manipulation, touch sensing",
             "exemption": null
@@ -69479,7 +69519,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 50,
+            "count": 51,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://github.com/TheRobotStudio/SO-ARM",
             "exemption": null
@@ -69632,14 +69672,14 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 54,
+            "count": 55,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -69688,7 +69728,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 51,
+            "count": 52,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -69809,12 +69849,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 765,
-          "digest": "eb7313fe"
+          "strings": 821,
+          "digest": "9949911e"
         }
       },
       "focus": [
@@ -69869,7 +69919,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"50\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"51\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -70127,36 +70177,36 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1809,
-          "actions": 304,
+          "paintedElements": 1911,
+          "actions": 320,
           "secondaryActions": 20,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 6,
-          "links": 247,
-          "textRuns": 979,
+          "links": 253,
+          "textRuns": 1015,
           "disabledTextRuns": 1,
-          "frames": 5,
-          "citationMarks": 55,
-          "insetTextRuns": 1144,
-          "collisionTextBoxes": 1410,
+          "frames": 6,
+          "citationMarks": 57,
+          "insetTextRuns": 1184,
+          "collisionTextBoxes": 1451,
           "headings": 12,
-          "paragraphs": 128,
+          "paragraphs": 130,
           "sectionHeads": 10,
           "joinedSegments": 19,
-          "spacingValues": 2020,
+          "spacingValues": 2038,
           "autoMargins": 3,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 55,
-          "hiddenTextRuns": 53,
-          "proseRuns": 1087,
+          "decorativeLayers": 56,
+          "hiddenTextRuns": 54,
+          "proseRuns": 1101,
           "borderedSides": 11,
           "rails": 11,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 42
+          "compositionBlocks": 43
         },
         "findings": [],
         "typeTuples": [
@@ -70260,7 +70310,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 323,
-            "count": 60,
+            "count": 63,
             "element": "p.page-lead",
             "text": "A buyer's guide from SO-101 to Jetson Th",
             "exemption": null
@@ -70335,7 +70385,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 1",
             "exemption": null
@@ -70350,7 +70400,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 55,
+            "count": 57,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "1",
             "exemption": null
@@ -70365,7 +70415,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 164,
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "TheRobotStudio 2026",
             "exemption": null
@@ -70530,7 +70580,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 844,
-            "count": 56,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Dexterity",
             "exemption": null
@@ -70545,7 +70595,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 855,
-            "count": 118,
+            "count": 120,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "Contact-rich manipulation, touch sensing",
             "exemption": null
@@ -70560,7 +70610,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 882,
-            "count": 50,
+            "count": 51,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://github.com/TheRobotStudio/SO-ARM",
             "exemption": null
@@ -70706,35 +70756,35 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 55,
+            "count": 57,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 55,
+            "count": 57,
             "element": "span#_R_40lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 55,
+            "count": 57,
             "element": "span#_R_40lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 55,
+            "count": 57,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 54,
+            "count": 55,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -70797,7 +70847,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 51,
+            "count": 52,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -70918,12 +70968,22 @@
               24
             ],
             "exemption": null
+          },
+          {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
           }
         ],
         "controlGaps": [],
         "content": {
-          "strings": 765,
-          "digest": "eb7313fe"
+          "strings": 821,
+          "digest": "9949911e"
         }
       },
       "focus": [
@@ -70978,7 +71038,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"50\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"51\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -71245,7 +71305,7 @@
           "frames": 5,
           "citationMarks": 52,
           "insetTextRuns": 518,
-          "collisionTextBoxes": 934,
+          "collisionTextBoxes": 935,
           "headings": 12,
           "paragraphs": 117,
           "sectionHeads": 11,
@@ -71254,7 +71314,7 @@
           "alignedDevices": 2,
           "decorativeLayers": 42,
           "hiddenTextRuns": 40,
-          "proseRuns": 500,
+          "proseRuns": 501,
           "borderedSides": 4,
           "rails": 4,
           "shellGrounds": 10,
@@ -71812,7 +71872,7 @@
         "controlGaps": [],
         "content": {
           "strings": 607,
-          "digest": "929fe7ca"
+          "digest": "4afb9c6d"
         }
       },
       "focus": [
@@ -72708,7 +72768,7 @@
         "controlGaps": [],
         "content": {
           "strings": 607,
-          "digest": "929fe7ca"
+          "digest": "4afb9c6d"
         }
       },
       "focus": [
@@ -73671,7 +73731,7 @@
         "controlGaps": [],
         "content": {
           "strings": 607,
-          "digest": "929fe7ca"
+          "digest": "4afb9c6d"
         }
       },
       "focus": [
@@ -73984,26 +74044,26 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1472,
-          "actions": 161,
+          "paintedElements": 1484,
+          "actions": 163,
           "secondaryActions": 32,
           "persistentStates": 1,
-          "links": 123,
-          "textRuns": 360,
+          "links": 125,
+          "textRuns": 366,
           "frames": 6,
           "cards": 1,
-          "citationMarks": 42,
-          "insetTextRuns": 448,
-          "collisionTextBoxes": 709,
+          "citationMarks": 43,
+          "insetTextRuns": 456,
+          "collisionTextBoxes": 723,
           "headings": 13,
-          "paragraphs": 105,
+          "paragraphs": 107,
           "sectionHeads": 12,
-          "spacingValues": 468,
+          "spacingValues": 477,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 42,
-          "hiddenTextRuns": 40,
-          "proseRuns": 310,
+          "decorativeLayers": 43,
+          "hiddenTextRuns": 41,
+          "proseRuns": 317,
           "borderedSides": 9,
           "rails": 5,
           "shellGrounds": 10,
@@ -74098,7 +74158,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 303,
-            "count": 52,
+            "count": 53,
             "element": "p.page-lead",
             "text": "From data capture to robot integration a",
             "exemption": null
@@ -74158,7 +74218,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -74218,7 +74278,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 300,
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Evaluation Crisis",
             "exemption": null
@@ -74233,7 +74293,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 321,
-            "count": 109,
+            "count": 111,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -74248,7 +74308,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 38,
+            "count": 39,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2310.08864",
             "exemption": null
@@ -74387,7 +74447,7 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -74471,14 +74531,14 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 39,
+            "count": 40,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 38,
+            "count": 39,
             "element": "p.mt-0.5.break-words.font-sans",
             "exemption": null
           },
@@ -74613,8 +74673,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 452,
-          "digest": "c9e39721"
+          "strings": 461,
+          "digest": "15fc6c4c"
         }
       },
       "focus": [
@@ -74669,7 +74729,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"38\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -74927,26 +74987,26 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1472,
-          "actions": 161,
+          "paintedElements": 1484,
+          "actions": 163,
           "secondaryActions": 32,
           "persistentStates": 1,
-          "links": 123,
-          "textRuns": 360,
+          "links": 125,
+          "textRuns": 366,
           "frames": 6,
           "cards": 1,
-          "citationMarks": 42,
-          "insetTextRuns": 448,
-          "collisionTextBoxes": 483,
+          "citationMarks": 43,
+          "insetTextRuns": 456,
+          "collisionTextBoxes": 493,
           "headings": 13,
-          "paragraphs": 105,
+          "paragraphs": 107,
           "sectionHeads": 12,
-          "spacingValues": 468,
+          "spacingValues": 477,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 42,
-          "hiddenTextRuns": 40,
-          "proseRuns": 212,
+          "decorativeLayers": 43,
+          "hiddenTextRuns": 41,
+          "proseRuns": 218,
           "borderedSides": 9,
           "rails": 5,
           "shellGrounds": 10,
@@ -75041,7 +75101,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 494,
-            "count": 52,
+            "count": 53,
             "element": "p.page-lead",
             "text": "From data capture to robot integration a",
             "exemption": null
@@ -75101,7 +75161,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -75161,7 +75221,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Evaluation Crisis",
             "exemption": null
@@ -75176,7 +75236,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 657,
-            "count": 109,
+            "count": 111,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -75191,7 +75251,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 38,
+            "count": 39,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2310.08864",
             "exemption": null
@@ -75344,7 +75404,7 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
@@ -75400,14 +75460,14 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 39,
+            "count": 40,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 38,
+            "count": 39,
             "element": "p.mt-0.5.break-words.font-sans",
             "exemption": null
           },
@@ -75535,8 +75595,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 452,
-          "digest": "c9e39721"
+          "strings": 461,
+          "digest": "15fc6c4c"
         }
       },
       "focus": [
@@ -75591,7 +75651,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"38\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -75849,27 +75909,27 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1618,
-          "actions": 213,
+          "paintedElements": 1633,
+          "actions": 216,
           "secondaryActions": 32,
           "persistentStates": 2,
-          "links": 175,
-          "textRuns": 453,
+          "links": 178,
+          "textRuns": 461,
           "frames": 6,
           "cards": 1,
-          "citationMarks": 42,
-          "insetTextRuns": 541,
-          "collisionTextBoxes": 557,
+          "citationMarks": 43,
+          "insetTextRuns": 551,
+          "collisionTextBoxes": 568,
           "headings": 13,
-          "paragraphs": 105,
+          "paragraphs": 107,
           "sectionHeads": 12,
-          "spacingValues": 647,
+          "spacingValues": 660,
           "autoMargins": 2,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 42,
-          "hiddenTextRuns": 40,
-          "proseRuns": 284,
+          "decorativeLayers": 43,
+          "hiddenTextRuns": 41,
+          "proseRuns": 291,
           "borderedSides": 7,
           "rails": 3,
           "shellGrounds": 11,
@@ -75964,7 +76024,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 494,
-            "count": 52,
+            "count": 53,
             "element": "p.page-lead",
             "text": "From data capture to robot integration a",
             "exemption": null
@@ -76039,7 +76099,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 10",
             "exemption": null
@@ -76054,7 +76114,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 42,
+            "count": 43,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "10",
             "exemption": null
@@ -76069,7 +76129,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 149,
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Cadene et al. 2026",
             "exemption": null
@@ -76129,7 +76189,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 809,
-            "count": 44,
+            "count": 45,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "The Evaluation Crisis",
             "exemption": null
@@ -76144,7 +76204,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 881,
-            "count": 109,
+            "count": 111,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "What a success rate hides, from trial co",
             "exemption": null
@@ -76159,7 +76219,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 777,
-            "count": 38,
+            "count": 39,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2310.08864",
             "exemption": null
@@ -76305,28 +76365,28 @@
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 42,
+            "count": 43,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 42,
+            "count": 43,
             "element": "span#_R_6lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 42,
+            "count": 43,
             "element": "span#_R_6lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 42,
+            "count": 43,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
@@ -76389,14 +76449,14 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 39,
+            "count": 40,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 38,
+            "count": 39,
             "element": "p.mt-0.5.break-words.font-sans",
             "exemption": null
           },
@@ -76524,8 +76584,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 452,
-          "digest": "c9e39721"
+          "strings": 461,
+          "digest": "15fc6c4c"
         }
       },
       "focus": [
@@ -76580,7 +76640,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"38\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"39\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -76838,36 +76898,36 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1492,
-          "actions": 183,
+          "paintedElements": 1538,
+          "actions": 186,
           "secondaryActions": 33,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 1,
-          "links": 136,
-          "textRuns": 446,
+          "links": 138,
+          "textRuns": 458,
           "disabledTextRuns": 1,
-          "frames": 5,
-          "citationMarks": 43,
-          "insetTextRuns": 480,
-          "collisionTextBoxes": 952,
+          "frames": 6,
+          "citationMarks": 44,
+          "insetTextRuns": 493,
+          "collisionTextBoxes": 978,
           "headings": 11,
-          "paragraphs": 107,
+          "paragraphs": 110,
           "sectionHeads": 10,
           "joinedSegments": 2,
-          "spacingValues": 633,
+          "spacingValues": 643,
           "autoMargins": 1,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 41,
-          "hiddenTextRuns": 39,
-          "proseRuns": 560,
+          "decorativeLayers": 42,
+          "hiddenTextRuns": 40,
+          "proseRuns": 570,
           "borderedSides": 12,
           "rails": 12,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 41
+          "compositionBlocks": 43
         },
         "findings": [],
         "typeTuples": [
@@ -76956,7 +77016,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 320,
-            "count": 54,
+            "count": 55,
             "element": "p.page-lead",
             "text": "ALOHA, GELLO, UMI and VR rigs compared o",
             "exemption": null
@@ -77001,7 +77061,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 327,
-            "count": 19,
+            "count": 20,
             "element": "p",
             "text": "TeleoperationteleoperationTeleoperation ",
             "exemption": null
@@ -77016,7 +77076,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 11",
             "exemption": null
@@ -77196,7 +77256,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 283,
-            "count": 49,
+            "count": 50,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Action Chunking (ACT and ALOHA)",
             "exemption": null
@@ -77211,7 +77271,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 325,
-            "count": 108,
+            "count": 110,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "ACT predicts short action sequences and ",
             "exemption": null
@@ -77226,7 +77286,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 280,
-            "count": 36,
+            "count": 37,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2304.13705",
             "exemption": null
@@ -77358,21 +77418,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 30,
+            "count": 31,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 40,
+            "count": 41,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -77442,7 +77502,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 37,
+            "count": 38,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -77538,6 +77598,16 @@
             "exemption": null
           },
           {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              16,
+              16,
+              14,
+              16
+            ],
+            "exemption": null
+          },
+          {
             "element": "figure[data-figure-kind=\"paper-figure\"][data-image-id=\"umi-handheld-grippers-2024\"].my-6.w-full.max-w-[20rem]",
             "paddingPx": [
               16,
@@ -77550,8 +77620,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 483,
-          "digest": "5c5051a0"
+          "strings": 507,
+          "digest": "60f8c389"
         }
       },
       "focus": [
@@ -77606,7 +77676,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"36\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"37\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -77864,36 +77934,36 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1492,
-          "actions": 183,
+          "paintedElements": 1538,
+          "actions": 186,
           "secondaryActions": 33,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 1,
-          "links": 136,
-          "textRuns": 446,
+          "links": 138,
+          "textRuns": 458,
           "disabledTextRuns": 1,
-          "frames": 5,
-          "citationMarks": 43,
-          "insetTextRuns": 540,
-          "collisionTextBoxes": 715,
+          "frames": 6,
+          "citationMarks": 44,
+          "insetTextRuns": 553,
+          "collisionTextBoxes": 732,
           "headings": 11,
-          "paragraphs": 107,
+          "paragraphs": 110,
           "sectionHeads": 10,
           "joinedSegments": 3,
-          "spacingValues": 636,
+          "spacingValues": 646,
           "autoMargins": 1,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 41,
-          "hiddenTextRuns": 39,
-          "proseRuns": 435,
+          "decorativeLayers": 42,
+          "hiddenTextRuns": 40,
+          "proseRuns": 441,
           "borderedSides": 12,
           "rails": 12,
           "shellGrounds": 10,
           "materialSurfaces": 1,
           "transformedLabels": 12,
-          "compositionBlocks": 41
+          "compositionBlocks": 43
         },
         "findings": [],
         "typeTuples": [
@@ -77982,7 +78052,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 465,
-            "count": 54,
+            "count": 55,
             "element": "p.page-lead",
             "text": "ALOHA, GELLO, UMI and VR rigs compared o",
             "exemption": null
@@ -78027,7 +78097,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 704,
-            "count": 19,
+            "count": 20,
             "element": "p",
             "text": "TeleoperationteleoperationTeleoperation ",
             "exemption": null
@@ -78042,7 +78112,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 11",
             "exemption": null
@@ -78222,7 +78292,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 659,
-            "count": 49,
+            "count": 50,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Action Chunking (ACT and ALOHA)",
             "exemption": null
@@ -78237,7 +78307,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 656,
-            "count": 108,
+            "count": 110,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "ACT predicts short action sequences and ",
             "exemption": null
@@ -78252,7 +78322,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 658,
-            "count": 36,
+            "count": 37,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2304.13705",
             "exemption": null
@@ -78398,21 +78468,21 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 30,
+            "count": 31,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 40,
+            "count": 41,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -78475,7 +78545,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 37,
+            "count": 38,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -78571,6 +78641,16 @@
             "exemption": null
           },
           {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
+          },
+          {
             "element": "figure[data-figure-kind=\"paper-figure\"][data-image-id=\"umi-handheld-grippers-2024\"].my-6.w-full.max-w-[20rem]",
             "paddingPx": [
               24,
@@ -78583,8 +78663,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 483,
-          "digest": "5c5051a0"
+          "strings": 507,
+          "digest": "60f8c389"
         }
       },
       "focus": [
@@ -78639,7 +78719,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"36\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"37\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
@@ -78897,36 +78977,36 @@
       "status": 200,
       "page": {
         "counts": {
-          "paintedElements": 1637,
-          "actions": 234,
+          "paintedElements": 1686,
+          "actions": 238,
           "secondaryActions": 33,
           "disabledActions": 1,
           "primaryActions": 1,
           "persistentStates": 2,
-          "links": 187,
-          "textRuns": 539,
+          "links": 190,
+          "textRuns": 553,
           "disabledTextRuns": 1,
-          "frames": 5,
-          "citationMarks": 43,
-          "insetTextRuns": 633,
-          "collisionTextBoxes": 729,
+          "frames": 6,
+          "citationMarks": 44,
+          "insetTextRuns": 648,
+          "collisionTextBoxes": 746,
           "headings": 11,
-          "paragraphs": 107,
+          "paragraphs": 110,
           "sectionHeads": 10,
           "joinedSegments": 3,
-          "spacingValues": 818,
+          "spacingValues": 832,
           "autoMargins": 3,
           "registeredDevices": 2,
           "alignedDevices": 2,
-          "decorativeLayers": 41,
-          "hiddenTextRuns": 39,
-          "proseRuns": 449,
+          "decorativeLayers": 42,
+          "hiddenTextRuns": 40,
+          "proseRuns": 456,
           "borderedSides": 10,
           "rails": 10,
           "shellGrounds": 11,
           "materialSurfaces": 1,
           "transformedLabels": 11,
-          "compositionBlocks": 41
+          "compositionBlocks": 43
         },
         "findings": [],
         "typeTuples": [
@@ -79015,7 +79095,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 465,
-            "count": 54,
+            "count": 55,
             "element": "p.page-lead",
             "text": "ALOHA, GELLO, UMI and VR rigs compared o",
             "exemption": null
@@ -79075,7 +79155,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 928,
-            "count": 19,
+            "count": 20,
             "element": "p",
             "text": "TeleoperationteleoperationTeleoperation ",
             "exemption": null
@@ -79090,7 +79170,7 @@
             "transform": "none",
             "parentSizeRatio": 0.7,
             "maxLineWidthPx": 16,
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Source 11",
             "exemption": null
@@ -79105,7 +79185,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 18,
-            "count": 43,
+            "count": 44,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "text": "11",
             "exemption": null
@@ -79120,7 +79200,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 150,
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "text": "Generalist Team 2026",
             "exemption": null
@@ -79300,7 +79380,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 757,
-            "count": 49,
+            "count": 50,
             "element": "a[data-brand-control-id=\"control:link-focus\"].break-words.font-sans.text-sm",
             "text": "Action Chunking (ACT and ALOHA)",
             "exemption": null
@@ -79315,7 +79395,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 816,
-            "count": 108,
+            "count": 110,
             "element": "p.mt-1.font-sans.text-[13px]",
             "text": "ACT predicts short action sequences and ",
             "exemption": null
@@ -79330,7 +79410,7 @@
             "transform": "none",
             "parentSizeRatio": 1,
             "maxLineWidthPx": 707,
-            "count": 36,
+            "count": 37,
             "element": "p.break-all.font-mono.text-[12px]",
             "text": "https://arxiv.org/abs/2304.13705",
             "exemption": null
@@ -79469,42 +79549,42 @@
           {
             "valuePx": 20,
             "property": "marginBottom",
-            "count": 30,
+            "count": 31,
             "element": "p",
             "exemption": null
           },
           {
             "valuePx": 1,
             "property": "paddingLeft",
-            "count": 43,
+            "count": 44,
             "element": "a[data-brand-control-id=\"control:link-focus\"]",
             "exemption": "spacing:optical-hairline"
           },
           {
             "valuePx": 4.55,
             "property": "marginTop",
-            "count": 43,
-            "element": "span#_R_3lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "count": 44,
+            "element": "span#_R_60lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:em-derived"
           },
           {
             "valuePx": 211.68,
             "property": "marginRight",
-            "count": 43,
-            "element": "span#_R_3lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
+            "count": 44,
+            "element": "span#_R_60lav5ubsnmtb_[data-sidenote=\"true\"][data-open=\"false\"].sidenote.hidden",
             "exemption": "spacing:viewport-derived"
           },
           {
             "valuePx": 2,
             "property": "marginRight",
-            "count": 43,
+            "count": 44,
             "element": "span[data-pagefind-ignore=\"true\"].sidenote-index",
             "exemption": null
           },
           {
             "valuePx": 2,
             "property": "marginTop",
-            "count": 40,
+            "count": 41,
             "element": "div.mt-0.5.font-sans.text-[11px]",
             "exemption": null
           },
@@ -79581,7 +79661,7 @@
           {
             "valuePx": 1,
             "property": "paddingTop",
-            "count": 37,
+            "count": 38,
             "element": "span.pt-px.font-mono.text-[13px]",
             "exemption": "spacing:optical-hairline"
           },
@@ -79677,6 +79757,16 @@
             "exemption": null
           },
           {
+            "element": "figure[data-brand-surface-id=\"surface:flat\"][data-brand-surface-level=\"flat\"].my-8.text-left.my-6",
+            "paddingPx": [
+              24,
+              24,
+              18,
+              24
+            ],
+            "exemption": null
+          },
+          {
             "element": "figure[data-figure-kind=\"paper-figure\"][data-image-id=\"umi-handheld-grippers-2024\"].my-6.w-full.max-w-[20rem]",
             "paddingPx": [
               24,
@@ -79689,8 +79779,8 @@
         ],
         "controlGaps": [],
         "content": {
-          "strings": 483,
-          "digest": "5c5051a0"
+          "strings": 507,
+          "digest": "60f8c389"
         }
       },
       "focus": [
@@ -79745,7 +79835,7 @@
           "offsetExemption": null
         },
         {
-          "element": "a[data-header-citation-count=\"36\"][data-brand-control-id=\"control:link-focus\"]",
+          "element": "a[data-header-citation-count=\"37\"][data-brand-control-id=\"control:link-focus\"]",
           "outlineStyle": "solid",
           "outlineWidthPx": 1,
           "outlineColour": "rgb(28, 28, 26)",
