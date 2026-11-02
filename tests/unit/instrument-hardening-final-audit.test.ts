@@ -1,3 +1,4 @@
+import { historicalGit } from '../helpers/historical-git';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -273,6 +274,7 @@ function npmScriptsIn(command: string): string[] {
 }
 
 function git(...args: string[]): string {
+  if (args[0] !== 'ls-files') return historicalGit(args, { encoding: 'utf8', neutralVocabulary: true }).trim();
   return execFileSync('git', args, {
     cwd: process.cwd(),
     encoding: 'utf8',

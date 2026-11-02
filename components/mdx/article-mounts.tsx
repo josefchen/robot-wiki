@@ -17,6 +17,7 @@ import { CitationRecordsProvider } from '@/components/article/citation-records';
 import { widgetCitationRecords, type CitingWidget } from '@/lib/widget-citations';
 import {
   ActuatorGap as LazyActuatorGap,
+  AvSafetyMiles as LazyAvSafetyMiles,
   CalibrationChain as LazyCalibrationChain,
   ComparisonMatrix as LazyComparisonMatrix,
   CrossEmbodimentStrategies as LazyCrossEmbodimentStrategies,
@@ -24,6 +25,8 @@ import {
   DatasetRunsHours as LazyDatasetRunsHours,
   DemoOrSim as LazyDemoOrSim,
   DeploymentDashboard as LazyDeploymentDashboard,
+  DroneChampionsTimeline as LazyDroneChampionsTimeline,
+  DroneDeliveryCounts as LazyDroneDeliveryCounts,
   FundingHumanoidCounts as LazyFundingHumanoidCounts,
   GeneralistReleaseTimeline as LazyGeneralistReleaseTimeline,
   HandComparison as LazyHandComparison,
@@ -48,9 +51,14 @@ import {
   Ros2Interfaces as LazyRos2Interfaces,
   Ros2PolicyLayout as LazyRos2PolicyLayout,
   SafetyRulesTimeline as LazySafetyRulesTimeline,
+  ModelBasedLoop as LazyModelBasedLoop,
+  WorldModelEvaluationLadder as LazyWorldModelEvaluationLadder,
+  WorldModelOutputTimes as LazyWorldModelOutputTimes,
   SampleEfficiencyLedger as LazySampleEfficiencyLedger,
   ScannedTwinCheck as LazyScannedTwinCheck,
   SceneRepresentationLadder as LazySceneRepresentationLadder,
+  SpaceLatencyLadder as LazySpaceLatencyLadder,
+  SurgicalAutonomyLadder as LazySurgicalAutonomyLadder,
   TerrainCurriculum as LazyTerrainCurriculum,
   ThesisExplorer as LazyThesisExplorer,
   TimeOffsetMiss as LazyTimeOffsetMiss,
@@ -146,6 +154,7 @@ function withCitationRecords<Props extends object>(
 }
 
 export const ActuatorGap = withCitationRecords('ActuatorGap', LazyActuatorGap);
+export const AvSafetyMiles = withCitationRecords('AvSafetyMiles', LazyAvSafetyMiles);
 export const CalibrationChain = withCitationRecords('CalibrationChain', LazyCalibrationChain);
 export const ComparisonMatrix = withCitationRecords('ComparisonMatrix', LazyComparisonMatrix);
 export const CrossEmbodimentStrategies = withCitationRecords('CrossEmbodimentStrategies', LazyCrossEmbodimentStrategies);
@@ -153,6 +162,8 @@ export const CubeTrials = withCitationRecords('CubeTrials', LazyCubeTrials);
 export const DatasetRunsHours = withCitationRecords('DatasetRunsHours', LazyDatasetRunsHours);
 export const DemoOrSim = withCitationRecords('DemoOrSim', LazyDemoOrSim);
 export const DeploymentDashboard = withCitationRecords('DeploymentDashboard', LazyDeploymentDashboard);
+export const DroneChampionsTimeline = withCitationRecords('DroneChampionsTimeline', LazyDroneChampionsTimeline);
+export const DroneDeliveryCounts = withCitationRecords('DroneDeliveryCounts', LazyDroneDeliveryCounts);
 export const FundingHumanoidCounts = withCitationRecords('FundingHumanoidCounts', LazyFundingHumanoidCounts);
 export const GeneralistReleaseTimeline = withCitationRecords('GeneralistReleaseTimeline', LazyGeneralistReleaseTimeline);
 export const HandComparison = withCitationRecords('HandComparison', LazyHandComparison);
@@ -180,8 +191,14 @@ export const SafetyRulesTimeline = withCitationRecords('SafetyRulesTimeline', La
 export const SampleEfficiencyLedger = withCitationRecords('SampleEfficiencyLedger', LazySampleEfficiencyLedger);
 export const ScannedTwinCheck = withCitationRecords('ScannedTwinCheck', LazyScannedTwinCheck);
 export const SceneRepresentationLadder = withCitationRecords('SceneRepresentationLadder', LazySceneRepresentationLadder);
+export const SpaceLatencyLadder = withCitationRecords('SpaceLatencyLadder', LazySpaceLatencyLadder);
+export const SurgicalAutonomyLadder = withCitationRecords('SurgicalAutonomyLadder', LazySurgicalAutonomyLadder);
 export const TerrainCurriculum = withCitationRecords('TerrainCurriculum', LazyTerrainCurriculum);
 export const ThesisExplorer = withCitationRecords('ThesisExplorer', LazyThesisExplorer);
 export const TimeOffsetMiss = withCitationRecords('TimeOffsetMiss', LazyTimeOffsetMiss);
 export const TrajectoryStitching = withCitationRecords('TrajectoryStitching', LazyTrajectoryStitching);
 export const UmiCollectionRates = withCitationRecords('UmiCollectionRates', LazyUmiCollectionRates);
+
+export const ModelBasedLoop = withCitationRecords('ModelBasedLoop', LazyModelBasedLoop);
+export const WorldModelEvaluationLadder = withCitationRecords('WorldModelEvaluationLadder', LazyWorldModelEvaluationLadder);
+export const WorldModelOutputTimes = withCitationRecords('WorldModelOutputTimes', LazyWorldModelOutputTimes);

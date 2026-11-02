@@ -52,6 +52,7 @@
  * Next.js alike.
  */
 import type { Citation } from './schemas/citation.ts';
+import { sourceKey } from '../lib/citation-source-key.ts';
 
 export type { Citation } from './schemas/citation.ts';
 
@@ -18455,12 +18456,15 @@ export const CITATIONS: Citation[] = [
   // "20 Degrees of freedom (16 active+4)"; "Number of degrees of freedom 20"; a full spec sheet and
   // no price. Replaces the uncited Wikipedia "10-12" range on the dexterity hand table.
   {
-    id: 'unitree-dex5-1-2026',
-    title: 'Unitree Dex5-1',
-    authors: ['Unitree Robotics'],
-    year: 2026,
-    url: 'https://www.unitree.com/Dex5-1/',
-    type: 'docs',
+    "id": "unitree-dex5-1-2026",
+    "title": "Unitree Dex5-1",
+    "authors": [
+      "Unitree Robotics"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "url": "https://www.unitree.com/Dex5-1/",
+    "type": "docs"
   },
   // mulligan-2026: domain pass 2026-10-06, KOL intake note of Perry Dong, added 2026-10-12.
   // arXiv abstract page and PDF read 2026-10-12 (HTTP 200; v1 5 Oct 2026). Stanford University.
@@ -21632,26 +21636,30 @@ export const CITATIONS: Citation[] = [
   // "17kg Lightweight and easy to carry", "21DOF 21 full-body degrees of freedom" (upper body 9, legs 12);
   // scenarios "Family Companion", "Maker Education". The page states no price.
   {
-    id: 'noetix-bumi-page-2026',
-    title: 'Bumi Consumer Humanoid Robot',
-    authors: ['Noetix Robotics'],
-    year: 'n.d.',
-    accessedOn: '2026-10-26',
-    venue: 'Noetix Robotics product page',
-    url: 'https://www.noetixrobotics.com/en/detail/Bumi',
-    type: 'docs',
+    "id": "noetix-bumi-page-2026",
+    "title": "Bumi Consumer Humanoid Robot",
+    "authors": [
+      "Noetix Robotics"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "Noetix Robotics product page",
+    "url": "https://www.noetixrobotics.com/en/detail/Bumi",
+    "type": "docs"
   },
   // engineai-se01-2026: owed-figures slice 2026-10-26 (hardware guide row engineai-se01). English product
   // page read 2026-10-26 (HTTP 200): it offers "Contact Us Now" and publishes no price, height or weight.
   {
-    id: 'engineai-se01-2026',
-    title: 'SE01',
-    authors: ['EngineAI'],
-    year: 'n.d.',
-    accessedOn: '2026-10-26',
-    venue: 'EngineAI product page',
-    url: 'https://en.engineai.com.cn/product-se01.html',
-    type: 'docs',
+    "id": "engineai-se01-2026",
+    "title": "SE01",
+    "authors": [
+      "EngineAI"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "EngineAI product page",
+    "url": "https://en.engineai.com.cn/product-se01.html",
+    "type": "docs"
   },
   // engineai-home-2026: owed-figures slice 2026-10-26 (hardware guide row engineai-se01). Chinese
   // homepage read 2026-10-26 (HTTP 200); the SE01 card reads "170CM 身高 / 2M/s 常态步速 / 32pcs 全身自由度".
@@ -21671,26 +21679,30 @@ export const CITATIONS: Citation[] = [
   // the GR-3 features 55 degrees of freedom across its body"; "Total Actuator Count Up to 55 (with
   // optional 12-DOF dexterous hand)"; Fourier's first "Care-bot" humanoid. No price or order terms.
   {
-    id: 'fourier-gr3-docs-2026',
-    title: 'GR-3 Robot Overview',
-    authors: ['Fourier'],
-    year: 'n.d.',
-    accessedOn: '2026-10-26',
-    venue: 'Fourier Developer Center',
-    url: 'https://support.fftai.com/en/gr3/getting-started/general-information',
-    type: 'docs',
+    "id": "fourier-gr3-docs-2026",
+    "title": "GR-3 Robot Overview",
+    "authors": [
+      "Fourier"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "Fourier Developer Center",
+    "url": "https://support.fftai.com/en/gr3/getting-started/general-information",
+    "type": "docs"
   },
   // limx-oli-spec-2026: owed-figures slice 2026-10-26 (hardware guide row limx-oli). Read 2026-10-26
   // (HTTP 200, after a 90 s wait): "Height 165cm", "Weight (Battery Included) ≤55kg", "Active DoF (Total) 31".
   {
-    id: 'limx-oli-spec-2026',
-    title: 'LimX Oli Specifications',
-    authors: ['LimX Dynamics'],
-    year: 'n.d.',
-    accessedOn: '2026-10-26',
-    venue: 'LimX Dynamics product page',
-    url: 'https://www.limxdynamics.com/en/products/oli/spec',
-    type: 'docs',
+    "id": "limx-oli-spec-2026",
+    "title": "LimX Oli Specifications",
+    "authors": [
+      "LimX Dynamics"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "LimX Dynamics product page",
+    "url": "https://www.limxdynamics.com/en/products/oli/spec",
+    "type": "docs"
   },
   // limx-oli-launch-2025: owed-figures slice 2026-10-26 (hardware guide row limx-oli). Chinese release
   // dated 2025/7/30, read 2026-10-26 (HTTP 200): "售价 15.8 万元起，即日起开放预订" (from ¥158,000; orders open
@@ -21734,27 +21746,31 @@ export const CITATIONS: Citation[] = [
   // (HTTP 200): "Height 169 cm", "Weight 69 kg", "Battery 700 wh", "Support battery swapping",
   // "Degrees of Freedom 40 + Active DoF"; sales by "Contact us".
   {
-    id: 'agibot-a2-2026',
-    title: 'AGIBOT A2',
-    authors: ['AgiBot'],
-    year: 'n.d.',
-    accessedOn: '2026-10-26',
-    venue: 'AgiBot product page',
-    url: 'https://www.agibot.com/products/A2',
-    type: 'docs',
+    "id": "agibot-a2-2026",
+    "title": "AGIBOT A2",
+    "authors": [
+      "AgiBot"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "AgiBot product page",
+    "url": "https://www.agibot.com/products/A2",
+    "type": "docs"
   },
   // ubtech-walker-s2-2026: owed-figures slice 2026-10-26 (hardware guide row ubtech-walker-s2). Read
   // 2026-10-26 (HTTP 200): "Walker S2 is able to swap battery autonomously within 3 minutes."; "Walker S2
   // can lift 15kg payload". The spec image gives no height, weight or DoF count, so the guide's DoF is null.
   {
-    id: 'ubtech-walker-s2-2026',
-    title: 'UBTECH Walker S2 Humanoid Robot',
-    authors: ['UBTECH Robotics'],
-    year: 'n.d.',
-    accessedOn: '2026-10-26',
-    venue: 'UBTECH product page',
-    url: 'https://www.ubtrobot.com/en/humanoid/products/walker-s2',
-    type: 'docs',
+    "id": "ubtech-walker-s2-2026",
+    "title": "UBTECH Walker S2 Humanoid Robot",
+    "authors": [
+      "UBTECH Robotics"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "UBTECH product page",
+    "url": "https://www.ubtrobot.com/en/humanoid/products/walker-s2",
+    "type": "docs"
   },
   // ubtech-walker-s2-mass-production-2025: owed-figures slice 2026-10-26 (hardware guide row
   // ubtech-walker-s2). UBTECH release via PR Newswire, "SHENZHEN, China, Nov. 17, 2025", read through the
@@ -21825,6 +21841,2038 @@ export const CITATIONS: Citation[] = [
     url: 'https://control.ros.org/rolling/index.html',
     type: 'docs',
   },
+  // multipath-2019: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "multipath-2019",
+    "title": "MultiPath: Multiple Probabilistic Anchor Trajectory Hypotheses for Behavior Prediction",
+    "authors": [
+      "Yuning Chai",
+      "Benjamin Sapp",
+      "Mayank Bansal",
+      "Dragomir Anguelov"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1910.05449",
+    "url": "https://arxiv.org/abs/1910.05449",
+    "type": "paper"
+  },
+  // lanegcn-2020: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "lanegcn-2020",
+    "title": "Learning Lane Graph Representations for Motion Forecasting",
+    "authors": [
+      "Ming Liang",
+      "Bin Yang",
+      "Rui Hu",
+      "Yun Chen",
+      "Renjie Liao",
+      "Song Feng",
+      "Raquel Urtasun"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2007.13732",
+    "url": "https://arxiv.org/abs/2007.13732",
+    "type": "paper"
+  },
+  // wayformer-2022: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "wayformer-2022",
+    "title": "Wayformer: Motion Forecasting via Simple & Efficient Attention Networks",
+    "authors": [
+      "Nigamaa Nayakanti",
+      "Rami Al-Rfou",
+      "Aurick Zhou",
+      "Kratarth Goel",
+      "Khaled S. Refaat",
+      "Benjamin Sapp"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2207.05844",
+    "url": "https://arxiv.org/abs/2207.05844",
+    "type": "paper"
+  },
+  // trajectron-plus-plus-2020: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "trajectron-plus-plus-2020",
+    "title": "Trajectron++: Dynamically-Feasible Trajectory Forecasting With Heterogeneous Data",
+    "authors": [
+      "Tim Salzmann",
+      "Boris Ivanovic",
+      "Punarjay Chakravarty",
+      "Marco Pavone"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2001.03093",
+    "url": "https://arxiv.org/abs/2001.03093",
+    "type": "paper"
+  },
+  // pointpillars-2018: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "pointpillars-2018",
+    "title": "PointPillars: Fast Encoders for Object Detection from Point Clouds",
+    "authors": [
+      "Alex H. Lang",
+      "Sourabh Vora",
+      "Holger Caesar",
+      "Lubing Zhou",
+      "Jiong Yang",
+      "Oscar Beijbom"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1812.05784",
+    "url": "https://arxiv.org/abs/1812.05784",
+    "type": "paper"
+  },
+  // centerpoint-2020: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "centerpoint-2020",
+    "title": "Center-based 3D Object Detection and Tracking",
+    "authors": [
+      "Tianwei Yin",
+      "Xingyi Zhou",
+      "Philipp Krähenbühl"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2006.11275",
+    "url": "https://arxiv.org/abs/2006.11275",
+    "type": "paper"
+  },
+  // pv-rcnn-2019: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "pv-rcnn-2019",
+    "title": "PV-RCNN: Point-Voxel Feature Set Abstraction for 3D Object Detection",
+    "authors": [
+      "Shaoshuai Shi",
+      "Chaoxu Guo",
+      "Li Jiang",
+      "Zhe Wang",
+      "Jianping Shi",
+      "Xiaogang Wang",
+      "Hongsheng Li"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1912.13192",
+    "url": "https://arxiv.org/abs/1912.13192",
+    "type": "paper"
+  },
+  // motion-transformer-2022: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "motion-transformer-2022",
+    "title": "Motion Transformer with Global Intention Localization and Local Movement Refinement",
+    "authors": [
+      "Shaoshuai Shi",
+      "Li Jiang",
+      "Dengxin Dai",
+      "Bernt Schiele"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2209.13508",
+    "url": "https://arxiv.org/abs/2209.13508",
+    "type": "paper"
+  },
+  // flightmare-2020: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "flightmare-2020",
+    "title": "Flightmare: A Flexible Quadrotor Simulator",
+    "authors": [
+      "Yunlong Song",
+      "Selim Naji",
+      "Elia Kaufmann",
+      "Antonio Loquercio",
+      "Davide Scaramuzza"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2009.00563",
+    "url": "https://arxiv.org/abs/2009.00563",
+    "type": "paper"
+  },
+  // flightgoggles-2019: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "flightgoggles-2019",
+    "title": "FlightGoggles: A Modular Framework for Photorealistic Camera, Exteroceptive Sensor, and Dynamics Simulation",
+    "authors": [
+      "Winter Guerra",
+      "Ezra Tal",
+      "Varun Murali",
+      "Gilhyun Ryou",
+      "Sertac Karaman"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1905.11377",
+    "url": "https://arxiv.org/abs/1905.11377",
+    "type": "paper"
+  },
+  // airsim-2017: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "airsim-2017",
+    "title": "AirSim: High-Fidelity Visual and Physical Simulation for Autonomous Vehicles",
+    "authors": [
+      "Shital Shah",
+      "Debadeepta Dey",
+      "Chris Lovett",
+      "Ashish Kapoor"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1705.05065",
+    "url": "https://arxiv.org/abs/1705.05065",
+    "type": "paper"
+  },
+  // robonet-2019: primary arXiv abstract and full byline verified 2026-11-02.
+  {
+    "id": "robonet-2019",
+    "title": "RoboNet: Large-Scale Multi-Robot Learning",
+    "authors": [
+      "Sudeep Dasari",
+      "Frederik Ebert",
+      "Stephen Tian",
+      "Suraj Nair",
+      "Bernadette Bucher",
+      "Karl Schmeckpeper",
+      "Siddharth Singh",
+      "Sergey Levine",
+      "Chelsea Finn"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1910.11215",
+    "url": "https://arxiv.org/abs/1910.11215",
+    "type": "paper"
+  },
+  // gelslim3-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "gelslim3-2021",
+    "title": "GelSlim3.0: High-Resolution Measurement of Shape, Force and Slip in a Compact Tactile-Sensing Finger",
+    "authors": [
+      "Ian Taylor",
+      "Siyuan Dong",
+      "Alberto Rodriguez"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2103.12269",
+    "url": "https://arxiv.org/abs/2103.12269",
+    "type": "paper"
+  },
+  // geltip-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "geltip-2021",
+    "title": "GelTip Tactile Sensor for Dexterous Manipulation in Clutter",
+    "authors": [
+      "Daniel Fernandes Gomes",
+      "Shan Luo"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2112.01834",
+    "url": "https://arxiv.org/abs/2112.01834",
+    "type": "paper"
+  },
+  // reskin-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "reskin-2021",
+    "title": "ReSkin: versatile, replaceable, lasting tactile skins",
+    "authors": [
+      "Raunaq Bhirangi",
+      "Tess Hellebrekers",
+      "Carmel Majidi",
+      "Abhinav Gupta"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2111.00071",
+    "url": "https://arxiv.org/abs/2111.00071",
+    "type": "paper"
+  },
+  // densetact-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "densetact-2022",
+    "title": "DenseTact: Optical Tactile Sensor for Dense Shape Reconstruction",
+    "authors": [
+      "Won Kyung Do",
+      "Monroe Kennedy III"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2201.01367",
+    "url": "https://arxiv.org/abs/2201.01367",
+    "type": "paper"
+  },
+  // allsight-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "allsight-2023",
+    "title": "AllSight: A Low-Cost and High-Resolution Round Tactile Sensor with Zero-Shot Learning Capability",
+    "authors": [
+      "Osher Azulay",
+      "Nimrod Curtis",
+      "Rotem Sokolovsky",
+      "Guy Levitski",
+      "Daniel Slomovik",
+      "Guy Lilling",
+      "Avishai Sintov"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2307.02928",
+    "url": "https://arxiv.org/abs/2307.02928",
+    "type": "paper"
+  },
+  // contactdb-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "contactdb-2019",
+    "title": "ContactDB: Analyzing and Predicting Grasp Contact via Thermal Imaging",
+    "authors": [
+      "Samarth Brahmbhatt",
+      "Cusuh Ham",
+      "Charles C. Kemp",
+      "James Hays"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1904.06830",
+    "url": "https://arxiv.org/abs/1904.06830",
+    "type": "paper"
+  },
+  // contactpose-2020: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "contactpose-2020",
+    "title": "ContactPose: A Dataset of Grasps with Object Contact and Hand Pose",
+    "authors": [
+      "Samarth Brahmbhatt",
+      "Chengcheng Tang",
+      "Christopher D. Twigg",
+      "Charles C. Kemp",
+      "James Hays"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2007.09545",
+    "url": "https://arxiv.org/abs/2007.09545",
+    "type": "paper"
+  },
+  // dexycb-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "dexycb-2021",
+    "title": "DexYCB: A Benchmark for Capturing Hand Grasping of Objects",
+    "authors": [
+      "Yu-Wei Chao",
+      "Wei Yang",
+      "Yu Xiang",
+      "Pavlo Molchanov",
+      "Ankur Handa",
+      "Jonathan Tremblay",
+      "Yashraj S. Narang",
+      "Karl Van Wyk",
+      "Umar Iqbal",
+      "Stan Birchfield",
+      "Jan Kautz",
+      "Dieter Fox"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2104.04631",
+    "url": "https://arxiv.org/abs/2104.04631",
+    "type": "paper"
+  },
+  // hoi4d-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "hoi4d-2022",
+    "title": "HOI4D: A 4D Egocentric Dataset for Category-Level Human-Object Interaction",
+    "authors": [
+      "Yunze Liu",
+      "Yun Liu",
+      "Che Jiang",
+      "Kangbo Lyu",
+      "Weikang Wan",
+      "Hao Shen",
+      "Boqiang Liang",
+      "Zhoujie Fu",
+      "He Wang",
+      "Li Yi"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2203.01577",
+    "url": "https://arxiv.org/abs/2203.01577",
+    "type": "paper"
+  },
+  // oakink-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "oakink-2022",
+    "title": "OakInk: A Large-scale Knowledge Repository for Understanding Hand-Object Interaction",
+    "authors": [
+      "Lixin Yang",
+      "Kailin Li",
+      "Xinyu Zhan",
+      "Fei Wu",
+      "Anran Xu",
+      "Liu Liu",
+      "Cewu Lu"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2203.15709",
+    "url": "https://arxiv.org/abs/2203.15709",
+    "type": "paper"
+  },
+  // endonet-2016: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "endonet-2016",
+    "title": "EndoNet: A Deep Architecture for Recognition Tasks on Laparoscopic Videos",
+    "authors": [
+      "Andru P. Twinanda",
+      "Sherif Shehata",
+      "Didier Mutter",
+      "Jacques Marescaux",
+      "Michel de Mathelin",
+      "Nicolas Padoy"
+    ],
+    "year": 2016,
+    "venue": "arXiv preprint",
+    "arxiv": "1602.03012",
+    "url": "https://arxiv.org/abs/1602.03012",
+    "type": "paper"
+  },
+  // cholect50-benchmarking-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "cholect50-benchmarking-2022",
+    "title": "Data Splits and Metrics for Method Benchmarking on Surgical Action Triplet Datasets",
+    "authors": [
+      "Chinedu Innocent Nwoye",
+      "Nicolas Padoy"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2204.05235",
+    "url": "https://arxiv.org/abs/2204.05235",
+    "type": "paper"
+  },
+  // jigsaws-benchmark-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "jigsaws-benchmark-2017",
+    "title": "A Dataset and Benchmarks for Segmentation and Recognition of Gestures in Robotic Surgery",
+    "authors": [
+      "Narges Ahmidi",
+      "Lingling Tao",
+      "Shahin Sefati",
+      "Yixin Gao",
+      "Colin Lea",
+      "Benjamin Bejar Haro",
+      "Luca Zappella",
+      "Sanjeev Khudanpur",
+      "Rene Vidal",
+      "Gregory D. Hager"
+    ],
+    "year": 2017,
+    "venue": "IEEE Transactions on Biomedical Engineering",
+    "url": "https://doi.org/10.1109/tbme.2016.2647680",
+    "type": "paper"
+  },
+  // dvrk-research-kit-2014: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "dvrk-research-kit-2014",
+    "title": "An open-source research kit for the da Vinci® Surgical System",
+    "authors": [
+      "Peter Kazanzides",
+      "Zihan Chen",
+      "Anton Deguet",
+      "Gregory S. Fischer",
+      "Russell H. Taylor",
+      "Simon P. DiMaio"
+    ],
+    "year": 2014,
+    "venue": "2014 IEEE International Conference on Robotics and Automation (ICRA)",
+    "url": "https://doi.org/10.1109/icra.2014.6907809",
+    "type": "paper"
+  },
+  // interaction-networks-2016: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "interaction-networks-2016",
+    "title": "Interaction Networks for Learning about Objects, Relations and Physics",
+    "authors": [
+      "Peter W. Battaglia",
+      "Razvan Pascanu",
+      "Matthew Lai",
+      "Danilo Rezende",
+      "Koray Kavukcuoglu"
+    ],
+    "year": 2016,
+    "arxiv": "1612.00222",
+    "url": "https://arxiv.org/abs/1612.00222",
+    "type": "paper"
+  },
+  // transdreamer-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "transdreamer-2022",
+    "title": "TransDreamer: Reinforcement Learning with Transformer World Models",
+    "authors": [
+      "Chang Chen",
+      "Yi-Fu Wu",
+      "Jaesik Yoon",
+      "Sungjin Ahn"
+    ],
+    "year": 2022,
+    "arxiv": "2202.09481",
+    "url": "https://arxiv.org/abs/2202.09481",
+    "type": "paper"
+  },
+  // dreamerpro-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "dreamerpro-2021",
+    "title": "DreamerPro: Reconstruction-Free Model-Based Reinforcement Learning with Prototypical Representations",
+    "authors": [
+      "Fei Deng",
+      "Ingook Jang",
+      "Sungjin Ahn"
+    ],
+    "year": 2021,
+    "arxiv": "2110.14565",
+    "url": "https://arxiv.org/abs/2110.14565",
+    "type": "paper"
+  },
+  // iris-world-model-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "iris-world-model-2022",
+    "title": "Transformers are Sample-Efficient World Models",
+    "authors": [
+      "Vincent Micheli",
+      "Eloi Alonso",
+      "François Fleuret"
+    ],
+    "year": 2022,
+    "arxiv": "2209.00588",
+    "url": "https://arxiv.org/abs/2209.00588",
+    "type": "paper"
+  },
+  // bayesian-model-value-expansion-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "bayesian-model-value-expansion-2022",
+    "title": "Conservative Bayesian Model-Based Value Expansion for Offline Policy Optimization",
+    "authors": [
+      "Jihwan Jeong",
+      "Xiaoyu Wang",
+      "Michael Gimelfarb",
+      "Hyunwoo Kim",
+      "Baher Abdulhai",
+      "Scott Sanner"
+    ],
+    "year": 2022,
+    "arxiv": "2210.03802",
+    "url": "https://arxiv.org/abs/2210.03802",
+    "type": "paper"
+  },
+  // stochastic-value-gradients-2015: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "stochastic-value-gradients-2015",
+    "title": "Learning Continuous Control Policies by Stochastic Value Gradients",
+    "authors": [
+      "Nicolas Heess",
+      "Greg Wayne",
+      "David Silver",
+      "Timothy Lillicrap",
+      "Yuval Tassa",
+      "Tom Erez"
+    ],
+    "year": 2015,
+    "arxiv": "1510.09142",
+    "url": "https://arxiv.org/abs/1510.09142",
+    "type": "paper"
+  },
+  // revisiting-model-value-expansion-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "revisiting-model-value-expansion-2022",
+    "title": "Revisiting Model-based Value Expansion",
+    "authors": [
+      "Daniel Palenicek",
+      "Michael Lutter",
+      "Jan Peters"
+    ],
+    "year": 2022,
+    "arxiv": "2203.14660",
+    "url": "https://arxiv.org/abs/2203.14660",
+    "type": "paper"
+  },
+  // graph-network-simulator-2020: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "graph-network-simulator-2020",
+    "title": "Learning to Simulate Complex Physics with Graph Networks",
+    "authors": [
+      "Alvaro Sanchez-Gonzalez",
+      "Jonathan Godwin",
+      "Tobias Pfaff",
+      "Rex Ying",
+      "Jure Leskovec",
+      "Peter W. Battaglia"
+    ],
+    "year": 2020,
+    "arxiv": "2002.09405",
+    "url": "https://arxiv.org/abs/2002.09405",
+    "type": "paper"
+  },
+  // model-based-meta-policy-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "model-based-meta-policy-2018",
+    "title": "Model-Based Reinforcement Learning via Meta-Policy Optimization",
+    "authors": [
+      "Ignasi Clavera",
+      "Jonas Rothfuss",
+      "John Schulman",
+      "Yasuhiro Fujita",
+      "Tamim Asfour",
+      "Pieter Abbeel"
+    ],
+    "year": 2018,
+    "arxiv": "1809.05214",
+    "url": "https://arxiv.org/abs/1809.05214",
+    "type": "paper"
+  },
+  // diamond-world-model-2024: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "diamond-world-model-2024",
+    "title": "Diffusion for World Modeling: Visual Details Matter in Atari",
+    "authors": [
+      "Eloi Alonso",
+      "Adam Jelley",
+      "Vincent Micheli",
+      "Anssi Kanervisto",
+      "Amos Storkey",
+      "Tim Pearce",
+      "François Fleuret"
+    ],
+    "year": 2024,
+    "arxiv": "2405.12399",
+    "url": "https://arxiv.org/abs/2405.12399",
+    "type": "paper"
+  },
+  // cityscapes-2016: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "cityscapes-2016",
+    "title": "The Cityscapes Dataset for Semantic Urban Scene Understanding",
+    "authors": [
+      "Marius Cordts",
+      "Mohamed Omran",
+      "Sebastian Ramos",
+      "Timo Rehfeld",
+      "Markus Enzweiler",
+      "Rodrigo Benenson",
+      "Uwe Franke",
+      "Stefan Roth",
+      "Bernt Schiele"
+    ],
+    "year": 2016,
+    "venue": "arXiv preprint",
+    "arxiv": "1604.01685",
+    "url": "https://arxiv.org/abs/1604.01685",
+    "type": "paper"
+  },
+  // bdd100k-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "bdd100k-2018",
+    "title": "BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning",
+    "authors": [
+      "Fisher Yu",
+      "Haofeng Chen",
+      "Xin Wang",
+      "Wenqi Xian",
+      "Yingying Chen",
+      "Fangchen Liu",
+      "Vashisht Madhavan",
+      "Trevor Darrell"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1805.04687",
+    "url": "https://arxiv.org/abs/1805.04687",
+    "type": "paper"
+  },
+  // argoverse-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "argoverse-2019",
+    "title": "Argoverse: 3D Tracking and Forecasting with Rich Maps",
+    "authors": [
+      "Ming-Fang Chang",
+      "John Lambert",
+      "Patsorn Sangkloy",
+      "Jagjeet Singh",
+      "Slawomir Bak",
+      "Andrew Hartnett",
+      "De Wang",
+      "Peter Carr",
+      "Simon Lucey",
+      "Deva Ramanan",
+      "James Hays"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1911.02620",
+    "url": "https://arxiv.org/abs/1911.02620",
+    "type": "paper"
+  },
+  // argoverse2-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "argoverse2-2023",
+    "title": "Argoverse 2: Next Generation Datasets for Self-Driving Perception and Forecasting",
+    "authors": [
+      "Benjamin Wilson",
+      "William Qi",
+      "Tanmay Agarwal",
+      "John Lambert",
+      "Jagjeet Singh",
+      "Siddhesh Khandelwal",
+      "Bowen Pan",
+      "Ratnesh Kumar",
+      "Andrew Hartnett",
+      "Jhony Kaesemodel Pontes",
+      "Deva Ramanan",
+      "Peter Carr",
+      "James Hays"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2301.00493",
+    "url": "https://arxiv.org/abs/2301.00493",
+    "type": "paper"
+  },
+  // random-seeds-power-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "random-seeds-power-2018",
+    "title": "How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments",
+    "authors": [
+      "Cédric Colas",
+      "Olivier Sigaud",
+      "Pierre-Yves Oudeyer"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1806.08295",
+    "url": "https://arxiv.org/abs/1806.08295",
+    "type": "paper"
+  },
+  // empirical-design-rl-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "empirical-design-rl-2023",
+    "title": "Empirical Design in Reinforcement Learning",
+    "authors": [
+      "Andrew Patterson",
+      "Samuel Neumann",
+      "Martha White",
+      "Adam White"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2304.01315",
+    "url": "https://arxiv.org/abs/2304.01315",
+    "type": "paper"
+  },
+  // kitti-benchmark-2012: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "kitti-benchmark-2012",
+    "title": "Are we ready for autonomous driving? The KITTI vision benchmark suite",
+    "authors": [
+      "Andreas Geiger",
+      "Philip Lenz",
+      "Raquel Urtasun"
+    ],
+    "year": 2012,
+    "venue": "2012 IEEE Conference on Computer Vision and Pattern Recognition",
+    "url": "https://doi.org/10.1109/cvpr.2012.6248074",
+    "type": "paper"
+  },
+  // safetensors-format: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "safetensors-format",
+    "title": "Safetensors",
+    "authors": [
+      "Hugging Face"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "Official Safetensors documentation",
+    "url": "https://github.com/huggingface/safetensors",
+    "type": "docs"
+  },
+  // onnx-ir-spec: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "onnx-ir-spec",
+    "title": "Open Neural Network Exchange Intermediate Representation (ONNX IR) Specification",
+    "authors": [
+      "ONNX Project Contributors"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "ONNX specification",
+    "url": "https://onnx.ai/onnx/repo-docs/IR.html",
+    "type": "docs"
+  },
+  // pytorch-reproducibility-2026: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "pytorch-reproducibility-2026",
+    "title": "Reproducibility",
+    "authors": [
+      "PyTorch Contributors"
+    ],
+    "year": 2026,
+    "venue": "PyTorch documentation, updated May 14, 2026",
+    "url": "https://docs.pytorch.org/docs/stable/notes/randomness.html",
+    "type": "docs"
+  },
+  // tensorrt-engine-compatibility-2026: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "tensorrt-engine-compatibility-2026",
+    "title": "Engine Compatibility",
+    "authors": [
+      "NVIDIA"
+    ],
+    "year": 2026,
+    "venue": "TensorRT documentation, updated October 28, 2026",
+    "url": "https://docs.nvidia.com/deeplearning/tensorrt/latest/inference-library/engine-compatibility.html",
+    "type": "docs"
+  },
+  // onnx-runtime-architecture: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "onnx-runtime-architecture",
+    "title": "ONNX Runtime Architecture",
+    "authors": [
+      "Microsoft"
+    ],
+    "year": "n.d.",
+    "accessedOn": "2026-11-02",
+    "venue": "ONNX Runtime documentation",
+    "url": "https://onnxruntime.ai/docs/reference/high-level-design.html",
+    "type": "docs"
+  },
+  // flingbot-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "flingbot-2021",
+    "title": "FlingBot: The Unreasonable Effectiveness of Dynamic Manipulation for Cloth Unfolding",
+    "authors": [
+      "Huy Ha",
+      "Shuran Song"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2105.03655",
+    "url": "https://arxiv.org/abs/2105.03655",
+    "type": "paper"
+  },
+  // speedfolding-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "speedfolding-2022",
+    "title": "SpeedFolding: Learning Efficient Bimanual Folding of Garments",
+    "authors": [
+      "Yahav Avigal",
+      "Lars Berscheid",
+      "Tamim Asfour",
+      "Torsten Kröger",
+      "Ken Goldberg"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2208.10552",
+    "url": "https://arxiv.org/abs/2208.10552",
+    "type": "paper"
+  },
+  // cloth-funnels-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "cloth-funnels-2022",
+    "title": "Cloth Funnels: Canonicalized-Alignment for Multi-Purpose Garment Manipulation",
+    "authors": [
+      "Alper Canberk",
+      "Cheng Chi",
+      "Huy Ha",
+      "Benjamin Burchfiel",
+      "Eric Cousineau",
+      "Siyuan Feng",
+      "Shuran Song"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2210.09347",
+    "url": "https://arxiv.org/abs/2210.09347",
+    "type": "paper"
+  },
+  // softgym-2020: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "softgym-2020",
+    "title": "SoftGym: Benchmarking Deep Reinforcement Learning for Deformable Object Manipulation",
+    "authors": [
+      "Xingyu Lin",
+      "Yufei Wang",
+      "Jake Olkin",
+      "David Held"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2011.07215",
+    "url": "https://arxiv.org/abs/2011.07215",
+    "type": "paper"
+  },
+  // dextairity-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "dextairity-2022",
+    "title": "DextAIRity: Deformable Manipulation Can be a Breeze",
+    "authors": [
+      "Zhenjia Xu",
+      "Cheng Chi",
+      "Benjamin Burchfiel",
+      "Eric Cousineau",
+      "Siyuan Feng",
+      "Shuran Song"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2203.01197",
+    "url": "https://arxiv.org/abs/2203.01197",
+    "type": "paper"
+  },
+  // robocook-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "robocook-2023",
+    "title": "RoboCook: Long-Horizon Elasto-Plastic Object Manipulation with Diverse Tools",
+    "authors": [
+      "Haochen Shi",
+      "Huazhe Xu",
+      "Samuel Clarke",
+      "Yunzhu Li",
+      "Jiajun Wu"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2306.14447",
+    "url": "https://arxiv.org/abs/2306.14447",
+    "type": "paper"
+  },
+  // reflect-robot-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "reflect-robot-2023",
+    "title": "REFLECT: Summarizing Robot Experiences for Failure Explanation and Correction",
+    "authors": [
+      "Zeyi Liu",
+      "Arpit Bahety",
+      "Shuran Song"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2306.15724",
+    "url": "https://arxiv.org/abs/2306.15724",
+    "type": "paper"
+  },
+  // doremi-robot-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "doremi-robot-2023",
+    "title": "DoReMi: Grounding Language Model by Detecting and Recovering from Plan-Execution Misalignment",
+    "authors": [
+      "Yanjiang Guo",
+      "Yen-Jen Wang",
+      "Lihan Zha",
+      "Jianyu Chen"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2307.00329",
+    "url": "https://arxiv.org/abs/2307.00329",
+    "type": "paper"
+  },
+  // clipport-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "clipport-2021",
+    "title": "CLIPort: What and Where Pathways for Robotic Manipulation",
+    "authors": [
+      "Mohit Shridhar",
+      "Lucas Manuelli",
+      "Dieter Fox"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2109.12098",
+    "url": "https://arxiv.org/abs/2109.12098",
+    "type": "paper"
+  },
+  // vima-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "vima-2022",
+    "title": "VIMA: General Robot Manipulation with Multimodal Prompts",
+    "authors": [
+      "Yunfan Jiang",
+      "Agrim Gupta",
+      "Zichen Zhang",
+      "Guanzhi Wang",
+      "Yongqiang Dou",
+      "Yanjun Chen",
+      "Li Fei-Fei",
+      "Anima Anandkumar",
+      "Yuke Zhu",
+      "Linxi Fan"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2210.03094",
+    "url": "https://arxiv.org/abs/2210.03094",
+    "type": "paper"
+  },
+  // voltron-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "voltron-2023",
+    "title": "Language-Driven Representation Learning for Robotics",
+    "authors": [
+      "Siddharth Karamcheti",
+      "Suraj Nair",
+      "Annie S. Chen",
+      "Thomas Kollar",
+      "Chelsea Finn",
+      "Dorsa Sadigh",
+      "Percy Liang"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2302.12766",
+    "url": "https://arxiv.org/abs/2302.12766",
+    "type": "paper"
+  },
+  // roboflamingo-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "roboflamingo-2023",
+    "title": "Vision-Language Foundation Models as Effective Robot Imitators",
+    "authors": [
+      "Xinghang Li",
+      "Minghuan Liu",
+      "Hanbo Zhang",
+      "Cunjun Yu",
+      "Jie Xu",
+      "Hongtao Wu",
+      "Chilam Cheang",
+      "Ya Jing",
+      "Weinan Zhang",
+      "Huaping Liu",
+      "Hang Li",
+      "Tao Kong"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2311.01378",
+    "url": "https://arxiv.org/abs/2311.01378",
+    "type": "paper"
+  },
+  // liv-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "liv-2023",
+    "title": "LIV: Language-Image Representations and Rewards for Robotic Control",
+    "authors": [
+      "Yecheng Jason Ma",
+      "William Liang",
+      "Vaidehi Som",
+      "Vikash Kumar",
+      "Amy Zhang",
+      "Osbert Bastani",
+      "Dinesh Jayaraman"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2306.00958",
+    "url": "https://arxiv.org/abs/2306.00958",
+    "type": "paper"
+  },
+  // speed-challenge-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "speed-challenge-2019",
+    "title": "Satellite Pose Estimation Challenge: Dataset, Competition Design and Results",
+    "authors": [
+      "Mate Kisantal",
+      "Sumant Sharma",
+      "Tae Ha Park",
+      "Dario Izzo",
+      "Marcus Märtens",
+      "Simone D'Amico"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1911.02050",
+    "url": "https://arxiv.org/abs/1911.02050",
+    "type": "paper"
+  },
+  // speedplus-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "speedplus-2021",
+    "title": "SPEED+: Next-Generation Dataset for Spacecraft Pose Estimation across Domain Gap",
+    "authors": [
+      "Tae Ha Park",
+      "Marcus Märtens",
+      "Gurvan Lecuyer",
+      "Dario Izzo",
+      "Simone D'Amico"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2110.03101",
+    "url": "https://arxiv.org/abs/2110.03101",
+    "type": "paper"
+  },
+  // urso-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "urso-2019",
+    "title": "Deep Learning for Spacecraft Pose Estimation from Photorealistic Rendering",
+    "authors": [
+      "Pedro F. Proenca",
+      "Yang Gao"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1907.04298",
+    "url": "https://arxiv.org/abs/1907.04298",
+    "type": "paper"
+  },
+  // spark-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "spark-2021",
+    "title": "SPARK: SPAcecraft Recognition leveraging Knowledge of Space Environment",
+    "authors": [
+      "Mohamed Adel Musallam",
+      "Kassem Al Ismaeil",
+      "Oyebade Oyedotun",
+      "Marcos Damian Perez",
+      "Michel Poucet",
+      "Djamila Aouada"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2104.05978",
+    "url": "https://arxiv.org/abs/2104.05978",
+    "type": "paper"
+  },
+  // surrender-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "surrender-2021",
+    "title": "Image simulation for space applications with the SurRender software",
+    "authors": [
+      "Jérémy Lebreton",
+      "Roland Brochard",
+      "Matthieu Baudry",
+      "Grégory Jonniaux",
+      "Adrien Hadj Salah",
+      "Keyvan Kanani",
+      "Matthieu Le Goff",
+      "Aurore Masson",
+      "Nicolas Ollagnier",
+      "Paolo Panicucci",
+      "Amsha Proag",
+      "Cyril Robin"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2106.11322",
+    "url": "https://arxiv.org/abs/2106.11322",
+    "type": "paper"
+  },
+  // plgrim-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "plgrim-2021",
+    "title": "PLGRIM: Hierarchical Value Learning for Large-scale Exploration in Unknown Environments",
+    "authors": [
+      "Sung-Kyun Kim",
+      "Amanda Bouman",
+      "Gautam Salhotra",
+      "David D. Fan",
+      "Kyohei Otsu",
+      "Joel Burdick",
+      "Ali-akbar Agha-mohammadi"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2102.05633",
+    "url": "https://arxiv.org/abs/2102.05633",
+    "type": "paper"
+  },
+  // mars-jumping-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "mars-jumping-2023",
+    "title": "Martian Lava Tube Exploration Using Jumping Legged Robots: A Concept Study",
+    "authors": [
+      "Jørgen Anker Olsen",
+      "Kostas Alexis"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2310.14876",
+    "url": "https://arxiv.org/abs/2310.14876",
+    "type": "paper"
+  },
+  // reachbot-melt-2024: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "reachbot-melt-2024",
+    "title": "Martian Exploration of Lava Tubes (MELT) with ReachBot: Scientific Investigation and Concept of Operations",
+    "authors": [
+      "Julia Di",
+      "Sara Cuevas-Quinones",
+      "Stephanie Newdick",
+      "Tony G. Chen",
+      "Marco Pavone",
+      "Mathieu G. A. Lapotre",
+      "Mark Cutkosky"
+    ],
+    "year": 2024,
+    "venue": "arXiv preprint",
+    "arxiv": "2406.13857",
+    "url": "https://arxiv.org/abs/2406.13857",
+    "type": "paper"
+  },
+  // traversability-slip-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "traversability-slip-2023",
+    "title": "Risk-aware Path Planning via Probabilistic Fusion of Traversability Prediction for Planetary Rovers on Heterogeneous Terrains",
+    "authors": [
+      "Masafumi Endo",
+      "Tatsunori Taniai",
+      "Ryo Yonetani",
+      "Genya Ishigami"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2303.01169",
+    "url": "https://arxiv.org/abs/2303.01169",
+    "type": "paper"
+  },
+  // proprioceptive-slip-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "proprioceptive-slip-2022",
+    "title": "Proprioceptive Slip Detection for Planetary Rovers in Perceptually Degraded Extraterrestrial Environments",
+    "authors": [
+      "Cagri Kilic",
+      "Yu Gu",
+      "Jason N. Gross"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2207.13629",
+    "url": "https://arxiv.org/abs/2207.13629",
+    "type": "paper"
+  },
+  // cbf-qp-2016: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "cbf-qp-2016",
+    "title": "Control Barrier Function Based Quadratic Programs for Safety Critical Systems",
+    "authors": [
+      "Aaron D. Ames",
+      "Xiangru Xu",
+      "Jessy W. Grizzle",
+      "Paulo Tabuada"
+    ],
+    "year": 2016,
+    "venue": "arXiv preprint",
+    "arxiv": "1609.06408",
+    "url": "https://arxiv.org/abs/1609.06408",
+    "type": "paper"
+  },
+  // predictive-safety-filter-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "predictive-safety-filter-2018",
+    "title": "A predictive safety filter for learning-based control of constrained nonlinear dynamical systems",
+    "authors": [
+      "Kim P. Wabersich",
+      "Melanie N. Zeilinger"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1812.05506",
+    "url": "https://arxiv.org/abs/1812.05506",
+    "type": "paper"
+  },
+  // shielding-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "shielding-2017",
+    "title": "Safe Reinforcement Learning via Shielding",
+    "authors": [
+      "Mohammed Alshiekh",
+      "Roderick Bloem",
+      "Ruediger Ehlers",
+      "Bettina Könighofer",
+      "Scott Niekum",
+      "Ufuk Topcu"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1708.08611",
+    "url": "https://arxiv.org/abs/1708.08611",
+    "type": "paper"
+  },
+  // neural-simplex-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "neural-simplex-2019",
+    "title": "Neural Simplex Architecture",
+    "authors": [
+      "Dung T. Phan",
+      "Radu Grosu",
+      "Nils Jansen",
+      "Nicola Paoletti",
+      "Scott A. Smolka",
+      "Scott D. Stoller"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1908.00528",
+    "url": "https://arxiv.org/abs/1908.00528",
+    "type": "paper"
+  },
+  // anyteleop-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "anyteleop-2023",
+    "title": "AnyTeleop: A General Vision-Based Dexterous Robot Arm-Hand Teleoperation System",
+    "authors": [
+      "Yuzhe Qin",
+      "Wei Yang",
+      "Binghao Huang",
+      "Karl Van Wyk",
+      "Hao Su",
+      "Xiaolong Wang",
+      "Yu-Wei Chao",
+      "Dieter Fox"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2307.04577",
+    "url": "https://arxiv.org/abs/2307.04577",
+    "type": "paper"
+  },
+  // dexpilot-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "dexpilot-2019",
+    "title": "DexPilot: Vision Based Teleoperation of Dexterous Robotic Hand-Arm System",
+    "authors": [
+      "Ankur Handa",
+      "Karl Van Wyk",
+      "Wei Yang",
+      "Jacky Liang",
+      "Yu-Wei Chao",
+      "Qian Wan",
+      "Stan Birchfield",
+      "Nathan Ratliff",
+      "Dieter Fox"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1910.03135",
+    "url": "https://arxiv.org/abs/1910.03135",
+    "type": "paper"
+  },
+  // holo-dex-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "holo-dex-2022",
+    "title": "Holo-Dex: Teaching Dexterity with Immersive Mixed Reality",
+    "authors": [
+      "Sridhar Pandian Arunachalam",
+      "Irmak Güzey",
+      "Soumith Chintala",
+      "Lerrel Pinto"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2210.06463",
+    "url": "https://arxiv.org/abs/2210.06463",
+    "type": "paper"
+  },
+  // dexcap-2024: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "dexcap-2024",
+    "title": "DexCap: Scalable and Portable Mocap Data Collection System for Dexterous Manipulation",
+    "authors": [
+      "Chen Wang",
+      "Haochen Shi",
+      "Weizhuo Wang",
+      "Ruohan Zhang",
+      "Li Fei-Fei",
+      "C. Karen Liu"
+    ],
+    "year": 2024,
+    "venue": "arXiv preprint",
+    "arxiv": "2403.07788",
+    "url": "https://arxiv.org/abs/2403.07788",
+    "type": "paper"
+  },
+  // teachnet-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "teachnet-2018",
+    "title": "Vision-based Teleoperation of Shadow Dexterous Hand using End-to-End Deep Neural Network",
+    "authors": [
+      "Shuang Li",
+      "Xiaojian Ma",
+      "Hongzhuo Liang",
+      "Michael Görner",
+      "Philipp Ruppel",
+      "Bing Fang",
+      "Fuchun Sun",
+      "Jianwei Zhang"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1809.06268",
+    "url": "https://arxiv.org/abs/1809.06268",
+    "type": "paper"
+  },
+  // furniturebench-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "furniturebench-2023",
+    "title": "FurnitureBench: Reproducible Real-World Benchmark for Long-Horizon Complex Manipulation",
+    "authors": [
+      "Minho Heo",
+      "Youngwoon Lee",
+      "Doohyun Lee",
+      "Joseph J. Lim"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2305.12821",
+    "url": "https://arxiv.org/abs/2305.12821",
+    "type": "paper"
+  },
+  // epic-kitchens-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "epic-kitchens-2018",
+    "title": "Scaling Egocentric Vision: The EPIC-KITCHENS Dataset",
+    "authors": [
+      "Dima Damen",
+      "Hazel Doughty",
+      "Giovanni Maria Farinella",
+      "Sanja Fidler",
+      "Antonino Furnari",
+      "Evangelos Kazakos",
+      "Davide Moltisanti",
+      "Jonathan Munro",
+      "Toby Perrett",
+      "Will Price",
+      "Michael Wray"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1804.02748",
+    "url": "https://arxiv.org/abs/1804.02748",
+    "type": "paper"
+  },
+  // ego-exo4d-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "ego-exo4d-2023",
+    "title": "Ego-Exo4D: Understanding Skilled Human Activity from First- and Third-Person Perspectives",
+    "authors": [
+      "Kristen Grauman",
+      "Andrew Westbury",
+      "Lorenzo Torresani",
+      "Kris Kitani",
+      "Jitendra Malik",
+      "Triantafyllos Afouras",
+      "Kumar Ashutosh",
+      "Vijay Baiyya",
+      "Siddhant Bansal",
+      "Bikram Boote",
+      "Eugene Byrne",
+      "Zach Chavis",
+      "Joya Chen",
+      "Feng Cheng",
+      "Fu-Jen Chu",
+      "Sean Crane",
+      "Avijit Dasgupta",
+      "Jing Dong",
+      "Maria Escobar",
+      "Cristhian Forigua",
+      "Abrham Gebreselasie",
+      "Sanjay Haresh",
+      "Jing Huang",
+      "Md Mohaiminul Islam",
+      "Suyog Jain",
+      "Rawal Khirodkar",
+      "Devansh Kukreja",
+      "Kevin J Liang",
+      "Jia-Wei Liu",
+      "Sagnik Majumder",
+      "Yongsen Mao",
+      "Miguel Martin",
+      "Effrosyni Mavroudi",
+      "Tushar Nagarajan",
+      "Francesco Ragusa",
+      "Santhosh Kumar Ramakrishnan",
+      "Luigi Seminara",
+      "Arjun Somayazulu",
+      "Yale Song",
+      "Shan Su",
+      "Zihui Xue",
+      "Edward Zhang",
+      "Jinxu Zhang",
+      "Angela Castillo",
+      "Changan Chen",
+      "Xinzhu Fu",
+      "Ryosuke Furuta",
+      "Cristina Gonzalez",
+      "Prince Gupta",
+      "Jiabo Hu",
+      "Yifei Huang",
+      "Yiming Huang",
+      "Weslie Khoo",
+      "Anush Kumar",
+      "Robert Kuo",
+      "Sach Lakhavani",
+      "Miao Liu",
+      "Mi Luo",
+      "Zhengyi Luo",
+      "Brighid Meredith",
+      "Austin Miller",
+      "Oluwatumininu Oguntola",
+      "Xiaqing Pan",
+      "Penny Peng",
+      "Shraman Pramanick",
+      "Merey Ramazanova",
+      "Fiona Ryan",
+      "Wei Shan",
+      "Kiran Somasundaram",
+      "Chenan Song",
+      "Audrey Southerland",
+      "Masatoshi Tateno",
+      "Huiyu Wang",
+      "Yuchen Wang",
+      "Takuma Yagi",
+      "Mingfei Yan",
+      "Xitong Yang",
+      "Zecheng Yu",
+      "Shengxin Cindy Zha",
+      "Chen Zhao",
+      "Ziwei Zhao",
+      "Zhifan Zhu",
+      "Jeff Zhuo",
+      "Pablo Arbelaez",
+      "Gedas Bertasius",
+      "David Crandall",
+      "Dima Damen",
+      "Jakob Engel",
+      "Giovanni Maria Farinella",
+      "Antonino Furnari",
+      "Bernard Ghanem",
+      "Judy Hoffman",
+      "C. V. Jawahar",
+      "Richard Newcombe",
+      "Hyun Soo Park",
+      "James M. Rehg",
+      "Yoichi Sato",
+      "Manolis Savva",
+      "Jianbo Shi",
+      "Mike Zheng Shou",
+      "Michael Wray"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2311.18259",
+    "url": "https://arxiv.org/abs/2311.18259",
+    "type": "paper"
+  },
+  // howto100m-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "howto100m-2019",
+    "title": "HowTo100M: Learning a Text-Video Embedding by Watching Hundred Million Narrated Video Clips",
+    "authors": [
+      "Antoine Miech",
+      "Dimitri Zhukov",
+      "Jean-Baptiste Alayrac",
+      "Makarand Tapaswi",
+      "Ivan Laptev",
+      "Josef Sivic"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1906.03327",
+    "url": "https://arxiv.org/abs/1906.03327",
+    "type": "paper"
+  },
+  // coin-video-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "coin-video-2019",
+    "title": "COIN: A Large-scale Dataset for Comprehensive Instructional Video Analysis",
+    "authors": [
+      "Yansong Tang",
+      "Dajun Ding",
+      "Yongming Rao",
+      "Yu Zheng",
+      "Danyang Zhang",
+      "Lili Zhao",
+      "Jiwen Lu",
+      "Jie Zhou"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1903.02874",
+    "url": "https://arxiv.org/abs/1903.02874",
+    "type": "paper"
+  },
+  // something-video-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "something-video-2017",
+    "title": "The \"something something\" video database for learning and evaluating visual common sense",
+    "authors": [
+      "Raghav Goyal",
+      "Samira Ebrahimi Kahou",
+      "Vincent Michalski",
+      "Joanna Materzyńska",
+      "Susanne Westphal",
+      "Heuna Kim",
+      "Valentin Haenel",
+      "Ingo Fruend",
+      "Peter Yianilos",
+      "Moritz Mueller-Freitag",
+      "Florian Hoppe",
+      "Christian Thurau",
+      "Ingo Bax",
+      "Roland Memisevic"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1706.04261",
+    "url": "https://arxiv.org/abs/1706.04261",
+    "type": "paper"
+  },
+  // genaug-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "genaug-2023",
+    "title": "GenAug: Retargeting behaviors to unseen situations via Generative Augmentation",
+    "authors": [
+      "Zoey Chen",
+      "Sho Kiami",
+      "Abhishek Gupta",
+      "Vikash Kumar"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2302.06671",
+    "url": "https://arxiv.org/abs/2302.06671",
+    "type": "paper"
+  },
+  // peract-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "peract-2022",
+    "title": "Perceiver-Actor: A Multi-Task Transformer for Robotic Manipulation",
+    "authors": [
+      "Mohit Shridhar",
+      "Lucas Manuelli",
+      "Dieter Fox"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2209.05451",
+    "url": "https://arxiv.org/abs/2209.05451",
+    "type": "paper"
+  },
+  // rvt-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "rvt-2023",
+    "title": "RVT: Robotic View Transformer for 3D Object Manipulation",
+    "authors": [
+      "Ankit Goyal",
+      "Jie Xu",
+      "Yijie Guo",
+      "Valts Blukis",
+      "Yu-Wei Chao",
+      "Dieter Fox"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2306.14896",
+    "url": "https://arxiv.org/abs/2306.14896",
+    "type": "paper"
+  },
+  // act3d-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "act3d-2023",
+    "title": "Act3D: 3D Feature Field Transformers for Multi-Task Robotic Manipulation",
+    "authors": [
+      "Theophile Gervet",
+      "Zhou Xian",
+      "Nikolaos Gkanatsios",
+      "Katerina Fragkiadaki"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2306.17817",
+    "url": "https://arxiv.org/abs/2306.17817",
+    "type": "paper"
+  },
+  // gnfactor-2023: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "gnfactor-2023",
+    "title": "GNFactor: Multi-Task Real Robot Learning with Generalizable Neural Feature Fields",
+    "authors": [
+      "Yanjie Ze",
+      "Ge Yan",
+      "Yueh-Hua Wu",
+      "Annabella Macaluso",
+      "Yuying Ge",
+      "Jianglong Ye",
+      "Nicklas Hansen",
+      "Li Erran Li",
+      "Xiaolong Wang"
+    ],
+    "year": 2023,
+    "venue": "arXiv preprint",
+    "arxiv": "2308.16891",
+    "url": "https://arxiv.org/abs/2308.16891",
+    "type": "paper"
+  },
+  // bench2drive-2024: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "bench2drive-2024",
+    "title": "Bench2Drive: Towards Multi-Ability Benchmarking of Closed-Loop End-To-End Autonomous Driving",
+    "authors": [
+      "Xiaosong Jia",
+      "Zhenjie Yang",
+      "Qifeng Li",
+      "Zhiyuan Zhang",
+      "Junchi Yan"
+    ],
+    "year": 2024,
+    "venue": "arXiv preprint",
+    "arxiv": "2406.03877",
+    "url": "https://arxiv.org/abs/2406.03877",
+    "type": "paper"
+  },
+  // carla-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "carla-2017",
+    "title": "CARLA: An Open Urban Driving Simulator",
+    "authors": [
+      "Alexey Dosovitskiy",
+      "German Ros",
+      "Felipe Codevilla",
+      "Antonio Lopez",
+      "Vladlen Koltun"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1711.03938",
+    "url": "https://arxiv.org/abs/1711.03938",
+    "type": "paper"
+  },
+  // trafficsim-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "trafficsim-2021",
+    "title": "TrafficSim: Learning to Simulate Realistic Multi-Agent Behaviors",
+    "authors": [
+      "Simon Suo",
+      "Sebastian Regalado",
+      "Sergio Casas",
+      "Raquel Urtasun"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2101.06557",
+    "url": "https://arxiv.org/abs/2101.06557",
+    "type": "paper"
+  },
+  // learning-crash-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "learning-crash-2017",
+    "title": "Learning to Fly by Crashing",
+    "authors": [
+      "Dhiraj Gandhi",
+      "Lerrel Pinto",
+      "Abhinav Gupta"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1704.05588",
+    "url": "https://arxiv.org/abs/1704.05588",
+    "type": "paper"
+  },
+  // pampc-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "pampc-2018",
+    "title": "PAMPC: Perception-Aware Model Predictive Control for Quadrotors",
+    "authors": [
+      "Davide Falanga",
+      "Philipp Foehn",
+      "Peng Lu",
+      "Davide Scaramuzza"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1804.04811",
+    "url": "https://arxiv.org/abs/1804.04811",
+    "type": "paper"
+  },
+  // neural-fly-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "neural-fly-2022",
+    "title": "Neural-Fly Enables Rapid Learning for Agile Flight in Strong Winds",
+    "authors": [
+      "Michael O'Connell",
+      "Guanya Shi",
+      "Xichen Shi",
+      "Kamyar Azizzadenesheli",
+      "Anima Anandkumar",
+      "Yisong Yue",
+      "Soon-Jo Chung"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2205.06908",
+    "url": "https://arxiv.org/abs/2205.06908",
+    "type": "paper"
+  },
+  // safe-control-gym-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "safe-control-gym-2021",
+    "title": "safe-control-gym: a Unified Benchmark Suite for Safe Learning-based Control and Reinforcement Learning in Robotics",
+    "authors": [
+      "Zhaocong Yuan",
+      "Adam W. Hall",
+      "Siqi Zhou",
+      "Lukas Brunke",
+      "Melissa Greeff",
+      "Jacopo Panerati",
+      "Angela P. Schoellig"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2109.06325",
+    "url": "https://arxiv.org/abs/2109.06325",
+    "type": "paper"
+  },
+  // learn-cbf-2020: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "learn-cbf-2020",
+    "title": "Learning Control Barrier Functions from Expert Demonstrations",
+    "authors": [
+      "Alexander Robey",
+      "Haimin Hu",
+      "Lars Lindemann",
+      "Hanwen Zhang",
+      "Dimos V. Dimarogonas",
+      "Stephen Tu",
+      "Nikolai Matni"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2004.03315",
+    "url": "https://arxiv.org/abs/2004.03315",
+    "type": "paper"
+  },
+  // constrained-policy-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "constrained-policy-2017",
+    "title": "Constrained Policy Optimization",
+    "authors": [
+      "Joshua Achiam",
+      "David Held",
+      "Aviv Tamar",
+      "Pieter Abbeel"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1705.10528",
+    "url": "https://arxiv.org/abs/1705.10528",
+    "type": "paper"
+  },
+  // recovery-rl-2020: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "recovery-rl-2020",
+    "title": "Recovery RL: Safe Reinforcement Learning with Learned Recovery Zones",
+    "authors": [
+      "Brijen Thananjeyan",
+      "Ashwin Balakrishna",
+      "Suraj Nair",
+      "Michael Luo",
+      "Krishnan Srinivasan",
+      "Minho Hwang",
+      "Joseph E. Gonzalez",
+      "Julian Ibarz",
+      "Chelsea Finn",
+      "Ken Goldberg"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2010.15920",
+    "url": "https://arxiv.org/abs/2010.15920",
+    "type": "paper"
+  },
+  // conformal-risk-2022: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "conformal-risk-2022",
+    "title": "Conformal Risk Control",
+    "authors": [
+      "Anastasios N. Angelopoulos",
+      "Stephen Bates",
+      "Adam Fisch",
+      "Lihua Lei",
+      "Tal Schuster"
+    ],
+    "year": 2022,
+    "venue": "arXiv preprint",
+    "arxiv": "2208.02814",
+    "url": "https://arxiv.org/abs/2208.02814",
+    "type": "paper"
+  },
+  // risk-prediction-sets-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "risk-prediction-sets-2021",
+    "title": "Distribution-Free, Risk-Controlling Prediction Sets",
+    "authors": [
+      "Stephen Bates",
+      "Anastasios Angelopoulos",
+      "Lihua Lei",
+      "Jitendra Malik",
+      "Michael I. Jordan"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2101.02703",
+    "url": "https://arxiv.org/abs/2101.02703",
+    "type": "paper"
+  },
+  // selectivenet-2019: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "selectivenet-2019",
+    "title": "SelectiveNet: A Deep Neural Network with an Integrated Reject Option",
+    "authors": [
+      "Yonatan Geifman",
+      "Ran El-Yaniv"
+    ],
+    "year": 2019,
+    "venue": "arXiv preprint",
+    "arxiv": "1901.09192",
+    "url": "https://arxiv.org/abs/1901.09192",
+    "type": "paper"
+  },
+  // energy-ood-2020: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "energy-ood-2020",
+    "title": "Energy-based Out-of-distribution Detection",
+    "authors": [
+      "Weitang Liu",
+      "Xiaoyun Wang",
+      "John D. Owens",
+      "Yixuan Li"
+    ],
+    "year": 2020,
+    "venue": "arXiv preprint",
+    "arxiv": "2010.03759",
+    "url": "https://arxiv.org/abs/2010.03759",
+    "type": "paper"
+  },
+  // reluplex-2017: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "reluplex-2017",
+    "title": "Reluplex: An Efficient SMT Solver for Verifying Deep Neural Networks",
+    "authors": [
+      "Guy Katz",
+      "Clark Barrett",
+      "David Dill",
+      "Kyle Julian",
+      "Mykel Kochenderfer"
+    ],
+    "year": 2017,
+    "venue": "arXiv preprint",
+    "arxiv": "1702.01135",
+    "url": "https://arxiv.org/abs/1702.01135",
+    "type": "paper"
+  },
+  // shapenet-2015: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "shapenet-2015",
+    "title": "ShapeNet: An Information-Rich 3D Model Repository",
+    "authors": [
+      "Angel X. Chang",
+      "Thomas Funkhouser",
+      "Leonidas Guibas",
+      "Pat Hanrahan",
+      "Qixing Huang",
+      "Zimo Li",
+      "Silvio Savarese",
+      "Manolis Savva",
+      "Shuran Song",
+      "Hao Su",
+      "Jianxiong Xiao",
+      "Li Yi",
+      "Fisher Yu"
+    ],
+    "year": 2015,
+    "venue": "arXiv preprint",
+    "arxiv": "1512.03012",
+    "url": "https://arxiv.org/abs/1512.03012",
+    "type": "paper"
+  },
+  // partnet-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "partnet-2018",
+    "title": "PartNet: A Large-scale Benchmark for Fine-grained and Hierarchical Part-level 3D Object Understanding",
+    "authors": [
+      "Kaichun Mo",
+      "Shilin Zhu",
+      "Angel X. Chang",
+      "Li Yi",
+      "Subarna Tripathi",
+      "Leonidas J. Guibas",
+      "Hao Su"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1812.02713",
+    "url": "https://arxiv.org/abs/1812.02713",
+    "type": "paper"
+  },
+  // abc-models-2018: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "abc-models-2018",
+    "title": "ABC: A Big CAD Model Dataset For Geometric Deep Learning",
+    "authors": [
+      "Sebastian Koch",
+      "Albert Matveev",
+      "Zhongshi Jiang",
+      "Francis Williams",
+      "Alexey Artemov",
+      "Evgeny Burnaev",
+      "Marc Alexa",
+      "Denis Zorin",
+      "Daniele Panozzo"
+    ],
+    "year": 2018,
+    "venue": "arXiv preprint",
+    "arxiv": "1812.06216",
+    "url": "https://arxiv.org/abs/1812.06216",
+    "type": "paper"
+  },
+  // ycb-models-2015: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "ycb-models-2015",
+    "title": "Benchmarking in Manipulation Research: The YCB Object and Model Set and Benchmarking Protocols",
+    "authors": [
+      "Berk Calli",
+      "Aaron Walsman",
+      "Arjun Singh",
+      "Siddhartha Srinivasa",
+      "Pieter Abbeel",
+      "Aaron M. Dollar"
+    ],
+    "year": 2015,
+    "venue": "arXiv preprint",
+    "arxiv": "1502.03143",
+    "url": "https://arxiv.org/abs/1502.03143",
+    "type": "paper"
+  },
+  // adaptive-conformal-2021: primary document identity and displayed byline verified 2026-11-02.
+  {
+    "id": "adaptive-conformal-2021",
+    "title": "Adaptive Conformal Inference Under Distribution Shift",
+    "authors": [
+      "Isaac Gibbs",
+      "Emmanuel Candès"
+    ],
+    "year": 2021,
+    "venue": "arXiv preprint",
+    "arxiv": "2106.00170",
+    "url": "https://arxiv.org/abs/2106.00170",
+    "type": "paper"
+  },
 ];
 
 const BY_ID = new Map(CITATIONS.map((c) => [c.id, c]));
@@ -21848,17 +23896,23 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Advanced Machine Intelligence (AMI Labs)', 'AMI Labs'],
   ['Agility Robotics', 'Agility Robotics'],
   ['ALOHA 2 Team', 'ALOHA 2 Team'],
+  ['Amazon Staff', 'Amazon'],
   ['Association for Advancing Automation', 'A3'],
   ['Astroscale Japan', 'Astroscale'],
+  ['AutoStore Holdings Ltd.', 'AutoStore'],
   ['Baidu, Inc.', 'Baidu'],
   ['Boston Dynamics', 'Boston Dynamics'],
   ['Build AI', 'Build AI'],
+  ['California DMV', 'California DMV'],
   ['Canadian Space Agency', 'Canadian Space Agency'],
   ['CMR Surgical', 'CMR Surgical'],
   ['Creative Commons', 'Creative Commons'],
   ['DROID Dataset Team', 'DROID Dataset Team'],
   ['EVST Engineering Team', 'EVST Engineering Team'],
+  ['European Commission', 'European Commission'],
+  ['European Parliament and Council of the European Union', 'European Union'],
   ['Federal Aviation Administration', 'FAA'],
+  ['Federal Communications Commission', 'FCC'],
   ['Figure AI', 'Figure AI'],
   ['Franka Robotics', 'Franka Robotics'],
   ['GEAR Team', 'GEAR Team'],
@@ -21871,6 +23925,9 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['IEEE Standards Association', 'IEEE Standards Association'],
   ['International Federation of Robotics', 'International Federation of Robotics'],
   ['Intuitive Surgical', 'Intuitive Surgical'],
+  ['ISO/IEC JTC 1/SC 42', 'ISO/IEC JTC 1/SC 42'],
+  ['Johnson & Johnson', 'Johnson & Johnson'],
+  ['Kavraki Lab', 'Kavraki Lab'],
   ['Lean Enterprise Institute', 'Lean Enterprise Institute'],
   ['LimX Dynamics', 'LimX Dynamics'],
   ['Meta AI', 'Meta AI'],
@@ -21879,15 +23936,18 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['NASA Jet Propulsion Laboratory', 'NASA Jet Propulsion Laboratory'],
   ['National Highway Traffic Safety Administration', 'NHTSA'],
   ['Nav2 Project', 'Nav2 Project'],
+  ['Newton project (Linux Foundation)', 'Newton'],
   ['Noetix Robotics', 'Noetix Robotics'],
   ['Northrop Grumman', 'Northrop Grumman'],
   ['Ocado Group plc', 'Ocado Group'],
   ['Occupational Safety and Health Administration', 'OSHA'],
   ['Ocado Group', 'Ocado Group'],
   ['Octo Model Team', 'Octo Model Team'],
+  ['ONNX Project Contributors', 'ONNX'],
   ['Open X-Embodiment Collaboration', 'Open X-Embodiment Collaboration'],
   ['Open-H-Embodiment Consortium', 'Open-H-Embodiment Consortium'],
   ['Physical Intelligence', 'Physical Intelligence'],
+  ['PyTorch Contributors', 'PyTorch'],
   ['PickNik Robotics', 'PickNik Robotics'],
   ['Robotics and AI Institute', 'RAI Institute'],
   ['Rocking Robots', 'Rocking Robots'],
@@ -21901,6 +23961,7 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['Simple AI', 'Simple AI'],
   ['Skild AI Team', 'Skild AI Team'],
   ['Skild Team', 'Skild Team'],
+  ['Stanford Vision and Learning Lab', 'Stanford Vision and Learning Lab'],
   ['Sunday Team', 'Sunday Team'],
   ['Symbotic Inc.', 'Symbotic'],
   ['Team Zipline', 'Zipline'],
@@ -21911,8 +23972,10 @@ export const ORGANIZATION_CHIP_NAMES: ReadonlyMap<string, string> = new Map([
   ['The Waymo Team', 'Waymo'],
   ['TRI LBM Team', 'TRI LBM Team'],
   ['Trossen Robotics', 'Trossen Robotics'],
+  ['TU Delft', 'TU Delft'],
   ['U.S. Food and Drug Administration', 'FDA'],
   ['UBTECH Robotics', 'UBTECH Robotics'],
+  ['UN News', 'UN News'],
   ['UL Standards & Engagement', 'UL Standards & Engagement'],
   ['Unitree Robotics', 'Unitree Robotics'],
   ['Universal Robots', 'Universal Robots'],
@@ -21950,9 +24013,43 @@ export function citationAuthorName(citation: Pick<Citation, 'authors'>): string 
  * more authors, or the organisation's name, then the year. "Zhao et al.
  * 2023", "Kalman 1960", "Boston Dynamics 2024".
  */
-export function citationLabel(citation: Pick<Citation, 'authors' | 'year'>): string {
+function authorYearLabel(citation: Pick<Citation, 'authors' | 'year'>): string {
   const more = citation.authors.length > 1 ? ' et al.' : '';
   return `${citationAuthorName(citation)}${more} ${citation.year}`;
+}
+
+/** Distinguish real sources with the same author-year label, not duplicate IDs. */
+const LABEL_SUFFIXES = (() => {
+  const groups = new Map<string, Map<string, string[]>>();
+  for (const citation of CITATIONS) {
+    const base = authorYearLabel(citation);
+    const sources = groups.get(base) ?? new Map<string, string[]>();
+    const key = sourceKey(citation);
+    sources.set(key, [...(sources.get(key) ?? []), citation.id]);
+    groups.set(base, sources);
+  }
+  const suffixes = new Map<string, { base: string; suffix: string }>();
+  for (const [base, sources] of groups) {
+    if (sources.size < 2) continue;
+    [...sources.keys()].sort().forEach((key, index) => {
+      let ordinal = index + 1;
+      let suffix = '';
+      while (ordinal > 0) {
+        ordinal -= 1;
+        suffix = String.fromCharCode(97 + ordinal % 26) + suffix;
+        ordinal = Math.floor(ordinal / 26);
+      }
+      for (const id of sources.get(key)!) suffixes.set(id, { base, suffix });
+    });
+  }
+  return suffixes;
+})();
+
+/** Standard a/b year suffixes keep same-author sources unambiguous everywhere. */
+export function citationLabel(citation: Pick<Citation, 'authors' | 'year'> & Partial<Pick<Citation, 'id'>>): string {
+  const base = authorYearLabel(citation);
+  const match = citation.id ? LABEL_SUFFIXES.get(citation.id) : undefined;
+  return match?.base === base ? `${base}${citation.year === 'n.d.' ? '-' : ''}${match.suffix}` : base;
 }
 
 /**

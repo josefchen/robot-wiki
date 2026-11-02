@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { buildFeed, escapeXml, GET } from '@/app/feed.xml/route';
+import { GET } from '@/app/feed.xml/route';
+import { buildFeed, escapeXml } from '@/lib/feed';
 import { publishedModules } from '@/data/modules';
 import { articleDateModified, articleDatePublished } from '@/lib/content-dates';
 import { moduleDatePublished } from '@/lib/module-source';

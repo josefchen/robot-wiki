@@ -26,9 +26,31 @@
  * registry is indexed by source mounts, and every entry names the published
  * route that owns its default render.
  */
+import { MODEL_BASED_LOOP_DESCRIPTION, EVALUATION_LADDER_DESCRIPTION, WORLD_MODEL_OUTPUT_DESCRIPTION } from './world-model-figures.ts';
 import type { ChartDescriptionEntry } from './chart-description-rules.ts';
 
 export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
+  {
+    component: 'ModelBasedLoop',
+    file: 'components/interactive/model-based-loop.tsx',
+    route: '/world-models/model-based-robot-learning/',
+    quantityNames: ["actions", "transitions"],
+    text: MODEL_BASED_LOOP_DESCRIPTION,
+  },
+  {
+    component: 'WorldModelEvaluationLadder',
+    file: 'components/interactive/world-model-evaluation-ladder.tsx',
+    route: '/world-models/evaluation/',
+    quantityNames: ["correlation", "ranking"],
+    text: EVALUATION_LADDER_DESCRIPTION,
+  },
+  {
+    component: 'WorldModelOutputTimes',
+    file: 'components/interactive/world-model-output-times.tsx',
+    route: '/world-models/world-models-vs-simulators/',
+    quantityNames: ["seconds", "action"],
+    text: WORLD_MODEL_OUTPUT_DESCRIPTION,
+  },
   {
     component: 'ExpoFtResults',
     file: 'components/interactive/expo-ft-results.tsx',
@@ -303,6 +325,41 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     route: '/frontier/generalization/',
     quantityNames: ['zero-shot success', 'homes'],
     text: "Zero-shot success on three whole-body tasks in 30 unseen homes, as Figure reports it: 9% for a policy trained from scratch and 56% for Helix 2.5, pretrained on Figure's Index human data, both trained on the same task data. Helix 2.5 sits 34 points below the 90% bar this article sets for solved. Figure published no trial counts.",
+  },
+  {
+    component: 'AvSafetyMiles',
+    file: 'components/interactive/av-safety-miles.tsx',
+    route: '/adjacent/autonomous-vehicles/',
+    quantityNames: ['miles', 'deaths'],
+    text: "Miles a driverless fleet must drive with no failure to show, with 95% confidence, that its failure rate is no higher than human drivers', from Kalra and Paddock's RAND study: 275 million miles against 1.09 deaths per 100 million miles, 3.9 million against 77 reported injuries and 1.6 million against 190 reported crashes. The deaths test would take a fleet of 100 cars driving around the clock about 12.5 years. These are lower bounds that assume perfect driving.",
+  },
+  {
+    component: 'SpaceLatencyLadder',
+    file: 'components/interactive/space-latency-ladder.tsx',
+    route: '/adjacent/space/',
+    quantityNames: ['milliseconds', 'minutes'],
+    text: "Three delays on a scale that steps by ten times. A drone's stereo camera needs 17 to 70 milliseconds from an obstacle coming into view to the start of a dodge, by Falanga and colleagues' bounds. A signal to the Moon and back takes 2.5 seconds, and to Mars and back 8 to 40 minutes, twice JPL's one-way 4 to 20 minutes. JPL says the Mars delay rules out driving a rover from Earth and motivates autonomy.",
+  },
+  {
+    component: 'SurgicalAutonomyLadder',
+    file: 'components/interactive/surgical-autonomy-ladder.tsx',
+    route: '/adjacent/surgical/',
+    quantityNames: ['level', 'surgical autonomy'],
+    text: "Yang and colleagues' six levels of surgical autonomy, with the systems this article covers placed on them. The teleoperated platforms the FDA has authorized, from Intuitive, CMR, Medtronic and J&J, sit at level 0, and Moon Surgical's Maestro with ScoPilot at level 1. Research demonstrations sit higher: STAR suturing live pigs in 2016 at level 2, Yang's own example; Saeidi and colleagues' 2022 laparoscopic anastomosis in live pigs at level 3, because the operator picks among plans the robot generates; and SRT-H's 2025 clipping-and-cutting experiments on excised gallbladders at level 4, as its authors place it. No system in this comparison is at level 5.",
+  },
+  {
+    component: 'DroneChampionsTimeline',
+    file: 'components/interactive/drone-champions-timeline.tsx',
+    route: '/adjacent/drones/',
+    quantityNames: ['races', 'champions'],
+    text: "Three contests between autonomous racing drones and human champions. Swift, from the University of Zurich, won 15 of 25 races against three champions in its own lab, reported in Nature in August 2023. In April 2025 TU Delft's MonoRace won the A2RL race in Abu Dhabi, beating three human world champions in a knockout on hardware and a track the organisers set. In January 2026 world FPV champion Minchan Kim beat TII Racing's drone in a best-of-nine final: at four wins each, the drone struck a gate in the deciding race and could not recover.",
+  },
+  {
+    component: 'DroneDeliveryCounts',
+    file: 'components/interactive/drone-delivery-counts.tsx',
+    route: '/adjacent/drones/',
+    quantityNames: ['deliveries', 'companies'],
+    text: "Cumulative drone deliveries as the companies report them. Zipline reports more than 3 million deliveries since its first commercial delivery in 2016, on a fact sheet read in October 2026. Wing reported well over 1 million commercial deliveries in June 2026. Both are lower bounds. Walmart's million drone deliveries are not added, because its providers include Wing and Zipline.",
   },
   {
     component: 'HumanoidPickHeight',

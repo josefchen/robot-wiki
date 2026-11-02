@@ -32,6 +32,16 @@ describe('PolicyChunkingTable', () => {
       .toBeGreaterThan(0);
   });
 
+  it('keeps horizon and frequency numerals in the data face beside their annotations', () => {
+    render(<PolicyChunkingTable />);
+    const rt1 = bodyRows().find((row) => within(row).queryByText('RT-1'))!;
+    const cells = within(rt1).getAllByRole('cell');
+    expect(cells[2].querySelector('[data-numeral-run]')).toHaveTextContent('1');
+    expect(cells[3].querySelector('[data-numeral-run]')).toHaveTextContent('3');
+    expect(cells[3]).toHaveTextContent('Everyday Robots commanded control');
+    expect(cells[3].querySelector('.block')).toHaveClass('font-sans');
+  });
+
   it('renders download availability separately from licensing', () => {
     render(<PolicyChunkingTable />);
     expect(screen.getAllByText('downloadable').length).toBeGreaterThan(0);

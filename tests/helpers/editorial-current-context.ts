@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit } from './historical-git';
 import { neutralizeHistory } from '../../lib/neutral-tooling';
 import { showAt } from '../unit/helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
@@ -17,7 +17,7 @@ export function committedText(commit: string, path: string): string {
   if (path === 'audit/compound-evidence.json' || path === 'audit/local-basis.json') {
     return showAt(commit, path);
   }
-  return neutralizeHistory(execFileSync('git', ['show', `${commit}:${path}`], {
+  return neutralizeHistory(historicalGit(['show', `${commit}:${path}`], { neutralVocabulary: true, 
     cwd: root,
     encoding: 'utf8',
     maxBuffer: 32 * 1024 * 1024,

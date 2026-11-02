@@ -40,13 +40,13 @@ describe('RetargetingGap', () => {
     expect(footGapCm(75)).toBe(23);
     expect(footGapCm(100)).toBe(0);
     expect(footGapCm(120)).toBe(-18);
-    // The table prints the readout's own number with a direction word, never a signed value the readout lacks.
-    expect(footCell(75)).toBe('23 above');
-    expect(footCell(100)).toBe('on the floor');
-    expect(footCell(120)).toBe('18 below');
+    // The table and readout preserve the model's signed height, including zero.
+    expect(footCell(75)).toBe('23');
+    expect(footCell(100)).toBe('0');
+    expect(footCell(120)).toBe('-18');
     for (let ratio = RATIO_MIN; ratio <= RATIO_MAX; ratio += 5) {
-      const number = footCell(ratio).match(/\d+/)?.[0];
-      if (number) expect(readoutFor(ratio)).toContain(` ${number} cm`);
+      expect(Number(footCell(ratio))).toBe(footGapCm(ratio));
+      expect(readoutFor(ratio)).toContain(`${footCell(ratio)} cm`);
     }
   });
 
@@ -71,8 +71,8 @@ describe('RetargetingGap', () => {
       expect(Math.abs(drawnCm - footGapCm(ratio))).toBeLessThanOrEqual(0.5 + 1e-9);
     }
     expect(readoutFor(75)).toBe('feet float 23 cm');
-    expect(readoutFor(100)).toBe('feet land');
-    expect(readoutFor(120)).toBe('feet sink 18 cm');
+    expect(readoutFor(100)).toBe('feet land (0 cm)');
+    expect(readoutFor(120)).toBe('feet sink (-18 cm)');
   });
 
   it('opens with floating feet and drives the gap from the one slider', () => {

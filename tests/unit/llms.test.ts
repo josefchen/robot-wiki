@@ -74,7 +74,7 @@ describe('llms-full.txt', () => {
     for (const article of input.articles) {
       for (const fact of articleKeyFacts(input, article)) {
         facts += 1;
-        expect(fact, url(article)).toMatch(/ \[[^\]]+ (?:\d{4}|n\.d\.)\]\(https?:\/\/[^)]+\)/);
+        expect(fact, url(article)).toMatch(/ \[[^\]]+ (?:\d{4}|n\.d\.)(?:-?[a-z]+)?\]\(https?:\/\/[^)]+\)/);
         expect(full).toContain(`- ${fact}\n`);
       }
     }
@@ -112,7 +112,7 @@ describe('llms generators follow the registry', () => {
     const fullWith = buildLlmsFullTxt(withFixture);
     expect(fullWith).toContain(`## Fixture Article\n\nURL: ${url(FIXTURE)}\n`);
     expect(fullWith).toContain('A fixture article is a registry entry that exists only in this test.');
-    expect(fullWith).toMatch(/- Its filter ran at 100 Hz on the bench \[Kalman 1960\]\(https?:\/\/[^)]+\)\./);
+    expect(fullWith).toMatch(/- Its filter ran at 100 Hz on the bench \[Kalman 1960b\]\(https?:\/\/[^)]+\)\./);
   });
 
   it('drop a removed registry entry from both files', () => {

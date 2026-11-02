@@ -11,6 +11,14 @@ async function run(css: string): Promise<string> {
 }
 
 describe('postcss-katex-font-display', () => {
+  it('loads the project configuration through Next webpack and preserves the font rewrite', async () => {
+    const { getPostCssPlugins } = require('next/dist/build/webpack/config/blocks/css/plugins');
+    const plugins = await getPostCssPlugins(process.cwd(), ['Chrome 120']);
+    const css = '@font-face{font-family:KaTeX_Main;src:url(font.woff2);font-display:block}';
+    const result = await postcss(plugins).process(css, { from: undefined });
+    expect(result.css).toBe(css.replace('font-display:block', 'font-display:swap'));
+  });
+
   it('swaps every KaTeX face shipped by katex.min.css and changes nothing else', async () => {
     const source = readFileSync(require.resolve('katex/dist/katex.min.css'), 'utf8');
     const blocking = source.match(/font-display:block/g)?.length ?? 0;

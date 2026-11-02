@@ -12,7 +12,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { CITATIONS } from '../data/citations.ts';
 import { publishedModules } from '../data/modules.ts';
-import { MIN_DISTINCT_SOURCES, countArticleSources, sourceKey } from '../lib/article-sources.ts';
+import { MIN_DISTINCT_SOURCES, MIN_SITE_DISTINCT_SOURCES, countArticleSources, sourceKey } from '../lib/article-sources.ts';
 
 const TARGET = { domain: 'manipulation', slug: 'action-chunking' };
 const byId = new Map(CITATIONS.map((citation) => [citation.id, citation]));
@@ -55,6 +55,25 @@ try {
   if (!publishedModules().some((m) => m.domain === TARGET.domain && m.slug === TARGET.slug)) {
     failures.push(`${row.route} is not a published article`);
   }
+
+  // Every article meets its own floor, but all cite the same 30 sources.
+  // This must still fail the separate site-wide requirement.
+  const shared = row.sources.slice(0, MIN_DISTINCT_SOURCES).map((key) =>
+    row.cited.find((id) => sourceKey(byId.get(id)!) === key)!);
+  for (const { domain, slug } of publishedModules()) {
+    const path = join(copy, domain, `${slug}.mdx`);
+    const original = readFileSync(join('content', domain, `${slug}.mdx`), 'utf8');
+    let index = 0;
+    writeFileSync(path, original.replace(/<Cite\b[^>]*?\bid\s*=\s*(["'])([^"']+)\1[^>]*\/>/g,
+      () => `<Cite id="${shared[index++ % shared.length]}" />`));
+  }
+  const sharedRows = countArticleSources(copy, publishedModules(), (id) => byId.get(id));
+  if (sharedRows.some((article) => article.sources.length < MIN_DISTINCT_SOURCES)) failures.push('site fixture weakened the per-article floor');
+  const total = new Set(sharedRows.flatMap((article) => article.sources)).size;
+  const siteRun = check(copy);
+  const siteNamed = siteRun.stderr.includes(`site total ${total} distinct sources is below ${MIN_SITE_DISTINCT_SOURCES}`);
+  console.log(`shared-source site total ${total}: exit ${siteRun.status}${siteNamed ? ', names the site total and floor' : ''}`);
+  if (siteRun.status === 0 || !siteNamed) failures.push(`site-wide mutation passed or was not named\n${siteRun.stderr}`);
 } finally {
   rmSync(dir, { recursive: true, force: true });
 }

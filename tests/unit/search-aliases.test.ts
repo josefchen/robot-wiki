@@ -142,9 +142,14 @@ describe('aliases are search-only (VAL-SEARCH-020c)', () => {
     // 2026-10-22) re-derives that documented rule independently to decide
     // which companies a search case should show; it renders nothing and is
     // held to the same check below.
+    // 2026-11-02 measured-release successor: the canonical map-data oracle
+    // independently expects the already-public Company's "Also known as"
+    // field. Its alias read stays in the pure expected-value function and
+    // never enters a product rendering module or a method/dataset surface.
     expect(readers.sort()).toEqual([
       'components/market-map/company-card.tsx',
       'lib/brand-v2-market-map-states.ts',
+      'lib/brand-v2-release-map-data.ts',
       'lib/market-map.ts',
       'lib/structured-search.ts',
     ]);
@@ -161,6 +166,14 @@ describe('aliases are search-only (VAL-SEARCH-020c)', () => {
       expect(source.match(/\.aka\b/g)?.length, file).toBe(matcher.match(/\.aka\b/g)?.length);
       expect(source, file).not.toMatch(/['"`]aka['"`]/);
     }
+    const oracle = await readFile(join('lib', 'brand-v2-release-map-data.ts'), 'utf8');
+    const expectedCompany = /export function expectedMapCompanyFields\(company: Company\): Record<string, string> \{[\s\S]*?\n\}/.exec(oracle)?.[0] ?? '';
+    expect(expectedCompany).not.toBe('');
+    expect(oracle.match(/\.aka\b/g)?.length).toBe(expectedCompany.match(/\.aka\b/g)?.length);
+    expect(oracle.match(/['"`]aka['"`]/g)?.length).toBe(expectedCompany.match(/['"`]aka['"`]/g)?.length);
+    expect(oracle).not.toMatch(/(?:from\s+['"]react['"]|['"]use client['"]|\b(?:jsx|jsxs|createElement)\s*\()/);
+    const productReaders = (await Promise.all(['app', 'components', 'content'].map(walk))).flat();
+    for (const file of productReaders) expect(await readFile(file, 'utf8'), file).not.toContain('brand-v2-release-map-data');
   });
 });
 

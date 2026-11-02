@@ -3,6 +3,8 @@
 import { useEffect, useRef, type HTMLAttributes, type ReactNode } from 'react';
 import { FigureStage, StageStatus } from '@/components/motion/figure-frame';
 import { alreadySaid, speakWhenSettled } from '@/components/motion/settled-speech';
+import { usePlainReadoutType } from './readout-text';
+import { numberText } from '@/components/ui/number-text';
 
 /**
  * The stage an isometric figure draws on, inside the site's figure frame.
@@ -12,9 +14,9 @@ import { alreadySaid, speakWhenSettled } from '@/components/motion/settled-speec
  * number, the headline and the caption (Figure N. under the hairline rule),
  * so the stage keeps only the drawing and the band under it: the keys to
  * the drawing's marks and the interaction hint at the left and the live
- * readout at the right (on a phone, on its own line under the hint;
- * components/iso/iso.css), in the
- * mono face at 12 px, then the status line that says how the figure was
+ * readout aligned to the text edge (on a phone, on its own line under the
+ * hint; components/iso/iso.css), in 12 px sans with mono numerals, then the
+ * status line that says how the figure was
  * made. The readout carries `data-readout`, which the kit's `useReadout`
  * writes each frame without a re-render.
  *
@@ -114,7 +116,9 @@ function useSettledReadout(readoutRef: { current: HTMLSpanElement | null }, stat
 export function AnatomyStage({ keys, story, hint, readout, status, viewWidth, className, style, children, ...props }: AnatomyStageProps) {
   const readoutRef = useRef<HTMLSpanElement>(null);
   const statusRef = useRef<HTMLSpanElement>(null);
+  const plainReadout = typeof readout === 'string' || typeof readout === 'number';
   useSettledReadout(readoutRef, statusRef);
+  usePlainReadoutType(readoutRef, plainReadout, plainReadout ? readout : undefined);
   return (
     <FigureStage
       data-anatomy-stage=""
@@ -144,9 +148,9 @@ export function AnatomyStage({ keys, story, hint, readout, status, viewWidth, cl
             ref={readoutRef}
             data-figure-readout=""
             data-readout=""
-            className="ml-auto text-right font-mono text-[12px] leading-normal tabular-nums text-text"
+            className="text-left font-sans text-[12px] leading-normal tabular-nums text-text"
           >
-            {readout}
+            {plainReadout ? readout : numberText(readout)}
           </span>
           <span ref={statusRef} role="status" data-anatomy-announcer="" data-pagefind-ignore className="sr-only" />
           {status ? <StageStatus>{status}</StageStatus> : null}

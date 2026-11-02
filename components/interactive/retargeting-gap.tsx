@@ -64,13 +64,12 @@ export const soleGapUnits = (scale: number) => jointsOf(HIPS.robot, scale, 'near
 /** The readout's words for a leg length (the slider shows the length): the model's gap under the feet. */
 export function readoutFor(ratioPercent: number): string {
   const gap = footGapCm(ratioPercent);
-  return gap > 0 ? `feet float ${gap} cm` : gap < 0 ? `feet sink ${-gap} cm` : 'feet land';
+  return gap > 0 ? `feet float ${gap} cm` : gap < 0 ? `feet sink (${gap} cm)` : 'feet land (0 cm)';
 }
 
-/** The table's words for the same gap, so a row and the readout print one number: "23 above", "13 below". */
+/** Signed height relative to the floor, with the same number in the readout. */
 export function footCell(ratioPercent: number): string {
-  const gap = footGapCm(ratioPercent);
-  return gap > 0 ? `${gap} above` : gap < 0 ? `${-gap} below` : 'on the floor';
+  return String(footGapCm(ratioPercent));
 }
 
 function describe(ratio: number): string {

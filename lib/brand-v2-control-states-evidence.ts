@@ -7,6 +7,7 @@ import {
   routeEntryModules,
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
+import { focusInstanceSchema, focusInstanceFailures, focusPaintException, focusPaintColorException, focusPaintSchema, focusPaintFailures } from './brand-v2-focus-paint.ts';
 
 /**
  * The control-states evidence family: the persisted browser sweep behind
@@ -29,7 +30,7 @@ import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 export const CONTROL_STATES_EVIDENCE_PATH = 'evidence/brand-v2/control-states.json';
 export const CONTROL_STATES_SWEEP_MODULE = 'tests/e2e/brand-v2-control-states.spec.ts';
 export const CONTROL_STATES_POPULATION_SOURCE = 'contract/brand-v2-registries.json#controls';
-export const CONTROL_STATES_VERSION = 1;
+export const CONTROL_STATES_VERSION = 2;
 
 export const CONTROL_STATE_VIEWPORTS = [
   { id: '375x812', width: 375, height: 812 },
@@ -191,7 +192,7 @@ const variantSchema = z.object({
   coveredBy: z.string().nullable(),
   hover: diffSchema.nullable(),
   pressed: diffSchema.nullable(),
-  focusVisible: diffSchema.extend({ matched: z.boolean() }).nullable(),
+  focusVisible: diffSchema.extend({ matched: z.boolean(), paint: focusPaintSchema }).nullable(),
   transientAria: z.object({
     hover: z.array(z.string()),
     pressed: z.array(z.string()),
@@ -323,6 +324,8 @@ const statusChipSchema = z.object({
  * observation it holds twice is a surplus.
  */
 const censusSchema = z.object({
+  /** Exact structural identities; no class/rest-style equivalence grouping. */
+  focus: z.array(z.string().min(1)),
   /** Distinct rendered variants per member; each is read once, its `instances` summing to the page count. */
   variants: z.record(z.string(), z.number().int().min(1)),
   /** Distinct disabled variants per member; each is clicked and keyed once. */
@@ -356,6 +359,7 @@ export const controlStatesEvidenceSchema = z.object({
   viewports: z.array(z.string()),
   routes: z.array(z.string()),
   pages: z.array(pageSchema),
+  focus: z.array(focusInstanceSchema),
   variants: z.array(variantSchema),
   selections: z.array(selectionSchema),
   disabled: z.array(disabledSchema),
@@ -433,6 +437,7 @@ export function readControlStatesEvidence(input: {
 
   const registered = new Set(input.registry.controls.map(({ id }) => id));
   const records: Array<{ member: string | null; route: string; viewport: string }> = [
+    ...evidence.focus,
     ...evidence.variants,
     ...evidence.selections,
     ...evidence.disabled,
@@ -496,6 +501,7 @@ export function populationDiscrepancies(evidence: ControlStatesEvidence): string
     return (page: { route: string; viewport: string }) => pages.get(`${page.route}@${page.viewport}`) ?? [];
   };
   const variantsOn = byPage(evidence.variants);
+  const focusOn = byPage(evidence.focus);
   const selectionsOn = byPage(evidence.selections);
   const disabledOn = byPage(evidence.disabled);
   const unexposedOn = byPage(evidence.unexposedDisabled);
@@ -512,6 +518,12 @@ export function populationDiscrepancies(evidence: ControlStatesEvidence): string
       }
     };
     const census = page.census;
+    const expectedFocus = census.focus;
+    const actualFocus = focusOn(page).map(({ id }) => id);
+    if (expectedFocus.length === 0) discrepancies.push(`${where} structural focus census is empty`);
+    if (new Set(expectedFocus).size !== expectedFocus.length || new Set(actualFocus).size !== actualFocus.length || JSON.stringify([...expectedFocus].sort()) !== JSON.stringify([...actualFocus].sort())) {
+      discrepancies.push(`${where} structural focus instances disagree with the independent census`);
+    }
     const variants = variantsOn(page);
     for (const member of new Set([...Object.keys(page.controls), ...Object.keys(census.variants), ...variants.map((variant) => variant.member)])) {
       const own = variants.filter((variant) => variant.member === member);
@@ -555,6 +567,23 @@ export type ControlStateVerdict = {
   notApplicable: string | null;
   observed: Record<string, unknown>;
 };
+
+/** Canonical A11Y002 members are exact route|viewport|instance identities. */
+export function controlFocusPopulation(evidence: ControlStatesEvidence): string[] {
+  return evidence.pages.flatMap(({ census }) => census.focus);
+}
+
+export function controlFocusVerdict(id: string, evidence: ControlStatesEvidence): ControlStateVerdict {
+  const records = evidence.focus.filter((record) => record.id === id);
+  if (records.length !== 1) return { id, status: 'passed', failures: [`${id}: expected one focus instance, found ${records.length}`], notApplicable: null, observed: {} };
+  const record = records[0];
+  const failures = focusInstanceFailures(record).map((failure) => `${id}: ${failure}`);
+  return {
+    id, status: record.nativeDisabled && failures.length === 0 ? 'not-applicable' : 'passed', failures,
+    notApplicable: record.nativeDisabled && failures.length === 0 ? 'Native-disabled control is outside the keyboard order.' : null,
+    observed: { ...record, exception: record.keyboard ? focusPaintException(record.keyboard) : null, colorException: record.keyboard ? focusPaintColorException(record.keyboard) : null },
+  };
+}
 
 const where = (record: { route: string; viewport: string; element: string }) =>
   `${record.route} @ ${record.viewport} ${record.element}`;
@@ -623,6 +652,7 @@ export function variantStateFailures(
     if (variant.focusVisible === null) failures.push(`${at}: keyboard focus was not measured`);
     else if (!variant.focusVisible.matched) failures.push(`${at}: keyboard focus does not match :focus-visible`);
     else if (variant.focusVisible.changedCount === 0) failures.push(`${at}: keyboard focus paints the same as rest`);
+    if (variant.focusVisible) failures.push(...focusPaintFailures(variant.focusVisible.paint, true).map((problem) => `${at}: ${problem}`));
   }
   return failures;
 }

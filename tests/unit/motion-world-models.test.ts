@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -135,7 +135,7 @@ describe('world-models prose truth', () => {
     };
     for (const file of articles) {
       const current = withoutPreDomainPassKolBacklogParagraphs(`world-models/${file}`, preDomainPass(`content/world-models/${file}`).toString('utf8'));
-      const before = execFileSync('git', ['show', `68fd2b8:content/world-models/${file}`], {
+      const before = historicalGit(['show', `68fd2b8:content/world-models/${file}`], {
         cwd: root, encoding: 'utf8',
       });
       const numbers = (text: string) => text
@@ -154,7 +154,7 @@ describe('world-models prose truth', () => {
         .toEqual([...numbers(before), ...(approved?.tokens ?? [])].sort());
       const prior = citations(before);
       if (file === 'generative-sim.mdx') {
-        const preRepair = execFileSync('git', ['show', 'a6298625:content/world-models/generative-sim.mdx'], {
+        const preRepair = historicalGit(['show', 'a6298625:content/world-models/generative-sim.mdx'], {
           cwd: root, encoding: 'utf8',
         });
         const target = preRepair.indexOf('RoboCasa365 reports a separate, larger set');

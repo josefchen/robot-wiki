@@ -1,6 +1,6 @@
 ---
 title: "Space Robotics"
-description: "NASA/JPL rovers, in-situ resource utilization, and orbital servicing: robotics where nothing can be repaired after launch and no human is on site to intervene."
+description: "Planetary rovers, station robots and orbital servicing: how communication delays and limited access shape autonomy beyond Earth."
 domain: adjacent
 slug: space
 order: 4
@@ -49,11 +49,23 @@ citations:
   - space-robotics-bench-2025
   - ai-space-robot-ops-review-2026
   - ai4mars-2021
+  - traversability-slip-2023
+  - proprioceptive-slip-2022
+  - plgrim-2021
+  - mars-jumping-2023
+  - reachbot-melt-2024
+  - speed-challenge-2019
+  - speedplus-2021
+  - spark-2021
+  - urso-2019
+  - surrender-2021
 seeAlso:
   - "adjacent/drones"
   - "classical/state-estimation"
   - "manipulation/vla-models"
 ---
+
+import { SpaceLatencyLadder } from '@/components/interactive/space-latency-ladder';
 
 import { OrbitalServicingTable } from '@/components/mdx/orbital-servicing-table';
 
@@ -66,6 +78,8 @@ Space robotics is the design and operation of robots beyond Earth, from planetar
 NASA and JPL rovers have used onboard autonomy since 2004 <Cite id="mer-mobility-software-2006" />. Sheridan's 1993 review found that space teleoperation had tended to avoid time delay by not teleoperating from the ground <Cite id="sheridan-time-delay-1993" />. The Mars Exploration Rovers layered goal-based driving over reactive and predictive safety checks, and drove over 11,000 m combined by October 2005 <Cite id="mer-mobility-software-2006" />. They were the first robots to use visual odometry on another world, and within two years it grew from an "extra credit" capability into a critical vehicle safety system <Cite id="mer-visual-odometry-2007" />.
 
 In Perseverance's first Mars year, AutoNav evaluated 88 percent of the 17.7 km driven, against Opportunity's previous record of 2.4 km over fourteen years <Cite id="perseverance-autonomy-2023" />. It drove 699.9 m without humans reviewing the imagery and 347.7 m in one sol, both planetary rover records <Cite id="perseverance-autonomy-2023" />. Its Enhanced Autonomous Navigation runs on a single-core CPU and raised average daily driving distance by an order of magnitude <Cite id="enav-perseverance-2026" />. By October 28, 2024, it had evaluated the terrain for about 90 percent of 32.1 km <Cite id="enav-perseverance-2026" />.
+
+Research addresses terrain risk at two stages. Endo and colleagues fuse terrain classifications and slip predictions into a distribution for risk-aware path planning, evaluated in simulation <Cite id="traversability-slip-2023" />. Kilic and colleagues detect slip from an IMU and wheel encoders, with field tests in a planetary analogue environment <Cite id="proprioceptive-slip-2022" />.
 
 Since February 2026 Perseverance can [fix its own position](/classical/state-estimation/) by matching navcam panoramas to orbital imagery, to within 25 cm in about two minutes <Cite id="mars-global-localization-2026" />. In December 2025 JPL used [vision-language models](/manipulation/vla-models/) on the ground to generate Perseverance waypoints from HiRISE orbital imagery and terrain-slope data <Cite id="perseverance-ai-drive-2026" />. After a digital twin verified over 500,000 telemetry variables, the rover drove 210 m on December 8 and 246 m two days later <Cite id="perseverance-ai-drive-2026" />.
 
@@ -89,9 +103,15 @@ Firefly's Blue Ghost landed on March 2, 2025, four days before Athena, and all i
 
 Learned locomotion meets the same regolith in analogue tests on the ground. In October 2026, Adrian Fuhrer, Marco Hutter and colleagues at ETH Zurich reported on a 2025 campaign in the ESA/DLR LUNA lunar analogue facility in Cologne, where the quadrupeds ANYmal-D and Magnecko walked loose regolith simulant and crater-like terrain. The robots could cross the simulant, but sinkage and slip, dust kicked up by foot contacts, and perception failures from overexposure, shadows and low-texture ground all degraded performance <Cite id="luna-legged-2026" />.
 
+Cave exploration adds route uncertainty. PLGRIM connects local risk-aware planning to global exploration goals and was tested on robots in Martian-analogue lava tubes <Cite id="plgrim-2021" />. Other work remains at the mission-concept stage: Olsen and Alexis propose jumping legged robots for lava tubes <Cite id="mars-jumping-2023" />, while ReachBot's MELT study proposes locomotion through extendable and retractable limbs <Cite id="reachbot-melt-2024" />.
+
 ## Orbital robotics: servicing and removal
 
 <Term id="on-orbit-servicing">On-orbit servicing</Term> covers satellite repair, refuelling, upgrades and debris removal <Cite id="space-manipulator-review-2025" />. It means matching a target's orbit, then docking with it or grasping it. An arm and its base satellite move each other, and in 1989 Umetani and Yoshida derived a generalized Jacobian from momentum conservation to control such arms <Cite id="umetani-yoshida-1989" />. A 2025 review organises capture control around free-floating and free-flying modes, from vision-based estimation to post-capture stabilisation <Cite id="space-manipulator-review-2025" />.
+
+Relative navigation needs labelled spacecraft images. SPEED combines synthetic and real imagery for monocular pose estimation <Cite id="speed-challenge-2019" />; SPEED+ adds hardware-in-the-loop images with controlled poses and space-like illumination <Cite id="speedplus-2021" />. SPARK instead supplies simulated RGB and depth images labelled by spacecraft or debris class <Cite id="spark-2021" />.
+
+The renderer has to reproduce the sensing problem. URSO uses Unreal Engine 4 to generate labelled views of spacecraft orbiting Earth <Cite id="urso-2019" />. SurRender's CPU ray tracer uses double precision to handle the scale difference between celestial distances and local target detail <Cite id="surrender-2021" />.
 
 <OrbitalServicingTable className="my-6 wide-measure" />
 
@@ -112,6 +132,8 @@ NASA discontinued OSAM-1, a mission to refuel an unprepared satellite, in March 
 ## What robot learning takes from it
 
 Perception latency of tens of milliseconds caps a [drone's](/adjacent/drones/) safe speed <Cite id="falanga-latency-2019" />. Mars delays run to minutes, so spacecraft there must handle off-nominal situations without real-time commanding from Earth <Cite id="jpl-ipn-pnt-2024" />.
+
+<SpaceLatencyLadder className="my-6" />
 
 Learned control has flown on NASA's Astrobee free-flyers aboard the ISS. In 2025 Banerjee and colleagues reported the first in-space test of learned warm starts for trajectory optimization, while a convex solver still enforced safety <Cite id="banerjee-warm-starts-2025" />. The network cut solver iterations by 60 percent with rotational dynamics and 50 percent with in-distribution obstacles <Cite id="banerjee-warm-starts-2025" />. On May 27, 2025, the Naval Research Laboratory's APIARY team ran what it calls the first reinforcement-learning control of a free-flyer in space, with a policy trained in randomized simulation <Cite id="apiary-astrobee-2025" />.
 

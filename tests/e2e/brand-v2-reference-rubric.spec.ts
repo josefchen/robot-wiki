@@ -8,8 +8,6 @@ import {
   type BrowserReferenceFeatureConfig,
 } from '../../lib/brand-v2-reference-rubric';
 import {
-  archivedExpectedRedAnchors,
-  archivedExpectedRed,
   expect,
   test,
 } from './brand-v2-static-fixture';
@@ -17,24 +15,24 @@ import {
 const HOME_CONFIG = {
   surfaceKind: 'home',
   identitySelector: 'main h1',
-  descriptorSelector: 'main p.font-mono',
+  descriptorSelector: 'main .page-lead',
   descriptorRequired: true,
   primarySelector: 'main h1',
   supportingSelector: 'main h2',
-  bodySelector: 'main p:not(.font-mono)',
-  shellSelector: 'aside',
+  bodySelector: 'main p',
+  shellSelector: 'header',
   alternateSymbolSelector: '[data-brand-symbol]',
   repeatedModuleSelector: 'main section',
 } satisfies BrowserReferenceFeatureConfig;
 
 const ARTICLE_CONFIG = {
   surfaceKind: 'article',
-  identitySelector: 'aside a[href="/"]',
+  identitySelector: 'header a[href="/"]',
   descriptorRequired: false,
   primarySelector: 'article h1',
   supportingSelector: 'article h2',
   bodySelector: 'article .prose p',
-  shellSelector: 'aside',
+  shellSelector: 'header',
   proseSelector: 'article .prose',
   alternateSymbolSelector: '[data-brand-symbol]',
   repeatedModuleSelector: 'article section',
@@ -108,7 +106,21 @@ async function compareSurface(
 }
 
 test.describe('brand-v2 reference-feature rubric', () => {
-  test('home comparison applies all independent reference anchors', async ({
+  test('normalizes equivalent colour spellings and refuses unannotated font and colour drift', async ({ page, staticBase }) => {
+    await gotoPlantable(page, `${staticBase}/`);
+    const base = await page.evaluate(collectBrowserReferenceFeatures, HOME_CONFIG);
+    expect(base.paletteAndType.auditedTypeRoleCount).toBeGreaterThan(0);
+    await page.addStyleTag({ content: ':root{--color-white:#fff;--color-ink:rgb(28,28,26)}' });
+    const equivalent = await page.evaluate(collectBrowserReferenceFeatures, HOME_CONFIG);
+    expect(equivalent.paletteAndType.matchingColourCount).toBe(base.paletteAndType.matchingColourCount);
+    await page.addStyleTag({ content: ':root{--color-white:#f0f!important} main .page-lead{font-family:monospace!important}' });
+    const changed = await page.evaluate(collectBrowserReferenceFeatures, HOME_CONFIG);
+    expect(changed.paletteAndType.matchingColourCount).toBeLessThan(equivalent.paletteAndType.matchingColourCount);
+    expect(changed.paletteAndType.matchingTypeRoleCount).toBeLessThan(equivalent.paletteAndType.matchingTypeRoleCount);
+    expect(evaluateReferenceFeatures(changed).anchors.find(({ id }) => id === 'palette-type')?.passed).toBe(false);
+  });
+
+  test('VAL-B2-EVID-004 VAL-B2-EVID-015 home comparison applies all independent reference anchors', async ({
     page,
     staticBase,
   }, testInfo) => {
@@ -123,12 +135,7 @@ test.describe('brand-v2 reference-feature rubric', () => {
     expect(payload.anchors).toHaveLength(8);
     expect(
       payload.anchors.filter(({ passed }) => !passed).map(({ id }) => id),
-    ).toEqual(
-      archivedExpectedRedAnchors(
-        'brand-v2 reference-feature rubric',
-        'VAL-B2-EVID-015',
-      ),
-    );
+    ).toEqual([]);
   });
 
   test('article comparison applies literals and article hierarchy without pixels', async ({
@@ -147,25 +154,13 @@ test.describe('brand-v2 reference-feature rubric', () => {
     expect(payload.contractLiteralOverridesApplied).toBe(true);
     expect(
       payload.anchors.filter(({ passed }) => !passed).map(({ id }) => id),
-    ).toEqual(
-      archivedExpectedRedAnchors(
-        'brand-v2 reference-feature rubric',
-        'VAL-B2-EVID-004',
-      ),
-    );
+    ).toEqual([]);
   });
 
   test('home comparison reaches full v2 parity', async ({
     page,
     staticBase,
   }, testInfo) => {
-    test.fail(
-      true,
-      archivedExpectedRed(
-        'brand-v2 reference-feature rubric',
-        'VAL-B2-EVID-015',
-      ),
-    );
     const payload = await compareSurface(
       page,
       testInfo,
@@ -181,13 +176,6 @@ test.describe('brand-v2 reference-feature rubric', () => {
     page,
     staticBase,
   }, testInfo) => {
-    test.fail(
-      true,
-      archivedExpectedRed(
-        'brand-v2 reference-feature rubric',
-        'VAL-B2-EVID-004',
-      ),
-    );
     const payload = await compareSurface(
       page,
       testInfo,

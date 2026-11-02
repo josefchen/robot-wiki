@@ -178,7 +178,7 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
   }
 
   return (
-    <div className={className}>
+    <div className={className} data-article-interactive="TeleopRigMatrix">
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <div
           role="group"

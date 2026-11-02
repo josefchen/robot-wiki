@@ -5,6 +5,7 @@ import { test, expect, brandV2Registry } from './brand-v2-static-fixture';
 import { inOwnContext } from './helpers/per-route-context';
 import { waitForArm } from './helpers/playground';
 import { derivePrimitiveSweepRouteStates } from '../../lib/brand-v2-primitive-reconciliation';
+import { measureFocusInstances, readFocusPaint } from './helpers/focus-paint';
 import {
   CONTROL_STATES_EVIDENCE_PATH,
   CONTROL_STATES_SWEEP_MODULE,
@@ -16,6 +17,8 @@ import {
   actionFailures,
   chipFailures,
   controlStateVerdict,
+  controlFocusPopulation,
+  controlFocusVerdict,
   controlStatesEvidenceFingerprint,
   disabledFailures,
   iconFailures,
@@ -356,7 +359,9 @@ function installProbe(args: ProbeArgs): void {
       const found: ProbeControl[] = [];
       const unexposedDisabled: ProbeDiscovery['unexposedDisabled'] = [];
       for (const element of document.querySelectorAll('body *')) {
-        if (MEDIA.has(element.tagName)) continue;
+        // A registered keyboard canvas is a real control owner; only
+        // unannotated decorative media can be omitted from this census.
+        if (MEDIA.has(element.tagName) && !element.hasAttribute('data-brand-control-id')) continue;
         const role = element.getAttribute('role') ?? '';
         const tabindex = element.getAttribute('tabindex');
         const native = element.matches(NATIVE);
@@ -905,7 +910,7 @@ async function measureVariant(
     const focus = await call(page, 'focus', n);
     await settle(page);
     await call(page, 'snap', n, 'focus');
-    focusVisible = { matched: focus.matched, ...(await call(page, 'diff', n, 'rest', 'focus')) };
+    focusVisible = { matched: focus.matched, paint: await page.locator(`[data-cs-probe="${n}"]`).evaluate(readFocusPaint), ...(await call(page, 'diff', n, 'rest', 'focus')) };
     // Read after the frame settles: a focus-revealed control moves in on a
     // (reduced-motion) transition, so its box is still offscreen synchronously.
     if (!geometry.inViewport && (await call(page, 'onscreen', n))) {
@@ -1746,6 +1751,7 @@ async function preparedActions(page: Page, at: PageContext): Promise<ControlActi
 
 type PageResult = {
   page: ControlPageObservation;
+  focus: ControlStatesEvidence['focus'];
   variants: ControlVariantObservation[];
   selections: ControlSelectionObservation[];
   disabled: ControlDisabledObservation[];
@@ -1780,6 +1786,10 @@ async function openRoute(page: Page, base: string, route: string): Promise<numbe
 async function sweepPage(page: Page, base: string, route: string, viewport: Viewport): Promise<PageResult> {
   const at = { route, viewport: viewport.id };
   const status = await openRoute(page, base, route);
+  const focus = await measureFocusInstances(page, route, viewport.id);
+  // The arrow walk can select a native radio. Start all existing state
+  // comparisons from the actual route default again, without assigning values.
+  await openRoute(page, base, route);
   const discovery = await call(page, 'discover');
   const instances = new Map<string, number>();
   for (const control of discovery.controls) instances.set(control.key, (instances.get(control.key) ?? 0) + 1);
@@ -1795,6 +1805,7 @@ async function sweepPage(page: Page, base: string, route: string, viewport: View
     if (control.disabled) disabled.push(await measureDisabled(page, at, control));
   }
   const census: ControlPageCensus = {
+    focus: focus.expected,
     variants: {},
     disabled: {},
     unexposedDisabled: discovery.unexposedDisabled.length,
@@ -1843,6 +1854,7 @@ async function sweepPage(page: Page, base: string, route: string, viewport: View
   }
 
   return {
+    focus: focus.instances,
     page: {
       route,
       viewport: viewport.id,
@@ -1873,6 +1885,7 @@ async function sweep(browser: Browser, base: string): Promise<ControlStatesEvide
     viewports: CONTROL_STATE_VIEWPORTS.map(({ id }) => id),
     routes: [...ROUTES],
     pages: [],
+    focus: [],
     variants: [],
     selections: [],
     disabled: [],
@@ -1885,6 +1898,7 @@ async function sweep(browser: Browser, base: string): Promise<ControlStatesEvide
     for (const route of ROUTES) {
       const result = await inOwnContext(browser, (page) => sweepPage(page, base, route, viewport), contextOptions(viewport));
       evidence.pages.push(result.page);
+      evidence.focus.push(...result.focus);
       evidence.variants.push(...result.variants);
       evidence.selections.push(...result.selections);
       evidence.disabled.push(...result.disabled);
@@ -1971,6 +1985,7 @@ test.describe('brand-v2 control states sweep', () => {
       expect(read.actions.filter((action) => action.kind === kind).length, `${kind} actions performed`).toBeGreaterThan(0);
     }
     expect(read.pages.flatMap((page) => page.unregistered.map((element) => `${page.route} @ ${page.viewport}: ${element}`)), 'every structural control is registered').toEqual([]);
+    expect(controlFocusPopulation(read).flatMap((id) => controlFocusVerdict(id, read).failures), 'every structural instance has literal keyboard-only focus paint and actual Tab/arrow reach').toEqual([]);
   });
 
   test('VAL-B2-COMP-002 every registered control paints hover, pressed, focus-visible, selected and disabled distinctly from rest at 375 and 1440 px', async ({ browser, staticBase }) => {
@@ -2012,7 +2027,8 @@ test.describe('brand-v2 control states sweep', () => {
     );
     const failures = variantStateFailures(variant, supported);
     expect(failures.length).toBeGreaterThan(0);
-    expect(failures.every((failure) => /keyboard focus paints the same as rest/.test(failure))).toBe(true);
+    expect(failures.some((failure) => /no visible focus ring/.test(failure))).toBe(true);
+    expect(failures.every((failure) => /keyboard focus paints the same as rest|no visible focus ring|focus (?:style|width|offset|colour|treatment)/.test(failure)), failures.join('\n')).toBe(true);
     expect(transientAriaFailures(variant)).toEqual([]);
   });
 
@@ -2110,6 +2126,7 @@ test.describe('brand-v2 control states sweep', () => {
       viewports: CONTROL_STATE_VIEWPORTS.map(({ id }) => id),
       routes: [...ROUTES],
       pages: [],
+      focus: [],
       variants: [],
       selections: [],
       disabled: [],

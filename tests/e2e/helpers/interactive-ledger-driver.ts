@@ -4,6 +4,8 @@ import { devices, type Browser, type Locator, type Page } from '@playwright/test
 import { inOwnContext } from './per-route-context';
 import { RESET_MARKER, mountRoots } from './interactive-mount-roots';
 import { stateDigest } from './interactive-state-digest';
+import { readFocusPaint, settleFocusPaint } from './focus-paint';
+import { emptyFocusPaint, type FocusPaint } from '../../../lib/brand-v2-focus-paint';
 import { collectFrame, seriesComparison } from './interactive-frame-evidence';
 import { implementsState, type ImplementedState } from '../../../lib/brand-v2-census';
 import { INTERACTIVE_DATA_CLASSIFICATION, STATUS_LABEL_VOCABULARY } from '../../../lib/brand-v2-interactive-data';
@@ -86,7 +88,7 @@ type ActiveInfo = {
   descriptor: string;
   closedSummary: boolean;
   focusVisible: boolean;
-  ring: { style: string; widthPx: number; color: string };
+  ring: FocusPaint;
 };
 
 type Spoken = { region: string; politeness: string; text: string; atMs: number };
@@ -493,43 +495,22 @@ async function readReadouts(root: Locator): Promise<ReadoutReading[]> {
 
 /** Where focus is, relative to the mount, and how its ring is drawn. */
 async function activeInfo(page: Page, root: Locator, selector: string): Promise<ActiveInfo> {
-  return root.evaluate(
-    (element, focusSelector) => {
-      const active = document.activeElement as HTMLElement | null;
-      const none = { style: 'none', widthPx: 0, color: '' };
-      if (!active || !element.contains(active)) {
-        return {
-          inRoot: false,
-          index: -1,
-          descriptor: active ? `${active.tagName.toLowerCase()} outside the mount` : 'nothing',
-          closedSummary: false,
-          focusVisible: false,
-          ring: none,
-        };
-      }
-      void focusSelector;
-      const index = Number(active.getAttribute('data-ledger-control') ?? -1);
-      const ringOf = (node: Element | null) => {
-        if (!node) return none;
-        const style = getComputedStyle(node);
-        return { style: style.outlineStyle, widthPx: parseFloat(style.outlineWidth) || 0, color: style.outlineColor };
-      };
-      // A visually hidden native input draws its ring on the label or the
-      // element that stands for it.
-      const candidates = [active, active.closest('label'), active.nextElementSibling, active.parentElement];
-      const ring = candidates.map(ringOf).find((value) => value.style !== 'none' && value.widthPx > 0) ?? ringOf(active);
-      const text = (active.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 40);
-      return {
-        inRoot: true,
-        index,
-        descriptor: index >= 0 ? `c${index}` : `${active.tagName.toLowerCase()} "${text}"`,
-        closedSummary: active.tagName === 'SUMMARY' && !(active.parentElement as HTMLDetailsElement).open,
-        focusVisible: active.matches(':focus-visible'),
-        ring,
-      };
-    },
-    selector,
-  );
+  await settleFocusPaint(page);
+  const info = await root.evaluate((element) => {
+    const active = document.activeElement;
+    const inRoot = active !== null && element.contains(active);
+    const index = inRoot ? Number(active.getAttribute('data-ledger-control') ?? -1) : -1;
+    return {
+      inRoot, index,
+      descriptor: index >= 0 ? `c${index}` : active ? `${active.tagName.toLowerCase()} outside the indexed controls` : 'nothing',
+      closedSummary: inRoot && active.tagName === 'SUMMARY' && !(active.parentElement as HTMLDetailsElement).open,
+      focusVisible: inRoot && active.matches(':focus-visible'),
+    };
+  });
+  void selector;
+  const active = page.locator(':focus');
+  const ring = info.inRoot && await active.count() ? await active.evaluate(readFocusPaint) : emptyFocusPaint(new URL(page.url()).pathname);
+  return { ...info, ring };
 }
 
 /**
@@ -763,10 +744,14 @@ type Session = {
   signatures: Array<[string, string]>;
   /** What the driver is doing, for an error to say where it happened. */
   trace: { step: string };
+  observeState?: LedgerStateObserver;
 };
 
 /** A defect planted in the page after it loads, to prove a clause can fail. */
 export type LedgerPlant = (page: Page, root: Locator) => Promise<void>;
+export type LedgerStateObserver = (page: Page, state: {
+  id: string; caseId: string; steps: string[]; maintain?: () => Promise<void>;
+}) => Promise<void>;
 
 const pathKey = (path: readonly number[]) => path.join('/');
 const within = (path: readonly number[], prefix: readonly number[]) =>
@@ -813,6 +798,67 @@ async function ensureBase(session: Session, path: readonly number[]) {
   const expected = session.bases.get(pathKey(path))!;
   if ((await stateDigest(session.root)) !== expected) await restore(session, path);
   else await relink(session);
+}
+
+/** Reach a real declared witness with the shipped controls. Scientific text
+ * is never accepted as a witness, and fixtures unavailable at this production
+ * mount must be recorded separately rather than manufactured in the DOM. */
+async function observeRuntimeWitness(session: Session, state: ImplementedState) {
+  if (!session.observeState) return;
+  await ensureBase(session, []);
+  const steps: string[] = ['start from the recorded default'];
+  const visibleWitness = async () => {
+    const explicit = session.root.locator(`[data-state="${state}"], [data-ui-state="${state}"], [data-status="${state}"]`);
+    for (let index = 0; index < await explicit.count(); index += 1) if (await explicit.nth(index).isVisible()) return true;
+    if (state === 'empty' && session.mount.component === 'MilestonesWatchlist') return session.root.getByTestId('watchlist-empty').isVisible();
+    if (state === 'empty' && session.mount.component === 'HandComparison') return session.root.getByText('Select hands to compare their trade-offs.', { exact: true }).isVisible();
+    return false;
+  };
+  const activate = async (button: Locator) => {
+    await button.scrollIntoViewIfNeeded(); await button.focus(); await session.page.keyboard.press('Space');
+    await quiet(session.page, SETTLE_MS);
+  };
+  if (!await visibleWitness() && state === 'empty') {
+    if (session.mount.component === 'HandComparison') {
+      const group = session.root.locator('[role=group][aria-label="Compare hands"]');
+      const folds = await group.evaluate((element, attribute) => {
+        const indices: number[] = [];
+        for (let details = element.closest('details'); details; details = details.parentElement?.closest('details') ?? null) {
+          if (!details.open) {
+            const index = details.querySelector(':scope > summary')?.getAttribute(attribute);
+            if (index === null || index === undefined) throw new Error('Empty-hand witness has an unregistered disclosure');
+            indices.unshift(Number(index));
+          }
+        }
+        return indices;
+      }, CONTROL_ATTRIBUTE);
+      await openPath(session, folds);
+      steps.push(...folds.map((index) => `Enter on disclosure c${index}`));
+      for (const button of await group.locator('button[aria-pressed=true]').all()) { steps.push(`Space on ${await button.getAttribute('aria-label')}`); await activate(button); }
+    } else if (session.mount.component === 'MilestonesWatchlist') {
+      steps.push('Space on Done status filter'); await activate(session.root.getByTestId('watchlist-filter-met'));
+    } else {
+      const search = session.root.locator('input[type=search], input[type=text]').first();
+      if (await search.count()) {
+        await search.focus(); await session.page.keyboard.press('ControlOrMeta+A'); await session.page.keyboard.type('zz_release_no_matching_record_482719');
+        steps.push('type a deterministic unmatched query'); await quiet(session.page, SETTLE_MS);
+      } else {
+        // Filter controls and options are derived from the live DOM. One
+        // empty witness is enough; do not count the search as case coverage.
+        const groups = session.root.locator('[role=group][aria-label^="Filter by"]');
+        const lengths = await Promise.all((await groups.all()).map((group) => group.locator('button').count()));
+        const choices = lengths.reduce<number[][]>((rows, count) => rows.flatMap((row) => Array.from({ length: count }, (_, index) => [...row, index])), [[]]);
+        if (choices.length > 4096) throw new Error(`${session.mount.mountId}: explicit witness plan required for ${choices.length} filter combinations`);
+        for (const choice of choices) {
+          for (let index = 0; index < choice.length; index += 1) await activate(groups.nth(index).locator('button').nth(choice[index]));
+          if (await visibleWitness()) { steps.push(`keyboard filter option indices ${choice.join(',')}`); break; }
+        }
+      }
+    }
+  }
+  if (!await visibleWitness()) throw new Error(`${session.mount.mountId}: ${state} source branch has no reached production witness; do not replace this with a source-only pass`);
+  await session.observeState(session.page, { id: `witness:${state}-witness`, caseId: `${state}-witness`, steps: [...steps, `visible ${state} UI branch`] });
+  await ensureBase(session, []);
 }
 
 /** What identifies each marked control across a re-render: its shape (element, type, name, test id, role, value of a choice) and its words at load. */
@@ -925,7 +971,8 @@ async function pressedSet(session: Session): Promise<number[]> {
 }
 
 async function series(root: Locator): Promise<LedgerSeries> {
-  return seriesComparison(await collectFrame(root));
+  const frame=await collectFrame(root);
+  return {...seriesComparison(frame),frame};
 }
 
 type Plan = {
@@ -1142,7 +1189,7 @@ async function runTransition(session: Session, facts: ControlFacts, plan: Plan, 
     readoutsAfter: await readReadouts(session.root),
   }));
   const announcements = await spokenSince(page, mark);
-  const focus = await page.evaluate(() => {
+  const focusState = await page.evaluate(() => {
     const active = document.activeElement;
     const target = (window as unknown as { __ledgerTarget: Element }).__ledgerTarget;
     return {
@@ -1156,13 +1203,18 @@ async function runTransition(session: Session, facts: ControlFacts, plan: Plan, 
             : 'nothing',
     };
   });
+  const focus = { ...focusState, paint: await controlAt(session, plan.target).evaluate(readFocusPaint) };
   if (facts.kind === 'radio' && focus.retained && !session.arrowRings.has(plan.target)) {
     const info = await activeInfo(page, session.root, session.selector);
     if (info.index === plan.target) session.arrowRings.set(info.index, { focusVisible: info.focusVisible, ring: info.ring });
+    await session.observeState?.(page, { id: `focus:${plan.target}`, caseId: 'focus', steps: ['keyboard radio arrow navigation', ...compress(plan.keys)] });
   }
   const valueText = facts.kind === 'slider' ? await controlAt(session, facts.index).getAttribute('aria-valuetext') : null;
   const ids = await duplicateIds(page);
-  const seriesAfter = plan.readSeries ? await series(session.root) : null;
+  // Every declared transition can alter source values or the exposed table
+  // population, including an arrow step, query or disclosure. Preserve the
+  // actual frame so the independent value oracle can judge those states.
+  const seriesAfter = await series(session.root);
   const changes = differences(beforeReading, await flatReading(session.root));
 
   const beforeByKey = new Map(readoutsBefore.map((reading) => [reading.key, reading]));
@@ -1200,6 +1252,12 @@ async function runTransition(session: Session, facts: ControlFacts, plan: Plan, 
           ? /checked=true|aria-checked=true/.test(afterState)
           : ownStateMoved;
 
+  await session.observeState?.(page, {
+    id: `transition:${plan.target}:${base.path.at(-1) ?? 'main'}:${plan.caseId}:${(compress(plan.keys).length ? compress(plan.keys) : ['(none)']).join('+')}`,
+    caseId: plan.caseId,
+    steps: [`keyboard focus c${plan.focusFirst ?? facts.index}`, ...compress(plan.keys), 'settled readout and announcement'],
+  });
+
   const returned = await returnTo(session, facts, plan, pressedBefore, slidersBefore, base, beforeDigest, beforeReading, afterDigest);
 
   let pointer: LedgerTransition['pointer'];
@@ -1212,7 +1270,7 @@ async function runTransition(session: Session, facts: ControlFacts, plan: Plan, 
     await page.mouse.move(2, 2);
     // Read after the same wait as the keyboard's result, so a run is compared where it ends.
     const digest = await settledRead(page, () => stateDigest(session.root));
-    pointer = { action, digest, matches: digest === afterDigest };
+    pointer = { action, digest, matches: digest === afterDigest, paint: await controlAt(session, plan.target).evaluate(readFocusPaint) };
     if (digest !== beforeDigest) await returnTo(session, facts, plan, pressedBefore, slidersBefore, base, beforeDigest, beforeReading, digest);
   }
   // Whatever the steps above left to say is said before the next transition listens.
@@ -1327,6 +1385,7 @@ async function hoverReading(session: Session, target: Locator, label: string, co
     await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
     await page.waitForTimeout(200);
     hoverRevealed = await revealed();
+    await session.observeState?.(page, { id: `hover:${label}`, caseId: 'hover', steps: [`pointer enters ${label}`, 'hover revealed content'], maintain: async () => { await target.hover(); } });
     await page.mouse.move(2, 2);
     await page.waitForTimeout(150);
   }
@@ -1361,7 +1420,10 @@ async function traverse(session: Session) {
     const info = await activeInfo(page, root, selector);
     if (!info.inRoot) break;
     visited.push(info.descriptor);
-    if (info.index >= 0 && !rings.has(info.index)) rings.set(info.index, { focusVisible: info.focusVisible, ring: info.ring });
+    if (info.index >= 0 && !rings.has(info.index)) {
+      rings.set(info.index, { focusVisible: info.focusVisible, ring: info.ring });
+      await session.observeState?.(page, { id: `focus:${info.index}`, caseId: 'focus', steps: ['Tab', `focus ${info.descriptor}`] });
+    }
     if (info.closedSummary) {
       await page.keyboard.press('Enter');
       opened.push(info.index);
@@ -1438,6 +1500,7 @@ export async function measureLedgerMount(
   plan: InteractiveLedgerPlan,
   mount: LedgerPlanMount,
   plant?: LedgerPlant,
+  observeState?: LedgerStateObserver,
 ): Promise<Omit<LedgerObservation, 'idle'>> {
   const trace = { step: 'open' };
   return inOwnContext(
@@ -1446,7 +1509,7 @@ export async function measureLedgerMount(
       // Six figures are driven at once, and a heavy redraw can hold a page's main thread.
       page.setDefaultTimeout(30_000);
       try {
-        return await measureOn(page, staticBase, plan, mount, plant, trace);
+        return await measureOn(page, staticBase, plan, mount, plant, trace, observeState);
       } catch (error) {
         const roots = await page.locator(`[${MOUNT_ATTRIBUTE}]`).count().catch(() => -1);
         const message = error instanceof Error ? error.message.split('\n')[0] : String(error);
@@ -1469,6 +1532,7 @@ async function measureOn(
   mount: LedgerPlanMount,
   plant: LedgerPlant | undefined,
   trace: { step: string },
+  observeState?: LedgerStateObserver,
 ): Promise<Omit<LedgerObservation, 'idle'>> {
     const opened = await openMount(page, staticBase, plan, mount);
     await plant?.(page, opened.root);
@@ -1494,6 +1558,7 @@ async function measureOn(
       arrowRings: new Map(),
       signatures: [],
       trace,
+      observeState,
     };
     session.controls = await readControls(session.root, session.selector, caseSelectors);
     session.signatures = await controlSignatures(session.root);
@@ -1502,6 +1567,7 @@ async function measureOn(
     session.baseReadings.set('', await flatReading(session.root));
     const reading = await defaultReading(session.root, session.selector);
     const defaultSeries = await series(session.root);
+    await session.observeState?.(page, { id: 'default', caseId: 'default', steps: ['navigate mount route', 'fonts and lazy scene settled', 'read default state'] });
 
     const order = await traverse(session);
     await ensureBase(session, []);
@@ -1601,6 +1667,7 @@ async function measureOn(
         digest,
         restored: digest === defaultDigest,
       };
+      await session.observeState?.(page, { id: 'reset', caseId: 'reset', steps: ['change control by keyboard', ...keys, 'read restored default'] });
       await quiet(page, ANNOUNCEMENT_WINDOW_MS);
       await ensureBase(session, []);
     }
@@ -1644,6 +1711,7 @@ async function measureOn(
         await quiet(page, SETTLE_MS);
         const discreteAfter = await controlStateOf(session.root, session.selector, discretePlan.target);
         const held = (await sliderLocator.inputValue()) === moved;
+        await session.observeState?.(page, { id: 'pairwise', caseId: 'pairwise', steps: ['open control folds by keyboard', 'change slider by keyboard', ...discretePlan.keys, 'read independent dimensions'] });
         await runReturn(session, await returnKeys(session, discrete, discretePlan, pressedBefore));
         await focusControl(session, slider.index);
         await press(page, sliderReturnKeys(Number(await sliderLocator.inputValue()), Number(start), slider.value!));
@@ -1679,7 +1747,7 @@ async function measureOn(
         fold: facts.foldPath.length ? facts.foldPath[facts.foldPath.length - 1] : null,
         reached: Boolean(ring) || reachedByArrow.has(facts.index),
         focusVisible: ring?.focusVisible ?? reachedByArrow.has(facts.index),
-        ring: ring?.ring ?? { style: 'none', widthPx: 0, color: '' },
+        ring: ring?.ring ?? emptyFocusPaint(mount.route),
         caseIds: facts.caseIds,
         defaultValue: facts.value ? String(facts.value.value) : null,
         defaultStated: facts.kind === 'slider' ? (stated.get(facts.index) ?? false) : null,
@@ -1687,6 +1755,10 @@ async function measureOn(
     });
 
     const source = readFileSync(join(process.cwd(), mount.sourcePath), 'utf8');
+    for (const stateCase of mount.cases) {
+      const state = stateCase.id.match(/^(loading|error|empty|unavailable)-witness$/)?.[1] as ImplementedState | undefined;
+      if (state && !stateCase.notApplicableReason) await observeRuntimeWitness(session, state);
+    }
     const matched = new Map<string, number>();
     await ensureBase(session, []);
     for (const stateCase of mount.cases) {

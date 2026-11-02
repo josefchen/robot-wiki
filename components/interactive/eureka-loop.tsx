@@ -9,6 +9,7 @@ import {
   InstrumentReset,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { ReadoutText } from '@/components/iso/readout-text';
 import { Line } from '@/components/iso/react/draw';
 import { PartView } from '@/components/iso/part-view';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
@@ -404,7 +405,7 @@ export function EurekaLoop({ className }: { className?: string }) {
           viewWidth={WIDTH}
           story={<RoundStory gen={gen} />}
           hint="Lit card: the rules · the ribbon carries each run's speed back"
-          readout={<span data-testid="round-readout">Round {gen + 1} of {rounds}</span>}
+          readout={<span data-testid="round-readout"><ReadoutText>{`Round ${gen + 1} of ${rounds}`}</ReadoutText></span>}
           status="Illustrative example, not a recorded run"
           data-outcome={PLAIN[gen].outcome}
         >

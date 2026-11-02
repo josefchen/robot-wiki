@@ -1,4 +1,5 @@
 import type { Browser, BrowserContextOptions, Page } from '@playwright/test';
+import { parseE2EViewport } from '../../helpers/e2e-viewport';
 
 /**
  * Corpus sweeps must not walk their route set on one shared page.
@@ -16,15 +17,19 @@ import type { Browser, BrowserContextOptions, Page } from '@playwright/test';
  * `scripts/check-e2e-navigation-budget.ts` enforces the same rule statically.
  *
  * `browser.newContext()` does not inherit the project's `use` options, so a
- * sweep that depends on a viewport, colour scheme or media emulation has to
- * pass them through `options`.
+ * sweep that depends on colour scheme or media emulation has to pass them
+ * through `options`. The explicit E2E_VIEWPORT command override is inherited
+ * here as well as in the project config; explicit profile options still win.
  */
 export async function inOwnContext<T>(
   browser: Browser,
   visit: (page: Page) => Promise<T>,
   options?: BrowserContextOptions,
 ): Promise<T> {
-  const context = await browser.newContext(options);
+  const viewport = process.env.E2E_VIEWPORT
+    ? parseE2EViewport(process.env.E2E_VIEWPORT)
+    : undefined;
+  const context = await browser.newContext({ ...(viewport ? { viewport } : {}), ...options });
   const page = await context.newPage();
   try {
     return await visit(page);

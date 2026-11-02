@@ -68,7 +68,7 @@ Motion planning computes a collision-free route from a robot's current configura
 
 <Image id="pr2-willow-garage-2010" />
 
-Drag the slider to step through the search, or press "Grow the tree" to replay it.
+Drag the slider to step through the search, or press "Grow the tree" to replay it <Cite id="lavalle-1998" />.
 
 <RrtExplorer className="my-6" />
 
@@ -95,6 +95,8 @@ Explicit boundary or solid models of $\mathcal{C}_{obs}$ are difficult to build,
 
 Sampling-based methods skip building $\mathcal{C}_{obs}$ by querying a collision checker and validating whole local paths, though closed-chain constraints make sampling difficult <Cite id="lavalle-2006" />.
 
+MCVAMP addresses manifold constraints by projecting many samples in parallel with CPU vector instructions, including constraints for quasi-static humanoid motion <Cite id="mcvamp-2026" />.
+
 ## Sampling-based planning
 
 The probabilistic roadmap (PRM) of Kavraki, Svestka, Latombe, and Overmars samples configurations uniformly, keeps the collision-free ones as nodes and adds extra nodes where a heuristic marks the space as difficult. A local planner links nearby nodes, and queries become graph searches, so one roadmap serves many start-goal pairs <Cite id="kavraki-1996" />.
@@ -107,15 +109,17 @@ $$
 
 with starting state $x$ and input $u$; the report recommends a higher-order integrator such as Runge-Kutta <Cite id="lavalle-1998" />. LaValle's 2006 book drops the step size: each sample connects to the nearest point on the tree's swath, the union of its edge paths, splitting an edge when needed <Cite id="lavalle-2006" />.
 
-Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id="lavalle-1998" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id="lavalle-kuffner-2001" />. Drag the shelf in the figure below and the tree of random safe steps regrows around it to the goal.
+Nearest-neighbor selection gives RRT a Voronoi bias, because frontier vertices own larger Voronoi regions. The report leaves convergence rates open <Cite id="lavalle-1998" />. LaValle and Kuffner's kinodynamic version steers with controls instead of straight lines <Cite id="lavalle-kuffner-2001" />. For differentially flat systems, FLASK plans in flat-output coordinates, where local boundary-value problems have closed-form solutions <Cite id="flask-2026" />.
+
+Drag the shelf in the figure below and the tree of random safe steps regrows around it to the goal.
 
 <ExplainerFigure id="path" />
 
-Kuffner and LaValle's RRT-Connect grows two trees, rooted at the start and the goal <Cite id="rrt-connect-2000" />. In the six manipulation problems of a 2023 comparison, it had the best overall success rate <Cite id="orthey-review-2023" />.
+Kuffner and LaValle's RRT-Connect grows two trees, rooted at the start and the goal <Cite id="rrt-connect-2000" />. In the six manipulation problems of a 2023 comparison, it had the best overall success rate <Cite id="orthey-review-2023" />. pRRTC parallelizes RRT-Connect on the GPU, distributing both tree expansion and collision checking across threads <Cite id="prrtc-2025" />.
 
 Probabilistic completeness means the chance of finding an existing solution approaches one as sampling continues, with no finite-budget guarantee <Cite id="lavalle-2006" />. Karaman and Frazzoli prove it for simplified PRM (sPRM) and geometric RRT on $X=(0,1)^d$, $d\geq2$, assuming a solution with clearance $\delta>0$, uniform independent samples, a fixed sPRM radius, capped RRT steering and straight-line collision tests. A 1-nearest-neighbor sPRM is not probabilistically complete <Cite id="karaman-frazzoli-2011" />.
 
-OMPL 2.0.0, released April 6, 2026, added VAMP as a SIMD backend for planning speeds up to 25 kHz <Cite id="ompl-release-notes-2026" />; VAMP's authors report gains of more than 500x from fine-grained parallelism on 7 to 14 DoF robots <Cite id="vamp-2023" />. The library implements PRM and RRT, includes benchmarking tools and plugs into external collision checkers and visualizers <Cite id="ompl-2012" />.
+OMPL 2.0.0, released April 6, 2026, added VAMP as a SIMD backend for planning speeds up to 25 kHz <Cite id="ompl-release-notes-2026" />; VAMP's authors report gains of more than 500x from fine-grained parallelism on 7 to 14 DoF robots <Cite id="vamp-2023" />. The library implements PRM and RRT, includes benchmarking tools and plugs into external collision checkers and visualizers <Cite id="ompl-2012" />. The OMPL 2.0 paper describes the broader update: hardware acceleration alongside planning with geometric constraints and temporal goals <Cite id="ompl-2-2026" />.
 
 ## Optimality: RRT\*
 
@@ -137,6 +141,8 @@ $$
 
 Here $c_n$ is the best cost after $n$ iterations, so a finite budget can return a suboptimal path. The non-optimality analysis assumes that optimal paths traverse a set of states of measure zero. Expected processing work is of order $n\log n$, within a constant factor of RRT, though RRT\* makes $O(\log n)$ collision checks per iteration to RRT's one <Cite id="karaman-frazzoli-2011" />.
 
+FMT\* grows a tree over a fixed batch of samples with a lazy dynamic-programming recursion ordered by cost to arrive <Cite id="fmt-star-2013" />.
+
 After a first solution, Informed RRT\* skips routes irrelevant to the query by sampling only the domain's intersection with <Cite id="gammell-2014" />
 
 $$
@@ -144,6 +150,10 @@ $$
 $$
 
 This prolate hyperspheroid has the start and goal as foci and the best path length $c_{best}$ as transverse diameter. It contains every state on a strictly improving path, but its states need not be collision-free, so collision checks remain. Over 100 runs per variation with 60 seconds of refinement, it refined faster than RRT\*, and it gains nothing once the set covers the domain <Cite id="gammell-2014" />.
+
+BIT\* combines batches of samples with heuristic search, ordering candidate connections by their potential solution cost and refining the approximation as more samples arrive <Cite id="bit-star-2017" />.
+
+AO-RRT-Connect puts RRT-Connect inside the AO-x framework to add asymptotic optimality while retaining its fast search for an initial feasible path <Cite id="aorrtc-2025" />.
 
 ## Trajectory optimization
 
@@ -163,6 +173,8 @@ The first-derivative term penalizes squared velocity; higher-order terms penaliz
 On the first six joints of a seven-DoF Barrett WAM, CHOMP solved 99 of 105 problems from 15 endpoint configurations. On LittleDog it ran inside a footstep controller with a separate footstep planner and a ZMP preview controller seeding the trunk. Trajectories were computed before execution because worst-case optimization took about 1.5 times as long as execution <Cite id="ratliff-2009" />.
 
 The paper also tests a Hamiltonian Monte Carlo variant and records finite-time local-minimum failures <Cite id="ratliff-2009" />; the 2013 journal CHOMP uses Hamiltonian Monte Carlo against high-cost local minima and for probabilistic completeness, and respects hard trajectory constraints <Cite id="chomp-ijrr-2013" />.
+
+STOMP improves a trajectory by sampling noisy alternatives and combining lower-cost samples; its obstacle and smoothness objective need not supply an analytic gradient <Cite id="stomp-2011" />.
 
 ### TrajOpt: penalties, trust regions, and collision limits
 
@@ -190,7 +202,11 @@ On the arm, single-initialization TrajOpt solved fewer problems than either OMPL
 
 The full-body comparison omits CHOMP, for which the authors lacked documentation or data. The introduction gives every planner ten seconds, while the experiments specify three seconds per CHOMP initialization and thirty seconds for full-body OMPL <Cite id="schulman-2013" />.
 
+The 2014 journal extension also studies statically stable Atlas walking and curvature-constrained needle trajectories, which are separate experiments from the 2013 tables above <Cite id="trajopt-ijrr-2014" />.
+
 cuRobo runs many parallel optimizer seeds on GPUs and solves difficult motion generation problems within 50 ms on average, 60x faster than state-of-the-art trajectory optimization <Cite id="curobo-2023" />.
+
+An industrial integration extends cuRobo to a robot on a gantry and builds collision environments from CAD digital twins, illustrating the extra modeling needed outside fixed-base benchmarks <Cite id="industrial-curobo-2025" />.
 
 ### Initial guesses and the two-stage pattern
 
@@ -198,9 +214,13 @@ CHOMP and TrajOpt both need an initial trajectory and can stall in bad local min
 
 Ratliff and colleagues describe PRM and RRT as commonly deployed in two phases: find a feasible path, then remove redundant or jerky motion <Cite id="ratliff-2009" />. Shortcutting, a cheap second stage, repeatedly picks two trajectory points and tries to replace the segment between them with a shorter collision-free one <Cite id="hauser-shortcut-2010" />.
 
+MR-POP uses a parallel GPU sampling planner to produce feasible multi-robot trajectories that can seed a trajectory optimizer <Cite id="mr-pop-2026" />.
+
 ## Where this meets the learned stack
 
 Motion Policy Networks trained on over 3 million motion planning problems in over 500,000 [environments](/world-models/generative-sim) <Cite id="mpinets-2022" />. A 2026 survey finds that neural motion planners often struggle to generalize to unseen, out-of-distribution planning settings <Cite id="neural-motion-planner-survey-2026" />.
+
+Neural Motion Planning distills expert plans from simulated clutter into a reactive policy, then applies lightweight optimization when deploying the policy on a real arm <Cite id="neural-mp-2024" />.
 
 Deep Reactive Policy replaced AIT\* with cuRobo as its expert planner because GPU acceleration let it scale to 10 million expert trajectories. Its authors report that AIT\* achieved 0% success on all dynamic tasks, and cuRobo fell to 3.00% when the goal was temporarily obstructed <Cite id="deep-reactive-policy-2025" />.
 

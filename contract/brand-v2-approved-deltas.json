@@ -125458,6 +125458,2437 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-prose-adjacent-autonomous-vehicles",
+      "manifest": "prose",
+      "memberId": "article:adjacent/autonomous-vehicles",
+      "oldHash": "bd3e3b1523bfa75c344c9a6a9c39d9ebbf272e036e0dc61c8311d67cb9db2d3b",
+      "newHash": "5bbe1b68b9cd5c4f9bf15ede3353bd563ab09837241b5b5906c7c00c35ea41db",
+      "reason": "Adjacent owed-figures slice of 2026-10-27 on adjacent/autonomous-vehicles: the article mounts the new AvSafetyMiles figure (Kalra and Paddock's 2016 RAND Table 1 failure-free miles at 95 percent confidence to match the human rates of 1.09 deaths, 77 reported injuries and 190 reported crashes per 100 million miles: 275 million, 3.9 million and 1.6 million miles, on one log ruler) once, after the paragraph on the RAND study and Mobileye's Responsibility-Sensitive Safety, as one import line before the AvStackTable import and one mount line `<AvSafetyMiles className=\"my-6\" />`, each between blank lines. No sentence, number, citation, link or front-matter field changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. It moves the member from its last approved endpoint (kol-batch-20261021-adjacent-prose-autonomous-vehicles).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-prose-adjacent-drones",
+      "manifest": "prose",
+      "memberId": "article:adjacent/drones",
+      "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+      "newHash": "fb658353a6d762ca0391bde14b1edf033844f6dc9c43a8a23bb9fff67b7dcf55",
+      "reason": "Adjacent owed-figures slice of 2026-10-27 on adjacent/drones: the article mounts two new figures, each once. DroneChampionsTimeline (Swift winning most of its races against three champions on its own lab's track and hardware in 2023, MonoRace beating three human world champions in a knockout at A2RL in Abu Dhabi in April 2025, and Minchan Kim beating TII Racing's drone in the deciding race of the A2RL best-of-nine final in January 2026) follows the paragraph that ends on champion policies staying narrow, before the autonomy-stack section; DroneDeliveryCounts (Zipline's more than 3 million deliveries from its safety fact sheet and Wing's well over 1 million from its June 2026 Walmart release, drawn as lower bounds on separate dates) follows the Zipline and Wing delivery paragraph, before the Part 108 paragraph. The two import lines sit before the PerceptionLatency import and the two mount lines read `<DroneChampionsTimeline className=\"my-6\" />` and `<DroneDeliveryCounts className=\"my-6\" />`, each between blank lines. No sentence, number, citation, link or front-matter field changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. Every prior edge for this member is inventoried exactly, with its endpoint hashes and approval records retained as history. This resolution approves the single new endpoint produced by that change; any removed, altered or newly added edge invalidates it. The edge starts from the sealed bytes and reconciles the member's 19 earlier approved edges exactly, ending with explainer-mounts-20261026-prose-adjacent-drones.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent",
+      "reconciles": [
+        {
+          "id": "dr-r1-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r2-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r3-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r4-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r5-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r6-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r7-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r8-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r9-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r10-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "dr-r11-20260916-1",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89"
+        },
+        {
+          "id": "motion-frontier-adjacent-home-humanizer-v3-20260927-prose-drones",
+          "oldHash": "f4a03ab3d52160b5c9362723a530e3e7faab6df83b4e1a446be79e88a3ba2c89",
+          "newHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab"
+        },
+        {
+          "id": "round5-chart-first-screen-20260928-prose-drones",
+          "oldHash": "57fede5c2c9e935af23c2591d021aa42217c420f53f98733fee97f4e9e1f80ab",
+          "newHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29"
+        },
+        {
+          "id": "seo-pass-20261002-prose-adjacent-drones",
+          "oldHash": "fa823b5469df1868ac25fd324077b5aa44a2075fef250591e1ba46373cd78e29",
+          "newHash": "e56f7ce5f9385c6edbf63a09e2ab452d27360bd70e01eb2b0f0887a8b1e3a75e"
+        },
+        {
+          "id": "reader-first-20261002-prose-adjacent-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "94643293092ae3ebd0241bcecdff0b6d46967dfc99e70cf1f3b9c4ab2ea599f0"
+        },
+        {
+          "id": "length-cut-20261014-adjacent-prose-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "7bcf451ff6c317fe184637c4b983811da85d163ee363447b33535da9dad50d7c"
+        },
+        {
+          "id": "images-b-adjacent-20261015-prose-adjacent-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "5265adbd08af957e08ca5012e879a10c89be1146e789f31e666306245d319a6c"
+        },
+        {
+          "id": "kol-batch-20261021-adjacent-prose-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "68609b1fbe4856ba54d5c3af595fac89a577b19bf68c32e51cffa471e0971003"
+        },
+        {
+          "id": "explainer-mounts-20261026-prose-adjacent-drones",
+          "oldHash": "8e3c8987472b5b078d5f7bb74477731440def9460442e8487343c1a3d906e641",
+          "newHash": "3e4fea2e8b00d66e4e817e4b0d0a2a93da952022b79b39ad24958b2192ae59de"
+        }
+      ]
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-prose-adjacent-space",
+      "manifest": "prose",
+      "memberId": "article:adjacent/space",
+      "oldHash": "c6d27069a6a318165b7c55bc2c7325a5719f5660d3ec31be47f4f398d467a5f9",
+      "newHash": "89aebf3891b046b6913f773ecf0419ad72d712627df3dbc7111487ad5c9ba9b5",
+      "reason": "Adjacent owed-figures slice of 2026-10-27 on adjacent/space: the article mounts the new SpaceLatencyLadder figure (a drone stereo camera's 17 to 70 ms sensing delay from Falanga and colleagues against the Earth-Moon round trip of about 2.5 seconds and the Earth-Mars round trip of 8 to 40 minutes from JPL's one-way light times, on one log axis) once, after the paragraph on drone perception latency and Mars delays, as one import line before the OrbitalServicingTable import and one mount line `<SpaceLatencyLadder className=\"my-6\" />`, each between blank lines. No sentence, number, citation, link or front-matter field changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. It moves the member from its last approved endpoint (images-b-adjacent-20261015-prose-adjacent-space).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-prose-adjacent-surgical",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "21d174dcd7ea57875c36482c35dfecdea222db7d687708ce180429334267e8ed",
+      "newHash": "5fb15cfc4ef16a952cb69fc2f2299e883e0c210975cf5e5c18a6966063877683",
+      "reason": "Adjacent owed-figures slice of 2026-10-27 on adjacent/surgical: the article mounts the new SurgicalAutonomyLadder figure (Yang and colleagues' six levels of medical-robot autonomy, with the FDA-authorized platforms at level 0, Moon Surgical's Maestro with ScoPilot at level 1, and the research claims STAR 2016, the 2022 laparoscopic anastomosis and SRT-H 2025 at levels 2 to 4) once, after the SRT-H paragraph, as one import line after the ScopeFollow import and one mount line `<SurgicalAutonomyLadder className=\"my-6\" />`, each between blank lines. No sentence, number, citation, link or front-matter field changes, and audit/evidence/owed-figures-20261026/source-transition.json records the successor bytes as exact edits. It moves the member from its last approved endpoint (anatomy-adjacent-new-figures-20261019-prose-surgical).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-name-av-safety-miles-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/av-safety-miles.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7ae7441e450f72aefafdbfe7d37954a795374f16f6c8959090f8720d1d66fa60",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new AvSafetyMiles figure names its plot \"Failure-free miles needed to match human death, injury and crash rates\", shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-name-space-latency-ladder-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/space-latency-ladder.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ebee85f677891141b42d9693bc00fc198f7b40134cafe642d1ce01625e9556aa",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new SpaceLatencyLadder figure names its plot \"Drone camera delay against round trips to the Moon and Mars\", shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-name-surgical-autonomy-ladder-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/surgical-autonomy-ladder.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "df35740ecd404c3fa3c6e186446e4d6bbb84fd39b7606c6ac3ab3ddb3845bf38",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new SurgicalAutonomyLadder figure names its plot \"Surgical systems and studies placed on six levels of autonomy\", shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-name-drone-champions-timeline-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/drone-champions-timeline.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0ba3d56324f4bea1b99ad4e660dc9935837483811aeb2d8062fa13d37be5c255",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new DroneChampionsTimeline figure names its plot \"Three races between autonomous drones and human champions, 2023 to 2026\", shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-name-drone-delivery-counts-literal-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/drone-delivery-counts.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0fe697672bf71968b44c015463307a164f184fcea41a1567fb00b6514f22cb4d",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new DroneDeliveryCounts figure names its plot \"Cumulative drone deliveries reported by Zipline and Wing\", shorter than the description it references (VAL-EDU-021). The member is new; this edge approves its first reviewed name only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-EDU-021",
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-source-av-safety-miles",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/av-safety-miles.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "08f98312eceef289062843592fa1238cb394702be129c4f132fa31b1ab46211b",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new AvSafetyMiles figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/av-safety-miles.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only. The chart-data table is open within the closed method fold, so one activation reveals every value (VAL-OPUS-144).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-source-space-latency-ladder",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/space-latency-ladder.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bdbdd6424468169fa1922f5339779dae141389d87828cf2e357577c350976639",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new SpaceLatencyLadder figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/space-latency.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only. The chart-data table is open within the closed method fold, so one activation reveals every value (VAL-OPUS-144).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-source-surgical-autonomy-ladder",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/surgical-autonomy-ladder.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a6369c1b6a96548a02bc251cf5558b064bcfa497cc632b77185fe9ac2a652a32",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new SurgicalAutonomyLadder figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/surgical-autonomy-ladder.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only. Codex continuation review, 2026-11-02: the headline is explicitly limited to these listed authorized systems, the level-5 comment is dated to Yang 2017, and SRT-H is described as clipping-and-cutting experiments to preserve the source's scope. The chart-data table is open within the closed method fold, so one activation reveals every value (VAL-OPUS-144).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-source-drone-champions-timeline",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/drone-champions-timeline.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "61cba4679f63390e920aba771cfe7ca57bf870f219dd5a39c5fea62c4d48b981",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new DroneChampionsTimeline figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/drone-racing-champions.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only. The chart-data table is open within the closed method fold, so one activation reveals every value (VAL-OPUS-144).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-source-drone-delivery-counts",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/drone-delivery-counts.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7f9fc6916eb144eba9c0d7c4d99a7a80a218d55271d7c60e4ea0c351188f88e0",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: the new DroneDeliveryCounts figure source, built on the research-page light figure stage with the existing instrument primitives (InstrumentFigure, PlotStage, ChartDescription), at most three readouts, its data in lib/drone-deliveries.ts. Its source joins the interactive-sources registry (regenerated by npm run generate:brand-v2-registries), classified source-data in lib/brand-v2-interactive-data.ts, with a chart-description registry entry and a reader-first registry entry. The member is new; this edge approves its first reviewed source only. The chart-data table is open within the closed method fold, so one activation reveals every value (VAL-OPUS-144).",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-mount-autonomous-vehicles-AvSafetyMiles-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/adjacent/autonomous-vehicles.mdx:AvSafetyMiles:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "dd3524ff104013eeed15506f7c4ec8a950ac2b9634572cbf62d664ab2c235b14",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: adjacent/autonomous-vehicles mounts the new AvSafetyMiles once, after the paragraph on the RAND study and Mobileye's Responsibility-Sensitive Safety, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-mount-drones-DroneChampionsTimeline-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/adjacent/drones.mdx:DroneChampionsTimeline:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a6147750ed52a4f3fbe9ed6fe82e0c0805190a00fd447cb34e67302e5e6b7b68",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: adjacent/drones mounts the new DroneChampionsTimeline once, after the paragraph that ends on champion policies staying narrow, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-mount-drones-DroneDeliveryCounts-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/adjacent/drones.mdx:DroneDeliveryCounts:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9e70416495b214427fd1db3fa5c28668798af5425d2b9a5ca24e063306b4e6af",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: adjacent/drones mounts the new DroneDeliveryCounts once, after the Zipline and Wing delivery paragraph, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-mount-space-SpaceLatencyLadder-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/adjacent/space.mdx:SpaceLatencyLadder:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "138e805c1f9fa3cdba6a92f42de5f53de774cfdb66ff287cdd33451caf8950a9",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: adjacent/space mounts the new SpaceLatencyLadder once, after the paragraph on drone perception latency and Mars delays, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-figures-adjacent-20261027-mount-surgical-SurgicalAutonomyLadder-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/adjacent/surgical.mdx:SurgicalAutonomyLadder:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "146dbf395ed95c7c7f3e40e5811c66864d122e74f22673cb30460def98a10120",
+      "reason": "Adjacent owed-figures slice of 2026-10-27: adjacent/surgical mounts the new SurgicalAutonomyLadder once, after the SRT-H paragraph, as one import line and one mount line, each between blank lines, recorded by the owed-figures continuity layer (audit/evidence/owed-figures-20261026/source-transition.json). The member is new; this edge approves its first reviewed mount only.",
+      "ownerApproval": "Owner directives sealed for the opus pass (VAL-OPUS-097 adjacent-field figures), routed to opus-pass-owed-figures-adjacent by the orchestrator note of 2026-10-26 20:40, which split the adjacent figures into their own slice. Every plotted value was read in its primary source and is recorded in audit/adjacent.md under the content-auditor rules. Not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-097",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-prose-article-world-models-evaluation",
+      "manifest": "prose",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "b5db324786e8ae6e8cfea8141bfa46dc31acf5bd6ee8c5a96a35bb63015efe85",
+      "newHash": "991d6d3331f04eccf20a8bebe41579cb689d67aceb15f07d38907313ad48a444",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-prose-article-world-models-model-based-robot-learning",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "e8fa597473bb2782293243d945d2616f58f6ed1890ca8f85f60676133d5263e9",
+      "newHash": "c87eed3d23fe4c7576358435e6d9161bae32f5580edd5773fbe5edda3dc5d5c9",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-prose-article-world-models-world-models-vs-simulators",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "63b342b4215139465b02209d0a586ebe474975c360c2c023ad2f1cf624c9f740",
+      "newHash": "e4360dc7b77b98eab2ef5abfbbda3979c91d585cc6c170186a30b79373f96802",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-accessible-names-literal-components-interactive-model-based-loop-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/model-based-loop.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2cf12efefde32615278e53c1d8aa40e46c0cfdcb6431b8c7690d73bbb9f9871f",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-accessible-names-literal-components-interactive-world-model-evaluation-ladder-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/world-model-evaluation-ladder.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bf280c327a22262364378405ba119683e1b72a42abce70752d884b7a46e16cc1",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-accessible-names-literal-components-interactive-world-model-output-times-tsx-aria-label-1",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/interactive/world-model-output-times.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c3f8bdb47917c53bd0426126e9b7d9ef09dd50acc29867f887f09fc49075d73a",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-interactive-sources-mounts-mount-content-world-models-evaluation-mdx-WorldModelEvaluationLadder-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/world-models/evaluation.mdx:WorldModelEvaluationLadder:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3c34f8693e602d1c60188bfb0539a83747b2954b6eec724eb65bce3f162f7df0",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-interactive-sources-mounts-mount-content-world-models-model-based-robot-learning-mdx-ModelBasedLoop-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/world-models/model-based-robot-learning.mdx:ModelBasedLoop:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4396c41afd7077c3b1dcd09bfe650a31f4bf4027a999408a65ff17579b3e702c",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-interactive-sources-mounts-mount-content-world-models-world-models-vs-simulators-mdx-WorldModelOutputTimes-1",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "mount:content/world-models/world-models-vs-simulators.mdx:WorldModelOutputTimes:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "63ab0814a6f2abd21c2eaeed30619b9f8238eabcabebc1f60defafb59be90034",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-model-based-loop-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/model-based-loop.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8d7b50c040813515295aae06311b178ea0d769b03161a5a538a7b45aa07403b4",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-evaluation-ladder-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-evaluation-ladder.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a85b0f91e4969d20e34cb705ade6f3ff86987b77d3f6dfe1b0add115329dfac0",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "owed-world-models-20261102-interactive-sources-mounts-source-components-interactive-world-model-output-times-tsx",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/world-model-output-times.tsx",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d35ac87e6ada7bcd63599799e62e442bcd4e46a88ec65200f39aedd46f17e711",
+      "reason": "World-model owed-figures slice, VAL-OPUS-073: adds the six-step online learning loop, the five-rung evaluation ladder with the SimFoundry policy-ranking example, and the sourced logarithmic output-time comparison. Existing prose and citations are preserved. The three exact MDX changes are recorded in the existing owed-figures continuity layer. Sources, units, hardware, derived totals and an upper bound were checked against primary documents and recorded in audit/world-models.md and audit/evidence/world-model-figures-20261102/sources.json. This edge covers only its named member.",
+      "ownerApproval": "Owner-authorized Codex takeover of the existing mission, 2026-11-02, preserving VAL-OPUS-073 and the research-page standard; the owed-figures successor permits the three sourced figures. Routine implementation approval, not release approval.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-073",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-prose-article-world-models-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "97b073ac8c16287705c5e2d3a0cdb90cbe6a1671948652b665ea15eeeafbb9bc",
+      "newHash": "e1d1d60bd0afbfbe5f3779749f042687406a4aa76c9d680bb99b87976c2402ff",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-prose-article-world-models-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "e5407da25c642726161d4fe9fd000751507a67c77d221cc9ff6cdf998ad27c6d",
+      "newHash": "ea62177ce3c7c05a01a466fdcf6aae9827e576c5093d193aec80a60a8eb8c87f",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-prose-article-world-models-jepa",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "8056ca2954bf00d0627df6b09cbd44ca4acec7c354f815a102878734d7313e72",
+      "newHash": "fb7c0b912352e78da52734d5ad476808703a7612129400cd26cd497d239fe608",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-prose-article-world-models-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "498eb98d6836c9bfe0862eda496a100bde9194825cf333e5a5e82e692e838baa",
+      "newHash": "1c4f42958ad00064b050b1f53d3efe72a42f9096f9c7e64337c777f99614d961",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-prose-article-world-models-model-based-robot-learning",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "c87eed3d23fe4c7576358435e6d9161bae32f5580edd5773fbe5edda3dc5d5c9",
+      "newHash": "fc98142daee2d1d444bb52a0092084d88d3c67866c1f5cebe4f030498a66c67b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-prose-article-world-models-world-models-vs-simulators",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "e4360dc7b77b98eab2ef5abfbbda3979c91d585cc6c170186a30b79373f96802",
+      "newHash": "a1f7be04faf53698a1feb9449dd9aaa50212585172e8a3f382fdb93cc16f7b2a",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-relationships-article-world-models-generative-sim",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "31dc5eea7fe29539f3db10250db078f2ec85607a06c44d76dfe8aafb5f6f349a",
+      "newHash": "ba4a8b3ceb6a1493fb3d796ee5c61306ee95b23ede441759156b9c7ed1e43aea",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-relationships-article-world-models-generative-video",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "f93eb7fdccfc724ef09e122460488558b110d967251f33df2528f77b6ab9d151",
+      "newHash": "a2f337f0d4296f79e38aa564b52ba88e57302e5f393ab3331ae4dc0f964e3007",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-relationships-article-world-models-jepa",
+      "manifest": "relationships",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "6ce288e2dd107d4d22c680e7a39e81ad244205c087deffd092e33cab9b4ed233",
+      "newHash": "60e290d84402b6f46378a199eb8005af8493de060bfa095a85ae06f79835768d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-relationships-article-world-models-latent-dynamics",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "b24dc6bfc2889373dec9c461766caa95994d0e5e0599d7b92e9c928729b1c628",
+      "newHash": "7fc516c07e1b04e2b60670ee51a11fec8c6df77dfd3323ac0ba6ed8fc41ab0e4",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-relationships-article-world-models-model-based-robot-learning",
+      "manifest": "relationships",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "18a09b7b0ca33bebd2faea37a1422e789b480a837ee9f37534dceba9fcb109b6",
+      "newHash": "0a5c1c8cba79ef06d63be78212978aab51a00738b0f48edf9204cadd870df40e",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-relationships-article-world-models-world-models-vs-simulators",
+      "manifest": "relationships",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "763a10ba0137cbda208ece2ecd56298574d9a56feeba691e797c849406f35e78",
+      "newHash": "e8c547c5dc5aee6f84629b549bc4ff4924cac969e86aa4ab918cfcc35a291641",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-article-metadata-article-fact-frontmatter-world-models-generative-sim",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/generative-sim",
+      "oldHash": "18838e648ebf07ed3321c0c89dd059acf942a7fa56a76c34eb5ee5faf6146590",
+      "newHash": "5158ed30a9562214c1571225608ae4ed3a457f9008598912e92981b8dddfb774",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-article-metadata-article-fact-frontmatter-world-models-generative-video",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/generative-video",
+      "oldHash": "09e1fc33f7c040b21f0bcb708f740e144d495c1ea77de7da6ae3a7c2000eed38",
+      "newHash": "cf908be123ec1255f05eeb7ed5f56943a2712b6369c88fdde086a442bc5735ef",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-article-metadata-article-fact-frontmatter-world-models-jepa",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/jepa",
+      "oldHash": "a78946515e246ac0e703dbda4b36041407b158ccd918a67f47d98150f75dd59d",
+      "newHash": "057fd4be9775b293ccda6f82cdccc43b50eae41842aaf993e6341eaef491393d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-20261102-article-metadata-article-fact-frontmatter-world-models-world-models-vs-simulators",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/world-models-vs-simulators",
+      "oldHash": "d80e3e1c5b14ad007108a56ef5aea106e0da902767d19d7c030f811c27ab07cb",
+      "newHash": "e18292d9dcb53d2c593980d5008ea37b7f0499fffdb710d08c0490d7b76b2834",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-humanoid-wbc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "3108953320cb9026bf79e6c631113fea4d7a96c2b904da98fc03c43d5da55eb0",
+      "newHash": "d5fad85bb198333aaf33b6ce8355ad1bf3e2f3607cdd8c228a80505f51bff293",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-legged-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "1141d58add9d261bec0fa863b248ce6f3ba53fe0db3f6f19e5905ab67809ba96",
+      "newHash": "ba396d6ad922646573eb0b0151f9be33a361a16cd39cea59b4badf80a6bedcf2",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-offline-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/offline-rl",
+      "oldHash": "3fe52f3891fb8aa10ae4e818eb05a2417e0a2544dfab824e86a0f6ea06cd0255",
+      "newHash": "a5403a5944d8305bdf342168cc592001be05878614c3f9837f72d59c87f23e0d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-parallel-sim-rl",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "e97976a88aac5ad88f94954d5c88402cedc4d9de2c2e23fbfb24530a99a0ba85",
+      "newHash": "35cecb610b9e6f54752340bc5d3795d8eba8352c279b20f8b4ec50823481407d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-reward-design-mpc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "cb4ae742220a3ecdb029b7d7195f6c7a526d7ed9af9f58f055aad7ad94c04ab2",
+      "newHash": "f84402a710e49d7d5ca1659706f1acdda124167be1e6a5e81b4bb89136ac6192",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-rl-for-robotics",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "f7103c548d0051827d0a2d1deca76578dd779f922c4846c3ba3c51041c217718",
+      "newHash": "6ef3b5ba371217d0a5ab95f8fd4117c0d97572a360e96504006112ddce08a5cb",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-sim2real-transfer",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "9723e087abb5201f8f35edae1b0719d423839f88f1889144eda866a6c898dcb0",
+      "newHash": "f57e8170b73f38dc0913476fe73a448cbcce80a56a7a3b1c8631d0715fb58d4b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-prose-article-rl-sim2real-why-rl-locomotion",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "35f347e5fbeabed04202ea7ac8e50bd12449f0d445166512c8b8554c325041f4",
+      "newHash": "6e73b5d9541016121533394fceca6c8535f989ebdac30bf00fba7bcff73f153d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-humanoid-wbc",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "2b14e694b1ee2590301cdc7b306d108b9b5c4a999c1a2b100ca4d2b3639fd0b9",
+      "newHash": "084a162a6e88a759240308ec555f242f73e36ba446467c2033250c95acbd7b10",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-legged-locomotion",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "552a7defd1909f3eb414ead8b4dc1a1a7320e52794b34395583dfcfb589096ad",
+      "newHash": "777fb7b86115f47c78169cd9fc06d158b50b304fdfeca228e566715a78a935fc",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-offline-rl",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/offline-rl",
+      "oldHash": "25015800492254a81541ec1c747ad40ea8d457b5aaa05a160bedc3c354b5ac0f",
+      "newHash": "c64366fe890aad794aca908ca10b88f21bedc732da7e3b9a5c32b2214c3c0804",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-parallel-sim-rl",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "c507f30101f6164510c1810d97ff343d844124f0fbb58265df05ee28f164fc8b",
+      "newHash": "9dc6032371aa8aab216549e01199c12677a53f5a205da296c17adeb2fb9c5021",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-reward-design-mpc",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "4826654baea424c14b426402de3a94dc0e373d36ca823bc804d57c182dcb8082",
+      "newHash": "0c181e03ad7242f870c96fa5af9dfea3bcc9316fa340bde25bb4f3e0e08eb37a",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-rl-for-robotics",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "808cd05b980c26b58793c451d155b6dbdc848997c94eb0bc121e0447ba9ee86f",
+      "newHash": "986a6766d28f59afed305fa4dcfd739a23797de1c0f4a3d8b41ec48b5a2c0f51",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-sim2real-transfer",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "18c810edac7c87898b2f6091d28919ac55d2588fe21057316c5ddde891e4ff78",
+      "newHash": "16b58db9cc02e13fef7c3f7b2101ea1781ae5c82e981a2abf25c19e219ab9eaf",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-relationships-article-rl-sim2real-why-rl-locomotion",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "fdecdd5a113161ee8b360afc1003e2d4ad23adb60ff4972ab08f8b2184db7cff",
+      "newHash": "d9fffd5bd4ea1cdd0ae9308fd62523c4442ec9872c6f2e104e78801f355714c0",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-article-metadata-article-fact-frontmatter-rl-sim2real-sim2real-transfer",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/sim2real-transfer",
+      "oldHash": "7c77531c882d278ef2fc9fe9bc8d68ed01c3383d94c7fca739143fc966e607b0",
+      "newHash": "be69392e017b866648a006d9693f539e65d53f3996c83958d8f19a7c30962e33",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-20261102-article-metadata-article-fact-frontmatter-rl-sim2real-why-rl-locomotion",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/why-rl-locomotion",
+      "oldHash": "33b469f8d083efc1a08dc60ad501b3a22eb672fa40cdac368c5befd968656aba",
+      "newHash": "09c3512ce0ae09f6f810ceda327c7b0fd8f60b782f47beae521d19911fffd735",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-action-chunking",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "cef987eb96724b569ce958dca76288b1c5f5eccd0c20aa1b2da9c3be7d0cefe2",
+      "newHash": "11d04426c0176a59d8ddedc5d7953e7cb9313d3856f3a2a530eb2803cbd56470",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-action-spaces",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "a6e9ed636ce5286bd5afe2972d18de0b7182211a51f2869968a25282dae98fa2",
+      "newHash": "c9150be7ac1fed4343aac0c0a130df882b8e6ba7d87e3a260568a02fbff81bdf",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-bc-foundations",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "7d340aa02a5aabc863e0b069ab82558b05c69b674c25e4d414522e175b116bb3",
+      "newHash": "d7108df5a488ef0228a3cc9ccf1e2160dc7940f9ea259736c90c55e84f560287",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-cross-embodiment",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "28858513a3d77d42af2a9200f0d2cbf19c5c7941728dfda1988bb044b029b8e7",
+      "newHash": "113f824590ffb2369db09ede160112e0146e998b67eeb136e2b6782b6df5094b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-diffusion-policy",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "6dbfda3d62f71fbbdc7701291fb292e9d48432d3dd0397a615b2bf3ba01c51b8",
+      "newHash": "2834b49e73ed7199474aff12c852470a84b6cd126688fb23db12a23581eb50c1",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-foundation-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "eb8bdaa71653887ac9a937258be2e7d0d705fec7779c1a45bfebe93c4a2b1381",
+      "newHash": "eeb925e133e1ba8574bf53c291033cd299a2f42e5e2e66c874f95ae68a04ab55",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-hierarchical",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "26595e5cea8b1fb893a42353d36781225a4b177fce44608c2178f42ac089e055",
+      "newHash": "46b215160204b6a83812b0f949c43aab590131e311321ffbe9d19679e0bb7535",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-knowledge-insulation",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "29910e215f01159c5b2e1aab390b3b82e8543841ab26c6010d6743aa6047fae6",
+      "newHash": "779d93e5b7697275df1a834cb4623dd202429a520cee1b2a824ba5f625a0825d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-pi-line",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "a37935cc0c88a35af4c092255cc3956fd11029e3e24d308270a6e8be868955b9",
+      "newHash": "6de9d139b887cdf6e9f53ea709f6b298436b5fc3d3222cff21bfb5950c4e9c61",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-realtime-execution",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "7d528a358a7957c3011684e7d9b881262892487a4be918a973201e3d94afc03f",
+      "newHash": "e23831aadfafb5b6ec33dd7aa3903abcac4aba7fe790fc311c0a7366e0cb75e4",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-rl-finetuning",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "d153e9844795d5aa9a034439a60b28ee251b6a423eda913b20ba15d268ca07c7",
+      "newHash": "d20d817a735997fb539fff79bec1c008fd51673cdb9473966f34c046c8d5ccd6",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-prose-article-manipulation-vla-models",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "c2aeca5337d21a47b6817c208a1a310eeedce072d3a97fb30763662c200efa8c",
+      "newHash": "f3de31deab66bcd258a32afc287b023ffb5889ffce8cf6feb4eb905d89ba356d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-action-chunking",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "593690360c9bc4d720ef5ab7c9a501ac39a995f8460364d461b01dd680a0cbdc",
+      "newHash": "424a77cfa4b6810e987288696f06a16f05dbd3d4f612458da5a2b5275fcad52c",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-action-spaces",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "0f6de962144354fa8a14ea7698d5d16a0b1baa0826ccdf5d6fb09fa4a4ddf9ae",
+      "newHash": "7b30c20c4f5b8df0fc86c3962c2498038469936ffbfb3b5c6f5fb8432f869573",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-bc-foundations",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "fb9505a4d23f86298fb97d173fd082bb2a683556e835d028666b63938398bbd1",
+      "newHash": "bdb830cd78eb92dc1d86688d4cb3631bfa088749c55dea9db31fb098c4638316",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-cross-embodiment",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "b11f69f72a53dd8ccf719bbb97890b5332ecc404c62327435faf69fd54b03c61",
+      "newHash": "cb24f9715f7d3317d22aab38965c2e66b3d6df02d1e6185ade900f056ce09e79",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-diffusion-policy",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "501866c6c9ea4366ec3b996218b4f52f04d286e760bf96d7938f55a01cd188ec",
+      "newHash": "e544d20b5f3319ff5af0cf0a7fe4348847fe64590045ec8548444a629ea153e4",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-foundation-models",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "62d31dad3d78a06b6c052595b0a2166658fb381e10f972b171796d5d68f16d0d",
+      "newHash": "2509dfbc116a70a6ea876b37577cfc25bce3e5635247178d53ce3ab5f9c2b348",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-hierarchical",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "fa511f10ed5f89df49c07e02ca95b8e9c5f9ac551a2444a7e25c109a20f70111",
+      "newHash": "66ec9aad35cc730fd61f817b9be5a29bf022f07707e5004a536115e678f89ca7",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-knowledge-insulation",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "623c282c874c090bf854ac96d15d3f2542ec41cdec15a89fec6d2bb918322a87",
+      "newHash": "0e11e0252acabbe294f5add8fcc7abd3e381933e958c971b392a811890267405",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-pi-line",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "ab20bf150fd99cac211b5145a4e9ca5bdb207f17051abb7e40b5983dde4f9143",
+      "newHash": "be72abe2b2d962481c42ebe91ce8e82d2e6b5799a3488407735f7b9bbcbae2c1",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-realtime-execution",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "244d3f3ca8b3cc66cf9f2214cd9eb1e993c0a7a6ee1660d247f146fff799928f",
+      "newHash": "2f1008f7986239480737f2c24d7462e6f469c336fd8116bc4655b76359be3d8b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-rl-finetuning",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "db9e806c074d79735912d5e07ffd702b460164b2a13694976ef5cc8ea0b14849",
+      "newHash": "d9e9c5cf105a625a51d50f7676dc717de9c8fb786990e3cb65c9d13ab7881a1b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-relationships-article-manipulation-vla-models",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "845df48f9e18b0de35b99625ce6661ad599dea0555afea4d8bae5c208c5bd066",
+      "newHash": "55cdf7b9f57a3050c32f907fabc368673ceff4557e508eeae48267171303ef9e",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-article-metadata-article-fact-frontmatter-manipulation-action-spaces",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/action-spaces",
+      "oldHash": "7968bd20d40013757bc909a7f862ccbdba40edad1780b30e9c78903720149f3c",
+      "newHash": "0efe4d15616c3708e618757cc78dbe635bcb4a6c6b3d201cbd13065dc222fdc9",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-article-metadata-article-fact-frontmatter-manipulation-cross-embodiment",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/cross-embodiment",
+      "oldHash": "6487d165995cfdceac3e5a691d4c61c5ac6097dc5d273919b06443e8463c1848",
+      "newHash": "1652c9e1c5868e5ea8e24e5a53bb9b4ab609f220656f65edab4e0d0ed886cfb0",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-article-metadata-article-fact-frontmatter-manipulation-foundation-models",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/foundation-models",
+      "oldHash": "e30e4a78912010212d8c518e904bea018c539f2f094369b19481e0d5e281cafb",
+      "newHash": "2003552072801b225ae054a3de0c17f541418c0fd38cc8194953f7d0f65639a1",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-20261102-article-metadata-article-fact-frontmatter-manipulation-hierarchical",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/hierarchical",
+      "oldHash": "4b516637c017fe95d47c995d856725f7f5ae3f308f6dedd85fe93cb4b2eeaedd",
+      "newHash": "eeee6fed200bf2ba8b8a479e36c0fbcc36ea6606762caf173cf5808eff93969e",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-calibration",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "2e309f85ba6d018455c415631e06c4c1a8c4b67c25d28c020ea1e45d7af0db5c",
+      "newHash": "01ad5e36a7ed294153413a7ef73640801fe398c03331cd2671f959e9dd30fe55",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-control",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "aca37ea1f8eb55a623d84ebf0a3a6c9c1b8aa31de95c334ae779efd33e426bbb",
+      "newHash": "3785e98534eb0b49157b578f09d1820177ab2f918b6c17899562d1d2a2d30455",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-grasp-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "8f2a5ad743894d481e57cb3f9f69d6479e829046d856ded92ace641764c0a819",
+      "newHash": "7b8229cb8521ea3e823a3eeb2d005b3eecdaa0ea98bd6e406a1bedc84cdacc1d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-kinematics",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "8700262568115be38fd3ab2cdd7fbf6d18f4ddcaa5dcf50da9d8a2b15795d5e0",
+      "newHash": "3153398dba5e49bc78cf1769ffff023f5d94e337a55745ca08dd4fc468440791",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-motion-planning",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "3c5e87f80130bf499b0933e9e998b824b1270d6fd6af6b89fd57a5ec86ff75ee",
+      "newHash": "ade0afcc5484b696565918175ae306aa5723180e4abe325250e071b2cc04d657",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "2def570cb55d8610822766e87da36081c5b8bb1cbb36e08330f7a4f8d1508bae",
+      "newHash": "dc4824affe1516b57273d2c9058744d00f678b1d04ca752ad2f5606359e18edc",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-ros2-for-ml-engineers",
+      "manifest": "prose",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "014a9c6b13cc93b7e2507b7c54598daaeb14662335b3eb9e8a83f4c510c9f76e",
+      "newHash": "21966dbf543b6de9565ecb54fdf26d88723af9b64f10a09d128c5a16d94a2a91",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "028698dcbbd9fb299ef73bf17eed979371725b5e502ba80e6a6cbd59ee1a7f90",
+      "newHash": "4e487e1f376ed2108652d311a5638b0039d9b05cbb6d7469e4efcedfc8d2cd74",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-prose-article-classical-state-estimation",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "772b06e27da7d35414115f88a1fc4752251c0632a381eb9bdfe9837ebd887e2c",
+      "newHash": "9cfdf66bcb95b5c270f16160a393561e82b3268ab09d46286a5965b51e282538",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-calibration",
+      "manifest": "relationships",
+      "memberId": "article:classical/calibration",
+      "oldHash": "cac95a0e7803f68bdc1f5c54ca76e87b9d93174c9d9341e021279696de39ff23",
+      "newHash": "9117d4e8d0d012f64c380f114e39ab8cf1597201a920f8e495e35253ff38138a",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-control",
+      "manifest": "relationships",
+      "memberId": "article:classical/control",
+      "oldHash": "cf2cd0e4e5c39f7b16da615a2e39b0d9f1b785f130e6d1feb9f594a41cfb7aee",
+      "newHash": "b90e7a9057916ff0615f14706c50379ebbebf117ec61001a4710153a50ef7fba",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-grasp-planning",
+      "manifest": "relationships",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "b663094a997f66e9eb51d08931957dc150ade2d70407808248bdb86a2ad7bc70",
+      "newHash": "0bea2d8913f6daac4160d54a792a4cee67327d52fcb44454ed58599dd3e74440",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-kinematics",
+      "manifest": "relationships",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "a3cb651fa170a91eb0d234ea24d2875365ec7f583e1bc341016f7ad36675851a",
+      "newHash": "8a1922e4a363963acc6e35de3bc4afaa7375d49c25d64bef259b02012e7b3dd9",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-motion-planning",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "abb0281bdbec892815590a256d68bde8bc066ef4aedbc636cd0d16f941e15133",
+      "newHash": "63a232fd3db9bcb6dc07772adfceb1f427417d4fc4531d8d67d1ca13d4099e00",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-perception",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "775223f20229a3dcb3f3dd4d6a53b0868eb5eed7216f3f6e193250f39dec85bf",
+      "newHash": "3a785e7ae045ddae96b53cad6be1e3bc7f03771c386016aa4e8606c61fc22dde",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-ros2-for-ml-engineers",
+      "manifest": "relationships",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "59876244a242d3211b8d271fdeb8dcb339eb5412e3d810cf4e72b9a409c89290",
+      "newHash": "159175a57b4e54c04a8ad1aa3a6dd09d8f49a7c5043bbeb901be2a6794240768",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-scene-representation",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "35e54d101983172cde1490469d9d837a3c02fe79d196670b3b844ec2c5fcbdd2",
+      "newHash": "d1ee3df4ca162f225ebaf090b98cd2e3c2dfd5245dd18c0386f85eec8063124f",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-relationships-article-classical-state-estimation",
+      "manifest": "relationships",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "5990ad27128a7d6b6c866e6004bec518e79900c6b7a5d497337138c3c9f346b7",
+      "newHash": "3e8f4979455bcc0db2987eedf27cd969dbc9203806c2962128b86f72b33bb6a1",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-article-metadata-article-fact-frontmatter-classical-control",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/control",
+      "oldHash": "280466ab324ea9d261b5389e3bcd7f37cd9a52ec5466f930a7d35f6bdded1e3d",
+      "newHash": "09a91d2f4e96027f4dbfac982abfaec598b48cae54ac51b47a15fad3309e13ee",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-article-metadata-article-fact-frontmatter-classical-grasp-planning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/grasp-planning",
+      "oldHash": "b3de7b5d1b5e1efc45858196752f3f547bc287ccda15a7b8d1512233b35baa97",
+      "newHash": "d7b9d77ef461ac48b148f7448de02d82a5b234e81f7d42886410e0b0bb32575b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-classical-20261102-article-metadata-article-fact-frontmatter-classical-kinematics",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:classical/kinematics",
+      "oldHash": "a3f88a26c2222a66b3939384e2c9aeae9fd3f96144570325ebaa22293c4471b9",
+      "newHash": "8c5e162454840b04e26324b00c28eb47f5fbfff98df15ad70491aab983b6c9df",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in classical. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/classical.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-prose-article-world-models-evaluation",
+      "manifest": "prose",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "991d6d3331f04eccf20a8bebe41579cb689d67aceb15f07d38907313ad48a444",
+      "newHash": "fa3ecbf40cc8c3872d79b2e117686b4ed7a77d28a981916ac172e3aa4a05dfcb",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-prose-article-world-models-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "ea62177ce3c7c05a01a466fdcf6aae9827e576c5093d193aec80a60a8eb8c87f",
+      "newHash": "4983ec3d320c8149dae75ed1f9611fab518b3fd1660fe46c9c10e2094138157a",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-prose-article-world-models-latent-dynamics",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "1c4f42958ad00064b050b1f53d3efe72a42f9096f9c7e64337c777f99614d961",
+      "newHash": "e028785b9a073580f6b4931fc263e0fbf51431d3407695d1f80a61ebeeaedff4",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-prose-article-world-models-model-based-robot-learning",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "fc98142daee2d1d444bb52a0092084d88d3c67866c1f5cebe4f030498a66c67b",
+      "newHash": "1e93a60ecd580cfa741e718f9b81fbc323d274794315828a3e1579103d5636ea",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-prose-article-world-models-taxonomy",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "d6087d510f62fda3fc4685ede6130fc90e9692732d3f1e0c8f74bcfc753cb198",
+      "newHash": "fb5d34e4609996ff569de3a5371a9d3b34e3dc3d8e955cedc3709873785e0966",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-prose-article-world-models-world-models-vs-simulators",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "a1f7be04faf53698a1feb9449dd9aaa50212585172e8a3f382fdb93cc16f7b2a",
+      "newHash": "178921fca363f23940ba2562592bbb90193ddd7c617379de66bf705b22c9f9a1",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-relationships-article-world-models-evaluation",
+      "manifest": "relationships",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "8034b689d67074a997da03ecfd8975a3032699daf5c0cefd1d0541463b54a24c",
+      "newHash": "2bd646a234c9c18a19c1bf1457da91e705dd7136a27409f785f7f9169e0cc39f",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-relationships-article-world-models-generative-video",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "a2f337f0d4296f79e38aa564b52ba88e57302e5f393ab3331ae4dc0f964e3007",
+      "newHash": "17aea6eb93dc1ab65bb7d1971a1b0e93a2701b82027e2dcccdc67956d39163a8",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-relationships-article-world-models-latent-dynamics",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "7fc516c07e1b04e2b60670ee51a11fec8c6df77dfd3323ac0ba6ed8fc41ab0e4",
+      "newHash": "cc349c070c3039ab135867dcc1815db9db9cccbc969d6e8ea67f68d0d9cc4a2b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-relationships-article-world-models-model-based-robot-learning",
+      "manifest": "relationships",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "0a5c1c8cba79ef06d63be78212978aab51a00738b0f48edf9204cadd870df40e",
+      "newHash": "c802fbeb556aaee60bae0420e99c86f071970ebe3ef49077fc9d814253ce19dd",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-relationships-article-world-models-taxonomy",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "971752253717ae5575d00aa223d0bb0d5c0361ba6c0ffdd769f6f52585d8458c",
+      "newHash": "782a721a582ac5460bbc7be6d268b036afeba4eca89bc40b40eab7b6e1a7d551",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-relationships-article-world-models-world-models-vs-simulators",
+      "manifest": "relationships",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "e8c547c5dc5aee6f84629b549bc4ff4924cac969e86aa4ab918cfcc35a291641",
+      "newHash": "e5e2f55583a58cdba5d5f6c5651d76adb6be4b898edfb90ad447a0b4be6d1c8c",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-article-metadata-article-fact-frontmatter-world-models-evaluation",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/evaluation",
+      "oldHash": "5e5583786fa562370b61fb4b681a4216835e644723a62f3cf7427780f8254d74",
+      "newHash": "410f5a030a970017b231d57d1435b008adc247ba816fafd5d80e564f83d76c4b",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-article-metadata-article-fact-frontmatter-world-models-generative-video",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/generative-video",
+      "oldHash": "cf908be123ec1255f05eeb7ed5f56943a2712b6369c88fdde086a442bc5735ef",
+      "newHash": "c3f878f286472cd1183124486b431dd5c3059a18fb56388f79f8cf290f70bea9",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-article-metadata-article-fact-frontmatter-world-models-latent-dynamics",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/latent-dynamics",
+      "oldHash": "75ab8f96d82fe5a79d9ec2e5b47fb0a03c11bf8e0697a92fb4b49fd063bf04b8",
+      "newHash": "ec6a147776f20a261756cab335ed87fb1ed7126f22cde2907e0afa841bae607d",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-article-metadata-article-fact-frontmatter-world-models-model-based-robot-learning",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/model-based-robot-learning",
+      "oldHash": "52a94de3ad1568a8566c803400a1082797173f4ca6566a86558acf0dd3e4d9ad",
+      "newHash": "a94bf59f3b62dc59598fcf636b9cd61f18fbf31d6f8ba6534094cbf504393b08",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-article-metadata-article-fact-frontmatter-world-models-taxonomy",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/taxonomy",
+      "oldHash": "1b63e762880ceea2400d666a2cc4186e9e1b19d2dd0625ba37c813c4543cec1f",
+      "newHash": "2feee3e36a4f3867d1928c56bf88f3b0bb7bc297004d72fe522a5bc1993d730e",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-new-ten-20261102-article-metadata-article-fact-frontmatter-world-models-world-models-vs-simulators",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/world-models-vs-simulators",
+      "oldHash": "e18292d9dcb53d2c593980d5008ea37b7f0499fffdb710d08c0490d7b76b2834",
+      "newHash": "a931c3fd02034275687d414ed47e1e275909a5a02f5cbac2ff73d3a5d1ba5a62",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-new-ten.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-lab-notes-20261102-prose-article-world-models-generative-sim",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "e1d1d60bd0afbfbe5f3779749f042687406a4aa76c9d680bb99b87976c2402ff",
+      "newHash": "8fa812c8c53d76e1d9dfc620331df0f8862cb18110c42dd64177033b6a114f7e",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-lab-notes-20261102-prose-article-world-models-generative-video",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "4983ec3d320c8149dae75ed1f9611fab518b3fd1660fe46c9c10e2094138157a",
+      "newHash": "f3df7933d2cf8c41caef9c9dde4e6cb330816af59169e591ea00b0e14087e7d6",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-lab-notes-20261102-prose-article-world-models-jepa",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "fb7c0b912352e78da52734d5ad476808703a7612129400cd26cd497d239fe608",
+      "newHash": "e7d1857201d3faf26ae87ebe4416f80e5bd1e3a0cd2c10e0b2e9d9f3c30df4a2",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-lab-notes-20261102-relationships-article-world-models-generative-sim",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "ba4a8b3ceb6a1493fb3d796ee5c61306ee95b23ede441759156b9c7ed1e43aea",
+      "newHash": "7003f7eb754d596481af5f4fc9a6b5a3ad0f93b41d3b9605766650a11bfd4f19",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-lab-notes-20261102-relationships-article-world-models-generative-video",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "17aea6eb93dc1ab65bb7d1971a1b0e93a2701b82027e2dcccdc67956d39163a8",
+      "newHash": "2394d26c963406078f63d52804d2295a83b228846b2ad30e92e27356382ae553",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-world-models-lab-notes-20261102-relationships-article-world-models-jepa",
+      "manifest": "relationships",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "60e290d84402b6f46378a199eb8005af8493de060bfa095a85ae06f79835768d",
+      "newHash": "929e6678042b5ab28b3b8379e5a3163b03eb0f4e54273497d86efc3268a93a95",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in world-models. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/world-models-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-lab-notes-20261102-prose-article-manipulation-generalist-policies",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "bd4aca967173ddfdd217d9a422bff1c895da689b5d6d2d39a8372456871d0690",
+      "newHash": "aba282c62803658798e2c0a83ce7618ce252465c29aaa18b78f684fbf5baba72",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-lab-notes-20261102-prose-article-manipulation-pi-line",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "6de9d139b887cdf6e9f53ea709f6b298436b5fc3d3222cff21bfb5950c4e9c61",
+      "newHash": "4f4a4663005ec933cf724e6121aa86d2838469cfa01fd59a214c35fda39d86e4",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-lab-notes-20261102-relationships-article-manipulation-generalist-policies",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "8233855ef9a30e2dcf107f8dd47bb5749ba4616303aafee016a67c0d4ef12535",
+      "newHash": "332a4667ef3a77aa452fe70b306d5e5c1427241ac1445b4a6e66c1ff6c106b68",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-manipulation-lab-notes-20261102-relationships-article-manipulation-pi-line",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "be72abe2b2d962481c42ebe91ce8e82d2e6b5799a3488407735f7b9bbcbae2c1",
+      "newHash": "bacbe0490fc598fbabd30b89d83533fe9c19993447d4db21ba86635f7b245402",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in manipulation. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/manipulation-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-lab-notes-20261102-prose-article-rl-sim2real-reward-design-mpc",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "f84402a710e49d7d5ca1659706f1acdda124167be1e6a5e81b4bb89136ac6192",
+      "newHash": "f4f0ce603d85d16fc7ba646f076dba32510da0fee3f49637d4b5a97cea77b47c",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-lab-notes-20261102-relationships-article-rl-sim2real-reward-design-mpc",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "0c181e03ad7242f870c96fa5af9dfea3bcc9316fa340bde25bb4f3e0e08eb37a",
+      "newHash": "6440fe7b4d08886ef31d200921c03e42f699c33e2a8a10f2343aef561ac25302",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "source-floor-rl-sim2real-lab-notes-20261102-article-metadata-article-fact-frontmatter-rl-sim2real-reward-design-mpc",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/reward-design-mpc",
+      "oldHash": "77eea89777753d245c3427e22422066011a6f1e9198e3e8c600899645fa49d3c",
+      "newHash": "5269c39f37313da4280553871494187042d9e0e459323aabb1f80ff632db14f9",
+      "reason": "Primary-source expansion for VAL-OPUS-152 in rl-sim2real. Every added inline citation supports its attached mechanism or bounded evaluation sentence and has a freshly retrieved primary passage and verified registry identity in audit/evidence/source-floor-20261102/rl-sim2real-lab-notes.json. Earlier facts, citations, figures, headings and relationships remain; this exact edge approves only the named article member.",
+      "ownerApproval": "Owner-authorized Codex mission completion, 2026-11-02, carrying out the existing opus-pass-source-floor-1500 requirement. No release approval or source-count waiver.",
+      "responsibleMilestone": "opus-pass",
+      "affectedAssertions": [
+        "VAL-OPUS-152",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

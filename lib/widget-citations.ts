@@ -28,11 +28,14 @@ import type { CitationRecord } from '@/components/article/citation-records';
 import { citationLabel, citationMeta, getCitation } from '@/data/citations';
 import { METHODS } from '@/data/methods';
 import { MILESTONES } from '@/lib/bear-case';
+import { AV_SAFETY_SOURCES } from '@/lib/av-safety-miles';
 import { THESES } from '@/lib/competing-theses';
 import { RELATIVE_EEF_CONTEXT_CITATION_ID, STRATEGIES } from '@/lib/cross-embodiment';
 import { DATASET_RUNS_HOURS } from '@/lib/dataset-runs-hours';
 import { DEPLOYMENT_ROWS } from '@/lib/deployment-reality';
 import { DEXTEROUS_HANDS } from '@/lib/dexterous-hands';
+import { DELIVERY_SOURCES } from '@/lib/drone-deliveries';
+import { CHAMPIONS_SOURCES } from '@/lib/drone-racing-champions';
 import { TRANSIENT_CONTACT_LIMIT_CITATION } from '@/lib/force-limits';
 import { FUNDING_HUMANOID_SOURCES } from '@/lib/funding-humanoid-counts';
 import { GENERALIST_RELEASES } from '@/lib/generalist-policies';
@@ -43,9 +46,16 @@ import { KNOWLEDGE_INSULATION_CITATION_ID } from '@/lib/knowledge-insulation';
 import { PI_GENERATIONS } from '@/lib/pi-generations';
 import { GAIN_STUDIES } from '@/lib/real-robot-rl-gains';
 import { SAFETY_RULE_SOURCES } from '@/lib/safety-rules-timeline';
+import { SPACE_LATENCY_SOURCES } from '@/lib/space-latency';
+import { LADDER_SOURCES } from '@/lib/surgical-autonomy-ladder';
+import { MODEL_BASED_LOOP_SOURCES, EVALUATION_LADDER_SOURCES, WORLD_MODEL_OUTPUT_SOURCES } from '@/lib/world-model-figures';
 import { UMI_RATES_CITATION_ID } from '@/lib/umi-collection-rates';
 
 export const WIDGET_CITATION_IDS = {
+  ModelBasedLoop: () => [...MODEL_BASED_LOOP_SOURCES],
+  WorldModelEvaluationLadder: () => [...EVALUATION_LADDER_SOURCES],
+  WorldModelOutputTimes: () => [...WORLD_MODEL_OUTPUT_SOURCES],
+
   // Row-driven source links (useCitationLookup).
   CalibrationChain: () => ['humanoid-geometric-calibration-2025', 'omnicalib-2026', 'khoshelham-kinect-2012'],
   ComparisonMatrix: () => METHODS.flatMap((method) => method.sources),
@@ -86,6 +96,11 @@ export const WIDGET_CITATION_IDS = {
   FundingHumanoidCounts: () => [...FUNDING_HUMANOID_SOURCES],
   SafetyRulesTimeline: () => [...SAFETY_RULE_SOURCES],
   HelixZeroShotSuccess: () => [HELIX_ZERO_SHOT_CITATION_ID],
+  AvSafetyMiles: () => [...AV_SAFETY_SOURCES],
+  SpaceLatencyLadder: () => [...SPACE_LATENCY_SOURCES],
+  SurgicalAutonomyLadder: () => [...LADDER_SOURCES],
+  DroneChampionsTimeline: () => [...CHAMPIONS_SOURCES],
+  DroneDeliveryCounts: () => [...DELIVERY_SOURCES],
   TrajectoryStitching: () => ['offline-rl-vs-bc-2022', 'cog-2020'],
   ActuatorGap: () => ['hwangbo-2019'],
   RetargetingGap: () => ['gmr-retargeting-2025', 'h2o-2024'],

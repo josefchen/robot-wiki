@@ -167,6 +167,7 @@ const COLUMNS: Column<MethodRow>[] = [
 export function RlMethodsTable({ className }: { className?: string }) {
   return (
     <Table
+      interactiveId="RlMethodsTable"
       className={className}
       caption="Eight RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row."
       columns={COLUMNS}

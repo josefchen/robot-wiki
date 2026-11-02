@@ -1,6 +1,6 @@
 'use client';
 
-import { useId, useRef, useState, type MouseEvent } from 'react';
+import { useEffect, useId, useRef, useState, type MouseEvent } from 'react';
 import { useCitationNumber } from '@/components/article/citation-numbers';
 
 type CiteProps = {
@@ -47,6 +47,21 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
   const number = useCitationNumber(citeId);
   const idAttribute = citeId ? { 'data-cite-id': citeId } : {};
   const description = meta ? `${title}. ${meta}.` : `${title}.`;
+
+  useEffect(() => {
+    if (!open) return;
+    const frame = requestAnimationFrame(() => {
+      const note = noteRef.current;
+      if (!note) return;
+      const float = getComputedStyle(note).float;
+      if (float === 'left' || float === 'right') return;
+      // Revealing an inline source can add lines below the phone viewport.
+      // Keep the whole note visible without moving keyboard focus. An
+      // instant nearest-edge scroll also respects reduced-motion readers.
+      note.scrollIntoView?.({ block: 'nearest', inline: 'nearest', behavior: 'instant' });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [open]);
 
   if (number === undefined) {
     return (
@@ -99,6 +114,7 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
         <a
           href={referenceHref ?? `#ref-${citeId}`}
           onClick={onMarkClick}
+          aria-label={`Source ${number}`}
           aria-describedby={noteId}
           data-brand-control-id="control:link-focus"
         >
@@ -130,6 +146,20 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
           {label}
         </a>
         <span data-pagefind-ignore className="sidenote-title">{`, ${title}`}</span>
+        {open ? (
+          <>
+            {' '}
+            <a
+              href={referenceHref ?? `#ref-${citeId}`}
+              data-cite-reference-link=""
+              data-pagefind-ignore
+              data-brand-control-id="control:link-focus"
+              aria-label={`Jump to the full reference for ${title}`}
+            >
+              Full reference
+            </a>
+          </>
+        ) : null}
         {meta ? (
           <span data-pagefind-ignore className="sr-only">{`. ${meta}`}</span>
         ) : null}

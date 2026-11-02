@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit } from './historical-git';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { answerOptionsPredecessor } from '../../lib/audit-answer-options-continuity.ts';
@@ -239,7 +239,7 @@ export const preSeoPassText = (path: string): string => preSeoPass(path).toStrin
 /** The last commit before the SEO pass. */
 export const PRE_SEO_PASS_COMMIT = '953a891b42e762aa1e6ddbf77421fc8f727019f4';
 
-const gitShow = (path: string) => execFileSync('git', ['show', `${PRE_SEO_PASS_COMMIT}:${path}`], {
+const gitShow = (path: string) => historicalGit(['show', `${PRE_SEO_PASS_COMMIT}:${path}`], { neutralVocabulary: true, 
   cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
 });
 let observed: Map<string, string | undefined> | undefined;

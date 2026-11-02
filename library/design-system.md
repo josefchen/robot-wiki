@@ -785,16 +785,15 @@ An exception is local. It does not create a general pattern.
 
 ## 26. Governance
 
-Locked foundations:
+The owner decisions of 10 and 19 October 2026 supersede the original brand-v2 font, lime and bright-blue foundations. The active locked foundations are:
 
 - public identity `Robot Wiki`;
 - exact descriptor;
-- Tektur Variable display role;
-- IBM Plex Sans, Newsreader, and IBM Plex Mono support roles;
-- highlight `#C6FF19`;
-- signal `#245FFF`;
-- black primary actions and lime selection/highlight;
-- literal structural grid/rail/registration language;
+- DM Sans web display and wordmark roles; offline OG/X artwork retains the registered static Tektur display and IBM Plex Mono data faces (`VAL-B2-TYPE-001`);
+- Geist web body/interface type and Geist Mono web code, numerical and tabular roles;
+- paper `#FAFAF8`, ink `#1C1C1A`, and the muted figure accent `#3B6EA8`;
+- ink primary actions and unfilled ink selection, confirmed by a non-colour cue and semantic state;
+- the registered hairline frame and rule treatments of the research-page standard;
 - the two approved references;
 - truth, citation, accessibility, and route-preservation requirements.
 

@@ -46,6 +46,7 @@ citations:
   - actioncodec-2026
   - lap-2026
   - discrete-actions-2026
+  - rl-action-spaces-2026
 seeAlso:
   - "manipulation/knowledge-insulation"
   - "frontier/dexterity"
@@ -59,7 +60,7 @@ An action space is the interface between a policy and the rest of the robot: wha
 
 <Image id="action-space-study-platforms-2026" />
 
-Try the check below.
+Try the check comparing joint positions, Cartesian deltas and motor torques <Cite id="open-x-embodiment-2023" />.
 
 <SelfCheck
   prompt="A policy must transfer between two arms with different link lengths, while each robot already has a stable Cartesian controller. Which first action representation is the cleanest shared interface?"
@@ -118,7 +119,9 @@ Rates differ by layer: GEN-1.5 produces 100 Hz action trajectories <Cite id="gen
 
 ## Tokens change the output geometry
 
-RT-2 <Cite id="rt2-2023" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id="openvla-2024" />. Binning allows cross-entropy but limits resolution and adds autoregressive decoding to latency. FAST compresses a chunk's frequency coefficients with byte-pair encoding, far better than per-dimension binning, and its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id="pi0-fast-2025" />. VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id="vq-bet-2024" />, and LAP writes end-effector motions as short natural-language phrases, with LAP-3B averaging over 50% zero-shot success on three unseen robots <Cite id="lap-2026" />.
+RT-2 <Cite id="rt2-2023" /> and OpenVLA map continuous actions to vocabulary tokens to reuse language-model training, OpenVLA binning seven dimensions into 256 values <Cite id="openvla-2024" />. Binning allows cross-entropy but limits resolution and adds autoregressive decoding to latency. BEAST encodes sequences as fixed-length B-spline tokens, allowing parallel decoding without separate tokenizer training <Cite id="beast-2025" />.
+
+FAST compresses a chunk's frequency coefficients with byte-pair encoding, far better than per-dimension binning, and its universal FAST+ tokenizer was trained on 1M real robot action trajectories <Cite id="pi0-fast-2025" />. ActionCodec evaluates tokenizers by optimization properties, including temporal overlap, vocabulary redundancy and token independence <Cite id="actioncodec-2026" />. VQ-BeT's vector-quantized actions infer 5 times faster than Diffusion Policy <Cite id="vq-bet-2024" />, and LAP writes end-effector motions as short natural-language phrases, with LAP-3B averaging over 50% zero-shot success on three unseen robots <Cite id="lap-2026" />.
 
 Continuous heads skip tokens: OpenVLA-OFT's continuous actions, parallel decoding and L1 objective lifted LIBERO success from 76.5% to 97.1% <Cite id="openvla-oft-2025" />, and Figure says Helix outputs continuous control to avoid tokenization <Cite id="helix-2025" />. Naively adding a continuous expert to a VLM harms training speed and knowledge transfer, which [knowledge insulation](/manipulation/knowledge-insulation/) addresses <Cite id="knowledge-insulation-paper-2025" />.
 
@@ -126,6 +129,6 @@ Zeji Yi, Max Simchowitz, Guanya Shi and colleagues at Carnegie Mellon and Amazon
 
 ## A selection rule
 
-Choose the lowest-level action the task requires and the platform supports safely. Across 13,000+ real rollouts and 500+ models, predicting delta actions consistently helped, with joint space favoring control stability and task space favoring generalization <Cite id="action-space-design-2026" />. Hold controller, rate, horizon and observation history fixed when comparing architectures, or the comparison measures interface changes.
+Choose the lowest-level action the task requires and the platform supports safely. Across 13,000+ real rollouts and 500+ models, predicting delta actions consistently helped, with joint space favoring control stability and task space favoring generalization <Cite id="action-space-design-2026" />. Hold controller, rate, horizon and observation history fixed when comparing architectures, or the comparison measures interface changes. In one vision-based sim-to-real study of picking and pushing, joint velocity beat the tested pose and joint-increment alternatives <Cite id="rl-action-spaces-2026" />.
 
 <ActionSpaceTable className="my-6" />

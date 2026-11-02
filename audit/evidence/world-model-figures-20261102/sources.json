@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "world-model-figure-sources-v1",
+  "reviewedAt": "2026-11-02T16:41:30.642Z",
+  "reviewer": "implementation review, pending independent acceptance",
+  "sources": [
+    {
+      "citationId": "tdmpc2-2023",
+      "url": "https://arxiv.org/html/2310.16828v1",
+      "retrievedAt": "2026-11-02T16:41:30.639Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "dde21105-57e7-4987-ad75-c6c7a019262e",
+      "passages": [
+        "The return of a candidate trajectory is estimated by simulating it with the learned model ([Negenborn et\u00a0al., 2005](https://arxiv.org/html/2310.16828v1#bib.bib40)). Thus, a policy obtained by Equation\u00a0[1](https://arxiv.org/html/2310.16828v1#S2.E1 'In 2 Background \u2023 TD-MPC2:Scalable, Robust World Models for Continuous Control') will invariably be a (temporally) _locally_ optimal policy and is not guaranteed (nor likely) to be a solution to the general reinforcement learning problem outlined above. As we discuss in the following, TD-MPC2 addresses this shortcoming of local trajectory optimization by bootstrapping return estimates beyond horizon HH with a learned terminal value function.",
+        "Figure 3: The TD-MPC2 architecture. Observations \ud835\udc2c\\\\mathbf{s} are encoded into their (normalized) latent representation \ud835\udc33\\\\mathbf{z}. The model then recurrently predicts actions \ud835\udc1a^\\\\hat{\\\\mathbf{a}}, rewards r^\\\\hat{r}, and terminal values q^\\\\hat{q}, _without_ decoding future observations.",
+        "where \ud835\udc2c\\\\mathbf{s} and \ud835\udc1a\\\\mathbf{a} are states and actions, \ud835\udc33\\\\mathbf{z} is the latent representation, and \ud835\udc1e\\\\mathbf{e} is a learnable task embedding for use in multitask world models. For visual clarity, we will omit \ud835\udc1e\\\\mathbf{e} in the following unless it is particularly relevant. The policy prior pp serves to guide the sample-based trajectory optimizer (planner), and to reduce the computational cost of TD-learning. During online interaction, TD-MPC2 maintains a replay buffer \u212c\\\\mathcal{B} with trajectories, and iteratively _(i)_ updates the world model using data sampled from \u212c\\\\mathcal{B}, and _(ii)_ collects new environment data by planning with the learned model.",
+        "where \u03bc,\u03c3\u2208\u211dH\u00d7m,\ud835\udc9c\u2208\u211dm\\\\mu,\\\\sigma\\\\in\\\\mathbb{R}^{H\\\\times m},~\\\\mathcal{A}\\\\in\\\\mathbb{R}^{m}. Equation\u00a0[6](https://arxiv.org/html/2310.16828v1#S3.E6 'In 3.2 Model Predictive Control with a Policy Prior \u2023 3 TD-MPC2 \u2023 TD-MPC2:Scalable, Robust World Models for Continuous Control') is solved by iteratively sampling action sequences from \ud835\udca9\u2061(\u03bc,\u03c32)\\\\mathcal{N}(\\\\mu,\\\\sigma^{2}), evaluating their expected return, and updating \u03bc,\u03c3\\\\mu,\\\\sigma based on a weighted average. Notably, Equation\u00a0[6](https://arxiv.org/html/2310.16828v1#S3.E6 'In 3.2 Model Predictive Control with a Policy Prior \u2023 3 TD-MPC2 \u2023 TD-MPC2:Scalable, Robust World Models for Continuous Control') estimates the full RL objective introduced in Section\u00a0[2](https://arxiv.org/html/2310.16828v1#S2 '2 Background \u2023 TD-MPC2:Scalable, Robust World Models for Continuous Control') by bootstrapping with the learned terminal value function beyond horizon HH. TD-MPC2 repeats this iterative planning process for a fixed number of iterations and executes the first action \ud835\udc1at\u223c\ud835\udca9\u2061(\u03bct\u2217,\u03c3t\u2217)\\\\mathbf{a}\\_{t}\\\\sim\\\\mathcal{N}(\\\\mu^{\\*}\\_{t},\\\\sigma^{\\*}\\_{t}) in the environment. To accelerate convergence of planning, a fraction of action sequences originate from the policy prior pp, and we warm-start planning by initializing (\u03bc,\u03c3)(\\\\mu,\\\\sigma) as the solution to the previous decision step shifted by 11. Refer to [Hansen et\u00a0al. (2022)](https://arxiv.org/html/2310.16828v1#bib.bib23) for more details about the planning procedure."
+      ]
+    },
+    {
+      "citationId": "simfoundry-2026",
+      "url": "https://arxiv.org/html/2606.28276v4",
+      "retrievedAt": "2026-11-02T16:41:30.640Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "0b46ac6a-fb4b-4d98-a4b3-0491062e5b9e",
+      "passages": [
+        "Training and evaluating robot policies in the real world is costly and difficult to scale. We introduce SimFoundry, a modular and automated system for zero-shot real-to-sim scene construction from a video. SimFoundry generates sim-ready digital twins and supports object, scene, and task editing, enabling the automated generation of diverse digital cousins: affordance-preserving variations of reconstructed real-world scenes. Policies trained on SimFoundry data transfer zero-shot to challenging real tasks involving multi-step manipulation, articulated object interaction, and bimanual interaction, and its digital cousins (variations of the original scene, objects, and tasks) facilitate generalization to new real-world conditions. Across 7 manipulation tasks and 5 policy architectures, SimFoundry simulation evaluations strongly predict real-world performance, with mean Pearson correlation 0.911 and mean maximum ranking violation 0.018. When evaluating sim-trained policies zero-shot in the real world, policies trained with object, scene, and task cousins in simulation show average task success rate improvements of 17%, 21%, and 40%, respectively. Additional details at https://research.nvidia.com/labs/gear/simfoundry/.",
+        "Real and Simulation Policy Correlation. We measure real and sim policy correlation using the Pearson Correlation Coefficient (rr) and Mean Maximum Rank Violation (MMRV), both of which have been proposed by prior work \\[[32](https://arxiv.org/html/2606.28276v4#bib.bib32), [47](https://arxiv.org/html/2606.28276v4#bib.bib47)\\]. Ideal correlation has r\u21921r\\\\rightarrow 1, which measures linear correlation between real and simulation task results, and MMRV \u21920\\\\rightarrow 0, which measures the average worst rank-violation of policies as evaluated in simulation versus their actual ranks in the real world. When measuring task success, we measure end-to-end task success (a discrete 0 or 1), which is defined as the completion of all task criteria (see Appendix [I.2](https://arxiv.org/html/2606.28276v4#A9.SS2 'I.2 Task Rubric \u2023 Appendix I Robot Platform and Task Details \u2023 Appendix \u2023 SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation'))."
+      ]
+    },
+    {
+      "citationId": "3dgs-2023",
+      "url": "https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/",
+      "retrievedAt": "2026-11-02T16:41:30.640Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "672456f1-30c9-4965-b4dd-6653d44834c4",
+      "passages": [
+        "We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow **high-quality real-time** (\u2265 100 fps) novel-view synthesis at **1080p** resolution. "
+      ]
+    },
+    {
+      "citationId": "3dgs-2023",
+      "url": "https://arxiv.org/html/2308.04079v1",
+      "retrievedAt": "2026-11-02T16:41:30.640Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "bd60741a-5e95-4b52-b8c2-0cf6d6782a1c",
+      "passages": [
+        "We tested our algorithm on a total of 13 real scenes taken from previously published datasets and the synthetic Blender dataset \u00a0([Mildenhall et\u00a0al., 2020](https://arxiv.org/html/2308.04079v1#bib.bib32)). In particular, we tested our approach on the full set of scenes presented in Mip-Nerf360\u00a0([Barron et\u00a0al., 2022](https://arxiv.org/html/2308.04079v1#bib.bib4)), which is the current state of the art in NeRF rendering quality, two scenes from the Tanks&Temples dataset ([2017](https://arxiv.org/html/2308.04079v1#bib.bib24)) and two scenes provided by Hedman et al.\u00a0([Hedman et\u00a0al., 2018](https://arxiv.org/html/2308.04079v1#bib.bib20)). The scenes we chose have very different capture styles, and cover both bounded indoor scenes and large unbounded outdoor environments. We use the same hyperparameter configuration for all experiments in our evaluation. All results are reported running on an A6000 GPU, except for the Mip-NeRF360 method (see below)."
+      ]
+    },
+    {
+      "citationId": "dreamzero-2026",
+      "url": "https://arxiv.org/html/2602.15922v1",
+      "retrievedAt": "2026-11-02T16:41:30.641Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "5ae1c4d9-be6f-4deb-9149-e16b03054265",
+      "passages": [
+        "Our first step towards resolving this is through asynchronous execution that decouples inference from action execution. Rather than waiting for each inference to complete, the motion controller continuously executes the most recent action chunk while inference runs concurrently on the latest observation. This structure transforms the latency constraint from \u201cinference must complete before the robot moves\u201d to \u201cinference must complete before the current action chunk expires.\u201d In our experiments, we deploy policies at an action horizon of 48 steps at 30Hz control frequency (1.6 seconds per chunk) for bimanual manipulation robots. Hence, we target inference latency below approximately 200ms to ensure sufficient overlap for smooth, reactive control.",
+        "Table [1](https://arxiv.org/html/2602.15922v1#S3.T1 'Table 1 \u2023 3.2.6 Summary \u2023 3.2 Real-time Execution of DreamZero \u2023 3 DreamZero \u2023 World Action Models are Zero-shot Policies') summarizes cumulative speedups. System and implementation optimizations yield \u223c9\u00d7{\\\\sim}9\\\\times speedup on H100 and \u223c16\u00d7{\\\\sim}16\\\\times on GB200; adding DreamZero\\-Flash achieves 38\u00d7\\\\times on GB200, reducing latency from 5.7s to 150ms. With the exception of DiT caching and quantization, all system and implementation-level optimizations are mathematically equivalent to baseline and show no measurable performance degradation.",
+        "Faster Inference. Through model and system optimizations, we enable DreamZero to run at 7Hz using 2 GB200s. However, compared to current VLAs which runs up to over 20Hz on consumer GPUs, DreamZero is still computationally expensive due the large parameter size and the iterative denoising nature of video models. In the future, if smaller video backbone models also have strong generalization capability, WAMs could potentially be utilized as a real-time System 1 model on a lightweight edge device."
+      ]
+    },
+    {
+      "citationId": "1x-world-model-2026",
+      "url": "https://www.1x.tech/discover/world-model-self-learning",
+      "retrievedAt": "2026-11-02T16:41:30.641Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "6f3ab3fb-4296-4b3b-a7c5-44204c625422",
+      "passages": [
+        "Building on the rapid progress observed in generative video models and equipped with data from our NEO production ramp, we will continue scaling 1XWM to improve quality and task success. Today, the 1XWM backbone takes 11 seconds to run, using multi-gpu inference built in collaboration with our friends at Verda (Antonio and Aditya). Each inference generates 5 seconds of real-time video, and the IDM takes 1 second to extract actions from the generated rollout. To solve reactive tasks and contact-rich manipulation, faster inference will improve reaction time, or latency between prompt and action execution. As we consider tasks longer than 5 seconds, closed-loop replanning with memory context will help us handle drift, partial observability, and recovery."
+      ]
+    },
+    {
+      "citationId": "vjepa2-2025",
+      "url": "https://arxiv.org/html/2506.09985v1",
+      "retrievedAt": "2026-11-02T16:41:30.641Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "5fe5c379-3705-4129-a019-10ed91ef94f6",
+      "passages": [
+        "Given an image of the goal state, we leverage V-JEPA\u00a02-AC for downstream tasks by planning. Specifically, at each time step, we plan an action sequence for a fixed time horizon by minimizing a goal-conditioned energy function. We then execute the first action, observe the new state, and repeat the process. Let sks\\_{k} denote the current end-effector state, and xkx\\_{k} and xgx\\_{g} denote the current observed frame and goal image, respectively, which are separately encoded with the video encoder to obtain the feature maps zkz\\_{k} and zgz\\_{g}. Given a planning horizon, TT, we optimize a sequence of robot actions, (ai\u22c6)i\u2208\\[T\\](a^{\\\\star}\\_{i})\\_{i\\\\in\\[T\\]}, by minimizing a goal-conditioned energy function,",
+        "Table 3: Planning Performance. Comparing closed-loop robot manipulation using MPC with V-JEPA\u00a02-AC world model and Cosmos world model. In both cases we leverage the cross-entropy method\u00a0([Rubinstein, 1997](https://arxiv.org/html/2506.09985v1#bib.bib94)) for optimizing the sequence of actions using a single NVIDIA RTX 4090 GPU. For each robot skill, we evaluate each model across 10 tasks and average the results. With 80 samples, 10 refinement steps, and a planning horizon of 1, it takes 4 minutes to compute a single action in each planning step with Cosmos, which is an action-conditioned video generation model based on latent diffusion. Note that under a planning time of 4 minutes per action, a full pick & place trajectory takes over one hour. By contrast, with 10\u00d7\\\\times more samples in each refinement step, the V-JEPA\u00a02-AC world model requires only 16 seconds per action and leads to higher performance across all considered robot skills."
+      ]
+    },
+    {
+      "citationId": "cosmos-predict2-perf-2025",
+      "url": "https://github.com/nvidia-cosmos/cosmos-predict2/blob/main/documentations/performance.md",
+      "retrievedAt": "2026-11-02T16:41:30.642Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "1805eeca-c4e9-41d9-947d-72d950eabae4",
+      "passages": [
+        "| GPU Hardware | 2B-Text2Image | 14B-Text2Image | 2B-Video2World | 14B-Video2World |\n| --- | --- | --- | --- | --- |\n| NVIDIA GB200 | 3.39 sec | 8.5 sec | 25.61 sec | 85.26 sec |\n| NVIDIA B200 | 3.24 sec | 8.68 sec | 30.7 sec | 92.59 sec |\n| NVIDIA RTX PRO 6000 | 5.59 sec | 24.16 sec | 82.43 sec | 321.9 sec |\n| NVIDIA DGX Spark | 24.87 sec | 138.94 sec | 344.64 sec | 1902.26 sec |\n| NVIDIA H200 SXM | 9.02 sec | 15.96 sec | 50.2 sec | 176.19 sec |\n| NVIDIA H200 NVL | 6.34 sec | 16.95 sec | 54.01 sec | 203.56 sec |\n| NVIDIA H100 PCIe | 11.12 sec | 23.83 sec | 79.87 sec | 286.46 sec |\n| NVIDIA H100 NVL | 5.05 sec | 23.97 sec | 87.32 sec | 377.67 sec |\n| NVIDIA H20 | 11.47 sec | 59.59 sec | 179.69 sec | 852.64 sec |\n| NVIDIA L40S | 8.9 sec | (OOM) | 127.49 sec | 1036.24 sec |\n| NVIDIA RTX 6000 Ada | 11.94 sec | 167.86 sec | 180.99 sec | 876.68 sec |",
+        "Note: Video2World was run with 480p resolution and at 16 FPS."
+      ]
+    },
+    {
+      "citationId": "worldeval-2025",
+      "url": "https://arxiv.org/abs/2505.19017",
+      "retrievedAt": "2026-11-02T16:41:30.642Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "4764913d-d299-41fa-b578-75f467b48971",
+      "passages": [
+        "> Abstract:The field of robotics has made significant strides toward developing generalist robot manipulation policies. However, evaluating these policies in real-world scenarios remains time-consuming and challenging, particularly as the number of tasks scales and environmental conditions change. In this work, we demonstrate that world models can serve as a scalable, reproducible, and reliable proxy for real-world robot policy evaluation. A key challenge is generating accurate policy videos from world models that faithfully reflect the robot actions. We observe that directly inputting robot actions or using high-dimensional encoding methods often fails to generate action-following videos. To address this, we propose Policy2Vec, a simple yet effective approach to turn a video generation model into a world simulator that follows latent action to generate the robot video. We then introduce WorldEval, an automated pipeline designed to evaluate real-world robot policies entirely online. WorldEval effectively ranks various robot policies and individual checkpoints within a single policy, and functions as a safety detector to prevent dangerous actions by newly developed robot models. Through comprehensive paired evaluations of manipulation policies in real-world environments, we demonstrate a strong correlation between policy performance in WorldEval and real-world scenarios. Furthermore, our method significantly outperforms popular methods such as real-to-sim approach."
+      ]
+    },
+    {
+      "citationId": "worldmodelbench-2025",
+      "url": "https://arxiv.org/abs/2502.20694",
+      "retrievedAt": "2026-11-02T16:41:30.642Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "a4b9a2ec-ed4e-4119-a260-92f27e1e0bb1",
+      "passages": [
+        "> Abstract:Video generation models have rapidly progressed, positioning themselves as video world models capable of supporting decision-making applications like robotics and autonomous driving. However, current benchmarks fail to rigorously evaluate these claims, focusing only on general video quality, ignoring important factors to world models such as physics adherence. To bridge this gap, we propose WorldModelBench, a benchmark designed to evaluate the world modeling capabilities of video generation models in application-driven domains. WorldModelBench offers two key advantages: (1) Against to nuanced world modeling violations: By incorporating instruction-following and physics-adherence dimensions, WorldModelBench detects subtle violations, such as irregular changes in object size that breach the mass conservation law - issues overlooked by prior benchmarks. (2) Aligned with large-scale human preferences: We crowd-source 67K human labels to accurately measure 14 frontier models. Using our high-quality human labels, we further fine-tune an accurate judger to automate the evaluation procedure, achieving 8.6% higher average accuracy in predicting world modeling violations than GPT-4o with 2B parameters. In addition, we demonstrate that training to align human annotations by maximizing the rewards from the judger noticeably improve the world modeling capability. The website is available at [this https URL](https://worldmodelbench-team.github.io)."
+      ]
+    },
+    {
+      "citationId": "worldgym-2025",
+      "url": "https://arxiv.org/abs/2506.00613",
+      "retrievedAt": "2026-11-02T16:41:30.642Z",
+      "retrieval": "Context.dev web_scrape, successful markdown extraction; not an HTTP-status claim",
+      "requestId": "b98ca33b-91af-4cfd-934d-445efd1e342e",
+      "passages": [
+        "> Abstract:Evaluating robot control policies is difficult: real-world testing is costly, and handcrafted simulators require manual effort to improve in realism and generality. We propose a world-model-based policy evaluation environment (WorldGym), an autoregressive, action-conditioned video generation model which serves as a proxy to real world environments. Policies are evaluated via Monte Carlo rollouts in the world model, with a vision-language model providing rewards. We evaluate a set of VLA-based real-robot policies in the world model using only initial frames from real robots, and show that policy success rates within the world model highly correlate with real-world success rates. Moreoever, we show that WorldGym is able to preserve relative policy rankings across different policy versions, sizes, and training checkpoints. Due to requiring only a single start frame as input, the world model further enables efficient evaluation of robot policies' generalization ability on novel tasks and environments. We find that modern VLA-based robot policies still struggle to distinguish object shapes and can become distracted by adversarial facades of objects. While generating highly realistic object interaction remains challenging, WorldGym faithfully emulates robot motions and offers a practical starting point for safe and reproducible policy evaluation before deployment."
+      ]
+    }
+  ]
+}

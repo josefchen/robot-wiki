@@ -156,6 +156,8 @@ export type ReferenceFeatureMeasurements = {
     matchingTypeRoleCount: number;
     unregisteredRoleCount: number;
     fallbackGlyphCount: number;
+    colourReadings?: Array<{ property: string; expected: string; actual: string }>;
+    typeRoleReadings?: Array<{ selector: string; role: string; expected: string; actual: string }>;
   };
   materialTreatment: {
     registeredRepresentativeCount: number;
@@ -470,20 +472,49 @@ export function collectBrowserReferenceFeatures(
     ['--color-signal', '#3B6EA8'],
   ] as const;
   const rootStyle = getComputedStyle(root);
+  const normalizeColour = (value: string) => {
+    const raw = value.trim();
+    if (/^#[a-f\d]{3}$/i.test(raw)) return `#${[...raw.slice(1)].map((digit) => digit + digit).join('')}`.toUpperCase();
+    const match = raw.match(/^rgba?\(\s*(\d+(?:\.\d+)?)\s*[, ]\s*(\d+(?:\.\d+)?)\s*[, ]\s*(\d+(?:\.\d+)?)(?:\s*[,/]\s*(1(?:\.0+)?))?\s*\)$/i);
+    if (match) return `#${match.slice(1, 4).map((part) => Math.round(Number(part)).toString(16).padStart(2, '0')).join('')}`.toUpperCase();
+    return raw.toUpperCase();
+  };
   const matchingColourCount = colourPairs.filter(
     ([property, expected]) =>
-      rootStyle.getPropertyValue(property).trim().toUpperCase() === expected,
+      normalizeColour(rootStyle.getPropertyValue(property)) === expected,
   ).length;
-  const roleElements = all('[data-brand-type-role]');
+  // Same-strength research-page successor: the actual role population is
+  // derived from rendered semantic elements, including unannotated prose and
+  // controls. Merely omitting an optional data attribute cannot hide drift.
+  const roleElements = [...new Set(all('[data-brand-type-role], [data-tektur-role], h1, h2, h3, h4, p, label, button, input, select, summary, nav a, code, pre, .font-mono')
+    .flatMap((container) => {
+      const elements: HTMLElement[] = [];
+      const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+      for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+        if (node.textContent?.trim() && node.parentElement) elements.push(node.parentElement);
+      }
+      return elements;
+    }))].filter((element) => isRendered(element) && !element.closest('.katex, .katex-display, script, style, [aria-hidden="true"]'));
   const roleFamilies: Record<string, string> = {
     display: 'DM Sans',
     interface: 'Geist',
     reading: 'Geist',
     data: 'Geist Mono',
   };
+  const ownText = (element: HTMLElement) => [...element.childNodes].filter((node) => node.nodeType === Node.TEXT_NODE).map((node) => node.textContent ?? '').join(' ').replace(/\s+/g, ' ').trim();
+  const roleOf = (element: HTMLElement) => {
+    const explicit = element.closest<HTMLElement>('[data-brand-type-role]');
+    if (explicit) return explicit.dataset.brandTypeRole ?? '';
+    if (element.closest('[data-tektur-role], h1, h2, h3, h4, .home-feature-title, .display-h1, .font-display-home, .font-display-page, .font-display-article, .font-display-shell, .font-display-section')) return 'display';
+    const familyDeclaration = element.closest('.font-mono, .font-sans');
+    if (element.closest('pre, code') || familyDeclaration?.classList.contains('font-mono') ||
+        (element.closest('button') && /^[\d\s.,+−%:/-]+$/.test(ownText(element)))) return 'data';
+    return element.closest('.prose p') ? 'reading' : 'interface';
+  };
   const matchingTypeRoleCount = roleElements.filter((element) => {
-    const role = element.dataset.brandTypeRole ?? '';
-    return style(element)?.fontFamily.includes(roleFamilies[role] ?? '\0');
+    const role = roleOf(element);
+    const firstFamily = (style(element)?.fontFamily ?? '').split(',')[0].trim().replace(/^['"]|['"]$/g, '');
+    return firstFamily === roleFamilies[role];
   }).length;
   const registeredRoleNames = new Set(Object.keys(roleFamilies));
 
@@ -572,9 +603,15 @@ export function collectBrowserReferenceFeatures(
       matchingTypeRoleCount,
       unregisteredRoleCount: roleElements.filter(
         (element) =>
-          !registeredRoleNames.has(element.dataset.brandTypeRole ?? ''),
+          !registeredRoleNames.has(roleOf(element)),
       ).length,
       fallbackGlyphCount: all('[data-brand-fallback-glyph="true"]').length,
+      colourReadings: colourPairs.map(([property, expected]) => ({ property, expected, actual: normalizeColour(rootStyle.getPropertyValue(property)) })),
+      typeRoleReadings: roleElements.map((element) => ({
+        selector: `${element.tagName.toLowerCase()}${element.id ? `#${element.id}` : ''}: ${ownText(element).slice(0, 100)}`,
+        role: roleOf(element), expected: roleFamilies[roleOf(element)] ?? 'unregistered',
+        actual: (style(element)?.fontFamily ?? '').split(',')[0].trim().replace(/^['"]|['"]$/g, ''),
+      })),
     },
     materialTreatment: {
       registeredRepresentativeCount: materials.length,

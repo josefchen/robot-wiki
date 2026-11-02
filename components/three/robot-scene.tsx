@@ -3,11 +3,12 @@
 import { Line, OrbitControls } from '@react-three/drei';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
-import { Box3, PerspectiveCamera, Spherical, TOUCH, Vector3, type Mesh, type Object3D } from 'three';
+import { Box3, Color, PerspectiveCamera, Spherical, SRGBColorSpace, TOUCH, Vector3, type Mesh, type MeshStandardMaterial, type Object3D } from 'three';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import type { URDFRobot } from 'urdf-loader';
 import { smooth } from '@/components/motion/easing';
 import type { Vec3 } from '@/lib/ik';
+import type { PlaygroundRenderProbe } from '@/lib/playground-render-probe';
 import type { LoadedRobot } from './load-robot';
 import { RobotArm } from './robot-arm';
 import {
@@ -49,6 +50,7 @@ export interface RenderedFrameSnapshot {
   /** Drawing-buffer size in device pixels. */
   buffer: [number, number];
   fov: number;
+  model: PlaygroundRenderProbe | null;
 }
 
 /**
@@ -287,26 +289,54 @@ function MotorHighlight({
  * against the demand frame loop.
  */
 function SceneTelemetry({
-  ready,
+  robot,
   onRenderedFrame,
 }: {
-  ready: boolean;
+  robot: LoadedRobot | null;
   onRenderedFrame: (snapshot: RenderedFrameSnapshot) => void;
 }) {
   const frame = useRef(0);
+  const point = useMemo(() => new Vector3(), []);
+  const clearColour = useMemo(() => new Color(), []);
   useFrame((state) => {
     frame.current += 1;
     const camera = state.camera as PerspectiveCamera;
     const controls = state.controls as OrbitControlsImpl | null;
     const canvas = state.gl.domElement;
+    let model: PlaygroundRenderProbe | null = null;
+    if (robot) {
+      // updateWorldMatrix reads the same applied pose that is about to be
+      // drawn. The release oracle separately reads the canonical URDF.
+      robot.robot.updateWorldMatrix(true, true);
+      const position = (object: Object3D) => object.getWorldPosition(point).toArray().map(value => Number(value.toFixed(8))) as [number, number, number];
+      const meshes: PlaygroundRenderProbe['meshes'] = [];
+      robot.robot.traverse(object => {
+        const mesh = object as Mesh;
+        if (!mesh.isMesh) return;
+        const materials = (Array.isArray(mesh.material) ? mesh.material : [mesh.material]) as MeshStandardMaterial[];
+        meshes.push({name:mesh.name,vertices:mesh.geometry.getAttribute('position')?.count??0,
+          colours:materials.map(material=>material.color?'#'+material.color.getHexString(SRGBColorSpace):''),
+          roughness:materials.map(material=>material.roughness??0),metalness:materials.map(material=>material.metalness??0)});
+      });
+      let points = 0, sprites = 0;
+      state.scene.traverse(object => { if (object.type === 'Points') points++; if (object.type === 'Sprite') sprites++; });
+      model = {kind:robot.info.kind,name:robot.robot.robotName,contextActive:!state.gl.getContext().isContextLost(),
+        // A scene background overrides WebGLRenderer's configured clear
+        // colour. Read the actual active background, retaining the renderer
+        // value only for a scene with no colour background.
+        clearColour:'#'+(state.scene.background instanceof Color?state.scene.background:state.gl.getClearColor(clearColour)).getHexString(SRGBColorSpace),toneMapping:state.gl.toneMapping,points,sprites,fog:state.scene.fog!==null,
+        joints:Object.values(robot.robot.joints).filter(joint=>joint.jointType!=='fixed').map(joint=>({name:joint.name,angle:joint.angle as number,lower:joint.limit.lower,upper:joint.limit.upper,position:position(joint)})),
+        links:Object.values(robot.robot.links).map(link=>({name:link.name,position:position(link)})),meshes};
+    }
     onRenderedFrame({
       frame: frame.current,
-      ready,
+      ready: robot !== null,
       camera: camera.position.toArray() as [number, number, number],
       target: (controls?.target.toArray() ?? [0, 0, 0]) as [number, number, number],
       dpr: state.gl.getPixelRatio(),
       buffer: [canvas.width, canvas.height],
       fov: camera.fov,
+      model,
     });
   });
   return null;
@@ -864,6 +894,7 @@ export default function RobotScene({
       onCreated={(state) => {
         const canvas = state.gl.domElement;
         canvas.tabIndex = 0;
+        canvas.dataset.brandControlId = 'control:keyboard-region';
         canvas.setAttribute('role', 'img');
         canvas.setAttribute(
           'aria-label',
@@ -883,7 +914,7 @@ export default function RobotScene({
       {robot ? <RobotArm robot={robot.robot} /> : null}
       <ApplyPose robot={robot?.robot ?? null} angles={angles} />
       <MotorHighlight motors={robot?.motors ?? null} activeJoint={activeJoint} />
-      <SceneTelemetry ready={robot !== null} onRenderedFrame={onRenderedFrame} />
+      <SceneTelemetry robot={robot} onRenderedFrame={onRenderedFrame} />
       {target ? <TargetGizmo target={target} state={targetState} hand={hand} /> : null}
       <ClickPlane onPlaceTarget={onPlaceTarget} />
       <CameraRig

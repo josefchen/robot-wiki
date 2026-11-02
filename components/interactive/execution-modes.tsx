@@ -14,6 +14,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { Dots, IsoFigure, Line } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
@@ -431,7 +432,7 @@ export function ExecutionModes({ className }: { className?: string }) {
           }
           readout={
             <>
-              <span ref={phaseRef} data-em-phase="" />
+              <LiveReadoutText ref={phaseRef} data-em-phase="" />
               pause {waitWords(deadMs)} · lurch {naivePeak.toFixed(2)} · blend {rtcPeak.toFixed(2)} · limit {JERK_LIMIT.toFixed(2)}
             </>
           }

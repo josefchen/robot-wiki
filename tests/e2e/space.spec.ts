@@ -161,6 +161,33 @@ test.describe('adjacent space module', () => {
     expect(await seeAlso.getByRole('link').count()).toBeGreaterThanOrEqual(2);
   });
 
+  test('the latency ladder puts a Mars round trip at 8 to 40 minutes (VAL-OPUS-097)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="space-latency-ladder"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText('A round trip to Mars takes 8 to 40 minutes');
+    await expect(figure.getByTestId('space-latency-mars-round-trip').locator('rect')).toHaveAttribute(
+      'data-chart-role',
+      'highlight',
+    );
+    await expect(figure.locator('[data-scene-readout]')).toHaveText([
+      '17 to 70 milliseconds',
+      '2.5 seconds',
+      '8 to 40 minutes',
+    ]);
+    await expect(figure.getByTestId('space-latency-mars-note')).toHaveText('too slow to drive a rover live from Earth');
+    const stage = figure.getByRole('img', { name: /Drone camera delay against round trips/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain("twice JPL's one-way 4 to 20 minutes");
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('space-latency-ladder-source').locator('a')).toHaveCount(2);
+    await expect(figure.getByTestId('space-latency-ladder-source').locator('a').nth(1)).toHaveAttribute(
+      'href',
+      'https://ipnpr.jpl.nasa.gov/progress_report/42-237/42-237A.pdf',
+    );
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

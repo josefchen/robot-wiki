@@ -134,7 +134,7 @@ export function exactEdits(before: string, after: string): ReaderFirstEdit[] {
   return [{ before, after }];
 }
 
-function main(paths: string[]): void {
+function main(paths: string[], base?: string): void {
   const review: ReaderFirstReview = existsSync(reviewPath)
     ? JSON.parse(readFileSync(reviewPath, 'utf8'))
     : {
@@ -145,7 +145,7 @@ function main(paths: string[]): void {
       observedAt: '',
       sources: [],
     };
-  const head = git('rev-parse', 'HEAD').toString().trim();
+  const head = git('rev-parse', base ?? 'HEAD').toString().trim();
   for (const path of paths) {
     const live = readFileSync(join(root, path));
     const index = review.sources.findIndex(({ after }) => after.path === path);
@@ -246,7 +246,7 @@ const recordsOf = (registry: InteractiveRegistry, id: string) =>
  * `id=reason` the first time; a recorded id keeps its predecessor and reason
  * and is re-recorded against the live registry.
  */
-function recordRegistry(args: string[]): void {
+function recordRegistry(args: string[], base?: string): void {
   const review: ReaderFirstRegistryReview = existsSync(registryReviewPath)
     ? JSON.parse(readFileSync(registryReviewPath, 'utf8'))
     : {
@@ -263,7 +263,7 @@ function recordRegistry(args: string[]): void {
     if (at > 0) reasons.set(arg.slice(0, at), arg.slice(at + 1));
     else if (!reasons.has(arg)) throw new Error(`${arg}: a new registry record needs id=reason`);
   }
-  const head = git('rev-parse', 'HEAD').toString().trim();
+  const head = git('rev-parse', base ?? 'HEAD').toString().trim();
   const live = JSON.parse(readFileSync(join(root, 'contract/brand-v2-registries.json'), 'utf8')).interactive as InteractiveRegistry;
   const records: ReaderFirstRegistryRecord[] = [];
   for (const [id, reason] of reasons) {
@@ -322,11 +322,17 @@ async function verifyRegistry(): Promise<boolean> {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
+  // An explicit predecessor is needed when a separate completed commit
+  // changed a new member before this continuity record was assembled.
+  // Existing records always retain their original pinned predecessor.
+  const baseIndex = args.indexOf('--base');
+  const base = baseIndex < 0 ? undefined : args.splice(baseIndex, 2)[1];
+  if (baseIndex >= 0 && !base) throw new Error('--base requires an exact commit');
   if (args[0] === '--registry') {
-    recordRegistry(args.slice(1));
+    recordRegistry(args.slice(1), base);
     if (!(await verifyRegistry())) process.exit(1);
   } else {
-    main(args);
+    main(args, base);
     if (!(await verify())) process.exit(1);
   }
 }

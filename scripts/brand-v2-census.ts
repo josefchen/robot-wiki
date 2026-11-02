@@ -54,6 +54,8 @@ import {
 } from '../lib/seo.ts';
 import { SITE_URL } from '../lib/site.ts';
 import { isSyncConflictDuplicate } from '../lib/sync-duplicates.ts';
+import { mountedStateCases } from '../lib/brand-v2-state-applicability.ts';
+import { expectedReleaseMetadata } from '../lib/brand-v2-release-metadata.ts';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUTPUT = join(ROOT, 'contract', 'brand-v2-registries.json');
@@ -327,6 +329,7 @@ function metadataLedger() {
         icons: tabIconLedger(),
         themeColour: null,
         notFoundPolicy: null,
+        exported: expectedReleaseMetadata(ROOT, path),
       });
     }),
     stableRecord({
@@ -354,6 +357,7 @@ function metadataLedger() {
       icons: tabIconLedger(),
       themeColour: null,
       notFoundPolicy: { publicContent: false, index: false },
+      exported: expectedReleaseMetadata(ROOT, '/404/'),
     }),
   ];
 }
@@ -809,6 +813,8 @@ function interactiveRegistry() {
       const route = relativePath === 'app/page.tsx'
         ? '/'
         : `/${relativePath.replace(/^content\//, '').replace(/\.mdx$/, '/')}`;
+      const cases = mountedStateCases({ component: occurrence.name, props,
+        source: readFileSync(join(ROOT, registeredSource.sourcePath), 'utf8'), cases: registeredSource.cases });
       mounts.push(
         stableRecord({
           id: `mount:${route}:${occurrence.name}:${ordinal}`,
@@ -820,8 +826,8 @@ function interactiveRegistry() {
           containers: occurrence.ancestors.map((name) =>
             containerRecord(name, owner, mdxGlobals),
           ),
-          cases: registeredSource.cases,
-          expectedCaseCount: registeredSource.expectedCaseCount,
+          cases,
+          expectedCaseCount: cases.length,
         }),
       );
     }
@@ -1129,6 +1135,16 @@ function staticRegistries() {
       supportedStates: ['default', 'focus-visible', 'filled', 'invalid', 'disabled'],
     },
     {
+      id: 'control:keyboard-region',
+      treatment: 'ink-outline-on-region',
+      statePurpose: 'keyboard-region',
+      action: 'focus a scrollable reading region or direct-manipulation canvas',
+      persistentAria: [],
+      supportedStates: ['default', 'focus-visible'],
+      disabledException: 'Keyboard reading and canvas regions have no disabled action state; their content remains available for reading or direct manipulation.',
+      pointerAlternative: 'Scrollbars, wheel or touch scrolling for reading regions; pointer drag and wheel manipulation for the playground canvas.',
+    },
+    {
       id: 'control:disabled',
       treatment: 'documented-neutral',
       statePurpose: 'unavailable-action',
@@ -1147,7 +1163,7 @@ function staticRegistries() {
         preferredPx: 44,
         exceptions: CONTROL_TARGET_SIZE_EXCEPTIONS[entry.id] ?? [],
       },
-      pointerAlternative: 'native pointer activation matching keyboard activation',
+      pointerAlternative: entry.pointerAlternative ?? 'native pointer activation matching keyboard activation',
     }),
   );
   // Owner-approved successor (Josef, 2026-10-10): the research-page standard

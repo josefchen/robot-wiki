@@ -14,6 +14,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { Dots, IsoFigure, Line } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { PartView } from '@/components/iso/part-view';
@@ -556,7 +557,7 @@ export function CompoundingError({
           }
           readout={
             <>
-              <span ref={phaseRef} data-ce-phase="" />
+              <LiveReadoutText ref={phaseRef} data-ce-phase="" />
               {steps} moves · drift <span data-testid="accumulated-deviation-readout">{readoutUnits(rollout.cost)}</span>{' '}
               units · the first {half} moves drift{' '}
               <span data-testid="half-deviation-readout">{readoutUnits(rollout.halfCost)}</span>

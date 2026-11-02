@@ -66,7 +66,7 @@ RL fine-tuning is the use of reinforcement learning to improve a pretrained robo
 
 <Image id="hil-serl-tasks-2024" />
 
-Switch to “What it learns”.
+Switch to "What it learns" to inspect the toy update after the attempt <Cite id="pistar06-2025" />.
 
 <AdvantageScrubber className="my-6" />
 
@@ -153,7 +153,7 @@ EXPO-FT, from Dong, Kuo-Han Hung, Tian Gao, Sadigh and Finn, extends EXPO to VLA
 
 The paper calls HIL-SERL highly reliable in its original evaluations; this suite randomizes a much larger initial-state space, and the standard budget was too small for learning to start on Cube Pick and Pool Shot. With extra samples, HIL-SERL reaches 27/30 and 13/30 there <Cite id="expo-ft-2026" /> <Cite id="hil-serl-2024" />.
 
-DSRL keeps the base policy frozen and runs RL over its latent-noise space <Cite id="dsrl-2025" />. Dong and Finn argue it has a ceiling: "If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action ...". DSRL averages 19/30 in their comparison <Cite id="perry-dong-post-training-2026" /> <Cite id="expo-ft-2026" />.
+DSRL keeps the base policy frozen and runs RL over its latent-noise space <Cite id="dsrl-2025" />. Dong and Finn argue it has a ceiling: "If the skill a robot needs isn't already somewhere in what the base model learned during pretraining, no amount of noise-searching will produce the action ...". DSRL averages 19/30 in their comparison <Cite id="perry-dong-post-training-2026" /> <Cite id="expo-ft-2026" />. PrefPI repeatedly fits preference-conditioned policies on self-generated trajectories, then amplifies the preference signal through classifier-free guidance <Cite id="prefpi-2026" />.
 
 <NoiseOrEdit className="my-6" />
 
@@ -167,7 +167,7 @@ The protocols differ too much for a cross-paper ranking. DPPO, ConRFT, EXPO-FT, 
 
 ## Real-world and fleet-scale results
 
-RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages and reports 1000 of 1000 successful episodes on eight real tasks <Cite id="rl-100-2025" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id="lwd-2026" />.
+RL-100, published in Science Robotics in July 2026, applies one clipped-PPO objective within the denoising process across offline and online stages and reports 1000 of 1000 successful episodes on eight real tasks <Cite id="rl-100-2025" />. LWD runs offline-to-online RL on a fleet of 16 dual-arm robots, where one generalist policy reaches 95% average success across eight real tasks <Cite id="lwd-2026" />. SOP streams on-policy experience and human corrections from a robot fleet to a cloud learner, returning policy updates asynchronously <Cite id="sop-2026" />.
 
 <Image id="conrft-real-world-tasks-2025" />
 
@@ -175,7 +175,7 @@ RL-100, published in Science Robotics in July 2026, applies one clipped-PPO obje
 
 ## What RL buys, with caveats
 
-Liu et al.'s NeurIPS 2025 study finds PPO beats the tested DPO/TPO and GRPO implementations for OpenVLA pick-and-place with sparse task rewards, with stronger semantic and execution generalization than supervised fine-tuning and comparable visual robustness. A September 2025 revision adds appendix tests, and SFT wins the articulated task's visual average and rephrased instructions, and the action-chunking multi-receptacle test; the main-text limitations still say all experiments are simulated pick-and-place <Cite id="rl-vla-generalization-2025" />.
+Liu et al.'s NeurIPS 2025 study finds PPO beats the tested DPO/TPO and GRPO implementations for OpenVLA pick-and-place with sparse task rewards, with stronger semantic and execution generalization than supervised fine-tuning and comparable visual robustness. A September 2025 revision adds appendix tests, and SFT wins the articulated task's visual average and rephrased instructions, and the action-chunking multi-receptacle test; the main-text limitations still say all experiments are simulated pick-and-place <Cite id="rl-vla-generalization-2025" />. GRPO was introduced as a memory-efficient PPO variant for mathematical reasoning <Cite id="grpo-2024" />.
 
 PAIR-VLA adds paired-view invariance and sensitivity objectives to PPO in simulated ManiSkill3 pick-and-place and reports better OOD success than PPO under the tested shifts. The sensitivity-only ablation loses to PPO on target-pose success, the camera-view variant trails PPO slightly in-distribution, the task-preserving views rely on simulator object masks, and real-world transfer is untested <Cite id="pair-vla-2026" />.
 

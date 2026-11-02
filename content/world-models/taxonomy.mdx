@@ -43,6 +43,7 @@ citations:
   - video-physical-law-2024
   - physics-iq-2025
   - pointworld-2026
+  - interaction-networks-2016
 seeAlso:
   - "world-models/generative-video"
   - "world-models/generative-sim"
@@ -107,6 +108,8 @@ A world-action model (WAM) uses a pretrained video backbone to predict both futu
 ### Symbolic and structured: predict predicates
 
 These models predict transitions over predicates, object relations or 3D occupancy; OccWorld, from autonomous driving, predicts how scene occupancy evolves and plans competitively without instance or map supervision <Cite id="occworld-2023" />. PointWorld predicts the 3D point flows that a sequence of robot actions produces, and at 0.1 s per inference it drives model-predictive control on a real Franka arm with no demonstrations <Cite id="pointworld-2026" />. Silver and colleagues treat learned operators as "a lossy abstraction of the transition model" <Cite id="symbolic-operators-2021" />, and VisualPredicator, which invents its predicates online, generalizes better out of distribution <Cite id="visualpredicator-2024" />.
+
+Interaction Networks use an object-and-relation graph to predict physical interactions, demonstrated on n-body systems, rigid collisions and non-rigid dynamics <Cite id="interaction-networks-2016" />.
 
 ## Two boundary cases
 

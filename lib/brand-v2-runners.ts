@@ -249,6 +249,13 @@ export const BRAND_V2_DEEP_ROWS: DeepRow[] = rows.map(
       id: `${id}:step:${index + 1}`,
       action,
     }));
+    // Every meaningful phase has its own real state capture. Previously
+    // only the final state was captured, so an open drawer or selection
+    // could be dismissed before any evidence of it existed.
+    const phases = steps.filter(({ action }) => action !== 'capture').map((step, index) => ({
+      order: index + 1, id: `${id}:capture:phase:${step.order}`, afterStep: step.id,
+      kind: 'bounded' as const,
+    }));
     return {
       id,
       route,
@@ -256,14 +263,15 @@ export const BRAND_V2_DEEP_ROWS: DeepRow[] = rows.map(
       state,
       steps,
       captures: [
+        ...phases,
         {
-          order: 1,
+          order: phases.length + 1,
           id: `${id}:capture:full`,
           afterStep: steps.at(-1)?.id ?? '',
           kind: 'full-page',
         },
         {
-          order: 2,
+          order: phases.length + 2,
           id: `${id}:capture:computed`,
           afterStep: steps.at(-1)?.id ?? '',
           kind: 'computed-style',

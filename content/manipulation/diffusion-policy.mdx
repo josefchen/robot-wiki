@@ -58,9 +58,11 @@ import { RecedingHorizon } from '@/components/interactive/receding-horizon';
 
 Diffusion Policy executes $T_a$ actions of a $T_p$-action prediction, then observes and replans. The CNN configuration executes 8 of 16 on many tasks, and the next inference can warm-start from the previous prediction <Cite id="diffusion-policy-2023" />.
 
-$T_a$ acts like ACT's chunk size: large values give smooth motion that reacts slowly, and small values react fast but resample often, so each sample can switch mode <Cite id="act-aloha-2023" />. At the policy's 10 Hz command rate, $T_a = 8$ commits the robot for 0.8 seconds <Cite id="diffusion-policy-2023" />. Try “Never rethink”: the dashed tails vanish.
+Try “Never rethink”: the dashed tails vanish <Cite id="diffusion-policy-2023" />.
 
 <RecedingHorizon className="my-6" />
+
+$T_a$ acts like ACT's chunk size: large values give smooth motion that reacts slowly, and small values react fast but resample often, so each sample can switch mode <Cite id="act-aloha-2023" />. At the policy's 10 Hz command rate, $T_a = 8$ commits the robot for 0.8 seconds <Cite id="diffusion-policy-2023" />.
 
 ## Multimodal demonstrations
 
@@ -101,7 +103,7 @@ The CNN backbone adapts Diffuser's one-dimensional temporal U-Net over state-act
   />
 </Card>
 
-The CNN is the recommended default and works on most tasks without much tuning. The transformer gives most of the best state-based results, especially with fast action changes, but costs more tuning, and adding layers sometimes hurts <Cite id="diffusion-policy-2023" />. ScaleDP confirms the layer problem and scales the transformer from 10 million to 1 billion parameters <Cite id="scaledp-2024" />.
+The CNN is the recommended default and works on most tasks without much tuning. Its encoder's GroupNorm computes statistics within channel groups, independently of batch size <Cite id="groupnorm-2018" />. The transformer gives most of the best state-based results, especially with fast action changes, but costs more tuning, and adding layers sometimes hurts <Cite id="diffusion-policy-2023" />. ScaleDP confirms the layer problem and scales the transformer from 10 million to 1 billion parameters <Cite id="scaledp-2024" />.
 
 ## Variants and scale
 
@@ -113,7 +115,7 @@ DP3 conditions on sparse point clouds and handles most of 72 simulation tasks wi
 
 Iterative denoising is slow for mobile manipulators and quadrotors without high-end GPUs. Consistency models generate in one step by design <Cite id="consistency-models-2023" />, and Consistency Policy distills a Diffusion Policy teacher into one- or three-step generation; on Robomimic Square, three teachers at 0.84 to 0.92 success yielded students at 0.88 to 0.92 <Cite id="consistency-policy-2024" />.
 
-One-Step Diffusion Policy lifts action prediction from 1.5 Hz to 62 Hz on real Franka tasks <Cite id="one-step-diffusion-2024" />. Drifting Models (Kaiming He and colleagues, February 2026) train a one-step generator without distillation; swapped into Diffusion Policy, one step matched or beat the 100-step original on 10 of 14 simulated task settings <Cite id="drifting-models-2026" />.
+One-Step Diffusion Policy lifts action prediction from 1.5 Hz to 62 Hz on real Franka tasks <Cite id="one-step-diffusion-2024" />. One-Step Flow Policy trains from scratch with self-distillation and temporal warm starts, requiring no pretrained teacher <Cite id="one-step-flow-policy-2026" />. Drifting Models (Kaiming He and colleagues, February 2026) train a one-step generator without distillation; swapped into Diffusion Policy, one step matched or beat the 100-step original on 10 of 14 simulated task settings <Cite id="drifting-models-2026" />.
 
 ## Flow matching
 

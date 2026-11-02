@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useEffect, useId, useMemo, useState, type CSSProperties } from 'react';
 import type { TrajectoryController } from './use-trajectory';
 
 interface TrajectoryPanelProps {
@@ -25,6 +25,7 @@ function poseCount(count: number, segmentSeconds: number): string {
  */
 export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
   const [importText, setImportText] = useState('');
+  const fieldId = useId();
 
   // Object URL for the export download, revoked when replaced or unmounted.
   // Guarded because jsdom has no URL.createObjectURL.
@@ -151,7 +152,9 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
 
       {controller.exportText !== null ? (
         <div className="pg-fold">
+          <label htmlFor={`${fieldId}-export`}>The exported motion, as JSON</label>
           <textarea
+            id={`${fieldId}-export`}
             data-brand-control-id="control:input"
             data-testid="trajectory-export-json"
             readOnly
@@ -179,7 +182,9 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
           Import a motion
         </summary>
         <div className="pg-fold">
+          <label htmlFor={`${fieldId}-import`}>A motion to import, as JSON</label>
           <textarea
+            id={`${fieldId}-import`}
             data-brand-control-id="control:input"
             data-testid="trajectory-import-json"
             value={importText}
@@ -188,7 +193,9 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
             aria-label="A motion to import, as JSON"
             placeholder="Paste an exported motion here"
           />
+          <label htmlFor={`${fieldId}-file`}>Choose a motion file</label>
           <input
+            id={`${fieldId}-file`}
             data-brand-control-id="control:input"
             data-testid="trajectory-import-file"
             type="file"

@@ -307,20 +307,23 @@ test.describe('safety-and-assurance module', () => {
     }
   });
 
-  test('the certification-impossibility claim and the wrapper pattern are stated with a citation in their section (VAL-FRONT-026)', async ({
+  test('certification requirements and the wrapper pattern are stated with sources and bounded verification evidence (VAL-FRONT-026)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
     const all = await sections(page);
-    const section = sectionMatching(all, /cannot be certified|certified/i);
-    expect(section, 'a section on why a policy cannot be certified').toBeDefined();
+    const section = sectionMatching(all, /certification needs a specification/i);
+    expect(section, 'a section on the specification and process evidence required for certification').toBeDefined();
 
     // Both ratings named, and the reason stated rather than asserted.
     expect(section!.text).toMatch(/safety integrity level/i);
     expect(section!.text).toMatch(/performance level/i);
     expect(section!.text).toMatch(/specification/i);
     expect(section!.text).toMatch(/systematic fault/i);
-    expect(section!.text).toMatch(/not certified|cannot be assigned|has neither/i);
+    expect(section!.text).toMatch(/policy weights alone do not state which behaviours must be excluded/i);
+    expect(section!.text).toMatch(/document how systematic faults were prevented/i);
+    expect(section!.text).toMatch(/prototype ACAS Xu/i);
+    expect(section!.citeIds).toContain('reluplex-2017');
 
     // The pattern named as a pattern: a verifiable layer around an
     // unverifiable one, with the formal instance present.

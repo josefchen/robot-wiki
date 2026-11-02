@@ -13,6 +13,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { solidSvg } from '@/components/iso/iso-kit';
@@ -453,7 +454,7 @@ export function RecedingHorizon({
           hint={running ? 'Running three times slower than the robot' : 'Run the reader to watch each plan cut short'}
           readout={
             <>
-              <span ref={phaseRef} data-rh-phase="" dangerouslySetInnerHTML={{ __html: running ? '' : restPhase }} />
+              <LiveReadoutText ref={phaseRef} data-rh-phase="">{running ? '' : restPhase}</LiveReadoutText>
               acts on <span data-testid="rh-commit-readout">{secondsWords(commitDurationS(clamped.ta))}</span> · rethinks{' '}
               <span data-testid="rh-replan-readout">{rateWords(replanRateHz(clamped.ta))}</span>
             </>

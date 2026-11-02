@@ -57,6 +57,8 @@ ROS 2 is the second generation of the Robot Operating System, a modular framewor
 
 <Image id="pr2-maker-faire-2011" />
 
+Try the interface check comparing a topic, a service and a ROS action <Cite id="ros2-science-robotics-2022" />.
+
 <SelfCheck
   prompt="A fetch task takes 30 seconds, reports progress and may need cancelling. Which ROS 2 interface fits?"
   options={[
@@ -102,7 +104,7 @@ Logging source, receipt and inference-completion times splits latency into sensi
 
 ## tf2: the coordinate-frame graph
 
-tf2 keeps a time-buffered tree of coordinate frames and transforms data between any two frames at any time <Cite id="tf2-docs-2026" />. A lookup at an image timestamp can wait for the transform; the tf2 tutorial raises an exception only if it is still missing after a 50 ms timeout <Cite id="tf2-time-tutorial-2026" />.
+tf2 keeps a time-buffered tree of coordinate frames and transforms data between any two frames at any time <Cite id="tf2-docs-2026" />. A lookup at an image timestamp can wait for the transform; the tf2 tutorial raises an exception only if it is still missing after a 50 ms timeout <Cite id="tf2-time-tutorial-2026" />. Foote's original tf library makes this a distributed bookkeeping problem, tracking frame relationships through both space and time across a robot system <Cite id="tf-library-2013" />.
 
 REP 105 defines `odom` as a drifting short-term reference and `map` as a frame whose poses can jump <Cite id="rep-105-2010" />, and camera optical frames take an `_optical` suffix and a different axis convention <Cite id="rep-103-2010" />. A policy trained on base-frame <Term id="end-effector">end-effector</Term> deltas cannot be sent tool-frame deltas in the same layout; *Modern Robotics* covers the geometry <Cite id="modern-robotics-2017" />.
 
@@ -118,13 +120,15 @@ rosbag2 records timestamped messages for replay, in MCAP by default since Iron I
 
 A learned-policy graph can separate drivers, state assembly, a policy server, a command gate, a controller bridge and a supervisor. The supervisor can drive ROS 2 managed nodes, which leave a primary state only on an external request or an error <Cite id="ros2-lifecycle-design-2015" />. Inference stays outside the hard real-time loop unless its worst case fits, and ROS 2's real-time guidance keeps page faults, dynamic allocation and blocking synchronization out of that path <Cite id="ros2-realtime-docs-2026" />. Lyrical's EventsCBGExecutor cuts executor CPU overhead, but its event queue is unbounded <Cite id="ros2-executors-2026" />.
 
+ROS-LLM connects language-model outputs to ROS actions and services, with feedback used to revise behavior sequences, trees or state machines <Cite id="ros-llm-2024" />.
+
 <Ros2PolicyLayout className="my-6" />
 
 Lyrical's `rosidl::Buffer` lets a `uint8[]` field live in GPU memory without changing the .msg file <Cite id="ros2-buffer-backends-2026" />. NVIDIA deprecated its NITROS transport on 21 September 2026 in its favor, with a CUDA backend <Cite id="isaac-ros-nitros-2026" />, because host round-trips add latency and use CPU and memory bandwidth <Cite id="isaac-ros-rosidl-buffer-2026" />.
 
 ## Navigation uses the same architecture
 
-Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id="nav2-2020" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices.
+Nav2 uses a behavior tree to orchestrate planner, controller and recovery servers <Cite id="nav2-2020" />. Costmap 2D accepts sensor-processing plugins for AI outputs and semantic information <Cite id="nav2-costmap-2d-2026" />, so a learned local controller can reuse a classical one's costmap, goal interface, test harness and fallback. The [scene-representation module](/classical/scene-representation) explains the map choices. The Smac Planner implements cost-aware A\*, Hybrid A\* and state-lattice planning, allowing a navigation stack to select a search that respects the robot's motion constraints <Cite id="smac-planner-2024" />.
 
 <Image id="clearpath-jackal-ugv-2020" />
 

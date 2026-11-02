@@ -49,6 +49,8 @@ import {
   type LedgerPlanMount,
   type SourceDefaultJoin,
 } from '../../lib/brand-v2-interactive-ledger';
+import { ledgerReleaseStateIds, RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 
 const INTERACTIVE_IMPORT =
   /import\s+\{\s*([A-Z][A-Za-z0-9]*)\s*\}\s+from\s+['"]@\/components\/interactive\/[^'"]+['"]/g;
@@ -393,9 +395,9 @@ const ROOT = process.cwd();
 const LEDGER_PLAN = interactiveLedgerPlan(brandV2Registry);
 
 /** Pages operated at once, each in a context of its own. */
-const LEDGER_CONTEXTS = 6;
+const LEDGER_CONTEXTS = FINAL_RELEASE_PROFILES ? 2 : 6;
 /** One section's budget; the largest section runs in a fraction of it. */
-const LEDGER_GROUP_TIMEOUT_MS = 900_000;
+const LEDGER_GROUP_TIMEOUT_MS = FINAL_RELEASE_PROFILES ? 900_000 * RELEASE_PROFILES.length : 900_000;
 
 const ledgerMain = new Map<string, Omit<LedgerObservation, 'idle'>>();
 const ledgerIdle = new Map<string, LedgerIdle[]>();
@@ -418,7 +420,21 @@ async function sweepLedger(
       const { mount, job } = item;
       try {
         if (job === 'main') {
-          ledgerMain.set(mount.mountId, await measureLedgerMount(browser, staticBase, LEDGER_PLAN, mount));
+          const profiles = new Map<string, ReleaseState>();
+          const observation = await measureLedgerMount(browser, staticBase, LEDGER_PLAN, mount, undefined,
+            FINAL_RELEASE_PROFILES ? async (page, state) => {
+              const id = `${mount.mountId}|${state.id}`;
+              // The same radio can be reached in the Tab walk and again by
+              // arrows; transition records cover each resulting state.
+              if (state.id.startsWith('focus:') && profiles.has(id)) return;
+              if (profiles.has(id)) throw new Error(`duplicate release state ${id}`);
+              profiles.set(id, await probeReleaseState(page, { id, route: mount.route, state: state.caseId, steps: state.steps }, state.maintain));
+            } : undefined);
+          ledgerMain.set(mount.mountId, observation);
+          if (FINAL_RELEASE_PROFILES) {
+            const groupId = `interactive-${mount.mountId.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
+            writeReleaseStateGroup(groupId, ledgerReleaseStateIds(observation), [...profiles.values()]);
+          }
         } else {
           const idle = await idleWindow(browser, staticBase, LEDGER_PLAN, mount, job);
           const readings = ledgerIdle.get(mount.mountId) ?? [];
@@ -535,7 +551,7 @@ test.describe('brand-v2 interactive keyboard transition ledger', () => {
       browser,
       staticBase,
     }) => {
-      test.setTimeout(LEDGER_GROUP_TIMEOUT_MS);
+      test.setTimeout(FINAL_RELEASE_PROFILES ? Math.max(LEDGER_GROUP_TIMEOUT_MS, group.mountIds.length * 3_600_000) : LEDGER_GROUP_TIMEOUT_MS);
       const registered = brandV2Registry.interactive.mounts.filter(
         ({ route }: { route: string }) => (route.split('/').filter(Boolean)[0] ?? 'home') === group.id,
       );

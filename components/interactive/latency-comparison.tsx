@@ -14,6 +14,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { Dots, IsoFigure, Line } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import { PartView } from '@/components/iso/part-view';
@@ -494,7 +495,7 @@ export function LatencyComparison({
           hint={running ? 'Running at seven control ticks a second' : 'Each groove is a good plan. Run the plotter.'}
           readout={
             <>
-              <span ref={phaseRef} data-lc-phase="" />
+              <LiveReadoutText ref={phaseRef} data-lc-phase="" />
               averaging <span data-testid="te-throughput-readout">{Math.round(te * 100)}%</span> (
               <span data-testid="te-status-readout">{STATUS_WORDS[status]}</span>) · real-time chunking{' '}
               <span data-testid="rtc-throughput-readout">{Math.round(rtc * 100)}%</span>

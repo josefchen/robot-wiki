@@ -85,13 +85,15 @@ Scene representation is how a robot stores what it knows about its surroundings 
 
 ## The ladder, and what each rung can answer
 
-Three queries separate the rungs: whether a cell is free for a planner, which way a surface faces for a contact solver, and what the scene looks like from a viewpoint the sensor never occupied. Cadena and colleagues judge representations by storage size, construction cost and usefulness for the task <Cite id="cadena-2016" />.
+Switch to "Grid of boxes" and move the "Detail" slider <Cite id="cadena-2016" />.
 
 <SceneRepresentationLadder className="my-6" />
 
+Three queries separate the rungs: whether a cell is free for a planner, which way a surface faces for a contact solver, and what the scene looks like from a viewpoint the sensor never occupied. Cadena and colleagues judge representations by storage size, construction cost and usefulness for the task <Cite id="cadena-2016" />.
+
 ### Point clouds and occupancy grids
 
-A <Term id="point-cloud">point cloud</Term> is an unordered set of 3D points, and PointNet requires invariance to the order in which they arrive <Cite id="pointnet-2017" />. A region without points is either empty or unobserved, and the store cannot say which.
+A <Term id="point-cloud">point cloud</Term> is an unordered set of 3D points, and PointNet requires invariance to the order in which they arrive <Cite id="pointnet-2017" />. A region without points is either empty or unobserved, and the store cannot say which. CUT3R maintains a recurrent state while processing an image sequence and predicts metric pointmaps in a shared frame, including inferred views that were not directly observed <Cite id="cut3r-2025" />.
 
 Moravec and Elfes projected wide-angle sonar readings from different sensors and robot positions onto a 2D <Term id="occupancy-grid">occupancy grid</Term>. Each reading marked a probably empty beam interior and an uncertain reflecting point near the measured range, and overlapping readings refined these constraints. Zero represented unknown occupancy, and negative and positive values probably empty and probably occupied cells <Cite id="moravec-elfes-1985" />. OctoMap carries the three states into 3D in a compressed octree <Cite id="octomap-2013" />. Step through the figure below to see one mug stored four ways.
 
@@ -103,6 +105,8 @@ Curless and Levoy fuse range images into a cumulative weighted <Term id="signed-
 
 KinectFusion fused 11-bit, 640×480 Kinect depth frames at 30 Hz, tracking each frame against the global model by coarse-to-fine ICP and mapping at the sensor rate on a commodity GPU. A large plane filling most of the view can cause drift or tracking failure. Its projective TSDF caps visible-space values at the truncation distance $\mu$, leaves non-visible points beyond $\mu$ unmeasured and is exact at the surface, so fusion yields an approximate pseudo-Euclidean distance. Normals come from numerical derivatives near the zero level set, and ray marching finds surfaces by trilinear interpolation <Cite id="kinectfusion-2011" />.
 
+Voxel hashing stores dense surface data only near observed regions and streams blocks through a spatial hash table, avoiding a fixed dense volume over the entire scene <Cite id="voxel-hashing-2013" />.
+
 <Image id="kinect-xbox-360-sensor" />
 
 Trajectory optimizers need obstacle distances. Voxblox builds TSDFs faster than OctoMap builds its maps, then derives Euclidean signed distance fields (ESDFs) from them incrementally, more accurately than from occupancy <Cite id="voxblox-2016" />, and on GPUs nvblox reports up to 177x faster surface reconstruction and 31x faster distance-field computation <Cite id="nvblox-2023" />.
@@ -111,21 +115,27 @@ Trajectory optimizers need obstacle distances. Voxblox builds TSDFs faster than 
 
 A mesh adds connectivity, giving each face a normal and a renderable surface, but leaves holes where nothing was observed, and filling them invents geometry <Cite id="curless-levoy-1996" />.
 
-NeRF fits a <Term id="neural-radiance-field">neural radiance field</Term> to a static scene from posed RGB photographs, intrinsics and scene bounds. Its MLP predicts density from position and colour from position and viewing direction, and differentiable volume rendering lets image error drive optimization <Cite id="nerf-2020" />.
+NeRF fits a <Term id="neural-radiance-field">neural radiance field</Term> to a static scene from posed RGB photographs, intrinsics and scene bounds. Its MLP predicts density from position and colour from position and viewing direction, and differentiable volume rendering lets image error drive optimization <Cite id="nerf-2020" />. NeRF++ analyzes shape-radiance ambiguity and adapts the parameterization for 360-degree captures of unbounded scenes <Cite id="nerfpp-2020" />.
 
 Instant NGP cut optimization cost with a multiresolution hash encoding, smaller networks and fully fused CUDA kernels, and rendered one scene at 1080p in 5 seconds over 128 samples and a large 360-degree scene at 10 frames per second on one RTX 3090 <Cite id="instant-ngp-2022" />. <Term id="gaussian-splatting">3D Gaussian splatting</Term> optimizes Gaussian positions, anisotropic covariances, opacities and spherical-harmonic appearance from calibrated photographs, then rasterizes by alpha-blending sorted splats. It reports real-time 1080p rendering, with results on an A6000 GPU <Cite id="3dgs-2023" />.
 
 DUSt3R predicts dense pointmaps from a pair of RGB images without intrinsics or poses, in the first image's frame and at unknown scale, trained with geometric supervision from pretrained CroCo weights. For an image collection, it then optimizes the alignment of pairwise pointmaps in 3D <Cite id="dust3r-2024" />.
 
+MASt3R adds matching descriptors to this 3D reconstruction approach and uses a fast reciprocal-matching procedure to obtain image correspondences <Cite id="mast3r-2024" />.
+
 Feed-forward models now cover whole collections: VGGT infers cameras, point maps, depth maps and point tracks from one, a few or hundreds of views in under one second <Cite id="vggt-2025" />.
+
+MapAnything accepts optional intrinsics, poses or depth alongside images and predicts metric geometry through separate depth, ray, camera and scale factors <Cite id="mapanything-2025" />. Pi3 avoids privileging one input view: its reconstruction is permutation-equivariant, with affine-invariant camera poses and scale-invariant local pointmaps <Cite id="pi3-2025" />.
+
+Depth Anything 3 uses a depth-and-ray prediction target for arbitrary view collections, whether or not camera poses are supplied <Cite id="depth-anything-3-2025" />.
 
 ## A radiance field is geometry for rendering
 
-The [world-models taxonomy](/world-models/taxonomy) treats a splat reconstruction as a learned renderer: appearance is learned and physics is not. In the original 3DGS, learned opacity is an image-space alpha-compositing weight with no free, occupied or unknown label, and the stored primitive is a volumetric Gaussian <Cite id="3dgs-2023" />. The paper names mesh reconstruction as an open direction <Cite id="3dgs-2023" />, and SuGaR then aligned Gaussians with surfaces and extracted meshes by Poisson reconstruction <Cite id="sugar-2023" />.
+The [world-models taxonomy](/world-models/taxonomy) treats a splat reconstruction as a learned renderer: appearance is learned and physics is not. In the original 3DGS, learned opacity is an image-space alpha-compositing weight with no free, occupied or unknown label, and the stored primitive is a volumetric Gaussian <Cite id="3dgs-2023" />. The paper names mesh reconstruction as an open direction <Cite id="3dgs-2023" />, and SuGaR then aligned Gaussians with surfaces and extracted meshes by Poisson reconstruction <Cite id="sugar-2023" />. 2D Gaussian Splatting instead uses oriented planar disks, ray-splat intersections and depth-distortion and normal regularizers to improve surface reconstruction <Cite id="2dgs-2024" />.
 
 Simulators pair splats for appearance with separate physics: SplatSim renders with splats while PyBullet supplies physics <Cite id="splatsim-2024" />. Its authors report zero-shot real-world transfer of diffusion policies on four rigid-body tasks with a UR5 and Robotiq 2F-85 gripper, after manual robot segmentation and ICP alignment <Cite id="splatsim-2024" />. In RoboGSim's closed-loop evaluator, a policy acts on splat-rendered images while Isaac Sim handles inverse kinematics and physical interaction, from multi-view images, supplied MDH parameters and mesh assets <Cite id="robogsim-2024" />.
 
-Other fields serve a planner directly. Dex-NeRF renders transparency-aware depth from learned density for a grasp planner, where a RealSense camera failed to compute depth for most transparent objects tested <Cite id="dex-nerf-2021" />.
+Other fields serve a planner directly. Dex-NeRF renders transparency-aware depth from learned density for a grasp planner, where a RealSense camera failed to compute depth for most transparent objects tested <Cite id="dex-nerf-2021" />. F3RM distills 2D foundation-model features into a 3D feature field so that language and a few demonstrations can guide grasping and placing <Cite id="f3rm-2023" />.
 
 ParticleSplat, from Deepak Pathak (Carnegie Mellon) and colleagues (September 2026), encodes posed multi-view images into latent particles that decode to 3D Gaussians, trained with a novel-view synthesis objective. Object masks emerge without labels, moving a particle moves its object, and the representation improved downstream manipulation <Cite id="particlesplat-2026" />.
 
@@ -137,19 +147,25 @@ Simultaneous localization and mapping (SLAM) builds such maps from sensor data w
 
 Front ends are feature-based or direct. Monocular ORB-SLAM (2015) uses ORB features for tracking, local mapping, relocalization and loop closing, triangulating matched features and running local bundle adjustment. Its DBoW2 vocabulary proposes relocalization and loop candidates that need geometric validation <Cite id="orb-slam-2015" />.
 
+DBoW2 builds a vocabulary tree from binary features, combining image retrieval with geometric checks to reject visually similar but inconsistent places <Cite id="dbow2-2012" />.
+
 ORB-SLAM3 supports stereo, RGB-D and visual-inertial modes with pinhole or fisheye cameras and MAP-based IMU initialization. It starts a new map after persistent tracking loss and merges maps only after geometric and covisibility checks, plus gravity-direction checks for mature visual-inertial maps. Low texture remains the main failure case, and slow motion can delay inertial initialization <Cite id="orb-slam3-2021" />.
 
 Direct Sparse Odometry skips the detector and optimizes photometric error over sampled pixels jointly with geometry <Cite id="dso-2018" />. It can sample any region with intensity gradient, including near-featureless walls, and gains from calibrating exposure, vignetting and camera response <Cite id="dso-2018" />.
 
 Learned systems keep classical machinery: DROID-SLAM iterates camera pose and per-pixel depth through a dense bundle-adjustment layer <Cite id="droid-slam-2021" />.
 
+MASt3R-SLAM builds tracking, local fusion, loop closure and global optimization around a learned two-view reconstruction prior <Cite id="mast3r-slam-2024" />. SLAM3R predicts pointmaps for overlapping video windows and aligns them into a global reconstruction without explicitly solving camera parameters <Cite id="slam3r-2024" />.
+
+VGGT-SLAM instead aligns submaps with projective transforms, accounting for the reconstruction ambiguity that remains when monocular cameras are uncalibrated <Cite id="vggt-slam-2025" />.
+
 Revisiting mapped landmarks can reduce odometric drift and in some cases correct it, and visual-inertial methods drift less than wheel odometry <Cite id="cadena-2016" />. Monocular ORB-SLAM validates a <Term id="loop-closure">loop closure</Term> geometrically, then spreads its error with similarity alignment and Essential Graph optimization <Cite id="orb-slam-2015" />.
 
 <LoopClosure className="my-6" />
 
-<Term id="place-recognition">Place recognition</Term> asks whether the current image matches a stored place, and motion information can also inform that belief. Viewpoint, illumination and seasonal changes alter one place's appearance, and different places can look alike, which is perceptual aliasing <Cite id="lowry-2016-place-recognition" />.
+<Term id="place-recognition">Place recognition</Term> asks whether the current image matches a stored place, and motion information can also inform that belief. Viewpoint, illumination and seasonal changes alter one place's appearance, and different places can look alike, which is perceptual aliasing <Cite id="lowry-2016-place-recognition" />. AnyLoc builds place descriptors by aggregating frozen self-supervised features, without training a network specifically for visual place recognition <Cite id="anyloc-2023" />.
 
-Perceptual aliasing can create false-positive associations that corrupt back-end estimates, while false negatives discard useful measurements. Robust losses and loop-closure validation mitigate outliers, though failures remain that depend on initialization <Cite id="cadena-2016" />.
+Perceptual aliasing can create false-positive associations that corrupt back-end estimates, while false negatives discard useful measurements. Robust losses and loop-closure validation mitigate outliers, though failures remain that depend on initialization <Cite id="cadena-2016" />. Graduated non-convexity offers another route: it gradually sharpens a robust objective while using non-minimal solvers, avoiding a required initial guess in the tested estimation problems <Cite id="gnc-2019" />.
 
 In the back end, Square Root SAM estimates the trajectory and landmark map jointly by MAP inference, which under Gaussian models with known data associations is sparse nonlinear least squares. It solves successive linearized systems by QR or Cholesky, and variable ordering controls fill-in <Cite id="dellaert-kaess-2006" />. iSAM2 adds incremental reordering and relinearization on a Bayes tree. Thresholded updates trade some accuracy for speed, and a large loop closure can cost as much as a batch solve <Cite id="kaess-2012" />.
 
@@ -158,6 +174,12 @@ Smoothing suits loop closure because relinearizing the past requires the past to
 The iMAP system learns a scene-specific MLP from scratch at room scale from a handheld RGB-D stream. It tracks at 10 Hz and maps at 2 Hz on a desktop CPU and GPU, retaining keyframes for replay <Cite id="imap-2021" />. NICE-SLAM uses hierarchical feature grids with pretrained geometry decoders, reconstructs a multi-room apartment and performs no loop closure <Cite id="nice-slam-2022" />. Its 47 ms tracking and 130 ms mapping times use small pixel samples on an RTX 3090 <Cite id="nice-slam-2022" />.
 
 SplaTAM maps with 3D Gaussians from an RGB-D camera and uses a silhouette mask to determine whether areas were previously mapped <Cite id="splatam-2023" />.
+
+Gaussian Splatting SLAM uses Gaussians for tracking as well as mapping, optimizing the camera directly against them and adding geometric checks for incremental monocular reconstruction <Cite id="monogs-2023" />.
+
+AMB3R-SLAM separates a lightweight tracking front end from a hierarchical back end that enforces local, intermediate and global consistency over long trajectories <Cite id="amb3r-slam-2026" />.
+
+Cartographer supplies a 2D LiDAR mapping example: branch-and-bound scan-to-submap matching produces loop-closure constraints during mapping <Cite id="cartographer-2016" />.
 
 ## The deployed answer: costmaps and two planners
 
@@ -172,6 +194,8 @@ The layered costmap's `track_unknown_space` option defaults to false, which trea
 [Perception](/classical/perception) locates objects in the current frame <Cite id="conceptgraphs-2023" />. Consumers issue different queries: localization needs stable landmarks <Cite id="cadena-2016" />, collision checking needs occupied volume and a conservative update rule <Cite id="octomap-2013" />, grasping needs surface pose and identity, and rendering needs appearance <Cite id="cadena-2016" />.
 
 Hydra stacks rungs in one real-time system, building a local ESDF, extracting a topological map of places from it and segmenting places into rooms <Cite id="hydra-2022" />.
+
+ConceptFusion fuses pixel-aligned foundation-model features into a 3D map that can be queried through text, images, audio or geometry, without additional training <Cite id="conceptfusion-2023" />.
 
 SceneLM, from Jitendra Malik (UC Berkeley), Marco Pavone and colleagues (September 2026), keeps the whole map as a structured text list of objects that one vision-language model edits after each image. On language-grounded retrieval and localization benchmarks it performed competitively with complete mapping pipelines, with a map 6 to 12 times more compact, and it ran online on an edge device aboard a quadruped <Cite id="scenelm-2026" />.
 

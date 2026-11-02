@@ -1,3 +1,4 @@
+import { historicalGit } from '../helpers/historical-git';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
@@ -9,7 +10,6 @@ import { BASELINE_KINDS, buildManifest, compareBaseline, sha256, type ApprovedDe
 import { collectArticleTruthManifests } from '../../scripts/brand-v2-baseline';
 import { PRODUCTION_BASE, TRUE_MERGE_BASE, headReanchorFor, integratedHash, laneWindow, reanchorFor, sealedHash, showAt } from './helpers/continuation-merge-ledger';
 import { neutralizeHistory } from '../../lib/neutral-tooling';
-import { execFileSync } from 'node:child_process';
 
 const root = resolve(import.meta.dirname, '../..');
 const base = 'e687718cd3c2d1c35d3f63b6e296712a5892a9f0';
@@ -26,7 +26,7 @@ const plans: CompoundPlan[] = JSON.parse(integrated('audit/compound-evidence.jso
 // The historical catalog keeps its recorded digests: the ledger embeds those
 // plan objects verbatim, so this read renders the wording only, without the
 // digest recomputation `showAt` applies for ledger parsing.
-const beforeRaw = (path: string) => neutralizeHistory(execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 }));
+const beforeRaw = (path: string) => neutralizeHistory(historicalGit(['show', `${base}:${path}`], { neutralVocabulary: true,  cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 }));
 const oldPlans: CompoundPlan[] = JSON.parse(beforeRaw('audit/compound-evidence.json'));
 const ids = new Set(CITATIONS.map(c => c.id));
 const citations = Object.fromEntries(publishedModules().map(m => [m.slug, matter(read(`content/${m.domain}/${m.slug}.mdx`)).data.citations]));

@@ -325,3 +325,26 @@ describe('interactive ledger evidence', { timeout: 60_000 }, () => {
     expect(duplicateAnnouncements([{ region: 'a', text: 'Round 2 of 5' }, { region: 'b', text: 'Three robots moved up' }])).toEqual([]);
   });
 });
+
+describe('ledger literal focus projection', () => {
+  it('grades both the reached control and every declared transition, including pointer-only paint', async () => {
+    const { interactiveLedgerFocusMembers } = await import('../../lib/brand-v2-interactive-ledger');
+    const { emptyFocusPaint } = await import('../../lib/brand-v2-focus-paint');
+    const paint = { ...emptyFocusPaint('/article/'), target: '<button>', matched: true, kind: 'outline' as const, style: 'solid', widthPx: 1, color: 'rgb(28, 28, 26)', offsetPx: 2, visible: true };
+    // The immutable historical ledger supplies the real transition shape;
+    // this synthetic successor fixture supplies the newly required readings.
+    const evidence = committed();
+    const observation = evidence.observations.find((item) => item.transitions.length && item.controls.some((control) => !control.disabled))!;
+    evidence.observations = [observation];
+    observation.controls = [{ ...observation.controls.find((control) => !control.disabled)!, reached: true, ring: { ...paint } }];
+    observation.transitions = [{ ...observation.transitions[0], focus: { after: 'the operated control', retained: true, visible: true, paint: { ...paint } }, pointer: { action: 'click', digest: '0'.repeat(64), matches: true, paint: emptyFocusPaint('/article/') } }];
+    expect(interactiveLedgerFocusMembers(evidence).flatMap(({ failures }) => failures)).toEqual([]);
+    observation.transitions[0].focus.paint.widthPx = 3;
+    const changed = interactiveLedgerFocusMembers(evidence);
+    expect(changed[0].failures).toEqual([]);
+    expect(changed[1].failures.join(' ')).toMatch(/width/);
+    observation.transitions[0].focus.paint.widthPx = 1;
+    if ('paint' in observation.transitions[0].pointer) observation.transitions[0].pointer.paint = { ...paint, matched: false };
+    expect(interactiveLedgerFocusMembers(evidence)[1].failures.join(' ')).toMatch(/without :focus-visible/);
+  });
+});

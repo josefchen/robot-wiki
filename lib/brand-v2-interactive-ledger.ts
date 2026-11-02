@@ -1,3 +1,5 @@
+import { frameDataSchema } from './brand-v2-release-frame-data.ts';
+import { focusPaintSchema, focusPaintFailures, focusPaintException } from './brand-v2-focus-paint.ts';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
@@ -59,7 +61,7 @@ export const INTERACTIVE_LEDGER_EVIDENCE_PATH = 'evidence/brand-v2/interactive-l
 /** The sweep whose own bytes decide what this evidence recorded. */
 export const INTERACTIVE_LEDGER_SWEEP_MODULE = 'tests/e2e/brand-v2-interactive-states.spec.ts';
 
-export const INTERACTIVE_LEDGER_VERSION = 1;
+export const INTERACTIVE_LEDGER_VERSION = 2;
 
 /** The ledger quantifies over the registry's production mounts. */
 export const INTERACTIVE_LEDGER_POPULATION_SOURCE = 'contract/brand-v2-registries.json#interactive.mounts';
@@ -251,7 +253,7 @@ const controlSchema = z.object({
   reached: z.boolean(),
   focusVisible: z.boolean(),
   /** The ring drawn while it held keyboard focus. */
-  ring: z.object({ style: z.string(), widthPx: z.number(), color: z.string() }),
+  ring: focusPaintSchema,
   /** The registered cases whose selector names it. */
   caseIds: z.array(z.string()),
   /** A slider's value as the page loaded it. */
@@ -278,6 +280,7 @@ const stateSchema = z.object({
 });
 
 const seriesSchema = z.object({
+  frame: frameDataSchema.optional(),
   count: z.number().int().min(0),
   pairs: z.number().int().min(0),
   violations: z.array(z.string()),
@@ -296,11 +299,11 @@ const transitionSchema = z.object({
   readouts: z.array(readoutSchema),
   /** What each rendered live region said after the keys, in order, with its time after them. */
   announcements: z.array(z.object({ region: z.string(), politeness: z.string(), text: z.string(), atMs: z.number() })),
-  focus: z.object({ after: z.string(), retained: z.boolean(), visible: z.boolean() }),
+  focus: z.object({ after: z.string(), retained: z.boolean(), visible: z.boolean(), paint: focusPaintSchema }),
   duplicateIds: z.array(z.string()),
   /** The pointer doing the same thing from the same state, or why there is no pointer equivalent. */
   pointer: z.union([
-    z.object({ action: z.string(), digest: sha256Schema, matches: z.boolean() }),
+    z.object({ action: z.string(), digest: sha256Schema, matches: z.boolean(), paint: focusPaintSchema }),
     z.object({ reason: z.string().min(1) }),
   ]),
   /** How long the transition, its pointer twin and its returns took to drive. */
@@ -408,6 +411,32 @@ export const interactiveLedgerEvidenceSchema = z.object({
 
 export type InteractiveLedgerEvidence = z.infer<typeof interactiveLedgerEvidenceSchema>;
 export type LedgerObservation = z.infer<typeof observationSchema>;
+
+/** Exact transition-focus members for A11Y002; source/registry joins remain
+ * the ledger reader's responsibility, so callers must read before projecting. */
+export function interactiveLedgerFocusMembers(evidence: InteractiveLedgerEvidence) {
+  return evidence.observations.flatMap((observation) => [
+    ...observation.controls.filter((control) => !control.disabled).map((control) => ({
+      id: `${observation.mountId}|focus:${control.index}`,
+      mountId: observation.mountId,
+      failures: [
+        ...(!control.reached ? ['not reached by actual Tab/arrow input'] : []),
+        ...focusPaintFailures(control.ring, true),
+      ],
+      observed: { kind: 'control', control: control.index, paint: control.ring, exception: focusPaintException(control.ring) },
+    })),
+    ...observation.transitions.map((transition) => ({
+      id: `${observation.mountId}|transition:${transition.control}:${transition.fold ?? 'main'}:${transition.caseId}:${transition.keys.join('+')}`,
+      mountId: observation.mountId,
+      failures: [
+        ...(!transition.focus.retained ? ['focus left the operated control'] : []),
+        ...focusPaintFailures(transition.focus.paint, true),
+        ...('paint' in transition.pointer ? focusPaintFailures(transition.pointer.paint, false) : []),
+      ],
+      observed: { kind: 'transition', control: transition.control, paint: transition.focus.paint, exception: focusPaintException(transition.focus.paint) },
+    })),
+  ]);
+}
 export type LedgerTransition = z.infer<typeof transitionSchema>;
 export type LedgerControl = z.infer<typeof controlSchema>;
 export type LedgerHover = z.infer<typeof hoverSchema>;
@@ -795,11 +824,14 @@ export function interactiveLedgerVerdicts(
       else if (!control.focusVisible || control.ring.style === 'none' || control.ring.widthPx < 1) {
         fail('VAL-B2-VIZ-007', `${named(control.index)} shows no visible focus ring under keyboard focus`);
       }
+      for (const problem of focusPaintFailures(control.ring, true)) fail('VAL-B2-VIZ-007', `${named(control.index)}: ${problem}`);
       if (control.kind === 'slider' && !mount.hasReset && control.defaultStated !== true) {
         fail('VAL-B2-VIZ-007', `${named(control.index)} does not state its default value in a visible readout`);
       }
     }
     for (const transition of observation.transitions) {
+      for (const problem of focusPaintFailures(transition.focus.paint, true)) fail('VAL-B2-VIZ-007', `${named(transition.control)} ${transition.keys.join('+')}: ${problem}`);
+      if ('paint' in transition.pointer) for (const problem of focusPaintFailures(transition.pointer.paint, false)) fail('VAL-B2-VIZ-007', `${named(transition.control)} pointer ${transition.keys.join('+')}: ${problem}`);
       const control = controlAt.get(transition.control);
       if (control?.kind === 'slider' && !transition.keys.every((key) => /^(End|Home|Arrow(Up|Down|Left|Right)|Page(Up|Down))$/.test(key))) {
         fail('VAL-B2-VIZ-007', `${named(transition.control)} was driven by ${transition.keys.join('+')}, not by slider keys`);

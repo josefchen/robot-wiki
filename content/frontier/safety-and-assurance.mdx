@@ -1,6 +1,6 @@
 ---
 title: "Safety and Assurance"
-description: "Industrial robotics has a settled standards stack that robot learning has not reckoned with, and no way to certify a learned policy. What ships instead is a verifiable safety layer wrapped around an unverifiable one."
+description: "Robot safety standards, risk assessment and runtime safeguards: the evidence learned policies need and the limits of bounded verification."
 domain: frontier
 slug: safety-and-assurance
 order: 6
@@ -51,6 +51,18 @@ citations:
   - eu-machinery-regulation-2023
   - eu-ai-act-framework-2026
   - trustworthy-physical-ai-2026
+  - cbf-qp-2016
+  - predictive-safety-filter-2018
+  - shielding-2017
+  - neural-simplex-2019
+  - reluplex-2017
+  - learn-cbf-2020
+  - constrained-policy-2017
+  - conformal-risk-2022
+  - risk-prediction-sets-2021
+  - adaptive-conformal-2021
+  - selectivenet-2019
+  - energy-ood-2020
 seeAlso:
   - "data-hardware/industrial-deployment"
   - "rl-sim2real/legged-locomotion"
@@ -70,11 +82,11 @@ Safety assurance is the procedure for showing that a robot system is safe enough
 <span id="four-ways-to-share-a-workspace" />
 ## Fenceless robots use four collaborative modes, two of them quantitative
 
-Marvel and Norcross summarise the four scenarios from ISO/TS 15066 (2016). Two are procedural: a safety-rated monitored stop permits no motion while a person is present, and hand guiding gives the operator the control channel. Two are quantitative: <Term id="speed-and-separation-monitoring">speed and separation monitoring</Term> keeps a computed distance between robot and person, while <Term id="power-and-force-limiting">power and force limiting</Term> gives up distance and bounds the contact <Cite id="marvel-norcross-2017" />.
-
 Pick a mode under "How it keeps you safe" below, then drag "Robot speed" under "Keeps its distance". The bar under the drawing recomposes the protective separation distance from the four terms of Marvel and Norcross's NIST equation <Cite id="marvel-norcross-2017" />.
 
 <CollaborativeOperationModes className="my-6" />
+
+Marvel and Norcross summarise the four scenarios from ISO/TS 15066 (2016). Two are procedural: a safety-rated monitored stop permits no motion while a person is present, and hand guiding gives the operator the control channel. Two are quantitative: <Term id="speed-and-separation-monitoring">speed and separation monitoring</Term> keeps a computed distance between robot and person, while <Term id="power-and-force-limiting">power and force limiting</Term> gives up distance and bounds the contact <Cite id="marvel-norcross-2017" />.
 
 ISO/TS 15066, published in 2016, supplemented the 2011 ISO 10218 for collaborative operation and is now marked for revision <Cite id="iso-ts-15066" />. The 2025 revision of ISO 10218 integrated it normatively and introduced new classifications for collaborative applications, Hartmann and colleagues report <Cite id="hartmann-iso-10218-2026" />.
 
@@ -117,11 +129,13 @@ Until those documents are agreed, a humanoid deployed beside people runs under a
 OSHA's technical manual chapter on industrial robots covers safeguarding devices, the teach-pendant hazard and lockout and tagout, with accident descriptions <Cite id="osha-otm-robots" />. NIOSH counted 41 robot-related workplace fatalities in the United States from 1992 to 2017. Most involved stationary robots (83%) striking the worker under their own power (78%), often during maintenance <Cite id="layne-robot-fatalities-2023" />.
 
 <span id="why-a-learned-policy-cannot-be-certified" />
-## A learned policy cannot be certified, because it has no written specification
+## Certification needs a specification beyond the policy weights
 
 A safety integrity level and a performance level are both assigned to a safety function <Cite id="iso-13849-1-2023" />. Both presume a verifiable specification of what the function must do, and a development process that avoids systematic faults, the design errors that redundant hardware cannot remove.
 
-A policy trained from demonstrations has neither: its weights encode behaviour with no separable statement of intent, and no process avoids systematic faults in a function nobody wrote down. Luckcuck and colleagues find testing and simulation insufficient evidence for certifying autonomous robots <Cite id="luckcuck-formal-2019" />. Kalra and Paddock calculate that existing fleets would need tens and sometimes hundreds of years of driving to demonstrate autonomous-vehicle reliability <Cite id="kalra-paddock-2016" />, and [deployment numbers](/frontier/reliability-gap/) show the same distance.
+Policy weights alone do not state which behaviours must be excluded or document how systematic faults were prevented. Luckcuck and colleagues find testing and simulation insufficient evidence for certifying autonomous robots <Cite id="luckcuck-formal-2019" />. Kalra and Paddock calculate that existing fleets would need tens and sometimes hundreds of years of driving to demonstrate autonomous-vehicle reliability <Cite id="kalra-paddock-2016" />, and [deployment numbers](/frontier/reliability-gap/) show the same distance.
+
+Properties of a neural network can be checked in restricted settings. Reluplex extends the simplex method to ReLU activations and demonstrated property verification on prototype ACAS Xu aircraft collision-avoidance networks <Cite id="reluplex-2017" />.
 
 <span id="the-pattern-a-verifiable-layer-wrapping-an-unverifiable-one" />
 ### A verifiable safety filter can wrap an unverifiable policy
@@ -129,6 +143,12 @@ A policy trained from demonstrations has neither: its weights encode behaviour w
 What ships instead puts something simple enough to verify between the black-box policy and the actuators, with authority to override. ISO/IEC TR 5469 (2024) names this use: non-AI safety related functions that ensure safety for AI-controlled equipment <Cite id="iso-iec-tr-5469-2024" />.
 
 The formal instance is the safety filter. A <Term id="control-barrier-function">control barrier function</Term> defines a set the system must stay inside and turns forward invariance of that set into a constraint on the commanded input, enforced each step <Cite id="ames-cbf-2019" />. Wabersich and colleagues survey the family, including reachability and predictive variants, and describe a filter that takes a proposed input from any source and modifies it as little as necessary <Cite id="wabersich-safety-filters-2023" />.
+
+The mechanism varies with the specification. Ames and colleagues combine barrier constraints with Lyapunov performance objectives in a quadratic program <Cite id="cbf-qp-2016" />. A predictive filter instead checks a proposed input through model predictive control with state- and input-dependent uncertainty <Cite id="predictive-safety-filter-2018" />. A temporal-logic shield can restrict the available actions or correct one that violates its specification <Cite id="shielding-2017" />.
+
+Runtime assurance can also switch controllers. Neural Simplex transfers control to a baseline when the neural controller proposes a potentially unsafe input, and adds retraining and a route back to the advanced controller <Cite id="neural-simplex-2019" />.
+
+Learning a barrier still needs assumptions. Robey and colleagues learn one from safe expert trajectories for a known control-affine dynamical system, with guarantees under specified smoothness conditions <Cite id="learn-cbf-2020" />. CPO instead targets near-constraint satisfaction during policy optimization and tests safety-motivated constraints in simulated locomotion <Cite id="constrained-policy-2017" />.
 
 <SafetyFilterFence className="my-6" />
 
@@ -154,9 +174,13 @@ An argument built to conclude that a system is safe will usually reach that conc
 
 <Term id="conformal-prediction">Conformal prediction</Term> turns any model's raw output into a prediction set with a guaranteed coverage rate under exchangeability. Vovk, Gammerman and Shafer built the framework <Cite id="vovk-conformal-2022" />, and Angelopoulos and Bates's tutorial carried it into general machine-learning practice <Cite id="angelopoulos-conformal-2021" />. In KnowNo, Ren and colleagues calibrate a language-model planner conformally so that the robot asks a human for help when its prediction set is ambiguous, with a statistical guarantee on task completion <Cite id="knowno-2023" />.
 
+The guarantee depends on what is bounded. Conformal Risk Control targets the expected value of a monotone loss <Cite id="conformal-risk-2022" />. Risk-controlling prediction sets use held-out calibration to bound expected loss at a chosen level <Cite id="risk-prediction-sets-2021" />. Adaptive conformal inference tracks coverage over long time intervals as the data distribution changes <Cite id="adaptive-conformal-2021" />. These are aggregate statistical targets; none means every individual decision is correct.
+
 <Image id="knowno-ask-for-help-2023" />
 
 <Term id="out-of-distribution-detection">Out-of-distribution detection</Term> asks whether the observation resembles anything the policy was trained on. Sinha and colleagues run a fast anomaly detector on the live observation stream to trigger a reactive fallback while slower reasoning catches up <Cite id="sinha-anomaly-2024" />. Runtime monitoring generalises both: Farid and colleagues detect trajectory-predictor failures by their effect on the planner, with guarantees on false-positive and false-negative rates <Cite id="farid-failure-2022" />.
+
+Rejecting an input also requires a decision rule. SelectiveNet learns prediction and rejection jointly <Cite id="selectivenet-2019" />. Energy-based out-of-distribution detection instead scores a classifier's inputs with an energy function, addressing the overconfidence of softmax scores on unfamiliar data <Cite id="energy-ood-2020" />.
 
 The ASIMOV benchmark tests semantic safety in robotics agents, from payload and reach limits to judging from stereo images whether a person is close enough to require a stop <Cite id="asimov-agentic-2026" />. Gemini Robotics ER 2, in public preview, reports 97.9% safety-instruction-following accuracy and 93.0% on 1 m human proximity <Cite id="gemini-robotics-er2-2026" />.
 

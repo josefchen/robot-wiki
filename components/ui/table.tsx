@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import { cx } from '@/lib/utils';
+import { numericCellText } from './number-text';
 
 export type Column<T> = {
   /** Key into the row record. */
@@ -25,6 +26,8 @@ type TableProps<T> = {
   rows: T[];
   initialSort?: { key: Extract<keyof T, string>; direction: 'asc' | 'desc' };
   className?: string;
+  /** Component identity for a standalone article interactive's mount census. */
+  interactiveId?: string;
   /** Stable row id used as the destination anchor (`method-act`, `dataset-droid`). */
   rowAnchor?: (row: T) => string;
   /** Currently highlighted destination row, if any. */
@@ -60,6 +63,7 @@ export function Table<T extends Record<string, unknown>>({
   rows,
   initialSort,
   className,
+  interactiveId,
   rowAnchor,
   highlightedAnchor,
 }: TableProps<T>) {
@@ -118,6 +122,7 @@ export function Table<T extends Record<string, unknown>>({
       data-brand-surface-id="surface:flat"
       data-brand-frame-depth="1"
       data-brand-frame-interior-registered="table"
+      data-article-interactive={interactiveId}
       className={cx(
         'overflow-x-auto [container-type:inline-size]',
         className,
@@ -204,14 +209,14 @@ export function Table<T extends Record<string, unknown>>({
                 <td
                   key={column.key}
                   className={cx(
-                    'text-text',
-                    column.numeric && 'text-right font-mono tabular-nums',
+                    'font-sans text-text',
+                    column.numeric && 'text-right tabular-nums',
                     column.cellClassName,
                   )}
                 >
-                  {column.render
-                    ? column.render(row)
-                    : formatValue(row[column.key])}
+                  {column.numeric
+                    ? numericCellText(column.render ? column.render(row) : formatValue(row[column.key]))
+                    : column.render ? column.render(row) : formatValue(row[column.key])}
                 </td>
               ))}
             </tr>

@@ -37,51 +37,19 @@ const EVIDENCE_CLOSURE_ROOTS = [
   'lib',
   'content',
   'data',
+  // The graph scans complete first-party producer roots, then fingerprints
+  // only modules actually reached from each evidence entry. A newly imported
+  // support helper must be traversed without maintaining a second file list.
+  'tests',
+  'scripts',
 ] as const;
 
-/**
- * Modules outside those roots that the closure walk has to be able to see.
- *
- * The MDX registry is a route entry. The rest are the measurement side: the
- * sweeps that write into `evidence/brand-v2/`, and the fixture and probe
- * modules they share. A sweep's own bytes decide what it recorded, so
- * an artifact whose writer changed is exactly as stale as one whose subject
- * changed, and leaving the spec out of its own fingerprint let a rewritten
- * measurement re-certify an old reading.
- */
+/** Root-level rendering and browser-launch modules outside the scanned roots. */
 export const EVIDENCE_CLOSURE_FILES = [
   'mdx-components.tsx',
-  'tests/e2e/brand-v2-static-fixture.ts',
-  'tests/e2e/static-export-server.ts',
-  'tests/e2e/rendered-text-probe.ts',
-  'tests/e2e/slider.ts',
-  'tests/e2e/helpers/per-route-context.ts',
-  'tests/e2e/helpers/global-convergence-collector.ts',
-  'tests/e2e/helpers/interactive-mount-roots.ts',
-  'tests/e2e/helpers/interactive-state-digest.ts',
-  'tests/e2e/helpers/interactive-frame-evidence.ts',
-  'tests/e2e/helpers/interactive-ledger-driver.ts',
-  'tests/e2e/helpers/figure-light-stage.ts',
-  'tests/e2e/helpers/playground.ts',
-  // The capture sweep launches with the config's SwiftShader flags, which
-  // decide how its pixels rasterise.
+  // SwiftShader launch flags affect measured rasterization.
   'playwright.config.ts',
-  'tests/e2e/brand-v2-article.spec.ts',
-  'tests/e2e/brand-v2-article-apparatus.spec.ts',
-  'tests/e2e/brand-v2-article-tables-math.spec.ts',
-  'tests/e2e/brand-v2-control-states.spec.ts',
-  'tests/e2e/brand-v2-figures.spec.ts',
-  'tests/e2e/brand-v2-global-convergence.spec.ts',
-  'tests/e2e/brand-v2-home.spec.ts',
-  'tests/e2e/brand-v2-home-tools.spec.ts',
-  'tests/e2e/brand-v2-identity.spec.ts',
-  'tests/e2e/brand-v2-index-rows.spec.ts',
-  'tests/e2e/brand-v2-interactive-captures.spec.ts',
-  'tests/e2e/brand-v2-interactive-states.spec.ts',
-  'tests/e2e/brand-v2-market-map-states.spec.ts',
-  'tests/e2e/brand-v2-mobile-shell.spec.ts',
-  'tests/e2e/brand-v2-search-states.spec.ts',
-  'tests/e2e/brand-v2-shell.spec.ts',
+  'playwright.release.config.ts',
 ] as const;
 
 /** Next.js App Router segment files; each is an entry into a rendered tree. */

@@ -3,6 +3,7 @@
 import { useId, type ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 import { TableScroll } from './table-scroll';
+import { NumberText } from './number-text';
 
 /**
  * The chart-description primitive (VAL-EDU-021..028).
@@ -169,7 +170,7 @@ export function ChartDescription({
                 {rows!.map((row) => (
                   <tr key={row.label} className="border-b border-border last:border-b-0">
                     <th scope="row" className={HEADER_CELL}>
-                      {row.label}
+                      <NumberText>{row.label}</NumberText>
                     </th>
                     {row.values.map((value, i) => (
                       <td
@@ -179,7 +180,7 @@ export function ChartDescription({
                           columns![i]?.numeric && 'text-right tabular-nums',
                         )}
                       >
-                        {value}
+                        {columns![i]?.numeric ? <NumberText>{value}</NumberText> : value}
                       </td>
                     ))}
                   </tr>
@@ -194,7 +195,7 @@ export function ChartDescription({
                 <dt className="font-sans text-xs text-text-dim">
                   {state.label}
                 </dt>
-                <dd className="font-sans text-sm tabular-nums text-text">{state.value}</dd>
+                <dd className="font-sans text-sm tabular-nums text-text"><NumberText>{state.value}</NumberText></dd>
               </div>
             ))}
           </dl>

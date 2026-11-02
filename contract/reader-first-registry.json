@@ -1252,6 +1252,102 @@
         "lib/helix-zero-shot.ts"
       ],
       "takeaway": "Pretraining on human data lifted Figure's robot from 9% to 56% success in homes it had never seen, still well short of the 90% this article calls solved."
+    },
+    {
+      "id": "adjacent--autonomous-vehicles--av-safety-miles",
+      "route": "/adjacent/autonomous-vehicles/",
+      "mount": "mount:/adjacent/autonomous-vehicles/:AvSafetyMiles:1",
+      "figure": "av-safety-miles",
+      "audit": null,
+      "sources": [
+        "components/interactive/av-safety-miles.tsx",
+        "lib/av-safety-miles.ts"
+      ],
+      "takeaway": "A fleet would need 275 million miles with no fatality to show, at 95% confidence, a fatality rate no higher than the study's US human-driver benchmark."
+    },
+    {
+      "id": "adjacent--space--space-latency-ladder",
+      "route": "/adjacent/space/",
+      "mount": "mount:/adjacent/space/:SpaceLatencyLadder:1",
+      "figure": "space-latency-ladder",
+      "audit": null,
+      "sources": [
+        "components/interactive/space-latency-ladder.tsx",
+        "lib/space-latency.ts"
+      ],
+      "takeaway": "A drone's camera reacts in hundredths of a second, but a message to Mars and back takes 8 to 40 minutes, so a robot there has to act on its own."
+    },
+    {
+      "id": "adjacent--surgical--surgical-autonomy-ladder",
+      "route": "/adjacent/surgical/",
+      "mount": "mount:/adjacent/surgical/:SurgicalAutonomyLadder:1",
+      "figure": "surgical-autonomy-ladder",
+      "audit": null,
+      "sources": [
+        "components/interactive/surgical-autonomy-ladder.tsx",
+        "lib/surgical-autonomy-ladder.ts"
+      ],
+      "takeaway": "The FDA-authorized platforms in this comparison reach level 1 of six; SRT-H's authors claim level 4 for research on tissue outside a body."
+    },
+    {
+      "id": "adjacent--drones--drone-champions-timeline",
+      "route": "/adjacent/drones/",
+      "mount": "mount:/adjacent/drones/:DroneChampionsTimeline:1",
+      "figure": "drone-champions-timeline",
+      "audit": null,
+      "sources": [
+        "components/interactive/drone-champions-timeline.tsx",
+        "lib/drone-racing-champions.ts"
+      ],
+      "takeaway": "Autonomous racing drones beat human champions in 2023 and 2025, then lost the 2026 final when the drone hit a gate in the deciding race."
+    },
+    {
+      "id": "adjacent--drones--drone-delivery-counts",
+      "route": "/adjacent/drones/",
+      "mount": "mount:/adjacent/drones/:DroneDeliveryCounts:1",
+      "figure": "drone-delivery-counts",
+      "audit": null,
+      "sources": [
+        "components/interactive/drone-delivery-counts.tsx",
+        "lib/drone-deliveries.ts"
+      ],
+      "takeaway": "Zipline reports more than 3 million drone deliveries and Wing more than 1 million, counts the companies give for themselves."
+    },
+    {
+      "id": "world-models--model-based-robot-learning--model-based-loop",
+      "route": "/world-models/model-based-robot-learning/",
+      "mount": "mount:/world-models/model-based-robot-learning/:ModelBasedLoop:1",
+      "figure": "model-based-loop",
+      "audit": null,
+      "sources": [
+        "components/interactive/model-based-loop.tsx",
+        "lib/world-model-figures.ts"
+      ],
+      "takeaway": "Real observations feed back into the model that plans the next action; its imagined outcomes are checked against what actually happened."
+    },
+    {
+      "id": "world-models--evaluation--world-model-evaluation-ladder",
+      "route": "/world-models/evaluation/",
+      "mount": "mount:/world-models/evaluation/:WorldModelEvaluationLadder:1",
+      "figure": "world-model-evaluation-ladder",
+      "audit": null,
+      "sources": [
+        "components/interactive/world-model-evaluation-ladder.tsx",
+        "lib/world-model-figures.ts"
+      ],
+      "takeaway": "A model used to select policies must preserve their ordering in real trials; image quality and a good ranking score do not establish closed-loop usefulness."
+    },
+    {
+      "id": "world-models--world-models-vs-simulators--world-model-output-times",
+      "route": "/world-models/world-models-vs-simulators/",
+      "mount": "mount:/world-models/world-models-vs-simulators/:WorldModelOutputTimes:1",
+      "figure": "world-model-output-times",
+      "audit": null,
+      "sources": [
+        "components/interactive/world-model-output-times.tsx",
+        "lib/world-model-figures.ts"
+      ],
+      "takeaway": "A rendered frame, an action chunk, a planned action and a generated clip have very different waiting times and hardware requirements."
     }
   ]
 }

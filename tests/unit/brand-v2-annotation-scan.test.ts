@@ -364,3 +364,32 @@ describe('brand primitive annotation assignments', () => {
     ]);
   });
 });
+
+describe('shared keyboard-region attribute bags', () => {
+  const helper = `export const REGION_ID = 'control:keyboard-region';
+export function scrollRegionAttributes(name) { return { role: 'region', tabIndex: 0, 'data-brand-control-id': REGION_ID, 'aria-label': name.label }; }
+export function scrollRegionHastProperties(name) { return { role: 'region', tabIndex: 0, 'data-brand-control-id': REGION_ID, ariaLabel: name.label }; }`;
+  const files = (call: boolean) => ({
+    'lib/scroll-region.mjs': helper,
+    'components/region.tsx': `import { scrollRegionAttributes } from '@/lib/scroll-region.mjs';
+export function Region() { return <div ${call ? "{...scrollRegionAttributes({ label: 'Table' })}" : ''} data-brand-surface-id="surface:flat" />; }`,
+    'app/page.tsx': "import { Region } from '@/components/region'; export default function Page() { return <Region />; }",
+  });
+  it('finds actual returned assignments and only credits concrete mounted factory calls', () => {
+    const used = scanAnnotationAssignments(fixtureRoot(files(true)));
+    expect(used.ownersById['control:keyboard-region']).toEqual(['lib/scroll-region.mjs']);
+    expect(used.productionOwnersById['control:keyboard-region']).toEqual(['lib/scroll-region.mjs']);
+    expect(used.writes.filter(({ module, kind }) => module === 'lib/scroll-region.mjs' && kind === 'control')).toHaveLength(2);
+    const unused = scanAnnotationAssignments(fixtureRoot(files(false)));
+    expect(unused.ownersById['control:keyboard-region']).toEqual(['lib/scroll-region.mjs']);
+    expect(unused.productionOwnersById['control:keyboard-region']).toEqual([]);
+  });
+  it('refuses a computed returned ID instead of silently dropping its writer', () => {
+    const root = fixtureRoot({ ...files(true), 'lib/scroll-region.mjs': helper.replaceAll("'data-brand-control-id': REGION_ID", "'data-brand-control-id': chooseRegion()") });
+    expect(() => scanAnnotationAssignments(root)).toThrow(/computed|cannot be enumerated/);
+  });
+  it('does not invent an assignment after the real returned property is removed', () => {
+    const root = fixtureRoot({ ...files(true), 'lib/scroll-region.mjs': helper.replaceAll("'data-brand-control-id': REGION_ID,", '') + "\nexport const READ_ONLY = 'control:keyboard-region';" });
+    expect(scanAnnotationAssignments(root).ownersById['control:keyboard-region']).toBeUndefined();
+  });
+});

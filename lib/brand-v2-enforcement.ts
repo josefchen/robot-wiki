@@ -23,6 +23,7 @@ export const ENFORCEMENT_FAILURE_REASONS = [
   'missing-produced-result',
   'mis-tagged-produced-result',
   'pending-result-blocks-release',
+  'failed-result-blocks-release',
   'population-wide-coverage-blocks-release',
   'enforcement-mode-payload-mismatch',
   'unregistered-population-result',
@@ -778,9 +779,13 @@ export function validateEnforcementCorpus(input: {
             assertionId: row.assertionId,
             memberId: result.populationMemberId,
             reason: 'pending-result-blocks-release',
-            expected: 'passed, failed, or typed not-applicable result',
+            expected: 'passed or typed not-applicable result',
             actual: 'pending',
           });
+        }
+        if(result.status==='failed'&&input.allowPendingResults!==true){
+          failures.push({assertionId:row.assertionId,memberId:result.populationMemberId,
+            reason:'failed-result-blocks-release',expected:'passed or typed not-applicable result',actual:'failed'});
         }
         if (
           result.coverageKind === 'population-wide' &&

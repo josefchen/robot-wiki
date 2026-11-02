@@ -41,18 +41,22 @@ citations:
   - tri-lbm-2025
   - physics-iq-verified-2026
   - worldsimprobe-2026
+  - revisiting-model-value-expansion-2022
 seeAlso:
   - "frontier/safety-and-assurance"
   - "manipulation/generalist-policies"
   - "world-models/generative-sim"
 ---
 import { EvalShiftTable } from '@/components/mdx/text-tables';
+import { WorldModelEvaluationLadder } from '@/components/interactive/world-model-evaluation-ladder';
 
 World-model evaluation is the testing of a robotics <Term id="world-model">world model</Term> against the decisions a robot must make, from one-step action responses to agreement with real policy rankings. Image metrics cannot establish that: on Physics-IQ, physical understanding in video generators was "unrelated to visual realism" <Cite id="physics-iq-2025" />.
 
 <Image id="simpler-real-vs-sim-2024" />
 
-The central failure is action indifference: smooth, photorealistic futures that ignore the robot's action. A 2026 survey of robot world models rates controllability above visual plausibility <Cite id="world-model-survey-2026" />, and the closed-loop World-in-World benchmark found it mattered more than visual quality for task success <Cite id="world-in-world-2025" />.
+<WorldModelEvaluationLadder className="my-6" />
+
+Try the validation question about policy ranking and visual quality <Cite id="simpler-2024" />.
 
 <SelfCheck
   prompt="You want to use a video world model to select between two robot policies before hardware testing. Which validation result matters most?"
@@ -76,6 +80,8 @@ The central failure is action indifference: smooth, photorealistic futures that 
   answer="policy-ranking"
   takeaway="Validate the downstream decision: a policy evaluator must preserve real policy ordering. Attractive frames alone do not establish that."
 />
+
+The central failure is action indifference: smooth, photorealistic futures that ignore the robot's action. A 2026 survey of robot world models rates controllability above visual plausibility <Cite id="world-model-survey-2026" />, and the closed-loop World-in-World benchmark found it mattered more than visual quality for task success <Cite id="world-in-world-2025" />.
 
 <span id="start-with-the-intended-use" />
 ## Perception scores miss function, so each use needs its own test
@@ -114,6 +120,8 @@ Physics simulation sets the bar. In June 2026, Yuke Zhu and colleagues reported 
 ## Level 5: planning and fine-tuning in a world model improved outcomes
 
 IRASim planning raised Push-T IoU from 0.637 to 0.961 <Cite id="irasim-2024" />, and fine-tuning on Ctrl-World's imagined successes raised policy success by 44.7% <Cite id="ctrl-world-2025" />. Post-training on action-observation data helped more than a stronger pretrained video generator <Cite id="world-in-world-2025" />.
+
+For value-learning uses, Palenicek and colleagues compare learned dynamics with the simulator's true dynamics inside the RL loop, separating dynamics-model error from the other limitations of value expansion <Cite id="revisiting-model-value-expansion-2022" />.
 
 SIMPLER's test, whether simulated and real policy performance correlate under matched visual and physical conditions, applies to learned simulators too <Cite id="simpler-2024" />. RoboArena widens real evaluation beyond one laboratory <Cite id="roboarena-2025" />.
 

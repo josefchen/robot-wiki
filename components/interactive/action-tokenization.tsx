@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/instrument';
 import { CHART_VIEW_WIDTH, roleColour } from '@/components/motion/chart';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
 import { asksForStillness } from '@/components/iso/react/live';
 import {
@@ -438,7 +439,7 @@ export function ActionTokenization({
           hint={writing ? 'The setter writes one rack at a time' : 'Scrub the moment, or write the next one'}
           readout={
             <>
-              <span ref={phaseRef} data-tok-phase="" />
+              <LiveReadoutText ref={phaseRef} data-tok-phase="" />
               At moment {step + 1} of {CHUNK_STEPS}, the {gloss} nudge <span data-testid="tok-value-readout">{value.toFixed(3)}</span> lands in{' '}
               <span data-testid="tok-bin-readout">
                 slot {bin} of {BIN_COUNT}

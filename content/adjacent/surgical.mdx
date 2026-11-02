@@ -39,6 +39,10 @@ citations:
   - srt-2024
   - open-h-embodiment-2026
   - maier-hein-sds-2022
+  - dvrk-research-kit-2014
+  - jigsaws-benchmark-2017
+  - endonet-2016
+  - cholect50-benchmarking-2022
 seeAlso:
   - "manipulation/hierarchical"
   - "data-hardware/datasets"
@@ -49,6 +53,8 @@ import { MotionPantograph } from '@/components/interactive/motion-pantograph';
 
 import { ScopeFollow } from '@/components/interactive/scope-follow';
 
+import { SurgicalAutonomyLadder } from '@/components/interactive/surgical-autonomy-ladder';
+
 import { SurgicalSystemsTable } from '@/components/mdx/surgical-systems-table';
 
 Surgical robotics is the use of robots to position or move surgical instruments, today mostly teleoperated systems for <Term id="minimally-invasive-surgery">minimally invasive surgery</Term> that scale and filter a surgeon's hand motion. Intuitive had 11,710 da Vinci systems installed by June 30, 2026 <Cite id="intuitive-q2-2026" />, and most commercial platforms sit at level 0, with no decision autonomy <Cite id="attanasio-autonomy-2021" />.
@@ -57,11 +63,13 @@ Surgical robotics is the use of robots to position or move surgical instruments,
 
 ## The teleoperation baseline
 
+Move the "Motion scale" slider to compare the hand and instrument strokes <Cite id="yang-autonomy-2017" />.
+
+<MotionPantograph className="my-6" />
+
 A da Vinci surgeon sits at a console away from the table and moves hand controllers, while patient-side arms carry wristed instruments and an endoscope. The robot adds motion scaling, tremor filtering and wrists that articulate inside the body. Yang and colleagues place such a system at Level 0, no autonomy, because even with motion scaling its output represents the surgeon's desired motion <Cite id="yang-autonomy-2017" />. At level 1 a robot gives cognitive and physical assistance, and at level 2 it performs a surgical task autonomously <Cite id="attanasio-autonomy-2021" />.
 
 <Image id="da-vinci-xi-surgeon-console-vesoul-2023" />
-
-<MotionPantograph className="my-6" />
 
 The field began with positioning. In 1988 Kwoh and colleagues reported a robot with improved absolute positioning accuracy for CT-guided stereotactic brain surgery <Cite id="kwoh-ct-robot-1988" />. Marescaux and colleagues reported transatlantic robot-assisted telesurgery in 2001 <Cite id="marescaux-telesurgery-2001" />. Intuitive says cardiac surgery was the first specialty cleared on the original da Vinci, in 2002 <Cite id="davinci5-cardiac-2026" />.
 
@@ -99,15 +107,21 @@ In 2016 STAR, the Smart Tissue Autonomous Robot, performed supervised autonomous
 
 In 2025 SRT-H, whose high-level language policy guides a low-level policy through long-horizon steps and helps it recover from errors, ran ex vivo cholecystectomy experiments <Cite id="srt-h-2025" />. It succeeded on all eight gallbladders tested without human intervention <Cite id="srt-h-2025" />. [Hierarchical policies](/manipulation/hierarchical/) covers that design.
 
+<SurgicalAutonomyLadder className="my-6" />
+
 A device is authorized for an indication, a named procedure in a named population, and expansion needs a new clearance. Yang and colleagues argue that a highly autonomous robot starts practicing medicine, which in the US falls to medical societies <Cite id="yang-autonomy-2017" />. They propose licensing robotic surgeons through the medical establishment, as is done for human surgeons <Cite id="yang-autonomy-2017" />.
 
 Yang and colleagues put the gap between the 510(k) and premarket-approval pathways at tens of millions of dollars and years of review, and add that risk tolerance to autonomous robots is expected to change as autonomous machines such as self-driving cars become commonplace <Cite id="yang-autonomy-2017" />. Haidegger names the lack of autonomy benchmarks and standards as a major barrier to commercialising autonomous surgical robots <Cite id="haidegger-autonomy-2019" />, and [safety and assurance](/frontier/safety-and-assurance/) covers the general case.
 
 ## What robot learning takes from it
 
+The da Vinci Research Kit exposes all control layers through open electronics and software built around retired first-generation da Vinci mechanics <Cite id="dvrk-research-kit-2014" />.
+
 Clinical recordings could become training data. SRT showed that imitation learning works on the da Vinci despite its approximate kinematics, using a relative action formulation, so the large repository of clinical data may be used for robot learning without further corrections <Cite id="srt-2024" />. Open-H-Embodiment pools synchronized video and kinematics from more than 50 institutions and platforms including Versius, da Vinci, the da Vinci Research Kit and Maestro <Cite id="open-h-embodiment-2026" />.
 
 Its GR00T-H model was the only one evaluated to finish a structured suturing benchmark end to end, in 25 percent of trials against 0 percent for all others <Cite id="open-h-embodiment-2026" />. It reached a 64 percent average <Term id="success-rate">success rate</Term> across a 29-step ex vivo suturing sequence <Cite id="open-h-embodiment-2026" />. [Major datasets](/data-hardware/datasets/) lists its general-robotics peers.
+
+The data labels serve different purposes. JIGSAWS synchronizes video and robot kinematics with surgical-gesture annotations <Cite id="jigsaws-benchmark-2017" />. EndoNet jointly learns operation-phase recognition and tool-presence detection from laparoscopic video <Cite id="endonet-2016" />. CholecT50 describes actions as instrument, verb and target triplets <Cite id="cholect50-benchmarking-2022" />.
 
 In September 2026, Shutong Jin, Ken Goldberg and colleagues reported AGRO-SUVIDE, a coding-agent framework that builds debridement skills from one expert demonstration and retries a skill when its checks fail. In 340 physical trials on the da Vinci Research Kit, it removed single fragments from a viscoelastic substrate with 85% average success and completed three consecutive removals 60% of the time, or 95% with one human intervention <Cite id="agro-suvide-2026" />.
 

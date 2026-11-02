@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createElement } from 'react';
@@ -213,7 +213,7 @@ describe('RL and sim-to-real prose truth', () => {
       // The 2026-10-06 domain pass rewrote these articles from the owner's
       // drafts; its reviewed successor hands this check the pre-pass bytes.
       const current = preDomainPass(`content/rl-sim2real/${file}`).toString('utf8');
-      const before = execFileSync('git', ['show', `8368034:content/rl-sim2real/${file}`], {
+      const before = historicalGit(['show', `8368034:content/rl-sim2real/${file}`], {
         cwd: root, encoding: 'utf8',
       });
       // Paper-internal locators are moved out of reader prose by the

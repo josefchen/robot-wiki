@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { Cite } from '@/components/ui/cite';
+import { CitationNumbersProvider } from '@/components/article/citation-numbers';
 
 const props = {
   href: 'https://arxiv.org/abs/2304.13705',
@@ -10,6 +11,14 @@ const props = {
 };
 
 describe('Cite', () => {
+  it('lets an inline article note reach its full reference without a viewport change', () => {
+    render(<CitationNumbersProvider numbers={{ 'act-aloha-2023': 1 }}><Cite {...props} citeId="act-aloha-2023" referenceHref="#ref-act-aloha-2023" /></CitationNumbersProvider>);
+    expect(screen.queryByRole('link', { name: /Jump to the full reference/ })).toBeNull();
+    fireEvent.click(screen.getByRole('link', { name: 'Source 1' }));
+    expect(screen.getByRole('link', { name: /Jump to the full reference/ })).toHaveAttribute('href', '#ref-act-aloha-2023');
+    expect(screen.getByRole('link', { name: 'Zhao 2023' })).toHaveAttribute('href', props.href);
+  });
+
   it('renders an outbound link with safe rel attributes', () => {
     render(<Cite {...props} />);
     const link = screen.getByRole('link', { name: /Zhao 2023/ });

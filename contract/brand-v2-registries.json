@@ -7215,9 +7215,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -7231,7 +7231,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "cef0341deae8824f4d5426940993e76dd0f841b7112289d87ad91eb433d70465"
+        "fingerprint": "218cfbd899d2f7d1cd77c108f596b4ff45fd2b2bfac3348fd58099ad350d0dbd"
       },
       {
         "id": "interactive:ActuatorGap",
@@ -7417,6 +7417,50 @@
         "fingerprint": "707f670027e1dbdd9fded208e7abac80e5b9fdb4e7d21820ff663e0213d4d09c"
       },
       {
+        "id": "interactive:AvSafetyMiles",
+        "component": "AvSafetyMiles",
+        "sourcePath": "components/interactive/av-safety-miles.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "6878693ba27a1d5399143ca0974e7f34576807dc60e72d62a8323160c3d44b4f"
+      },
+      {
         "id": "interactive:BearCaseLock",
         "component": "BearCaseLock",
         "sourcePath": "components/interactive/bear-case-lock.tsx",
@@ -7493,9 +7537,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -7509,7 +7553,7 @@
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "475ecca5972c12cee32e4af8959f5167137ff6bbda81114128d94ea48467a677"
+        "fingerprint": "664aa40319af0abc5a60b1be2d449c164ea8c6e092915c707c58096cc32a3737"
       },
       {
         "id": "interactive:ChunkBuffer",
@@ -7549,9 +7593,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -7560,7 +7604,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "912d66bf3ce16e629949f3d99edfe3cc804c59a949d73300c117b0fb669d2778"
+        "fingerprint": "83db77c2943dc3c6f6a6741acb96f6be7f4dd3f7fe5777e10cba104d6cdffc6c"
       },
       {
         "id": "interactive:ChunkSizeCurve",
@@ -7731,9 +7775,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-witness",
@@ -7747,7 +7791,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "8bfa8501665031b88690e484a86890e7fc09ebeac578b8ab8cb49782b6323afa"
+        "fingerprint": "3701a889b6f2419b9a6769b2e7395f0569f604abf4e7e574252a433cb9801160"
       },
       {
         "id": "interactive:CompoundingError",
@@ -7797,9 +7841,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -7813,7 +7857,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "72a4f0eb949120463e58fb8a127958db9b767eded444f0447e680860e033bce4"
+        "fingerprint": "0567a7b5dd6032eddf6b06084ffa9e411cb85684b1bebaa188d0c871d6ce9eac"
       },
       {
         "id": "interactive:ContactGeometry",
@@ -7863,9 +7907,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -7879,7 +7923,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "756ed74dea551f6ca412a78352c417cf0c68d4e96d119cd8f1c83d0b7d4d47d5"
+        "fingerprint": "47ac0dab9b88b19b688b7ac124af8a476526e7935730f0b0640e78535be62896"
       },
       {
         "id": "interactive:ControlLoopBudget",
@@ -7989,9 +8033,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -8000,7 +8044,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "28fb118a2d8ed7373e7c40cff4db01cc812cdce915e0d2bdc78d95a11c4de669"
+        "fingerprint": "7d2e4d9e6e2028e486a72a088094af7803dd15c3b6077c9218c2e771c0bfd292"
       },
       {
         "id": "interactive:CubeTrials",
@@ -8313,9 +8357,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -8329,7 +8373,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "47ec9cd10bf84b4bea777ee56c038ca02b3fb714516c4ccfbc888fcd8bad3378"
+        "fingerprint": "8a762f3ec0d54b14d60f3dec18448d47f493c7c471c22647babbc8072422b445"
       },
       {
         "id": "interactive:DeploymentDashboard",
@@ -8453,6 +8497,94 @@
         "fingerprint": "cce5e8e31db06e0ce3088b825b411d65bca4d18000ddbf9ea23b826227d76f3e"
       },
       {
+        "id": "interactive:DroneChampionsTimeline",
+        "component": "DroneChampionsTimeline",
+        "sourcePath": "components/interactive/drone-champions-timeline.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "11fb9445568b20a5cba5d288b3e2df04a4bae4d1bc29dde628dbb4f0c0b067bc"
+      },
+      {
+        "id": "interactive:DroneDeliveryCounts",
+        "component": "DroneDeliveryCounts",
+        "sourcePath": "components/interactive/drone-delivery-counts.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "1b40c0678879e4f03b2ff16b05aa78d0e5184fba93a0e51444b9c921c1af760a"
+      },
+      {
         "id": "interactive:EgoScaleScaling",
         "component": "EgoScaleScaling",
         "sourcePath": "components/interactive/egoscale-scaling.tsx",
@@ -8500,9 +8632,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -8516,7 +8648,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "00eaec4baf76fa5e90d1099ce0b1697da3c867125ffdbc8e16f224255f14db19"
+        "fingerprint": "dff7dc060abb144b383b9106df523fa0060f19059d452633dce2bca3023ac47c"
       },
       {
         "id": "interactive:EurekaLoop",
@@ -8710,9 +8842,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -8726,7 +8858,7 @@
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "c2e100d9984bbd67c793705bdab069846000d3d6f834849dfc168aa421f7bf50"
+        "fingerprint": "933c0e566232935c9a284466d40dd2d8cfab3594e1126c769a5895427bfdedf9"
       },
       {
         "id": "interactive:FlowMatchingTrajectory",
@@ -8776,9 +8908,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -8792,7 +8924,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "d2631b2ff37b0c2d398cfff6445ea85341b369d528bc11d5881e5d5458761717"
+        "fingerprint": "5cbdf9b5dd2361874f180b9dd7e60362ba8a5934640e80ecc0c30eb646d56678"
       },
       {
         "id": "interactive:FrictionTransfer",
@@ -9006,13 +9138,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "49bbb9f700e4ea0a5482ccfda8ab640966d162d8fa36c5c7e5e7e3d6063a16b8"
+        "fingerprint": "f2ad9946249fc56bab6d25155defc23689f71744f851e15b34a9b327493b2158"
       },
       {
         "id": "interactive:GraspWrenchLab",
@@ -9111,9 +9243,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -9122,7 +9254,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "97553938df4d68ab387bb09008aaf89ac7dff1f3847eca7e8dce5afffe573f47"
+        "fingerprint": "00aec0f45c7b7c432a718c8bd789fad6ace957a74890590055d837571689f92c"
       },
       {
         "id": "interactive:HandEyePoses",
@@ -9156,9 +9288,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -9172,7 +9304,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "d14687653cd4a0029a2dd27f4b21c12aeea0c427d9617d5c70e421929e822ed5"
+        "fingerprint": "0ea7e79b39c28bad9e1568a2c4b6dff7284b3991f8fe39b354b7410595d694a1"
       },
       {
         "id": "interactive:HandMotionShare",
@@ -9569,9 +9701,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -9585,7 +9717,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "980ff5388284878db77ad583e6102961a0339e440d3f7ad1e6c42818a1970e8c"
+        "fingerprint": "0d3a09c11dcd33a2eb99c8b8e3ce949e8f124abf743e77a5387d751c1348af20"
       },
       {
         "id": "interactive:ImpedanceContactLab",
@@ -9635,9 +9767,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -9645,13 +9777,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "dd252f855f4fabf46d2f5021687aeda34143d247ada4954f928907f5d2b0c5da"
+        "fingerprint": "89e7989a864da21dc7f9bbb7036a29078719138ff4d7991301bb00f0b344b084"
       },
       {
         "id": "interactive:ImpedancePress",
@@ -9997,9 +10129,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -10013,7 +10145,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "8c58b469f7d6842b4c031e98f042555da6d798629ae36c74d35d1d7c47c43f0c"
+        "fingerprint": "80e3ff514559f711737dc083b8e5e0cf3bd9852019b28fc1c73c8ff8d6ff0baf"
       },
       {
         "id": "interactive:LinearizationGap",
@@ -10048,9 +10180,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -10064,7 +10196,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "e872612245c120e58721cde8b7b77966825f030f141014cc01e09ca3e50d091a"
+        "fingerprint": "5bc75233d992b3655ddf95030fbe0f918dd641dbd7967c95c8696571105dcced"
       },
       {
         "id": "interactive:LoopClosure",
@@ -10099,9 +10231,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -10115,7 +10247,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "b173ecf520a3bf413c7086680f4938e8404a0479ae6b0c5b8861c486ee8f0946"
+        "fingerprint": "429699360292bf10709903f63735dacb3601bfc4fe6ed7a926e100431707a6f8"
       },
       {
         "id": "interactive:MilestonesWatchlist",
@@ -10171,6 +10303,50 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "5b5838e881420ca247b7b231a00b076227576436b93643f2dca68de506a020c2"
+      },
+      {
+        "id": "interactive:ModelBasedLoop",
+        "component": "ModelBasedLoop",
+        "sourcePath": "components/interactive/model-based-loop.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "ed4698fff54c01a5db4c76748b9ede7c5573c9e994624747a0ff6b39a50590e5"
       },
       {
         "id": "interactive:MotInsulation",
@@ -10610,9 +10786,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -10626,7 +10802,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "9db8a5c3b5617d639ba378e44d7e8b2b79589f58190431349b15325f5a5ba68b"
+        "fingerprint": "d08652a201ae45a2e124580805b6df1ea02be99bdfeb1ecfb0c3b0be6d76f510"
       },
       {
         "id": "interactive:PerceptionLatency",
@@ -11082,9 +11258,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -11098,7 +11274,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "ab43ab651494773ef953cc431aa97e5e6678c7a519142246b68d556447d54d8e"
+        "fingerprint": "6866258cbc1cd36520d6a3b33ba1541502c081edea93298be6d6a96dbf5fffc9"
       },
       {
         "id": "interactive:ReplayReuse",
@@ -11249,9 +11425,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -11265,7 +11441,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "24f7563202dad1a4f7f8fff97bbf7b3c1bc7aa11e7ab953f5e9d72906c7b493c"
+        "fingerprint": "66f75b83a709644361574a157dbf4791d4d67be1e0318042dedefe20c4a0e8db"
       },
       {
         "id": "interactive:RobotsPerGpu",
@@ -11395,9 +11571,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -11405,13 +11581,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "2ee4c30f5dd3ab01cc31108b754d77ca4e052fec723cbde1c81be811909e8645"
+        "fingerprint": "c95c8aac52ca1c926ef4fcfe3e8795c122cac748c34cd8fe6d280a8c81b59e36"
       },
       {
         "id": "interactive:RrtExplorer",
@@ -11600,9 +11776,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -11616,7 +11792,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "f89cfb62ecae3d6aba1cc4bc8d7f8ef5faa52c19b1277855cb2cf6fc80a75e81"
+        "fingerprint": "6a737be67fa1b3c18c99098d82bfe9f60fd3f196b2d27a2d21cbae7585ef9f9d"
       },
       {
         "id": "interactive:ScannedTwinCheck",
@@ -11722,9 +11898,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -11733,7 +11909,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "799a5bcbb6230c7df45422af42c36a4b01e3252c96d72c02d3d06e6be658631d"
+        "fingerprint": "8fdfff19d964e4a7d0daf0b338ce7af6c538abaa60034de12e3cb3126e3595a7"
       },
       {
         "id": "interactive:SceneSplit",
@@ -11842,6 +12018,94 @@
         "fingerprint": "3736ba37065ba7ac93ca5383c9f12f19af45d0aad11316f0ac4763c2f65f45fc"
       },
       {
+        "id": "interactive:SpaceLatencyLadder",
+        "component": "SpaceLatencyLadder",
+        "sourcePath": "components/interactive/space-latency-ladder.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "779a53d71d5966ceed60804581571892d8641c25b2d493fee7589247b41e4146"
+      },
+      {
+        "id": "interactive:SurgicalAutonomyLadder",
+        "component": "SurgicalAutonomyLadder",
+        "sourcePath": "components/interactive/surgical-autonomy-ladder.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "acdf496c789f74599c99f50ccf470faec455b0e153a4fd400fda662e71d02ea0"
+      },
+      {
         "id": "interactive:TeacherStudent",
         "component": "TeacherStudent",
         "sourcePath": "components/interactive/teacher-student.tsx",
@@ -11889,9 +12153,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -11905,7 +12169,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "f7975e6cc0b3484b3df877bf76626461bac4ffe732061247588e71a6133f7341"
+        "fingerprint": "299023dd717435962e2e88533fedadd91356e8af853d6f1540c6c9725398a171"
       },
       {
         "id": "interactive:TeleopRigMatrix",
@@ -12165,9 +12429,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -12181,7 +12445,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "48965dcda62dc4e8c368461829cce38e77febf6bb103f1f869dd35cf5a4b73ee"
+        "fingerprint": "5cd626e75370498710d5d6ab415bcd4422e3e17cf5a138c55e2ba4cee47befa5"
       },
       {
         "id": "interactive:TrajectoryStitching",
@@ -12387,9 +12651,241 @@
         ],
         "expectedCaseCount": 9,
         "fingerprint": "a84ba70191659dee10e10a1f0e37139dffd215388996786e31d1161c01143f43"
+      },
+      {
+        "id": "interactive:WorldModelEvaluationLadder",
+        "component": "WorldModelEvaluationLadder",
+        "sourcePath": "components/interactive/world-model-evaluation-ladder.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "c15b695d5fcb299911c498d5909e93f8f4dd3bfc362966f31a0fdbdf58d95e7e"
+      },
+      {
+        "id": "interactive:WorldModelOutputTimes",
+        "component": "WorldModelOutputTimes",
+        "sourcePath": "components/interactive/world-model-output-times.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "f9ec6b05c31f4c4d1544764539f4c61fae8a8c1e4b60281e7ae8e5216254817a"
       }
     ],
     "mounts": [
+      {
+        "id": "mount:/adjacent/autonomous-vehicles/:AvSafetyMiles:1",
+        "sourceId": "interactive:AvSafetyMiles",
+        "route": "/adjacent/autonomous-vehicles/",
+        "ownerPath": "content/adjacent/autonomous-vehicles.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "3d2f3fbe3a5114d21b8db94be08d1ffc3a0ed0fd6b2a70dea25e7271a889473c"
+      },
+      {
+        "id": "mount:/adjacent/drones/:DroneChampionsTimeline:1",
+        "sourceId": "interactive:DroneChampionsTimeline",
+        "route": "/adjacent/drones/",
+        "ownerPath": "content/adjacent/drones.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "0dddc8b49abbdc9d759ac8ea9bcf0c3ebd27e1b55e612b3d8a961d350cddbfc1"
+      },
+      {
+        "id": "mount:/adjacent/drones/:DroneDeliveryCounts:1",
+        "sourceId": "interactive:DroneDeliveryCounts",
+        "route": "/adjacent/drones/",
+        "ownerPath": "content/adjacent/drones.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "c285ecb1f3156c9d84cce929a2ea2c87fd560ee6b8301848beeb087dd65d3a8a"
+      },
       {
         "id": "mount:/adjacent/drones/:PerceptionLatency:1",
         "sourceId": "interactive:PerceptionLatency",
@@ -12459,6 +12955,54 @@
         ],
         "expectedCaseCount": 11,
         "fingerprint": "fd27b1ffec2405e1021db7a598d34025f74724558a6af112f492b5d4f7909ef4"
+      },
+      {
+        "id": "mount:/adjacent/space/:SpaceLatencyLadder:1",
+        "sourceId": "interactive:SpaceLatencyLadder",
+        "route": "/adjacent/space/",
+        "ownerPath": "content/adjacent/space.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "6fdc65e54df617c01e777e98dae7459e18ecdabf20aea04c35193ba0139241da"
       },
       {
         "id": "mount:/adjacent/surgical/:MotionPantograph:1",
@@ -12571,6 +13115,54 @@
         "fingerprint": "b33e67319a947df35273b0d80b88e3f859c8efabcc13cf23b88fca58aa00485c"
       },
       {
+        "id": "mount:/adjacent/surgical/:SurgicalAutonomyLadder:1",
+        "sourceId": "interactive:SurgicalAutonomyLadder",
+        "route": "/adjacent/surgical/",
+        "ownerPath": "content/adjacent/surgical.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "9e4eb2dadc40f175a1624c147dc4b6fbd7f07c9318df808f0cabba8c1a5400cb"
+      },
+      {
         "id": "mount:/classical/calibration/:CalibrationChain:1",
         "sourceId": "interactive:CalibrationChain",
         "route": "/classical/calibration/",
@@ -12600,9 +13192,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -12616,7 +13208,7 @@
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "aaf129570a2b3a15f70a45efb098d091bf0d9a202add8e018ac7062a31f40bb4"
+        "fingerprint": "73604e976d6af2202b4a4963791ca53460466c38f1c51a562a94520215b1ed9f"
       },
       {
         "id": "mount:/classical/calibration/:HandEyePoses:1",
@@ -12654,9 +13246,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -12670,7 +13262,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "52c41092933febbd075089568fedc4b1aeb6bff5f4a3be67187a5f3c67431cf2"
+        "fingerprint": "4648518b631b01c4ee89c73f698b99d4636ac4948a9168009a26e64354c733a4"
       },
       {
         "id": "mount:/classical/calibration/:TimeOffsetMiss:1",
@@ -12779,9 +13371,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -12789,13 +13381,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "ee0aef054f81e6c34a412a84505c1a37be2f5d5b5721d11c3c62e4f50ac6582e"
+        "fingerprint": "2e900faccc6b0ba4188e6d090d18911d21aca0c3b5531cfc56fd2a1d31e4e080"
       },
       {
         "id": "mount:/classical/control/:PendulumController:1",
@@ -13115,9 +13707,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -13131,7 +13723,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "3aeb5e135621120eabf56bb4a0d1c703b4ec357bcf8269f04308e1c6cb6e8b4b"
+        "fingerprint": "c382d42f3f52085433a1f3eab67a88b354ed5c25a581b8adda54d6d664feac78"
       },
       {
         "id": "mount:/classical/ros2-for-ml-engineers/:QosQueueAge:1",
@@ -13273,9 +13865,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -13283,13 +13875,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "ae6d07d33326bd7451bfdc081339952f16e84689ebd8a6daa3354978887ec792"
+        "fingerprint": "cc10080b89371b40c05eb6eceb11a816127eae83ff94dc2db93ff62ef8600bd4"
       },
       {
         "id": "mount:/classical/scene-representation/:LoopClosure:1",
@@ -13328,9 +13920,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -13344,7 +13936,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "ae2d957617a440cfbd292e8161f4d3010a6a7126cb41d0c2182c650dddf60472"
+        "fingerprint": "b306be37752bb94928516abd60c8b2ceb52033af8aac4a791b09d9de55a2119e"
       },
       {
         "id": "mount:/classical/scene-representation/:SceneRepresentationLadder:1",
@@ -13403,9 +13995,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -13414,7 +14006,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "c53bf0f85d89e8c1ac9cdf557e2073a3f1745d5b4b2bac75697ece9732e90ce7"
+        "fingerprint": "c55f454ab2477cdf3ac23e4a92712bd29c6de8f7d5d03b89581fa1b08e99793c"
       },
       {
         "id": "mount:/classical/state-estimation/:LinearizationGap:1",
@@ -13453,9 +14045,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -13469,7 +14061,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "ef47cb9b0c1ed9b12bf42245d67b28a5d03718aad31f3ad891c79fdb9f530e44"
+        "fingerprint": "b1030990328c11d4aa9999a6b0213054ac85d876938c0b8595d363bf906f359c"
       },
       {
         "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
@@ -13716,9 +14308,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -13732,7 +14324,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "30da752eeef1db10a41ebd3646ddc12eafd89171da2683698a6be100a16fc7d2"
+        "fingerprint": "25087901c414d1cf5d95591b94e553d5cc2d0de135c5484892c919386a70a7ed"
       },
       {
         "id": "mount:/data-hardware/hardware-taxonomy/:HardwareGuide:1",
@@ -14454,9 +15046,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-not-applicable",
-            "kind": "exception",
-            "notApplicableReason": "Source does not implement a empty state."
+            "id": "empty-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented empty witness"
           },
           {
             "id": "unavailable-not-applicable",
@@ -14465,7 +15057,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "fca5cdbc9b8cd68547650b24fa25198b21f327348dc761ffec8036f69f0addf3"
+        "fingerprint": "cf6cc2879f21a0b258973bfe3cb44d221dff94cfd19b224476fb89625b2e2868"
       },
       {
         "id": "mount:/frontier/generalization/:EgoScaleScaling:1",
@@ -14527,9 +15119,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -14543,7 +15135,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "b4e3da3102e9e86da5c83ed21c895d7d0ef1ba8f2f91f87b20e6cbf7d952965d"
+        "fingerprint": "0cc932a8d0f03c5ac021b4398911699ca1736bbc57ea44ff27592b1c7be8ba2d"
       },
       {
         "id": "mount:/frontier/generalization/:HelixZeroShotSuccess:1",
@@ -14704,9 +15296,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -14720,7 +15312,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "746a8f271dd5af9e10fd585de3201938ef7d1f27e775bd3e22212a01dd87842e"
+        "fingerprint": "7cce81cfb631cf8b18e3974047b081ff566ee13137d0376f2b49325a576ec3d8"
       },
       {
         "id": "mount:/frontier/safety-and-assurance/:CollaborativeOperationModes:1",
@@ -15161,9 +15753,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -15177,7 +15769,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "2e57f3ca00d11797b53c5ec9dd7abcab52c95ff25f1690b04301a16ae2d18bcc"
+        "fingerprint": "b78912239553c27aee5a7f344ba754750e7692b9c449cadee1355bdc46db79ca"
       },
       {
         "id": "mount:/manipulation/comparison-matrix/:ChunkBuffer:1",
@@ -15221,9 +15813,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -15232,7 +15824,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "4f69a4cd076647771d83c63e33d2d292dc15e97828d115aa18b890a28d7eac43"
+        "fingerprint": "5543cb5a7f1519635bfd7e9bf5d42f1642c90fa2e40522e225658533727ed826"
       },
       {
         "id": "mount:/manipulation/comparison-matrix/:ComparisonMatrix:1",
@@ -15275,9 +15867,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-witness",
@@ -15291,7 +15883,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "a8b942306f75aa284c0456260b981dac302015ae45f8eae77bd36f6811cb42fd"
+        "fingerprint": "d8ff6947b13b344915b7b7d3bf7d47c474e98972ea0566e90ff13a04d1493f2e"
       },
       {
         "id": "mount:/manipulation/cross-embodiment/:CrossEmbodimentStrategies:1",
@@ -15339,9 +15931,9 @@
             "notApplicableReason": "Source does not implement a error state."
           },
           {
-            "id": "empty-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented empty witness"
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
           },
           {
             "id": "unavailable-not-applicable",
@@ -15350,7 +15942,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "d0b83a85528e057be46477b0a14dd473414da476b5279718aa8456980b7593a6"
+        "fingerprint": "562a2ea4d247bcfc8701baefc9e10a44de2c15f893d5a29a4411f5fec17cde52"
       },
       {
         "id": "mount:/manipulation/cross-embodiment/:HandMotionShare:1",
@@ -15528,13 +16120,13 @@
             "notApplicableReason": "Source does not implement a empty state."
           },
           {
-            "id": "unavailable-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented unavailable witness"
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "175d63ffccb48cc0347cd7358fdde39e938911c72d95f366eab8f4f2ee5f2fac"
+        "fingerprint": "4996a9f4ff005f510a6cdcd7b5c47da67ac10f85ae54ad2ef83a3b5fe2f64615"
       },
       {
         "id": "mount:/manipulation/hierarchical/:HierarchyTimescales:1",
@@ -15783,9 +16375,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -15799,7 +16391,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "a0addda93bf4e8f917a24b60c4f057556fa19ca1312bf3eba2e5d7286765b717"
+        "fingerprint": "5014758ec20db9a88d3a5a2b4c0a17918e25ec1cfaa084382ea7990c541f7bfb"
       },
       {
         "id": "mount:/manipulation/pi-line/:PiGenerationTimeline:1",
@@ -16100,9 +16692,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -16116,7 +16708,7 @@
           }
         ],
         "expectedCaseCount": 7,
-        "fingerprint": "7ad43f5d77c77f659a5ee77ee12e2a700eaf8fa0e395230573f8f028de8dc898"
+        "fingerprint": "b792f78f05d7f9f5c28403eecfc1fc6f5f51615979d8499bce1964d16d7c6e98"
       },
       {
         "id": "mount:/manipulation/rl-finetuning/:NoiseOrEdit:1",
@@ -16291,9 +16883,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -16307,7 +16899,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "56d6d483218d7aae9d7b9a1e0fa2772c5f2d941377615350bd7ba87590e123c7"
+        "fingerprint": "87a81866f403d6273b8e525b696e2e07a0c4df143fe1f0a2e26caa660ee2c5fc"
       },
       {
         "id": "mount:/rl-sim2real/humanoid-wbc/:HumanoidPickHeight:1",
@@ -16346,9 +16938,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -16362,7 +16954,7 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "44ec55e18f615a59312388bec0ea81f067b17e195ed3c7a55fd3e9bdce51325f"
+        "fingerprint": "d8a4f70e475c1e7653e312e10708f20c9cf406df765203f43563287a7426fc7a"
       },
       {
         "id": "mount:/rl-sim2real/humanoid-wbc/:RetargetingGap:1",
@@ -17023,9 +17615,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -17039,7 +17631,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "544b118bb2fbbb64e82a9bdc1bd64a197ac14b6c8a368e0e8b8be40a052b9df6"
+        "fingerprint": "51ace3bad5683b08575bf1aec0656e8cbc3ce3365793474e90b4e08d31f0b2bd"
       },
       {
         "id": "mount:/rl-sim2real/rl-for-robotics/:HindsightRelabel:1",
@@ -17192,9 +17784,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -17208,7 +17800,7 @@
           }
         ],
         "expectedCaseCount": 9,
-        "fingerprint": "b89208972bbb78a8255bb5a352509b749cc866a93ff2cc6f7feadb4c1bcd2b66"
+        "fingerprint": "d3a1bb70884126ac27ed541684668d183c97bd28f3202417bbf0747859cacea7"
       },
       {
         "id": "mount:/rl-sim2real/sim2real-transfer/:FrictionTransfer:1",
@@ -17376,9 +17968,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -17392,7 +17984,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "0c89b5946cc823c624bbea0a7c436c275052b00ffe6306e4ac43f0612783aaf4"
+        "fingerprint": "3761a2a901981b5c63076ad313f785c4f8cc6e27b778db7fd42f5f8abaea50e3"
       },
       {
         "id": "mount:/rl-sim2real/why-rl-locomotion/:ContactGeometry:1",
@@ -17446,9 +18038,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -17462,7 +18054,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "d0fc8c3ceb752917d5c8725f2a95059836e31691a3cb4a0da11b14e5b3a21601"
+        "fingerprint": "d4d7d2926153984cf5fba1fbe49d74a3b957522f8bc0d261588f5a786335e92b"
       },
       {
         "id": "mount:/rl-sim2real/why-rl-locomotion/:CubeTrials:1",
@@ -17556,9 +18148,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -17572,7 +18164,55 @@
           }
         ],
         "expectedCaseCount": 8,
-        "fingerprint": "2671e5bbc9d7fd2a9ce6cb9432027ec7f437b945f240a260cf698d39839db262"
+        "fingerprint": "12e029c62d9a0f57cf6d47fe26ca29a1958d77da8a770c10553151a0d7227742"
+      },
+      {
+        "id": "mount:/world-models/evaluation/:WorldModelEvaluationLadder:1",
+        "sourceId": "interactive:WorldModelEvaluationLadder",
+        "route": "/world-models/evaluation/",
+        "ownerPath": "content/world-models/evaluation.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "77877d09880f4f046d3b864df3535c6054466def906c8273d0b4125f344d89f1"
       },
       {
         "id": "mount:/world-models/generative-sim/:AppearancePhysicsPush:1",
@@ -17825,9 +18465,9 @@
             "notApplicableReason": "Source does not implement a loading state."
           },
           {
-            "id": "error-witness",
-            "kind": "discrete-options",
-            "expectedEnumeration": "one deterministic implemented error witness"
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
           },
           {
             "id": "empty-not-applicable",
@@ -17841,7 +18481,7 @@
           }
         ],
         "expectedCaseCount": 11,
-        "fingerprint": "a82134d61bbd611feb396cd1b8f629f5c5b24c100b20bf42c2d013c4c1b7a746"
+        "fingerprint": "da0a990df9d64940c9f922cfb78cf34aeec3ca9b9165dedf03a3f9a2b8056a69"
       },
       {
         "id": "mount:/world-models/model-based-robot-learning/:ExcavatorPractice:1",
@@ -17897,6 +18537,54 @@
         ],
         "expectedCaseCount": 8,
         "fingerprint": "0eff4d666fcd4144a57e31c826fa5adffcdeee9f04bf121288dcf867ab3024d4"
+      },
+      {
+        "id": "mount:/world-models/model-based-robot-learning/:ModelBasedLoop:1",
+        "sourceId": "interactive:ModelBasedLoop",
+        "route": "/world-models/model-based-robot-learning/",
+        "ownerPath": "content/world-models/model-based-robot-learning.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "a7af4b5af2db5d518951b665ca1f6f589b593a845ecf4ee44aabcde6ecf6dd8c"
       },
       {
         "id": "mount:/world-models/taxonomy/:WmDisambiguator:1",
@@ -18011,6 +18699,54 @@
         ],
         "expectedCaseCount": 8,
         "fingerprint": "ab47f80ddba5c588281bfa3216038bc7e48cf1a5cc4777c6033ce2e5347f303d"
+      },
+      {
+        "id": "mount:/world-models/world-models-vs-simulators/:WorldModelOutputTimes:1",
+        "sourceId": "interactive:WorldModelOutputTimes",
+        "route": "/world-models/world-models-vs-simulators/",
+        "ownerPath": "content/world-models/world-models-vs-simulators.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "hover-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "No button or registered hover target is implemented."
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a error state."
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 7,
+        "fingerprint": "03772a6f0f3312e21cf5e5266c3eafd26c33be72ddcdf87e7dd5d623772c1849"
       }
     ]
   },
@@ -18867,6 +19603,7 @@
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
         "components/interactive/actuator-gap.tsx",
+        "components/interactive/av-safety-miles.tsx",
         "components/interactive/calibration-chain.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
@@ -18876,6 +19613,8 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/drone-champions-timeline.tsx",
+        "components/interactive/drone-delivery-counts.tsx",
         "components/interactive/funding-humanoid-counts.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
@@ -18886,6 +19625,7 @@
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/hindsight-relabel.tsx",
         "components/interactive/humanoid-pick-height.tsx",
+        "components/interactive/model-based-loop.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/newton-solvers.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -18899,11 +19639,15 @@
         "components/interactive/ros2-policy-layout.tsx",
         "components/interactive/safety-rules-timeline.tsx",
         "components/interactive/scanned-twin-check.tsx",
+        "components/interactive/space-latency-ladder.tsx",
+        "components/interactive/surgical-autonomy-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
         "components/interactive/umi-collection-rates.tsx",
+        "components/interactive/world-model-evaluation-ladder.tsx",
+        "components/interactive/world-model-output-times.tsx",
         "components/market-map/company-card.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
@@ -18941,6 +19685,7 @@
         "components/home/contents-index.tsx",
         "components/home/did-you-know.tsx",
         "components/interactive/actuator-gap.tsx",
+        "components/interactive/av-safety-miles.tsx",
         "components/interactive/calibration-chain.tsx",
         "components/interactive/comparison-matrix.tsx",
         "components/interactive/cross-embodiment-strategies.tsx",
@@ -18950,6 +19695,8 @@
         "components/interactive/dataset-table.tsx",
         "components/interactive/demo-or-sim.tsx",
         "components/interactive/deployment-dashboard.tsx",
+        "components/interactive/drone-champions-timeline.tsx",
+        "components/interactive/drone-delivery-counts.tsx",
         "components/interactive/funding-humanoid-counts.tsx",
         "components/interactive/generalist-release-timeline.tsx",
         "components/interactive/hand-comparison.tsx",
@@ -18960,6 +19707,7 @@
         "components/interactive/hierarchy-timescales.tsx",
         "components/interactive/hindsight-relabel.tsx",
         "components/interactive/humanoid-pick-height.tsx",
+        "components/interactive/model-based-loop.tsx",
         "components/interactive/mot-insulation.tsx",
         "components/interactive/newton-solvers.tsx",
         "components/interactive/offline-value-overreach.tsx",
@@ -18973,11 +19721,15 @@
         "components/interactive/ros2-policy-layout.tsx",
         "components/interactive/safety-rules-timeline.tsx",
         "components/interactive/scanned-twin-check.tsx",
+        "components/interactive/space-latency-ladder.tsx",
+        "components/interactive/surgical-autonomy-ladder.tsx",
         "components/interactive/teleop-rig-matrix.tsx",
         "components/interactive/terrain-curriculum.tsx",
         "components/interactive/time-offset-miss.tsx",
         "components/interactive/trajectory-stitching.tsx",
         "components/interactive/umi-collection-rates.tsx",
+        "components/interactive/world-model-evaluation-ladder.tsx",
+        "components/interactive/world-model-output-times.tsx",
         "components/market-map/company-card.tsx",
         "components/motion/figure-reuse.tsx",
         "components/nav/nav-tree.tsx",
@@ -19011,7 +19763,7 @@
         ]
       },
       "pointerAlternative": "native pointer activation matching keyboard activation",
-      "fingerprint": "81521b72173df4ccec8a033164e3122838c9f6355891db326ea0a7224c9bb13e"
+      "fingerprint": "c689fad8203ea9dba431d71ab7d6b6097d56e3253b73274cc6c049343bc3ca4b"
     },
     {
       "id": "control:segmented",
@@ -19236,5 +19988,5 @@
       "fingerprint": "1df710c680fec94c616a69ecf40e10b70dd074292bbe8691b9bef3117aa5c7c1"
     }
   ],
-  "rootFingerprint": "6567b28e194b78636eb68aa0e012036516688627924868aaa9f0daa719ad5e92"
+  "rootFingerprint": "49ed08cb183087ef19a2d37b841610603b2a12762cc15d3fc5bb8916c63bf5db"
 }

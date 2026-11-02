@@ -72,6 +72,8 @@ Reinforcement learning (RL) for robotics trains robot policies from their own ex
 
 ## What a budget buys, and what it forbids
 
+Move the "How much practice" slider to inspect this training-budget model <Cite id="rudin-2021" />.
+
 <SampleEfficiencyLedger className="my-6" />
 
 A review of robotic deep RL case studies lists real-world challenges that research on games and simulated control seldom addresses <Cite id="ibarz-2021" />, and a 2025 survey of real-world successes calls stable, sample-efficient real-world RL a priority <Cite id="tang-drl-survey-2025" />.
@@ -82,7 +84,7 @@ An <Term id="on-policy">on-policy</Term> method can only update on data the curr
 
 <ReplayReuse className="my-6" />
 
-TD3 reduced DDPG's overestimation bias with clipped double critics, delayed policy updates and target policy smoothing <Cite id="td3-2018" />. Soft actor-critic added a maximum-entropy objective aimed at sample complexity and brittle convergence <Cite id="sac-2018" />.
+TD3 reduced DDPG's overestimation bias with clipped double critics, delayed policy updates and target policy smoothing <Cite id="td3-2018" />. DDPG itself is a model-free actor-critic built around deterministic policy gradients for continuous actions <Cite id="ddpg-2016" />. Soft actor-critic added a maximum-entropy objective aimed at sample complexity and brittle convergence <Cite id="sac-2018" />.
 
 ### Why robotics defaulted to PPO anyway
 
@@ -103,7 +105,7 @@ Most GPU-simulation work used PPO for its simplicity and ease of scaling, while 
   <Stat label="hand-eye grasping" value="about 800k attempts" note="2016 preprint §5.2: two months, 6-14 robots" />
 </div>
 
-<Term id="sample-efficiency">Sample efficiency</Term> is how much experience a method needs to learn. Haarnoja and colleagues learned Minitaur locomotion from 160,000 control steps in about two hours of real-world time that includes resets and the operator <Cite id="haarnoja-walk-2019" />. DayDreamer trained a Unitree A1 to roll over, stand and walk in one hour without a simulator, and ten more minutes of online learning taught it to withstand pushes; the authors intervened manually at the edge of the training area <Cite id="daydreamer-2022" />.
+<Term id="sample-efficiency">Sample efficiency</Term> is how much experience a method needs to learn. Haarnoja and colleagues learned Minitaur locomotion from 160,000 control steps in about two hours of real-world time that includes resets and the operator <Cite id="haarnoja-walk-2019" />. DayDreamer trained a Unitree A1 to roll over, stand and walk in one hour without a simulator, and ten more minutes of online learning taught it to withstand pushes; the authors intervened manually at the edge of the training area <Cite id="daydreamer-2022" />. A Walk in the Park demonstrates model-free quadruped learning directly on indoor and outdoor terrain with a carefully tuned controller <Cite id="walk-in-the-park-2022" />.
 
 QT-Opt collected over 580,000 grasp attempts across seven robots in about 800 robot hours <Cite id="qt-opt-2018" />. The 2016 hand-eye preprint, which trained a supervised grasp-success predictor, reports about 800,000 grasp attempts over two months with 6 to 14 robots at a time <Cite id="levine-hand-eye-2016" />.
 
@@ -129,7 +131,7 @@ Andrychowicz and colleagues trained DDPG with HER on a simulated seven-DoF Fetch
 
 A simulated episode restarts from a fresh state automatically, at only computational cost <Cite id="autonomous-rl-2022" />; a physical one ends wherever the robot is, and a person or a learned behavior has to put it back <Cite id="leave-no-trace-2017" />.
 
-Zhu and colleagues name learning from raw sensory inputs, assigning rewards without hand-designed instrumentation, and learning without human episode resets as the requirements for real-world RL; their D'Claw hand trained unattended, but evaluation included manual resets for bead manipulation <Cite id="real-world-rl-ingredients-2020" />. Leave No Trace learns a reset policy alongside the forward policy and aborts before non-reversible states <Cite id="leave-no-trace-2017" />. Sharma and colleagues' EARL benchmark sums gaps to optimal deployment return over training and treats interventions as constrained costs, though its experiments still schedule resets during training <Cite id="autonomous-rl-2022" />.
+Zhu and colleagues name learning from raw sensory inputs, assigning rewards without hand-designed instrumentation, and learning without human episode resets as the requirements for real-world RL; their D'Claw hand trained unattended, but evaluation included manual resets for bead manipulation <Cite id="real-world-rl-ingredients-2020" />. Leave No Trace learns a reset policy alongside the forward policy and aborts before non-reversible states <Cite id="leave-no-trace-2017" />. VaPRL learns to reach curriculum-selected starting states, reducing manual resets in simulated robotics tasks <Cite id="vaprl-2021" />. Sharma and colleagues' EARL benchmark sums gaps to optimal deployment return over training and treats interventions as constrained costs, though its experiments still schedule resets during training <Cite id="autonomous-rl-2022" />.
 
 <Term id="reset-free-learning">Reset-free learning</Term> replaces manual resets with learned recovery behaviors. Gupta and colleagues' MTRF sequences task-specific policies with a designer-provided task graph, and a D'Hand on a Sawyer arm learned valve reorientation and pipe insertion without manual episode resets. The setup still used supplied rewards, motion capture for the in-hand object, scripted arm motion for pickup and a user who positioned the objects, pipe insertion used frozen fingers, and the method assumes that successful upstream tasks leave valid starting states for downstream ones <Cite id="reset-free-rl-2021" />. Without such a task graph a person handles the reset, a cost the human-in-the-loop line pays deliberately <Cite id="hil-serl-2024" />.
 
@@ -137,4 +139,4 @@ Zhu and colleagues name learning from raw sensory inputs, assigning rewards with
 
 [Parallel simulation](/rl-sim2real/parallel-sim-rl) explains the sampler behind on-policy training, [why RL won locomotion](/rl-sim2real/why-rl-locomotion) which problems simulation represents faithfully, and [sim-to-real transfer](/rl-sim2real/sim2real-transfer) deployment. [RL fine-tuning](/manipulation/rl-finetuning) covers RL on pretrained vision-language-action policies: pi_RL applies online PPO to flow-based pi0 and pi0.5 policies, replacing flow-matching regression with a policy-gradient update <Cite id="pi-rl-2026" />, and PLD fine-tunes a generalist on hybrid recovery data from residual specialists <Cite id="pld-2026" />.
 
-HIL-SERL reports 100% success in 100 evaluation trials per task, except IKEA whole assembly at 10 of 10. Nearly all tasks took one to two and a half hours of real-world training and timing-belt assembly six, counting scripted motion, rollouts and intended stops <Cite id="hil-serl-2024" />. DROID <Cite id="droid-2024" /> and Open X-Embodiment <Cite id="open-x-embodiment-2023" /> supply large real-robot demonstration corpora, but both papers evaluate imitation policies, so offline RL on them needs reward labels the datasets do not define.
+HIL-SERL reports 100% success in 100 evaluation trials per task, except IKEA whole assembly at 10 of 10. Nearly all tasks took one to two and a half hours of real-world training and timing-belt assembly six, counting scripted motion, rollouts and intended stops <Cite id="hil-serl-2024" />. ReF-HIL also uses successful human experience to shape critic values while constraining updates outside learned human-action neighborhoods <Cite id="ref-hil-2026" />. DROID <Cite id="droid-2024" /> and Open X-Embodiment <Cite id="open-x-embodiment-2023" /> supply large real-robot demonstration corpora, but both papers evaluate imitation policies, so offline RL on them needs reward labels the datasets do not define.

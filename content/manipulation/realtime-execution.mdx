@@ -55,7 +55,7 @@ Real-time execution means delivering a policy's actions on the controller's cloc
 
 <Image id="rtc-candle-lighting-2025" />
 
-Slide the model-size control and the missed-deadline count follows the new inference time.
+Switch to "Robot's own computer", then slide the model-size control; the missed-deadline count follows the new inference time <Cite id="vla-perf-2026" />.
 
 <ControlLoopBudget className="my-6" />
 
@@ -98,7 +98,7 @@ Naive switching jumps to the new chunk on arrival. That removes dead time but ad
 
 Real-Time Chunking inpaints the next chunk while the current one executes, fully weighting the first $d$ actions, which execute during inference, and works on diffusion and flow policies without retraining <Cite id="real-time-chunking-2025" /> <Cite id="pi-real-time-chunking-blog-2025" />. On six π0.5 real-robot tasks, its aggregate throughput did not degrade at +0, +100 or +200 ms of injected delay, and it lit matches precisely at total delays above 300 ms <Cite id="real-time-chunking-2025" />.
 
-VLASH rolls the robot state forward with the previous chunk and cuts reaction latency up to 11.8x against synchronous inference <Cite id="vlash-2025" />, and A2C2's small per-step correction head gains 23 percentage points of success over RTC <Cite id="a2c2-2025" />. Event-triggered inference sets the inference gap by scene change, averaging 95% real-world success <Cite id="event-triggered-vla-2026" />. SmolVLA's asynchronous stack decouples prediction from execution <Cite id="smolvla-2025" />, and on a local network its round trips stay under 100 ms while tasks finish about 2x faster <Cite id="lerobot-async-inference-2025" />.
+VLASH rolls the robot state forward with the previous chunk and cuts reaction latency up to 11.8x against synchronous inference <Cite id="vlash-2025" />, and A2C2's small per-step correction head gains 23 percentage points of success over RTC <Cite id="a2c2-2025" />. FutureRTC predicts execution-time visual features and corrects rolled-forward proprioception while keeping the underlying policy unchanged <Cite id="futurertc-2026" />. Event-triggered inference sets the inference gap by scene change, averaging 95% real-world success <Cite id="event-triggered-vla-2026" />. SmolVLA's asynchronous stack decouples prediction from execution <Cite id="smolvla-2025" />, and on a local network its round trips stay under 100 ms while tasks finish about 2x faster <Cite id="lerobot-async-inference-2025" />.
 
 <ExecutionModes className="my-6" />
 

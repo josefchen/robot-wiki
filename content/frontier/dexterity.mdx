@@ -40,6 +40,14 @@ citations:
   - eigendexplore-2026
   - visual-predicted-force-2026
   - fingers-as-legs-2026
+  - dexonomy-2025
+  - task-wrench-boundary-2023
+  - reskin-2021
+  - flingbot-2021
+  - speedfolding-2022
+  - cloth-funnels-2022
+  - dextairity-2022
+  - robocook-2023
 seeAlso:
   - "data-hardware/hardware-taxonomy"
   - "data-hardware/teleop-rigs"
@@ -59,6 +67,8 @@ Rodney Brooks opens his dexterity essay with Heinrich Ernst's PhD work: by 1961,
 
 The five 2026 hands below rank differently by touch and by price. Figure says each Figure 03 fingertip can detect three grams of pressure <Cite id="figure-03-2025" />, and Shadow priced its hand at €110,000 including support in 2022 <Cite id="shadow-hand-cost-2022" />.
 
+Switch to "Lowest price" to reorder the hand comparison <Cite id="shadow-hand-cost-2022" />.
+
 <HandComparison className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -77,6 +87,8 @@ A review of Roland Johansson's work reports about 17,000 low-threshold <Term id=
 In his September 8, 2025 post, Benjie Holson described limitations of the learning-from-demonstration setups he was seeing, explicitly calling them a general trend with exceptions. He pointed to the lack of good standard ways to relay wrist-force information to the human teleoperator, difficulty controlling fingers beyond open and close, and the difficulty of making human-like touch sensing available to the puppeteer. His estimate of about 1 to 3 cm of task precision was a guess from videos. He said it was likely more a <Term id="teleoperation">teleoperation</Term> limitation than a model limitation and pointed to a video he described as showing sub-centimeter tasks <Cite id="holson-olympics-2025" />.
 
 Luo and colleagues define tactile robotics as developing and integrating tactile-sensing technologies into robotic systems. Their 2025 outlook discusses challenges across sensor materials, networks, simulation, benchmarking, data interpretation, multimodal learning, and active touch <Cite id="tactile-outlook-2025" />. When he wrote the essay, Brooks concluded: "It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab" for tasks such as the match demonstration <Cite id="brooks-dexterity-2025" />.
+
+Replaceable skin also changes the maintenance problem. ReSkin separates magnetic-sensing electronics from the soft contact surface, so worn interfaces can be replaced; its learned response model handles variation across fabrication and time <Cite id="reskin-2021" />.
 
 ## The bet against touch
 
@@ -116,6 +128,8 @@ Boston Dynamics announced a new Atlas hand on October 1, 2026. It has four finge
 
 In September 2026, Amirhossein Kazemipour, Hehui Zheng and Robert Katzschmann of ETH Zurich's Soft Robotics Lab made a hand the whole robot. Their reinforcement-learning policies, trained in a simulator calibrated from hardware measurements, let an off-the-shelf 738 g WUJI hand with its own power and computer crawl on its fingers and work with them. On hardware it got back up from a fall in 21 of 25 trials and pressed the commanded arrow key for 29 of 32 consecutive commands while supporting its own weight. Guided by an overhead camera, it completed 15 cube deliveries to targets 10 to 40 cm away with a mean final error of 17 mm <Cite id="fingers-as-legs-2026" />.
 
+Choosing a contact pose is a separate part of the problem. Dexonomy starts from one human-annotated template per hand and grasp type, then refines the hand around the object in simulation <Cite id="dexonomy-2025" />. Chen and colleagues also synthesize poses for task-specific forces and torques, including turning knobs and pressing buttons <Cite id="task-wrench-boundary-2023" />.
+
 ## In-hand manipulation
 
 <Term id="in-hand-manipulation">In-hand manipulation</Term>, reorienting a held object without setting it down, separates a hand from a gripper. In the gold-medal "Use a key" event of Holson's Humanoid Olympics, a keyring with at least two keys and a keychain is dropped into the robot's waiting palm or gripper. Without putting the keys down, the robot must align, insert, and turn the correct key in a lock <Cite id="holson-olympics-2025" />. The challenge rules do not report a completed robot run. Switch between the clamp and the hand in the figure below and try the same task with each.
@@ -137,6 +151,10 @@ In October 2026, Harsh Gupta, Tyler Ga Wei Lum, Jeannette Bohg, Shuran Song and 
 ## Deformables and the long tail
 
 A wooden block rests on one of six sides. A towel can be bunched up in more ways than any state estimator will ever enumerate, and some tasks add water, grease, or peanut butter <Cite id="holson-olympics-2025" />. Cloth, liquids, and compliant packaging fill Holson's task list: hang a dress shirt that starts with one sleeve inside out, clean peanut butter off your own manipulator.
+
+Cloth manipulation depends on how the robot reduces the starting disorder. FlingBot learns a pick, stretch and fling primitive from visual observations <Cite id="flingbot-2021" />. SpeedFolding predicts paired gripper poses for bimanual actions, first smoothing the garment and then folding it along user-specified lines <Cite id="speedfolding-2022" />. Cloth Funnels chooses between flings and pick-and-place actions to bring garments into a canonical shape and aligned pose for later skills <Cite id="cloth-funnels-2022" />.
+
+Changing the tool changes the forces available. DextAIRity combines grasping and directed airflow, adjusting its blowing direction from visual feedback <Cite id="dextairity-2022" />. RoboCook models tool interactions with soft objects using graph neural networks, then combines tool classification with learned manipulation policies <Cite id="robocook-2023" />.
 
 RL-100 folds cloth and ran a juicing robot in a shopping mall for about seven hours without failure, both per-task results earned through on-robot reinforcement learning <Cite id="rl-100-2025" />. Physical Intelligence's π0.7 does laundry and espresso tasks with language steering <Cite id="pi07-2026" />.
 

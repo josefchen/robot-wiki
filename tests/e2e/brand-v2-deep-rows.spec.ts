@@ -24,6 +24,9 @@ import {
   waitForArm,
 } from './helpers/playground';
 import { setSlider } from './slider';
+import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
+import { captureDeepReference, captureDeepPhase, type DeepPhaseCapture } from './helpers/release-reference';
+import { RELEASE_EVIDENCE_DIRECTORY, type ReleaseState } from '../../lib/brand-v2-release-evidence';
 
 test.use({ actionTimeout: 10_000, navigationTimeout: 30_000 });
 
@@ -104,6 +107,9 @@ test.describe('brand-v2 27-row deep executor', () => {
     ).toThrow(/Missing expected-red anchor list/);
     const actionFailures = new Set<string>();
     const actionFailureDetails: string[] = [];
+    const executedDeepSteps = new Map<string, string[]>();
+    const phaseCaptures = new Map<string, DeepPhaseCapture[]>();
+    const phaseProfiles: ReleaseState[] = [];
     const viewport = page.getByTestId('playground-viewport');
     const poseList = page.locator('[data-testid^="trajectory-keyframe-"]');
     // The playground's home view, read before a row moves it.
@@ -384,6 +390,7 @@ test.describe('brand-v2 27-row deep executor', () => {
               throw new Error(`Unsupported deep-row action: ${step.action}`);
             }
             expect(step.order).toBeGreaterThan(0);
+            executedDeepSteps.set(memberId, [...(executedDeepSteps.get(memberId) ?? []), step.id]);
           } catch (error) {
             actionFailures.add(`${memberId}:${step.action}`);
             actionFailureDetails.push(
@@ -395,7 +402,17 @@ test.describe('brand-v2 27-row deep executor', () => {
       capture: async (memberId, capture) => {
         await test.step(`${memberId}:${capture.id}`, async () => {
           expect(capture.afterStep).toBeTruthy();
-          if (capture.kind === 'full-page') {
+          const row = BRAND_V2_DEEP_ROWS.find(({ id }) => id === memberId)!;
+          if (capture.kind === 'bounded') {
+            const fileName = `${memberId}-phase-${capture.order}.png`;
+            const path = FINAL_RELEASE_PROFILES ? `${RELEASE_EVIDENCE_DIRECTORY}/deep/${fileName}` : testInfo.outputPath(fileName);
+            const measured = await captureDeepPhase(page, row, capture, path);
+            phaseCaptures.set(memberId, [...(phaseCaptures.get(memberId) ?? []), measured]);
+            if (FINAL_RELEASE_PROFILES) phaseProfiles.push(await probeReleaseState(page, {
+              id: `deep:${capture.id}`, route: new URL(page.url()).pathname, state: capture.afterStep,
+              steps: executedDeepSteps.get(memberId) ?? [],
+            }));
+          } else if (capture.kind === 'full-page') {
             await page.screenshot({
               path: testInfo.outputPath(`${memberId}-full.png`),
               // Capture the complete declared viewport. Very long article
@@ -431,6 +448,9 @@ test.describe('brand-v2 27-row deep executor', () => {
               body: JSON.stringify(computed, null, 2),
               contentType: 'application/json',
             });
+            if (FINAL_RELEASE_PROFILES) {
+              await captureDeepReference(page, row, executedDeepSteps.get(memberId) ?? [], phaseCaptures.get(memberId) ?? []);
+            }
           }
         });
       },
@@ -442,9 +462,10 @@ test.describe('brand-v2 27-row deep executor', () => {
       [...actionFailures].sort(),
       actionFailureDetails.join('\n'),
     ).toEqual([]);
+    if (FINAL_RELEASE_PROFILES) writeReleaseStateGroup('deep-phases', BRAND_V2_DEEP_ROWS.flatMap(({ captures }) => captures.filter(({ kind }) => kind === 'bounded').map(({ id }) => `deep:${id}`)), phaseProfiles);
   });
 
-  test('archives only the still-unreachable v2 visual claim', async ({
+  test('enforces research-page identity, palette and display on every deep row', async ({
     page,
     staticBase,
   }) => {
@@ -457,7 +478,7 @@ test.describe('brand-v2 27-row deep executor', () => {
       const visual = await page.evaluate(() => {
         const root = getComputedStyle(document.documentElement);
         const identity = document.querySelector<HTMLAnchorElement>(
-          'aside a[href="/"]',
+          'header a[href="/"]',
         );
         const heading = document.querySelector<HTMLElement>('main h1');
         return {
@@ -472,13 +493,13 @@ test.describe('brand-v2 27-row deep executor', () => {
       if (visual.identity !== 'Robot Wiki') {
         failures.push(`${row.id}:public-identity`);
       }
-      if (visual.signal !== '#245FFF') {
+      if (visual.signal !== '#3B6EA8') {
         failures.push(`${row.id}:signal-token`);
       }
-      if (visual.paper !== '#F5F6F7') {
+      if (visual.paper !== '#FAFAF8') {
         failures.push(`${row.id}:paper-token`);
       }
-      if (!visual.headingFont?.includes('tektur')) {
+      if (!visual.headingFont?.includes('dm sans')) {
         failures.push(`${row.id}:display-type`);
       }
     }

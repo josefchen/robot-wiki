@@ -111,6 +111,27 @@ afterEach(() => {
 });
 
 describe('AnatomyStage readout announcements', () => {
+  it('keeps prose in sans and numeric runs in mono after React and animation writes', async () => {
+    render(<Harness />);
+    act(() => setReadoutFromOutside('About 16,384 robots take 1.5 minutes.'));
+    await act(async () => { await Promise.resolve(); });
+    const readout = document.querySelector('[data-readout]')!;
+    expect(readout).toHaveClass('font-sans', 'text-left');
+    expect(readout.textContent).toBe('About 16,384 robots take 1.5 minutes.');
+    expect([...readout.querySelectorAll('[data-readout-number]')].map((n) => n.textContent)).toEqual(['16,384', '1.5']);
+    await act(async () => {
+      readout.textContent = 'The foot sinks −13 cm.';
+      await Promise.resolve();
+    });
+    expect(readout.textContent).toBe('The foot sinks −13 cm.');
+    expect(readout.querySelector('[data-readout-number]')).toHaveTextContent('−13');
+    expect(readout.querySelector('[data-readout-number]')).toHaveClass('font-mono');
+    act(() => setReadoutFromOutside('Back to 0 cm.'));
+    await act(async () => { await Promise.resolve(); });
+    expect(readout.textContent).toBe('Back to 0 cm.');
+    expect(readout.querySelector('[data-readout-number]')).toHaveTextContent('0');
+  });
+
   it('keeps the visible readout out of live regions and adds one hidden status region', () => {
     render(<Harness />);
     const readout = screen.getByText('resting');

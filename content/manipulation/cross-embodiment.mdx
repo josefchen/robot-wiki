@@ -45,6 +45,8 @@ citations:
   - gott-2026
   - egolap-2026
   - lac-wm-2026
+  - latent-action-diffusion-2025
+  - twist-2025
 seeAlso:
   - "data-hardware/teleop-rigs"
   - "frontier/dexterity"
@@ -59,7 +61,7 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 
 <Image id="open-x-embodiment-overview-2023" />
 
-Try “Translate between bodies”.
+Try "Translate between bodies" to compare the illustrated action layouts <Cite id="gemini-robotics-15-2025" />.
 
 <CrossEmbodimentStrategies className="my-6" />
 
@@ -100,22 +102,22 @@ EgoScale uses relative wrist motion and <Term id="retargeting">retargets</Term> 
 
 ## Closing the visual embodiment gap
 
-Mirage masks out an unseen target robot and inpaints the source robot in real time <Cite id="mirage-2024" />. RoVi-Aug synthesizes training images with other robots and viewpoints and deploys zero-shot on an unseen robot, and co-training with it raises success by up to 30% <Cite id="rovi-aug-2024" />.
+Mirage masks out an unseen target robot and inpaints the source robot in real time <Cite id="mirage-2024" />. RoVi-Aug synthesizes training images with other robots and viewpoints and deploys zero-shot on an unseen robot, and co-training with it raises success by up to 30% <Cite id="rovi-aug-2024" />. Shadow replaces the robot image with a composite source-and-target segmentation mask during both training and evaluation <Cite id="shadow-2025" />.
 
 ## Latent actions as a shared interface
 
-LAPA learns discrete latent actions between video frames, pretrains a VLA on them and fine-tunes on robot data; training only on human video still transfers positively <Cite id="lapa-2025" />. LAC-WM (Stanford and Meta FAIR, October 2026) conditions a robot world model on a latent action space shared across embodiments; picking action chunks for a VLA on five unseen LIBERO tasks, it raised average success from 82.4% with an explicit-action world model to 92.0% <Cite id="lac-wm-2026" />.
+LAPA learns discrete latent actions between video frames, pretrains a VLA on them and fine-tunes on robot data; training only on human video still transfers positively <Cite id="lapa-2025" />. Latent Action Diffusion contrastively aligns actions from human hands, robotic hands and parallel-jaw grippers before policy co-training <Cite id="latent-action-diffusion-2025" />. LAC-WM (Stanford and Meta FAIR, October 2026) conditions a robot world model on a latent action space shared across embodiments; picking action chunks for a VLA on five unseen LIBERO tasks, it raised average success from 82.4% with an explicit-action world model to 92.0% <Cite id="lac-wm-2026" />.
 
 ## Human-to-robot transfer recipes
 
-Simar Kareer's EgoMimic treated human and robot data equally and found an extra hour of hand data worth more than one of robot data <Cite id="egomimic-2024" />. On December 16, 2025, Kareer and Physical Intelligence colleagues co-fine-tuned π0.5 on human data, with 3D hand positions as actions, and the most relevant robot data. PI reports about 2× performance on four scenarios present only in human data, without trial counts, and transfer that improves as robot pretraining diversifies <Cite id="pi-human-to-robot-2025" />.
+Simar Kareer's EgoMimic treated human and robot data equally and found an extra hour of hand data worth more than one of robot data <Cite id="egomimic-2024" />. TWIST combines reinforcement learning and behavior cloning to track human motion retargeted onto a humanoid <Cite id="twist-2025" />. On December 16, 2025, Kareer and Physical Intelligence colleagues co-fine-tuned π0.5 on human data, with 3D hand positions as actions, and the most relevant robot data. PI reports about 2× performance on four scenarios present only in human data, without trial counts, and transfer that improves as robot pretraining diversifies <Cite id="pi-human-to-robot-2025" />.
 
 <Image id="phantom-human-video-robot-2025" />
 
-EgoScale's Ruijie Zheng and coauthors instead pretrain on human video, mid-train on aligned human-robot data and post-train on task robot data, and find adding aligned mid-training best overall <Cite id="egoscale-2026" />. EgoBridge aligns human and robot policy latents with optimal transport and reports a 44% absolute success gain over human-augmented cross-embodiment baselines <Cite id="egobridge-2025" />. EgoLAP (Princeton, Toyota Research Institute and Physical Intelligence, October 2026) routes human and robot trajectories through a shared chain of language actions and reached 80.1% mean real-world task progress on bimanual YAM robots, 2.3 times the alternative action representations <Cite id="egolap-2026" />.
+EgoScale's Ruijie Zheng and coauthors instead pretrain on human video, mid-train on aligned human-robot data and post-train on task robot data, and find adding aligned mid-training best overall <Cite id="egoscale-2026" />. H-RDT pretrains on egocentric human video with hand poses, then adapts to robot data through modular action encoders and decoders <Cite id="h-rdt-2025" />. EgoBridge aligns human and robot policy latents with optimal transport and reports a 44% absolute success gain over human-augmented cross-embodiment baselines <Cite id="egobridge-2025" />. EgoLAP (Princeton, Toyota Research Institute and Physical Intelligence, October 2026) routes human and robot trajectories through a shared chain of language actions and reached 80.1% mean real-world task progress on bimanual YAM robots, 2.3 times the alternative action representations <Cite id="egolap-2026" />.
 
 Phantom needs no robot data: it inpaints the human arm, overlays a rendered robot and deploys zero-shot, with success up to 92% <Cite id="phantom-2025" />. Masquerade robotizes in-the-wild human video and fine-tunes on 50 [robot demonstrations](/data-hardware/teleop-rigs/) per task, beating baselines by 5 to 6 times <Cite id="masquerade-2026" />. Figure reports that Index human-video pretraining, all else fixed, raised Helix 2.5's zero-shot success in 30 unseen homes from 9% to 56% <Cite id="helix-2-5-2026" />, and Generalist's GEN-1 base model pretrains on over half a million hours from wearable devices on humans, with no robot data <Cite id="generalist-gen1-2026" />.
 
 ## Scaling the number of embodiments
 
-Across about 1,000 procedurally generated locomotion bodies, adding embodiments generalizes more broadly than adding data on fixed ones <Cite id="embodiment-scaling-2025" />. Skild reports training one model on 100,000 simulated robots and testing zero-shot on robots excluded from training <Cite id="skild-omni-bodied-2025" />. DreamZero adapted from AgiBot G1 to a YAM bimanual robot with 55 trajectories, about 30 minutes of play data, though its authors describe the result only qualitatively <Cite id="dreamzero-2026" />.
+Across about 1,000 procedurally generated locomotion bodies, adding embodiments generalizes more broadly than adding data on fixed ones <Cite id="embodiment-scaling-2025" />. Skild reports training one model on 100,000 simulated robots and testing zero-shot on robots excluded from training <Cite id="skild-omni-bodied-2025" />. DreamZero adapted from AgiBot G1 to a YAM bimanual robot with 55 trajectories, about 30 minutes of play data, though its authors describe the result only qualitatively <Cite id="dreamzero-2026" />. GOTT shares a closed-loop contact-acquisition primitive across hand morphologies, followed by object-pose tracking <Cite id="gott-2026" />.

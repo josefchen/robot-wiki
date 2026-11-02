@@ -28,6 +28,8 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { sourceFloorPredecessor } from './audit-source-floor-continuity.ts';
+import { uiRepairPredecessor } from './audit-ui-repair-continuity.ts';
 
 export const OWED_FIGURES_CONTINUITY_DIR = 'audit/evidence/owed-figures-20261026/';
 const reviewFile = `${OWED_FIGURES_CONTINUITY_DIR}source-transition.json`;
@@ -62,10 +64,14 @@ export type OwedFiguresReview = {
 
 // BEGIN owed-figures pins (written by scripts/record-owed-figures-continuity.ts)
 /** The reviewed evidence file; a changed review needs a reviewed code change too. */
-const reviewPin = { bytes: 23127, sha256: 'fb1784035dbe93f965d5661fed256bcabefdf640db633cc6fd455890e75e75fa' };
+const reviewPin = { bytes: 35895, sha256: 'b323b4697fd363bea11fb6a4514045d86c6f2bd6dde88f594d36e7a003400265' };
 
 /** Reviewed successor bytes per path, so other bytes pass through without reading the review. */
 const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
+  ['content/adjacent/autonomous-vehicles.mdx', [21232, '77f2a6f9fadb1620d101a28e80bddfc0a755745a358472256ceb2118f44f02af']],
+  ['content/adjacent/drones.mdx', [14127, 'e6f1153d856051444e69f0c3e512572a0a69fb3c8eb8a8541a6b1c23f077e9c8']],
+  ['content/adjacent/space.mdx', [13877, 'e8f85e0357bb8014e38ce464f476c5541bb98f91c6476b0f713e9fea0aebb98d']],
+  ['content/adjacent/surgical.mdx', [12673, '397da074a08c608935e3d65e4093859b7a4d73b6b3c7c7ff84fe1d1759cd1123']],
   ['content/data-hardware/datasets.mdx', [12320, '7e04f8b17c68b6caf8c43e1f77c996933c38fe5a3260f3d8abe9d324eb105738']],
   ['content/data-hardware/hardware-taxonomy.mdx', [12045, '7fc97eecb1680f24639e3625bab657780f6634a7fc6359f49ac65ac0c0e54af5']],
   ['content/data-hardware/industrial-deployment.mdx', [17821, '090208e45063d44a37090bb328158b98d53faa9edc951a88db1fcb078127c299']],
@@ -74,6 +80,9 @@ const successors: ReadonlyMap<string, readonly [number, string]> = new Map([
   ['content/frontier/bear-case.mdx', [10805, '72adb49067d062ceb347672b0a4c9d1b10e0d73837def21f04de399b33642f09']],
   ['content/frontier/generalization.mdx', [14019, '0060735bb589f03d72b1227a9b5344cbc3599c2f9f39934c6e5866589a27fb3a']],
   ['content/frontier/safety-and-assurance.mdx', [18747, 'c8a1d199c227e6a60abd825496b3ca991c39d9e440faad6f8a020fbe32c652c1']],
+  ['content/world-models/evaluation.mdx', [9803, 'f12b18537a944dc85fc2d23514fbd7b84789513c7d42c63aec77500225675c0c']],
+  ['content/world-models/model-based-robot-learning.mdx', [10350, 'e7f7b99d45f3286c7a8dc9ed304f6c68b63ccbcfd9ce76506c4e0d137a848126']],
+  ['content/world-models/world-models-vs-simulators.mdx', [11713, '95300315c4e89c7f4837050a3df82885c84afcb3b912f762ecf6c81c47f40e8e']],
 ]);
 // END owed-figures pins
 
@@ -255,6 +264,8 @@ export const owedFiguresSuccessorPaths = (): readonly string[] => [...successors
  * predecessor returned.
  */
 export function owedFiguresPredecessor(root: string, ref: Artifact, live: Buffer): Buffer {
+  live = uiRepairPredecessor(root, ref, live);
+  live = sourceFloorPredecessor(root, ref, live);
   const pinned = successors.get(ref.path);
   if (!pinned || live.length !== pinned[0]) return live;
   const liveHash = digest(live);

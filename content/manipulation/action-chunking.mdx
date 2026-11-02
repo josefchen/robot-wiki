@@ -96,7 +96,7 @@ The 14 action coordinates are six joints and one gripper coordinate for each of 
 
 ### The chunk-size dial
 
-In ACT's ablation, averaged over two simulated tasks with temporal ensembling off, success rises from 1% at k=1 to 44% at k=100 and dips at k=200 and k=400, near open-loop control; chunked BC-ConvMLP and VINN follow the same trend <Cite id="act-aloha-2023" />. A small k brings back <Term id="compounding-error">compounding error</Term>, and a large one reacts slowly to unexpected states <Cite id="bidirectional-decoding-2024" />. The best execution horizon is task-dependent: in flow-based VLAs success rises and then falls as it lengthens <Cite id="autohorizon-2026" />, and PACE, which picks it online, lifted real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />.
+In ACT's ablation, averaged over two simulated tasks with temporal ensembling off, success rises from 1% at k=1 to 44% at k=100 and dips at k=200 and k=400, near open-loop control; chunked BC-ConvMLP and VINN follow the same trend <Cite id="act-aloha-2023" />. A small k brings back <Term id="compounding-error">compounding error</Term>, and a large one reacts slowly to unexpected states <Cite id="bidirectional-decoding-2024" />. The best execution horizon is task-dependent: in flow-based VLAs success rises and then falls as it lengthens <Cite id="autohorizon-2026" />, and PACE, which picks it online, lifted real ALOHA and Franka success from 50.7% to 70.4% <Cite id="pace-2026" />. Mixture of Horizons processes several chunk lengths with one shared transformer and combines them through a learned gate <Cite id="moh-2025" />.
 
 ## Temporal ensembling and its limits
 
@@ -121,7 +121,7 @@ When consecutive chunks diverge in strategy, say left versus right around an obs
 
 <Term id="real-time-chunking">Real-Time Chunking</Term> (RTC) treats [the hand-off between chunks](/manipulation/realtime-execution/) as inpainting: it freezes actions that will already have run and generates the rest. With π0.5 at five denoising steps, model latency was 76 ms for the baselines and 97 ms for RTC, plus 10 to 20 ms over LAN. At 100 or 200 ms of injected delay, temporal-ensembling variants triggered protective stops, while RTC held average task throughput through +200 ms without retraining <Cite id="real-time-chunking-2025" />, over six tasks, ten episodes each <Cite id="pi-real-time-chunking-blog-2025" />.
 
-A training-time variant matched inference-time RTC at lower compute <Cite id="training-time-rtc-2025" />, LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />, and A2C2's per-step correction head beats RTC by 23 points on Kinetix <Cite id="a2c2-2025" />. In the toy below, press “None” to watch the two plans agree.
+A training-time variant matched inference-time RTC at lower compute <Cite id="training-time-rtc-2025" />. REMAC additionally trains corrective adjustments with masked chunks to handle mismatches between the actions executed and current perception <Cite id="remac-2026" />. LeRobot ships RTC for Pi0, Pi0.5 and SmolVLA <Cite id="lerobot-rtc-docs" />, and A2C2's per-step correction head beats RTC by 23 points on Kinetix <Cite id="a2c2-2025" />. In the toy below, press “None” to watch the two plans agree.
 
 <LatencyComparison className="my-6" />
 

@@ -255,7 +255,7 @@ export default function Home() {
           {recent.map((entry) => (
             <li
               key={`${entry.domain}/${entry.slug}`}
-              className="flex items-baseline gap-x-6 border-b border-border py-3"
+              className="flex flex-col items-baseline gap-x-6 border-b border-border py-3 min-[360px]:flex-row"
             >
               <time
                 dateTime={entry.dateModified}

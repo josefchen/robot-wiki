@@ -44,6 +44,12 @@ citations:
   - i3l-2026
   - fomo-dex-2026
   - grabette-2026
+  - factr-2-2026
+  - dexpilot-2019
+  - teachnet-2018
+  - anyteleop-2023
+  - holo-dex-2022
+  - dexcap-2024
 seeAlso:
   - "manipulation/action-chunking"
   - "data-hardware/datasets"
@@ -105,6 +111,8 @@ The UMI operator holds a 3D-printed parallel-jaw gripper with a wrist-mounted Go
 
 Latency matching at inference time and a camera-relative action representation let UMI policies deploy zero-shot on any arm with a compatible gripper and camera, shown on UR5 and Franka. The data lack a force channel <Cite id="umi-2024" />. ForceMimic adds one: its operator peeled a zucchini in 5 minutes, against over 13 with force-feedback teleoperation <Cite id="forcemimic-2024" />.
 
+FACTR 2 estimates external joint torques from free-motion data, enabling force-feedback teleoperation on commodity arms without dedicated force sensors <Cite id="factr-2-2026" />.
+
 Four collectors gathered enough UMI data in one afternoon for about 90% success in new environments <Cite id="lin-data-scaling-laws-2024" />. A policy post-trained only on HiFi-UMI data matched in-domain teleoperation across three backbones <Cite id="hifi-umi-2026" />.
 
 Pollen Robotics' Grabette (July 2026) is an open-source handheld recorder modelled on UMI that writes LeRobot datasets, with parts costing about €490. Its motorized twin, Gripette (about €120 in parts), is the robot-arm gripper that carries out the learned movements on a real or simulated arm <Cite id="grabette-2026" />.
@@ -115,9 +123,13 @@ In VR teleoperation the robot mirrors the operator's hand or controller poses th
 
 OPEN TEACH runs on a \$500 Meta Quest 3 at up to 90 Hz <Cite id="open-teach-2024" />. Open-TeleVision renders the robot's surroundings in stereo and mirrors the operator's arm and hand motion on two humanoids <Cite id="open-television-2024" />. Bunny-VisionPro adds low-cost haptic feedback and collision and singularity avoidance in retargeting <Cite id="bunny-visionpro-2024" />. The Apple Vision Pro it runs on launched at \$3,499 <Cite id="apple-visionpro-price-2024" />; the October 2025 M5 model keeps that price <Cite id="apple-vision-pro-m5-2025" />.
 
+Visual teleoperation can start from different observations. DexPilot controls a hand-arm system by observing the operator's bare hand <Cite id="dexpilot-2019" />; TeachNet maps human-hand depth images directly to robot joint angles <Cite id="teachnet-2018" />. AnyTeleop supports different arms, hands and camera configurations within one system <Cite id="anyteleop-2023" />. Holo-Dex uses a headset's hand-pose estimator to collect demonstrations, then combines learned features with non-parametric imitation <Cite id="holo-dex-2022" />.
+
 Human and robot arms share no kinematics; every action passes through <Term id="inverse-kinematics">IK</Term> and calibration. [HumanPlus](/rl-sim2real/humanoid-wbc) shadows a person from one RGB camera and reaches 60 to 100% success with up to 40 demonstrations <Cite id="humanplus-2024" />.
 
 ## Gloves and wearables
+
+DexCap records wrist and finger motion with SLAM and electromagnetic tracking, alongside 3D observations of the scene. Its DexIL algorithm combines inverse kinematics with point-cloud imitation learning to transfer those motions to a robot hand <Cite id="dexcap-2024" />.
 
 DexUMI's hand exoskeleton gives the operator direct haptic feedback and adapts human motion to feasible robot-hand motion, for an 86% average success rate <Cite id="dexumi-2025" />. SEED-UMI collects data 3.0x faster than exoskeleton-based teleoperation <Cite id="seed-umi-2026" />. Sunday's Skill Capture Glove shares its robot hand's geometry and sensor layout; Sunday reports converting glove data to robot data with a 90% success rate <Cite id="sunday-act1-2025" />. DITTO-X, from Stanford and Columbia researchers (September 2026), renders joint-level force and fingertip contacts from the robot hand and improved demonstration quality and throughput over a commercial hand-tracking glove <Cite id="ditto-x-2026" />.
 

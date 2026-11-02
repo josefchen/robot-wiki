@@ -52,6 +52,7 @@ citations:
   - dierking-2026
   - forcetwin-2026
   - intrinsic-ai-for-industry-challenge-2026
+  - martin-martin-2019
 seeAlso:
   - "rl-sim2real/legged-locomotion"
   - "manipulation/realtime-execution"
@@ -64,6 +65,8 @@ import { ImpedanceContactLab } from '@/components/interactive/impedance-contact-
 Control uses feedback to make a robot follow a reference, such as a [motion plan](/classical/motion-planning), despite model error and disturbances: measure the state, compare it with the reference, correct <Cite id="fbs-2020" />. Feedback loops run beneath any learned policy, from motor drivers to whole-body torque control.
 
 <Image id="centrifugal-governor-queen-street-mill" />
+
+Try "Too gentle" and "Strong enough" to compare the pendulum's responses <Cite id="fbs-2020" />.
 
 <PredictThenReveal
   prompt="The lab below is released 12 degrees off vertical with the payload bias in place. Below what proportional gain can the loop no longer hold the pole upright, however the other two gains are set?"
@@ -147,7 +150,9 @@ Only the first input is applied before the next solve, so feedback from the meas
 
 MPC grew out of 1970s and 1980s power-plant and refinery practice, where slow, constrained, multivariable plants defeated PID <Cite id="garcia-1989" /><Cite id="qin-badgwell-2003" />. On the MIT Cheetah 3, Di Carlo and colleagues' convex MPC solved each QP in under a millisecond at 20 to 30 Hz, and one gain set served every gait from standing to gallop <Cite id="di-carlo-2018" />.
 
-On legged hardware, DIAL-MPC optimizes full-order quadruped dynamics in real time without training and beats RL policies by 50% on climbing tasks <Cite id="dial-mpc-2024" />. [Reward design and the MPC debate](/rl-sim2real/reward-design-mpc) compares these controllers with learned policies.
+On legged hardware, DIAL-MPC optimizes full-order quadruped dynamics in real time without training and beats RL policies by 50% on climbing tasks <Cite id="dial-mpc-2024" />.
+
+Earlier whole-body MPC on HRP-2 used MuJoCo for prediction and explicitly addressed feedback delays and model mismatch in physical-robot experiments <Cite id="koenemann-2015" />. [Reward design and the MPC debate](/rl-sim2real/reward-design-mpc) compares these controllers with learned policies.
 
 ## Whole-body QP: the bottom of the stack
 
@@ -177,7 +182,9 @@ Learned and model-based <Term id="whole-body-control">whole-body control</Term> 
 
 A stiff position-controlled arm driven into a surface 2 mm nearer than modeled turns that error into stored collision energy. Hogan's 1985 <Term id="impedance-control">impedance control</Term> instead commands the relationship between force and motion, so the arm presents a programmable mass-spring-damper: at a contact, a controller commands force or velocity, and the environment fixes the other <Cite id="hogan-1985" />.
 
-<Term id="admittance-control">Admittance control</Term> is the dual: measure force with a wrist sensor and command motion. A backdrivable direct-drive arm realizes an impedance directly, while a stiff geared arm with a force-torque sensor runs admittance in software.
+Salisbury's earlier Cartesian stiffness controller programmed apparent stiffness along three translation and three rotation axes, transforming the Cartesian relation into joint-servo commands <Cite id="salisbury-1980" />.
+
+<Term id="admittance-control">Admittance control</Term> is the dual: measure force with a wrist sensor and command motion. A backdrivable direct-drive arm realizes an impedance directly, while a stiff geared arm with a force-torque sensor runs admittance in software. Ott, Mukherjee and Nakamura construct a hybrid family between impedance and admittance control, analyzing a one-dimensional interaction before experiments on a KUKA-DLR lightweight robot <Cite id="ott-2010" />.
 
 Mason's and Raibert and Craig's <Term id="hybrid-force-position-control">hybrid force/position control</Term> builds a task frame from the contact geometry and controls force along the constrained axes and position along the free ones, never both on one axis <Cite id="mason-1981" /> <Cite id="raibert-craig-1981" />. Polishing, for instance, controls force normal to the surface and position along it, which needs the contact geometry in advance.
 
@@ -186,6 +193,8 @@ Learned policies now set impedance: Adaptive Compliance Policy learns spatially 
 ForceTwin, from Marco Hutter (ETH Zurich) and colleagues (September 2026), fits an articulated object's inertia, friction, damping and spring or door-closer forces from a person probing it with a handheld force-sensing gripper. As the feedforward model for impedance control on a Spot and a Franka FR3, it completed 87% of goals across nine object-robot pairs, against 60% with vision-language-model priors and 57% with kinematics-only twins <Cite id="forcetwin-2026" />.
 
 A non-backdrivable, position-controlled geared arm without a force sensor has no force channel: position error, gear ratio and the surface set the contact force, so a joint-position policy on it cannot regulate force in the contact-rich tasks of [dexterity](/frontier/dexterity). <Term id="series-elastic-actuator">Series elastic actuation</Term> adds a deliberate spring for shock tolerance and more accurate, stable force control <Cite id="pratt-williamson-1995" />.
+
+For flexible joints, Ott and colleagues decouple torque dynamics from link dynamics in an impedance controller, with a stability analysis and a preliminary single-joint experiment <Cite id="albu-schaffer-2003" />.
 
 <Image id="baxter-rethink-innorobo-2015" />
 
@@ -198,6 +207,8 @@ The contact lab's transient force limit comes from published biomechanical measu
 ## The policy-to-controller contract
 
 A learned action reaches the motors through a lower controller, so request type, rate, horizon, frame and saturation behavior belong to the interface. Peng and van de Panne showed that the action parameterization, from torques to target joint angles, affects learning, robustness and motion quality <Cite id="peng-action-space-2016" />, and the same Cartesian delta behaves differently in contact under a position controller and under an impedance controller.
+
+The VICES study makes impedance itself part of the RL action: the policy selects end-effector motion and compliance, evaluated on tasks including door opening and surface wiping <Cite id="martin-martin-2019" />.
 
 Deployed stacks are multi-rate: Berkeley Humanoid runs its RL policy at 50 Hz, its state estimator at 1 kHz and its PD controller at 25 kHz <Cite id="berkeley-humanoid-2024" />.
 

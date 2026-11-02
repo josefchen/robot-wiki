@@ -1,5 +1,5 @@
+import { historicalGit } from '../helpers/historical-git';
 import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -55,7 +55,7 @@ describe('convergence prose and sources 2026-10-26 article successors', () => {
       const live = preOwedFigures(path);
       const prior = convergenceProsePredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
-      expect(prior).toEqual(execFileSync('git', ['show', `${source.archivedFrom}:${path}`], { cwd: root }));
+      expect(prior).toEqual(historicalGit(['show', `${source.archivedFrom}:${path}`], { cwd: root }));
       expect(convergenceProsePredecessor(root, source.after, live)).toBe(live);
       expect(keepsConvergenceProseObligations(path, prior.toString(), live.toString(), source.replacedCitations)).toBe(true);
       // The artifact readers see this layer first, and every older layer receives the rebuilt bytes.

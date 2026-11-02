@@ -44,6 +44,7 @@ citations:
   - worldlabs-atlas-2026
   - newton-manipulation-blog-2026
   - metagensim-2026
+  - roborender-2026
 seeAlso:
   - "rl-sim2real/parallel-sim-rl"
   - "data-hardware/data-bottleneck"
@@ -72,7 +73,7 @@ The first three figures are from the 2024 RoboCasa release <Cite id="robocasa-20
 <span id="generate-content-inside-a-physics-engine" />
 ## A physics engine keeps generated content physically consistent
 
-[Generative video](/world-models/generative-video/) learns physics from pixels, and a plausible future can ignore the pending action; the 2026 world-model survey calls visual plausibility a weak proxy for control utility <Cite id="world-model-survey-2026" />. Generative simulation moves the model off that path: a solver executes the generated task, layout, mesh or reward, so a mug with the wrong friction still cannot fall upward.
+[Generative video](/world-models/generative-video/) learns physics from pixels, and a plausible future can ignore the pending action; the 2026 world-model survey calls visual plausibility a weak proxy for control utility <Cite id="world-model-survey-2026" />. Generative simulation moves the model off that path: a solver executes the generated task, layout, mesh or reward, so a mug with the wrong friction still cannot fall upward. ManiSkill3 parallelizes physics and rendering together, including heterogeneous environments and point-cloud or voxel observations <Cite id="maniskill3-2024" />.
 
 <span id="robogen-propose-generate-learn" />
 ## RoboGen automates task proposal, but humans still inspect the results
@@ -88,7 +89,7 @@ GenSim used GPT-4 to expand a benchmark tenfold to over 100 tasks, and pretraine
 
 Holodeck (CVPR 2024) uses GPT-4 to build AI2-THOR environments from text prompts. It selects Objaverse objects and proposes soft relational constraints, and a depth-first-search solver enforces collision and room boundaries while satisfying as many soft constraints as possible <Cite id="holodeck-2024" />.
 
-Holodeck's evaluation, a navigation model pretrained on ProcTHOR-10K, fine-tuned in generated scenes and tested in artist-designed NoveltyTHOR rooms, does not test physically valid manipulation. The authors report trouble with complex layouts and with assets missing from Objaverse <Cite id="holodeck-2024" />.
+Holodeck's evaluation, a navigation model pretrained on ProcTHOR-10K, fine-tuned in generated scenes and tested in artist-designed NoveltyTHOR rooms, does not test physically valid manipulation. The authors report trouble with complex layouts and with assets missing from Objaverse <Cite id="holodeck-2024" />. ProcTHOR procedurally generates interactive houses for navigation, rearrangement and arm manipulation <Cite id="procthor-2022" />.
 
 Objaverse supplies 800K+ models without physical properties <Cite id="objaverse-2022" />. SceneSmith (ICML 2026) adds text-to-3D assets, articulated retrieval and physical-property estimation, with 3 to 6 times more objects than prior methods, under 2% collisions and 96% of objects stable <Cite id="scenesmith-2026" />.
 
@@ -110,7 +111,7 @@ GRS starts from one real RGB-D image. SAM2 segments it, depth and a calibrated r
 <span id="the-push-test" />
 ## Generative simulation borrows its physics from the engine
 
-The push figure separates three layers. Appearance renders the mug, as a reconstruction, texture or video frame might; a physics proxy adds collision geometry, mass and friction; and the simulator integrates the push, sliding the mug by $d = v^2/(2\mu g)$ every time. Cosmos-Transfer1 generates the first layer from segmentation, depth and edge inputs <Cite id="cosmos-transfer1-2025" />, and in the [taxonomy's](/world-models/taxonomy/) verdict on Gaussian Splatting twins, a real-time radiance-field renderer supplies only layer one <Cite id="3dgs-2023" />. Generative video tries to learn layer three, and generative simulation borrows layers two and three from an engine.
+The push figure separates three layers. Appearance renders the mug, as a reconstruction, texture or video frame might; a physics proxy adds collision geometry, mass and friction; and the simulator integrates the push, sliding the mug by $d = v^2/(2\mu g)$ every time. Cosmos-Transfer1 generates the first layer from segmentation, depth and edge inputs <Cite id="cosmos-transfer1-2025" />, and in the [taxonomy's](/world-models/taxonomy/) verdict on Gaussian Splatting twins, a real-time radiance-field renderer supplies only layer one <Cite id="3dgs-2023" />. Generative video tries to learn layer three, and generative simulation borrows layers two and three from an engine. RoboRender likewise changes simulated video appearance while preserving geometry, robot motion and action labels <Cite id="roborender-2026" />.
 
 <span id="limitations" />
 ## Generated content still needs physical and human checks
@@ -130,5 +131,7 @@ Liqian Ma, Danfei Xu and colleagues at Georgia Tech (October 2026) train a rater
 ## Generators propose content and the engine integrates contact
 
 A generator proposes layouts, tasks, textures and initial states; an asset pipeline checks for interpenetrating parts and attaches physical properties, as Infinigen-Articulated does for 18 articulated categories <Cite id="infinigen-articulated-2025" />. Generated 3D worlds follow the same split: World Labs' Marble exports worlds as Gaussian splats and as meshes, including low-fidelity collider meshes for coarse physics simulation <Cite id="marble-2025" />. The engine integrates contacts, a supervisor labels outcomes, and the dataset records which component produced every field. Engines now model more of the contact: Newton 1.0 adds SDF-based collision and hydroelastic contact for tight-tolerance assembly such as connector insertion <Cite id="newton-manipulation-blog-2026" />.
+
+World Labs describes Atlas as an autoregressive diffusion transformer that accepts images, camera poses and depth maps and outputs point clouds or Gaussian splats, generating plausible geometry in unobserved regions <Cite id="worldlabs-atlas-2026" />.
 
 Check asset scale and collision geometry before dynamics, static stability before rollouts and contact parameters against real measurements before claiming transfer. Steerable scene generation enforces feasibility "via projection and simulation" and releases over 44 million scenes <Cite id="steerable-scene-generation-2025" />. Keep failed scenes as adversarial tests; the [simulator comparison](/world-models/world-models-vs-simulators/) gives the selection rule.

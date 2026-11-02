@@ -40,6 +40,9 @@ citations:
   - puppeteer-2024
   - simdist-2026
   - insertion-world-models-2026
+  - iris-world-model-2022
+  - transdreamer-2022
+  - dreamerpro-2021
 seeAlso:
   - "rl-sim2real/rl-for-robotics"
   - "rl-sim2real/legged-locomotion"
@@ -70,6 +73,8 @@ Ha and Schmidhuber trained an agent "entirely inside of its own hallucinated dre
 
 Dreamer's actor and critic are trained purely on imagined latent rollouts from real encoded states, backpropagating value gradients through the model <Cite id="dreamer-2019" />. DreamerV2, which added discrete latents, was the first agent to reach human-level performance on the 55-task Atari benchmark by learning inside a separately trained world model <Cite id="dreamerv2-2020" />.
 
+IRIS learns inside a discrete-autoencoder and autoregressive-transformer world model, evaluated on the Atari 100k benchmark <Cite id="iris-world-model-2022" />. TransDreamer replaces recurrent dynamics with a Transformer State-Space Model shared with a transformer policy, targeting visual tasks that need long-range memory <Cite id="transdreamer-2022" />.
+
 ## DreamerV3: one recipe across 150 tasks
 
 DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. It uses symlog transforms for vector observations, free bits with KL balancing and percentile-based return normalization <Cite id="dreamerv3-2023" />. In the 2025 Nature article its authors call it, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula <Cite id="dreamerv3-nature-2025" />. Its MineRL-based task used abstract crafting actions, accelerated block breaking and sparse intermediate rewards for 12 milestones from log to diamond <Cite id="dreamerv3-2023" />.
@@ -81,7 +86,9 @@ DreamerV3 learned online; in 2025 Dreamer 4 became "the first agent to obtain di
 
 MuZero planned with a model predicting only "the reward, the action-selection policy, and the value function" <Cite id="muzero-2019" />, and value-equivalence theory holds that capacity is "better used to build models that are directly useful for value-based planning" <Cite id="value-equivalence-2020" />. TD-MPC trains reward, TD value and latent-state consistency predictions without reconstructing observations, and at each step runs short-horizon MPPI with a learned terminal value <Cite id="tdmpc-2022" />. TD-MPC2 keeps this planner, adds candidate sequences from a policy prior and warm-starts from the previous solution. <span data-latent-source-placement="below" className="block [&_[role=tooltip]]:top-full [&_[role=tooltip]]:bottom-auto [&_[role=tooltip]]:mt-1.5 [&_[role=tooltip]]:mb-0"><Cite id="tdmpc2-2023" /></span>
 
-The multitask experiment trained one 317M-parameter agent on 545M transitions from 240 single-task agents. This offline 80-task experiment is separate from the 104-task online benchmark, and aggregate normalized scores rose across five model sizes <Cite id="tdmpc2-2023" />. MuDreamer replaced Dreamer's reconstruction with value and action prediction <Cite id="mudreamer-2024" />.
+The multitask experiment trained one 317M-parameter agent on 545M transitions from 240 single-task agents. This offline 80-task experiment is separate from the 104-task online benchmark, and aggregate normalized scores rose across five model sizes <Cite id="tdmpc2-2023" />. MuDreamer replaced Dreamer's reconstruction with value and action prediction <Cite id="mudreamer-2024" />. Masked World Models separates a masked autoencoder from latent dynamics learning and adds reward prediction to preserve task-relevant features <Cite id="masked-world-models-2022" />.
+
+DreamerPro learns prototypes from recurrent world-model states instead of reconstructing pixels, preserving temporal information while addressing distracting backgrounds in DeepMind Control <Cite id="dreamerpro-2021" />.
 
 <span id="daydreamer-imagination-on-physical-hardware" />
 ## DayDreamer taught a real quadruped to walk in about an hour
@@ -95,7 +102,7 @@ DayDreamer builds on DreamerV2 and learns online without a simulator on four rob
 
 The 2023 DreamerV3 preprint lists imagination horizon H = 15 in a table and prediction horizon T = 16 in its actor-critic section, the 2024 revision keeps both labels, and the 2025 Nature article uses T = 16 <Cite id="dreamerv3-2023" /> <Cite id="dreamerv3-nature-2025" />. TD-MPC2 plans with H = 3 and bootstraps beyond it with a terminal value <Cite id="tdmpc2-2023" />. DayDreamer states H = 16 in its methods and H = 15 in its appendix <Cite id="daydreamer-2022" />.
 
-MBPO keeps model rollouts short and "branched from real data" <Cite id="mbpo-2019" />, and STEVE varies the horizon per example to limit model error <Cite id="steve-2018" />. HWM, with world models at several time scales in one latent space, lifted real Franka pick-and-place from 0% to 70% <Cite id="hwm-2026" />. A 350M-parameter model trained on 427 hours across 210 tasks still showed perceptual, action-marginalized and scene-diverging hallucinations <Cite id="wm-hallucination-2026" />.
+MBPO keeps model rollouts short and "branched from real data" <Cite id="mbpo-2019" />, and STEVE varies the horizon per example to limit model error <Cite id="steve-2018" />. HWM, with world models at several time scales in one latent space, lifted real Franka pick-and-place from 0% to 70% <Cite id="hwm-2026" />. Puppeteer uses a visual high-level world-model agent to command a lower-level controller on a simulated humanoid <Cite id="puppeteer-2024" />. A 350M-parameter model trained on 427 hours across 210 tasks still showed perceptual, action-marginalized and scene-diverging hallucinations <Cite id="wm-hallucination-2026" />.
 
 <span id="successors-and-open-limits" />
 ## Simulation-trained world models now transfer to real legged robots

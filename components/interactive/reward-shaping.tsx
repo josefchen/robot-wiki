@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/instrument';
 import { roleColour } from '@/components/motion/chart';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { ReadoutText } from '@/components/iso/readout-text';
 import { Dots, Line, Solid } from '@/components/iso/react/draw';
 import { PartView } from '@/components/iso/part-view';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
@@ -509,7 +510,7 @@ export function RewardShaping({ className }: { className?: string }) {
         <AnatomyStage
           viewWidth={WIDTH}
           hint="Lit fader: the scoring rule in charge of the walk"
-          readout={<span data-testid="walk-readout">{WALK[behaviorId]}</span>}
+          readout={<span data-testid="walk-readout"><ReadoutText>{WALK[behaviorId]}</ReadoutText></span>}
           status="Illustrative teaching model. No policy is trained here."
           data-walk={behaviorId}
         >

@@ -268,9 +268,12 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
       'hardware-taxonomy price ladder and the teleop-rigs collection-rate bars, one ' +
       'each; the owed frontier figures made it 43: the bear-case funding and ' +
       'humanoid-count bars, the safety-and-assurance rules timeline and the ' +
-      'generalization Helix 2.5 zero-shot bars, one each; a change here means a ' +
+      'generalization Helix 2.5 zero-shot bars, one each; the owed adjacent figures ' +
+      'make it 48: AV safety miles, space latency, surgical autonomy, drone racing ' +
+      'champions and drone deliveries, one each; world-model output times ' +
+      'adds one timing table for 49; a change here means a ' +
       'chart was added, removed or re-declared form)',
-  ).toBe(43);
+  ).toBe(49);
   // An unresolved svg yields no ticks, which clause (a) would otherwise
   // record as one more carve-out: the payback chart went ungraded that way
   // while its svg named a caption and the description in one id list.
@@ -389,6 +392,14 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   // the axis is years) and the generalization Helix 2.5 bars (rows are
   // policies, the axis is percent). The floor and cap keep their margin of
   // two.
+  // The five owed adjacent tables are categorical rows too: human
+  // benchmarks, delay paths, surgical levels, named contests and operators.
+  // Each was measured on its live mounted figure with this same extractor
+  // and checkClauseA/checkClauseB: five honest skips and no disagreement.
+  // They move population 43 -> 48 and skips 37 -> 42, preserving the
+  // unchanged graded floor of four and the same two-chart skip margin.
+  // The world-model output-time table adds a categorical system/hardware
+  // row population: 49 tables and 43 axis carve-outs. Keep the same margin.
   // Name every carve-out in the failure text, so a floor or cap breach
   // says which charts moved instead of only how many.
   const skipList = aSkips
@@ -396,12 +407,12 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
     .join(' | ');
   expect(
     aGraded.length,
-    `clause (a) graded population (measured 6 of 43 after the owed frontier figures; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
+    `clause (a) graded population (6 of 49 after the categorical adjacent and output-time additions; 4 leaves margin for two honest new carve-outs). Skipped: ${skipList}`,
   ).toBeGreaterThanOrEqual(4);
   expect(
     aSkips.length,
-    `clause (a) skip count (measured 37 honest non-comparable axes; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
-  ).toBeLessThanOrEqual(39);
+    `clause (a) skip count (43 honest non-comparable axes after the adjacent and output-time additions; a mass carve-out must fail loudly, not pass silently). Skipped: ${skipList}`,
+  ).toBeLessThanOrEqual(45);
 });
 
 test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {

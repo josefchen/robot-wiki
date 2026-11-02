@@ -8,6 +8,7 @@ import {
   type Citation,
 } from '@/data/citations';
 import { citationSchema } from '@/data/schemas/citation';
+import { sourceKey } from '@/lib/citation-source-key';
 
 // Exact retained primary-body editions, not a blanket arXiv HTML/PDF exception.
 const primaryBodyExceptions = [
@@ -141,7 +142,7 @@ describe('citation registry', () => {
     const zhao = getCitation('act-aloha-2023');
     expect(zhao).toBeDefined();
     expect(citationLabel(zhao!)).toBe('Zhao et al. 2023');
-    expect(citationLabel(getCitation('kalman-1960-filter')!)).toBe('Kalman 1960');
+    expect(citationLabel(getCitation('kalman-1960-filter')!)).toBe('Kalman 1960b');
   });
 
   it('citationLabel keeps organization names whole', () => {
@@ -155,10 +156,31 @@ describe('citation registry', () => {
     };
     expect(citationLabel(org)).toBe('Physical Intelligence 2025');
     expect(citationLabel(getCitation('bd-spot-rl-2024')!)).toBe('Boston Dynamics 2024');
-    expect(citationLabel(getCitation('ros2-qos-2026')!)).toBe('ROS 2 Project 2026');
+    expect(citationLabel(getCitation('ros2-qos-2026')!)).toMatch(/^ROS 2 Project 2026[a-z]+$/);
     expect(citationLabel(getCitation('osha-otm-robots')!)).toBe('OSHA 2026');
     // The real RTC blog has a named byline, not organization authorship.
     expect(citationLabel(getCitation('pi-real-time-chunking-blog-2025')!)).toMatch(/^Black /);
+  });
+
+  it('names institutional authors and distinguishes the two ISO 10218 parts', () => {
+    expect(citationLabel(getCitation('eu-machinery-regulation-2023')!)).toBe('European Union 2023');
+    expect(citationLabel(getCitation('iso-10218-1-2025')!)).toBe('ISO 2025a');
+    expect(citationLabel(getCitation('iso-10218-2-2025')!)).toBe('ISO 2025b');
+    expect(citationLabel(getCitation('iso-iec-tr-5469-2024')!)).toBe('ISO/IEC JTC 1/SC 42 2024');
+  });
+
+  it('gives every distinct registry source an unambiguous label without splitting aliases', () => {
+    const sourcesPerLabel = new Map<string, Set<string>>();
+    for (const citation of CITATIONS) {
+      const label = citationLabel(citation);
+      const sources = sourcesPerLabel.get(label) ?? new Set<string>();
+      sources.add(sourceKey(citation));
+      sourcesPerLabel.set(label, sources);
+    }
+    for (const [label, sources] of sourcesPerLabel) expect(sources.size, label).toBe(1);
+    expect(citationLabel(getCitation('diffusion-policy-2023')!)).toBe(
+      citationLabel(getCitation('diffusion-policy-2023-v1')!),
+    );
   });
 
   it('citationLabel keeps multi-word surnames via override, without breaking lookalikes', () => {
@@ -196,8 +218,9 @@ describe('citation registry', () => {
       const first = citation.authors[0];
       const words = first.split(' ');
       const organisation = ORGANIZATION_CHIP_NAMES.get(first);
-      expect(label.endsWith(` ${citation.year}`), label).toBe(true);
-      const name = label.slice(0, -` ${citation.year}`.length).replace(/ et al\.$/, '');
+      const year = / (\d{4}|n\.d\.)(?:-?[a-z]+)?$/.exec(label);
+      expect(year?.[1], label).toBe(String(citation.year));
+      const name = label.slice(0, year!.index).replace(/ et al\.$/, '');
       expect(label.includes(' et al. '), label).toBe(citation.authors.length > 1);
       if (organisation) {
         expect(name).toBe(organisation);

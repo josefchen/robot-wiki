@@ -54,6 +54,12 @@ describe('ExplainerFigure, an explainer mounted in its home article', () => {
         expect(frame.querySelectorAll(`[data-x="${hook}"]`), hook).toHaveLength(1);
       }
       expect(frame.querySelector('[data-x="pagerPrev"], [data-x="kicker"], [data-rail-id]')).toBeNull();
+      const kitPrediction = frame.querySelector('[data-explainer-predict]')!;
+      expect(kitPrediction.hasAttribute('data-predict')).toBe(true);
+      expect(kitPrediction.hasAttribute('hidden')).toBe(true);
+      expect(frame.querySelectorAll('[data-predict]:not([data-explainer-predict])')).toHaveLength(0);
+      kitPrediction.removeAttribute('data-explainer-predict');
+      expect(frame.querySelectorAll('[data-predict]:not([data-explainer-predict])')).toHaveLength(1);
     });
   }
 });
