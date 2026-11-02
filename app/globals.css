@@ -531,6 +531,32 @@ article > hr {
   --topbar-height: 76px;
 }
 
+/* At narrow reflow/zoom widths, keep all three navigation destinations
+   available by giving the wordmark and controls their own rows. */
+@media (max-width: 359px) {
+  :root {
+    --topbar-height: 100px;
+    --header-gutter: 20px;
+  }
+
+  [data-site-topbar] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    gap: 8px;
+  }
+
+  [data-site-topbar] > nav {
+    min-width: 0;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  [data-did-you-know] .whitespace-nowrap {
+    white-space: normal;
+  }
+}
+
 @media (min-width: 640px) {
   :root {
     --article-gutter: 32px;
@@ -1239,6 +1265,7 @@ article > hr {
 }
 
 .sidenote {
+  scroll-margin-bottom: 8px;
   font-family: var(--font-sans);
   font-size: 13px;
   font-style: normal;

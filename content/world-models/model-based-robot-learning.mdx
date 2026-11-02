@@ -45,6 +45,9 @@ citations:
   - simdist-2026
   - t2z-2026
   - pia-2026
+  - stochastic-value-gradients-2015
+  - model-based-meta-policy-2018
+  - bayesian-model-value-expansion-2022
 seeAlso:
   - "rl-sim2real/reward-design-mpc"
   - "rl-sim2real/offline-rl"
@@ -52,12 +55,17 @@ seeAlso:
 ---
 
 import { ExcavatorPractice } from '@/components/interactive/excavator-practice';
+import { ModelBasedLoop } from '@/components/interactive/model-based-loop';
 
 Model-based robot learning is the family of methods that learn how the world responds to actions and use that model to plan, to train a policy in imagination, or both. Its two steps are learning a dynamics model and integrating planning with learning <Cite id="mbrl-survey-2020" />.
 
 <Image id="daydreamer-a1-rollover-2022" />
 
 The loop predicts futures under candidate actions, scores them, acts, observes the real transition and updates the model. Sutton proposed integrated architectures for learning, planning and reacting in 1990 <Cite id="dyna-1990" />.
+
+<ModelBasedLoop className="my-6" />
+
+Try the planning question about a model that ignores candidate actions <Cite id="mbrl-survey-2020" />.
 
 <SelfCheck
   prompt="A learned dynamics model produces sharp videos but predicts nearly the same future for three different gripper actions. What is the diagnosis?"
@@ -87,7 +95,7 @@ The loop predicts futures under candidate actions, scores them, acts, observes t
 
 A 2026 survey defines a world model as "an action-conditioned predictive system" <Cite id="manip-wm-survey-2026" />. Classical model-predictive control (MPC) uses explicit dynamics, such as MuJoCo's rigid-body and contact model <Cite id="mujoco-2012" />; model-based learning fits some or all of that transition to data.
 
-A <Term id="world-model">world model</Term> need not predict pixels: value-equivalent models predict only what planning needs, "without compromising performance" <Cite id="value-equivalence-2020" />.
+A <Term id="world-model">world model</Term> need not predict pixels: value-equivalent models predict only what planning needs, "without compromising performance" <Cite id="value-equivalence-2020" />. PILCO carries Gaussian-process transition uncertainty into planning and controller learning <Cite id="pilco-2015" />.
 
 <span id="two-ways-to-use-imagined-experience" />
 ## A model can plan each step or train a policy in imagination
@@ -96,10 +104,16 @@ A planner rolls sampled action sequences through the model, executes the best fi
 
 Dreamer instead trains a policy on trajectories imagined in a learned latent space <Cite id="dreamer-2019" />, and DreamerV3 covers more than 150 tasks with one configuration <Cite id="dreamerv3-2023" />. Dreamer 4 learns purely offline, a setting its authors tie to robotics, where interaction "can be unsafe and slow" <Cite id="dreamer4-2025" />. [Latent dynamics](/world-models/latent-dynamics/) covers these agents.
 
+Stochastic Value Gradients provides an earlier route to differentiating through learned dynamics: it expresses randomness as external noise and uses real environment observations to limit compounded rollout error <Cite id="stochastic-value-gradients-2015" />.
+
 <span id="uncertainty-aware-models" />
 ## Uncertainty estimates keep policies from exploiting model errors
 
-A policy trained on a model "tends to exploit regions where insufficient data is available", which ME-TRPO counters with an ensemble <Cite id="me-trpo-2018" />. PETS, a probabilistic ensemble, matches model-free asymptotic performance with 8 and 125 times fewer samples than SAC and PPO on half-cheetah <Cite id="pets-2018" />. MBPO keeps rollouts short and "branched from real data" <Cite id="mbpo-2019" />. In [offline RL](/rl-sim2real/offline-rl/), MOPO penalizes reward by model uncertainty <Cite id="mopo-2020" />.
+A policy trained on a model "tends to exploit regions where insufficient data is available", which ME-TRPO counters with an ensemble <Cite id="me-trpo-2018" />. PETS, a probabilistic ensemble, matches model-free asymptotic performance with 8 and 125 times fewer samples than SAC and PPO on half-cheetah <Cite id="pets-2018" />.
+
+MBPO keeps rollouts short and "branched from real data" <Cite id="mbpo-2019" />. In [offline RL](/rl-sim2real/offline-rl/), MOPO penalizes reward by model uncertainty <Cite id="mopo-2020" />. MOReL learns a pessimistic decision process from offline data and trains its policy within that process <Cite id="morel-2020" />.
+
+MB-MPO meta-learns a policy that adapts to each member of a dynamics ensemble with one policy-gradient step, placing model disagreement inside the adaptation problem <Cite id="model-based-meta-policy-2018" />. CBOP weights model-based and model-free value estimates by their epistemic uncertainty and uses a lower bound on the posterior estimate for conservative offline learning <Cite id="bayesian-model-value-expansion-2022" />.
 
 <span id="why-physical-robots-make-the-model-harder" />
 ## Robots see only part of the state, yet learn useful models in minutes to hours

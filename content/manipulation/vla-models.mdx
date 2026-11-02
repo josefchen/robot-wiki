@@ -55,6 +55,8 @@ A <Term id="vision-language-action-model">vision-language-action (VLA)</Term> mo
 
 <Image id="gemini-robotics-aloha-dexterous-2025" />
 
+Move the "Moment in the movement" slider to inspect the illustrated action tokens <Cite id="rt2-2023" />.
+
 <ActionTokenization className="my-6" />
 
 ## RT-1: actions become tokens
@@ -76,9 +78,9 @@ RT-1 predicts one action at a time at 3 Hz, with a fixed 280 ms wait, the maximu
 
 ## RT-2: actions become text
 
-RT-2 (2023) writes each action dimension's 256 bin indices as strings in a <Term id="vision-language-model">vision-language model</Term>'s token stream: PaLI-X already has a token for every integer up to 1000, while PaLM-E overwrites its 256 least frequently used tokens. The backbone, up to 55B parameters, is co-fine-tuned on robot trajectories and the original web vision-language data, which the authors report generalizes better than robot data alone <Cite id="rt2-2023" />.
+RT-2 (2023) writes each action dimension's 256 bin indices as strings in a <Term id="vision-language-model">vision-language model</Term>'s token stream: PaLI-X already has a token for every integer up to 1000, while PaLM-E overwrites its 256 least frequently used tokens. The backbone, up to 55B parameters, is co-fine-tuned on robot trajectories and the original web vision-language data, which the authors report generalizes better than robot data alone <Cite id="rt2-2023" />. PaLM-E's inputs interleave visual, continuous state-estimation and text embeddings, grounding its language model in sensor observations <Cite id="palm-e-2023" />.
 
-That web knowledge shows up as emergent object choice, such as picking the smallest object, and multi-stage reasoning, such as using a rock as an improvised hammer <Cite id="rt2-2023" />. Gemini Robotics 1.5 interleaves actions with natural-language reasoning <Cite id="gemini-robotics-15-2025" />.
+That web knowledge shows up as emergent object choice, such as picking the smallest object, and multi-stage reasoning, such as using a rock as an improvised hammer <Cite id="rt2-2023" />. Gemini Robotics 1.5 interleaves actions with natural-language reasoning <Cite id="gemini-robotics-15-2025" />. VLA-0 revisits plain-text action representations, avoiding added action heads or a modified vocabulary <Cite id="vla-0-2025" />.
 
 In a May 2025 research note, Danny Driess and colleagues at Physical Intelligence call this tokenization "not suitable for high-frequency, precise, or fluent motions," likening it to "controlling your arm by verbally saying which muscles should contract" <Cite id="knowledge-insulation-2025" />. The same lab's FAST paper locates the failure in simple per-dimension, per-timestep binning; its compressed tokens match diffusion VLAs on 10k hours of robot data while training up to 5 times faster <Cite id="pi0-fast-2025" />.
 
@@ -100,7 +102,7 @@ Two 2024 releases made the recipe reproducible outside Google. Octo ships 27M- a
 
 OpenVLA builds on the Prismatic VLM <Cite id="prismatic-vlm-2024" />, with a Llama 2 7B backbone <Cite id="llama-2-2023" /> and fused DINOv2 <Cite id="dinov2-2023" /> and SigLIP <Cite id="siglip-2023" /> features. Trained on 970k robot demonstrations, it predicts seven coordinates for position, orientation and gripper, each split into 256 uniform bins between the training data's 1st and 99th quantiles instead of its minimum and maximum; bin indices replace the 256 least-used Llama tokens and are predicted autoregressively <Cite id="openvla-2024" /> <Cite id="openvla-oft-2025" />.
 
-Its headline result is 16.5 points higher absolute task success than RT-2-X (55B) with "7x fewer parameters", over 29 tasks on two embodiments: 17 WidowX tasks with ten trials each and 12 Google-robot tasks with five, from matched initial robot and object states, with partial credit on some tasks <Cite id="openvla-2024" />. Among later open models, SmolVLA trains on one GPU, deploys on consumer GPUs or CPUs and decouples action prediction from execution with asynchronous inference <Cite id="smolvla-2025" />.
+Its headline result is 16.5 points higher absolute task success than RT-2-X (55B) with "7x fewer parameters", over 29 tasks on two embodiments: 17 WidowX tasks with ten trials each and 12 Google-robot tasks with five, from matched initial robot and object states, with partial credit on some tasks <Cite id="openvla-2024" />. Among later open models, SmolVLA trains on one GPU, deploys on consumer GPUs or CPUs and decouples action prediction from execution with asynchronous inference <Cite id="smolvla-2025" />. CogACT conditions a dedicated diffusion action transformer on the VLM's output <Cite id="cogact-2024" />.
 
 ## The discrete-token throughput problem
 

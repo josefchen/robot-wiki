@@ -1,5 +1,5 @@
+import { historicalGit } from '../helpers/historical-git';
 import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -11,32 +11,55 @@ import {
 } from '../../lib/audit-owed-figures-continuity';
 import { createLocalArtifactReader } from '../../lib/audit-local-basis';
 import { seoPassPredecessor } from '../../lib/audit-seo-pass-continuity';
+import { sourceFloorPredecessor } from '../../lib/audit-source-floor-continuity';
 import { preConvergenceProse, preOwedFigures } from '../helpers/seo-pass';
 
 const root = resolve(import.meta.dirname, '../..');
-const read = (path: string) => readFileSync(join(root, path));
+// Exercise this layer at its reviewed endpoint. The newer source-floor
+// layer has its own exact-byte, mutation and complete-chain checks.
+const read = (path: string) => sourceFloorPredecessor(root, { path, bytes: 0, sha256: '' }, readFileSync(join(root, path)));
 const sha = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 const drift = /owed-figures continuity drift/;
 const blank = { bytes: 0, sha256: '' };
 const ARTICLES = [
+  'content/adjacent/autonomous-vehicles.mdx', 'content/adjacent/drones.mdx',
+  'content/adjacent/space.mdx', 'content/adjacent/surgical.mdx',
   'content/data-hardware/datasets.mdx', 'content/data-hardware/hardware-taxonomy.mdx',
   'content/data-hardware/industrial-deployment.mdx', 'content/data-hardware/robot-learning-stack.mdx',
   'content/data-hardware/teleop-rigs.mdx', 'content/frontier/bear-case.mdx',
   'content/frontier/generalization.mdx', 'content/frontier/safety-and-assurance.mdx',
+  'content/world-models/evaluation.mdx', 'content/world-models/model-based-robot-learning.mdx',
+  'content/world-models/world-models-vs-simulators.mdx',
 ];
 const MOUNTS: Record<string, string[]> = {
+  'content/adjacent/autonomous-vehicles.mdx': ['AvSafetyMiles'],
+  'content/adjacent/drones.mdx': ['DroneChampionsTimeline', 'DroneDeliveryCounts'],
+  'content/adjacent/space.mdx': ['SpaceLatencyLadder'],
+  'content/adjacent/surgical.mdx': ['SurgicalAutonomyLadder'],
   'content/data-hardware/datasets.mdx': ['DatasetRunsHours'],
   'content/data-hardware/hardware-taxonomy.mdx': ['HardwarePriceLadder'],
   'content/data-hardware/teleop-rigs.mdx': ['UmiCollectionRates'],
   'content/frontier/bear-case.mdx': ['FundingHumanoidCounts'],
   'content/frontier/generalization.mdx': ['HelixZeroShotSuccess'],
   'content/frontier/safety-and-assurance.mdx': ['SafetyRulesTimeline'],
+  'content/world-models/evaluation.mdx': ['WorldModelEvaluationLadder'],
+  'content/world-models/model-based-robot-learning.mdx': ['ModelBasedLoop'],
+  'content/world-models/world-models-vs-simulators.mdx': ['WorldModelOutputTimes'],
 };
-/** The data-hardware slice reads its predecessors at e7782066, the frontier slice at 4f14215b. */
+const FRONTIER_BASE = '4f14215b2f209e8a028002bb55e5c3f8bd314fdf';
+const ADJACENT_BASE = 'e10bba28c9088b3639e34032ba2b921849b4b4b4';
+/** The data-hardware slice reads its predecessors at e7782066, the frontier slice at 4f14215b, the adjacent slice at e10bba28. */
 const PREDECESSORS: Record<string, string> = {
-  'content/frontier/bear-case.mdx': '4f14215b2f209e8a028002bb55e5c3f8bd314fdf',
-  'content/frontier/generalization.mdx': '4f14215b2f209e8a028002bb55e5c3f8bd314fdf',
-  'content/frontier/safety-and-assurance.mdx': '4f14215b2f209e8a028002bb55e5c3f8bd314fdf',
+  'content/adjacent/autonomous-vehicles.mdx': ADJACENT_BASE,
+  'content/adjacent/drones.mdx': ADJACENT_BASE,
+  'content/adjacent/space.mdx': ADJACENT_BASE,
+  'content/adjacent/surgical.mdx': ADJACENT_BASE,
+  'content/frontier/bear-case.mdx': FRONTIER_BASE,
+  'content/frontier/generalization.mdx': FRONTIER_BASE,
+  'content/frontier/safety-and-assurance.mdx': FRONTIER_BASE,
+  'content/world-models/evaluation.mdx': 'e10bba28c9088b3639e34032ba2b921849b4b4b4',
+  'content/world-models/model-based-robot-learning.mdx': 'e10bba28c9088b3639e34032ba2b921849b4b4b4',
+  'content/world-models/world-models-vs-simulators.mdx': 'e10bba28c9088b3639e34032ba2b921849b4b4b4',
 };
 const blocks = (text: string) => [...text.replace(/^---\n[\s\S]*?\n---\n/, '').matchAll(/^<([A-Z][A-Za-z0-9.]*)/gm)]
   .map((match) => match[1]);
@@ -49,7 +72,7 @@ afterEach(() => {
 describe('owed figures 2026-10-26 article successors', () => {
   const review = loadOwedFiguresReview(root);
 
-  it('reviews exactly the five data-hardware and three frontier articles the figures slices edit', () => {
+  it('reviews exactly the five data-hardware, three frontier, four adjacent and three world-model articles the figures slices edit', () => {
     expect([...owedFiguresSuccessorPaths()].sort()).toEqual(ARTICLES);
     expect(review.sources.map(({ after }) => after.path).sort()).toEqual(ARTICLES);
     for (const { after, archivedFrom } of review.sources) {
@@ -57,7 +80,7 @@ describe('owed figures 2026-10-26 article successors', () => {
     }
   });
 
-  it('adds one figure each to six articles and drops none', () => {
+  it('adds one figure each to twelve articles, two to drones, and drops none', () => {
     for (const source of review.sources) {
       const path = source.after.path;
       const prior = owedFiguresPredecessor(root, source.before, read(path)).toString();
@@ -80,7 +103,7 @@ describe('owed figures 2026-10-26 article successors', () => {
       const live = read(path);
       const prior = owedFiguresPredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
-      expect(prior).toEqual(execFileSync('git', ['show', `${source.archivedFrom}:${path}`], { cwd: root }));
+      expect(prior).toEqual(historicalGit(['show', `${source.archivedFrom}:${path}`], { cwd: root }));
       expect(owedFiguresPredecessor(root, source.after, live)).toBe(live);
       expect(keepsOwedFiguresObligations(path, prior.toString(), live.toString(), source)).toBe(true);
       // The artifact readers see this layer first, and every older layer receives the rebuilt bytes.

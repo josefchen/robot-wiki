@@ -39,14 +39,16 @@
 import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { gunzipSync } from 'node:zlib';
 
 type Violation = { file: string; line: number; rule: string; snippet: string };
 
 const root = new URL('..', import.meta.url).pathname;
+const historicalArchive = (file: string) => /^tests\/fixtures\/history\/blobs\/[0-9a-f]{64}\.txt\.gz$/.test(file);
 const files = execSync('git ls-files', { cwd: root, encoding: 'utf8', maxBuffer: 1 << 24 })
   .split('\n')
   .filter(Boolean)
-  .filter((file) => !/\.(png|jpe?g|webp|gif|ico|pdf|woff2?|ttf|otf|mp4|webm|glb|bin|drc|ktx2|zip|gz|xz)$/i.test(file))
+  .filter((file) => historicalArchive(file) || !/\.(png|jpe?g|webp|gif|ico|pdf|woff2?|ttf|otf|mp4|webm|glb|bin|drc|ktx2|zip|gz|xz)$/i.test(file))
   // The enforcement files carry the vocabulary they forbid: their tables and
   // rules are the definition of this gate, not reintroduced traces.
   .filter((file) => file !== 'scripts/check-neutral-tooling.ts' && file !== 'lib/neutral-tooling.ts');
@@ -159,8 +161,10 @@ const violations: Violation[] = [];
 outer: for (const file of files) {
   let text: string;
   try {
-    text = readFileSync(resolve(root, file), 'utf8');
-  } catch {
+    const bytes = readFileSync(resolve(root, file));
+    text = (historicalArchive(file) ? gunzipSync(bytes) : bytes).toString('utf8');
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
     continue; // deleted in the working tree; not part of the published content
   }
   if (text.includes('\u0000')) continue;

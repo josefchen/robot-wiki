@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { CITATIONS } from '@/data/citations';
 import { publishedModules } from '@/data/modules';
-import { MIN_DISTINCT_SOURCES, countArticleSources, normaliseUrl, sourceKey } from '@/lib/article-sources';
+import { MIN_DISTINCT_SOURCES, MIN_SITE_DISTINCT_SOURCES, countArticleSources, normaliseUrl, sourceKey } from '@/lib/article-sources';
 
 /**
  * VAL-OPUS-152: every published article cites at least 30 distinct sources
@@ -50,5 +50,11 @@ describe('distinct sources per article', () => {
     expect(run.status, run.stderr).toBe(0);
     expect(run.stdout).toContain('clean copy: exit 0');
     expect(run.stdout).toContain('/manipulation/action-chunking/ cut to 29: exit 1, names the route and count');
+    expect(run.stdout).toContain('shared-source site total 30: exit 1, names the site total and floor');
   }, 60_000);
+
+  it('meets the separate site-wide floor with shared papers counted once', () => {
+    const rows = countArticleSources(join(process.cwd(), 'content'), publishedModules(), (id) => byId.get(id));
+    expect(new Set(rows.flatMap((row) => row.sources)).size).toBeGreaterThanOrEqual(MIN_SITE_DISTINCT_SOURCES);
+  });
 });

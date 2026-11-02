@@ -35,8 +35,16 @@ import {
   type ArticleTruthKind,
   type ArticleTruthManifests,
 } from '../lib/brand-v2-baseline-truth.ts';
-import { collectArticleTruthManifests } from './brand-v2-baseline.ts';
-import type { ApprovedDelta } from '../lib/brand-v2-baseline.ts';
+import { collectArticleTruthManifests, collectBundle, collectBaselineCheckResult } from './brand-v2-baseline.ts';
+import type { ApprovedDelta, BaselineBundle } from '../lib/brand-v2-baseline.ts';
+import {
+  RELEASE_BASELINE_ASSERTIONS, RELEASE_BASELINE_SOURCE_PREFIX,
+  releaseBaselineMutationProof, releaseBaselinePopulation, releaseBaselineReading,
+  releaseBaselineSourceProblems,
+} from '../lib/brand-v2-release-baseline.ts';
+import { closeGovernanceEvidence, RELEASE_GOVERNANCE_ASSERTIONS } from '../lib/brand-v2-release-governance.ts';
+import { collectReleaseClosure, RELEASE_CLOSURE_POPULATION_SOURCES, enforceReleaseDependencies } from '../lib/brand-v2-release-closure.ts';
+import { collectReleaseResidueEvidence, ASSERTION_POPULATION_SOURCES as RELEASE_RESIDUE_POPULATION_SOURCES, type ReleaseResidueInput } from '../lib/brand-v2-release-residue.ts';
 import {
   LINK_SAFETY_EVIDENCE_PATH,
   LINK_SAFETY_POPULATION_SOURCE,
@@ -465,7 +473,10 @@ function isMeasured(id: string): boolean {
     INTERACTIVE_CAPTURE_ASSERTIONS.has(id) ||
     LEDGER_ASSERTION_IDS.has(id) ||
     OG_ASSERTIONS.has(id) ||
-    GLOBAL_CONVERGENCE_ASSERTIONS.has(id)
+    GLOBAL_CONVERGENCE_ASSERTIONS.has(id) ||
+    Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,id) ||
+    Object.hasOwn(RELEASE_RESIDUE_POPULATION_SOURCES,id) ||
+    Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, id)
   );
 }
 
@@ -991,6 +1002,19 @@ const APPROVED_DELTAS = (
     entries: ApprovedDelta[];
   }
 ).entries;
+
+// Final truth rows are measured against actual current manifests. Each row
+// gets its own real baseline member; a manifest-class name is no longer a
+// surrogate for the route/value/interaction the assertion quantifies over.
+const RELEASE_BASELINE_COLLECTION = collectBundle();
+const RELEASE_BASELINE_BUNDLE = BASELINE as BaselineBundle;
+const RELEASE_BASELINE_COMPARISON = collectBaselineCheckResult(RELEASE_BASELINE_BUNDLE, RELEASE_BASELINE_COLLECTION, APPROVED_DELTAS);
+const RELEASE_BASELINE_MUTATIONS = releaseBaselineMutationProof(RELEASE_BASELINE_COLLECTION.bundle);
+const RELEASE_BASELINE_SOURCE_PROBLEMS = releaseBaselineSourceProblems(RELEASE_BASELINE_BUNDLE);
+const RELEASE_BASELINE_POPULATIONS = Object.fromEntries(Object.keys(RELEASE_BASELINE_ASSERTIONS).map((id) => [
+  `${RELEASE_BASELINE_SOURCE_PREFIX}${id}`,
+  releaseBaselinePopulation(id, RELEASE_BASELINE_BUNDLE, RELEASE_BASELINE_COLLECTION.bundle),
+]));
 
 /**
  * `VAL-B2-BASE-002`'s evidence: the four article-truth manifests as the
@@ -1679,6 +1703,19 @@ const OG_EVIDENCE = readOgEvidence({
 });
 const OG_POPULATIONS = ogPopulations(OG_EVIDENCE);
 
+// Final closure re-reads the complete exact state/profile index, the frozen
+// production build, deep PNG/rubric bytes and the complete test inventories.
+// Missing artifacts fail here; registered membership alone grants no pass.
+const RELEASE_CLOSURE = collectReleaseClosure(ROOT);
+const RELEASE_RESIDUE = collectReleaseResidueEvidence({ root: ROOT,
+  registry:REGISTRY as unknown as ReleaseResidueInput['registry'],
+  identity:IDENTITY_EVIDENCE,global:GLOBAL_CONVERGENCE_EVIDENCE,controls:CONTROL_STATES,figures:FIGURE_EVIDENCE,og:OG_EVIDENCE,
+  baseline:RELEASE_BASELINE_BUNDLE,current:RELEASE_BASELINE_COLLECTION.bundle,approvedDeltas:APPROVED_DELTAS,
+  activatedStateResidue:RELEASE_CLOSURE.activatedStateResidue,expectedActivatedStateIds:RELEASE_CLOSURE.expectedActivatedStateIds,
+});
+const RELEASE_MEASURED_VERDICTS = new Map(Object.entries({...RELEASE_CLOSURE.verdicts,...RELEASE_RESIDUE.verdicts})
+  .map(([assertion,rows])=>[assertion,new Map(rows.map((row)=>[row.id,row]))]));
+
 function populationSources(assertionIds: string[]) {
   return buildEnforcementPopulationSources({
     registry: REGISTRY,
@@ -1729,6 +1766,9 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
     ...SEARCH_POPULATIONS,
     ...MAP_POPULATIONS,
     ...OG_POPULATIONS,
+    ...RELEASE_BASELINE_POPULATIONS,
+    ...RELEASE_CLOSURE.populations,
+    ...RELEASE_RESIDUE.populations,
     [TYPE_POPULATION_SOURCE]: Object.keys(TYPE_POPULATIONS),
     [SURFACE_FAMILY_POPULATION_SOURCE]: [...SURFACE_FAMILIES],
     [REPRESENTATIVE_SURFACE_POPULATION_SOURCE]: [...REPRESENTATIVE_SURFACES],
@@ -1736,6 +1776,9 @@ function allPopulationSources(assertionIds: string[]): Record<string, string[]> 
 }
 
 function populationSourceFor(id: string): string {
+  const finalSource=RELEASE_CLOSURE_POPULATION_SOURCES[id]??RELEASE_RESIDUE_POPULATION_SOURCES[id];
+  if(finalSource)return finalSource;
+  if (Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, id)) return `${RELEASE_BASELINE_SOURCE_PREFIX}${id}`;
   const ogSource = OG_ASSERTION_POPULATION_SOURCES[id];
   if (ogSource) return ogSource;
   const identitySource = IDENTITY_ASSERTION_POPULATION_SOURCES[id];
@@ -1807,6 +1850,8 @@ function populationSourceFor(id: string): string {
 }
 
 function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] {
+  const final=RELEASE_MEASURED_VERDICTS.get(id)?.values().next().value;
+  if(final)return final.mode;
   const area = id.split('-')[2];
   // A token row's evidence is a computed value read out of a live document,
   // and a primitive row's evidence is the persisted browser reconciliation,
@@ -2896,6 +2941,33 @@ function ogTargetsFor(id: string): TestTarget[] {
 }
 
 function testTargetsFor(id: string): TestTarget[] {
+  if(Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,id))return [
+    testTarget('tests/unit/brand-v2-release-closure.test.ts','final release composite evidence > does not let profile or visual success waive pending interaction or truth evidence','Fails a missing or unresolved independent truth/interaction prerequisite.'),
+    testTarget('tests/unit/brand-v2-release-evidence.test.ts','final release state evidence > accepts complete measured observations and includes every sealed half viewport','Exact source/export, state and twelve-profile coverage with measured reflow/media/content accessibility predicates.'),
+    testTarget('tests/unit/brand-v2-release-deep.test.ts','final deep release evidence > re-evaluates every anchor and decodes the exact phase and full-document bytes','Current ordered deep captures, decoded nonblank screenshot bytes, current source/export and independent reference anchors.'),
+    testTarget('tests/unit/brand-v2-release-test-run.test.ts','complete final test-run evidence > joins executed cases to the independent full inventory','Current complete unfiltered executed test inventory; no unexplained skipped or expected-failed tests.'),
+  ];
+  if(Object.hasOwn(RELEASE_RESIDUE_POPULATION_SOURCES,id))return [
+    testTarget('tests/unit/brand-v2-release-residue.test.ts','release metadata agreement > compares exported values including all social keys and full JSON-LD content','Independently derived owner/export metadata, runtime residue, preserved assets, migration map and exact activated-state population.'),
+    testTarget('tests/unit/brand-v2-release-residue.test.ts','release residue evidence completeness > accepts a complete observation matrix without inventing a pass field','Current full route/viewport runtime residue, preserved assets and exact activated-state population.'),
+  ];
+  if ((RELEASE_GOVERNANCE_ASSERTIONS as readonly string[]).includes(id)) return [ENFORCEMENT_TARGET,
+    testTarget('tests/unit/brand-v2-release-governance.test.ts',
+      'release governance measurements > executes every omission mutant against the current corpus without changing it',
+      'Runs actual missing-row, missing-target, missing-result, missing-member, missing-source and empty-population mutants against the current corpus, and proves pending still blocks release.'),
+    testTarget('tests/unit/brand-v2-release-governance.test.ts',
+      'release governance measurements > emits one measured governance result for each real assertion and preserves product pending status',
+      'Reconciles every live assertion with its real canonical population and generated targets; product acceptance remains separately enforced.'),
+  ];
+  if (Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, id)) return [
+    BASELINE_TARGET,
+    testTarget('tests/unit/brand-v2-release-baseline.test.ts',
+      'release baseline measured readers > joins actual original/current member hashes and rejects unapproved source drift',
+      'Rebuilds every relevant source manifest and rejects the member whose current hash has no exact approved path.'),
+    testTarget('tests/unit/brand-v2-release-baseline.test.ts',
+      'release baseline measured readers > proves an omitted member fails in every manifest, without changing the original',
+      'Deletes an actual member in each manifest class in memory and requires a tagged omission without modifying the source bundle.'),
+  ];
   if (OG_ASSERTIONS.has(id)) return ogTargetsFor(id);
   if (CONTROL_STATE_ASSERTION_IDS.has(id)) {
     return controlStateTargetsFor(id as ControlStateAssertion);
@@ -3097,7 +3169,7 @@ function testTargetsFor(id: string): TestTarget[] {
     if (id === 'VAL-B2-EVID-015') {
       return [testTarget(
         'tests/e2e/brand-v2-reference-rubric.spec.ts',
-        'brand-v2 reference-feature rubric › home comparison applies all independent reference anchors',
+        'brand-v2 reference-feature rubric › VAL-B2-EVID-004 VAL-B2-EVID-015 home comparison applies all independent reference anchors',
         'Applies every independent reference-feature anchor to the home surface and enforces exact archived anchor drift without cross-composition pixel scoring.',
       )];
     }
@@ -4384,6 +4456,32 @@ function resultFor(
     selectorOrRegistryId: populationSource,
     exceptionVerdict: 'none' as const,
   };
+  if(Object.hasOwn(RELEASE_CLOSURE_POPULATION_SOURCES,assertionId)||Object.hasOwn(RELEASE_RESIDUE_POPULATION_SOURCES,assertionId)){
+    if(!member)throw new Error(`${assertionId}: final evidence must be per member`);
+    const verdict=RELEASE_MEASURED_VERDICTS.get(assertionId)?.get(member);
+    if(!verdict)throw new Error(`${assertionId}: missing final observation for ${member}`);
+    if(verdict.failures.length)throw new Error(`${assertionId}/${member}: ${verdict.failures.join('; ')}`);
+    const payload='payload' in verdict&&verdict.payload?verdict.payload:mode==='browser-state'
+      ?{kind:'browser-state' as const,computed:{observed:verdict.observed,evidence:verdict.evidencePaths,tool:'current source/export-bound final release readers'}}
+      :{kind:'source-build' as const,sourcePath:verdict.evidencePaths[0],predicate:requirement,observed:verdict.observed,tool:'current source/export-bound final release readers'};
+    return {...common,actual:`${member}: current measured predicates pass; ${verdict.evidencePaths.length} traceable evidence paths`,payload};
+  }
+  if (Object.hasOwn(RELEASE_BASELINE_ASSERTIONS, assertionId)) {
+    if (!member) throw new Error(`${assertionId}: per-member release evidence is required`);
+    const observed = releaseBaselineReading({
+      assertion: assertionId, member,
+      baseline: RELEASE_BASELINE_BUNDLE, current: RELEASE_BASELINE_COLLECTION.bundle,
+      deltas: APPROVED_DELTAS, valueStateFailures: RELEASE_BASELINE_COLLECTION.failures,
+      comparison: RELEASE_BASELINE_COMPARISON,
+      sourceProblems: RELEASE_BASELINE_SOURCE_PROBLEMS,
+      mutationProof: RELEASE_BASELINE_MUTATIONS,
+    });
+    return { ...common,
+      actual: `${observed.kind}/${observed.id}: current bytes reproduce the original member or its exact owner-approved delta chain`,
+      payload: { kind: 'source-build', sourcePath: `evidence/brand-v2/baseline/${observed.kind}.json`,
+        predicate: requirement, observed, tool: 'scripts/brand-v2-baseline.ts#collectBundle + lib/brand-v2-release-baseline.ts' },
+    };
+  }
   const registryKey = RECONCILED_PRIMITIVE_ASSERTIONS.get(assertionId);
   if (registryKey) {
     if (member === undefined) {
@@ -5032,11 +5130,14 @@ function generate() {
     },
   );
   const map = enforcementMapSchema.parse({ schemaVersion: 1, rows });
+  enforceReleaseDependencies(results);
   assertNamedTestsExist(map);
+  const governed = closeGovernanceEvidence({ assertionIds: assertions.map(({ id }) => id), populationSources: sources,
+    map, results: results.map((result) => evidenceResultSchema.parse(result)), testTargetInventory: deriveTestTargetInventory() });
   return {
     sources,
-    map,
-    results: results.map((result) => evidenceResultSchema.parse(result)),
+    map: governed.map,
+    results: governed.results,
     colourOnlyMarks: colourOnlyMarkArchive(),
   };
 }

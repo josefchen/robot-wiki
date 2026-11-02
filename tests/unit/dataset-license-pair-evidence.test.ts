@@ -1,4 +1,5 @@
-import { execFileSync } from 'node:child_process';
+import { showAt } from './helpers/continuation-merge-ledger';
+import { historicalGit } from '../helpers/historical-git';
 import { resolve } from 'node:path';
 import { createRequire } from 'node:module';
 import { runInNewContext } from 'node:vm';
@@ -13,8 +14,8 @@ const root = resolve(import.meta.dirname, '../..');
 const base = 'e687718cd3c2d1c35d3f63b6e296712a5892a9f0';
 // Recheck the real license-pair commit; later row10 corrections have their own suite.
 const snapshot = 'b546965037d9226678e2678b310e99dcb58ed971';
-const read = (path: string) => execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
-const before = (path: string) => execFileSync('git', ['show', `${base}:${path}`], { cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024 });
+const read = (path: string) => showAt(snapshot, path);
+const before = (path: string) => showAt(base, path);
 const articlePath = 'content/data-hardware/datasets.mdx';
 const article = read(articlePath);
 const ledger = read('audit/data-hardware.md');
@@ -179,7 +180,11 @@ describe('DROID and BridgeData license pair, exact bounded correction', () => {
   });
   it('retains exact former cells and selected plans as non-counted history', () => {
     expect(ledger).toContain('Historical: dataset license pair correction 2026-09-21');
-    for (const ordinal of [5, 6]) expect(ledger).toContain(JSON.stringify(plan(ordinal, oldPlans), null, 2));
+    // The archive preserves the plan as recorded, before the historical
+    // renderer recomputes its digests for the neutral vocabulary above.
+    const archivedPlans = JSON.parse(historicalGit(['show', `${base}:audit/compound-evidence.json`],
+      { encoding: 'utf8', neutralVocabulary: true })) as CompoundPlan[];
+    for (const ordinal of [5, 6]) expect(ledger).toContain(JSON.stringify(plan(ordinal, archivedPlans), null, 2));
     expect(parse()).toHaveLength(11);
     expect(plans).toHaveLength(857);
   });

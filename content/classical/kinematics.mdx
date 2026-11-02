@@ -42,6 +42,7 @@ citations:
   - rep-105-2010
   - tf-library-2013
   - lerobot-so101-docs-2026
+  - wampler-1986
 seeAlso:
   - "manipulation/cross-embodiment"
   - "data-hardware/teleop-rigs"
@@ -55,6 +56,8 @@ import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 Kinematics is the geometry of robot motion, studied without forces or torques. <Term id="forward-kinematics">Forward kinematics</Term> maps joint angles to the <Term id="end-effector">end-effector</Term> pose through a unique composition of transforms, and <Term id="inverse-kinematics">inverse kinematics</Term> maps a pose back to joint angles, with no solution, one, or many <Cite id="modern-robotics-2017" />.
 
 <Image id="ur16e-cobot-arm-2020" />
+
+Try "Reach out", then move the "Turn the shoulder" slider <Cite id="modern-robotics-2017" />.
 
 <PlanarFkArm className="my-6" />
 
@@ -148,6 +151,8 @@ $$
 
 A redundant arm uses the pseudoinverse $J^{+} = J^{T}(JJ^{T})^{-1}$, whose spare freedom can serve goals such as avoiding joint limits <Cite id="modern-robotics-2017" />, ranked against the end-effector task in Siciliano and Slotine's task-priority framework <Cite id="siciliano-slotine-1991" />. Near singular points, Nakamura and Hanafusa's singularity-robust inverse returns a motion close to the desired path <Cite id="nakamura-hanafusa-1986" />.
 
+Wampler's damped least-squares formulation makes the tradeoff explicit: reduce pose error while penalizing the size of the corrective joint motion <Cite id="wampler-1986" />.
+
 ## Inverse kinematics
 
 Inverse kinematics seeks $q$ with $k(q) = x_d$ for a target $x_d$. The map is nonlinear: a reachable target can have several configurations, such as elbow left or right, a redundant arm has a continuum, and an unreachable target has none <Cite id="modern-robotics-2017" />. Move the shoulder slider in the figure below to trace the hand's path, then drag the cup and watch the arm work out an angle for every joint.
@@ -161,6 +166,8 @@ $$
 $$
 
 KDL's pseudoinverse solver repeatedly reports false failures on humanoids, and TRAC-IK finds solutions much more often <Cite id="trac-ik-2015" />. cuRobo solves over 7,000 collision-free IK queries per second <Cite id="curobo-2023" />, and for redundant arms IKFlow samples 2,000 solutions in under 10 ms, within 10 mm and 2 degrees of exact <Cite id="ikflow-2021" />. The [3D kinematics playground](/playground) solves IK on TheRobotStudio's SO-101 arm with a live residual and iteration count <Cite id="so-arm100-repo-2026" />.
+
+PyRoki expresses inverse kinematics, retargeting and planning as modular variables and costs in a nonlinear least-squares solver, with CPU, GPU and TPU execution <Cite id="pyroki-2025" />.
 
 ## The same geometry, inside learned policies
 

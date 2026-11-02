@@ -8,7 +8,7 @@
 import { join } from 'node:path';
 import { CITATIONS } from '../data/citations.ts';
 import { publishedModules } from '../data/modules.ts';
-import { MIN_DISTINCT_SOURCES, countArticleSources } from '../lib/article-sources.ts';
+import { MIN_DISTINCT_SOURCES, MIN_SITE_DISTINCT_SOURCES, countArticleSources } from '../lib/article-sources.ts';
 
 const at = process.argv.indexOf('--content-dir');
 const contentDir = at >= 0 && process.argv[at + 1] ? process.argv[at + 1] : join(process.cwd(), 'content');
@@ -30,6 +30,10 @@ if (short.length > 0) {
     const unknown = row.unknown.length ? `; not in the registry: ${row.unknown.join(', ')}` : '';
     console.error(`  ${row.route}: ${row.sources.length} distinct sources${unknown}`);
   }
+  process.exit(1);
+}
+if (site.size < MIN_SITE_DISTINCT_SOURCES) {
+  console.error(`article-sources: site total ${site.size} distinct sources is below ${MIN_SITE_DISTINCT_SOURCES}; repeated sources across articles count once`);
   process.exit(1);
 }
 const fewest = Math.min(...rows.map((row) => row.sources.length));

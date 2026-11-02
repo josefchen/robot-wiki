@@ -113,7 +113,9 @@ export function ExplainerFigure({ id }: { id: ExplainerId }) {
         <div className="controls" data-controls />
         <div className="fold parts" data-parts hidden />
         <div className="readout" data-readout hidden />
-        <div className="predict" data-predict hidden />
+        {/* Keep the frozen viewer hook, and distinguish its private slot
+            from the article's authored PredictThenReveal exercise. */}
+        <div className="predict" data-predict data-explainer-predict hidden />
         <div className="summary" data-x="summary" hidden>
           <div className="sentence" data-x="sentence" />
           <div className="concept" data-x="concept" />

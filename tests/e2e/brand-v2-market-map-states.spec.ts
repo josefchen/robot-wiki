@@ -37,6 +37,8 @@ import {
   type MarketMapView,
 } from '../../lib/brand-v2-market-map-states';
 import { expect, test } from './brand-v2-static-fixture';
+import { RELEASE_PROFILES, releaseMapShard, type ReleaseState } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 
 const ROOT = process.cwd();
 
@@ -1211,11 +1213,18 @@ test.describe('brand-v2 market map states sweep', () => {
     staticBase,
   }, testInfo) => {
     // ~3,100 cases, nearly all one in-page round trip each.
-    test.setTimeout(1_200_000);
+    test.setTimeout(FINAL_RELEASE_PROFILES ? 1_200_000 * RELEASE_PROFILES.length : Math.max(1_200_000, marketMapStatePlan().cases.length * 1_000));
     await preparePage(page);
     const requests = trackRequests(page);
     const plan = marketMapStatePlan();
+    const releaseShard = releaseMapShard(process.env.ROBOT_WIKI_RELEASE_MAP_SHARD, plan.cases.filter(({ kind }) => kind !== 'exception').map(({ id }) => `map:${id}`));
+    const releaseStateIds = new Set(releaseShard.stateIds);
+    // The real selected-state pilot measured ~12s for all profiles. Budget
+    // 30s per profiled case plus the semantic sweep; each shard still checks
+    // its exact state list and can never pass by timing out or omitting work.
+    if (FINAL_RELEASE_PROFILES) test.setTimeout(1_200_000 + releaseShard.stateIds.length * 30_000);
     const records: MarketMapCaseRecord[] = [];
+    const releaseCases: ReleaseState[] = [];
     const axe: MarketMapStatesEvidence['axe'] = [];
     const missingControls: string[] = [];
     const axeCases = new Set<string>(MARKET_MAP_AXE_CASES);
@@ -1323,6 +1332,12 @@ test.describe('brand-v2 market map states sweep', () => {
         missingControls.push(...result.missing.map((entry) => `${stateCase.id}: ${entry}`));
       }
       records.push({ id: stateCase.id, group: stateCase.group, observed });
+      if (FINAL_RELEASE_PROFILES && stateCase.kind !== 'exception' && releaseStateIds.has(`map:${stateCase.id}`)) {
+        releaseCases.push(await probeReleaseState(page, {
+          id: `map:${stateCase.id}`, route: MARKET_MAP_ROUTE, state: stateCase.id,
+          steps: [`execute ${stateCase.group} ${stateCase.kind}`, `observe ${observed.kind} from live controls`, 'read source-derived expected state'],
+        }));
+      }
       if (axeCases.has(stateCase.id) && stateCase.group !== 'selection') {
         await runAxe(stateCase.id);
       }
@@ -1403,6 +1418,7 @@ test.describe('brand-v2 market map states sweep', () => {
     const artifactPath = join(ROOT, MARKET_MAP_STATES_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
     writeFileSync(artifactPath, serializeArtifact(artifact));
+    if (FINAL_RELEASE_PROFILES) writeReleaseStateGroup(releaseShard.group, releaseShard.stateIds, releaseCases);
   });
 
   /**

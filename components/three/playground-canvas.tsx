@@ -88,6 +88,8 @@ export function PlaygroundCanvas() {
       viewport.dataset.cameraFov = snapshot.fov.toFixed(4);
       viewport.dataset.dpr = String(snapshot.dpr);
       viewport.dataset.drawingBuffer = snapshot.buffer.join('x');
+      const model = JSON.stringify(snapshot.model);
+      if (viewport.dataset.renderedModel !== model) viewport.dataset.renderedModel = model;
     },
     [],
   );

@@ -1,5 +1,5 @@
+import { historicalGit } from '../helpers/historical-git';
 import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -49,7 +49,7 @@ describe('answer options 2026-10-23 article successors', () => {
       const prior = answerOptionsPredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       // The rebuilt bytes are the article as committed before the rebalance.
-      expect(prior).toEqual(execFileSync('git', ['show', `${source.archivedFrom}:${path}`], { cwd: root }));
+      expect(prior).toEqual(historicalGit(['show', `${source.archivedFrom}:${path}`], { cwd: root }));
       expect(answerOptionsPredecessor(root, source.after, live)).toBe(live);
       expect(keepsAnswerOptionsObligations(path, prior.toString(), live.toString())).toBe(true);
       // The artifact readers see this layer first, and every older layer

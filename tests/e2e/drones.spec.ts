@@ -190,6 +190,54 @@ test.describe('adjacent drones module', () => {
     ).toBeVisible();
   });
 
+  test('the champions timeline shows two AI wins and the 2026 loss (VAL-OPUS-097)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="drone-champions-timeline"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'AI beat racing champions twice, then lost the 2026 final',
+    );
+    await expect(figure.locator('[data-outcome="ai-won"] [data-chart-mark="dot"]')).toHaveCount(2);
+    await expect(figure.getByTestId('drone-champions-a2rl-2026').locator('[data-chart-mark="cross"]')).toHaveAttribute(
+      'data-chart-role',
+      'highlight',
+    );
+    await expect(figure.locator('[data-scene-readout]')).toHaveText([
+      'won 15 of 25 races',
+      'beat three champions',
+      'lost the decider at 4 to 4',
+    ]);
+    const stage = figure.getByRole('img', { name: /Three races between autonomous drones/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('the drone struck a gate in the deciding race and could not recover.');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('drone-champions-timeline-source').locator('a')).toHaveCount(4);
+  });
+
+  test('the delivery bars draw Zipline and Wing to their reported lower bounds (VAL-OPUS-097)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="drone-delivery-counts"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'Zipline passed 3 million drone deliveries; Wing passed 1 million',
+    );
+    const width = async (id: string) =>
+      Number(await figure.getByTestId(`drone-deliveries-${id}`).locator('rect').getAttribute('width'));
+    expect((await width('zipline')) / (await width('wing'))).toBeCloseTo(3, 1);
+    await expect(figure.getByTestId('drone-deliveries-zipline').locator('rect')).toHaveAttribute(
+      'data-chart-role',
+      'highlight',
+    );
+    await expect(figure.locator('[data-scene-readout]')).toHaveText(['more than 3 million', 'well over 1 million']);
+    const stage = figure.getByRole('img', { name: /Cumulative drone deliveries reported by Zipline and Wing/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('because its providers include Wing and Zipline.');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('drone-delivery-counts-source').locator('a')).toHaveCount(3);
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

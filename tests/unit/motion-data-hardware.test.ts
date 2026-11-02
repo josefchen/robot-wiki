@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -205,7 +205,7 @@ describe('data-hardware prose truth', () => {
       // checkpoint comparison reads the pre-pass article the cut layer rebuilds.
       const current = withoutKolBacklogParagraphs(`data-hardware/${file}`,
         preDataHardwareCut(`content/data-hardware/${file}`).toString());
-      const before = execFileSync('git', ['show', `69e01316:content/data-hardware/${file}`], {
+      const before = historicalGit(['show', `69e01316:content/data-hardware/${file}`], {
         cwd: root, encoding: 'utf8',
       });
       const numbers = (text: string) => text

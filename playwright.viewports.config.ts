@@ -1,5 +1,6 @@
 import { defineConfig } from '@playwright/test';
 import base from './playwright.config';
+import { parseE2EViewport } from './tests/helpers/e2e-viewport';
 
 /**
  * The default corpus (playwright.config.ts) has one Desktop Chrome project at
@@ -13,12 +14,7 @@ import base from './playwright.config';
  * It must stay at the repository root: readerGateInputs resolves the reader
  * lanes' specs against the directory of the config file.
  */
-const requested = process.env.E2E_VIEWPORT ?? '';
-const size = /^(\d{3,4})x(\d{3,4})$/.exec(requested);
-if (!size) {
-  throw new Error(`E2E_VIEWPORT must be WIDTHxHEIGHT, for example 375x812 or 1440x900 (got "${requested}")`);
-}
-const viewport = { width: Number(size[1]), height: Number(size[2]) };
+const viewport = parseE2EViewport(process.env.E2E_VIEWPORT ?? '');
 
 export default defineConfig({
   ...base,

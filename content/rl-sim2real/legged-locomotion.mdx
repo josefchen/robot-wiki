@@ -64,6 +64,8 @@ import { ExplainerFigure } from '@/components/explainers/explainer-figure';
 
 <Image id="spot-boston-dynamics-2023" />
 
+Try "Play", then "Step forward one beat", to compare the scene's gaits <Cite id="hwangbo-2019" />.
+
 <GaitSupport className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -81,7 +83,7 @@ Hwangbo and colleagues replaced simulated actuation with a learned network for A
 
 Lee and colleagues trained a privileged RL teacher to supervise the actions and latent features of a temporal convolutional student, which reads two seconds of <Term id="proprioception">proprioceptive</Term> history, plus the command and current state, with no terrain map. Trained on rigid procedural terrain, ANYmal-B and ANYmal-C controllers crossed mud, snow, rubble and vegetation without environment-specific tuning, though a robot commanded off a cliff will walk off it <Cite id="lee-2020" />. RMA, a base policy plus an adaptation module, deployed on the A1 robot without any fine-tuning <Cite id="rma-2021" />; the [sim-to-real module](/rl-sim2real/sim2real-transfer) covers the distillation mechanics.
 
-Miki and colleagues fed elevation-map height samples and proprioception to a GRU belief encoder whose learned attention gate controls how much exteroception enters; the student imitates a privileged teacher and falls back on proprioception when sensors mislead. The Etzel hike covered 2.2 km and 120 m of climb in 78 minutes against a planner's 76, with no falls but stops to reattach a shoe and swap batteries, and the authors list possible falls at occluded cliffs or stepping stones <Cite id="miki-2022" />.
+Miki and colleagues fed elevation-map height samples and proprioception to a GRU belief encoder whose learned attention gate controls how much exteroception enters; the student imitates a privileged teacher and falls back on proprioception when sensors mislead. The Etzel hike covered 2.2 km and 120 m of climb in 78 minutes against a planner's 76, with no falls but stops to reattach a shoe and swap batteries, and the authors list possible falls at occluded cliffs or stepping stones <Cite id="miki-2022" />. Agarwal and colleagues use a front-facing depth camera and policy memory to infer terrain beneath the hind feet <Cite id="agarwal-vision-2022" />.
 
 Rudin and colleagues trained flat-terrain walking in under four minutes on one workstation GPU. Their deployment policy used 4,096 ANYmal robots, batches of 98,304 transitions (24 steps per robot) and 1,500 updates in under twenty minutes, with a game-inspired terrain <Term id="curriculum-learning">curriculum</Term> that promotes robots that cross a tile, demotes those that fall short and loops hardest-level solvers back to a random level <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="rudin-2021" /></span>. The released `legged_gym` repository (October 2021) is the Isaac Gym environment used to train ANYmal on rough terrain <Cite id="legged-gym-repo-2021" />.
 
@@ -109,7 +111,7 @@ On Unitree's H1, H2O turns RGB-camera human pose estimates into real-time whole-
 
 On the G1 with fixed wrists, ASAP trains an ankle delta-action model from real rollouts, freezes it in simulation for fine-tuning, and deploys the policy without it. Its quantitative hardware comparison against Vanilla covers only kicking and LeBron's "Silencer" <Cite id="asap-2025" />.
 
-A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id="radosavovic-2023" />. Cassie's dual-history controller ran a 400-meter dash <Cite id="li-cassie-2024" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id="haarnoja-soccer-2023" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id="hiking-wild-2026" />.
+A causal transformer over proprioceptive history gave humanoids a fully learned controller that deployed zero-shot <Cite id="radosavovic-2023" />. Cassie's dual-history controller ran a 400-meter dash <Cite id="li-cassie-2024" />, a miniature soccer humanoid walked 181% faster and turned 302% faster than a scripted baseline <Cite id="haarnoja-soccer-2023" />, and Hiking in the Wild maps raw depth and proprioception to joint actions without external state estimation, at up to 2.5 m/s <Cite id="hiking-wild-2026" />. Humanoid Parkour learns vision-based whole-body control without motion priors and selects obstacle-crossing skills autonomously under joystick steering <Cite id="humanoid-parkour-2024" />.
 
 Joshua Aurand, Marco Hutter and colleagues at Disney Research Zurich and ETH Zurich (October 2026) built Walk Like This, which sets walking style from a reference clip and speed from a joystick: a diffusion model generates the styled motion and an RL policy tracks it <Cite id="walk-like-this-2026" />. In simulation, a tracker trained on generated motion fell 0.001 times per minute while following the diffusion output, against 1.104 for one trained on the original motion capture, at the cost of larger tracking errors <Cite id="walk-like-this-2026" />. On a Unitree G1 the authors report about 4 hours of zero-shot deployment across styles without a failure <Cite id="walk-like-this-2026" />.
 

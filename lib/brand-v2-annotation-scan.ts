@@ -1,4 +1,5 @@
-import { extname } from 'node:path';
+import { extname, join } from 'node:path';
+import { existsSync } from 'node:fs';
 import {
   buildModuleImportGraph,
   type ModuleImportGraph,
@@ -133,6 +134,8 @@ const SCAN_FILES = ['mdx-components.tsx'] as const;
 const CONTENT_ROOT = 'content';
 const SCAN_EXTENSIONS = new Set(['.ts', '.tsx']);
 const MDX_REGISTRY_MODULE = 'mdx-components.tsx';
+const SCROLL_REGION_MODULE = 'lib/scroll-region.mjs';
+const SCROLL_REGION_FACTORIES = new Set(['scrollRegionAttributes', 'scrollRegionHastProperties']);
 const ID_PATTERN = /^(surface|control|device):[a-z0-9-]+$/;
 const ATTRIBUTE_ASSIGNMENT = /data-brand-(surface|control|device)-id\s*=\s*/g;
 const DATASET_ASSIGNMENT =
@@ -493,6 +496,28 @@ function assignmentsIn(
       match.index + match[0].length,
     );
   }
+  // The shared DOM/React/hast attribute bag is a real writer, although its
+  // properties are returned before being spread onto the actual scroll box.
+  // Resolve only these named factories and their returned object, never an
+  // arbitrary quoted ID or a read-only comparison elsewhere in the module.
+  if (module === SCROLL_REGION_MODULE) {
+    for (const factory of SCROLL_REGION_FACTORIES) {
+      const declaration = new RegExp(`export\\s+function\\s+${factory}\\s*\\([^)]*\\)\\s*\\{`).exec(text);
+      if (!declaration) continue;
+      const bodyAt = declaration.index + declaration[0].lastIndexOf('{');
+      const body = readBraced(text, bodyAt).value;
+      const returned = /\breturn\s*\{/.exec(body);
+      if (!returned) throw new Error(`${module}: ${factory} no longer returns a finite attribute bag`);
+      const bag = readBraced(body, returned.index + returned[0].lastIndexOf('{')).value;
+      const property = /['"]data-brand-control-id['"]\s*:\s*([^,\n}]+)/.exec(bag);
+      if (!property) continue;
+      const resolved = resolveExpression(property[1], module, text);
+      if (resolved.form !== 'literal' || resolved.ids.some((id) => !id.startsWith('control:') || !ID_PATTERN.test(id))) {
+        throw new Error(`${module}: ${factory} has a nonliteral control attribute bag`);
+      }
+      writes.push({ module, kind: 'control', form: 'literal', ids: resolved.ids });
+    }
+  }
   return writes;
 }
 
@@ -617,6 +642,12 @@ function mountedFrom(
       ]),
     );
     const deferred = dynamicComponentBindings(graph, current, source);
+    // A concrete call from a mounted component supplies this helper's
+    // returned attributes. Merely importing it (or mounting an unrelated
+    // helper in the same module) is insufficient ownership evidence.
+    for (const binding of graph.bindingsByModule.get(current) ?? []) {
+      if (binding.module === SCROLL_REGION_MODULE && SCROLL_REGION_FACTORIES.has(binding.imported) && new RegExp(`\\b${binding.local}\\s*\\(`).test(source)) queue.push(binding.module);
+    }
     for (const tag of componentTagsIn(source)) {
       const target =
         bindings.get(tag) ??
@@ -794,9 +825,15 @@ function suppliedIds(
 }
 
 export function scanAnnotationAssignments(root: string): AnnotationScan {
-  const graph = buildModuleImportGraph(root);
+  const typedGraph = buildModuleImportGraph(root);
+  // Add the one ESM attribute factory to the existing source population;
+  // build-time plugins are not all mounted UI modules merely because their
+  // extension is also .mjs.
+  const graph = existsSync(join(root, SCROLL_REGION_MODULE))
+    ? buildModuleImportGraph(root, { roots: [], files: [...typedGraph.modules, SCROLL_REGION_MODULE], extensions: ['.ts', '.tsx', '.mdx', '.mjs'] })
+    : typedGraph;
   const modules = graph.modules
-    .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
+    .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)) || modulePath === SCROLL_REGION_MODULE)
     .filter(
       (modulePath) =>
         SCAN_ROOTS.some((directory) => modulePath.startsWith(`${directory}/`)) ||
@@ -886,10 +923,10 @@ export function scanAnnotationAssignments(root: string): AnnotationScan {
   return {
     modules,
     importReachableModules: [...reachable]
-      .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
+      .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)) || modulePath === SCROLL_REGION_MODULE)
       .sort(),
     mountedModules: [...mounted]
-      .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)))
+      .filter((modulePath) => SCAN_EXTENSIONS.has(extname(modulePath)) || modulePath === SCROLL_REGION_MODULE)
       .sort(),
     routeEntries,
     writes,

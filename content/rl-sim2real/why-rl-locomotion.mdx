@@ -41,6 +41,7 @@ citations:
   - rl-100-2025
   - insertanything-2026
   - insertion-world-models-2026
+  - fetchman-2026
 seeAlso:
   - "frontier/dexterity"
   - "world-models/generative-sim"
@@ -57,6 +58,8 @@ import { CubeTrials } from '@/components/interactive/cube-trials';
 Simulation-trained reinforcement learning (RL) made legged locomotion robust well before general manipulation, because walking is cheap to simulate and contact-rich manipulation is not. In 2021 an ANYmal quadruped learned to walk on flat ground in under four minutes, and on uneven terrain in twenty, on one workstation GPU <Cite id="rudin-2021" />.
 
 <Image id="anymal-x-offshore-stairs-2022" />
+
+Move the "Contact-model error" slider to compare the illustrative walking and insertion tolerances <Cite id="reality-gap-survey-2026" />.
 
 <ContactGeometry className="my-6" />
 
@@ -98,7 +101,7 @@ OpenAI's in-hand policy learned finger gaiting without human demonstrations <Cit
 
 In assembly, AutoMate's generalist solves 20 assemblies zero-shot <Cite id="automate-2024" />, Play2Perfect reaches 60% on 0.5 mm-clearance insertions <Cite id="play2perfect-2026" />, and InsertAnything, trained only on a simulated hexagonal insertion, succeeded on 95.0% of trials across eight unseen real insertion tasks <Cite id="insertanything-2026" />. SPARR's real-world residual adds 38.4% success over zero-shot transfer <Cite id="sparr-2026" />.
 
-Such results often need per-task engineering: zero-shot force-controlled dexterous grasping needed tactile simulation, current-to-torque calibration and actuator models <Cite id="zhao-force-grasp-2026" />. SimToolReal instead trains one policy over procedural tools that transfers zero-shot across 24 real tasks <Cite id="simtoolreal-2026" />, and Boston Dynamics says Atlas learned to lift a fridge with perception done implicitly from proprioception <Cite id="bd-atlas-hard-work-2026" />.
+Such results often need per-task engineering: zero-shot force-controlled dexterous grasping needed tactile simulation, current-to-torque calibration and actuator models <Cite id="zhao-force-grasp-2026" />. SimToolReal instead trains one policy over procedural tools that transfers zero-shot across 24 real tasks <Cite id="simtoolreal-2026" />, and Boston Dynamics says Atlas learned to lift a fridge with perception done implicitly from proprioception <Cite id="bd-atlas-hard-work-2026" />. FetchMan refines a policy cloned from synthetic demonstrations with sparse-reward RL before zero-shot humanoid deployment <Cite id="fetchman-2026" />. DoorMan trains vision-based humanoid door interaction entirely in simulation using staged resets and teacher-student learning <Cite id="doorman-2025" />.
 
 <span id="the-honest-snapshot-comes-from-the-imitation-side" />
 ## Imitation-trained baselines

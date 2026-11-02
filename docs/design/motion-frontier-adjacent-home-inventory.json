@@ -335,5 +335,40 @@
     "decision": "keep",
     "teachingGoal": "Compare zero-shot success with and without human-data pretraining against the article's 90 percent bar.",
     "reason": "Two published rates from one evaluation read at a glance; motion would add nothing to fixed values."
+  },
+  {
+    "article": "adjacent/autonomous-vehicles",
+    "element": "AvSafetyMiles",
+    "decision": "keep",
+    "teachingGoal": "Show how many failure-free miles a fleet must drive to match human death, injury and crash rates, on a ruler that steps by ten times.",
+    "reason": "Three fixed numbers from one table read side by side; motion would add nothing to a lower bound."
+  },
+  {
+    "article": "adjacent/space",
+    "element": "SpaceLatencyLadder",
+    "decision": "keep",
+    "teachingGoal": "Set a drone camera's reaction delay beside round trips to the Moon and Mars on one ruler that steps by ten times.",
+    "reason": "Fixed delays read as positions on one ruler; animating a signal's trip would add time the reader has to wait through without adding a fact."
+  },
+  {
+    "article": "adjacent/surgical",
+    "element": "SurgicalAutonomyLadder",
+    "decision": "keep",
+    "teachingGoal": "Place FDA-authorized surgical systems and research demonstrations on Yang's six levels of autonomy.",
+    "reason": "Six fixed rungs and a handful of placements read at a glance; motion would suggest a climb the record does not show."
+  },
+  {
+    "article": "adjacent/drones",
+    "element": "DroneChampionsTimeline",
+    "decision": "keep",
+    "teachingGoal": "Place the three AI-versus-champion drone races on one time axis with their outcomes.",
+    "reason": "Three dated results read side by side; replaying races would add footage the sources do not supply."
+  },
+  {
+    "article": "adjacent/drones",
+    "element": "DroneDeliveryCounts",
+    "decision": "keep",
+    "teachingGoal": "Compare the cumulative delivery counts Zipline and Wing report for themselves.",
+    "reason": "Two reported totals read as plain bars; growing them would imply a timeline the companies do not publish."
   }
 ]

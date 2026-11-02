@@ -47,6 +47,8 @@ citations:
   - lbm-cotraining-2026
   - robota-embed-2026
   - imprint-2026
+  - leverb-2025
+  - wholebodyvla-2025
 seeAlso:
   - "world-models/taxonomy"
   - "manipulation/generalist-policies"
@@ -58,7 +60,7 @@ A foundation model is a network trained on broad data at scale and adaptable to 
 
 <Image id="robocat-embodiments-2023" />
 
-Try the check below.
+Try the checkpoint question before comparing the foundation-model families <Cite id="bommasani-foundation-models-2021" />.
 
 <SelfCheck
   prompt="Which result is the strongest evidence that a robot model is functioning as a foundation model?"
@@ -97,13 +99,15 @@ RT-1 argued for task-agnostic training of high-capacity models on diverse robot 
 
 π0 pairs a pretrained VLM with a separate flow-matching expert for continuous action chunks <Cite id="pi0-2024" />. π0.5 credits its generalization to co-training on heterogeneous tasks <Cite id="pi05-2025" />, and π0.7's authors call their 2026 model a steerable generalist robotic foundation model <Cite id="pi07-2026" />.
 
-Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. RoboTTT (July 2026) extends visuomotor context to 8K timesteps without growing inference latency and averaged a 79% task completion score on long-horizon real-robot tasks, against 42% for the single-step-context GR00T N1.7 baseline <Cite id="robottt-2026" />. ECoMEM (Stanford, September 2026) keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA, reaching 86.1% success on two new real-robot tasks against 8.6% without memory <Cite id="ecomem-2026" />.
+Test-time training stores past observations in fast weights that gradient descent updates while the policy runs. T²Mem learns this memory through action supervision and alternates memory and policy updates, without memory-specific annotations <Cite id="t2mem-2026" />. RoboTTT (July 2026) extends visuomotor context to 8K timesteps without growing inference latency and averaged a 79% task completion score on long-horizon real-robot tasks, against 42% for the single-step-context GR00T N1.7 baseline <Cite id="robottt-2026" />. ECoMEM (Stanford, September 2026) keeps an explicit record of task facts that a learned reader turns into memory tokens for the VLA, reaching 86.1% success on two new real-robot tasks against 8.6% without memory <Cite id="ecomem-2026" />.
 
 IMPRINT, from Yilin Wu, Homanga Bharadhwaj, Guanya Shi and colleagues at Amazon FAR and Carnegie Mellon (October 2026), trains a latent memory of past camera frames, actions and joint states with the policy, so no rule has to pick which frames to keep. On the nine memory-dependent RMBench simulation tasks, with 100 trials per task, it raised π0.5 from 25.4% to 72.8% average success; EventVLA, the strongest of six memory baselines, reports 67.8%. The recurrent version took 122.8 ms per 50-step action chunk on an L40S GPU, against 91.0 ms for π0.5 without memory and 960 ms for EventVLA <Cite id="imprint-2026" />.
 
 ## Humanoid foundations
 
-GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id="gr00t-n1-2025" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. Figure pretrained [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior; with identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id="helix-2-5-2026" />.
+GR00T N1 combines a vision-language module with a diffusion transformer, trained on real-robot trajectories, human videos and synthetic datasets <Cite id="gr00t-n1-2025" />. For a humanoid, morphology, whole-body balance and shared action coordinates set the reuse boundary. WholeBodyVLA learns from action-free egocentric videos and pairs that representation with a locomotion controller tailored to manipulation <Cite id="wholebodyvla-2025" />. LeVERB learns latent commands in its vision-language policy for a separate reinforcement-learned whole-body controller <Cite id="leverb-2025" />.
+
+Figure pretrained [Helix 2.5](/manipulation/generalist-policies/) from random initialization entirely on Index, its dataset of human behavior; with identical task data, it succeeded on 56% of zero-shot trials in 30 unseen homes, against 9% for a policy trained from scratch <Cite id="helix-2-5-2026" />.
 
 <Image id="gr00t-n1-gr1-tasks-2025" />
 

@@ -8,6 +8,7 @@ import { readerGateInputs } from './helpers/reader-gate-inputs';
 import { openAdjustMore, openHowThisWasMade } from './helpers/figure-fold';
 import { collectBrowserReferenceFeatures, type BrowserReferenceFeatureConfig } from '../../lib/brand-v2-reference-rubric';
 import { citeNoteEnd, citeParts, dismissCiteNote, expectCiteNoteFacts, jumpFromCiteMark, showCiteNote } from './helpers/citation-note';
+import { waitForHydration } from './interaction-ready';
 
 const ROUTE = '/classical/motion-planning/';
 const PROSE = 'div.prose[data-pagefind-body]';
@@ -106,7 +107,7 @@ function evidence(page: Page, info: TestInfo) {
 
 async function openReader(page: Page) {
   expect((await page.goto(ROUTE))?.status()).toBe(200);
-  await page.waitForFunction(() => [...document.querySelectorAll('button')].some(el => Object.keys(el).some(k => k.startsWith('__reactFiber$'))));
+  await waitForHydration(page.getByRole('button', { name: 'Articles', exact: true }));
   await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(done => requestAnimationFrame(() => requestAnimationFrame(() => done()))); });
 }
 
@@ -330,10 +331,13 @@ test('all mounted glossary terms expose their literal final text and keyboard ex
   }
   await e.clear(); const termId = 'trajectory-optimization';
   await page.locator(`${PROSE} [data-term-id="${termId}"] a`).click(); await expect(page).toHaveURL(new RegExp('/glossary/?#' + termId + '$'));
+  await page.waitForLoadState('networkidle');
+  await waitForHydration(page.getByRole('button', { name: 'Articles', exact: true }));
   await page.evaluate(() => document.fonts.ready);
   const entry = page.locator(`[data-glossary-term="${termId}"]`); await expect(entry.locator('[data-glossary-definition]')).toHaveText(DEFINITIONS[termId]);
   await e.textCapture(entry, 'glossary-destination'); await e.axe(`[data-glossary-term="${termId}"]`, 'glossary-destination-axe');
-  await page.goBack(); await expect(page).toHaveURL(new RegExp(ROUTE + '$'));
+  await page.goBack({ waitUntil: 'networkidle' }); await expect(page).toHaveURL(new RegExp(ROUTE + '$'));
+  await waitForHydration(page.getByRole('button', { name: 'Articles', exact: true }));
   e.record({ name: 'glossary-return', focus: await page.evaluate(() => document.activeElement?.tagName), focusRestorationAccepted: false });
   await e.clear(); await e.axe('#main-content', 'glossary-reader-axe');
 });

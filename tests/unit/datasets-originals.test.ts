@@ -1,5 +1,5 @@
+import { historicalGit } from '../helpers/historical-git';
 import { describe, expect, it } from 'vitest';
-import { execFileSync } from 'node:child_process';
 import { neutralizeHistory } from '../../lib/neutral-tooling';
 import { showAt } from './helpers/continuation-merge-ledger';
 import { resolve } from 'node:path';
@@ -9,7 +9,7 @@ import { createHash } from 'node:crypto';
 // authorized disclosures. Current state is checked by robomind-disclosure-evidence.
 const snapshot = 'b546965037d9226678e2678b310e99dcb58ed971';
 const root = resolve(import.meta.dirname, '../..');
-const readFileSync = (path: string, _encoding: 'utf8') => neutralizeHistory(execFileSync('git', ['show', `${snapshot}:${path}`], { cwd: root, encoding: _encoding, maxBuffer: 32 * 1024 * 1024 }));
+const readFileSync = (path: string, _encoding: 'utf8') => neutralizeHistory(historicalGit(['show', `${snapshot}:${path}`], { neutralVocabulary: true,  cwd: root, encoding: _encoding, maxBuffer: 32 * 1024 * 1024 }));
 
 /**
  * Regression proof for the datasets originals integration (frozen packet

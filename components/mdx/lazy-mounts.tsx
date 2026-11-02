@@ -41,6 +41,9 @@ export const AdvantageScrubber = dynamic(() =>
 export const AppearancePhysicsPush = dynamic(() =>
   import('@/components/interactive/appearance-physics-push').then((m) => m.AppearancePhysicsPush),
 );
+export const AvSafetyMiles = dynamic(() =>
+  import('@/components/interactive/av-safety-miles').then((m) => m.AvSafetyMiles),
+);
 export const BearCaseLock = dynamic(() =>
   import('@/components/interactive/bear-case-lock').then((m) => m.BearCaseLock),
 );
@@ -93,6 +96,12 @@ export const DeploymentDashboard = dynamic(() =>
   import('@/components/interactive/deployment-dashboard').then((m) => m.DeploymentDashboard),
 );export const DeploymentEconomics = dynamic(() =>
   import('@/components/interactive/deployment-economics').then((m) => m.DeploymentEconomics),
+);
+export const DroneChampionsTimeline = dynamic(() =>
+  import('@/components/interactive/drone-champions-timeline').then((m) => m.DroneChampionsTimeline),
+);
+export const DroneDeliveryCounts = dynamic(() =>
+  import('@/components/interactive/drone-delivery-counts').then((m) => m.DroneDeliveryCounts),
 );
 export const EgoScaleScaling = dynamic(() =>
   import('@/components/interactive/egoscale-scaling').then((m) => m.EgoScaleScaling),
@@ -277,6 +286,12 @@ export const SceneRepresentationLadder = dynamic(() =>
 export const SceneSplit = dynamic(() =>
   import('@/components/interactive/scene-split').then((m) => m.SceneSplit),
 );
+export const SpaceLatencyLadder = dynamic(() =>
+  import('@/components/interactive/space-latency-ladder').then((m) => m.SpaceLatencyLadder),
+);
+export const SurgicalAutonomyLadder = dynamic(() =>
+  import('@/components/interactive/surgical-autonomy-ladder').then((m) => m.SurgicalAutonomyLadder),
+);
 export const TeacherStudent = dynamic(() =>
   import('@/components/interactive/teacher-student').then((m) => m.TeacherStudent),
 );
@@ -347,4 +362,16 @@ export const SenseAvoid = dynamic(() =>
 // never loads it.
 export const Clip = dynamic(() =>
   import('@/components/motion/clip').then((m) => m.Clip),
+);
+
+export const ModelBasedLoop = dynamic(() =>
+  import('@/components/interactive/model-based-loop').then((m) => m.ModelBasedLoop),
+);
+
+export const WorldModelEvaluationLadder = dynamic(() =>
+  import('@/components/interactive/world-model-evaluation-ladder').then((m) => m.WorldModelEvaluationLadder),
+);
+
+export const WorldModelOutputTimes = dynamic(() =>
+  import('@/components/interactive/world-model-output-times').then((m) => m.WorldModelOutputTimes),
 );

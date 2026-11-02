@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit, HistoricalFileAbsent } from '../../helpers/historical-git';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { sha256, type ApprovedDelta, type BaselineBundle, type BaselineKind } from '../../../lib/brand-v2-baseline';
@@ -40,7 +40,7 @@ function historyLedgerRows(commit: string, ledgerPath: string): unknown[] {
   const key = `${commit}:${ledgerPath}`;
   let rows = ledgerRowsCache.get(key);
   if (!rows) {
-    const markdown = neutralizeHistory(execFileSync('git', ['show', `${commit}:${ledgerPath}`], {
+    const markdown = neutralizeHistory(historicalGit(['show', `${commit}:${ledgerPath}`], { neutralVocabulary: true, 
       cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024,
     }));
     const sections = parseLedger(ledgerPath, markdown, new Set(CITATIONS.map(({ id }: { id: string }) => id)), {});
@@ -59,10 +59,11 @@ function committedAt(commit: string, filePath: string): string | null {
   let text = localBasisFileCache.get(key);
   if (text === undefined) {
     try {
-      text = neutralizeHistory(execFileSync('git', ['show', `${commit}:${filePath}`], {
+      text = neutralizeHistory(historicalGit(['show', `${commit}:${filePath}`], { neutralVocabulary: true, 
         cwd: root, encoding: 'utf8', maxBuffer: 30 * 1024 * 1024,
       }));
-    } catch {
+    } catch (error) {
+      if (!(error instanceof HistoricalFileAbsent)) throw error;
       text = null;
     }
     localBasisFileCache.set(key, text);
@@ -215,7 +216,7 @@ export function showAt(commit: string, path: string): string {
   const cacheKey = `${commit}:${path}`;
   const cached = renderedCache.get(cacheKey);
   if (cached !== undefined) return cached;
-  const committed = execFileSync('git', ['show', `${commit}:${path}`], {
+  const committed = historicalGit(['show', `${commit}:${path}`], { neutralVocabulary: true, 
     cwd: root,
     encoding: 'utf8',
     maxBuffer: 30 * 1024 * 1024,

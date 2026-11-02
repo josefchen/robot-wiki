@@ -161,6 +161,26 @@ test.describe('adjacent surgical module', () => {
     expect(await seeAlso.locator('li').count()).toBeGreaterThanOrEqual(2);
   });
 
+  test('the autonomy ladder separates authorized systems from research claims (VAL-OPUS-097)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="surgical-autonomy-ladder"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      'These authorized systems reach level 1; studies claim level 4',
+    );
+    await expect(figure.locator('[data-ladder-level]')).toHaveCount(6);
+    await expect(figure.locator('[data-series="authorized"] [data-chart-mark="dot"]')).toHaveCount(2);
+    await expect(figure.locator('[data-series="research"] [data-chart-mark="cross"]')).toHaveCount(3);
+    await expect(figure.getByTestId('surgical-autonomy-srt-h-2025')).toHaveAttribute('data-level', '4');
+    await expect(figure.getByTestId('surgical-autonomy-empty-5')).toHaveText('no system in this comparison');
+    const stage = figure.getByRole('img', { name: /Surgical systems and studies placed on six levels/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('No system in this comparison is at level 5.');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('surgical-autonomy-ladder-source').locator('a')).toHaveCount(4);
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

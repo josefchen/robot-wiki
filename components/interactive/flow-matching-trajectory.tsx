@@ -14,6 +14,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { Dots, IsoFigure, Line, Solid } from '@/components/iso/react/draw';
 import { asksForStillness, useInView } from '@/components/iso/react/live';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
@@ -546,7 +547,7 @@ export function FlowMatchingTrajectory({
           }
           readout={
             <>
-              <span ref={phaseRef} data-fm-phase="" />
+              <LiveReadoutText ref={phaseRef} data-fm-phase="" />
               <span data-testid="fm-step-readout">{stepWords(steps)}</span> · on average lands{' '}
               <span data-testid="fm-dispersion-readout">{dispersion.toFixed(2)}</span> from a good move
               {steps === 1 ? null : <> · one big jump misses by {oneJump.toFixed(2)}</>}

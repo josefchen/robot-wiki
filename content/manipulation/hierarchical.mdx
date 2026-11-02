@@ -51,6 +51,7 @@ citations:
   - robo-cop-2026
   - rax-2026
   - coevolve-2026
+  - acot-vla-2026
 seeAlso:
   - "classical/motion-planning"
   - "frontier/competing-theses"
@@ -90,7 +91,9 @@ Code as Policies (2022) prompts a code-writing LLM with example instruction-prog
 
 VoxPoser's LLM-written code queries a <Term id="vision-language-model">VLM</Term> to compose 3D value maps, which a model-based planner turns into closed-loop trajectories <Cite id="voxposer-2023" />.
 
-In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. SimEX has the agent build a robot toolbox in simulation and correct the simulator from a few physical trials, and its authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id="simex-2026" />. RPG (UC Berkeley and Amazon FAR, October 2026) keeps the weights frozen and revises a symbolic skill library and its system prompt through practice in simulation; on held-out starts of 22 manipulation tasks, success rose from 28.6% to 95.0% after 15 rounds, and the frozen system succeeded in all 30 physical trials <Cite id="rpg-2026" />.
+In September 2026, several groups returned to code-writing planners with coding agents that test and repair their own programs. ASENA gives coding agents sensor access, execution feedback and reusable skills while leaving their model weights fixed <Cite id="asena-2026" />. EmbodiedSWE turns a coding agent's verified simulation solution into diverse demonstrations for VLA training <Cite id="embodiedswe-2026" />.
+
+SimEX has the agent build a robot toolbox in simulation and correct the simulator from a few physical trials, and its authors report towel folding, barcode scanning and plate manipulation learned with no demonstrations and 10 minutes of real-robot interaction <Cite id="simex-2026" />. RPG (UC Berkeley and Amazon FAR, October 2026) keeps the weights frozen and revises a symbolic skill library and its system prompt through practice in simulation; on held-out starts of 22 manipulation tasks, success rose from 28.6% to 95.0% after 15 rounds, and the frozen system succeeded in all 30 physical trials <Cite id="rpg-2026" />. RoboHarn-Evo keeps model weights fixed while updating reusable task knowledge and object-relative action strategies from physical feedback <Cite id="roboharn-evo-2026" />.
 
 RAX, from Yilun Du, Pieter Abbeel and colleagues at Harvard, UC Berkeley, NVIDIA, MIT and Stanford (October 2026), gives a coding agent no action demonstrations, hand-built action primitives or value functions and keeps its language-model weights fixed; the agent explores online and compiles what worked into control programs. Against the strongest prior learned policy on each of five simulation benchmarks, its mean margin is 37.4 points, from 7.9 on HumanoidArena, where the agent read three teleoperated demonstrations per task and the baselines trained on 100, to 53.4 on RoboDojo. On a real Franka FR3 and a Rainbow RB-Y1 mobile manipulator the agent received only the task text and the robots' tools. Across the paper's experiments, the agents' model calls used more than 100,000 US dollars of API credits <Cite id="rax-2026" />.
 
@@ -104,11 +107,11 @@ MOKA marks candidate points with GroundedSAM masks and prompts a pretrained VLM 
 
 ReKep proposes keypoints from DINOv2 features within SAM masks and calibrated RGB-D. GPT-4o writes stage-wise Python sub-goal and path constraints over them, and a hierarchical solver replans end-effector motion while penalizing violations. Results rest on tracking and rigidity assumptions, and some evaluations use human annotations or disable tracking <Cite id="rekep-2024" />.
 
-RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id="robopoint-2024" />.
+RoboPoint instruction-tunes a VLM to predict image-space affordance points, co-training synthetic object and free-space data with real-image VQA and LVIS detection data. On Where2Place's 100 real images it reaches 46.77% point-in-mask accuracy against 29.06% for GPT-4o, means of three runs. Its robot experiments add depth, an end-effector offset and a [motion planner](/classical/motion-planning/) <Cite id="robopoint-2024" />. RoboBrain 2.5 extends geometric guidance to depth-aware coordinates and ordered 3D manipulation keypoints under physical constraints <Cite id="robobrain-25-2026" />.
 
 <KeypointString className="my-6" />
 
-HAMSTER fine-tunes a high-level VLM to draw a coarse 2D end-effector path, averaging a 20-point success gain over OpenVLA across seven generalization axes <Cite id="hamster-2025" />, and Gemini Robotics-ER predicts points, trajectories and grasps <Cite id="gemini-robotics-2025" />.
+HAMSTER fine-tunes a high-level VLM to draw a coarse 2D end-effector path, averaging a 20-point success gain over OpenVLA across seven generalization axes <Cite id="hamster-2025" />, and Gemini Robotics-ER predicts points, trajectories and grasps <Cite id="gemini-robotics-2025" />. RT-Trajectory conditions policies on rough motion sketches supplied by drawings, videos or automated waypoint generators <Cite id="rt-trajectory-2023" />.
 
 ## Reasoning before acting
 
@@ -116,7 +119,7 @@ ECoT trains a <Term id="vision-language-action-model">VLA</Term> to write a task
 
 ECoT's main evaluation holds high-level reasoning fixed for five steps, and a separate variant predicts four future gripper positions, which the authors call an imperfect proxy for how the policy would behave; they name reasoning-token generation as a speed limitation <Cite id="ecot-2024" />.
 
-RT-H predicts a fine-grained language motion and then actions conditioned on it <Cite id="rt-h-2024" />, and CoT-VLA predicts future image frames as visual goals before a short action sequence, beating the best prior VLA by 17% on real tasks <Cite id="cot-vla-2025" />. In Toyota Research Institute's 2026 co-training study, though, conditioning actions on chain-of-thought traces did not improve performance in its simulation benchmark <Cite id="lbm-cotraining-2026" />.
+RT-H predicts a fine-grained language motion and then actions conditioned on it <Cite id="rt-h-2024" />, and CoT-VLA predicts future image frames as visual goals before a short action sequence, beating the best prior VLA by 17% on real tasks <Cite id="cot-vla-2025" />. ACoT-VLA reasons through coarse reference trajectories and latent action priors before producing the final actions <Cite id="acot-vla-2026" />. In Toyota Research Institute's 2026 co-training study, though, conditioning actions on chain-of-thought traces did not improve performance in its simulation benchmark <Cite id="lbm-cotraining-2026" />.
 
 ## Learned and orchestrated hierarchies, 2025 to 2026
 

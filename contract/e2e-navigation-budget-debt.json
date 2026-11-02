@@ -23,13 +23,6 @@
       "reason": "Measured 122 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
     },
     {
-      "file": "tests/e2e/brand-v2-deep-rows.spec.ts",
-      "title": "archives only the still-unreachable v2 visual claim",
-      "receiver": "page",
-      "navigations": 27,
-      "reason": "Measured 27 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
-    },
-    {
       "file": "tests/e2e/brand-v2-figures.spec.ts",
       "title": "sweeps every figure-bearing route at both widths",
       "receiver": "page",
@@ -109,13 +102,6 @@
     {
       "file": "tests/e2e/chart-state-descriptions.spec.ts",
       "title": "zero doubly boxed milestone-added elements (VAL-EDU-031)",
-      "receiver": "page",
-      "navigations": null,
-      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
-    },
-    {
-      "file": "tests/e2e/first-screen-interactive.spec.ts",
-      "title": "test.beforeAll",
       "receiver": "page",
       "navigations": null,
       "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."

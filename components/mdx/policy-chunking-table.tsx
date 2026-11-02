@@ -159,6 +159,7 @@ const COLUMNS: Column<PolicyRow>[] = [
 export function PolicyChunkingTable() {
   return (
     <Table
+      interactiveId="PolicyChunkingTable"
       caption="Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness."
       columns={COLUMNS}
       rows={ROWS}

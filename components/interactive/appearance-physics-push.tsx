@@ -14,6 +14,7 @@ import {
   SliderEnds,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { LiveReadoutText } from '@/components/iso/readout-text';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
 import { Dots, IsoFigure, Line, Solid, Wire } from '@/components/iso/react/draw';
 import { useInView, useLoop } from '@/components/iso/react/live';
@@ -477,7 +478,7 @@ export function AppearancePhysicsPush({
       hint={<span data-testid="push-note">{noteLines(layers, mug).join(' ')}</span>}
       readout={
         <>
-          <span ref={phaseRef} data-push-phase="" />
+          <LiveReadoutText ref={phaseRef} data-push-phase="" />
           <span ref={restRef}>
             mug moved <span data-testid="displacement-readout">{moved}</span>
           </span>

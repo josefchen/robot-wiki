@@ -112,15 +112,15 @@
     "minutes": 8
   },
   "world-models/model-based-robot-learning": {
-    "words": 1237,
-    "minutes": 6
+    "words": 1313,
+    "minutes": 7
   },
   "world-models/evaluation": {
-    "words": 1085,
-    "minutes": 5
+    "words": 1196,
+    "minutes": 6
   },
   "world-models/world-models-vs-simulators": {
-    "words": 1947,
+    "words": 2068,
     "minutes": 10
   },
   "data-hardware/data-bottleneck": {

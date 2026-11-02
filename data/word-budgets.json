@@ -48,12 +48,12 @@
   "rl-sim2real/rl-for-robotics": 1727,
   "rl-sim2real/sim2real-transfer": 1914,
   "rl-sim2real/why-rl-locomotion": 1233,
-  "world-models/evaluation": 1085,
+  "world-models/evaluation": 1196,
   "world-models/generative-sim": 1621,
   "world-models/generative-video": 2077,
   "world-models/jepa": 1596,
   "world-models/latent-dynamics": 1368,
-  "world-models/model-based-robot-learning": 1237,
+  "world-models/model-based-robot-learning": 1313,
   "world-models/taxonomy": 1665,
-  "world-models/world-models-vs-simulators": 1947
+  "world-models/world-models-vs-simulators": 2068
 }

@@ -38,6 +38,9 @@ citations:
   - waymo-crash-rates-2025
   - adcock-figure-livestream-2026
   - maker-2025
+  - reflect-robot-2023
+  - doremi-robot-2023
+  - recovery-rl-2020
 seeAlso:
   - "data-hardware/industrial-deployment"
   - "manipulation/generalist-policies"
@@ -84,7 +87,11 @@ These are mostly per-task specialists, though RL-100 keeps about 90% zero-shot s
 
 ## Runtime monitors make failures visible, and human help rescues episodes
 
-Google's ASIMOV-Agentic benchmark tests whether an embodied-reasoning agent respects payload, reach and safety limits and stops near people <Cite id="asimov-agentic-2026" />. DeepMind calls Gemini Robotics ER 2 its safest robotics model on such benchmarks <Cite id="gemini-robotics-2-2026" />. FAIL-Detect learns to flag failures "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. A monitor catches failures instead of preventing them, so it raises effective reliability without changing the policy's own success rate.
+Google's ASIMOV-Agentic benchmark tests whether an embodied-reasoning agent respects payload, reach and safety limits and stops near people <Cite id="asimov-agentic-2026" />. DeepMind calls Gemini Robotics ER 2 its safest robotics model on such benchmarks <Cite id="gemini-robotics-2-2026" />. FAIL-Detect learns to flag failures "from successful training data alone" <Cite id="fail-detect-2025" />, and Sentinel's two detectors together catch 18% more failures than either alone <Cite id="sentinel-2024" />. A detector can flag a problem without completing the task; the response to its signal determines what happens next.
+
+Recovery needs its own mechanism. REFLECT summarizes multisensory execution histories for a language model to explain a failure and guide a corrective plan <Cite id="reflect-robot-2023" />. DoReMi generates constraints from the plan, checks them with a vision-language model during execution and starts recovery when they are violated <Cite id="doremi-robot-2023" />.
+
+Recovery RL separates the task policy from a recovery policy. Offline data identifies likely constraint violations; the recovery policy guides the agent back toward safety while the task policy optimizes reward <Cite id="recovery-rl-2020" />.
 
 π0.7 accepts step-by-step language coaching that walks it through tasks it has not seen <Cite id="pi07-blog-2026" />. HG-DAgger lets a human expert take control to correct compounding error <Cite id="hg-dagger-2019" />, and 1X says NEO owners can schedule a remote expert for chores it does not know <Cite id="1x-neo-2026" />.
 
@@ -107,17 +114,17 @@ A testable yardstick would document mean time between failures on real tasks, th
 Real-robot comparisons are often limited to 10 or 50 trials <Cite id="optimal-stopping-2025" />, and TRI's blind, randomized trials show the needed discipline <Cite id="tri-lbm-2025" />. Waymo's crash-rate claim rested on 56.7 million rider-only miles <Cite id="waymo-crash-rates-2025" /> ([autonomous vehicles](/adjacent/autonomous-vehicles/)). [Safety and assurance](/frontier/safety-and-assurance/) covers the standards a learned policy cannot be rated under.
 
 <SelfCheck
-  prompt="Your manipulation system sits at 99% success on a 30-step task and a customer needs 99% end-to-end. A vendor offers a runtime monitor that detects failures as they start. Can the monitor get you there?"
+  prompt="Each of your system's 30 steps succeeds 99% of the time, and a customer needs 99% end-to-end success. A vendor offers a runtime monitor that detects failures as they start. Does detection alone demonstrate the required reliability?"
   options={[
     {
       value: 'monitor-closes',
-      label: 'Yes, roughly: catching failures before they compound means most detected episodes still complete, so the effective rate climbs toward what the customer needs',
-      why: "This overstates what a monitor does. ASIMOV-Agentic and Gemini Robotics ER 2 raise effective reliability by refusing unsafe calls and triggering safe stops, which turns silent failures into visible ones; a task the system safely aborted still did not complete, and the monitored number is not the policy's own success rate."
+      label: 'Yes: detecting failures means most affected episodes still complete, so the system meets the target',
+      why: "Detecting a failure does not establish that the task was completed. A safe stop, a successful recovery and a human intervention are different outcomes and need separate reporting."
     },
     {
       value: 'monitor-no',
-      label: "No, only on-robot experience moves the policy's own number: a monitor converts failures into safe stops and human escalations",
-      why: 'Monitoring catches failures instead of preventing them. The methods that move per-step reliability are RL from experience: π*0.6 cuts failure rates by 2x or more on hard tasks and RL-100 reaches 100% across 1,000 episodes, both as per-task specialists.'
+      label: "No. Detection needs a tested response, and the complete system needs an end-to-end evaluation",
+      why: 'A detector and a recovery controller perform different jobs. To establish the target rate, evaluate completed tasks under defined conditions and report interventions, including any human help.'
     },
     {
       value: 'human-coach',
@@ -126,5 +133,5 @@ Real-robot comparisons are often limited to 10 or 50 trials <Cite id="optimal-st
     }
   ]}
   answer="monitor-no"
-  takeaway="Monitors make failures visible and coaches rescue episodes; only on-robot experience moves the policy's own per-step number."
+  takeaway="Detection, recovery and policy improvement have different roles; report completed tasks and interventions for the whole system."
 />

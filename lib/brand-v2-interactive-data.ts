@@ -425,6 +425,10 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // strength is a reader control, not an authored number.
     kind: 'source-data',
   },
+  'interactive:AvSafetyMiles': {
+    // Kalra and Paddock's RAND Table 1 miles (Equation 2 at 95% confidence) for fatalities, injuries and reported crashes.
+    kind: 'source-data',
+  },
   'interactive:CalibrationChain': {
     // Published calibration errors from three studies, drawn on a schematic chain.
     kind: 'source-data',
@@ -447,6 +451,14 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
   },
   'interactive:DeploymentDashboard': {
     // Deployment claims with issuer/as-of scope, verified vs claimed.
+    kind: 'source-data',
+  },
+  'interactive:DroneChampionsTimeline': {
+    // Swift, MonoRace and the A2RL 2026 final against human champions, dated and scored from each team's or organiser's own report.
+    kind: 'source-data',
+  },
+  'interactive:DroneDeliveryCounts': {
+    // Cumulative delivery counts as Zipline's fact sheet and Wing's June 2026 post state them.
     kind: 'source-data',
   },
   'interactive:ExcavatorPractice': {
@@ -507,12 +519,32 @@ export const INTERACTIVE_DATA_CLASSIFICATION: Record<string, InteractiveDataSpec
     // Rudin and colleagues' robot counts (128 CPU-era, 4,096 deployed policy, 16,384 on one GPU), one square per 128.
     kind: 'source-data',
   },
+  'interactive:ModelBasedLoop': {
+    // Authored schematic with directly cited primary-source mechanisms.
+    kind: 'source-data',
+  },
+  'interactive:WorldModelEvaluationLadder': {
+    // Authored schematic with directly cited primary-source mechanisms.
+    kind: 'source-data',
+  },
+  'interactive:WorldModelOutputTimes': {
+    // Source-backed timing measurements with explicit output units.
+    kind: 'source-data',
+  },
   'interactive:SafetyRulesTimeline': {
     // Publication and application dates of five robot safety rules, each from its own catalogue or legal text.
     kind: 'source-data',
   },
   'interactive:ScannedTwinCheck': {
     // Kadian and colleagues' sim-versus-real correlations for a 3D-scanned lab (0.18 as scanned, 0.844 tuned).
+    kind: 'source-data',
+  },
+  'interactive:SpaceLatencyLadder': {
+    // Falanga and colleagues' stereo sensing latencies and JPL's Moon and Mars round-trip light times, on one log axis.
+    kind: 'source-data',
+  },
+  'interactive:SurgicalAutonomyLadder': {
+    // Yang and colleagues' six autonomy levels, with each system placed by its own paper or by Yang's definitions.
     kind: 'source-data',
   },
   'interactive:TeleopRigMatrix': {

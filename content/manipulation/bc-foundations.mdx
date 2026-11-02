@@ -53,8 +53,6 @@ import { CompoundingError } from '@/components/interactive/compounding-error';
 
 <Term id="behavior-cloning">Behavior cloning</Term> is imitation learning cast as supervised learning: a policy $\pi(a \mid s)$ is regressed onto [expert actions](/how-robots-work/#puppeteer) given expert observations. In closed loop the robot's own actions choose its future inputs, breaking the i.i.d. assumption, so <Term id="compounding-error">errors compound</Term> <Cite id="ross-bagnell-2010" />.
 
-<Image id="droid-robot-platform-2024" />
-
 ## Watch the error compound
 
 Try “A teacher corrects it” to watch DAgger-style relabeling <Cite id="dagger-2011" /> cut the summed deviation.
@@ -86,6 +84,8 @@ Try “A teacher corrects it” to watch DAgger-style relabeling <Cite id="dagge
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />
 </PredictThenReveal>
 
+<Image id="droid-robot-platform-2024" />
+
 ## Origins in driving
 
 ALVINN (1988), a three-layer back-propagation network with camera and laser-range inputs, trained on simulated road images and was tested on NAVLAB, a modified Chevy van <Cite id="alvinn-1988" />. Later driving systems added off-centre, rotated training views <Cite id="bojarski-e2e-driving-2016" />, or synthesized perturbations once 30 million examples proved too few <Cite id="chauffeurnet-2018" />.
@@ -110,7 +110,7 @@ On demonstrations with several valid strategies, energy-based implicit policies 
 
 A single Markovian state cannot predict pauses, so single-step policies freeze, as ACT and Diffusion Policy document <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. Temporal context is the usual fix, yet more input information can worsen a cloned policy under shift <Cite id="causal-confusion-2019" />, and a history-conditioned policy can cheat by copying the expert's previous action <Cite id="copycat-bc-2020" />.
 
-Behavior cloning at best matches its demonstrator, and robomimic found results depend on demonstration quality and checkpoint selection <Cite id="robomimic-2021" />. Past a threshold, extra demonstrations per environment or object barely help; diversity matters far more <Cite id="lin-data-scaling-laws-2024" />. In Park and Levine's OCBench (October 2026), whose scripted demonstrators mimic human ones, success can keep rising as a policy overfits, and on two tasks closed-loop policies almost completely fail where action chunking works <Cite id="ocbench-2026" />.
+Behavior cloning at best matches its demonstrator, and robomimic found results depend on demonstration quality and checkpoint selection <Cite id="robomimic-2021" />. Past a threshold, extra demonstrations per environment or object barely help; diversity matters far more <Cite id="lin-data-scaling-laws-2024" />. In Park and Levine's OCBench (October 2026), whose scripted demonstrators mimic human ones, success can keep rising as a policy overfits, and on two tasks closed-loop policies almost completely fail where action chunking works <Cite id="ocbench-2026" />. Gradient-variance amplification can also make long-horizon rewards fluctuate while cloning loss barely changes; averaging training iterates mitigated it in the reported experiments <Cite id="butterfly-sgd-noise-2023" />.
 
 ## DAgger: relabel the states you actually visit
 

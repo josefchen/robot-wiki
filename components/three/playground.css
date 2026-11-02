@@ -406,6 +406,22 @@
 }
 .playground .pg-download:hover { text-decoration-color: var(--ink); }
 .playground input[type='file'] { font-size: 13px; color: var(--muted); max-width: 100%; }
+
+@media (forced-colors: active) {
+  .playground .pg-primary {
+    background: ButtonFace;
+    color: ButtonText;
+    -webkit-text-fill-color: ButtonText;
+    border: 1px solid ButtonText;
+    forced-color-adjust: auto;
+  }
+
+  .playground .pg-primary:disabled {
+    color: GrayText;
+    -webkit-text-fill-color: GrayText;
+    border-color: GrayText;
+  }
+}
 .playground input[type='file']::file-selector-button {
   margin-right: 10px;
   padding: 5px 12px;

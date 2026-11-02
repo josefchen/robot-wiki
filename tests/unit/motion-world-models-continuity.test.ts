@@ -1,5 +1,5 @@
+import { historicalGit } from '../helpers/historical-git';
 import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import matter from 'gray-matter';
 import { describe, expect, it } from 'vitest';
@@ -29,7 +29,7 @@ describe('world-model motion prose and retained local-basis continuity', () => {
   it.each(slugs)('retains the humanizer endpoint and exact subsequent edges for %s', (slug) => {
     const id = `article:world-models/${slug}`;
     const path = `content/world-models/${slug}.mdx`;
-    const previous = execFileSync('git', ['show', `68fd2b8:${path}`], { cwd: root, encoding: 'utf8' });
+    const previous = historicalGit(['show', `68fd2b8:${path}`], { cwd: root, encoding: 'utf8' });
     const oldHash = sha256(stableJson({ path, body: matter(previous).content.trim() }));
     const currentHash = truth.prose.members.find((member) => member.id === id)?.hash;
     const edges = approvals.filter((entry) => entry.manifest === 'prose' && entry.memberId === id);

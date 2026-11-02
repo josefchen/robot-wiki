@@ -1,371 +1,158 @@
 import { expect, test } from '@playwright/test';
-import { existsSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
-import { publishedModules } from '../../data/modules';
-import {
-  startStaticExportServer,
-  type StaticExportServer,
-} from './static-export-server';
+import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { firstScreenPopulation } from './helpers/first-screen-population';
+import { measureFirstScreen } from './helpers/first-screen-measure';
+import { derivedExclusions, findCue, FIRST_SCREEN_LIMITS, populationFailures, type FirstScreenMeasurement } from '../helpers/first-screen-contract';
 
 /**
- * VAL-EDU-045: an article's prose reaches its first interactive before it
- * becomes a wall.
+ * VAL-EDU-045 / VAL-OPUS-147, owner-authorized successor (2026-11-02).
  *
- * The population is DERIVED from the module registry, never a literal route
- * list, so a module published later is graded by this spec automatically
- * rather than silently skipped. The in-scope set is then narrowed by a
- * measured property of each rendered page (does it mount an interactive at
- * all), which is what the contract's exclusion of the table-only adjacent
- * routes actually means. Those two are asserted to be excluded
- * BY NAME below, so the exclusion cannot quietly grow to cover a route that
- * regressed.
+ * The authoritative educational-ux contract counts control-only mounts and
+ * derives exclusions. The prior SVG-first walk skipped an earlier working
+ * comparison table/scene and sometimes chose a closed Adjust more diagram.
+ * This successor joins the existing widget, scene, explainer and clip
+ * authorities plus authored MDX controls, reconciles every DOM mount, and
+ * grades the earliest rendered control region. The 300-word, one-H2 and
+ * 1600px limits and the cue pattern list are unchanged. A mount without a
+ * rendered non-decorative SVG records clause (c) as inapplicable explicitly.
+ * Population/hidden-fold/control-only mutation proofs live beside this spec
+ * in first-screen-contract.spec.ts and the focused unit population tests.
  */
-
-/** Contract clause (a). */
-const MAX_PRECEDING_WORDS = 300;
-/** Contract clause (b). */
-const MAX_PRECEDING_H2 = 1;
-/** Contract clause (c), at a 1440x900 viewport. */
-const MAX_TOP_EDGE_PX = 1600;
-
-/**
- * Contract clause (d). Second-person instruction patterns, verbatim from the
- * assertion text. A generic "the interactive below shows" matches none of
- * them, which is the point.
- */
-const CUE_PATTERNS: ReadonlyArray<readonly [string, RegExp]> = [
-  ['drag', /\bdrag\b/i],
-  ['move the', /\bmove the\b/i],
-  ['slide', /\bslide\b/i],
-  ['toggle', /\btoggle\b/i],
-  ['switch', /\bswitch (it |the )?/i],
-  ['turn on/off', /\bturn (it |the )?(on|off)\b/i],
-  ['set the', /\bset (it |the )/i],
-  ['try', /\btry\b/i],
-];
-
-/**
- * Routes the contract excludes by construction: they mount only static MDX
- * tables, so they have no first interactive to reach. The contract requires
- * these to be REPORTED as excluded rather than failed. Surgical left this
- * set when MotionPantograph was mounted there; it is now measured in scope.
- */
-const CONTRACT_EXCLUSIONS = [
-  '/adjacent/autonomous-vehicles/',
-  '/adjacent/space/',
-] as const;
-
-interface Measurement {
-  hasInteractive: boolean;
-  precedingWords: number;
-  precedingH2: number;
-  precedingH2Texts: string[];
-  topEdge: number;
-  adjacentParagraphs: string[];
-  controlLabels: string[];
-}
-
-function articleRoutes(): string[] {
-  return publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
-}
-
-function completeMeasurements(
-  measurements: ReadonlyMap<string, Measurement>,
-): Array<[string, Measurement]> {
-  const routes = articleRoutes();
-  expect(
-    routes.length,
-    'no published article routes derived from the registry',
-  ).toBeGreaterThan(0);
-  expect(
-    measurements.size,
-    `shared measurement corpus is incomplete: expected ${routes.length} routes, received ${measurements.size}`,
-  ).toBe(routes.length);
-  expect(
-    [...measurements.keys()].sort(),
-    'shared measurement corpus routes do not match the published registry',
-  ).toEqual([...routes].sort());
-  return routes.map((route) => [route, measurements.get(route)!]);
-}
-
-/**
- * Locate the first interactive and measure the four clauses against it, in
- * one page evaluation so every number describes the same layout pass.
- *
- * "Interactive" follows the contract definition: a region holding a
- * non-decorative SVG root and at least one control. The filterable MDX
- * tables render controls and no SVG root, and they are still the article's
- * first interactive surface, so a control-only region is the documented
- * fallback rather than a miss.
- */
-const MEASURE = (): Measurement | null => {
-  // Every heading carries a copy-link button (VAL-WIKI-030), which is prose
-  // chrome rather than an interactive's control, so a bare `button` selector
-  // would find one in the first heading and read the whole article as the
-  // interactive region.
-  const CONTROLS = 'input, select, button:not([data-heading-permalink])';
-  const prose = document.querySelector<HTMLElement>(
-    'div[data-pagefind-body].prose',
-  );
-  if (!prose) return null;
-
-  const decorative = (el: Element) => el.closest('[aria-hidden="true"]') !== null;
-  const svgs = Array.from(prose.querySelectorAll('svg')).filter(
-    (s) => !decorative(s),
-  );
-
-  let region: HTMLElement | null = null;
-  let svg: Element | null = null;
-  for (const candidate of svgs) {
-    let node = candidate.parentElement;
-    while (node !== null && node !== prose) {
-      if (node.querySelector(CONTROLS) !== null) {
-        region = node;
-        svg = candidate;
-        break;
-      }
-      node = node.parentElement;
-    }
-    if (region !== null) break;
-  }
-  if (region === null) {
-    const control = prose.querySelector(CONTROLS);
-    let node = control === null ? null : control.parentElement;
-    while (node !== null && node !== prose && node.parentElement !== prose) {
-      node = node.parentElement;
-    }
-    if (node !== null && node !== prose) region = node;
-  }
-  if (region === null) {
-    return {
-      hasInteractive: false,
-      precedingWords: 0,
-      precedingH2: 0,
-      precedingH2Texts: [],
-      topEdge: 0,
-      adjacentParagraphs: [],
-      controlLabels: [],
-    };
-  }
-
-  // Clause (a): the rendered prose preceding the interactive's own top-level
-  // block. innerText is the measure the contract names, so the clone has to
-  // be laid out (offscreen) rather than read as textContent: textContent
-  // would miss text-transform and would count the body of a closed
-  // <details>, which a reader never sees.
-  let topLevel: HTMLElement = region;
-  while (topLevel.parentElement !== null && topLevel.parentElement !== prose) {
-    topLevel = topLevel.parentElement;
-  }
-  const holder = document.createElement('div');
-  holder.style.position = 'absolute';
-  holder.style.left = '-99999px';
-  holder.style.width = '65ch';
-  for (const child of Array.from(prose.children)) {
-    if (child === topLevel) break;
-    holder.appendChild(child.cloneNode(true));
-  }
-  document.body.appendChild(holder);
-  const precedingText = holder.innerText;
-  holder.remove();
-  const precedingWords = precedingText
-    .trim()
-    .split(/\s+/)
-    .filter((w) => w.length > 0).length;
-
-  const PRECEDING = Node.DOCUMENT_POSITION_PRECEDING;
-  const FOLLOWING = Node.DOCUMENT_POSITION_FOLLOWING;
-  const precedingH2s = Array.from(prose.querySelectorAll('h2')).filter(
-    (h) => (region.compareDocumentPosition(h) & PRECEDING) !== 0,
-  );
-
-  const rect = (svg ?? region).getBoundingClientRect();
-
-  const paragraphs = Array.from(prose.querySelectorAll('p')).filter(
-    (p) => p.innerText.trim().length > 0,
-  );
-  const before = paragraphs.filter(
-    (p) => (region.compareDocumentPosition(p) & PRECEDING) !== 0,
-  );
-  const after = paragraphs.filter(
-    (p) => (region.compareDocumentPosition(p) & FOLLOWING) !== 0,
-  );
-
-  const labels: string[] = [];
-  for (const control of Array.from(
-    region.querySelectorAll<HTMLElement>(CONTROLS),
-  )) {
-    const aria = control.getAttribute('aria-label');
-    if (aria !== null) labels.push(aria);
-    const id = control.getAttribute('id');
-    if (id !== null) {
-      const forLabel = region.querySelector<HTMLElement>(
-        `label[for="${CSS.escape(id)}"]`,
-      );
-      if (forLabel !== null) labels.push(forLabel.innerText);
-    }
-    const own = control.innerText.trim();
-    if (own.length > 0) labels.push(own);
-    const wrapping = control.closest<HTMLElement>('label');
-    if (wrapping !== null) labels.push(wrapping.innerText);
-  }
-
-  return {
-    hasInteractive: true,
-    precedingWords,
-    precedingH2: precedingH2s.length,
-    precedingH2Texts: precedingH2s.map((h) => h.innerText),
-    topEdge: rect.top + window.scrollY,
-    adjacentParagraphs: [...before.slice(-2), ...after.slice(0, 2)].map(
-      (p) => p.innerText,
-    ),
-    controlLabels: Array.from(new Set(labels)).filter((l) => l.length > 0),
-  };
-};
-
-/**
- * Clause (d) requires BOTH halves: a second-person instruction pattern AND
- * that the instruction names a control the interactive actually renders.
- * Checking only the pattern would accept "try the next module", and checking
- * only the label would accept a passive caption.
- */
-function findCue(
-  paragraphs: readonly string[],
-  controlLabels: readonly string[],
-): { pattern: string; control: string; paragraph: string } | null {
-  for (const paragraph of paragraphs) {
-    const matched = CUE_PATTERNS.find(([, re]) => re.test(paragraph));
-    if (matched === undefined) continue;
-    const lower = paragraph.toLowerCase();
-    const named = controlLabels.find((label) =>
-      label
-        .toLowerCase()
-        .split(/[^a-z0-9]+/)
-        .filter((word) => word.length >= 4)
-        .some((word) => lower.includes(word)),
-    );
-    if (named !== undefined) {
-      return { pattern: matched[0], control: named, paragraph };
-    }
-  }
-  return null;
-}
-
+const population = firstScreenPopulation();
 const outDir = join(process.cwd(), 'out');
-const CORPUS_FIXED_BUDGET_MS = 10_000;
-const PER_ROUTE_BUDGET_MS = 1_500;
+const digest = (bytes: Buffer | string) => createHash('sha256').update(bytes).digest('hex');
+const proofSourcePaths = [
+  'tests/e2e/first-screen-interactive.spec.ts',
+  'tests/e2e/helpers/first-screen-measure.ts',
+  'tests/e2e/helpers/first-screen-population.ts',
+  'tests/helpers/first-screen-contract.ts',
+  'contract/brand-v2-registries.json',
+  'data/modules.ts',
+  'lib/motion-scene-registry.ts',
+  'lib/motion-clips.ts',
+  'components/explainers/mounts.ts',
+  'data/images.ts',
+];
+const proofSources = proofSourcePaths.map((path) => {
+  const bytes = readFileSync(join(process.cwd(), path));
+  return { path, bytes: bytes.length, sha256: digest(bytes) };
+});
+const sourceCommit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 
 test.describe('VAL-EDU-045 article prose reaches an interactive', () => {
   let server: StaticExportServer;
-  const measurements = new Map<string, Measurement>();
+  const measured: FirstScreenMeasurement[] = [];
+  const configured: FirstScreenMeasurement[] = [];
   const withoutProse: string[] = [];
+  const configuredOverflow: Array<{ route: string; overflow: number }> = [];
+  const exportFiles: Array<{ route: string; path: string; bytes: number; sha256: string }> = [];
 
-  // The corpus is measured in the hook, not in the first test: Playwright
-  // replaces the worker after any failed test, and a fresh worker re-runs
-  // beforeAll but not earlier tests, so a clause failure would otherwise
-  // leave every later clause grading an empty map.
-  test.beforeAll(async ({ browser }) => {
-    expect(
-      existsSync(outDir),
-      'run `npm run build` first: this spec grades the shipped export',
-    ).toBe(true);
+  test.beforeAll(async ({ browser }, testInfo) => {
+    expect(existsSync(outDir), 'run npm run build first: this spec grades the shipped export').toBe(true);
     server = await startStaticExportServer(outDir);
-
-    const routes = articleRoutes();
-    test.setTimeout(
-      CORPUS_FIXED_BUDGET_MS + routes.length * PER_ROUTE_BUDGET_MS,
-    );
-    const page = await browser.newPage({
-      viewport: { width: 1440, height: 900 },
-    });
-    try {
-      for (const route of routes) {
-        await page.goto(`http://127.0.0.1:${server.port}${route}`, {
-          waitUntil: 'networkidle',
-        });
-        const measured = await page.evaluate(MEASURE);
-        if (measured === null) withoutProse.push(route);
-        else measurements.set(route, measured);
-      }
-    } finally {
-      await page.close();
+    // Per-route budgets include both the sealed 1440px measurement and the
+    // requested reflow profile. This changes observation time, not limits.
+    test.setTimeout(20_000 + population.routes.length * 6_000);
+    const viewport = testInfo.project.use.viewport ?? { width: 1280, height: 720 };
+    for (const route of population.routes) {
+      const relativePath = `${route.slice(1)}index.html`;
+      const html = readFileSync(join(outDir, relativePath));
+      const htmlDigest = digest(html);
+      exportFiles.push({ route, path: `out/${relativePath}`, bytes: html.length, sha256: htmlDigest });
+      const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+      try {
+        await page.goto(`http://127.0.0.1:${server.port}${route}`, { waitUntil: 'networkidle' });
+        await page.evaluate(() => document.fonts.ready);
+        const result = await page.evaluate(measureFirstScreen, { route, componentNames: population.componentNames });
+        if (result) measured.push(result);
+        else withoutProse.push(route);
+        if (viewport.width !== 1440 || viewport.height !== 900) {
+          await page.setViewportSize(viewport);
+          const reflowed = await page.evaluate(measureFirstScreen, { route, componentNames: population.componentNames });
+          if (reflowed) configured.push(reflowed);
+          else withoutProse.push(`${route} at ${viewport.width}px`);
+        } else if (result) configured.push(result);
+        configuredOverflow.push({ route, overflow: await page.evaluate(() => document.documentElement.scrollWidth - innerWidth) });
+        expect(digest(readFileSync(join(outDir, relativePath))), `${route}: export remained unchanged during measurement`).toBe(htmlDigest);
+      } finally { await page.close(); }
     }
+    const evidenceDir = process.env.FIRST_SCREEN_EVIDENCE_DIR ?? join(process.cwd(), 'test-results', 'first-screen');
+    mkdirSync(evidenceDir, { recursive: true });
+    writeFileSync(join(evidenceDir, `${testInfo.project.name}.json`), JSON.stringify({
+      assertionIds: ['VAL-EDU-045', 'VAL-OPUS-147'],
+      observedAt: new Date().toISOString(),
+      sourceCommit,
+      proofSources,
+      exportFiles,
+      exportRootSha256: digest(JSON.stringify(exportFiles)),
+      viewport: { width: 1440, height: 900 },
+      requestedViewport: viewport,
+      expectedMounts: population.expected,
+      measured,
+      configured,
+      exclusions: derivedExclusions(population.routes, population.expected),
+      populationFailures: populationFailures(population.routes, population.expected, measured),
+      limits: FIRST_SCREEN_LIMITS,
+    }, null, 2) + '\n');
   });
 
-  test.afterAll(async () => {
-    await server?.stop();
-  });
+  test.afterAll(async () => { await server?.stop(); });
 
   test('the corpus is non-empty and every published article was measured', () => {
-    const routes = articleRoutes();
-    expect(routes.length).toBeGreaterThan(30);
-    expect(withoutProse, 'routes that render no article prose region').toEqual([]);
-    expect(measurements.size).toBe(routes.length);
-    completeMeasurements(measurements);
+    expect(withoutProse).toEqual([]);
+    expect(populationFailures(population.routes, population.expected, measured)).toEqual([]);
   });
 
-  test('exactly the two table-only adjacent routes are excluded', () => {
-    const excluded = completeMeasurements(measurements)
-      .filter(([, m]) => !m.hasInteractive)
-      .map(([route]) => route)
-      .sort();
-    // Reported, not failed: these routes mount no interactive by design.
-    expect(excluded).toEqual([...CONTRACT_EXCLUSIONS].sort());
+  test('exclusions equal the registry and rendered difference, with reasons', () => {
+    expect(populationFailures(population.routes, population.expected, measured)).toEqual([]);
+    const expected = derivedExclusions(population.routes, population.expected);
+    const actual = measured.filter((measurement) => measurement.first === null).map((measurement) => measurement.route).sort();
+    expect(actual).toEqual(expected.map((entry) => entry.route).sort());
+    for (const entry of expected) expect(entry.reason.length).toBeGreaterThan(20);
   });
 
   test('clause (a): at most 300 rendered words precede the first interactive', () => {
-    const over = completeMeasurements(measurements)
-      .filter(([, m]) => m.hasInteractive && m.precedingWords > MAX_PRECEDING_WORDS)
-      .map(([route, m]) => `${route} ${m.precedingWords} words`);
-    expect(over).toEqual([]);
+    expect(populationFailures(population.routes, population.expected, measured)).toEqual([]);
+    expect(measured.flatMap(({ route, first }) => first && first.precedingWords > FIRST_SCREEN_LIMITS.words ? [`${route}: ${first.precedingWords} words`] : [])).toEqual([]);
   });
 
   test('clause (b): at most one h2 precedes the first interactive', () => {
-    const over = completeMeasurements(measurements)
-      .filter(([, m]) => m.hasInteractive && m.precedingH2 > MAX_PRECEDING_H2)
-      .map(
-        ([route, m]) =>
-          `${route} ${m.precedingH2} h2 (${m.precedingH2Texts.join(' | ')})`,
-      );
-    expect(over).toEqual([]);
+    expect(populationFailures(population.routes, population.expected, measured)).toEqual([]);
+    expect(measured.flatMap(({ route, first }) => first && first.precedingH2 > FIRST_SCREEN_LIMITS.headings ? [`${route}: ${first.precedingH2Texts.join(' | ')}`] : [])).toEqual([]);
   });
 
   test('clause (c): the first non-decorative svg sits within 1600px of the document top', () => {
-    const over = completeMeasurements(measurements)
-      .filter(([, m]) => m.hasInteractive && m.topEdge > MAX_TOP_EDGE_PX)
-      .map(([route, m]) => `${route} ${Math.round(m.topEdge)}px`);
-    expect(over).toEqual([]);
+    expect(populationFailures(population.routes, population.expected, measured)).toEqual([]);
+    expect(measured.flatMap(({ route, first }) => first?.topEdge !== null && first && first.topEdge > FIRST_SCREEN_LIMITS.svgTop ? [`${route}: ${first.topEdge}px`] : [])).toEqual([]);
+    for (const { route, first } of measured) {
+      if (first?.topEdge === null) expect(first.noSvgReason, route).toContain('no rendered non-decorative SVG');
+    }
   });
 
   test('clause (d): an operating cue naming a rendered control sits in the adjacent prose', () => {
-    const missing = completeMeasurements(measurements)
-      .filter(
-        ([, m]) =>
-          m.hasInteractive &&
-          findCue(m.adjacentParagraphs, m.controlLabels) === null,
-      )
-      .map(([route]) => route);
-    expect(missing).toEqual([]);
+    expect(populationFailures(population.routes, population.expected, measured)).toEqual([]);
+    expect(measured.flatMap(({ route, first }) => first && !findCue(first.adjacentParagraphs.map((paragraph) => paragraph.text), first.controlLabels) ? [route] : [])).toEqual([]);
   });
 
   test('the cue is outside any gated reveal, since a closed details hides its body from innerText', () => {
-    // A cue living inside a closed <details> would not appear in the
-    // paragraphs this spec reads at all, so a passing clause (d) already
-    // proves the cue is ungated. Pin the count so the clause cannot pass
-    // vacuously on an empty paragraph set.
-    const entries = completeMeasurements(measurements);
-    const cued = entries.filter(
-      ([, m]) =>
-        m.hasInteractive && findCue(m.adjacentParagraphs, m.controlLabels) !== null,
-    );
-    const inScope = entries.filter(([, m]) => m.hasInteractive);
-    expect(cued.length).toBe(inScope.length);
-    for (const [route, m] of cued) {
-      const cue = findCue(m.adjacentParagraphs, m.controlLabels);
+    const inScope = measured.filter((measurement) => measurement.first);
+    expect(inScope.length).toBeGreaterThan(0);
+    for (const { route, first } of inScope) {
+      const cue = findCue(first!.adjacentParagraphs.map((paragraph) => paragraph.text), first!.controlLabels);
       expect(cue, route).not.toBeNull();
-      expect(m.adjacentParagraphs, route).toContain(
-        (cue as { paragraph: string }).paragraph,
-      );
+      expect(first!.adjacentParagraphs.find((paragraph) => paragraph.text === cue?.paragraph)?.cited, `${route}: cue paragraph has a contextual source`).toBe(true);
+    }
+  });
+
+  test('the requested viewport preserves every mount and its operating cue without document overflow', () => {
+    expect(populationFailures(population.routes, population.expected, configured)).toEqual([]);
+    expect(configuredOverflow.filter(({ overflow }) => overflow > 1)).toEqual([]);
+    for (const { route, first } of configured) {
+      if (first) expect(findCue(first.adjacentParagraphs.map((paragraph) => paragraph.text), first.controlLabels), route).not.toBeNull();
     }
   });
 });

@@ -82,7 +82,7 @@ Perception for manipulation turns camera and depth data into object poses in the
 
 ## An illustrative positioning budget
 
-Try the transparent bottle under "Adjust more": the depth term then dominates the budget.
+Move the "Distance to the object" slider to inspect the illustrative positioning budget <Cite id="zhang-2000-calibration" />.
 
 <PerceptionErrorBudget className="my-6" />
 
@@ -121,6 +121,8 @@ RealSense's D415/D435 tuning guide says D400 depth error scales with the square 
 
 Learned models now estimate depth from images, alone or with a sparse sensor: Depth Pro predicts metric monocular depth without camera intrinsics, a 2.25-megapixel map in 0.3 seconds on a standard GPU <Cite id="depth-pro-2024" />.
 
+FoundationStereo combines diverse synthetic stereo pairs with a pretrained monocular depth prior and cost-volume filtering to improve transfer to unseen stereo scenes <Cite id="foundationstereo-2025" />. Prompt Depth Anything instead supplies sparse depth from low-cost LiDAR as a metric prompt to a depth foundation model <Cite id="prompt-depth-anything-2024" />.
+
 For industrial 3D scanning, the PhoXi 3D Scanner L page lists 0.200 mm calibration accuracy and 0.190 mm temporal noise (both 1 σ), an 870 to 2150 mm scanning range and 250 to 2750 ms scanning time. These are separate specification fields for one model <Cite id="photoneo-phoxi-l-2026" />.
 
 Time of flight casts its own modulated near-infrared light and measures its round trip per pixel. Multi-path interference lets one pixel integrate light that arrived by several routes. The Azure Kinect DK documentation lists five causes of invalid depth: outside the IR illumination mask, saturated IR signal, low IR signal, filter outlier and multi-path interference. Invalid pixels carry depth zero. Ambiguous depth arises when light reflects from one wall onto another in a corner, and where foreground and background mix at object edges. Fast motion can increase edge invalidation <Cite id="azure-kinect-depth-docs-2026" />. Microsoft announced the end of Azure Kinect DK production in August 2023, and support for its Sensor SDK ended in August 2024 <Cite id="azure-kinect-sdk-retirement-2024" />.
@@ -143,15 +145,21 @@ Depth yields a <Term id="point-cloud">point cloud</Term>, an unordered set that 
 
 Classical detectors return boxes over a class list fixed at training time. Mask R-CNN extends Faster R-CNN with a branch that predicts an object mask in parallel with box recognition <Cite id="mask-rcnn-2017" />.
 
-Open-vocabulary detection removes the fixed list. Grounding DINO adds language-vision fusion to the DINO detector's feature enhancer, query selection and decoder and accepts category names or referring expressions. It performs weakly on referring expressions without REC training data. Its Swin-L model reports 52.5 AP on COCO 2017 validation after pretraining on O365, OpenImage and GoldG without COCO training images <Cite id="grounding-dino-2024" />.
+Open-vocabulary detection removes the fixed list. OWLv2 scales open-vocabulary detection through self-training: an existing detector supplies pseudo-boxes for web image-text pairs, expanding training beyond human box annotations <Cite id="owlv2-2023" />.
 
-DINOv2 learns image and patch features by self-supervised pretraining on the curated LVD-142M dataset. Its transfer evaluations freeze the encoder and train linear heads for classification and segmentation, and linear or DPT heads for depth <Cite id="dinov2-2023" />.
+Grounding DINO adds language-vision fusion to the DINO detector's feature enhancer, query selection and decoder and accepts category names or referring expressions. It performs weakly on referring expressions without REC training data. Its Swin-L model reports 52.5 AP on COCO 2017 validation after pretraining on O365, OpenImage and GoldG without COCO training images <Cite id="grounding-dino-2024" />.
+
+Grounding DINO 1.5 separates a larger Pro model from an Edge variant designed for speed, reducing feature scales in the latter <Cite id="grounding-dino-1-5-2024" />.
+
+DINOv2 learns image and patch features by self-supervised pretraining on the curated LVD-142M dataset. Its transfer evaluations freeze the encoder and train linear heads for classification and segmentation, and linear or DPT heads for depth <Cite id="dinov2-2023" />. DINOv3 adds Gram anchoring to preserve the quality of dense features during long self-supervised training <Cite id="dinov3-2025" />.
 
 ## Segmentation: the grounding layer
 
 A box around a mug also contains the table behind it, so a grasp planner needs the surface region that <Term id="semantic-segmentation">per-pixel labelling</Term> provides. Segment Anything (SAM, 2023) makes segmentation promptable; its default ViT-H model was trained on SA-1B, reported as 1.1 billion automatically generated masks on 11 million images. Point, box and mask prompts condition the decoder, and an ambiguous point can return several candidate masks for a part or a whole object. Fine structures and boundaries remain failure cases, and the heavy image encoder prevents overall real-time performance <Cite id="segment-anything-2023" />.
 
 SAM 2 extends prompting to video with a streaming memory of earlier predictions and prompted frames. Objects are inferred independently, and failures persist after shot changes or long occlusions, in crowded scenes and on thin, fast-moving details <Cite id="sam2-2024" />.
+
+SAM 3 accepts concept prompts such as a noun phrase or an example image and combines a detector with a memory-based tracker to segment matching instances <Cite id="sam3-2025" />.
 
 Grounded SAM feeds Grounding DINO's open-set boxes to SAM <Cite id="grounded-sam-2024" />, and CNOS segments unseen objects by matching DINOv2 descriptors of SAM proposals against references built from CAD models <Cite id="cnos-2023" />.
 
@@ -167,7 +175,9 @@ Dense Object Nets learns a descriptor for each RGB pixel, self-supervised by mat
 
 <Term id="pose-estimation">Pose estimation</Term> turns a mask into a rigid body with a position and orientation, and methods divide by what they assume about the object. Instance-level methods train on specific objects: PoseCNN localizes each object's centre, predicts its distance and regresses a rotation quaternion, with a loss that handles symmetric objects <Cite id="posecnn-2018" />. DOPE, trained only on synthetic domain-randomized and photorealistic data, performs competitively with a network trained on real and synthetic data <Cite id="dope-2018" />.
 
-Category-level methods such as NOCS estimate the pose and size of unseen instances in known categories with no exact CAD model at training or test time <Cite id="nocs-2019" />. Novel-object methods drop per-object training. MegaPose uses render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose works from a CAD model or a few reference images and reports results comparable to instance-level methods <Cite id="foundationpose-2024" />.
+Category-level methods such as NOCS estimate the pose and size of unseen instances in known categories with no exact CAD model at training or test time <Cite id="nocs-2019" />. Novel-object methods drop per-object training. SAM-6D first proposes instance masks with SAM, then estimates pose through partial-to-partial point matching against an object model <Cite id="sam6d-2023" />. MegaPose uses render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose works from a CAD model or a few reference images and reports results comparable to instance-level methods <Cite id="foundationpose-2024" />.
+
+Any6D uses one RGB-D anchor view to estimate an unfamiliar object's pose and size through render-and-compare refinement, without requiring its CAD model <Cite id="any6d-2025" />. SAM 3D goes further and infers object geometry, texture and layout from a single image; those generated surfaces include geometry that the camera did not observe <Cite id="sam3d-2025" />.
 
 To read a pose result, check its evaluation protocol. Hinterstoisser and colleagues evaluate a model $\mathcal M$ with ground-truth pose $(R,T)$ and estimate $(\tilde R,\tilde T)$ by averaging distances between corresponding transformed model points <Cite id="hinterstoisser-2012" />:
 
@@ -185,6 +195,10 @@ m = \operatorname{avg}_{x_1 \in \mathcal M}
 $$
 
 They apply this rule to objects that are ambiguous, or look ambiguous from some views, naming "cup", "bowl", "box" and "glue" <Cite id="hinterstoisser-2012" />.
+
+CosyPose handles symmetries while matching object-pose hypotheses across images and jointly refining camera and object poses through object-level bundle adjustment <Cite id="cosypose-2020" />.
+
+The BOP Challenge 2020 evaluated 6D pose methods on RGB-D data and supplied physically based synthetic training images, making the training-data allowance part of the comparison <Cite id="bop-2020" />.
 
 The BOP Challenge 2023 report scores 6-DoF localization differently: each dataset score averages the VSD, MSSD and MSPD recalls, each over several thresholds with a strict test $e < \theta_e$, and $AR_C$ averages seven core datasets (LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L, IC-BIN) on a 0 to 100 scale. Seen and unseen tracks share the method, with object identities and instance counts supplied at test time, and the 2D-detection $AP_C$ averages over objects first <Cite id="bop-challenge-2023" />.
 

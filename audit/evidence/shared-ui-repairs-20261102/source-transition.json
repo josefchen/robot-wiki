@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "shared-ui-repair-continuity-v1",
+  "reviewedBy": "Implementation review of the three named shared UI successors; current browser acceptance remains separate.",
+  "observedAt": "2026-11-02T18:57:36.212Z",
+  "sources": [
+    {
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "path": "components/ui/cite.tsx",
+        "bytes": 4783,
+        "sha256": "cd028146d7e2b05c0b4ce5269c7fb7518eb45aaefb91c150d03565d77cac2c81"
+      },
+      "after": {
+        "path": "components/ui/cite.tsx",
+        "bytes": 5891,
+        "sha256": "b9fbeaff3405eb0df51c10e79702cd5714b343f32997f5ee07e8afe5dce376e4"
+      },
+      "reason": "Opening an inline source now scrolls its full note into view and offers a real keyboard-reachable Full reference link without changing viewport. The superscript preserves the Source N accessible name. Existing external target, source label, title, metadata, citation ID and desktop jump behavior remain. The phone reader flow and fourteen component cases were exercised.",
+      "preserved": [
+        "export function Cite",
+        "useCitationNumber(citeId)",
+        "rel=\"noopener noreferrer\"",
+        "data-cite-id",
+        "data-sidenote",
+        "{label}"
+      ],
+      "checks": [
+        "tests/component/ui/cite.test.tsx",
+        "tests/e2e/motion-planning-optimal-readers.spec.ts"
+      ],
+      "edits": [
+        {
+          "before": "import { useId, useRef, useState, type MouseEvent } from 'react';\n",
+          "after": "import { useEffect, useId, useRef, useState, type MouseEvent } from 'react';\n"
+        },
+        {
+          "before": "  const description = meta ? `${title}. ${meta}.` : `${title}.`;\n\n",
+          "after": "  const description = meta ? `${title}. ${meta}.` : `${title}.`;\n\n  useEffect(() => {\n    if (!open) return;\n    const frame = requestAnimationFrame(() => {\n      const note = noteRef.current;\n      if (!note) return;\n      const float = getComputedStyle(note).float;\n      if (float === 'left' || float === 'right') return;\n      // Revealing an inline source can add lines below the phone viewport.\n      // Keep the whole note visible without moving keyboard focus. An\n      // instant nearest-edge scroll also respects reduced-motion readers.\n      note.scrollIntoView?.({ block: 'nearest', inline: 'nearest', behavior: 'instant' });\n    });\n    return () => cancelAnimationFrame(frame);\n  }, [open]);\n\n"
+        },
+        {
+          "before": "          onClick={onMarkClick}\n",
+          "after": "          onClick={onMarkClick}\n          aria-label={`Source ${number}`}\n"
+        },
+        {
+          "before": "        <span data-pagefind-ignore className=\"sidenote-title\">{`, ${title}`}</span>\n",
+          "after": "        <span data-pagefind-ignore className=\"sidenote-title\">{`, ${title}`}</span>\n        {open ? (\n          <>\n            {' '}\n            <a\n              href={referenceHref ?? `#ref-${citeId}`}\n              data-cite-reference-link=\"\"\n              data-pagefind-ignore\n              data-brand-control-id=\"control:link-focus\"\n              aria-label={`Jump to the full reference for ${title}`}\n            >\n              Full reference\n            </a>\n          </>\n        ) : null}\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "path": "components/article/references.tsx",
+        "bytes": 4522,
+        "sha256": "fed962d668a021e3f70b7a198766ef66ba5c8bbf03895c53913b66e92dd9d0e7"
+      },
+      "after": {
+        "path": "components/article/references.tsx",
+        "bytes": 4543,
+        "sha256": "63e17ab383c0a949d95d33e1379db46521be04f6e3ba5e8fc609c82d486b74e7"
+      },
+      "reason": "Bibliography source titles can wrap at any point in an unbroken filename when reflow makes the column narrower than one word. min-w-0 allows the flex item to shrink. Source titles, full author list, numbering, further-reading distinction, original URL and external-link safety attributes remain unchanged; component and narrow-profile checks cover this correction.",
+      "preserved": [
+        "export function References",
+        "{citation.title}",
+        "authors={citation.authors}",
+        "{citation.url}",
+        "data-reference-source-link",
+        "rel=\"noopener noreferrer\""
+      ],
+      "checks": [
+        "tests/component/references.test.tsx",
+        "tests/e2e/brand-v2-release-pilot.spec.ts"
+      ],
+      "edits": [
+        {
+          "before": "            className=\"ink-link break-words font-sans text-[14px] font-medium leading-snug\"\n",
+          "after": "            className=\"ink-link min-w-0 [overflow-wrap:anywhere] font-sans text-[14px] font-medium leading-snug\"\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "path": "components/interactive/eureka-loop.tsx",
+        "bytes": 21886,
+        "sha256": "1515c767e669901857b161a709393bbae1627e263a72d747cd324f06cdf8338f"
+      },
+      "after": {
+        "path": "components/interactive/eureka-loop.tsx",
+        "bytes": 21980,
+        "sha256": "002311b1e187512f56d9d23bee63ea4b4a15d1ae04c65ac6e5c16e3eca4edcd3"
+      },
+      "reason": "The mixed-language readout now uses the reviewed ReadoutText formatter so prose keeps the sans face and numeric values use the numeral role. The generation script, source model, step controls, animated machine, data values and state transitions remain intact. Component, rendered typography and real animation probes exercise the shared formatting behavior.",
+      "preserved": [
+        "export function EurekaLoop",
+        "EUREKA_GENERATIONS",
+        "EUREKA_TASK",
+        "Next round",
+        "from '@/lib/eureka'"
+      ],
+      "checks": [
+        "tests/component/eureka-loop.test.tsx",
+        "tests/component/readout-text.test.tsx"
+      ],
+      "edits": [
+        {
+          "before": "import { AnatomyStage } from '@/components/iso/anatomy-stage';\n",
+          "after": "import { AnatomyStage } from '@/components/iso/anatomy-stage';\nimport { ReadoutText } from '@/components/iso/readout-text';\n"
+        },
+        {
+          "before": "          readout={<span data-testid=\"round-readout\">Round {gen + 1} of {rounds}</span>}\n",
+          "after": "          readout={<span data-testid=\"round-readout\"><ReadoutText>{`Round ${gen + 1} of ${rounds}`}</ReadoutText></span>}\n"
+        }
+      ]
+    },
+    {
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "path": "components/interactive/reward-shaping.tsx",
+        "bytes": 25218,
+        "sha256": "98ade875fc66aa351d23a10dbf6bd55f7f010aa3c4cc89fe540b1b20ecf05d06"
+      },
+      "after": {
+        "path": "components/interactive/reward-shaping.tsx",
+        "bytes": 25306,
+        "sha256": "9f6c76ef04149f77123d9fe27e4fba67cd194032d351f8f0b8aa184ca8086c01"
+      },
+      "reason": "The mixed readout uses the shared ReadoutText formatter to preserve sans prose and mono numeric runs. The twelve reward terms, weight bounds, default weights, behavior classifier, score computation, controls and animated geometry remain unchanged. The focused component and real readout ownership/typography checks cover the added formatting wrapper.",
+      "preserved": [
+        "export function RewardShaping",
+        "ATTRACTOR_DOMINANCE_RATIO",
+        "defaultWeights",
+        "weightedTotal",
+        "from '@/lib/reward-shaping'",
+        "Scoring rule"
+      ],
+      "checks": [
+        "tests/component/reward-shaping.test.tsx",
+        "tests/component/readout-text.test.tsx"
+      ],
+      "edits": [
+        {
+          "before": "import { AnatomyStage } from '@/components/iso/anatomy-stage';\n",
+          "after": "import { AnatomyStage } from '@/components/iso/anatomy-stage';\nimport { ReadoutText } from '@/components/iso/readout-text';\n"
+        },
+        {
+          "before": "          readout={<span data-testid=\"walk-readout\">{WALK[behaviorId]}</span>}\n",
+          "after": "          readout={<span data-testid=\"walk-readout\"><ReadoutText>{WALK[behaviorId]}</ReadoutText></span>}\n"
+        }
+      ]
+    }
+  ]
+}

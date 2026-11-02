@@ -65,6 +65,8 @@ Offline reinforcement learning is training a robot policy from a fixed dataset o
 
 <Image id="isaac-gym-trifinger-env-2021" />
 
+Try the dataset question comparing rewards and demonstration quality <Cite id="offline-rl-tutorial-2020" />.
+
 <SelfCheck
   prompt="Which fixed robot dataset gives offline RL the most credible advantage over behavior cloning?"
   options={[
@@ -102,7 +104,7 @@ Map each episode's source (expert, novice, scripted controller, older policy or 
 
 ### Outcome coverage
 
-The reward must separate successes, partial progress and failures, though a completion label can suffice: COG chained four robot skills under a +1/0 reward, from prior data that never solved the new task <Cite id="cog-2020" />.
+The reward must separate successes, partial progress and failures, though a completion label can suffice: COG chained four robot skills under a +1/0 reward, from prior data that never solved the new task <Cite id="cog-2020" />. NEEDLE augments recorded observations with verified short action bridges, without synthesizing intermediate images or discarding the original demonstrations <Cite id="needlework-2026" />.
 
 ### Transition integrity
 
@@ -122,15 +124,15 @@ Conservative Q-Learning penalizes high values on actions outside the dataset whi
 
 ### Avoiding unseen-action queries
 
-Implicit Q-Learning fits a state value by expectile regression over dataset actions and extracts a policy by advantage weighting, so value fitting never queries a new action <Cite id="iql-2022" />.
+Implicit Q-Learning fits a state value by expectile regression over dataset actions and extracts a policy by advantage weighting, so value fitting never queries a new action <Cite id="iql-2022" />. For action-chunking VLAs, CO-RFT extends temporal-difference learning to chunks after an imitation-learning initialization <Cite id="co-rft-2025" />.
 
 ### Regularizing the policy toward behavior
 
-TD3+BC adds a cloning term and state normalization to an off-policy actor-critic and matches more elaborate algorithms <Cite id="td3-bc-2021" />.
+TD3+BC adds a cloning term and state normalization to an off-policy actor-critic and matches more elaborate algorithms <Cite id="td3-bc-2021" />. Flow Q-Learning trains a one-step actor alongside an expressive flow policy, avoiding iterative action generation during deployment <Cite id="flow-q-learning-2025" />.
 
 ### Discretizing and scaling the value function
 
-QT-Opt trained a Q-function on over 580,000 real grasp attempts and reached 96% success on unseen objects <Cite id="qt-opt-2018" />. With datasets up to 1000 times the usual size, many offline RL algorithms still saturate well short of maximum performance, and long horizons form a fundamental barrier <Cite id="horizon-reduction-2025" />.
+QT-Opt trained a Q-function on over 580,000 real grasp attempts and reached 96% success on unseen objects <Cite id="qt-opt-2018" />. Q-Transformer discretizes each action dimension and represents its Q-value as a separate token for autoregressive offline value learning <Cite id="q-transformer-2023" />. With datasets up to 1000 times the usual size, many offline RL algorithms still saturate well short of maximum performance, and long horizons form a fundamental barrier <Cite id="horizon-reduction-2025" />.
 
 ## When behavior cloning is the better tool
 
@@ -138,7 +140,7 @@ Behavior cloning is the default for clean expert demonstrations: it fits the act
 
 <TrajectoryStitching className="my-6" />
 
-Neither method repairs missing support. Over 240 hours of demonstrations and over 3,000 rollouts, Robo-ValueRL ties success to value reliability, and reliable values let offline RL scale better than quality-agnostic cloning <Cite id="robo-valuerl-2026" />. The [behavior-cloning guide](/manipulation/bc-foundations) covers the baseline.
+Neither method repairs missing support. Over 240 hours of demonstrations and over 3,000 rollouts, Robo-ValueRL ties success to value reliability, and reliable values let offline RL scale better than quality-agnostic cloning <Cite id="robo-valuerl-2026" />. SeeQ shortens value-prediction horizons by learning Q-values for annotated subtasks and predicting the active subtask at deployment <Cite id="seeq-2026" />. The [behavior-cloning guide](/manipulation/bc-foundations) covers the baseline.
 
 <span id="an-evaluation-protocol-that-does-not-flatter-the-critic" />
 ## A six-step evaluation protocol
@@ -173,11 +175,13 @@ Run one repeatable physical suite for every candidate and keep the episode IDs; 
 
 ## From a fixed dataset to controlled online improvement
 
-RLPD mixes offline data into off-policy online learning without separate conservative pretraining <Cite id="rlpd-2023" />. Conservative critics fine-tune poorly, so Cal-QL calibrates CQL with a one-line change and leads on 9 of 11 benchmarks <Cite id="cal-ql-2023" />. Retaining offline data in replay is a safe default, though WSRL shows it is unnecessary with a well-designed online method <Cite id="wsrl-2024" />.
+RLPD mixes offline data into off-policy online learning without separate conservative pretraining <Cite id="rlpd-2023" />. Conservative critics fine-tune poorly, so Cal-QL calibrates CQL with a one-line change and leads on 9 of 11 benchmarks <Cite id="cal-ql-2023" />. Retaining offline data in replay is a safe default, though WSRL shows it is unnecessary with a well-designed online method <Cite id="wsrl-2024" />. A separate study finds naive Q-function pretraining often offers little benefit over random initialization when fine-tuning a pretrained policy <Cite id="dong-q-pretrain-2026" />.
 
 Ishir Garg, Benjamin Eysenbach, Sergey Levine and colleagues at UC Berkeley and Princeton (October 2026) use prior data to decide where to explore: they estimate empowerment, a measure of how many future states an agent can reach from a state, from unlabeled offline trajectories without any environment interaction <Cite id="offline-empowerment-2026" />. Used as an exploration bonus for online goal-conditioned contrastive RL, it sped up learning and raised success on five of the OGBench task and dataset pairs and matched the baseline on the rest, over 5 seeds; every test ran in simulation <Cite id="offline-empowerment-2026" />.
 
-Keep action bounds and command validation outside the learned policy, define interventions and resets, and compare each promotion with the frozen offline checkpoint. PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id="pa-rl-2024" />. LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id="lwd-2026" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.
+Keep action bounds and command validation outside the learned policy, define interventions and resets, and compare each promotion with the frozen offline checkpoint. PA-RL fine-tuned the 7B OpenVLA with Cal-QL from 40% to 70% real-world success in 40 minutes <Cite id="pa-rl-2024" />. Q2RL uses a few interactions to extract values from a behavior-cloned policy, then gates between cloning and RL actions <Cite id="q2rl-2026" />.
+
+LWD applies offline-to-online RL to a pretrained VLA across a fleet of 16 dual-arm robots and reports 95% average success over eight tasks <Cite id="lwd-2026" />. BORA keeps its VLA base frozen and updates a lightweight residual actor from online rollouts, corrections and offline data <Cite id="bora-2026" />. The [RL fine-tuning guide](/manipulation/rl-finetuning) covers this phase.
 
 <RealRobotRlGains className="my-6" />
 

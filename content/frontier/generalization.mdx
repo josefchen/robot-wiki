@@ -39,6 +39,16 @@ citations:
   - xiaomi-robotics-1-2026
   - diversity-scaling-2025
   - nvidia-gtc-gr00t-n2-2026
+  - clipport-2021
+  - roboflamingo-2023
+  - vima-2022
+  - voltron-2023
+  - liv-2023
+  - vc1-2023
+  - peract-2022
+  - rvt-2023
+  - act3d-2023
+  - gnfactor-2023
 seeAlso:
   - "manipulation/generalist-policies"
   - "manipulation/foundation-models"
@@ -49,11 +59,11 @@ import { EgoScaleScaling } from '@/components/interactive/egoscale-scaling';
 
 import { HelixZeroShotSuccess } from '@/components/interactive/helix-zero-shot-success';
 
-Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id="distribution-shift">distribution shift</Term> of new geometry, objects and clutter without per-site data. Even the most general policies are "mostly trained on data collected in a small number of environments" <Cite id="droid-2024" />, and in a new home a one-centimeter grasp error drops the object.
+Generalization is a robot policy's ability to work in settings it was not trained in, closing the <Term id="distribution-shift">distribution shift</Term> of new geometry, objects and clutter without per-site data <Cite id="droid-2024" />.
 
 <Image id="droid-cook-lentils-rollouts-2024" />
 
-EgoScale's scaling law is the strongest argument that the gap closes with data <Cite id="egoscale-2026" />. Try a larger amount under "How much video?" and the dashed line continues past the measurements.
+Try a larger amount under "How much video?" to extend the dashed line past the measurements <Cite id="egoscale-2026" />.
 
 <PredictThenReveal
   prompt="The completion fit is a straight line in log data, and a line can be extended as far as you like. At roughly what horizon does the fit cross 100 percent, where the chart stops drawing it and flags the crossing as impossible?"
@@ -82,6 +92,10 @@ EgoScale's scaling law is the strongest argument that the gap closes with data <
   <EgoScaleScaling defaultHorizonHours={250_000} className="mt-3" />
 </PredictThenReveal>
 
+Even the most general policies are "mostly trained on data collected in a small number of environments" <Cite id="droid-2024" />, and in a new home a one-centimeter grasp error drops the object.
+
+EgoScale's scaling law is the strongest argument that the gap closes with data <Cite id="egoscale-2026" />.
+
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="human video" value="20,854" note="hours, EgoScale pretraining" accent />
   <Stat label="scaling law" value="R²=0.9983" note="log-linear, validation loss" />
@@ -97,6 +111,12 @@ Physical Intelligence's π0.5 (April 2025) is one end-to-end <Term id="vision-la
 Only about 400 hours of the mixture is mobile-manipulator data from real homes; 97.6% of the training examples in the first training phase come from somewhere else, including other robots, laboratory tasks and web data. Removing the other robots' data degrades performance sharply, while removing web data mainly hurts unseen objects. A model trained on data from the test homes scored about the same as the 104-location model that never saw them <Cite id="pi05-2025" />.
 
 Web-scale vision-language pretraining supplies semantic generalization, knowing what "the spatula" is in a new kitchen, as RT-2 showed for novel objects <Cite id="rt2-2023" />. Motor generalization, grasping that spatula with this gripper, needs more, and the semantic half survives only if action training preserves it. Naively adding an action expert "significantly harms both training speed and knowledge transfer" <Cite id="knowledge-insulation-paper-2025" />. Action finetuning "can erode the original VLM's generalist reasoning abilities" <Cite id="int-act-2025" />, and open VLAs "often struggle with semantic generalization" <Cite id="star-gen-2025" />.
+
+Separating semantic recognition from spatial control is an architectural choice. CLIPort combines CLIP's semantic features with Transporter-style spatial processing <Cite id="clipport-2021" />. RoboFlamingo uses a vision-language model for each observation and a separate policy head for temporal history <Cite id="roboflamingo-2023" />. VIMA expresses task instructions as interleaved text and images, and tests generalization in procedurally generated simulated tabletop tasks <Cite id="vima-2022" />.
+
+The representation objective matters too. Voltron balances language-conditioned image reconstruction with image-conditioned language generation to learn both spatial detail and semantics <Cite id="voltron-2023" />. LIV learns representations and goal-conditioned rewards from captioned videos without action labels <Cite id="liv-2023" />. CortexBench found no visual representation that won every task: VC-1 led on average, while adaptation to a task or domain brought further gains <Cite id="vc1-2023" />.
+
+Spatial representations make different compromises. PerAct encodes RGB-D observations as voxels and predicts a discrete voxel action <Cite id="peract-2022" />. RVT renders virtual views around the workspace and aggregates them with attention <Cite id="rvt-2023" />. Act3D instead samples a 3D feature field from coarse to fine to focus computation where an action needs precision <Cite id="act3d-2023" />. GNFactor jointly trains a neural-field reconstruction module and a policy on shared 3D voxel features <Cite id="gnfactor-2023" />.
 
 <span id="what-pi07-adds" />
 ## π0.7 recombines trained skills and transfers them to new robots

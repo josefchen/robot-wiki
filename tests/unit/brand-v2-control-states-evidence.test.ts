@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { emptyFocusPaint, type FocusPaint } from '../../lib/brand-v2-focus-paint';
 import {
   CONTROL_STATES_SWEEP_MODULE,
   CONTROL_STATES_VERSION,
@@ -7,6 +8,8 @@ import {
   CONTROL_STATE_VIEWPORTS,
   RETIRED_LIME_RGB,
   controlStateVerdict,
+  controlFocusPopulation,
+  controlFocusVerdict,
   readControlStatesEvidence,
   type ControlActionObservation,
   type ControlDisabledObservation,
@@ -49,6 +52,8 @@ const REGISTRY: ControlStateRegistry = {
   ],
 };
 
+const focusPaint = (): FocusPaint => ({ ...emptyFocusPaint('/article/'), target: '<button>Copy</button>', matched: true, kind: 'outline', style: 'solid', widthPx: 1, color: 'rgb(28, 28, 26)', offsetPx: 2, visible: true });
+
 const changed = (count = 1) => ({ changed: count > 0 ? ['button[0].color: a -> b'] : [], changedCount: count });
 
 function variant(overrides: Partial<ControlVariantObservation> = {}): ControlVariantObservation {
@@ -67,7 +72,7 @@ function variant(overrides: Partial<ControlVariantObservation> = {}): ControlVar
     coveredBy: null,
     hover: changed(),
     pressed: changed(),
-    focusVisible: { ...changed(3), matched: true },
+    focusVisible: { ...changed(3), matched: true, paint: focusPaint() },
     transientAria: { hover: [], pressed: [] },
     restStable: true,
     ...overrides,
@@ -189,6 +194,7 @@ function censused(evidence: ControlStatesEvidence): ControlStatesEvidence {
       records.filter((record) => record.route === page.route && record.viewport === page.viewport);
     page.controls = tallied(on(evidence.variants), (record) => record.member, (record) => record.instances);
     page.census = {
+      focus: on(evidence.focus).map(({ id }) => id),
       variants: tallied(on(evidence.variants), (record) => record.member),
       disabled: tallied(on(evidence.disabled), (record) => record.member),
       unexposedDisabled: on(evidence.unexposedDisabled).length,
@@ -203,7 +209,7 @@ function censused(evidence: ControlStatesEvidence): ControlStatesEvidence {
 
 const literal = (text: string) => text.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
 
-const EMPTY_CENSUS = { variants: {}, disabled: {}, unexposedDisabled: 0, selections: {}, actions: {}, icons: 0, statusChips: 0 };
+const EMPTY_CENSUS = { focus: [], variants: {}, disabled: {}, unexposedDisabled: 0, selections: {}, actions: {}, icons: 0, statusChips: 0 };
 
 /** A clean sweep: every production control measured at both widths. */
 function sweep(): ControlStatesEvidence {
@@ -225,6 +231,7 @@ function sweep(): ControlStatesEvidence {
         census: EMPTY_CENSUS,
       })),
     ),
+    focus: ROUTES.flatMap((route) => VIEWPORTS.map((viewport) => ({ id: `${route}|${viewport}|body > button`, route, viewport, selector: 'body > button', member: 'control:secondary-action', nativeDisabled: false, method: 'Tab' as const, keys: ['Tab'], state: '', pointerMethod: 'click' as const, keyboard: { ...focusPaint(), route }, pointer: { ...emptyFocusPaint(route), target: '<button>Copy</button>' } }))),
     variants: [
       ...perViewport((viewport) => variant({ viewport })),
       // The unavailable Export action, read once as a variant and once as a
@@ -483,8 +490,8 @@ describe('control states evidence', () => {
 
     only(plant((e) => { e.variants[0].hover = changed(0); }), 'VAL-B2-COMP-002', 'control:secondary-action', /hover paints the same as rest/);
     only(plant((e) => { e.variants[0].pressed = changed(0); }), 'VAL-B2-COMP-002', 'control:secondary-action', /pressed paints the same as rest/);
-    only(plant((e) => { e.variants[0].focusVisible = { ...changed(0), matched: true }; }), 'VAL-B2-COMP-002', 'control:secondary-action', /keyboard focus paints the same as rest/);
-    only(plant((e) => { e.variants[0].focusVisible = { ...changed(1), matched: false }; }), 'VAL-B2-COMP-002', 'control:secondary-action', /does not match :focus-visible/);
+    only(plant((e) => { e.variants[0].focusVisible = { ...changed(0), matched: true, paint: focusPaint() }; }), 'VAL-B2-COMP-002', 'control:secondary-action', /keyboard focus paints the same as rest/);
+    only(plant((e) => { e.variants[0].focusVisible = { ...changed(1), matched: false, paint: focusPaint() }; }), 'VAL-B2-COMP-002', 'control:secondary-action', /does not match :focus-visible/);
     only(plant((e) => { e.variants[0].pointer = 'covered'; e.variants[0].coveredBy = '<div>'; }), 'VAL-B2-COMP-002', 'control:secondary-action', /pointer cannot reach it/);
     only(plant((e) => { e.selections[0].diff = changed(0); }), 'VAL-B2-COMP-002', 'control:selection', /selected paints the same as unselected/);
     only(plant((e) => { e.selections[0].restored = false; }), 'VAL-B2-COMP-002', 'control:selection', /could not be undone/);
@@ -543,11 +550,38 @@ describe('control states evidence', () => {
     only(
       plant((e) => {
         const frozen = e.variants.find((record) => record.exemption !== null)!;
-        frozen.focusVisible = { ...changed(0), matched: true };
+        frozen.focusVisible = { ...changed(0), matched: true, paint: focusPaint() };
       }),
       'VAL-B2-COMP-002',
       'control:selection',
       /keyboard focus paints the same as rest/,
     );
+  });
+});
+
+describe('structural focus population', () => {
+  it('uses every exact instance and rejects missing, duplicate and empty censuses', () => {
+    const clean = sweep();
+    const read = (evidence: ControlStatesEvidence) => readControlStatesEvidence({ artifact: evidence, fingerprint: 'fingerprint', routes: ROUTES, registry: REGISTRY });
+    expect(controlFocusPopulation(read(clean))).toEqual(clean.focus.map(({ id }) => id));
+    expect(clean.focus.flatMap(({ id }) => controlFocusVerdict(id, clean).failures)).toEqual([]);
+    for (const mutate of [
+      (copy: ControlStatesEvidence) => { copy.focus.pop(); },
+      (copy: ControlStatesEvidence) => { copy.focus.push(structuredClone(copy.focus[0])); },
+      (copy: ControlStatesEvidence) => { copy.pages[0].census.focus = []; },
+    ]) {
+      const copy = structuredClone(clean); mutate(copy);
+      expect(() => read(copy)).toThrow(/focus/);
+    }
+  });
+  it('does not let another identical control cover a missing or wrong literal ring', () => {
+    const clean = sweep();
+    clean.focus[1].keyboard!.offsetPx = 0;
+    expect(controlFocusVerdict(clean.focus[0].id, clean).failures).toEqual([]);
+    expect(controlFocusVerdict(clean.focus[1].id, clean).failures.join(' ')).toMatch(/offset/);
+    clean.focus[1].method = 'unreached';
+    expect(controlFocusVerdict(clean.focus[1].id, clean).failures.join(' ')).toMatch(/Tab\/arrow/);
+    clean.focus[1].member = null;
+    expect(controlFocusVerdict(clean.focus[1].id, clean).failures.join(' ')).toMatch(/unregistered/);
   });
 });

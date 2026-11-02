@@ -1,5 +1,7 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { readReleaseBuildStamp } from '../../lib/brand-v2-release-build';
+import { RELEASE_FRAME_DATA_PATH, validateReleaseFrameData, type FrameDataProducer } from '../../lib/brand-v2-release-frame-data';
 import type { Browser } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import { forEachInOwnContext } from './helpers/per-route-context';
@@ -91,7 +93,7 @@ function sortableTableCensus() {
 }
 
 type SweepEvidence = {
-  frames: FrameEvidence[];
+  frames: FrameDataProducer[];
   routesVisited: number;
   routeCanvasCounts: Array<{ route: string; count: number }>;
   playground: { canvasCount: number; canvasHasTextAlternative: boolean };
@@ -108,9 +110,11 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
   const plan = buildInteractiveExecutionPlan(brandV2Registry);
   const sourceById = new Map(plan.sources.map((source) => [source.id, source]));
   const mountsByRoute = Map.groupBy(plan.mounts, (mount) => mount.route);
-  const frames: FrameEvidence[] = [];
+  const frames: FrameDataProducer[] = [];
   const routeCanvasCounts: SweepEvidence['routeCanvasCounts'] = [];
 
+  const build = process.env.ROBOT_WIKI_RELEASE_PROFILES === '1' ? readReleaseBuildStamp(process.cwd()) : null;
+  for (const viewport of [VIEWPORT, { width: 375, height: 812 }] as const) {
   // One browser context per route: a sweep that walks the corpus on one
   // shared page retains every document it leaves and can kill a later
   // test (see tests/e2e/helpers/per-route-context.ts).
@@ -118,7 +122,7 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
     browser,
     [...mountsByRoute].sort(([a], [b]) => a.localeCompare(b)),
     async (page, [route, mounts]) => {
-    await page.setViewportSize(VIEWPORT);
+    await page.setViewportSize(viewport);
     await page.goto(`${staticBase}${route}`);
     const routeText = (await page.locator('main').innerText()).replace(/\s+/g, ' ').trim();
     const roots = await mountRoots(page, route, mountIdentities(plan, mounts));
@@ -197,11 +201,24 @@ async function runSweep(browser: Browser, staticBase: string): Promise<SweepEvid
         routeText,
         mountId: mount.id,
         sourceId: source?.id ?? mount.sourceId,
+        viewport: viewport.width === 1440 ? '1440x900' : '375x812',
       });
     }
     },
-    { viewport: VIEWPORT },
+    { viewport },
   );
+  }
+
+  if (build) {
+    const after = readReleaseBuildStamp(process.cwd());
+    expect(after.sourceAfter).toBe(build.sourceAfter);
+    expect(after.exportFingerprint).toBe(build.exportFingerprint);
+    const artifact = { version: 1, sourceFingerprint: build.sourceAfter, exportFingerprint: build.exportFingerprint, mountIds: plan.mounts.map(m => m.id), frames };
+    validateReleaseFrameData(artifact, { source: build.sourceAfter, exported: build.exportFingerprint, mounts: plan.mounts });
+    const path = join(process.cwd(), RELEASE_FRAME_DATA_PATH);
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(path, JSON.stringify(artifact, null, 2) + '\n');
+  }
 
   let playgroundCanvasCount = 0;
   let canvasHasTextAlternative = false;

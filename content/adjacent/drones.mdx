@@ -44,11 +44,21 @@ citations:
   - faa-part-108-nprm-2025
   - faa-part-108-reopen-2026
   - fly-by-code-2026
+  - flightmare-2020
+  - flightgoggles-2019
+  - airsim-2017
+  - neural-fly-2022
+  - pampc-2018
+  - learning-crash-2017
 seeAlso:
   - "manipulation/realtime-execution"
   - "rl-sim2real/sim2real-transfer"
   - "frontier/reliability-gap"
 ---
+
+import { DroneChampionsTimeline } from '@/components/interactive/drone-champions-timeline';
+
+import { DroneDeliveryCounts } from '@/components/interactive/drone-delivery-counts';
 
 import { PerceptionLatency } from '@/components/interactive/perception-latency';
 import { SwarmControlTable } from '@/components/mdx/swarm-control-table';
@@ -68,11 +78,15 @@ Switch the drone below between an ordinary camera, which takes about 70 ms to re
 
 ## Why flight was the first solved testbed
 
-A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics, estimation and control <Cite id="mahony-multirotor-2012" />. Flight also has no contact: an aerial robot either flies in free space or has already failed. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id="swift-drone-racing-2023" />. Make the drone in the figure below climb, fly forward and turn, and watch its four propeller speeds change.
+A quadrotor is a benign case for simulation. Its dynamics are differentially flat in position and heading, even with linear rotor drag <Cite id="faessler-flatness-2018" />, and standard models cover its dynamics, estimation and control <Cite id="mahony-multirotor-2012" />. The racing comparison here concerns free flight. Racing quadrotors still exceed 100 km/h and accelerate at several times gravity <Cite id="swift-drone-racing-2023" />. Make the drone in the figure below climb, fly forward and turn, and watch its four propeller speeds change.
 
 <ExplainerFigure id="flying" />
 
+Simulation separates what the camera sees from how the airframe moves. Flightmare decouples rendering and dynamics so they can run independently <Cite id="flightmare-2020" />. FlightGoggles can feed rendered sensor measurements to a physical vehicle flying in a motion-capture room <Cite id="flightgoggles-2019" />. AirSim combines Unreal Engine rendering with physics and hardware-in-the-loop interfaces <Cite id="airsim-2017" />.
+
 Classical stacks plan a trajectory and then track it. Mellinger and Kumar generated minimum-snap trajectories for quadrotors <Cite id="mellinger-minimum-snap-2011" />, and Lee and colleagues built a geometric tracking controller on SE(3) <Cite id="lee-se3-control-2010" />. In 2021 time-optimal trajectory planning outperformed professional human pilots in racing <Cite id="foehn-time-optimal-2021" />.
+
+Wind adaptation adds a separate learned component. Neural-Fly learns a shared aerodynamic representation offline, then adjusts a small set of mixing coefficients online as conditions change <Cite id="neural-fly-2022" />.
 
 Swift, from the University of Zurich, raced three human champions, including the world champions of two leagues, and won several races against each <Cite id="swift-drone-racing-2023" />. It trained its control policy in simulation with model-free reinforcement learning <Cite id="swift-drone-racing-2023" />. The team then fitted residual models of perception noise and unmodeled dynamics from real flight data and retrained <Cite id="swift-drone-racing-2023" />.
 
@@ -81,6 +95,8 @@ In September 2023, Song and colleagues showed that an RL controller outperformed
 In April 2025 a TU Delft drone with one rolling-shutter camera and an IMU won the A2RL race in Abu Dhabi, beating all AI teams and three human world champions in a knockout tournament <Cite id="monorace-2026" />. TU Delft notes that Swift raced in a lab where the researchers controlled conditions, hardware and track, while the A2RL organisers designed both hardware and track <Cite id="tudelft-a2rl-2025" />.
 
 In January 2026 world FPV champion Minchan Kim beat TII Racing's drone from a 4 to 4 tie when it struck a gate and could not recover <Cite id="a2rl-2026-final" />. Champion policies stay narrow: they often crash immediately in unseen configurations, and a 2026 method improved generalization 7.4x <Cite id="green-generalization-2026" />.
+
+<DroneChampionsTimeline className="my-6" />
 
 ## The autonomy stack on a flying robot
 
@@ -94,11 +110,15 @@ Falanga, Kim and Scaramuzza asked how fast a drone can fly given its perception 
 
 A 70 ms stereo pipeline, the upper bound the study took from a commercial camera's datasheet, supports about 19 m/s at 25 m/s² of lateral acceleration and 25 m/s at 50 m/s² <Cite id="falanga-latency-2019" />. An event camera reports per-pixel brightness changes without waiting for a frame. At 8 m of range its ceiling is 7 percent higher on the least agile airframe and 22 percent higher at 50 m/s², 31.03 against 25.40 m/s. The paper's own summary of 7 to 12 percent is for its most agile airframe, at 200 m/s², against the fastest stereo camera <Cite id="falanga-latency-2019" />.
 
+Motion can also preserve the information the camera needs. PAMPC optimizes a point's visibility and motion in the image while respecting the quadrotor's dynamics and input limits <Cite id="pampc-2018" />.
+
 In 2020 an event-camera quadrotor dodged fast-moving objects using only onboard sensing and computation <Cite id="falanga-event-avoidance-2020" />. Vision-language-action flight is far slower: RaceVLA averaged 1.04 m/s with a top speed of 2.02 m/s <Cite id="racevla-2025" />. On the CognitiveDrone benchmark RaceVLA succeeded 31.3 percent of the time, and CognitiveDrone-R1, which adds a reasoning module, 77.2 percent <Cite id="cognitivedrone-2025" />.
 
 Jaewoo Lee, Guanya Shi and colleagues at Seoul National University, Carnegie Mellon and elsewhere (October 2026) let a coding agent that programs an aerial manipulator run diagnostic programs in simulation, such as a camera move or a test lift, before it declares a task done <Cite id="fly-by-code-2026" />. Over six simulated tasks and 60 trials per condition, the authors report 75 percent success against 31.7 percent with execution logs and final images <Cite id="fly-by-code-2026" />. Unmodified, the programs completed 4 of 5 real two-object pick-and-place trials and 3 of 5 cabinet trials <Cite id="fly-by-code-2026" />.
 
 ### End-to-end learning skips the interfaces
+
+Real failures can supply supervision too. Learning to Fly by Crashing collected 11,500 crashes and combined the failed approaches with successful portions of the same trajectories to train a navigation policy <Cite id="learning-crash-2017" />.
 
 Deep Drone Acrobatics trained a policy entirely in simulation by imitating an optimal controller with privileged information, and flew maneuvers at up to 3 g <Cite id="deep-drone-acrobatics-2020" />. In 2021 Loquercio and colleagues used the same recipe to map noisy depth images directly to collision-free trajectories <Cite id="high-speed-flight-2021" />. With realistic simulated sensor noise, the policy transferred to forests, snow, derailed trains and collapsed buildings with no additional training. The authors argue that separating sensing, mapping and planning "can be problematic for high-speed navigation in cluttered environments" because latency compounds and errors propagate <Cite id="high-speed-flight-2021" />.
 
@@ -121,6 +141,8 @@ Everything cited above coordinates implicitly; none of it decides who goes where
 ## Delivery and regulation
 
 Zipline reports more than 3 million deliveries and more than 140 million commercial autonomous miles since its first commercial delivery in 2016 <Cite id="zipline-safety-facts" />. In January 2026 it reported US delivery growth of about 15 percent week over week for seven months <Cite id="zipline-2m-2026" />. Wing reports well over one million commercial deliveries and plans more than 270 Walmart locations reaching 40 million Americans by 2027 <Cite id="wing-walmart-2026" />. Walmart reported 1 million drone deliveries in May 2026, from 66 stores in four states <Cite id="walmart-drone-1m-2026" />.
+
+<DroneDeliveryCounts className="my-6" />
 
 The FAA and TSA proposed Part 108 in August 2025 to enable routine flight beyond visual line of sight <Cite id="faa-part-108-nprm-2025" />. The FAA reopened comments on electronic conspicuity and right-of-way until February 11, 2026 <Cite id="faa-part-108-reopen-2026" />.
 

@@ -45,6 +45,18 @@ citations:
   - datasheets-for-datasets-2018
   - lerobot-dataset-v3-2025
   - fineart-2026
+  - transcg-2022
+  - dreds-2022
+  - robonet-2019
+  - contactdb-2019
+  - contactpose-2020
+  - dexycb-2021
+  - hoi4d-2022
+  - oakink-2022
+  - shapenet-2015
+  - partnet-2018
+  - abc-models-2018
+  - ycb-models-2015
 seeAlso:
   - "manipulation/cross-embodiment"
   - "data-hardware/teleop-rigs"
@@ -77,6 +89,8 @@ Set the size filter to 1M+ episodes and one row remains; sort by Hours to compar
 ## Open X-Embodiment: breadth by federation
 
 OXE pooled 60 existing datasets from 34 labs into one standardized RLDS format: over a million trajectories spanning 22 robot embodiments, 527 skills and 160,266 tasks <Cite id="open-x-embodiment-2023" />. RLDS is a standard, lossless episode format for sharing and reusing datasets <Cite id="rlds-2021" />.
+
+Cross-robot pooling predates OXE. RoboNet pooled 15 million video frames from seven robot platforms for video-prediction and inverse-model learning <Cite id="robonet-2019" />.
 
 RT-1-X trained on the pool beat each small-scale domain's original method by 50% on average, but underperformed RT-1 trained on a large-scale domain's own data, which the authors attribute to underfitting. The higher-capacity RT-2-X roughly tripled performance on out-of-distribution skills over the same model trained without the pool <Cite id="open-x-embodiment-2023" />. Generalist policies train on it ([VLA models](/manipulation/vla-models)): Octo used 800k OXE trajectories <Cite id="octo-2024" />, and OpenVLA used 970k real-world demonstrations <Cite id="openvla-2024" />.
 
@@ -117,6 +131,14 @@ RoboMIND 2.0 (December 2025) reports over 310K dual-arm trajectories from six em
 Hours compare better than episodes. DROID averages about 17 seconds per trajectory and AgiBot World Beta about 11, so a large episode count can hide less interaction than a smaller set of long tasks ([the data bottleneck](/data-hardware/data-bottleneck)). The 2025 BEHAVIOR Challenge supplies 10,000 teleoperated demonstrations totaling 1,200+ hours <Cite id="behavior-challenge-2025" />, and the synthetic InternData-A1 holds over 630k trajectories and 7,433 hours <Cite id="interndata-a1-2025" />.
 
 Modalities differ as much as size. RH20T records visual, force, audio and action data in over 110,000 contact-rich sequences <Cite id="rh20t-2023" />. Humanoid Everyday adds depth, LiDAR and tactile streams to 10.3k humanoid trajectories across 260 tasks, with a cloud evaluation platform <Cite id="humanoid-everyday-2025" />. Scaling work finds task diversity worth more than per-task demonstration count, and multi-embodiment pretraining optional given high-quality single-embodiment data <Cite id="diversity-scaling-2025" />.
+
+Perception datasets cover failures that action trajectories alone do not label. TransCG supplies ground-truth depth, surface normals and masks for transparent objects in real cluttered scenes <Cite id="transcg-2022" />. DREDS simulates an active stereo depth sensor, including its noise, to train depth restoration for reflective and transparent objects <Cite id="dreds-2022" />.
+
+Hand-object datasets make contact supervision explicit. ContactDB uses thermal imaging to record grasp-contact maps <Cite id="contactdb-2019" />; ContactPose pairs contact with hand pose, object pose and RGB-D images <Cite id="contactpose-2020" />. DexYCB benchmarks hand and object pose estimation and safe robot grasps for human-to-robot handover <Cite id="dexycb-2021" />.
+
+HOI4D supplies egocentric RGB-D video with hand-pose, object-pose and action annotations <Cite id="hoi4d-2022" />. OakInk connects object affordances to recorded human interactions and transfers those interactions to virtual counterparts <Cite id="oakink-2022" />.
+
+Object models supply another kind of supervision. ShapeNet organizes CAD models by semantic category and records attributes such as alignment and size <Cite id="shapenet-2015" />. PartNet adds detailed hierarchical part labels <Cite id="partnet-2018" />; ABC retains explicitly parameterized curves and surfaces for geometric ground truth <Cite id="abc-models-2018" />. The YCB set pairs physical everyday objects with scans, physical properties, geometric models and example manipulation protocols <Cite id="ycb-models-2015" />.
 
 ## Releases since 2025
 

@@ -91,6 +91,25 @@ describe('countVisibleWords', () => {
     ).toBe(2);
   });
 
+  it.each([
+    'aria-label="the hidden state of the scene"',
+    "aria-label='the hidden state of the scene'",
+    'data-description="hidden = a state we infer"',
+    'data-state=hidden',
+  ])('counts visible text when hidden occurs only in an attribute value: %s', (attrs) => {
+    expect(
+      countVisibleWords(`<p>lead two</p><div ${attrs}>three visible words</div>`),
+    ).toBe(5);
+  });
+
+  it.each(['hidden', 'hidden=""', "hidden='false'", 'HIDDEN'])('recognizes a real %s attribute after a quoted value', (hidden) => {
+    expect(
+      countVisibleWords(
+        `<p>lead two</p><div aria-label="the hidden state" ${hidden}>three hidden words</div>`,
+      ),
+    ).toBe(2);
+  });
+
   it('excludes citation tooltips hidden with the Tailwind hidden class', () => {
     // Mirrors components/ui/cite.tsx: the tooltip is display:none until
     // hover or focus, so a reader never reads it. Counting it would add

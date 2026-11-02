@@ -50,6 +50,7 @@ citations:
   - rai-iros-2026
   - zest-2026
   - sgs-2026
+  - skild-self-play-2026
 seeAlso:
   - "rl-sim2real/sim2real-transfer"
   - "world-models/model-based-robot-learning"
@@ -64,6 +65,8 @@ import { MpcComparison } from '@/components/mdx/mpc-comparison';
 Reward design is writing the objective a reinforcement learning policy learns to maximize: in legged locomotion, a weighted sum of terms whose weights are tuned by hand <Cite id="rudin-2021" />, and now also reward code written by language models <Cite id="eureka-2024" />. Model-predictive control instead plans actions online with an explicit dynamics model <Cite id="mujoco-ilqr-2026" />.
 
 <Image id="mini-cheetah-spin-rapid-locomotion-2022" />
+
+Try "Too strict on effort", then press "Play" to inspect the toy walking rollout <Cite id="rudin-2021" />.
 
 <RewardShaping className="my-6" />
 
@@ -86,7 +89,7 @@ The first answer adds constraints. Yunho Kim and colleagues use three rewards (c
 
 Dohyeong Kim and colleagues split acrobatic tasks into manual stages with their own rewards and costs, five reward and five cost functions for a back-flip; stage-transition rules, cost thresholds, preferences and hyperparameters stay hand-set, and a real Go1 performs back-flips, side-rolls and two-hand walking <Cite id="stagewise-cmorl-2024" />.
 
-The second answer adapts weights during training. Srisuchinnawong and Manoonpong's ROGER shifts gains between the primary reward and penalties near selected constraint thresholds, with penalties subtracted from the primary reward; the revised paper reports an exploration-induced violation in simulation and limits its safety claims to assumptions of zero-penalty optimality and gentle system and learning dynamics <Cite id="gain-adaptation-2025" />. The third answer removes per-skill tuning: BeyondMimic covers many agile humanoid skills with one tracking setup and shared hyperparameters <Cite id="beyondmimic-2025" />, and language models can write the reward code itself.
+The second answer adapts weights during training. Srisuchinnawong and Manoonpong's ROGER shifts gains between the primary reward and penalties near selected constraint thresholds, with penalties subtracted from the primary reward; the revised paper reports an exploration-induced violation in simulation and limits its safety claims to assumptions of zero-penalty optimality and gentle system and learning dynamics <Cite id="gain-adaptation-2025" />. The third answer removes per-skill tuning: BeyondMimic covers many agile humanoid skills with one tracking setup and shared hyperparameters <Cite id="beyondmimic-2025" />, and language models can write the reward code itself. MAPL learns separate preference scores for competing locomotion objectives, then aggregates them into a training reward <Cite id="mapl-2026" />.
 
 ## Eureka: the reward as code under evolution
 
@@ -96,13 +99,15 @@ The evaluation covers 29 simulated tasks, and the headline is 83% of tasks and 5
 
 <EurekaLoop className="my-6" />
 
-Eureka needs a task-fitness function, which its authors say can diverge from human intent; they show an extension with human-written reward reflection <Cite id="eureka-2024" />. Specification gaming satisfies the literal objective without achieving the intended outcome, and DeepMind researchers have collected around 60 examples <Cite id="specification-gaming-2020" />. DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id="dreureka-2024" />.
+Eureka needs a task-fitness function, which its authors say can diverge from human intent; they show an extension with human-written reward reflection <Cite id="eureka-2024" />. RDA uses a vision-language model to review trajectories and summarize failures before revising reward code <Cite id="rda-2026" />. Specification gaming satisfies the literal objective without achieving the intended outcome, and DeepMind researchers have collected around 60 examples <Cite id="specification-gaming-2020" />. DrEureka writes both reward functions and domain-randomization distributions, getting a quadruped to walk atop a yoga ball <Cite id="dreureka-2024" />.
 
 ## Curriculum: staying on the difficulty frontier
 
 <Term id="reward-shaping">Reward shaping</Term> decides what to optimize; <Term id="curriculum-learning">curriculum</Term> decides in what order difficulty appears. Ng and colleagues showed that a shaping reward expressible as a difference of potentials leaves the optimal policy unchanged, and that this form is necessary for invariance <Cite id="ng-reward-shaping-1999" />.
 
-A terrain curriculum promotes robots that succeed on a tile to harder terrain and demotes those that fail <Cite id="rudin-2021" />. Manipulation lacks such cheap evaluation, since its [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion). Automatic Domain Randomization widens the randomization distribution as success crosses a threshold, an idea from OpenAI's dexterous hand work that Isaac Lab ships as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />, and a velocity-command curriculum is one of the two main components of Margolis and colleagues' Mini Cheetah controller <Cite id="margolis-rapid-2022" />.
+A terrain curriculum promotes robots that succeed on a tile to harder terrain and demotes those that fail <Cite id="rudin-2021" />. Manipulation lacks such cheap evaluation, since its [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion). Automatic Domain Randomization widens the randomization distribution as success crosses a threshold, an idea from OpenAI's dexterous hand work that Isaac Lab ships as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />, and a velocity-command curriculum is one of the two main components of Margolis and colleagues' Mini Cheetah controller <Cite id="margolis-rapid-2022" />. Eurekaverse generates environment code for progressively harder but learnable quadruped parkour courses <Cite id="eurekaverse-2024" />.
+
+Skild reports a different source of curriculum in its September 2026 soccer demonstration: a policy trained in Isaac Sim against recent versions of itself with scoring as its objective <Cite id="skild-self-play-2026" />.
 
 <Image id="isaac-gym-anymal-terrain-2021" />
 
@@ -114,7 +119,7 @@ Success Guided Sampling (SGS), from Octi Zhang, Byron Boots and colleagues at th
 
 Classical legged control simplifies the model in its <Term id="mpc">MPC</Term> layer. MIT Cheetah 3 cast its dynamics as a convex problem that still captures the full 3D system, planning ground reaction forces over horizons up to 0.5 s and solving in under 1 ms <Cite id="di-carlo-2018" />. Zhang and colleagues call this tradition the "model hierarchies commonly seen in traditional model-based MPC", built on "reduced-order models and hierarchical control approaches" <Cite id="mujoco-ilqr-2026" />.
 
-Whole-body MPC itself ran on legged hardware earlier: Sleiman and colleagues' 2021 framework plans locomotion and manipulation as one multi-contact optimal control problem, solved in real time onboard, and pushed and pulled a heavy resistive door <Cite id="sleiman-wbmpc-2021" />. DIAL-MPC optimizes full-order quadruped dynamics in real time without training and outperforms RL policies by 50% on climbing tasks <Cite id="dial-mpc-2024" />.
+Whole-body MPC itself ran on legged hardware earlier: Sleiman and colleagues' 2021 framework plans locomotion and manipulation as one multi-contact optimal control problem, solved in real time onboard, and pushed and pulled a heavy resistive door <Cite id="sleiman-wbmpc-2021" />. DIAL-MPC optimizes full-order quadruped dynamics in real time without training and outperforms RL policies by 50% on climbing tasks <Cite id="dial-mpc-2024" />. Whole-body MPPI also exploits parallel MuJoCo rollouts for real legged locomotion, box climbing and pushing <Cite id="mppi-whole-body-2024" />.
 
 Zhang and colleagues' MuJoCo-based iLQR controller, revised in 2026 to appear at ICRA 2026, runs on Unitree quadrupeds and an H1 humanoid with one warm-started iLQR update per solve. On a 20-core 13th-generation Intel i9, iLQR and TV-LQR feedback run at about 50 Hz and 300 Hz; the experiments fuse 100 Hz OptiTrack measurements with 500 Hz joint data, and onboard-only deployment is untested. Raising MuJoCo's impratio from 1 to 100 to reduce slipping doubled a quadruped iteration from 10 to 20 ms <Cite id="mujoco-ilqr-2026" />.
 

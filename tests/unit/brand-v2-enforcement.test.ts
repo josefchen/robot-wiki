@@ -17,6 +17,9 @@ import {
   type ReferenceFeatureMeasurements,
 } from '@/lib/brand-v2-reference-rubric';
 import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
+import { RELEASE_BASELINE_ASSERTIONS, RELEASE_BASELINE_SOURCE_PREFIX, releaseBaselinePopulation } from '@/lib/brand-v2-release-baseline';
+import { collectBundle } from '../../scripts/brand-v2-baseline';
+import type { BaselineBundle } from '@/lib/brand-v2-baseline';
 import {
   ARTICLE_TRUTH_MANIFEST_KINDS,
   ARTICLE_TRUTH_POPULATION_SOURCE,
@@ -389,6 +392,11 @@ describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, (
   });
 
   it('accepts the checked-in map and tagged result corpus', () => {
+    const releaseBaseline = JSON.parse(readFileSync(join(ROOT, 'evidence/brand-v2/baseline/baseline.json'), 'utf8')) as BaselineBundle;
+    const releaseCurrent = collectBundle().bundle;
+    const releasePopulations = Object.fromEntries(Object.keys(RELEASE_BASELINE_ASSERTIONS).map((id) => [
+      `${RELEASE_BASELINE_SOURCE_PREFIX}${id}`, releaseBaselinePopulation(id, releaseBaseline, releaseCurrent),
+    ]));
     const contract = readFileSync(
       join(ROOT, 'contract', 'design-integrity.md'),
       'utf8',
@@ -553,6 +561,7 @@ describe('brand-v2 enforcement map and evidence schemas', { timeout: 30_000 }, (
               ),
             ).entries,
           }),
+          ...releasePopulations,
           [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembersFromArtifact(
             JSON.parse(
               readFileSync(

@@ -214,7 +214,7 @@ export function FilterBar({
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <div className="relative w-full sm:w-64">
-          <label htmlFor={searchId} className="sr-only">
+          <label htmlFor={searchId} className="block font-sans text-[13px] leading-5 text-text-dim">
             Search companies by name
           </label>
           <input

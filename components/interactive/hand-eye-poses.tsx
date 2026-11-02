@@ -9,6 +9,7 @@ import {
   SliderRow,
 } from '@/components/ui/instrument';
 import { AnatomyStage } from '@/components/iso/anatomy-stage';
+import { ReadoutText } from '@/components/iso/readout-text';
 import { Dots, Line, Solid } from '@/components/iso/react/draw';
 import { Stage, asksForStillness } from '@/components/iso/react/live';
 import { LiveSolid, writeSolid } from '@/components/iso/live-solid';
@@ -127,7 +128,7 @@ function writePieces(elements: Array<SVGGElement | SVGPathElement | null>, drawi
 
 function readout(poses: number): string {
   if (poses < MIN_POSES) return `${poses} ${poses === 1 ? 'pose' : 'poses'}: too few to solve`;
-  if (poses === MIN_POSES) return '3 poses: just enough to solve';
+  if (poses === MIN_POSES) return '3 poses: just enough to solve (1.0 baseline)';
   return `${poses} poses: ${tighterThanMinimum(poses).toFixed(1)} times tighter than with 3`;
 }
 
@@ -216,7 +217,7 @@ export function HandEyePoses({ className }: { className?: string }) {
         <AnatomyStage
           viewWidth={480}
           hint={hintFor(poses)}
-          readout={<span data-testid="hand-eye-readout">{readout(poses)}</span>}
+          readout={<span data-testid="hand-eye-readout"><ReadoutText>{readout(poses)}</ReadoutText></span>}
           status="Illustrative iris; pose counts cited"
           data-testid="hand-eye-bench"
           data-poses={poses}
@@ -284,7 +285,7 @@ export function HandEyePoses({ className }: { className?: string }) {
               .sort((a, b) => a - b)
               .map((n) => ({
                 label: String(n),
-                values: [n < MIN_POSES ? 'not solvable' : n === MIN_POSES ? 'the baseline' : tighterThanMinimum(n).toFixed(1)],
+                values: [n < MIN_POSES ? 'not solvable' : tighterThanMinimum(n).toFixed(1)],
               }))}
           />
         </>

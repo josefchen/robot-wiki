@@ -127,7 +127,7 @@ function hiddenAtRest(tagName: string, attrs: string): boolean {
   // innerText is rendering-based, not accessibility-based, and reports
   // aria-hidden text too (verified against KaTeX's aria-hidden visual
   // layer). Counting it keeps the estimate aligned with innerText.
-  if (/(?:^|\s)hidden(?:\s*=|\s|$)/.test(attrs)) return true;
+  if (attributeNames(attrs).has('hidden')) return true;
 
   // Inline display:none / visibility:hidden.
   if (/style\s*=\s*"[^"]*display\s*:\s*none/i.test(attrs)) return true;

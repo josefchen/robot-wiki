@@ -122,6 +122,33 @@ test.describe('adjacent autonomous-vehicles module', () => {
     expect(text).not.toContain('$$');
   });
 
+  test('failure-free miles to match human drivers sit on a ten-times ruler (VAL-OPUS-097)', async ({ page }) => {
+    await page.goto(ROUTE);
+    const figure = page.locator('[data-figure-frame="av-safety-miles"]');
+    await figure.scrollIntoViewIfNeeded();
+    await expect(figure.locator('[data-figure-title]')).toHaveText(
+      '275 million failure-free miles to match the human death rate',
+    );
+    await expect(figure.getByTestId('av-safety-miles-fatalities').locator('[data-chart-role]').first()).toHaveAttribute(
+      'data-chart-role',
+      'highlight',
+    );
+    await expect(figure.locator('[data-scene-readout]')).toHaveText(['275 million', '3.9 million', '1.6 million']);
+    await expect(figure.getByTestId('av-safety-miles-fleet-years')).toHaveText(
+      'about 12.5 years for 100 cars driving nonstop',
+    );
+    const stage = figure.getByRole('img', { name: /Failure-free miles needed/ });
+    const name = (await stage.getAttribute('aria-label')) ?? '';
+    const description = (await page.locator(`[id="${await stage.getAttribute('aria-describedby')}"]`).textContent()) ?? '';
+    expect(description).toContain('275 million miles against 1.09 deaths per 100 million miles');
+    expect(description).toContain('These are lower bounds that assume perfect driving.');
+    expect(name.length).toBeLessThan(description.length);
+    await expect(figure.getByTestId('av-safety-miles-source').locator('a')).toHaveAttribute(
+      'href',
+      'https://doi.org/10.1016/j.tra.2016.09.010',
+    );
+  });
+
   test('no horizontal page scroll at 375px', async ({ browser }) => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },

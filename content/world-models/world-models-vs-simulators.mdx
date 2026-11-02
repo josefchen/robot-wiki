@@ -43,6 +43,8 @@ citations:
   - newton-manipulation-blog-2026
   - cosmos-predict2-repo-2025
   - simdist-2026
+  - softbody-splat-eval-2025
+  - graph-network-simulator-2020
 seeAlso:
   - "rl-sim2real/parallel-sim-rl"
   - "world-models/latent-dynamics"
@@ -51,12 +53,15 @@ seeAlso:
 import { PlannerExploit } from '@/components/interactive/planner-exploit';
 
 import { SimVsModelTable, WorldModelCostTable } from '@/components/mdx/text-tables';
+import { WorldModelOutputTimes } from '@/components/interactive/world-model-output-times';
 
 Learned <Term id="world-model">world models</Term> and physics simulators both predict what an action does: MuJoCo computes it from explicit geometry, dynamics and contact rules <Cite id="mujoco-2012" />, while a learned model predicts it from data. Physics suits mechanics that can be specified and actions no dataset covers, learning suits appearance and contact that are costly to model, and many systems combine the two.
 
 <Image id="isaac-lab-assembly-sim-2025" />
 
 Hwangbo and colleagues kept ANYmal's rigid-body physics and learned an "actuator net" for its 12 joints. The hybrid simulator ran about a thousand times faster than real time <Cite id="hwangbo-2019" />.
+
+Try the actuator-correction question before comparing the hybrid designs <Cite id="hwangbo-2019" />.
 
 <SelfCheck
   prompt="You have accurate arm geometry and rough rigid-body physics, but the simulated actuator response differs systematically from hardware. What is the most data-efficient first correction?"
@@ -87,6 +92,8 @@ MuJoCo models articulated bodies, constraints and contact with explicit equation
 
 A learned world model estimates transitions from observations and actions, often in a latent or video space, and trades parameter error for dataset and generalization error. Hansen and Wang call hallucination "inherently a data coverage issue" <Cite id="wm-hallucination-2026" />. A 2026 survey lists simulation among a world model's roles, with planning, policy learning, evaluation and data generation <Cite id="world-model-survey-2026" />.
 
+Graph Network-based Simulators keep a particle representation but learn the update: particles are graph nodes and message passing predicts dynamics for fluids, rigid solids and deformable materials <Cite id="graph-network-simulator-2020" />.
+
 ## Comparison by engineering property
 
 <SimVsModelTable className="my-6" />
@@ -101,6 +108,8 @@ The table compares the query cost of four representations on one machine; the FL
 As the decode reference, Llama 3 8B <Cite id="llama-3-2024" /> holds about 16 GB of fp16 weights. Its 32 layers and 8 grouped-query key-value heads <Cite id="llama-3-herd-2024" /> give a KV cache of about 128 KB per token.
 
 In the latent column, V-JEPA 2-AC's cross-entropy planner takes about 16 seconds per action with 800 samples over 10 iterations. A Cosmos video planner took about 4 minutes with 80 samples, roughly 15x slower, and both looked one step ahead <Cite id="vjepa2-2025" />. LeWorldModel plans up to 48x faster than foundation-model world models <Cite id="leworldmodel-2026" />.
+
+<WorldModelOutputTimes className="my-6" />
 
 ## Clip generators run far slower than interactive world models
 
@@ -131,7 +140,7 @@ A learned visual model can absorb from video the textures, reflections, cables a
 
 ### Learn appearance, keep dynamics
 
-Real-to-sim systems reconstruct a scene's appearance and keep a physics engine for motion and contact, as RoboGSim does with Gaussian splatting <Cite id="robogsim-2024" />. SplatSim's splat-rendered simulator gave zero-shot RGB policies 86.25% success, against 97.5% when trained on real data <Cite id="splatsim-2024" />. The pattern suits rigid-body tasks and is weaker for friction or tool compliance. PhysTwin extends it to deformables, building spring-mass twins of ropes, stuffed animals, cloth and delivery packages from videos and rendering them with Gaussian splats <Cite id="phystwin-2025" />.
+Real-to-sim systems reconstruct a scene's appearance and keep a physics engine for motion and contact, as RoboGSim does with Gaussian splatting <Cite id="robogsim-2024" />. SplatSim's splat-rendered simulator gave zero-shot RGB policies 86.25% success, against 97.5% when trained on real data <Cite id="splatsim-2024" />. The pattern suits rigid-body tasks and is weaker for friction or tool compliance. PhysTwin extends it to deformables, building spring-mass twins of ropes, stuffed animals, cloth and delivery packages from videos and rendering them with Gaussian splats <Cite id="phystwin-2025" />. A separate soft-body evaluation framework reconstructs video-based twins and uses splat-rendered rollouts to assess policies for plush-toy packing and rope routing <Cite id="softbody-splat-eval-2025" />.
 
 ### Generate content, keep the engine
 

@@ -51,7 +51,7 @@ import { MotInsulation } from '@/components/interactive/mot-insulation';
 
 <Image id="pi0-fast-table-bussing-2025" />
 
-Turn off "Protect language skills" to remove the stop-gradient.
+Turn off "Protect language skills" to remove the stop-gradient <Cite id="knowledge-insulation-paper-2025" />.
 
 <MotInsulation className="my-6" />
 
@@ -86,7 +86,7 @@ Stopping expert gradients does not adapt the backbone: with the backbone frozen,
 
 GR00T N1 freezes the language part of its VLM <Cite id="gr00t-n1-2025" />. NVIDIA reports that N1.5, which froze the whole VLM among other changes, raised real GR-1 language following from 46.6% to 93.3% <Cite id="gr00t-n1-5-2025" />, and N1.6 unfreezes the top 4 layers <Cite id="gr00t-n1-6-2025" />.
 
-BLIP-2 bridges frozen image encoders and language models <Cite id="blip2-2023" />; VLM2VLA writes actions as language and trains only LoRA adapters <Cite id="vlm2vla-2025" />, and UAM keeps over 95% of its VLM's multimodal capability with no freezing, gradient stopping or co-training <Cite id="uam-forgetting-2026" />. Figure's Helix instead backpropagates from its fast policy into the VLM through their shared latent vector <Cite id="helix-2025" />, and HybridVLA trains discrete and diffusion action prediction together <Cite id="hybridvla-2025" />.
+BLIP-2 bridges frozen image encoders and language models <Cite id="blip2-2023" />; VLM2VLA writes actions as language and trains only LoRA adapters <Cite id="vlm2vla-2025" />, and UAM keeps over 95% of its VLM's multimodal capability with no freezing, gradient stopping or co-training <Cite id="uam-forgetting-2026" />. Figure's Helix instead backpropagates from its fast policy into the VLM through their shared latent vector <Cite id="helix-2025" />, and HybridVLA trains discrete and diffusion action prediction together <Cite id="hybridvla-2025" />. InstructVLA jointly trains reasoning and action generation on vision-language and robot instruction data using mixture-of-experts adaptation <Cite id="instructvla-2025" />.
 
 ## Results
 

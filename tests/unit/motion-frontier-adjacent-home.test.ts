@@ -1,4 +1,4 @@
-import { execFileSync } from 'node:child_process';
+import { historicalGit } from '../helpers/historical-git';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -38,6 +38,8 @@ const figures = new Set([
   'PerceptionLatency', 'SwarmControlTable', 'OrbitalServicingTable',
   'SurgicalSystemsTable', 'ReliabilityThreshold', 'TactileSlip', 'SenseAvoid',
   'FundingHumanoidCounts', 'SafetyRulesTimeline', 'HelixZeroShotSuccess',
+  'AvSafetyMiles', 'SpaceLatencyLadder', 'SurgicalAutonomyLadder',
+  'DroneChampionsTimeline', 'DroneDeliveryCounts',
 ]);
 /**
  * Home's one figure is the 3D explainer it features from How robots work;
@@ -170,7 +172,7 @@ describe('frontier and adjacent prose continuity', () => {
   it('preserves the original ordered citation IDs and numeric tokens', () => {
     for (const file of articles) {
       const current = withoutPreDomainPassKolBacklogParagraphs(file, preDomainPass(`content/${file}`).toString('utf8'));
-      let before = execFileSync('git', ['show', `e14e2504:content/${file}`], {
+      let before = historicalGit(['show', `e14e2504:content/${file}`], {
         cwd: root, encoding: 'utf8',
       });
       for (const [changed, from, to] of REVIEWED_TOKEN_CHANGES) {

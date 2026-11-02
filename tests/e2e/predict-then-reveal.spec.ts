@@ -96,23 +96,26 @@ function digitTokens(text: string): string[] {
     .map((t) => t.replace(/[.,;:!?]+$/, ''));
 }
 
+// The 2026-10-26 owner note keeps the frozen explainer kit's private
+// prediction slot distinct from the five authored article exercises.
+// Their route, question, answer and interaction obligations are unchanged.
 async function region(page: Page) {
-  return page.locator('[data-predict]');
+  return page.locator('[data-predict]:not([data-explainer-predict])');
 }
 
 test.describe('prediction step (PredictThenReveal)', () => {
   test('exactly the five placement routes render one prediction step each', async ({ page }) => {
     for (const { route } of PLACEMENTS) {
       await page.goto(route);
-      await expect(page.locator('[data-predict]')).toHaveCount(1);
+      await expect(page.locator('[data-predict]:not([data-explainer-predict])')).toHaveCount(1);
       // Not a self-check: the region hook is data-predict only.
-      await expect(page.locator('[data-predict][data-self-check]')).toHaveCount(0);
+      await expect(page.locator('[data-predict]:not([data-explainer-predict])[data-self-check]')).toHaveCount(0);
       const inProse = await page
-        .locator('div[data-pagefind-body] [data-predict]')
+        .locator('div[data-pagefind-body] [data-predict]:not([data-explainer-predict])')
         .count();
       expect(inProse, `${route}: outside the prose region`).toBe(1);
       const order = await page.evaluate(() => {
-        const predict = document.querySelector('[data-predict]');
+        const predict = document.querySelector('[data-predict]:not([data-explainer-predict])');
         const article = predict?.closest('article');
         const hr = article?.querySelector('hr');
         if (!predict || !hr) return `missing:${!predict ? 'predict' : 'hr'}`;
@@ -562,7 +565,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     const carriers: Array<{ route: string; predicts: number; selfChecks: number }> = [];
     await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
-      const predicts = await page.locator('[data-predict]').count();
+      const predicts = await page.locator('[data-predict]:not([data-explainer-predict])').count();
       const selfChecks = await page.locator('[data-self-check]').count();
       expect(predicts, `${route}: more than one prediction step`).toBeLessThanOrEqual(1);
       if (predicts === 1) carriers.push({ route, predicts, selfChecks });
@@ -582,7 +585,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
                   (e) => (e as HTMLInputElement).name,
                 )
               : [];
-          const predict = collect(document.querySelector('[data-predict]'));
+          const predict = collect(document.querySelector('[data-predict]:not([data-explainer-predict])'));
           const check = collect(document.querySelector('[data-self-check]'));
           return { predict, check };
         });
@@ -621,7 +624,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     const selfCheckRoutes: string[] = [];
     await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
-      const regions = page.locator('[data-predict], [data-self-check]');
+      const regions = page.locator('[data-predict]:not([data-explainer-predict]), [data-self-check]');
       const count = await regions.count();
       for (let i = 0; i < count; i += 1) {
         const region = regions.nth(i);
@@ -759,7 +762,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     const selfCheckRoutes: string[] = [];
     await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
-      const regions = page.locator('[data-predict], [data-self-check]');
+      const regions = page.locator('[data-predict]:not([data-explainer-predict]), [data-self-check]');
       const count = await regions.count();
       for (let i = 0; i < count; i += 1) {
         const region = regions.nth(i);

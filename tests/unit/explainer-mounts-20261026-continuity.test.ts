@@ -1,5 +1,5 @@
+import { historicalGit } from '../helpers/historical-git';
 import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
 import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -43,7 +43,7 @@ describe('explainer mounts 2026-10-26 article successors', () => {
       const prior = explainerMountPredecessor(root, source.before, live);
       expect([prior.length, sha(prior)]).toEqual([source.before.bytes, source.before.sha256]);
       // The rebuilt bytes are the article as committed before the mount.
-      expect(prior).toEqual(execFileSync('git', ['show', `${source.archivedFrom}:${path}`], { cwd: root }));
+      expect(prior).toEqual(historicalGit(['show', `${source.archivedFrom}:${path}`], { cwd: root }));
       expect(prior.toString()).not.toContain('ExplainerFigure');
       expect(explainerMountPredecessor(root, source.after, live)).toBe(live);
       expect(keepsExplainerMountObligations(path, prior.toString(), live.toString())).toBe(true);

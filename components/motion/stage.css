@@ -188,6 +188,18 @@ figure[data-figure-kind='official-mark'] {
     padding: 16px 16px 14px;
     margin-block: 28px 32px;
   }
+
+  /* Spend the frame's side padding on the drawing, as anatomy stages do.
+     This keeps a 375 px phone's motion/plot stage above the sealed 299 px
+     floor, so the inverse type scale never shrinks ticks below 11 px.
+     Text bands retain the normal inset; the frame and prose stay fixed. */
+  [data-figure-frame] > [data-figure-stage]:has(.motion-stage-svg) {
+    margin-inline: -12px;
+  }
+
+  [data-figure-frame] > [data-figure-stage]:has(.motion-stage-svg) > [data-figure-stage-band] {
+    padding-inline: 12px;
+  }
 }
 
 [data-figure-frame] > [data-figure-header] {

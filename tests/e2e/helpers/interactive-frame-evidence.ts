@@ -74,6 +74,7 @@ export type TableEvidence = {
   blankCellCount: number;
   approxCellCount: number;
   numericColumns: Array<{ header: string; rightAligned: boolean }>;
+  cells: Array<{ row: string; column: string; text: string }>;
 };
 
 export type FrameEvidence = {
@@ -90,6 +91,12 @@ export type FrameEvidence = {
   circles: CircleEvidence[];
   seriesRects: Array<{ seriesId: string; x: number; y: number; width: number; height: number }>;
   text: string;
+  sourceBindings: Array<{ citationId: string | null; href: string; label: string }>;
+  controls: Array<{index:number;tag:string;type:string;id:string;testId:string;label:string;value:string|null;min:string|null;max:string|null;step:string|null;checked:boolean|null;pressed:string|null;selected:string|null;disabled:boolean}>;
+  readouts: Array<{key:string;text:string;visible:boolean}>;
+  svgMarks: Array<{tag:string;seriesId:string|null;testId:string;id:string;attrs:Record<string,string>;viewBox:string}>;
+  svgTexts: Array<{seriesId:string;text:string;x:number|null;y:number|null;testId:string}>;
+  declaredBindings: Array<{element:string;attributes:Record<string,string>}>;
   tables: TableEvidence[];
 };
 
@@ -357,6 +364,7 @@ export function observeFrame(
       blankCellCount: number;
       approxCellCount: number;
       numericColumns: Array<{ header: string; rightAligned: boolean }>;
+      cells: Array<{ row: string; column: string; text: string }>;
     }> = [];
     for (const table of frameElement.querySelectorAll('table')) {
       const ths = Array.from(table.querySelectorAll('thead th'));
@@ -366,6 +374,7 @@ export function observeFrame(
       let notDisclosedCount = 0;
       let blankCellCount = 0;
       let approxCellCount = 0;
+      const observedCells: Array<{ row: string; column: string; text: string }> = [];
       const rows = Array.from(table.querySelectorAll('tbody tr'));
       // Header alignment: when every body row opens with a row header, the
       // first thead column names that label column and td[k] belongs to
@@ -380,6 +389,9 @@ export function observeFrame(
         cells.forEach((cell, index) => {
           const value = (cell.textContent ?? '').trim();
           const column = headers[index + labelColumnOffset] ?? `column ${index}`;
+          const clone=cell.cloneNode(true) as HTMLElement;
+          clone.querySelectorAll('[data-sidenote],sup.cite-mark,.sr-only,[aria-hidden="true"]').forEach(n=>n.remove());
+          observedCells.push({row:(row.querySelector('th,td')?.textContent??'').trim(),column,text:(clone.textContent??'').replace(/\s+/g,' ').trim()});
           if (value === 'n/a') {
             naCells.push({ column });
           }
@@ -423,6 +435,7 @@ export function observeFrame(
         blankCellCount,
         approxCellCount,
         numericColumns,
+        cells: observedCells,
       });
     }
 
@@ -548,6 +561,17 @@ export function observeFrame(
       seriesRects,
       text: (frameElement.textContent ?? '').replace(/\s+/g, ' ').trim(),
       tables,
+      sourceBindings: [...frameElement.querySelectorAll('a[href]')].map(a=>({citationId:a.closest('[data-cite-id]')?.getAttribute('data-cite-id')??null,href:a.getAttribute('href')??'',label:(a.textContent??'').trim()})),
+      controls: [...frameElement.querySelectorAll('button,input,select,textarea,summary,[role=slider],[role=tab],[aria-pressed],[aria-selected]')].map((node,index)=>{
+        const ids=(node.getAttribute('aria-labelledby')??'').split(/\s+/).filter(Boolean);
+        const native=node instanceof HTMLInputElement||node instanceof HTMLSelectElement||node instanceof HTMLTextAreaElement;
+        const label=ids.map(id=>document.getElementById(id)?.textContent??'').join(' ').trim()||node.getAttribute('aria-label')||(native?[...(node.labels??[])].map(label=>label.textContent??'').join(' '):(node.textContent??''));
+        return {index,tag:node.tagName.toLowerCase(),type:node.getAttribute('type')??'',id:node.id,testId:node.getAttribute('data-testid')??'',label:label.replace(/\s+/g,' ').trim(),value:native?node.value:node.getAttribute('aria-valuenow'),min:node.getAttribute('min')??node.getAttribute('aria-valuemin'),max:node.getAttribute('max')??node.getAttribute('aria-valuemax'),step:node.getAttribute('step'),checked:node instanceof HTMLInputElement?node.checked:null,pressed:node.getAttribute('aria-pressed'),selected:node.getAttribute('aria-selected'),disabled:node.matches(':disabled')||node.getAttribute('aria-disabled')==='true'};
+      }),
+      readouts:[...frameElement.querySelectorAll('[data-readout],[data-figure-readout],[data-scene-readout],[data-chart-readout],[data-figure-control-value],[data-testid$="-readout"]')].map((node,index)=>({key:node.getAttribute('data-readout')||node.getAttribute('data-testid')||node.id||String(index),text:(node.textContent??'').replace(/\s+/g,' ').trim(),visible:node.checkVisibility({visibilityProperty:true,opacityProperty:true})&&node.getClientRects().length>0})),
+      svgMarks:[...frameElement.querySelectorAll('svg path,svg line,svg rect,svg circle,svg ellipse,svg polyline,svg polygon')].filter(node=>node.closest('[data-series]')&&!node.closest('defs,clipPath,mask,pattern')).map(node=>({tag:node.tagName.toLowerCase(),seriesId:node.closest('[data-series]')?.getAttribute('data-series')??null,testId:node.getAttribute('data-testid')??'',id:node.id,attrs:Object.fromEntries(['x','y','x1','y1','x2','y2','cx','cy','r','rx','ry','width','height','d','points','transform'].flatMap(attribute=>node.hasAttribute(attribute)?[[attribute,node.getAttribute(attribute)!]]:[])),viewBox:node.closest('svg')?.getAttribute('viewBox')??''})),
+      svgTexts:[...frameElement.querySelectorAll('svg text')].filter(node=>node.closest('[data-series]')&&!node.closest('defs,clipPath,mask,pattern')).map(node=>{const coordinate=(name:string)=>{const value=node.getAttribute(name);return value!==null&&Number.isFinite(Number(value))?Number(value):null;};return {seriesId:node.closest('[data-series]')!.getAttribute('data-series')!,text:(node.textContent??'').replace(/\s+/g,' ').trim(),x:coordinate('x'),y:coordinate('y'),testId:node.getAttribute('data-testid')??''};}),
+      declaredBindings:[frameElement,...frameElement.querySelectorAll('*')].flatMap(node=>{const attributes=Object.fromEntries([...node.attributes].filter(attribute=>/^data-(?:source|assumption)(?:-|$)/.test(attribute.name)).map(attribute=>[attribute.name,attribute.value]));return Object.keys(attributes).length?[{element:node.tagName.toLowerCase()+(node.id?'#'+node.id:''),attributes}]:[];}),
     };
   }, { accentRoles: [...ACCENT_ROLE_PROPERTIES], retired: [...RETIRED_PAINTS] });
 }

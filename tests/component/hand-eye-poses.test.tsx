@@ -39,9 +39,10 @@ describe('HandEyePoses', () => {
     expect(screen.getByTestId('hand-eye-ring')).toHaveAttribute('data-gap', irisGap(3).toFixed(3));
     expect(container.querySelectorAll('[data-peg]')).toHaveLength(3);
     expect(container.querySelector('[data-anatomy-hint]')).toHaveTextContent('Iris: the doubt about where the camera sits');
-    // The three-pose row is the reference the other rows are measured against, so it prints no ratio the readout lacks.
+    // The minimum is a numeric 1.0 reference in both the table and readout.
     const row = [...container.querySelectorAll('details[data-chart-data] tbody tr')].find((tr) => tr.querySelector('th')?.textContent === '3');
-    expect(row?.querySelector('td')).toHaveTextContent('the baseline');
+    expect(row?.querySelector('td')).toHaveTextContent('1.0');
+    expect(screen.getByTestId('hand-eye-readout')).toHaveTextContent('1.0 baseline');
   });
 
   it('drives the pose count from the one slider: no iris below three poses, barely closing past twelve', () => {

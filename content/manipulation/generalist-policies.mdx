@@ -72,6 +72,8 @@ DeepMind's March 2025 report introduces a Gemini 2.0-based family: Gemini Roboti
 
 The 1.5 report, first submitted to arXiv on October 2, 2025, interleaves natural-language thinking with VLA actions, introduces Motion Transfer across embodiments and uses the separate GR-ER 1.5 model as an orchestrator <Cite id="gemini-robotics-15-2025" />. The launch post, dated September 25, 2025, made ER 1.5 available through the Gemini API and Gemini Robotics 1.5 to select partners <Cite id="gemini-robotics-15-blog-2025" />, after On-Device (June 2025) became the first DeepMind VLA offered for fine-tuning, to trusted testers <Cite id="gemini-robotics-on-device-2025" />.
 
+The intervening ER 1.6 release adds instrument reading: DeepMind describes zooming into a gauge, locating its marks and using code to estimate intervals before interpreting the reading <Cite id="gemini-robotics-er-1-6-2026" />.
+
 On July 30, 2026, DeepMind announced Gemini Robotics 2 as three models: a VLA, the embodied-reasoning VLM ER 2, and On-Device 2 for local operation. Apollo 2 walks, crouches and stretches to manipulate objects, and one checkpoint runs Apollo 2 with 22-<Term id="degrees-of-freedom">DoF</Term> SharpaWave hands or Inspire hands and Franka Duo with the Robotiq gripper; DeepMind says On-Device 2 adapts to new bi-arm embodiments in a few hours, typically with fewer than 200 examples <Cite id="gemini-robotics-2-2026" />. The ER 2 post adds success detection on raw video feeds <Cite id="gemini-robotics-er-2-2026" />.
 
 DeepMind's image alt text reports whole-body averages on Apollo with Inspire hands of 76.3% for picking from a shelf, 68.4% from a table and 45.7% from the floor. Single-task results on Apollo with Sharpa hands are 92% for unscrewing a bulb, 36% for screwing one in, 44% for tying a trash bag, 40% for Ziplock and 32% for Dustpan. Trial counts and error bars are unexplained, and DeepMind concludes that "the multi-finger dexterous manipulation remains challenging" <Cite id="gemini-robotics-2-2026" />.
@@ -100,7 +102,9 @@ AgiBot reports 98.5% average success across the four LIBERO suites, 86.6% zero-s
 
 ## Skild AI
 
-Skild AI's January 14, 2026 [Series C](/market-map/) raised \$1.4 billion at a valuation of over \$14 billion. Skild calls its model "omni-bodied", names simulation and Internet video for pretraining and teleoperation and deployments for post-training, and says the model can control robots without prior knowledge of their body form. Architecture, parameter count, control rate, chunk horizon, benchmark protocol and weight terms are not given <Cite id="skild-series-c-2026" />.
+Skild AI's January 14, 2026 [Series C](/market-map/) raised \$1.4 billion at a valuation of over \$14 billion. Skild calls its model "omni-bodied", names simulation and Internet video for pretraining and teleoperation and deployments for post-training, and says the model can control robots without prior knowledge of their body form. That announcement gives no architecture, parameter count, control rate, chunk horizon, benchmark protocol or weight terms <Cite id="skild-series-c-2026" />.
+
+Skild's July 2025 technical note describes a hierarchy: a slower policy for manipulation and navigation feeds a faster policy that produces joint angles and motor torques <Cite id="skild-brain-2025" />.
 
 A September 2025 post describes training on 100,000 simulated robots <Cite id="skild-omni-bodied-2025" />. Skild presents S1 (August 18, 2026) as an in-context learner: shown a video of a task, it executes it, and on unseen long-horizon tasks of 4 to 8 minutes Skild reports 66% cumulative per-step success, against 9% for language prompting <Cite id="skild-s1-2026" />. The company also reports passing \$100M in annual recurring revenue <Cite id="skild-arr-2026" />.
 

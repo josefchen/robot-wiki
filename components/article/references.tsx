@@ -91,7 +91,7 @@ function ReferenceEntry({
             // index rows (See also, Linked from) carry no underline at
             // rest, so a reader can tell an outbound source from a
             // move inside the wiki without reading it.
-            className="ink-link break-words font-sans text-[14px] font-medium leading-snug"
+            className="ink-link min-w-0 [overflow-wrap:anywhere] font-sans text-[14px] font-medium leading-snug"
           >
             {citation.title}
           </a>

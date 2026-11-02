@@ -1,4 +1,7 @@
 import { createHash } from 'node:crypto';
+// The pinned compiler is the native TypeScript 7 package. The project's
+// pinned TypeScript 6 alias supplies the JavaScript parser API.
+import ts from 'typescript6';
 import { maskScriptComments } from './brand-v2-jsx-elements.ts';
 
 export type JsonValue =
@@ -47,9 +50,121 @@ export function stateCensusText(source: string): string {
   return maskScriptComments(source);
 }
 
-/** Whether a source's code, comments aside, names an implemented state. */
+export type ImplementedStateWitness = {
+  line: number;
+  kind: 'rendered-state-attribute' | 'conditional-ui-branch';
+  expression: string;
+};
+
+/**
+ * Research-page state-census successor, 2026-11-02.
+ *
+ * A scientific "error", an empty plotted cell or a description saying
+ * "unavailable" is not a loading/error/empty/unavailable UI state. Count a
+ * rendered state attribute or an actual conditional UI branch instead.
+ * The returned locations make every changed membership auditable, and the
+ * browser runner must still reach the branch: discovery is never execution.
+ */
+export function implementedStateWitnesses(
+  source: string,
+  state: ImplementedState,
+): ImplementedStateWitness[] {
+  const file = ts.createSourceFile('state-census.tsx', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const witnesses: ImplementedStateWitness[] = [];
+  const names: Record<ImplementedState, RegExp> = {
+    loading: /^(?:is)?loading$|^(?:is)?pending$|(?:Loading|Pending)$/i,
+    error: /^(?:has|is)?error$|(?:Error|Failed)$/i,
+    empty: /^(?:is)?empty$|^no(?:Results|Matches)$|(?:Empty)$/i,
+    unavailable: /^(?:is)?unavailable$|^(?:is)?unsupported$|(?:Unavailable|Unsupported)$/i,
+  };
+  const numericBindings = new Set<string>();
+  const findNumericBindings = (node: ts.Node) => {
+    if ((ts.isVariableDeclaration(node) || ts.isParameter(node)) && ts.isIdentifier(node.name) &&
+        (node.type?.kind === ts.SyntaxKind.NumberKeyword ||
+         (node.initializer && (ts.isNumericLiteral(node.initializer) ||
+          (ts.isBinaryExpression(node.initializer) && [ts.SyntaxKind.PlusToken, ts.SyntaxKind.MinusToken, ts.SyntaxKind.AsteriskToken, ts.SyntaxKind.SlashToken, ts.SyntaxKind.AsteriskAsteriskToken].includes(node.initializer.operatorToken.kind)))))) {
+      numericBindings.add(node.name.text);
+    }
+    ts.forEachChild(node, findNumericBindings);
+  };
+  findNumericBindings(file);
+  const unwrap = (node: ts.Expression): ts.Expression => ts.isParenthesizedExpression(node) ? unwrap(node.expression) : node;
+  const literals = (node: ts.Node): string[] => {
+    const values: string[] = [];
+    const walk = (child: ts.Node) => {
+      if (ts.isStringLiteral(child)) values.push(child.text);
+      ts.forEachChild(child, walk);
+    };
+    walk(node);
+    return values;
+  };
+  const rendersUi = (node: ts.Node): boolean => {
+    let found = false;
+    const walk = (child: ts.Node) => {
+      if (ts.isJsxOpeningElement(child) || ts.isJsxSelfClosingElement(child)) {
+        const tag = child.tagName.getText(file);
+        // SVG marks/cells encode data; they are not an empty/error UI panel.
+        if (/^(?:div|p|section|aside|span|output|button|progress|dialog|[A-Z]\w*)$/.test(tag)) found = true;
+      }
+      ts.forEachChild(child, walk);
+    };
+    walk(node);
+    return found;
+  };
+  const guardState = (input: ts.Expression): boolean => {
+    const node = unwrap(input);
+    if (ts.isIdentifier(node)) return names[state].test(node.text) && !numericBindings.has(node.text);
+    if (ts.isPropertyAccessExpression(node)) return names[state].test(node.name.text);
+    if (ts.isPrefixUnaryExpression(node)) {
+      if (state === 'empty' && node.operator === ts.SyntaxKind.ExclamationToken &&
+          ts.isPropertyAccessExpression(node.operand) && node.operand.name.text === 'length') return true;
+      return guardState(node.operand);
+    }
+    if (!ts.isBinaryExpression(node)) return false;
+    const op = node.operatorToken.kind;
+    if ([ts.SyntaxKind.EqualsEqualsEqualsToken, ts.SyntaxKind.EqualsEqualsToken, ts.SyntaxKind.ExclamationEqualsEqualsToken, ts.SyntaxKind.ExclamationEqualsToken].includes(op)) {
+      if (literals(node).includes(state)) return true;
+      if (state === 'empty' && ((ts.isPropertyAccessExpression(node.left) && node.left.name.text === 'length' && node.right.getText(file) === '0') ||
+          (ts.isPropertyAccessExpression(node.right) && node.right.name.text === 'length' && node.left.getText(file) === '0'))) return true;
+      return guardState(node.left) || guardState(node.right);
+    }
+    if ([ts.SyntaxKind.AmpersandAmpersandToken, ts.SyntaxKind.BarBarToken].includes(op)) return guardState(node.left) || guardState(node.right);
+    if (state === 'empty' && [ts.SyntaxKind.GreaterThanToken, ts.SyntaxKind.LessThanEqualsToken].includes(op) &&
+        ts.isPropertyAccessExpression(node.left) && node.left.name.text === 'length' && node.right.getText(file) === '0') return true;
+    return false;
+  };
+  const add = (node: ts.Node, kind: ImplementedStateWitness['kind']) => {
+    witnesses.push({ line: file.getLineAndCharacterOfPosition(node.getStart(file)).line + 1, kind, expression: node.getText(file).slice(0, 300) });
+  };
+  const emptyOnFalse = (input: ts.Expression): boolean => {
+    const node = unwrap(input);
+    return state === 'empty' && ts.isBinaryExpression(node) &&
+      [ts.SyntaxKind.GreaterThanToken, ts.SyntaxKind.ExclamationEqualsToken, ts.SyntaxKind.ExclamationEqualsEqualsToken].includes(node.operatorToken.kind) &&
+      ts.isPropertyAccessExpression(node.left) && node.left.name.text === 'length' && node.right.getText(file) === '0';
+  };
+  const walk = (node: ts.Node) => {
+    if (ts.isJsxAttribute(node)) {
+      const name = node.name.getText(file);
+      if (node.initializer && ['data-state', 'data-status', 'data-ui-state'].includes(name) && literals(node.initializer).includes(state)) {
+        add(node, 'rendered-state-attribute');
+      }
+      if (name === 'aria-busy' && state === 'loading' && node.initializer && ts.isJsxExpression(node.initializer) &&
+          node.initializer.expression && guardState(node.initializer.expression)) add(node, 'rendered-state-attribute');
+    }
+    if (ts.isConditionalExpression(node) && guardState(node.condition) && rendersUi(emptyOnFalse(node.condition) ? node.whenFalse : node.whenTrue)) add(node, 'conditional-ui-branch');
+    if (ts.isBinaryExpression(node) && node.operatorToken.kind === ts.SyntaxKind.AmpersandAmpersandToken && guardState(node.left) && !emptyOnFalse(node.left) && rendersUi(node.right)) add(node, 'conditional-ui-branch');
+    if (ts.isIfStatement(node) && guardState(node.expression)) {
+      const branch = emptyOnFalse(node.expression) ? node.elseStatement : node.thenStatement;
+      if (branch && rendersUi(branch)) add(node, 'conditional-ui-branch');
+    }
+    ts.forEachChild(node, walk);
+  };
+  walk(file);
+  return witnesses;
+}
+
 export function implementsState(source: string, state: ImplementedState): boolean {
-  return new RegExp(`\\b${state}\\b`, 'i').test(stateCensusText(source));
+  return implementedStateWitnesses(source, state).length > 0;
 }
 
 export type InteractiveSourceRecord = {
@@ -250,7 +365,7 @@ function validFingerprint(value: string): boolean {
 
 const OWNER_PLACEHOLDER =
   /shared primitive|supplied at render|concrete owner|to be (?:supplied|determined)|tbd|various|as needed/i;
-const OWNER_MODULE = /^(?:app|components|lib|mdx-components)[\w./[\]()@-]*\.tsx?$/;
+const OWNER_MODULE = /^(?:app|components|lib|mdx-components)[\w./[\]()@-]*\.(?:tsx?|mjs)$/;
 const TARGET_SIZE_EXCEPTION_KINDS = new Set(['inline', 'spacing', 'equivalent']);
 
 /**
@@ -371,6 +486,23 @@ function validateControlRecord(
 ): CensusFailure[] {
   const assertionId = 'VAL-B2-COMP-013';
   const failures: CensusFailure[] = [];
+
+  if (record.id === 'control:keyboard-region') {
+    const expected = {
+      statePurpose: 'keyboard-region',
+      supportedStates: ['default', 'focus-visible'],
+      persistentAria: [],
+    };
+    if (record.statePurpose !== expected.statePurpose || JSON.stringify(record.supportedStates) !== JSON.stringify(expected.supportedStates) || JSON.stringify(record.persistentAria) !== '[]') {
+      failures.push({ assertionId, memberId: record.id, expected, actual: { statePurpose: record.statePurpose, supportedStates: record.supportedStates, persistentAria: record.persistentAria }, reason: 'keyboard-region-has-action-or-selection-semantics' });
+    }
+    if (typeof record.disabledException !== 'string' || record.disabledException.trim().length < 20) {
+      failures.push({ assertionId, memberId: record.id, expected: 'explicit reason that a keyboard region has no disabled action state', actual: record.disabledException, reason: 'keyboard-region-missing-disabled-applicability' });
+    }
+    if (typeof record.pointerAlternative !== 'string' || !/scroll|wheel|drag/i.test(record.pointerAlternative)) {
+      failures.push({ assertionId, memberId: record.id, expected: 'actual scrollbar, wheel, touch or canvas manipulation alternative', actual: record.pointerAlternative, reason: 'keyboard-region-false-pointer-action' });
+    }
+  }
 
   const targetSize = record.targetSize;
   if (targetSize === null || typeof targetSize !== 'object') {

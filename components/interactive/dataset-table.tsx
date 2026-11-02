@@ -229,7 +229,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
   }
 
   return (
-    <div className={className}>
+    <div className={className} data-article-interactive="DatasetTable">
       <div className="flex flex-wrap items-end gap-x-5 gap-y-3">
         <FilterGroup
           label="Filter by size"

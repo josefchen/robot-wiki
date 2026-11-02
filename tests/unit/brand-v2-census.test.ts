@@ -442,13 +442,16 @@ describe('brand-v2 canonical census', () => {
     expect(implementsState(lines('/**', ' * An explicit empty state with a clear-filter action.', ' */'), 'empty')).toBe(false);
     expect(implementsState('<div>{/* loading spinner removed */}<p>Ready</p></div>', 'loading')).toBe(false);
     expect(implementsState('<div data-state="empty">No rows match.</div>', 'empty')).toBe(true);
-    expect(implementsState("const status = 'error';", 'error')).toBe(true);
+    // State-census successor (2026-11-02): a variable naming a state is not
+    // an implemented UI branch. A rendered branch still registers it.
+    expect(implementsState("const status = 'error';", 'error')).toBe(false);
+    expect(implementsState("const status = 'error'; return status === 'error' ? <p role=\"alert\">Could not load.</p> : <p>Ready</p>;", 'error')).toBe(true);
     // JSX text apostrophes are not string quotes: the comment after them is still a comment.
     expect(
       implementsState(lines("<p>The robot's hand and the tool's grip.</p>", '{/* shown when unavailable */}'), 'unavailable'),
     ).toBe(false);
     // A URL's slashes inside a string are not a comment, so code after them still counts.
-    expect(implementsState("const href = 'https://example.org'; const state = 'loading';", 'loading')).toBe(true);
+    expect(implementsState("const href = 'https://example.org'; const state = 'loading'; return <div data-state={state === 'loading' ? 'loading' : 'ready'} />;", 'loading')).toBe(true);
   });
 
   it('registers a state witness exactly where the source code implements the state', () => {

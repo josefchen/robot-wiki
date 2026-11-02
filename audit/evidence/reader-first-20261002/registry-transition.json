@@ -3,7 +3,7 @@
   "name": "reader-first-registry",
   "reviewedBy": "release steward re-anchoring the reader-first figure pass (not independent acceptance)",
   "rationale": "The interactive registry derives each figure's state cases from its source: a preset row adds discrete options, and a state word such as \"empty\" anywhere in the file adds or drops a witness. The reader-first figure pass changed those sources, so registry records that earlier local-basis plans bind changed with them while the calculations, defaults and readouts those plans observed stayed the same. Each changed record is held here with the record it had before the pass and the reason for the change; the older record stands in only while the live record is exactly the reviewed successor.",
-  "observedAt": "2026-10-04T23:35:49Z",
+  "observedAt": "2026-11-02T18:55:58Z",
   "records": [
     {
       "id": "interactive:ChunkSizeCurve",
@@ -137,7 +137,7 @@
         "fingerprint": "0b861e663cca99ab97dcd41063bb20ae67e5782c22deb3ca8a19e5615accc5de"
       },
       "beforeHash": "6a8a106aec157691804e27436faa8327c3ac35c8fe4ce6b4f76dcdde0c1b8d97",
-      "after": "55dda0bf0d7a9a91f2f9ce4850c74474e5a5275a83b6fb73e2bd9d0b3b5e2fcf",
+      "after": "aceb6a85114b04b4ab7d54d5dd7353705c81f98271a7cb9107772f460aebc17b",
       "reason": "The reader-first rewrite of the contact-geometry figure dropped a source comment saying the stage is empty right of the hole, so the state scan no longer finds that word and the empty witness becomes not applicable. The preset group, slider and Reset still yield the same discrete-options and pairwise cases."
     },
     {
@@ -338,6 +338,79 @@
       "reason": "The reader-first rewrite of the delay figure gives it three named thinking-delay presets, buttons with aria-pressed, beside the delay slider it moved into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The toy model, the delay range and the readouts the experiment notes cite are unchanged; only the default delay the mount opens on moved to the tested +200 ms setting."
     },
     {
+      "id": "interactive:PerceptionErrorBudget",
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "id": "interactive:PerceptionErrorBudget",
+        "component": "PerceptionErrorBudget",
+        "sourcePath": "components/interactive/perception-error-budget.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "9db8a5c3b5617d639ba378e44d7e8b2b79589f58190431349b15325f5a5ba68b"
+      },
+      "beforeHash": "26378351f90d318e5c4797bbf34a2d8b55d651227d800d589926dfa7d11e0d15",
+      "after": "a22ff7d2ba0d2d7ff8f0cd880d12cff503d922fcd350deefd37c363c281f497c",
+      "reason": "The structural state census distinguishes actual UI branches from scientific error quantities. The four contributions, defaults, equations, input controls and production mount remain unchanged. This exact record retains historical proof input while fresh release observations exercise genuine controls."
+    },
+    {
       "id": "interactive:RecedingHorizon",
       "archivedFrom": "f76f3fd16dd95fb00868f32c91e7e8b180e7da00",
       "before": {
@@ -400,6 +473,79 @@
       "reason": "The reader-first rewrite of the receding-horizon figure turns its two preset buttons into one named preset group, buttons with aria-pressed, and moves the two horizon sliders into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. The Diffusion Policy horizons, the plan lanes and the replan readouts are unchanged."
     },
     {
+      "id": "interactive:ReliabilityCompounding",
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "id": "interactive:ReliabilityCompounding",
+        "component": "ReliabilityCompounding",
+        "sourcePath": "components/interactive/reliability-compounding.tsx",
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "ab43ab651494773ef953cc431aa97e5e6678c7a519142246b68d556447d54d8e"
+      },
+      "beforeHash": "39bddd5841be2e25b9303c62420c03e23067471cf9ed671e709d1556fa794df0",
+      "after": "0781274b9702644442c248dbc0616a4db8d22f74a26ab5b97474f82b1b99ad93",
+      "reason": "The structural census no longer mistakes mathematical error discussion for an application error state. The conditional probability model, step-count inputs and actual production mount remain unchanged. The final browser corpus measures the real control cases."
+    },
+    {
       "id": "interactive:RewardShaping",
       "archivedFrom": "fe7237103f9ff9d31d57f856ec7fd424386068e9",
       "before": {
@@ -458,7 +604,7 @@
         "fingerprint": "327a5f9e2b93170796c19331d2256174f8b675ec8369ff8cfd1a3eb0d6bd149a"
       },
       "beforeHash": "9a20f439580a262f895ef8da309cc34804ff3cf18da33c4e04450efda97b3c59",
-      "after": "89184adf2b3d1bcc0fd6f0340a1013426234fabff3cc50f016e2891000234099",
+      "after": "32cbdc6bc974e042b2fda7b65276391fa6ab5d3c312c1ba95ed4453aedcdf015",
       "reason": "The reader-first rewrite of the reward figure gives it four named scoring presets, Balanced score, Too strict on effort, Loves high steps and Ignores jerky moves, buttons with aria-pressed, beside the term sliders it moved into Adjust more, so the registry adds the discrete-options case and, with two independent control kinds, the pairwise case. Its new caption says robots learn by trial and error, so the state scan finds that word and lists an error witness in place of not applicable; the figure still implements no error state. The terms, weights, scoring rule and Reset are unchanged."
     },
     {
@@ -526,7 +672,7 @@
         "fingerprint": "f792185fbe72246455f519a8acaa8b929df33bcae38d70a088b2e62ab072fe3c"
       },
       "beforeHash": "f42d5ad56d0af8d8e4aa967ca16726179711e04a8ee3e81ca0254d6421f4ca4b",
-      "after": "af1bae08588736d53d3680329d218749f6446002cf67ed54d913a63a9e58d64f",
+      "after": "558e15e1d4a87e21da0946ac39865ef5ad2147b6f5036332bde2dfcb5177420e",
       "reason": "The reader-first rewrite of the sample-efficiency ledger moves its assumptions and paper sources out of the figure's own details element into the shared How this was made fold, so the state scan no longer finds a details element and drops the discrete-options case; the source choice keeps its radio buttons in Adjust more. Its new caption says robots learn by trial and error, so the state scan finds that word and lists an error witness in place of not applicable; the figure still implements no error state. The sliders, sources, anchors and Reset are unchanged."
     },
     {
@@ -588,8 +734,85 @@
         "fingerprint": "ff466a9b88a31025825df803ceab21d108c9fb8bf618802137eb5627d8908c82"
       },
       "beforeHash": "25188b1df01ca988d00bbca281f8858314ada184783e4764066e5fe3c15e1a33",
-      "after": "d0c72add470c498e0ede261cefe30f291e532e74f8d1d010626b69c7594c84a0",
+      "after": "b26b502acf0f4a38e209fd11b9723d2063fbad6a6b2bb4ab5691a1c57c3ee66d",
       "reason": "The reader-first rewrite of the teacher-student figure gives it three named sensor-noise presets, Clean, Some noise and Very noisy, buttons with aria-pressed, beside the degradation slider it moved into Adjust more, so the registry adds the discrete-options and pairwise cases. The reconstruction, its seeded noise, defaults and readouts are unchanged."
+    },
+    {
+      "id": "mount:/classical/perception/:PerceptionErrorBudget:1",
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "id": "mount:/classical/perception/:PerceptionErrorBudget:1",
+        "sourceId": "interactive:PerceptionErrorBudget",
+        "route": "/classical/perception/",
+        "ownerPath": "content/classical/perception.mdx",
+        "ordinal": 1,
+        "props": "className=\"my-6\" /",
+        "containers": [],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "3aeb5e135621120eabf56bb4a0d1c703b4ec357bcf8269f04308e1c6cb6e8b4b"
+      },
+      "beforeHash": "8b4ea3c1417e8e6657bb60c49e7c901e5f2a63a901c81d9bb9b6f1dff68e8554",
+      "after": "ec249f613cb728cfaa351028631bc7957bec2c55abe6d8a70db10e60ab8828aa",
+      "reason": "The structural census removes accidental scientific error-word cases, preserving this exact perception mount, route, real controls and numerical computation. Historical observations retain their recorded case inventory; final release evidence uses the current production census."
     },
     {
       "id": "mount:/data-hardware/data-bottleneck/:DataScaleChart:1",
@@ -675,6 +898,91 @@
       "beforeHash": "28564f16f60f008d0352570178540eb6d83c8747482dcb2b23453ca2df17036f",
       "after": "5c170698640796fb37ce69b62aa27ca9340edf4f7cf2ee81a32979c85b51ed7f",
       "reason": "The mount record repeats its source case list, so it changes with the source: the empty witness that came from a comment becomes not applicable. Route, owner file, ordinal and props are unchanged."
+    },
+    {
+      "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+      "archivedFrom": "e10bba28c9088b3639e34032ba2b921849b4b4b4",
+      "before": {
+        "id": "mount:/data-hardware/evaluation-crisis/:ReliabilityCompounding:1",
+        "sourceId": "interactive:ReliabilityCompounding",
+        "route": "/data-hardware/evaluation-crisis/",
+        "ownerPath": "content/data-hardware/evaluation-crisis.mdx",
+        "ordinal": 1,
+        "props": "defaultPerStep={0.95} defaultSteps={14} minPerStepPercent={0} maxPerStepPercent={100} descriptionVariant=\"evaluation\" className=\"mt-3\" /",
+        "containers": [
+          {
+            "component": "PredictThenReveal",
+            "sourcePath": "components/article/commit-to-reveal.tsx",
+            "controlKinds": [
+              "discrete-options"
+            ]
+          }
+        ],
+        "cases": [
+          {
+            "id": "default",
+            "kind": "default"
+          },
+          {
+            "id": "focus-each-control",
+            "kind": "focus",
+            "selector": "button, input, select, summary, [tabindex]",
+            "expectedEnumeration": "every rendered enabled control independently"
+          },
+          {
+            "id": "meaningful-hover",
+            "kind": "hover",
+            "selector": "button:not(:disabled)",
+            "expectedEnumeration": "every rendered button with a hover treatment"
+          },
+          {
+            "id": "slider-boundaries-and-anchors",
+            "kind": "slider-boundaries",
+            "selector": "input[type=\"range\"]",
+            "expectedEnumeration": "each slider at min, documented default, max, source anchors, and registered discontinuities"
+          },
+          {
+            "id": "discrete-options",
+            "kind": "discrete-options",
+            "selector": "[aria-pressed], [aria-selected], input[type=\"radio\"], input[type=\"checkbox\"], select, details",
+            "expectedEnumeration": "every rendered discrete option independently"
+          },
+          {
+            "id": "reset",
+            "kind": "reset"
+          },
+          {
+            "id": "pairwise-independent-controls",
+            "kind": "pairwise",
+            "expectedEnumeration": "deterministic IPOG pairwise combinations, seed brand-v2-state-v1"
+          },
+          {
+            "id": "loading-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a loading state."
+          },
+          {
+            "id": "error-witness",
+            "kind": "discrete-options",
+            "expectedEnumeration": "one deterministic implemented error witness"
+          },
+          {
+            "id": "empty-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a empty state."
+          },
+          {
+            "id": "unavailable-not-applicable",
+            "kind": "exception",
+            "notApplicableReason": "Source does not implement a unavailable state."
+          }
+        ],
+        "expectedCaseCount": 11,
+        "fingerprint": "30da752eeef1db10a41ebd3646ddc12eafd89171da2683698a6be100a16fc7d2"
+      },
+      "beforeHash": "02f41a82940bcdc2d330166240ed5c40d1e000383a46bb0cc65ebdfff7adb2fd",
+      "after": "16be3ce6481b1dabfd144a1dd95520a1631add97f7e5a73c2169fed92dff20f3",
+      "reason": "The structural census corrects false error-word cases while retaining this reliability model mount, controls, defaults and probability computation. Historical observations retain their recorded case inventory, including the older retired duplicate; final release evidence uses the current production census."
     },
     {
       "id": "mount:/data-hardware/industrial-deployment/:DeploymentEconomics:1",
@@ -1003,7 +1311,7 @@
         "fingerprint": "3a6579332c610250594e178b43141b49e1128e48cc2af9b6bab2af54eaf82e0d"
       },
       "beforeHash": "71542d917ebcc1ab36171b46812271722a4de2bac192dd3e9abf20809cdd79ba",
-      "after": "f82b03d4ef1b4de2840c465144dda85eb0ce2411a11373c052d8a68b507527ce",
+      "after": "1f653c033d0157f2fa60c1f000a4db8f76c5948e845014ff13af1df3aa4f3525",
       "reason": "The mount record repeats its source case list, so it gains the same discrete-options, pairwise and error-witness cases as the source. Route, owner file, ordinal and props are unchanged."
     },
     {
@@ -1075,7 +1383,7 @@
         "fingerprint": "679571d58c32f6d5789059b07ba13d844db9157486c594a8efc642e490c79bbe"
       },
       "beforeHash": "524b72ba9426bee27f09b992f1595608e9c5a9d3ae0759e0ed5d7a41d5a69ce6",
-      "after": "1135b3ad7199177c2def1780c29b0fdad8b51b475184f8122ecbb1c370fde275",
+      "after": "5408b74a8b4479633097b28e99b769799f0ce0c4661b64a7264918fd2eb06ff7",
       "reason": "The mount record repeats its source case list, so it changes with the source: the discrete-options case leaves and the error witness comes from the caption's wording. Route, owner file, ordinal and props are unchanged."
     },
     {
@@ -1141,7 +1449,7 @@
         "fingerprint": "9ed667385cf9b21016faecab2c40cd2322001625e502f3f1dc9207f165df851a"
       },
       "beforeHash": "7a0a95c11adfb155f602c1dc4ac62d96c73c4dc9cb2ea311c8228752f0420169",
-      "after": "2f413f329b091a84ec893307525da4aae297fa84f5b4a75dd1b52d9aa3674d3e",
+      "after": "8cb20f576f0cc68afe660a4bd402194881965ef8939ebd901860145fdd4235f5",
       "reason": "The mount record repeats its source case list, so it gains the same discrete-options and pairwise cases as the source. Route, owner file, ordinal and props are unchanged."
     },
     {
@@ -1218,7 +1526,7 @@
         "fingerprint": "caae96c4c7a65e889c0246a4522d7bd28b3aa92fe0604afcef989be290006b69"
       },
       "beforeHash": "7b45b9be758bbe1ef90d92bb9d166516573d627916011e8136e5498920a7b154",
-      "after": "48a74d1a0f824fce48b13503da6286a40c7c1a6e95d90127375550338ee9ce30",
+      "after": "41c2b6ba3dfc421cf4d688e9ef34d43fa288c06b6dbcd57d1136b27cb4464fc6",
       "reason": "The mount record repeats its source case list, so it changes with the source: the empty witness becomes not applicable. Route, owner file, ordinal and props are unchanged."
     }
   ]

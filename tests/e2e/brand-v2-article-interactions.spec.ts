@@ -7,19 +7,23 @@ import {
   revealCiteNote,
 } from './helpers/citation-note';
 import { openClosedAncestorDetails } from './helpers/open-ancestor-details';
+import { RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 
 test.describe('brand-v2-article-interactions', () => {
   test('executes the ordered article interaction flow over the derived article population', async ({
     page,
     staticBase,
   }) => {
-    test.setTimeout(180_000);
+    test.setTimeout(FINAL_RELEASE_PROFILES ? 180_000 * RELEASE_PROFILES.length * 4 : 180_000);
     const articleRoutes = brandV2Registry.routes.public
       .filter(({ routeKind }) => routeKind === 'article')
       .map(({ path }) => path);
     expect(articleRoutes.length).toBeGreaterThan(0);
 
     const flow = BRAND_V2_FLOW_SUITES['brand-v2-article-interactions'];
+    if (FINAL_RELEASE_PROFILES) test.setTimeout(articleRoutes.length * flow.captures.length * 180_000);
+    const releaseStates = new Map<string, ReleaseState>();
     const records = await executeEvidencePlans(
       articleRoutes.map((route) => ({ id: route, ...flow })),
       {
@@ -55,6 +59,11 @@ test.describe('brand-v2-article-interactions', () => {
                 'aria-describedby',
                 (await note.getAttribute('id')) ?? 'the note has no id',
               );
+              if (FINAL_RELEASE_PROFILES) {
+                const capture = flow.captures.find(({ afterStep }) => afterStep === step.id)!;
+                const id = `article:${route}:${capture.id}`;
+                releaseStates.set(id, await probeReleaseState(page, { id, route, state: 'citation-note-open', steps: ['keyboard focus citation number', 'open referenced note', 'read described-by target'] }));
+              }
               await closeCiteNote(citation);
               await cycleInlineCiteNote(page, citation);
               await mark.evaluate((node) => (node as HTMLElement).blur());
@@ -107,10 +116,13 @@ test.describe('brand-v2-article-interactions', () => {
         capture: async (route, capture) => {
           await test.step(`${route}:${capture.id}`, async () => {
             expect(await page.locator('article').count()).toBe(1);
+            const id = `article:${route}:${capture.id}`;
+            if (FINAL_RELEASE_PROFILES && !releaseStates.has(id)) releaseStates.set(id, await probeReleaseState(page, { id, route, state: capture.afterStep, steps: ['navigate article', capture.afterStep, 'read actual article state'] }));
           });
         },
       },
     );
     expect(records).toHaveLength(articleRoutes.length);
+    if (FINAL_RELEASE_PROFILES) writeReleaseStateGroup('article-flows', articleRoutes.flatMap((route) => flow.captures.map(({ id }) => `article:${route}:${id}`)), [...releaseStates.values()]);
   });
 });

@@ -27,6 +27,7 @@ import { frontierLengthCutPredecessor } from './audit-length-cut-frontier-contin
 import { worldModelsLengthCutAppendedCitations, worldModelsLengthCutPredecessor } from './audit-length-cut-world-models-continuity.ts';
 import { lengthCutAppendedCitations, lengthCutPredecessor } from './audit-length-cut-continuity.ts';
 import { owedFiguresPredecessor } from './audit-owed-figures-continuity.ts';
+import { sourceFloorPredecessor } from './audit-source-floor-continuity.ts';
 import { parallelLocalCheckerPredecessor } from './audit-parallel-local-continuity.ts';
 import { wordBudgetTrimPredecessor } from './audit-word-budget-trim-continuity.ts';
 
@@ -2149,6 +2150,12 @@ function rebuiltPrior(root: string, path: string, live: Buffer): Buffer {
 export function preDomainPassCitations(root: string, path: string, citations: readonly string[]): readonly string[] {
   const pinned = successors.get(path);
   if (!pinned) return citations;
+  const sourceFloorLive = readFileSync(join(root, path));
+  if (citationList(frontmatter(sourceFloorLive.toString()) ?? '').join('\n') !== citations.join('\n')) return citations;
+  // New primary sources have their own current audit rows. The exact source
+  // successor review lets this older P1 batch retain its original population.
+  const sourceFloorPrior = sourceFloorPredecessor(root, { path, bytes: 0, sha256: '' }, sourceFloorLive);
+  const reviewedCitations = citationList(frontmatter(sourceFloorPrior.toString()) ?? '');
   // The newer owed-figures and convergence-prose (2026-10-26), explainer-mount (2026-10-26), answer-options (2026-10-23), figure-mount (its 2026-10-15 frontier mounts, after the image mounts), image-mount (2026-10-13, extended 2026-10-15), adjacent cut (2026-10-14), data-hardware cut (2026-10-13), frontier length-cut,
   // length-cut (manipulation, classical and rl-sim2real), world-models length-cut, word-budget trim and figure-mount layers hand back the domain-pass successor first.
   const ref = { path, bytes: 0, sha256: '' };
@@ -2163,7 +2170,7 @@ export function preDomainPassCitations(root: string, path: string, citations: re
     ...worldModelsLengthCutAppendedCitations(root, path, worldModelsSuccessor),
     ...lengthCutAppendedCitations(root, path, cutSuccessor),
   ];
-  if ([...current, ...appended].join('\n') !== citations.join('\n')) return citations;
+  if ([...current, ...appended].join('\n') !== reviewedCitations.join('\n')) return citations;
   return prior;
 }
 

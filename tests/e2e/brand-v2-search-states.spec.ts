@@ -3,6 +3,8 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { Page } from '@playwright/test';
 import { expect, test } from './brand-v2-static-fixture';
+import { RELEASE_PROFILES, type ReleaseState } from '../../lib/brand-v2-release-evidence';
+import { FINAL_RELEASE_PROFILES, probeReleaseState, writeReleaseStateGroup } from './helpers/release-state-probe';
 import {
   SEARCH_DESKTOP_VIEWPORT,
   SEARCH_MOBILE_VIEWPORT,
@@ -767,7 +769,16 @@ test.describe('brand-v2 search states sweep', () => {
     page,
     staticBase,
   }) => {
-    test.setTimeout(240_000);
+    test.setTimeout(FINAL_RELEASE_PROFILES ? 240_000 * RELEASE_PROFILES.length : 240_000);
+    const releaseStates: ReleaseState[] = [];
+    const collect = async (target: Page, stateId: string, viewport: string) => {
+      const reading = await collectState(target, stateId, viewport);
+      if (FINAL_RELEASE_PROFILES && viewport === SEARCH_DESKTOP_VIEWPORT.id) releaseStates.push(await probeReleaseState(target, {
+        id: `search:${stateId}`, route: '/search/', state: stateId,
+        steps: [`drive deterministic ${stateId}`, 'read actual search status, group rows and selected facets'],
+      }));
+      return reading;
+    };
     await page.setViewportSize({
       width: SEARCH_DESKTOP_VIEWPORT.width,
       height: SEARCH_DESKTOP_VIEWPORT.height,
@@ -779,7 +790,7 @@ test.describe('brand-v2 search states sweep', () => {
     await page.evaluate(() => document.fonts.ready);
     await page.mouse.move(2, 2);
     states.push(
-      await collectState(page, 'state:default-idle', SEARCH_DESKTOP_VIEWPORT.id),
+      await collect(page, 'state:default-idle', SEARCH_DESKTOP_VIEWPORT.id),
     );
 
     // loading-first-query, released into partial-error-structured: the
@@ -818,7 +829,7 @@ test.describe('brand-v2 search states sweep', () => {
       .fill('action chunking');
     await expect(page.locator('[data-search-loading]')).toHaveCount(2);
     states.push(
-      await collectState(
+      await collect(
         page,
         'state:loading-first-query',
         SEARCH_DESKTOP_VIEWPORT.id,
@@ -841,7 +852,7 @@ test.describe('brand-v2 search states sweep', () => {
     });
     await settle(page);
     states.push(
-      await collectState(
+      await collect(
         page,
         'state:partial-error-structured',
         SEARCH_DESKTOP_VIEWPORT.id,
@@ -854,7 +865,7 @@ test.describe('brand-v2 search states sweep', () => {
     // reading while the typed query settles.
     await driveResults(page, staticBase, 'action chunking');
     states.push(
-      await collectState(
+      await collect(
         page,
         'state:results-both-groups',
         SEARCH_DESKTOP_VIEWPORT.id,
@@ -883,7 +894,7 @@ test.describe('brand-v2 search states sweep', () => {
       optionActivatedByKeyboard[option] = true;
       if (option !== 'all') {
         states.push(
-          await collectState(
+          await collect(
             page,
             facetStateId(option),
             SEARCH_DESKTOP_VIEWPORT.id,
@@ -900,14 +911,14 @@ test.describe('brand-v2 search states sweep', () => {
     // no-results (the sealed neutral query)
     await driveResults(page, staticBase, 'quartz-lantern-7319');
     states.push(
-      await collectState(page, 'state:no-results', SEARCH_DESKTOP_VIEWPORT.id),
+      await collect(page, 'state:no-results', SEARCH_DESKTOP_VIEWPORT.id),
     );
 
     // partial-error-prose: pagefind 503s, structured stays real.
     await disablePagefindIndex(page);
     await driveResults(page, staticBase, 'action chunking');
     states.push(
-      await collectState(
+      await collect(
         page,
         'state:partial-error-prose',
         SEARCH_DESKTOP_VIEWPORT.id,
@@ -920,7 +931,7 @@ test.describe('brand-v2 search states sweep', () => {
     await disableStructuredSearchIndex(page);
     await driveResults(page, staticBase, 'action chunking');
     states.push(
-      await collectState(page, 'state:total-error', SEARCH_DESKTOP_VIEWPORT.id),
+      await collect(page, 'state:total-error', SEARCH_DESKTOP_VIEWPORT.id),
     );
     await page.unroute('**/pagefind/pagefind.js');
     await page.unroute('**/search-index.json');
@@ -930,7 +941,7 @@ test.describe('brand-v2 search states sweep', () => {
     await page.getByRole('button', { name: 'Clear search' }).click();
     await expect(page.getByText(/try: temporal ensembling/i)).toBeVisible();
     states.push(
-      await collectState(
+      await collect(
         page,
         'state:cleared-to-idle',
         SEARCH_DESKTOP_VIEWPORT.id,
@@ -944,7 +955,7 @@ test.describe('brand-v2 search states sweep', () => {
     });
     await driveResults(page, staticBase, 'action chunking');
     states.push(
-      await collectState(
+      await collect(
         page,
         'state:results-both-groups',
         SEARCH_MOBILE_VIEWPORT.id,
@@ -955,7 +966,7 @@ test.describe('brand-v2 search states sweep', () => {
       page.locator('button[data-facet-option="method"]'),
     ).toHaveCSS('background-color', SEARCH_SELECTION_RGB);
     states.push(
-      await collectState(
+      await collect(
         page,
         facetStateId('method'),
         SEARCH_MOBILE_VIEWPORT.id,
@@ -1011,6 +1022,7 @@ test.describe('brand-v2 search states sweep', () => {
     const artifactPath = join(ROOT, SEARCH_STATES_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
     writeFileSync(artifactPath, `${JSON.stringify(artifact, null, 2)}\n`);
+    if (FINAL_RELEASE_PROFILES) writeReleaseStateGroup('search', SEARCH_STATE_IDS.map((id) => `search:${id}`), releaseStates);
   });
 
   /**

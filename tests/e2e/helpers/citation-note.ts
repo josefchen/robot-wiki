@@ -193,8 +193,9 @@ export async function dismissCiteNote(page: Page, cite: Locator, mode: 'hover' |
  * The tooltip's "Jump to the full reference" link, on its successor: the
  * number itself links to the References entry and jumps where its note
  * stands in the margin, from 1200 px. Narrower, the number opens the note
- * instead, so the jump is taken at 1280 px; the returned function restores
- * the viewport once the entry has been read.
+ * instead, whose explicit full-reference link completes the same reader
+ * action at the original viewport. The returned compatibility callback
+ * asserts that the flow never changed that viewport.
  */
 export async function jumpFromCiteMark(page: Page, cite: Locator, id: string): Promise<() => Promise<void>> {
   const viewport = page.viewportSize()!;
@@ -202,16 +203,20 @@ export async function jumpFromCiteMark(page: Page, cite: Locator, id: string): P
   await expect(mark).toHaveAttribute('href', `#ref-${id}`);
   await closeCiteNote(cite);
   const wide = await citeNoteInMargin(cite);
-  if (!wide) {
-    await page.setViewportSize({ width: 1280, height: viewport.height });
-    await expect.poll(() => citeNoteInMargin(cite)).toBe(true);
-  }
   await mark.focus();
   await expect(mark).toBeFocused();
   await page.keyboard.press('Enter');
+  if (!wide) {
+    const reference = cite.locator('[data-cite-reference-link]');
+    await expect(reference).toBeVisible();
+    await expect(reference).toHaveAttribute('href', `#ref-${id}`);
+    await reference.focus();
+    await page.keyboard.press('Enter');
+  }
   await expect(page).toHaveURL(new RegExp(`#ref-${id}$`));
+  expect(page.viewportSize(), 'reference navigation must use the requested viewport').toEqual(viewport);
   return async () => {
-    if (!wide) await page.setViewportSize(viewport);
+    expect(page.viewportSize()).toEqual(viewport);
   };
 }
 
